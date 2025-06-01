@@ -1,0 +1,44 @@
+<CLASS>
+  <IDENTIFIER> Array </IDENTIFIER>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <IDENTIFIER> Array </IDENTIFIER>
+    <IDENTIFIER> new </IDENTIFIER>
+    <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> size </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SUBROUTINE_BODY>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <KEYWORD> int </KEYWORD>
+        <IDENTIFIER> x </IDENTIFIER>
+      </VAR_DEC>
+      <STATEMENTS>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> x </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> dispose </IDENTIFIER>
+              <EXPRESSION_LIST>
+              </EXPRESSION_LIST>
+            </TERM>
+          </EXPRESSION>
+        </LET_STATEMENT>
+      </STATEMENTS>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> method </KEYWORD>
+    <KEYWORD> void </KEYWORD>
+    <IDENTIFIER> dispose </IDENTIFIER>
+    <PARAMETER_LIST>
+    </PARAMETER_LIST>
+    <SUBROUTINE_BODY>
+      <STATEMENTS>
+      </STATEMENTS>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+</CLASS>
