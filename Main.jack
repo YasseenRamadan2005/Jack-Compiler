@@ -97,13 +97,13 @@ class Math {
     }
 
     /** Returns the greater value. */
-    function int max(int a, int b) {
+    function int max(int x, int y) {
         if (x > y){return x;}
         return y;
     }
 
     /** Returns the smaller value. */
-    function int min(int a, int b) {
+    function int min(int x, int y) {
         if (x < y){return x;}
         return y;
     }

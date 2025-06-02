@@ -74,10 +74,13 @@ public class ProgramState {
     }
 
     public SymbolInfo lookupSymbol(String name) {
-        if (ST[SUBROUTINE_INDEX].containsKey(name)) {
-            return ST[SUBROUTINE_INDEX].get(name);
+        if (ST[CLASS_INDEX].containsKey(name)) {
+            return ST[CLASS_INDEX].get(name);
         }
-        return ST[CLASS_INDEX].getOrDefault(name, null);
+        if (ST[SUBROUTINE_INDEX].containsKey(name)) {
+            return ST[SUBROUTINE_INDEX].getOrDefault(name, null);
+        }
+        return null;
     }
 
     public String handleVarName(String varName, boolean push) {
@@ -118,20 +121,20 @@ public class ProgramState {
 
     @Override
     public String toString() {
-        return "Class: " + className + ", Subroutine: " + subroutineName +
-                ", ST: " + ST[CLASS_INDEX] + " / " + ST[SUBROUTINE_INDEX] +
-                ", Vars: " + varCounts;
+        return "Class: " + className + ", Subroutine: " + subroutineName + ", ST: " + ST[CLASS_INDEX] + " / " + ST[SUBROUTINE_INDEX] + ", Vars: " + varCounts;
     }
 
-    /** Inner class to represent a symbol's metadata */
+    /**
+     * Inner class to represent a symbol's metadata
+     */
     public static class SymbolInfo {
         public final String type;
         public final String kind;
         public final int count;
 
         public SymbolInfo(String type, String kind, int count) {
-            this.type = type;
-            this.kind = kind;
+            this.type = type; //ex: WHILE_STATEMENT
+            this.kind = kind; //static vs field or local vs argument
             this.count = count;
         }
 

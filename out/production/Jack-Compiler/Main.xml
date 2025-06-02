@@ -1,44 +1,1103 @@
 <CLASS>
-  <IDENTIFIER> Array </IDENTIFIER>
+  <KEYWORD> class </KEYWORD>
+  <IDENTIFIER> Math </IDENTIFIER>
+  <SYMBOL> { </SYMBOL>
+  <CLASS_VAR_DEC>
+    <KEYWORD> static </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> n </IDENTIFIER>
+    <SYMBOL> ; </SYMBOL>
+  </CLASS_VAR_DEC>
+  <CLASS_VAR_DEC>
+    <KEYWORD> static </KEYWORD>
+    <IDENTIFIER> Array </IDENTIFIER>
+    <IDENTIFIER> powersOfTwo </IDENTIFIER>
+    <SYMBOL> ; </SYMBOL>
+  </CLASS_VAR_DEC>
   <SUBROUTINE_DEC>
     <KEYWORD> function </KEYWORD>
-    <IDENTIFIER> Array </IDENTIFIER>
-    <IDENTIFIER> new </IDENTIFIER>
+    <KEYWORD> void </KEYWORD>
+    <IDENTIFIER> init </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> Array </IDENTIFIER>
+              <SYMBOL> . </SYMBOL>
+              <IDENTIFIER> new </IDENTIFIER>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION_LIST>
+                <EXPRESSION>
+                  <TERM>
+                    <INTEGER_CONSTANT> 16 </INTEGER_CONSTANT>
+                  </TERM>
+                </EXPRESSION>
+              </EXPRESSION_LIST>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 1 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 2 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 2 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 4 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 3 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 8 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 4 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 16 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 5 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 32 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 6 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 64 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 7 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 128 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 8 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 256 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 9 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 512 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 10 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 1024 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 11 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 2048 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 12 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 4096 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 13 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 8192 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 14 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 16384 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> powersOfTwo </IDENTIFIER>
+          <SYMBOL> [ </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 15 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ] </SYMBOL>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 32768 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> boolean </KEYWORD>
+    <IDENTIFIER> bit </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
     <PARAMETER_LIST>
       <KEYWORD> int </KEYWORD>
-      <IDENTIFIER> size </IDENTIFIER>
+      <IDENTIFIER> x </IDENTIFIER>
+      <SYMBOL> , </SYMBOL>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> j </IDENTIFIER>
     </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
     <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+            <SYMBOL> &amp; </SYMBOL>
+            <TERM>
+              <IDENTIFIER> powersOfTwo </IDENTIFIER>
+              <SYMBOL> [ </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> j </IDENTIFIER>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ] </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <KEYWORD> true </KEYWORD>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <KEYWORD> false </KEYWORD>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> multiply </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> x </IDENTIFIER>
+      <SYMBOL> , </SYMBOL>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> y </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
       <VAR_DEC>
         <KEYWORD> var </KEYWORD>
         <KEYWORD> int </KEYWORD>
-        <IDENTIFIER> x </IDENTIFIER>
+        <IDENTIFIER> sum </IDENTIFIER>
+        <SYMBOL> , </SYMBOL>
+        <IDENTIFIER> shiftedX </IDENTIFIER>
+        <SYMBOL> , </SYMBOL>
+        <IDENTIFIER> j </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
       </VAR_DEC>
       <STATEMENTS>
         <LET_STATEMENT>
           <KEYWORD> let </KEYWORD>
-          <IDENTIFIER> x </IDENTIFIER>
+          <IDENTIFIER> sum </IDENTIFIER>
           <SYMBOL> = </SYMBOL>
           <EXPRESSION>
             <TERM>
-              <IDENTIFIER> dispose </IDENTIFIER>
-              <EXPRESSION_LIST>
-              </EXPRESSION_LIST>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
             </TERM>
           </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
         </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> shiftedX </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> j </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <WHILE_STATEMENT>
+          <KEYWORD> while </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> j </IDENTIFIER>
+            </TERM>
+            <SYMBOL> &lt; </SYMBOL>
+            <TERM>
+              <INTEGER_CONSTANT> 16 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <IF_STATEMENT>
+              <KEYWORD> if </KEYWORD>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> Math </IDENTIFIER>
+                  <SYMBOL> . </SYMBOL>
+                  <IDENTIFIER> bit </IDENTIFIER>
+                  <SYMBOL> ( </SYMBOL>
+                  <EXPRESSION_LIST>
+                    <EXPRESSION>
+                      <TERM>
+                        <IDENTIFIER> x </IDENTIFIER>
+                      </TERM>
+                    </EXPRESSION>
+                    <SYMBOL> , </SYMBOL>
+                    <EXPRESSION>
+                      <TERM>
+                        <IDENTIFIER> j </IDENTIFIER>
+                      </TERM>
+                    </EXPRESSION>
+                  </EXPRESSION_LIST>
+                  <SYMBOL> ) </SYMBOL>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ) </SYMBOL>
+              <SYMBOL> { </SYMBOL>
+              <STATEMENTS>
+                <LET_STATEMENT>
+                  <KEYWORD> let </KEYWORD>
+                  <IDENTIFIER> sum </IDENTIFIER>
+                  <SYMBOL> = </SYMBOL>
+                  <EXPRESSION>
+                    <TERM>
+                      <IDENTIFIER> sum </IDENTIFIER>
+                    </TERM>
+                    <SYMBOL> + </SYMBOL>
+                    <TERM>
+                      <IDENTIFIER> shiftedX </IDENTIFIER>
+                    </TERM>
+                  </EXPRESSION>
+                  <SYMBOL> ; </SYMBOL>
+                </LET_STATEMENT>
+              </STATEMENTS>
+              <SYMBOL> } </SYMBOL>
+            </IF_STATEMENT>
+            <LET_STATEMENT>
+              <KEYWORD> let </KEYWORD>
+              <IDENTIFIER> shiftedX </IDENTIFIER>
+              <SYMBOL> = </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> shiftedX </IDENTIFIER>
+                </TERM>
+                <SYMBOL> + </SYMBOL>
+                <TERM>
+                  <IDENTIFIER> shiftedX </IDENTIFIER>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </LET_STATEMENT>
+            <LET_STATEMENT>
+              <KEYWORD> let </KEYWORD>
+              <IDENTIFIER> j </IDENTIFIER>
+              <SYMBOL> = </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> j </IDENTIFIER>
+                </TERM>
+                <SYMBOL> + </SYMBOL>
+                <TERM>
+                  <INTEGER_CONSTANT> 1 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </LET_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </WHILE_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> sum </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
       </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
     </SUBROUTINE_BODY>
   </SUBROUTINE_DEC>
   <SUBROUTINE_DEC>
-    <KEYWORD> method </KEYWORD>
-    <KEYWORD> void </KEYWORD>
-    <IDENTIFIER> dispose </IDENTIFIER>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> divide </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
     <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> x </IDENTIFIER>
+      <SYMBOL> , </SYMBOL>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> y </IDENTIFIER>
     </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
     <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <KEYWORD> int </KEYWORD>
+        <IDENTIFIER> q </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
+      </VAR_DEC>
       <STATEMENTS>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+            <SYMBOL> &gt; </SYMBOL>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+            <SYMBOL> = </SYMBOL>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <INTEGER_CONSTANT> 1 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> q </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> Math </IDENTIFIER>
+              <SYMBOL> . </SYMBOL>
+              <IDENTIFIER> divide </IDENTIFIER>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION_LIST>
+                <EXPRESSION>
+                  <TERM>
+                    <IDENTIFIER> x </IDENTIFIER>
+                  </TERM>
+                </EXPRESSION>
+                <SYMBOL> , </SYMBOL>
+                <EXPRESSION>
+                  <TERM>
+                    <IDENTIFIER> y </IDENTIFIER>
+                  </TERM>
+                  <SYMBOL> + </SYMBOL>
+                  <TERM>
+                    <IDENTIFIER> y </IDENTIFIER>
+                  </TERM>
+                </EXPRESSION>
+              </EXPRESSION_LIST>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> x </IDENTIFIER>
+                </TERM>
+                <SYMBOL> - </SYMBOL>
+                <TERM>
+                  <EXPRESSION>
+                    <TERM>
+                      <EXPRESSION>
+                        <TERM>
+                          <IDENTIFIER> q </IDENTIFIER>
+                        </TERM>
+                        <SYMBOL> + </SYMBOL>
+                        <TERM>
+                          <IDENTIFIER> q </IDENTIFIER>
+                        </TERM>
+                      </EXPRESSION>
+                      <SYMBOL> ) </SYMBOL>
+                    </TERM>
+                    <SYMBOL> * </SYMBOL>
+                    <TERM>
+                      <IDENTIFIER> y </IDENTIFIER>
+                    </TERM>
+                  </EXPRESSION>
+                  <SYMBOL> ) </SYMBOL>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+            <SYMBOL> &lt; </SYMBOL>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> q </IDENTIFIER>
+                </TERM>
+                <SYMBOL> + </SYMBOL>
+                <TERM>
+                  <IDENTIFIER> q </IDENTIFIER>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> q </IDENTIFIER>
+            </TERM>
+            <SYMBOL> + </SYMBOL>
+            <TERM>
+              <IDENTIFIER> q </IDENTIFIER>
+            </TERM>
+            <SYMBOL> + </SYMBOL>
+            <TERM>
+              <INTEGER_CONSTANT> 1 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
       </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
     </SUBROUTINE_BODY>
   </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> sqrt </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> x </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <KEYWORD> int </KEYWORD>
+        <IDENTIFIER> y </IDENTIFIER>
+        <SYMBOL> , </SYMBOL>
+        <IDENTIFIER> j </IDENTIFIER>
+        <SYMBOL> , </SYMBOL>
+        <IDENTIFIER> k </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
+      </VAR_DEC>
+      <STATEMENTS>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> y </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> j </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <INTEGER_CONSTANT> 15 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <WHILE_STATEMENT>
+          <KEYWORD> while </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> j </IDENTIFIER>
+                </TERM>
+                <SYMBOL> &gt; </SYMBOL>
+                <TERM>
+                  <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+            <SYMBOL> | </SYMBOL>
+            <TERM>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> j </IDENTIFIER>
+                </TERM>
+                <SYMBOL> = </SYMBOL>
+                <TERM>
+                  <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <LET_STATEMENT>
+              <KEYWORD> let </KEYWORD>
+              <IDENTIFIER> k </IDENTIFIER>
+              <SYMBOL> = </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> y </IDENTIFIER>
+                </TERM>
+                <SYMBOL> + </SYMBOL>
+                <TERM>
+                  <IDENTIFIER> powersOfTwo </IDENTIFIER>
+                  <SYMBOL> [ </SYMBOL>
+                  <EXPRESSION>
+                    <TERM>
+                      <IDENTIFIER> j </IDENTIFIER>
+                    </TERM>
+                  </EXPRESSION>
+                  <SYMBOL> ] </SYMBOL>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </LET_STATEMENT>
+            <IF_STATEMENT>
+              <KEYWORD> if </KEYWORD>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <SYMBOL> ~ </SYMBOL>
+                  <TERM>
+                    <EXPRESSION>
+                      <TERM>
+                        <IDENTIFIER> k </IDENTIFIER>
+                      </TERM>
+                      <SYMBOL> * </SYMBOL>
+                      <TERM>
+                        <IDENTIFIER> k </IDENTIFIER>
+                      </TERM>
+                      <SYMBOL> &gt; </SYMBOL>
+                      <TERM>
+                        <IDENTIFIER> x </IDENTIFIER>
+                      </TERM>
+                    </EXPRESSION>
+                    <SYMBOL> ) </SYMBOL>
+                  </TERM>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ) </SYMBOL>
+              <SYMBOL> { </SYMBOL>
+              <STATEMENTS>
+                <LET_STATEMENT>
+                  <KEYWORD> let </KEYWORD>
+                  <IDENTIFIER> y </IDENTIFIER>
+                  <SYMBOL> = </SYMBOL>
+                  <EXPRESSION>
+                    <TERM>
+                      <IDENTIFIER> k </IDENTIFIER>
+                    </TERM>
+                  </EXPRESSION>
+                  <SYMBOL> ; </SYMBOL>
+                </LET_STATEMENT>
+              </STATEMENTS>
+              <SYMBOL> } </SYMBOL>
+            </IF_STATEMENT>
+            <LET_STATEMENT>
+              <KEYWORD> let </KEYWORD>
+              <IDENTIFIER> j </IDENTIFIER>
+              <SYMBOL> = </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> j </IDENTIFIER>
+                </TERM>
+                <SYMBOL> - </SYMBOL>
+                <TERM>
+                  <INTEGER_CONSTANT> 1 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </LET_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </WHILE_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> max </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> x </IDENTIFIER>
+      <SYMBOL> , </SYMBOL>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> y </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+            <SYMBOL> &gt; </SYMBOL>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> x </IDENTIFIER>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> min </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> a </IDENTIFIER>
+      <SYMBOL> , </SYMBOL>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> b </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+            <SYMBOL> &lt; </SYMBOL>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> x </IDENTIFIER>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> y </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> abs </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <KEYWORD> int </KEYWORD>
+      <IDENTIFIER> x </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <IF_STATEMENT>
+          <KEYWORD> if </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+            <SYMBOL> &lt; </SYMBOL>
+            <TERM>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <RETURN_STATEMENT>
+              <KEYWORD> return </KEYWORD>
+              <EXPRESSION>
+                <TERM>
+                  <SYMBOL> - </SYMBOL>
+                  <TERM>
+                    <IDENTIFIER> x </IDENTIFIER>
+                  </TERM>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </RETURN_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </IF_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> x </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SYMBOL> } </SYMBOL>
 </CLASS>

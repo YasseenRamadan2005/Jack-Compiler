@@ -1,6 +1,0 @@
-push constant 1
-push argument 100
-sub
-push argument 100
-push constant 1
-sub

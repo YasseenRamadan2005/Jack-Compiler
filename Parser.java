@@ -31,10 +31,18 @@ public class Parser {
             return false;
         }
 
-        void expect(String expected) {
+        void expect(String expected, Node n, Node.TokenType tt) {
             if (!expected.equals(next())) {
                 throw new RuntimeException("Expected '" + expected + "'");
             }
+            n.addChild(new Node(expected, tt));
+        }
+
+        void expect2(String expected, List<Node> n, Node.TokenType tt) {
+            if (!expected.equals(next())) {
+                throw new RuntimeException("Expected '" + expected + "'");
+            }
+            n.add(new Node(expected, tt));
         }
     }
 
@@ -45,9 +53,9 @@ public class Parser {
 
     private Node parseClass(TokenStream tokens) {
         Node node = new Node(Node.StructureType.CLASS);
-        tokens.expect("class");
+        tokens.expect("class", node, Node.TokenType.KEYWORD);
         node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER)); // className
-        tokens.expect("{");
+        tokens.expect("{", node, Node.TokenType.SYMBOL);
 
         while (Set.of("static", "field").contains(tokens.peek())) {
             node.addChild(parseClassVarDec(tokens));
@@ -57,7 +65,7 @@ public class Parser {
             node.addChild(parseSubroutineDec(tokens));
         }
 
-        tokens.expect("}");
+        tokens.expect("}", node, Node.TokenType.SYMBOL);
         return node;
     }
 
@@ -72,7 +80,7 @@ public class Parser {
             node.addChild(new Node(",", Node.TokenType.SYMBOL));
         }
 
-        tokens.expect(";");
+        tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
 
@@ -81,9 +89,9 @@ public class Parser {
         node.addChild(new Node(tokens.next(), Node.TokenType.KEYWORD));
         node.addChild(parseTypeOrVoid(tokens));
         node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
-        tokens.expect("(");
+        tokens.expect("(", node, Node.TokenType.SYMBOL);
         node.addChild(parseParameterList(tokens));
-        tokens.expect(")");
+        tokens.expect(")", node, Node.TokenType.SYMBOL);
         node.addChild(parseSubroutineBody(tokens));
         return node;
     }
@@ -101,19 +109,18 @@ public class Parser {
 
     private Node parseSubroutineBody(TokenStream tokens) {
         Node node = new Node(Node.StructureType.SUBROUTINE_BODY);
-        tokens.expect("{");
+        tokens.expect("{", node, Node.TokenType.SYMBOL);
         while ("var".equals(tokens.peek())) {
             node.addChild(parseVarDec(tokens));
         }
         node.addChild(parseStatements(tokens));
-        tokens.expect("}");
+        tokens.expect("}", node, Node.TokenType.SYMBOL);
         return node;
     }
 
     private Node parseVarDec(TokenStream tokens) {
         Node node = new Node(Node.StructureType.VAR_DEC);
-        tokens.expect("var");
-        node.addChild(new Node("var", Node.TokenType.KEYWORD));
+        tokens.expect("var", node, Node.TokenType.KEYWORD);
         node.addChild(parseType(tokens));
 
         while (true) {
@@ -122,7 +129,7 @@ public class Parser {
             node.addChild(new Node(",", Node.TokenType.SYMBOL));
         }
 
-        tokens.expect(";");
+        tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
 
@@ -142,71 +149,64 @@ public class Parser {
 
     private Node parseLet(TokenStream tokens) {
         Node node = new Node(Node.StructureType.LET_STATEMENT);
-        tokens.expect("let");
-        node.addChild(new Node("let", Node.TokenType.KEYWORD));
+        tokens.expect("let", node, Node.TokenType.KEYWORD);
         node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
         if (tokens.match("[")) {
             node.addChild(new Node("[", Node.TokenType.SYMBOL));
             node.addChild(parseExpression(tokens));
-            tokens.expect("]");
-            node.addChild(new Node("]", Node.TokenType.SYMBOL));
+            tokens.expect("]", node, Node.TokenType.SYMBOL);
         }
-        tokens.expect("=");
-        node.addChild(new Node("=", Node.TokenType.SYMBOL));
+        tokens.expect("=", node, Node.TokenType.SYMBOL);
         node.addChild(parseExpression(tokens));
-        tokens.expect(";");
+        tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
 
     private Node parseIf(TokenStream tokens) {
         Node node = new Node(Node.StructureType.IF_STATEMENT);
-        tokens.expect("if");
-        node.addChild(new Node("if", Node.TokenType.KEYWORD));
-        tokens.expect("(");
+        tokens.expect("if", node, Node.TokenType.KEYWORD);
+        tokens.expect("(", node, Node.TokenType.SYMBOL);
         node.addChild(parseExpression(tokens));
-        tokens.expect(")");
-        tokens.expect("{");
+        tokens.expect(")", node, Node.TokenType.SYMBOL);
+        tokens.expect("{", node, Node.TokenType.SYMBOL);
         node.addChild(parseStatements(tokens));
-        tokens.expect("}");
+        tokens.expect("}", node, Node.TokenType.SYMBOL);
         if (tokens.match("else")) {
             node.addChild(new Node("else", Node.TokenType.KEYWORD));
-            tokens.expect("{");
+            tokens.expect("{", node, Node.TokenType.SYMBOL);
             node.addChild(parseStatements(tokens));
-            tokens.expect("}");
+            tokens.expect("}", node, Node.TokenType.SYMBOL);
         }
         return node;
     }
 
     private Node parseWhile(TokenStream tokens) {
         Node node = new Node(Node.StructureType.WHILE_STATEMENT);
-        tokens.expect("while");
-        node.addChild(new Node("while", Node.TokenType.KEYWORD));
-        tokens.expect("(");
+        tokens.expect("while", node, Node.TokenType.KEYWORD);
+        tokens.expect("(", node, Node.TokenType.SYMBOL);
         node.addChild(parseExpression(tokens));
-        tokens.expect(")");
-        tokens.expect("{");
+        tokens.expect(")", node, Node.TokenType.SYMBOL);
+        tokens.expect("{", node, Node.TokenType.SYMBOL);
         node.addChild(parseStatements(tokens));
-        tokens.expect("}");
+        tokens.expect("}", node, Node.TokenType.SYMBOL);
         return node;
     }
 
     private Node parseDo(TokenStream tokens) {
         Node node = new Node(Node.StructureType.DO_STATEMENT);
-        tokens.expect("do");
-        node.addChild(new Node("do", Node.TokenType.KEYWORD));
+        tokens.expect("do", node, Node.TokenType.KEYWORD);
         node.addChildren(parseSubroutineCall(tokens));
-        tokens.expect(";");
+        tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
 
     private Node parseReturn(TokenStream tokens) {
         Node node = new Node(Node.StructureType.RETURN_STATEMENT);
-        tokens.expect("return");
-        node.addChild(new Node("return", Node.TokenType.KEYWORD));
+        tokens.expect("return", node, Node.TokenType.KEYWORD);
         if (!";".equals(tokens.peek())) {
             node.addChild(parseExpression(tokens));
         }
-        tokens.expect(";");
+        tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
 
@@ -234,15 +234,15 @@ public class Parser {
         } else if (token.equals("(")) {
             tokens.next();
             node.addChild(parseExpression(tokens));
-            tokens.expect(")");
+            tokens.expect(")", node, Node.TokenType.SYMBOL);
         } else if (Set.of("-", "~").contains(token)) {
             node.addChild(new Node(tokens.next(), Node.TokenType.SYMBOL));
             node.addChild(parseTerm(tokens));
         } else if ("[".equals(tokens.tokens.get(tokens.pos + 1))) {
             node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
-            tokens.expect("[");
+            tokens.expect("[", node, Node.TokenType.SYMBOL);
             node.addChild(parseExpression(tokens));
-            tokens.expect("]");
+            tokens.expect("]", node, Node.TokenType.SYMBOL);
         } else if (Set.of("(", ".").contains(tokens.tokens.get(tokens.pos + 1))) {
             node.addChildren(parseSubroutineCall(tokens));
         } else {
@@ -269,9 +269,9 @@ public class Parser {
             nodes.add(new Node(".", Node.TokenType.SYMBOL));
             nodes.add(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
         }
-        tokens.expect("(");
+        tokens.expect2("(", nodes, Node.TokenType.SYMBOL);
         nodes.add(parseExpressionList(tokens));
-        tokens.expect(")");
+        tokens.expect2(")", nodes, Node.TokenType.SYMBOL);
         return nodes;
     }
 
@@ -286,5 +286,4 @@ public class Parser {
         }
         return node;
     }
-
 }
