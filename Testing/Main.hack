@@ -170,12 +170,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call Array.new
+// call Array.new.1
 @6
 D=A
 @14
 M=D
-@Array.new
+@Array.new.1
 D=A
 @13
 M=D
@@ -187,11 +187,11 @@ D=A
 @SP
 AM=M-1
 D=M
-@Main.1
+@Main.0
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @4
 M=D
@@ -202,7 +202,7 @@ A=M
 M=0
 
 
-@Main.1
+@Main.0
 D=M+1
 @4
 M=D
@@ -215,7 +215,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @2
 D=D+A
@@ -230,7 +230,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @3
 D=D+A
@@ -245,7 +245,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @4
 D=D+A
@@ -260,7 +260,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @5
 D=D+A
@@ -275,7 +275,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @6
 D=D+A
@@ -290,7 +290,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @7
 D=D+A
@@ -305,7 +305,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @8
 D=D+A
@@ -320,7 +320,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @9
 D=D+A
@@ -335,7 +335,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @10
 D=D+A
@@ -350,7 +350,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @11
 D=D+A
@@ -365,7 +365,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @12
 D=D+A
@@ -380,7 +380,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @13
 D=D+A
@@ -395,7 +395,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @14
 D=D+A
@@ -410,7 +410,7 @@ A=M
 M=D
 
 
-@Main.1
+@Main.0
 D=M
 @15
 D=D+A
@@ -451,7 +451,7 @@ D=M
 @R13
 D=D&M
 D=!D
-@Main.Math.bit.2$IfElse
+@Math.bit.2.IfElse1
 D;JNE
 
 
@@ -465,8 +465,8 @@ M=-1
 0;JMP
 
 
-// label IfEnd
-(Main.Math.bit.2$IfEnd)
+// label Math.bit.2.IfElse1
+(Math.bit.2.IfElse1)
 
 
 D=0
@@ -515,11 +515,11 @@ A=A+1
 M=0
 
 
-// label WHILE_START_Math.multiply.2
-(Main.Math.multiply.2$WHILE_START_Math.multiply.2)
+// label WHILE_START_Math.multiply.21
+(WHILE_START_Math.multiply.21)
 
 
-@Main.Math.abs.1.LT.0
+@Math.abs.1.LT.0
 D=A
 @13
 M=D
@@ -533,8 +533,8 @@ D=D-A
 M=D
 @DO_LT
 0;JMP
-(Main.Math.abs.1.LT.0)
-@Main.Math.multiply.2$WHILE_END_Math.multiply.2
+(Math.abs.1.LT.0)
+@WHILE_END_Math.multiply.21
 D;JNE
 
 
@@ -553,12 +553,12 @@ D=M
 AM=M+1
 A=A-1
 M=D
-// call Math.bit
+// call Math.bit.2
 @7
 D=A
 @14
 M=D
-@Math.bit
+@Math.bit.2
 D=A
 @13
 M=D
@@ -571,7 +571,7 @@ D=A
 AM=M-1
 D=M
 D=!D
-@Main.Math.multiply.2$IfElse
+@Math.multiply.2.IfElse1
 D;JNE
 
 
@@ -585,8 +585,8 @@ A=M
 M=D
 
 
-// label IfEnd
-(Main.Math.multiply.2$IfEnd)
+// label Math.multiply.2.IfElse1
+(Math.multiply.2.IfElse1)
 
 
 @LCL
@@ -604,13 +604,13 @@ A=A+1
 M=M+1
 
 
-// goto WHILE_START_Math.multiply.2
-@Main.Math.multiply.2$WHILE_START_Math.multiply.2
+// goto WHILE_START_Math.multiply.21
+@WHILE_START_Math.multiply.21
 0;JMP
 
 
-// label WHILE_END_Math.multiply.2
-(Main.Math.multiply.2$WHILE_END_Math.multiply.2)
+// label WHILE_END_Math.multiply.21
+(WHILE_END_Math.multiply.21)
 
 
 @LCL
@@ -634,7 +634,7 @@ A=A-1
 M=0
 
 
-@Main.Math.abs.1.GT.1
+@Math.abs.1.GT.1
 D=A
 @13
 M=D
@@ -647,14 +647,333 @@ D=D-M
 M=D
 @DO_GT
 0;JMP
-(Main.Math.abs.1.GT.1)
+(Math.abs.1.GT.1)
 D=!D
-@Main.Math.divide.2$IfElse
+@Math.divide.2.IfElse1
 D;JNE
 
 
 D=0
-@Main.Math.sqrt.1$IfElse
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+@RETURN
+0;JMP
+
+
+// label Math.divide.2.IfElse1
+(Math.divide.2.IfElse1)
+
+
+@Math.abs.1.EQ.2
+D=A
+@13
+M=D
+@ARG
+A=M+1
+D=M
+A=A-1
+D=D-M
+@15
+M=D
+@DO_EQ
+0;JMP
+(Math.abs.1.EQ.2)
+D=!D
+@Math.divide.2.IfElse2
+D;JNE
+
+
+D=1
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+@RETURN
+0;JMP
+
+
+// label Math.divide.2.IfElse2
+(Math.divide.2.IfElse2)
+
+
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide.2
+@7
+D=A
+@14
+M=D
+@Math.divide.2
+D=A
+@13
+M=D
+@Math.divide.2.ret.0
+D=A
+@CALL
+0;JMP
+(Math.divide.2.ret.0)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M
+M=D
+
+
+@Math.abs.1.LT.3
+D=A
+@13
+M=D
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M
+D=M
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.multiply
+@7
+D=A
+@14
+M=D
+@Math.multiply
+D=A
+@13
+M=D
+@Math.divide.2.ret.1
+D=A
+@CALL
+0;JMP
+(Math.divide.2.ret.1)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M-1
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@SP
+AM=M-1
+D=M-D
+@15
+M=D
+@DO_LT
+0;JMP
+(Math.abs.1.LT.3)
+D=!D
+@Math.divide.2.IfElse3
+D;JNE
+
+
+@LCL
+A=M
+D=M
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+@RETURN
+0;JMP
+
+
+// label Math.divide.2.IfElse3
+(Math.divide.2.IfElse3)
+
+
+@LCL
+A=M
+D=M
+D=D+M
+D=M+1
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+@RETURN
+0;JMP
+
+
+// function Math.sqrt.1 with 3
+(Math.sqrt.1)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+@LCL
+A=M
+M=0
+
+
+@15
+D=A
+@LCL
+A=M+1
+M=D
+
+
+// label WHILE_START_Math.sqrt.11
+(WHILE_START_Math.sqrt.11)
+
+
+@Math.abs.1.GT.4
+D=A
+@13
+M=D
+@LCL
+A=M+1
+D=M
+@15
+M=D
+@DO_GT
+0;JMP
+(Math.abs.1.GT.4)
+@SP
+AM=M+1
+A=A-1
+M=D
+@Math.abs.1.EQ.5
+D=A
+@13
+M=D
+@LCL
+A=M+1
+D=M
+@15
+M=D
+@DO_EQ
+0;JMP
+(Math.abs.1.EQ.5)
+@SP
+AM=M-1
+D=D|M
+@WHILE_END_Math.sqrt.11
+D;JNE
+
+
+@LCL
+A=M
+D=M
+@R13
+M=D
+@THAT
+A=M
+D=M
+@R13
+D=D+M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+@Math.abs.1.GT.6
+D=A
+@13
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.multiply
+@7
+D=A
+@14
+M=D
+@Math.multiply
+D=A
+@13
+M=D
+@Math.sqrt.1.ret.0
+D=A
+@CALL
+0;JMP
+(Math.sqrt.1.ret.0)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@SP
+AM=M-1
+D=M-D
+@15
+M=D
+@DO_GT
+0;JMP
+(Math.abs.1.GT.6)
+@Math.sqrt.1.IfElse1
 D;JNE
 
 
@@ -667,8 +986,8 @@ A=M
 M=D
 
 
-// label IfEnd
-(Main.Math.sqrt.1$IfEnd)
+// label Math.sqrt.1.IfElse1
+(Math.sqrt.1.IfElse1)
 
 
 @LCL
@@ -676,13 +995,13 @@ A=M+1
 M=M-1
 
 
-// goto WHILE_START_Math.sqrt.1
-@Main.Math.sqrt.1$WHILE_START_Math.sqrt.1
+// goto WHILE_START_Math.sqrt.11
+@WHILE_START_Math.sqrt.11
 0;JMP
 
 
-// label WHILE_END_Math.sqrt.1
-(Main.Math.sqrt.1$WHILE_END_Math.sqrt.1)
+// label WHILE_END_Math.sqrt.11
+(WHILE_END_Math.sqrt.11)
 
 
 @LCL
@@ -702,7 +1021,7 @@ M=D
 (Math.max.2)
 
 
-@Main.Math.abs.1.GT.2
+@Math.abs.1.GT.7
 D=A
 @13
 M=D
@@ -715,9 +1034,9 @@ D=M-D
 M=D
 @DO_GT
 0;JMP
-(Main.Math.abs.1.GT.2)
+(Math.abs.1.GT.7)
 D=!D
-@Main.Math.max.2$IfElse
+@Math.max.2.IfElse1
 D;JNE
 
 
@@ -734,8 +1053,8 @@ M=D
 0;JMP
 
 
-// label IfEnd
-(Main.Math.max.2$IfEnd)
+// label Math.max.2.IfElse1
+(Math.max.2.IfElse1)
 
 
 @ARG
@@ -755,7 +1074,7 @@ M=D
 (Math.min.2)
 
 
-@Main.Math.abs.1.LT.3
+@Math.abs.1.LT.8
 D=A
 @13
 M=D
@@ -768,9 +1087,9 @@ D=M-D
 M=D
 @DO_LT
 0;JMP
-(Main.Math.abs.1.LT.3)
+(Math.abs.1.LT.8)
 D=!D
-@Main.Math.min.2$IfElse
+@Math.min.2.IfElse1
 D;JNE
 
 
@@ -787,8 +1106,8 @@ M=D
 0;JMP
 
 
-// label IfEnd
-(Main.Math.min.2$IfEnd)
+// label Math.min.2.IfElse1
+(Math.min.2.IfElse1)
 
 
 @ARG
@@ -808,7 +1127,7 @@ M=D
 (Math.abs.1)
 
 
-@Main.Math.abs.1.LT.4
+@Math.abs.1.LT.9
 D=A
 @13
 M=D
@@ -819,9 +1138,9 @@ D=M
 M=D
 @DO_LT
 0;JMP
-(Main.Math.abs.1.LT.4)
+(Math.abs.1.LT.9)
 D=!D
-@Main.Math.abs.1$IfElse
+@Math.abs.1.IfElse1
 D;JNE
 
 
@@ -841,8 +1160,8 @@ M=-D
 0;JMP
 
 
-// label IfEnd
-(Main.Math.abs.1$IfEnd)
+// label Math.abs.1.IfElse1
+(Math.abs.1.IfElse1)
 
 
 @ARG

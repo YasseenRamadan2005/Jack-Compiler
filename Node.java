@@ -24,8 +24,8 @@ public class Node {
         RETURN_STATEMENT,
         EXPRESSION,
         TERM,
-        EXPRESSION_LIST
-        // Add more as needed
+        EXPRESSION_LIST,
+        CONSTANT_DEC
     }
 
     public final TokenType tokenType;

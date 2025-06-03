@@ -35,6 +35,11 @@ public class CodeGenerator {
                 }
                 return List.of();
 
+            case CONSTANT_DEC:
+                //constantDec: 'constant' varName integerConstant;
+                ps.addClassConstant(node.children.get(1).getValue(), node.children.get(2).getValue());
+                break;
+
             case SUBROUTINE_DEC:
                 //"('constructor'|'function'|'method') ('void' | type) subroutineName '(' parameterList ')' subroutineBody"
                 ps.resetSubroutineST();
@@ -121,7 +126,7 @@ public class CodeGenerator {
                 if (node.children.size() > 7) {
                     ifCode.add("goto " + funcName + ".IfElse" + y);
                     ifCode.add("label " + funcName + ".IfElse" + y);
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block ✅
+                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block
                 }
 
                 ifCode.add("label " + funcName + ".IfElse" + y);

@@ -4,12 +4,6 @@
   <SYMBOL> { </SYMBOL>
   <CLASS_VAR_DEC>
     <KEYWORD> static </KEYWORD>
-    <KEYWORD> int </KEYWORD>
-    <IDENTIFIER> n </IDENTIFIER>
-    <SYMBOL> ; </SYMBOL>
-  </CLASS_VAR_DEC>
-  <CLASS_VAR_DEC>
-    <KEYWORD> static </KEYWORD>
     <IDENTIFIER> Array </IDENTIFIER>
     <IDENTIFIER> powersOfTwo </IDENTIFIER>
     <SYMBOL> ; </SYMBOL>
