@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import VMTranslator.VMTranslator;
+import VMTranslator.VMTranslator.*;
 
 public class JackCompiler {
     private final File[] files;
@@ -23,6 +25,25 @@ public class JackCompiler {
                 for (String line : vmCode) {
                     writer.println(line);
                 }
+            }
+            // Filter for .vm files
+            File[] vmFiles = parentDir.listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.endsWith(".vm");
+                }
+            });
+            try {
+                // Replace ".vm" with ".hack" to form the output filename
+                String baseName1 = input.getName().replaceAll("\\.vm$", "");
+                File outputFile1 = new File(parentDir, baseName + ".hack");
+                VMTranslator translator = new VMTranslator(vmFiles, outputFile1);
+                translator.translate();
+                System.out.println("Translation complete: " + outputFile.getAbsolutePath());
+            } catch (IOException e) {
+                System.err.println("Translation failed: " + e.getMessage());
+                System.exit(1);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }

@@ -232,7 +232,7 @@ public class Parser {
         } else if (Set.of("true", "false", "null", "this").contains(token)) {
             node.addChild(new Node(tokens.next(), Node.TokenType.KEYWORD));
         } else if (token.equals("(")) {
-            tokens.next();
+            tokens.expect("(", node, Node.TokenType.SYMBOL);
             node.addChild(parseExpression(tokens));
             tokens.expect(")", node, Node.TokenType.SYMBOL);
         } else if (Set.of("-", "~").contains(token)) {

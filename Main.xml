@@ -685,14 +685,17 @@
           <SYMBOL> ( </SYMBOL>
           <EXPRESSION>
             <TERM>
+              <SYMBOL> ( </SYMBOL>
               <EXPRESSION>
                 <TERM>
                   <IDENTIFIER> x </IDENTIFIER>
                 </TERM>
                 <SYMBOL> - </SYMBOL>
                 <TERM>
+                  <SYMBOL> ( </SYMBOL>
                   <EXPRESSION>
                     <TERM>
+                      <SYMBOL> ( </SYMBOL>
                       <EXPRESSION>
                         <TERM>
                           <IDENTIFIER> q </IDENTIFIER>
@@ -809,6 +812,7 @@
           <SYMBOL> ( </SYMBOL>
           <EXPRESSION>
             <TERM>
+              <SYMBOL> ( </SYMBOL>
               <EXPRESSION>
                 <TERM>
                   <IDENTIFIER> j </IDENTIFIER>
@@ -822,6 +826,7 @@
             </TERM>
             <SYMBOL> | </SYMBOL>
             <TERM>
+              <SYMBOL> ( </SYMBOL>
               <EXPRESSION>
                 <TERM>
                   <IDENTIFIER> j </IDENTIFIER>
@@ -866,13 +871,20 @@
                 <TERM>
                   <SYMBOL> ~ </SYMBOL>
                   <TERM>
+                    <SYMBOL> ( </SYMBOL>
                     <EXPRESSION>
                       <TERM>
-                        <IDENTIFIER> k </IDENTIFIER>
-                      </TERM>
-                      <SYMBOL> * </SYMBOL>
-                      <TERM>
-                        <IDENTIFIER> k </IDENTIFIER>
+                        <SYMBOL> ( </SYMBOL>
+                        <EXPRESSION>
+                          <TERM>
+                            <IDENTIFIER> k </IDENTIFIER>
+                          </TERM>
+                          <SYMBOL> * </SYMBOL>
+                          <TERM>
+                            <IDENTIFIER> k </IDENTIFIER>
+                          </TERM>
+                        </EXPRESSION>
+                        <SYMBOL> ) </SYMBOL>
                       </TERM>
                       <SYMBOL> &gt; </SYMBOL>
                       <TERM>

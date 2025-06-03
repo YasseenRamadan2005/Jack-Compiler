@@ -95,8 +95,9 @@ public class CodeGenerator {
 
             case WHILE_STATEMENT:
                 List<String> whileCode = new ArrayList<>();
-                String labelStart = "WHILE_START_" + ps.getFunctionDeclarationName();
-                String labelEnd = "WHILE_END_" + ps.getFunctionDeclarationName();
+                int x = ps.getStatementCounter("while");
+                String labelStart = "WHILE_START_" + ps.getFunctionDeclarationName() + x;
+                String labelEnd = "WHILE_END_" + ps.getFunctionDeclarationName() + x;
 
                 whileCode.add("label " + labelStart);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
@@ -108,19 +109,24 @@ public class CodeGenerator {
                 return whileCode;
 
             case IF_STATEMENT:
+                int y = ps.getStatementCounter("if");
+                String funcName = ps.getFunctionDeclarationName();
+
                 List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
                 ifCode.add("not");
-                ifCode.add("if-goto IfElse");
+                ifCode.add("if-goto " + funcName + ".IfElse" + y);
 
                 ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then block
-                if (node.children.size() > 7) {
-                    ifCode.add("goto IfEnd");
-                    ifCode.add("label IfElse");
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(7)))); // else block
-                }
-                ifCode.add("label IfEnd");
 
+                if (node.children.size() > 7) {
+                    ifCode.add("goto " + funcName + ".IfElse" + y);
+                    ifCode.add("label " + funcName + ".IfElse" + y);
+                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block ✅
+                }
+
+                ifCode.add("label " + funcName + ".IfElse" + y);
                 return ifCode;
+
 
             case LET_STATEMENT:
                 String varName = node.children.get(1).value;
@@ -188,101 +194,107 @@ public class CodeGenerator {
             case TERM: {
                 List<String> term_vmInstructions = new ArrayList<>();
                 List<Node> children = node.children;
-                Node firstChild = children.get(0);
+                Node firstChild = children.getFirst();
+                Node.TokenType tokenType = firstChild.tokenType;
+                Node.StructureType structureType = firstChild.structureType;
+                if (tokenType != null) {
+                    switch (tokenType) {
+                        case INTEGER_CONSTANT:
+                            // integerConstant
+                            term_vmInstructions.add("push constant " + firstChild.value);
+                            break;
 
-                Node.TokenType tokenType = firstChild.tokenType;  // TokenType as string for switch
+                        case STRING_CONSTANT:
+                            // stringConstant (guarantee leak for now)
+                            String strVal = firstChild.value;
+                            assert strVal != null;
+                            term_vmInstructions.add("push constant " + strVal.length());
+                            term_vmInstructions.add("call String.new.1 1");
+                            for (char c : strVal.toCharArray()) {
+                                term_vmInstructions.add("push constant " + (int) c);
+                                term_vmInstructions.add("call String.appendChar.1 2");
+                            }
+                            break;
 
-                switch (tokenType) {
-                    case INTEGER_CONSTANT:
-                        // integerConstant
-                        term_vmInstructions.add("push constant " + firstChild.value);
-                        break;
+                        case KEYWORD:
+                            // keywordConstant: true, false, null, this
+                            switch (firstChild.value) {
+                                case "true":
+                                    term_vmInstructions.add("push constant 0");
+                                    term_vmInstructions.add("not");
+                                    break;
+                                case "false":
+                                case "null":
+                                    term_vmInstructions.add("push constant 0");
+                                    break;
+                                case "this":
+                                    term_vmInstructions.add("push pointer 0");
+                                    break;
+                                case null:
+                                    break;
+                                default:
+                                    throw new IllegalStateException("Unexpected keyword constant: " + firstChild.value);
+                            }
+                            break;
 
-                    case STRING_CONSTANT:
-                        // stringConstant (guarantee leak for now)
-                        String strVal = firstChild.value;
-                        assert strVal != null;
-                        term_vmInstructions.add("push constant " + strVal.length());
-                        term_vmInstructions.add("call String.new.1 1");
-                        for (char c : strVal.toCharArray()) {
-                            term_vmInstructions.add("push constant " + (int) c);
-                            term_vmInstructions.add("call String.appendChar.1 2");
-                        }
-                        break;
+                        case IDENTIFIER:
+                            // Could be varName alone, varName '[' expression ']', or subroutineCall
+                            if (children.size() == 1) {
+                                // Just a variable
+                                term_vmInstructions.add(ps.handleVarName(firstChild.value, true));
+                            } else {
+                                Node secondChild = children.get(1);
 
-                    case KEYWORD:
-                        // keywordConstant: true, false, null, this
-                        switch (firstChild.value) {
-                            case "true":
-                                term_vmInstructions.add("push constant 0");
-                                term_vmInstructions.add("not");
-                                break;
-                            case "false":
-                            case "null":
-                                term_vmInstructions.add("push constant 0");
-                                break;
-                            case "this":
-                                term_vmInstructions.add("push pointer 0");
-                                break;
-                            case null:
-                                break;
-                            default:
-                                throw new IllegalStateException("Unexpected keyword constant: " + firstChild.value);
-                        }
-                        break;
+                                if (secondChild.tokenType == Node.TokenType.SYMBOL) {
+                                    String sym = secondChild.value;
 
-                    case IDENTIFIER:
-                        // Could be varName alone, varName '[' expression ']', or subroutineCall
-                        if (children.size() == 1) {
-                            // Just a variable
-                            term_vmInstructions.add(ps.handleVarName(firstChild.value, true));
-                        } else {
-                            Node secondChild = children.get(1);
-
-                            if (secondChild.tokenType == Node.TokenType.SYMBOL) {
-                                String sym = secondChild.value;
-
-                                if ("[".equals(sym)) {
-                                    // varName '[' expression ']'
-                                    term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(2)))); // expression
-                                    term_vmInstructions.addAll(List.of(ps.handleVarName(firstChild.value, true), "add", "pop pointer 1", "push that 0"));
-                                } else if ("(".equals(sym) || ".".equals(sym)) {
-                                    // subroutineCall
-                                    term_vmInstructions.addAll(compileSubroutineCall(children));
+                                    if ("[".equals(sym)) {
+                                        // varName '[' expression ']'
+                                        term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(2)))); // expression
+                                        term_vmInstructions.addAll(List.of(ps.handleVarName(firstChild.value, true), "add", "pop pointer 1", "push that 0"));
+                                    } else if ("(".equals(sym) || ".".equals(sym)) {
+                                        // subroutineCall
+                                        term_vmInstructions.addAll(compileSubroutineCall(children));
+                                    } else {
+                                        throw new IllegalStateException("Unexpected symbol after identifier in term: " + sym);
+                                    }
                                 } else {
-                                    throw new IllegalStateException("Unexpected symbol after identifier in term: " + sym);
+                                    throw new IllegalStateException("Unexpected token after identifier in term: " + secondChild.tokenType);
+                                }
+                            }
+                            break;
+
+                        case SYMBOL:
+                            // Could be unaryOp or parenthesized expression
+                            String sym = firstChild.value;
+                            if ("(".equals(sym)) {
+                                // '(' expression ')'
+                                term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(1))));
+                            } else if ("-".equals(sym) || "~".equals(sym)) {
+                                // unaryOp term
+                                term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(1))));
+                                if ("-".equals(sym)) {
+                                    term_vmInstructions.add("neg");
+                                } else { // "~"
+                                    term_vmInstructions.add("not");
                                 }
                             } else {
-                                throw new IllegalStateException("Unexpected token after identifier in term: " + secondChild.tokenType);
+                                throw new IllegalStateException("Unexpected symbol in term: " + sym);
                             }
-                        }
-                        break;
+                            break;
 
-                    case SYMBOL:
-                        // Could be unaryOp or parenthesized expression
-                        String sym = firstChild.value;
-                        if ("(".equals(sym)) {
-                            // '(' expression ')'
-                            term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(1))));
-                        } else if ("-".equals(sym) || "~".equals(sym)) {
-                            // unaryOp term
-                            term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(1))));
-                            if ("-".equals(sym)) {
-                                term_vmInstructions.add("neg");
-                            } else { // "~"
-                                term_vmInstructions.add("not");
-                            }
-                        } else {
-                            throw new IllegalStateException("Unexpected symbol in term: " + sym);
-                        }
-                        break;
-
-                    case null:
-                        break;
-                    default:
-                        throw new IllegalStateException("Unexpected token type in term: " + tokenType);
+                        default:
+                            throw new IllegalStateException("Unexpected token type in term: " + tokenType);
+                    }
                 }
-
+                else{
+                    if (structureType == Node.StructureType.EXPRESSION){
+                        term_vmInstructions.addAll(Objects.requireNonNull(compileTree(firstChild)));
+                    }
+                    else{
+                        throw new RuntimeException("The only StructureType allowed in a term is an expression");
+                    }
+                }
                 return term_vmInstructions;
             }
 
@@ -323,17 +335,17 @@ public class CodeGenerator {
             if (symbol != null) {
                 // Push object reference as first argument
                 vmInstructions.addFirst(ps.handleVarName(base, true));
-                vmInstructions.add(String.format("call %s.%s %d", symbol.type, subroutineName, argCount + 1));
+                vmInstructions.add(String.format("call %s.%s.%d %d", symbol.type, subroutineName, argCount + 1, argCount + 1));
             } else {
                 // Static call like ClassName.func(...)
-                vmInstructions.add(String.format("call %s.%s %d", base, subroutineName, argCount));
+                vmInstructions.add(String.format("call %s.%s.%d %d", base, subroutineName, argCount, argCount));
             }
         } else if (nodes.size() == 4) {
             // Case: foo(...) — method in current class
             String subroutineName = nodes.getFirst().value;
 
             vmInstructions.add("push pointer 0"); // push `this` reference
-            vmInstructions.add(String.format("call %s.%s %d", ps.getClassName(), subroutineName, argCount + 1));
+            vmInstructions.add(String.format("call %s.%s.%d %d", ps.getClassName(), subroutineName, argCount + 1, argCount + 1));
         }
 
         return vmInstructions;

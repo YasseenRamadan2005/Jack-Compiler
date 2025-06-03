@@ -115,10 +115,6 @@ public class ProgramState {
         }
     }
 
-    public void debugPrint() {
-        System.out.println(this);
-    }
-
     @Override
     public String toString() {
         return "Class: " + className + ", Subroutine: " + subroutineName + ", ST: " + ST[CLASS_INDEX] + " / " + ST[SUBROUTINE_INDEX] + ", Vars: " + varCounts;

@@ -1,6 +1,6 @@
 function Math.init.0 0
 push constant 16
-call Array.new 1
+call Array.new.1 1
 pop static 1
 push constant 0
 push static 1
@@ -109,11 +109,11 @@ pop pointer 1
 push that 0
 and
 not
-if-goto IfElse
+if-goto Math.bit.2.IfElse1
 push constant 0
 not
 return
-label IfEnd
+label Math.bit.2.IfEnd1
 push constant 0
 return
 function Math.multiply.2 3
@@ -123,21 +123,21 @@ push argument 0
 pop local 1
 push constant 0
 pop local 2
-label WHILE_START_Math.multiply.2
+label WHILE_START_Math.multiply.21
 push local 2
 push constant 16
 lt
-if-goto WHILE_END_Math.multiply.2
+if-goto WHILE_END_Math.multiply.21
 push argument 0
 push local 2
-call Math.bit 2
+call Math.bit.2 2
 not
-if-goto IfElse
+if-goto Math.multiply.2.IfElse1
 push local 0
 push local 1
 add
 pop local 0
-label IfEnd
+label Math.multiply.2.IfEnd1
 push local 1
 push local 1
 add
@@ -146,8 +146,8 @@ push local 2
 push constant 1
 add
 pop local 2
-goto WHILE_START_Math.multiply.2
-label WHILE_END_Math.multiply.2
+goto WHILE_START_Math.multiply.21
+label WHILE_END_Math.multiply.21
 push local 0
 return
 function Math.divide.2 1
@@ -155,33 +155,40 @@ push argument 1
 push argument 0
 gt
 not
-if-goto IfElse
+if-goto Math.divide.2.IfElse1
 push constant 0
 return
-label IfEnd
+label Math.divide.2.IfEnd1
 push argument 1
 push argument 0
 eq
 not
-if-goto IfElse
+if-goto Math.divide.2.IfElse2
 push constant 1
 return
-label IfEnd
+label Math.divide.2.IfEnd2
 push argument 0
 push argument 1
 push argument 1
 add
-call Math.divide 2
+call Math.divide.2 2
 pop local 0
+push argument 0
+push local 0
+push local 0
+add
+push argument 1
+call Math.multiply 2
+sub
 push argument 1
 lt
 not
-if-goto IfElse
+if-goto Math.divide.2.IfElse3
 push local 0
 push local 0
 add
 return
-label IfEnd
+label Math.divide.2.IfEnd3
 push local 0
 push local 0
 add
@@ -193,9 +200,15 @@ push constant 0
 pop local 0
 push constant 15
 pop local 1
-label WHILE_START_Math.sqrt.1
+label WHILE_START_Math.sqrt.11
+push local 1
+push constant 0
+gt
+push local 1
+push constant 0
+eq
 or
-if-goto WHILE_END_Math.sqrt.1
+if-goto WHILE_END_Math.sqrt.11
 push local 0
 push local 1
 push static 1
@@ -204,18 +217,23 @@ pop pointer 1
 push that 0
 add
 pop local 2
+push local 2
+push local 2
+call Math.multiply 2
+push argument 0
+gt
 not
 not
-if-goto IfElse
+if-goto Math.sqrt.1.IfElse1
 push local 2
 pop local 0
-label IfEnd
+label Math.sqrt.1.IfEnd1
 push local 1
 push constant 1
 sub
 pop local 1
-goto WHILE_START_Math.sqrt.1
-label WHILE_END_Math.sqrt.1
+goto WHILE_START_Math.sqrt.11
+label WHILE_END_Math.sqrt.11
 push local 0
 return
 function Math.max.2 0
@@ -223,32 +241,32 @@ push argument 0
 push argument 1
 gt
 not
-if-goto IfElse
+if-goto Math.max.2.IfElse1
 push argument 0
 return
-label IfEnd
+label Math.max.2.IfEnd1
 push argument 1
 return
 function Math.min.2 0
-// Error: variable not found: x
-// Error: variable not found: y
+push argument 0
+push argument 1
 lt
 not
-if-goto IfElse
-// Error: variable not found: x
+if-goto Math.min.2.IfElse1
+push argument 0
 return
-label IfEnd
-// Error: variable not found: y
+label Math.min.2.IfEnd1
+push argument 1
 return
 function Math.abs.1 0
 push argument 0
 push constant 0
 lt
 not
-if-goto IfElse
+if-goto Math.abs.1.IfElse1
 push argument 0
 neg
 return
-label IfEnd
+label Math.abs.1.IfEnd1
 push argument 0
 return
