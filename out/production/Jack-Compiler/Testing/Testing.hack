@@ -38,17 +38,17 @@ D;JLT
 0;JMP
 // ---- set boolean in D --------------------------------------
 (RETURN_TRUE)
-D = -1  // true
+D=-1
 @WRITE_BACK
 0;JMP
 (RETURN_FALSE)
-D = 0   // false
+D=0
 @WRITE_BACK
 0;JMP
 // ---- collapse stack and return -----------------------------
 (WRITE_BACK)
-@13 // go back to caller
-A = M
+@13
+A=M
 0;JMP
 (SKIP)
 //Set up calling and returning from functions
@@ -802,12 +802,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -822,12 +822,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -842,12 +842,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -862,12 +862,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -882,12 +882,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -902,12 +902,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -922,12 +922,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -942,12 +942,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -962,12 +962,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -982,12 +982,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -1002,12 +1002,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -1022,12 +1022,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D
@@ -1042,12 +1042,12 @@ D=A
 AM=M+1
 A=A-1
 M=D
-// call String.appendChar.1
+// call String.appendChar.2
 @7
 D=A
 @14
 M=D
-@String.appendChar.1
+@String.appendChar.2
 D=A
 @13
 M=D

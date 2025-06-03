@@ -1504,8 +1504,8 @@ push that 0
 push constant 256
 call Math.multiply 2
 pop local 2
-goto Output.printChar.1.IfElse1
-label Output.printChar.1.IfElse1
+goto Output.printChar.1.IfElse2
+label Output.printChar.1.IfElse2
 push local 3
 push local 0
 add
@@ -1538,8 +1538,8 @@ not
 if-goto Output.printChar.1.IfElse2
 call Output.println.0 0
 pop temp 0
-goto Output.printChar.1.IfElse2
-label Output.printChar.1.IfElse2
+goto Output.printChar.1.IfElse3
+label Output.printChar.1.IfElse3
 push static 1
 push constant 1
 add
@@ -1593,8 +1593,8 @@ not
 if-goto Output.println.0.IfElse1
 push constant 0
 pop static 2
-goto Output.println.0.IfElse1
-label Output.println.0.IfElse1
+goto Output.println.0.IfElse2
+label Output.println.0.IfElse2
 push static 2
 push constant 1
 add
@@ -1614,8 +1614,8 @@ sub
 pop static 2
 push constant 63
 pop static 1
-goto Output.backSpace.0.IfElse1
-label Output.backSpace.0.IfElse1
+goto Output.backSpace.0.IfElse2
+label Output.backSpace.0.IfElse2
 push static 1
 push constant 1
 sub

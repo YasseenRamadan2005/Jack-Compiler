@@ -38,17 +38,17 @@ D;JLT
 0;JMP
 // ---- set boolean in D --------------------------------------
 (RETURN_TRUE)
-D = -1  // true
+D=-1
 @WRITE_BACK
 0;JMP
 (RETURN_FALSE)
-D = 0   // false
+D=0
 @WRITE_BACK
 0;JMP
 // ---- collapse stack and return -----------------------------
 (WRITE_BACK)
-@13 // go back to caller
-A = M
+@13
+A=M
 0;JMP
 (SKIP)
 //Set up calling and returning from functions
@@ -616,13 +616,13 @@ D=M
 M=D
 
 
-// goto Keyboard.readLine.1.IfElse1
-@Keyboard.readLine.1.IfElse1
+// goto Keyboard.readLine.1.IfElse2
+@Keyboard.readLine.1.IfElse2
 0;JMP
 
 
-// label Keyboard.readLine.1.IfElse1
-(Keyboard.readLine.1.IfElse1)
+// label Keyboard.readLine.1.IfElse2
+(Keyboard.readLine.1.IfElse2)
 
 
 @LCL
@@ -2922,13 +2922,13 @@ D=M
 M=D
 
 
-// goto Memory.alloc.1.IfElse2
-@Memory.alloc.1.IfElse2
+// goto Memory.alloc.1.IfElse3
+@Memory.alloc.1.IfElse3
 0;JMP
 
 
-// label Memory.alloc.1.IfElse2
-(Memory.alloc.1.IfElse2)
+// label Memory.alloc.1.IfElse3
+(Memory.alloc.1.IfElse3)
 
 
 @LCL
@@ -3905,13 +3905,13 @@ A=M
 M=D
 
 
-// goto Memory.remove_node.2.IfElse1
-@Memory.remove_node.2.IfElse1
+// goto Memory.remove_node.2.IfElse2
+@Memory.remove_node.2.IfElse2
 0;JMP
 
 
-// label Memory.remove_node.2.IfElse1
-(Memory.remove_node.2.IfElse1)
+// label Memory.remove_node.2.IfElse2
+(Memory.remove_node.2.IfElse2)
 
 
 @ARG
@@ -4609,13 +4609,13 @@ A=M
 M=D
 
 
-// goto Memory.add_node.2.IfElse2
-@Memory.add_node.2.IfElse2
+// goto Memory.add_node.2.IfElse3
+@Memory.add_node.2.IfElse3
 0;JMP
 
 
-// label Memory.add_node.2.IfElse2
-(Memory.add_node.2.IfElse2)
+// label Memory.add_node.2.IfElse3
+(Memory.add_node.2.IfElse3)
 
 
 @ARG
@@ -14253,13 +14253,13 @@ A=A+1
 M=D
 
 
-// goto Output.printChar.1.IfElse1
-@Output.printChar.1.IfElse1
+// goto Output.printChar.1.IfElse2
+@Output.printChar.1.IfElse2
 0;JMP
 
 
-// label Output.printChar.1.IfElse1
-(Output.printChar.1.IfElse1)
+// label Output.printChar.1.IfElse2
+(Output.printChar.1.IfElse2)
 
 
 @LCL
@@ -14373,13 +14373,13 @@ D=M
 M=D
 
 
-// goto Output.printChar.1.IfElse2
-@Output.printChar.1.IfElse2
+// goto Output.printChar.1.IfElse3
+@Output.printChar.1.IfElse3
 0;JMP
 
 
-// label Output.printChar.1.IfElse2
-(Output.printChar.1.IfElse2)
+// label Output.printChar.1.IfElse3
+(Output.printChar.1.IfElse3)
 
 
 @Output.1
@@ -14666,13 +14666,13 @@ D;JNE
 M=0
 
 
-// goto Output.println.0.IfElse1
-@Output.println.0.IfElse1
+// goto Output.println.0.IfElse2
+@Output.println.0.IfElse2
 0;JMP
 
 
-// label Output.println.0.IfElse1
-(Output.println.0.IfElse1)
+// label Output.println.0.IfElse2
+(Output.println.0.IfElse2)
 
 
 @Output.2
@@ -14724,13 +14724,13 @@ D=A
 M=D
 
 
-// goto Output.backSpace.0.IfElse1
-@Output.backSpace.0.IfElse1
+// goto Output.backSpace.0.IfElse2
+@Output.backSpace.0.IfElse2
 0;JMP
 
 
-// label Output.backSpace.0.IfElse1
-(Output.backSpace.0.IfElse1)
+// label Output.backSpace.0.IfElse2
+(Output.backSpace.0.IfElse2)
 
 
 @Output.1
@@ -15065,13 +15065,13 @@ A=M
 M=D
 
 
-// goto Screen.drawPixel.2.IfElse1
-@Screen.drawPixel.2.IfElse1
+// goto Screen.drawPixel.2.IfElse2
+@Screen.drawPixel.2.IfElse2
 0;JMP
 
 
-// label Screen.drawPixel.2.IfElse1
-(Screen.drawPixel.2.IfElse1)
+// label Screen.drawPixel.2.IfElse2
+(Screen.drawPixel.2.IfElse2)
 
 
 @LCL

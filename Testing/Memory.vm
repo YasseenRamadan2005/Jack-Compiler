@@ -202,8 +202,8 @@ push that 0
 push local 4
 call Memory.add_node.2 2
 pop temp 0
-goto Memory.alloc.1.IfElse2
-label Memory.alloc.1.IfElse2
+goto Memory.alloc.1.IfElse3
+label Memory.alloc.1.IfElse3
 push constant 1
 push local 2
 add
@@ -417,8 +417,8 @@ not
 if-goto Memory.realloc.2.IfElse3
 push local 0
 pop local 2
-goto Memory.realloc.2.IfElse3
-label Memory.realloc.2.IfElse3
+goto Memory.realloc.2.IfElse4
+label Memory.realloc.2.IfElse4
 push argument 1
 pop local 2
 label Memory.realloc.2.IfElse3
@@ -481,8 +481,8 @@ add
 pop pointer 1
 push that 0
 pop that 0
-goto Memory.remove_node.2.IfElse1
-label Memory.remove_node.2.IfElse1
+goto Memory.remove_node.2.IfElse2
+label Memory.remove_node.2.IfElse2
 push constant 0
 push argument 0
 add
@@ -697,8 +697,8 @@ add
 pop pointer 1
 push argument 1
 pop that 0
-goto Memory.add_node.2.IfElse2
-label Memory.add_node.2.IfElse2
+goto Memory.add_node.2.IfElse3
+label Memory.add_node.2.IfElse3
 push constant 3
 push argument 1
 add

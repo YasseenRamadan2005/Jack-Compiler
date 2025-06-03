@@ -66,8 +66,8 @@ push that 0
 push local 1
 or
 pop that 0
-goto Screen.drawPixel.2.IfElse1
-label Screen.drawPixel.2.IfElse1
+goto Screen.drawPixel.2.IfElse2
+label Screen.drawPixel.2.IfElse2
 push constant 0
 push local 0
 add

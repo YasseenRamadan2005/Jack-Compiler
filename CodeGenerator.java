@@ -124,8 +124,8 @@ public class CodeGenerator {
                 ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then block
 
                 if (node.children.size() > 7) {
-                    ifCode.add("goto " + funcName + ".IfElse" + y);
-                    ifCode.add("label " + funcName + ".IfElse" + y);
+                    ifCode.add("goto " + funcName + ".IfElse" + (y + 1));
+                    ifCode.add("label " + funcName + ".IfElse" + (y + 1));
                     ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block
                 }
 

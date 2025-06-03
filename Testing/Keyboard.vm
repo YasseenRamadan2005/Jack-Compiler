@@ -66,8 +66,8 @@ if-goto Keyboard.readLine.1.IfElse1
 push local 0
 call String.eraseLastChar.1 1
 pop temp 0
-goto Keyboard.readLine.1.IfElse1
-label Keyboard.readLine.1.IfElse1
+goto Keyboard.readLine.1.IfElse2
+label Keyboard.readLine.1.IfElse2
 push local 0
 push local 1
 call String.appendChar.2 2
