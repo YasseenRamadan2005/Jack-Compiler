@@ -2,6 +2,7 @@
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/12/String.jack
+
 /**
  * Represents character strings. In addition for constructing and disposing
  * strings, the class features methods for getting and setting individual
@@ -12,90 +13,82 @@
 class String {
     field Array s;
     field int size;
-    //constructs a new empty string (of length zero) that can contain at most maxLength characters
-    constructor String new(int maxLength){
+
+    // Constructs a new empty string (of length zero) that can contain at most maxLength characters
+    constructor String new(int maxLength) {
         let s = Array.new(maxLength);
         let size = 0;
+        return this;
     }
 
-    // disposes this string
-    method void dispose(){
+    // Disposes this string
+    method void dispose() {
         do s.dispose();
+        return;
     }
 
-
-    //returns the length of this string
-    method int length(){
+    // Returns the length of this string
+    method int length() {
         return size;
     }
 
-
-    //returns the character at location j of this string
-    method char charAt(int j){
+    // Returns the character at location j of this string
+    method char charAt(int j) {
         return s[j];
     }
 
-    //sets the j-th element of this string to c
-    method void setCharAt(int j, char c){
+    // Sets the j-th element of this string to c
+    method void setCharAt(int j, char c) {
         let s[j] = c;
         return;
     }
 
-    //appends c to this string and returns this string
-    method String appendChar(char c){
-        if (size = s.maxLength()){
-            let s.realloc(size + 1);
+    // Appends c to this string and returns this string
+    method String appendChar(char c) {
+        var Array newArray;
+
+        if (size = s.maxLength()) {
+            let newArray = Memory.realloc(s, s.maxLength() * 2);
+            if (newArray = null) {
+                return this;
+            }
+            let s = newArray;
         }
+
         let s[size] = c;
         let size = size + 1;
-        return this; 
+        return this;
     }
 
-    //erases the last character from this string
-    method void eraseLastChar( ){
+    // Erases the last character from this string
+    method void eraseLastChar() {
         let size = size - 1;
         return;
     }
 
-    //returns the integer value of this string (or the string prefix until a non-digit character is detected)
-    method int intValue(n){
+    // Returns the integer value of this string (or prefix until non-digit)
+    method int intValue() {
         var int v, i;
-        let i = 1;
         let v = 0;
-        while (i<size){
-            let v = v * 10 + (s[i] - 48); 
+        let i = 0;
+        while (i < size) {
+            let v = v * 10 + (s[i] - 48);
             let i = i + 1;
-        } 
+        }
         return v;
     }
 
-    //sets this string to hold a representation of j
-    method void setInt(int j){
-        var int lastDigit;
-        var char c;
-        var String c_as_String;
-        let lastDigit = j - ((j / 10) * 10);
-        let c = s[lastDigit];
-        let c_as_String = String.new(1);
-        do c_as_String.appendChar(c);
-        if (j < 10){
-            return c_as_String;
+    // Sets this string to hold a representation of j
+    method void setInt(int j) {
+        var int digit;
+        let size = 0;
+        while (true) {
+            let digit = j - ((j / 10) * 10);
+            do appendChar(digit + 48); // convert to char
+            let j = j / 10;
+            if (j = 0) {
+                return;
+            }
         }
-        return 
-    }
-
-    //returns the backspace character
-    function char backSpace(){
-
-    }
-
-    //returns the double quote (‘‘) character
-    function char doubleQuote(){
-
-    }
-
-    //returns the newline character
-    function char newLine(){
-
     }
 }

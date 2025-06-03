@@ -162,17 +162,24 @@ public class Parser {
     private Node parseLet(TokenStream tokens) {
         Node node = new Node(Node.StructureType.LET_STATEMENT);
         tokens.expect("let", node, Node.TokenType.KEYWORD);
-        node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
-        if (tokens.match("[")) {
-            node.addChild(new Node("[", Node.TokenType.SYMBOL));
+
+        // Variable base
+        Node varNode = new Node(tokens.next(), Node.TokenType.IDENTIFIER);
+        node.addChild(varNode);
+
+        // Support multiple [expr] indexers
+        while (tokens.peek().equals("[")) {
+            tokens.expect("[", node, Node.TokenType.SYMBOL);
             node.addChild(parseExpression(tokens));
             tokens.expect("]", node, Node.TokenType.SYMBOL);
         }
+
         tokens.expect("=", node, Node.TokenType.SYMBOL);
         node.addChild(parseExpression(tokens));
         tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
+
 
     private Node parseIf(TokenStream tokens) {
         Node node = new Node(Node.StructureType.IF_STATEMENT);
@@ -225,7 +232,7 @@ public class Parser {
     private Node parseExpression(TokenStream tokens) {
         Node node = new Node(Node.StructureType.EXPRESSION);
         node.addChild(parseTerm(tokens));
-        while (Set.of("+", "-", "*", "/", "&", "|", "<", ">", "=").contains(tokens.peek())) {
+        while (Set.of("+", "-", "*", "/", "&", "|", "<", ">", "=", "<=", ">=", "~=").contains(tokens.peek())) {
             node.addChild(new Node(tokens.next(), Node.TokenType.SYMBOL));
             node.addChild(parseTerm(tokens));
         }

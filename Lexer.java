@@ -1,6 +1,4 @@
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
@@ -69,7 +67,7 @@ public class Lexer {
         List<String> tokens = new ArrayList<>();
 
         // Regex: strings | words | symbols
-        Pattern tokenPattern = Pattern.compile("\"[^\"]*\"|\\w+|[^\\s\\w]");
+        Pattern tokenPattern = Pattern.compile("\"[^\"]*\"|<=|>=|~=|\\w+|[^\\s\\w]");
         Matcher matcher = tokenPattern.matcher(input);
 
         while (matcher.find()) {

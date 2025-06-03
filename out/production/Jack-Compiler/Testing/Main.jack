@@ -1,3 +1,5 @@
-class Main(){
-
+class Main {
+    function void main(){
+        do Output.printString("Hello, World!");
+    }
 }

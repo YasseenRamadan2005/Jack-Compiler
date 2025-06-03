@@ -69,10 +69,18 @@ public class BinaryPushGroup extends PushGroup {
         List<String> asm = new ArrayList<>();
 
         if (left.equals(right)) {
-            asm.addAll(left.setD());
-            //if it's a Push Instruction, setting the D register automatically sets the M register too
-            asm.addAll(left instanceof PushInstruction ? List.of("D=" + opToDOperation("M", false)) : List.of("@R13", "M=D", "D=" + opToDOperation("M", false)));
-            return asm;
+            if (op.isCompare()) {
+                if (op == ArithmeticInstruction.Op.EQ) {
+                    asm.add("D=-1");
+                } else {
+                    asm.add("D=0");
+                }
+            } else {
+                asm.addAll(left.setD());
+                //if it's a Push Instruction, setting the D register automatically sets the M register too
+                asm.addAll(left instanceof PushInstruction ? List.of("D=" + opToDOperation("M", false)) : List.of("@R13", "M=D", "D=" + opToDOperation("M", false)));
+                return asm;
+            }
         }
 
         if (right.isConstant() || left.isConstant()) {

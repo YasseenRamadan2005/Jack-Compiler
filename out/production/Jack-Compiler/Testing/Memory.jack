@@ -111,8 +111,8 @@ class Memory {
         let temp = HEAP_START[index];
         let found = get_best_fit(temp, size);
 
-        while (!found) {
-            if (index + 1 >= AMOUNT_OF_BINS) {
+        while (~found) {
+            if (~((index + 1) < AMOUNT_OF_BINS)) {
                 return null;
             }
             let index = index + 1;
@@ -123,7 +123,7 @@ class Memory {
         do remove_node(HEAP_START[getBinIndex(found[node_size])], found);
 
         let remaining_size = found[node_size] - size - 5; // Header (4) + Footer (1)
-        if (remaining_size >= 5) { // Minimum chunk size
+        if (~(remaining_size < 5)) { // Minimum chunk size
             let found[node_size] = size;
             let found[node_hole] = 0;
             do Memory.create_foot(found);
@@ -145,7 +145,7 @@ class Memory {
     function int calloc(int size){
         var int foo;
         let foo = Memory.alloc(size);
-        if (!foo){
+        if (~foo){
             return null;
         }
         while (size > 0){
@@ -182,6 +182,48 @@ class Memory {
         return;
     }
 
+    /**
+     * Reallocates the block at `ptr` to a new size `newSize`.
+     * Allocates a new block, copies contents, frees the old block.
+     */
+    function int realloc(int ptr, int newSize) {
+        var int oldSize, newPtr, copySize;
+
+        if (ptr = null) {
+            return alloc(newSize);
+        }
+
+        let oldSize = getBlockSize(ptr - 1); // Get size from block header
+        let newPtr = alloc(newSize);
+
+        if (newPtr = null) {
+            return null;
+        }
+
+        if (oldSize < newSize) {
+            let copySize = oldSize;
+        } else {
+            let copySize = newSize;
+        }
+
+        do Memory.copy(ptr, newPtr, copySize);
+        do free(ptr);
+        return newPtr;
+    }
+
+
+    /** Copies `length` words from `src` to `dst`. */
+    function void copy(int src, int dst, int length) {
+        var int i;
+        let i = 0;
+        while (i < length) {
+            let Memory[dst + i] = Memory[src + i];
+            let i = i + 1;
+        }
+        return;
+    }
+
+
     /** Removes a node from its bin. */
     function void remove_node(int bin_p, int node_p) {
         if (node_p[node_prev]) {
@@ -204,7 +246,7 @@ class Memory {
         var int i;
         let i = 0;
         while (i < AMOUNT_OF_BINS) {
-            if (size <= (i + 1) * 16) {
+            if (~(size > (i + 1) * 16)) {
                 return i;
             }
             let i = i + 1;
@@ -217,7 +259,7 @@ class Memory {
         var int temp;
         let temp = bin_p;
         while (temp) {
-            if (temp[node_size] >= size) {
+            if (~(temp[node_size] < size)) {
                 return temp;
             }
             let temp = temp[node_next];
@@ -243,7 +285,7 @@ class Memory {
         let node_p[node_prev] = null;
         let node_p[node_next] = null;
 
-        if (!bin_p[0]) {
+        if (~bin_p[0]) {
             let bin_p[0] = node_p;
             return;
         }
@@ -251,12 +293,12 @@ class Memory {
         let current = bin_p[0];
         let prev = null;
 
-        while (current != null & current[node_size] <= node_p[node_size]) {
+        while (~(current = null) & ~(current[node_size] > node_p[node_size])) {
             let prev = current;
             let current = current[node_next];
         }
 
-        if (!prev) {
+        if (~prev) {
             let node_p[node_next] = bin_p[0];
             let bin_p[0][node_prev] = node_p;
             let bin_p[0] = node_p;

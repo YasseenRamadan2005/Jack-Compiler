@@ -37,8 +37,8 @@ public class CodeGenerator {
 
             case CONSTANT_DEC:
                 //constantDec: 'constant' varName integerConstant;
-                ps.addClassConstant(node.children.get(1).getValue(), node.children.get(2).getValue());
-                break;
+                ps.addClassConstant(node.children.get(1).children.get(0).getValue(), node.children.get(2).children.get(0).getValue());
+                return List.of();
 
             case SUBROUTINE_DEC:
                 //"('constructor'|'function'|'method') ('void' | type) subroutineName '(' parameterList ')' subroutineBody"
@@ -190,6 +190,18 @@ public class CodeGenerator {
                         case "<" -> vmInstructions.add("lt");
                         case ">" -> vmInstructions.add("gt");
                         case "=" -> vmInstructions.add("eq");
+                        case "<=" -> {
+                            vmInstructions.add("gt");
+                            vmInstructions.add("not");
+                        }
+                        case ">=" -> {
+                            vmInstructions.add("lt");
+                            vmInstructions.add("not");
+                        }
+                        case "~=" -> {
+                            vmInstructions.add("eq");
+                            vmInstructions.add("not");
+                        }
                         default -> throw new IllegalArgumentException("Unknown operator: " + operator);
                     }
                 }
@@ -217,7 +229,7 @@ public class CodeGenerator {
                             term_vmInstructions.add("call String.new.1 1");
                             for (char c : strVal.toCharArray()) {
                                 term_vmInstructions.add("push constant " + (int) c);
-                                term_vmInstructions.add("call String.appendChar.1 2");
+                                term_vmInstructions.add("call String.appendChar.2 2");
                             }
                             break;
 
@@ -291,12 +303,10 @@ public class CodeGenerator {
                         default:
                             throw new IllegalStateException("Unexpected token type in term: " + tokenType);
                     }
-                }
-                else{
-                    if (structureType == Node.StructureType.EXPRESSION){
+                } else {
+                    if (structureType == Node.StructureType.EXPRESSION) {
                         term_vmInstructions.addAll(Objects.requireNonNull(compileTree(firstChild)));
-                    }
-                    else{
+                    } else {
                         throw new RuntimeException("The only StructureType allowed in a term is an expression");
                     }
                 }
