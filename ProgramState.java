@@ -11,6 +11,8 @@ public class ProgramState {
     private String className = "";
     private String subroutineName = "";
 
+    private Map<String, String> ConstantLookup = new HashMap<>();
+
     // [CLASS_INDEX] = class-level symbol table, [SUBROUTINE_INDEX] = subroutine-level
     private final Map<String, SymbolInfo>[] ST = new Map[]{new HashMap<>(), new HashMap<>()};
 
@@ -63,6 +65,10 @@ public class ProgramState {
         incrementVarCount(kind);
     }
 
+    public void addClassConstant(String name, String number){
+        ConstantLookup.put(name, number);
+    }
+
     public void addToSubroutineST(String name, String type, String kind) {
         int count = getVarCount(kind);
         ST[SUBROUTINE_INDEX].put(name, new SymbolInfo(type, kind, count));
@@ -84,6 +90,11 @@ public class ProgramState {
     }
 
     public String handleVarName(String varName, boolean push) {
+        if (ConstantLookup.containsKey(varName)){
+            return "push constant " + ConstantLookup.get(varName);
+        }
+
+
         SymbolInfo info = lookupSymbol(varName);
         if (info == null) return "// Error: variable not found: " + varName;
 
@@ -114,7 +125,6 @@ public class ProgramState {
             throw new IllegalArgumentException("Unknown statement type: " + statementType);
         }
     }
-
     @Override
     public String toString() {
         return "Class: " + className + ", Subroutine: " + subroutineName + ", ST: " + ST[CLASS_INDEX] + " / " + ST[SUBROUTINE_INDEX] + ", Vars: " + varCounts;

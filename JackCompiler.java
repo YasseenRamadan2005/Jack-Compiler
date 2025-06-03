@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.*;
 
 import VMTranslator.VMTranslator;
-import VMTranslator.VMTranslator.*;
 
 public class JackCompiler {
     private final File[] files;
@@ -12,42 +11,46 @@ public class JackCompiler {
     }
 
     public void compileFiles() throws Exception {
+        File parentDir = null;
+
+        // Step 1: Compile all .jack files to .vm
         for (File input : files) {
             List<String> vmCode = compileFile(input);
 
-            // Replace ".jack" with ".vm" to form the output filename
             String baseName = input.getName().replaceAll("\\.jack$", "");
-            File parentDir = input.getParentFile();
+            parentDir = input.getParentFile(); // save the last used parent
             File outputFile = new File(parentDir, baseName + ".vm");
 
-            // Write the VM code to the output file
             try (PrintWriter writer = new PrintWriter(outputFile)) {
                 for (String line : vmCode) {
                     writer.println(line);
                 }
             }
-            // Filter for .vm files
-            File[] vmFiles = parentDir.listFiles(new FilenameFilter() {
-                public boolean accept(File dir, String name) {
-                    return name.endsWith(".vm");
-                }
-            });
+        }
+
+        // Step 2: Collect all .vm files in that directory
+        if (parentDir != null) {
+            File[] vmFiles = parentDir.listFiles((dir, name) -> name.endsWith(".vm"));
+            if (vmFiles == null || vmFiles.length == 0) {
+                throw new IOException("No .vm files found in directory: " + parentDir);
+            }
+
+            // Step 3: Translate .vm to .hack
+            String outputName = parentDir.getName() + ".hack"; // directory-based output
+            File outputFile = new File(parentDir, outputName);
+
             try {
-                // Replace ".vm" with ".hack" to form the output filename
-                String baseName1 = input.getName().replaceAll("\\.vm$", "");
-                File outputFile1 = new File(parentDir, baseName + ".hack");
-                VMTranslator translator = new VMTranslator(vmFiles, outputFile1);
+                VMTranslator translator = new VMTranslator(vmFiles, outputFile);
                 translator.translate();
                 System.out.println("Translation complete: " + outputFile.getAbsolutePath());
             } catch (IOException e) {
                 System.err.println("Translation failed: " + e.getMessage());
                 System.exit(1);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
             }
+        } else {
+            throw new IllegalStateException("No parent directory found.");
         }
     }
-
 
     public List<String> compileFile(File file) throws Exception {
         Lexer the_lexer = new Lexer(file);

@@ -57,6 +57,9 @@ public class Parser {
         node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER)); // className
         tokens.expect("{", node, Node.TokenType.SYMBOL);
 
+        while (tokens.peek().equals("constant")) {
+            node.addChild(parseCosntantDec(tokens));
+        }
         while (Set.of("static", "field").contains(tokens.peek())) {
             node.addChild(parseClassVarDec(tokens));
         }
@@ -118,6 +121,15 @@ public class Parser {
         return node;
     }
 
+    private Node parseCosntantDec(TokenStream tokens) {
+        Node node = new Node(Node.StructureType.CONSTANT_DEC);
+        tokens.expect("constant", node, Node.TokenType.KEYWORD);
+        node.addChild(parseTerm(tokens));
+        node.addChild(parseTerm(tokens));
+        tokens.expect(";", node, Node.TokenType.SYMBOL);
+        return node;
+    }
+
     private Node parseVarDec(TokenStream tokens) {
         Node node = new Node(Node.StructureType.VAR_DEC);
         tokens.expect("var", node, Node.TokenType.KEYWORD);
@@ -150,17 +162,24 @@ public class Parser {
     private Node parseLet(TokenStream tokens) {
         Node node = new Node(Node.StructureType.LET_STATEMENT);
         tokens.expect("let", node, Node.TokenType.KEYWORD);
-        node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
-        if (tokens.match("[")) {
-            node.addChild(new Node("[", Node.TokenType.SYMBOL));
+
+        // Variable base
+        Node varNode = new Node(tokens.next(), Node.TokenType.IDENTIFIER);
+        node.addChild(varNode);
+
+        // Support multiple [expr] indexers
+        while (tokens.peek().equals("[")) {
+            tokens.expect("[", node, Node.TokenType.SYMBOL);
             node.addChild(parseExpression(tokens));
             tokens.expect("]", node, Node.TokenType.SYMBOL);
         }
+
         tokens.expect("=", node, Node.TokenType.SYMBOL);
         node.addChild(parseExpression(tokens));
         tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
+
 
     private Node parseIf(TokenStream tokens) {
         Node node = new Node(Node.StructureType.IF_STATEMENT);
@@ -213,7 +232,7 @@ public class Parser {
     private Node parseExpression(TokenStream tokens) {
         Node node = new Node(Node.StructureType.EXPRESSION);
         node.addChild(parseTerm(tokens));
-        while (Set.of("+", "-", "*", "/", "&", "|", "<", ">", "=").contains(tokens.peek())) {
+        while (Set.of("+", "-", "*", "/", "&", "|", "<", ">", "=", "<=", ">=", "~=").contains(tokens.peek())) {
             node.addChild(new Node(tokens.next(), Node.TokenType.SYMBOL));
             node.addChild(parseTerm(tokens));
         }
@@ -223,7 +242,6 @@ public class Parser {
     private Node parseTerm(TokenStream tokens) {
         Node node = new Node(Node.StructureType.TERM);
         String token = tokens.peek();
-
         assert token != null;
         if (token.matches("\\d+")) {
             node.addChild(new Node(tokens.next(), Node.TokenType.INTEGER_CONSTANT));
