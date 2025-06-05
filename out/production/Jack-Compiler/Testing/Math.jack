@@ -30,8 +30,12 @@ class Math {
         let powersOfTwo[12] = 4096;
         let powersOfTwo[13] = 8192;
         let powersOfTwo[14] = 16384;
-        let powersOfTwo[15] = 32768;
+        let powersOfTwo[15] = 16384 + 16384;
         return;
+    }
+
+    function int two_to_the_power_of(int i){
+        return powersOfTwo[i];
     }
 
     //Returns true if the j-th bit of the integer x is 1 and false otherwise
@@ -66,19 +70,34 @@ class Math {
      *  an an expression, it handles it by invoking this method.
      *  Thus, x/y and Math.divide(x,y) return the same value. */
     function int divide(int x, int y) {
+        var int neg_x, neg_y;
         var int q;
-        if (y > x){
+        var int result;
+
+        let neg_x = x < 0;
+        let neg_y = y < 0;
+        let x = Math.abs(x);
+        let y = Math.abs(y);
+
+        if( y > x ) {
             return 0;
         }
-        if (y = x){
-            return 1;
+        let q = Math.divide(x, y+y);
+        if( x-(2*q*y) < y ) {
+            let result = q+q;
         }
-        let q = Math.divide(x, y + y);
-        if ((x - ((q + q) * y)) < y){
-            return q + q;
+        else {
+            let result = q+q+1;
         }
-        return q + q + 1;
+
+        if( neg_x = neg_y ) {
+            return result;
+        }
+        else {
+            return -result;
+        }
     }
+
 
     /** Returns the integer part of the square root of x. */
     function int sqrt(int x) {

@@ -1,4 +1,4 @@
-function Screen.init.0 0
+function Screen.init 0
 push constant 0
 not
 pop static 0
@@ -6,36 +6,37 @@ push constant 16384
 pop static 1
 push constant 0
 return
-function Screen.clearScreen.0 1
+function Screen.clearScreen 1
 push constant 0
 pop local 0
-label WHILE_START_Screen.clearScreen.01
+label WHILE_START_Screen.clearScreen1
 push local 0
 push constant 8192
 lt
-if-goto WHILE_END_Screen.clearScreen.01
-push local 0
+not
+if-goto WHILE_END_Screen.clearScreen1
 push static 1
+push local 0
 add
 pop pointer 1
 push that 0
 push constant 0
-call Memory.poke.2 2
+call Memory.poke 2
 pop temp 0
 push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Screen.clearScreen.01
-label WHILE_END_Screen.clearScreen.01
+goto WHILE_START_Screen.clearScreen1
+label WHILE_END_Screen.clearScreen1
 push constant 0
 return
-function Screen.setColor.1 0
+function Screen.setColor 0
 push argument 0
 pop static 0
 push constant 0
 return
-function Screen.drawPixel.2 2
+function Screen.drawPixel 2
 push static 1
 push argument 1
 push constant 32
@@ -49,31 +50,30 @@ pop local 0
 push argument 0
 push constant 15
 and
-call Math.two_to_the_power_of.1 1
+call Math.two_to_the_power_of 1
 pop local 1
 push static 0
 not
-if-goto Screen.drawPixel.2.IfElse1
-push constant 0
+if-goto Screen.drawPixel.IfElse1
 push local 0
+push constant 0
 add
 pop pointer 1
-push constant 0
 push local 0
+push constant 0
 add
 pop pointer 1
 push that 0
 push local 1
 or
 pop that 0
-goto Screen.drawPixel.2.IfElse2
-label Screen.drawPixel.2.IfElse2
-push constant 0
+label Screen.drawPixel.IfElse1
 push local 0
+push constant 0
 add
 pop pointer 1
-push constant 0
 push local 0
+push constant 0
 add
 pop pointer 1
 push that 0
@@ -81,91 +81,92 @@ push local 1
 not
 and
 pop that 0
-label Screen.drawPixel.2.IfElse1
 push constant 0
 return
-function Screen.drawLine.4 7
+function Screen.drawLine 7
 push argument 0
 push argument 2
 eq
 not
-if-goto Screen.drawLine.4.IfElse1
+if-goto Screen.drawLine.IfElse1
 push argument 1
 push argument 3
 gt
 not
-if-goto Screen.drawLine.4.IfElse2
+if-goto Screen.drawLine.IfElse2
 push argument 1
 pop local 6
 push argument 3
 pop argument 1
 push local 6
 pop argument 3
-label Screen.drawLine.4.IfElse2
+label Screen.drawLine.IfElse2
 push argument 1
 pop local 4
-label WHILE_START_Screen.drawLine.41
+label WHILE_START_Screen.drawLine1
 push local 4
 push argument 3
 gt
 not
-if-goto WHILE_END_Screen.drawLine.41
+not
+if-goto WHILE_END_Screen.drawLine1
 push argument 0
 push local 4
-call Screen.drawPixel.2 2
+call Screen.drawPixel 2
 pop temp 0
 push local 4
 push constant 1
 add
 pop local 4
-goto WHILE_START_Screen.drawLine.41
-label WHILE_END_Screen.drawLine.41
+goto WHILE_START_Screen.drawLine1
+label WHILE_END_Screen.drawLine1
 push constant 0
 return
-label Screen.drawLine.4.IfElse1
+label Screen.drawLine.IfElse1
 push argument 1
 push argument 3
 eq
 not
-if-goto Screen.drawLine.4.IfElse3
+if-goto Screen.drawLine.IfElse3
 push argument 0
 push argument 2
 gt
 not
-if-goto Screen.drawLine.4.IfElse4
+if-goto Screen.drawLine.IfElse4
 push argument 0
 pop local 6
 push argument 2
 pop argument 0
 push local 6
 pop argument 2
-label Screen.drawLine.4.IfElse4
+label Screen.drawLine.IfElse4
 push argument 0
 pop local 3
-label WHILE_START_Screen.drawLine.42
+label WHILE_START_Screen.drawLine2
 push local 3
 push argument 2
 gt
 not
-if-goto WHILE_END_Screen.drawLine.42
+not
+if-goto WHILE_END_Screen.drawLine2
 push local 3
 push argument 1
-call Screen.drawPixel.2 2
+call Screen.drawPixel 2
 pop temp 0
 push local 3
 push constant 1
 add
 pop local 3
-goto WHILE_START_Screen.drawLine.42
-label WHILE_END_Screen.drawLine.42
+goto WHILE_START_Screen.drawLine2
+label WHILE_END_Screen.drawLine2
 push constant 0
 return
-label Screen.drawLine.4.IfElse3
+label Screen.drawLine.IfElse3
 push argument 0
 push argument 2
 gt
 not
-if-goto Screen.drawLine.4.IfElse5
+if-goto Screen.drawLine.IfElse5
 push argument 0
 pop local 6
 push argument 2
@@ -178,7 +179,7 @@ push argument 3
 pop argument 1
 push local 6
 pop argument 3
-label Screen.drawLine.4.IfElse5
+label Screen.drawLine.IfElse5
 push argument 2
 push argument 0
 sub
@@ -193,33 +194,34 @@ push local 1
 push constant 0
 lt
 not
-if-goto Screen.drawLine.4.IfElse6
+if-goto Screen.drawLine.IfElse6
 push local 1
 neg
 pop local 1
 push constant 1
 neg
 pop local 5
-label Screen.drawLine.4.IfElse6
+label Screen.drawLine.IfElse6
 push constant 0
 pop local 3
 push constant 0
 pop local 4
 push constant 0
 pop local 2
-label WHILE_START_Screen.drawLine.43
+label WHILE_START_Screen.drawLine3
 push local 3
 push local 0
 gt
 not
-if-goto WHILE_END_Screen.drawLine.43
+not
+if-goto WHILE_END_Screen.drawLine3
 push argument 0
 push local 3
 add
 push argument 1
 push local 4
 add
-call Screen.drawPixel.2 2
+call Screen.drawPixel 2
 pop temp 0
 push local 2
 push local 1
@@ -230,7 +232,7 @@ push local 0
 lt
 not
 not
-if-goto Screen.drawLine.4.IfElse7
+if-goto Screen.drawLine.IfElse7
 push local 4
 push local 5
 add
@@ -239,72 +241,73 @@ push local 2
 push local 0
 sub
 pop local 2
-label Screen.drawLine.4.IfElse7
+label Screen.drawLine.IfElse7
 push local 3
 push constant 1
 add
 pop local 3
-goto WHILE_START_Screen.drawLine.43
-label WHILE_END_Screen.drawLine.43
+goto WHILE_START_Screen.drawLine3
+label WHILE_END_Screen.drawLine3
 push constant 0
 return
-function Screen.drawRectangle.4 2
+function Screen.drawRectangle 2
 push argument 0
 push argument 2
 gt
 not
-if-goto Screen.drawRectangle.4.IfElse1
+if-goto Screen.drawRectangle.IfElse1
 push argument 0
 pop local 0
 push argument 2
 pop argument 0
 push local 0
 pop argument 2
-label Screen.drawRectangle.4.IfElse1
+label Screen.drawRectangle.IfElse1
 push argument 1
 push argument 3
 gt
 not
-if-goto Screen.drawRectangle.4.IfElse2
+if-goto Screen.drawRectangle.IfElse2
 push argument 1
 pop local 0
 push argument 3
 pop argument 1
 push local 0
 pop argument 3
-label Screen.drawRectangle.4.IfElse2
+label Screen.drawRectangle.IfElse2
 push argument 1
 pop local 1
-label WHILE_START_Screen.drawRectangle.41
+label WHILE_START_Screen.drawRectangle1
 push local 1
 push argument 3
 gt
 not
-if-goto WHILE_END_Screen.drawRectangle.41
+not
+if-goto WHILE_END_Screen.drawRectangle1
 push argument 0
 push local 1
 push argument 2
 push local 1
 push pointer 0
-call Screen.drawLine.5 5
+call Screen.drawLine 5
 pop temp 0
 push local 1
 push constant 1
 add
 pop local 1
-goto WHILE_START_Screen.drawRectangle.41
-label WHILE_END_Screen.drawRectangle.41
+goto WHILE_START_Screen.drawRectangle1
+label WHILE_END_Screen.drawRectangle1
 push constant 0
 return
-function Screen.drawCircle.3 3
+function Screen.drawCircle 3
 push argument 2
 push constant 181
 gt
 not
-if-goto Screen.drawCircle.3.IfElse1
+if-goto Screen.drawCircle.IfElse1
 push constant 0
 return
-label Screen.drawCircle.3.IfElse1
+label Screen.drawCircle.IfElse1
 push argument 2
 push argument 2
 call Math.multiply 2
@@ -312,21 +315,23 @@ pop local 2
 push argument 2
 neg
 pop local 1
-label WHILE_START_Screen.drawCircle.31
+label WHILE_START_Screen.drawCircle1
 push local 1
 push argument 2
 gt
 not
-if-goto WHILE_END_Screen.drawCircle.31
+not
+if-goto WHILE_END_Screen.drawCircle1
 push argument 2
 neg
 pop local 0
-label WHILE_START_Screen.drawCircle.32
+label WHILE_START_Screen.drawCircle2
 push local 0
 push argument 2
 gt
 not
-if-goto WHILE_END_Screen.drawCircle.32
+not
+if-goto WHILE_END_Screen.drawCircle2
 push local 0
 push local 0
 call Math.multiply 2
@@ -338,7 +343,7 @@ push local 2
 gt
 not
 not
-if-goto Screen.drawCircle.3.IfElse2
+if-goto Screen.drawCircle.IfElse2
 push argument 0
 push local 0
 add
@@ -346,20 +351,20 @@ push argument 1
 push local 1
 add
 push pointer 0
-call Screen.drawPixel.3 3
+call Screen.drawPixel 3
 pop temp 0
-label Screen.drawCircle.3.IfElse2
+label Screen.drawCircle.IfElse2
 push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Screen.drawCircle.32
-label WHILE_END_Screen.drawCircle.32
+goto WHILE_START_Screen.drawCircle2
+label WHILE_END_Screen.drawCircle2
 push local 1
 push constant 1
 add
 pop local 1
-goto WHILE_START_Screen.drawCircle.31
-label WHILE_END_Screen.drawCircle.31
+goto WHILE_START_Screen.drawCircle1
+label WHILE_END_Screen.drawCircle1
 push constant 0
 return
