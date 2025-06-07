@@ -76,14 +76,14 @@ class Memory {
         }
 
         // Initialize first free block
-        let HEAP_START[AMOUNT_OF_BINS] = HEAP_START + AMOUNT_OF_BINS; //the first memory location right after the bins will be the first node.
+        //the first memory location right after the bins will be the first node.
         let HEAP_START[AMOUNT_OF_BINS][node_size] = HEAP_INIT_SIZE - 5;
         let HEAP_START[AMOUNT_OF_BINS][node_hole] = 1;
         let HEAP_START[AMOUNT_OF_BINS][node_prev] = null;
         let HEAP_START[AMOUNT_OF_BINS][node_next] = null;
 
         do Memory.create_foot(HEAP_START[AMOUNT_OF_BINS]);
-        do Memory.add_node(HEAP_START[getBinIndex(HEAP_INIT_SIZE - 5)], HEAP_START[AMOUNT_OF_BINS]);
+        do Memory.add_node(HEAP_START[Memory.getBinIndex(HEAP_INIT_SIZE - 5)], HEAP_START[AMOUNT_OF_BINS]);
 
         return;
     }
@@ -107,23 +107,23 @@ class Memory {
     function int alloc(int size) {
         var int index, temp, found, remaining_size, new_node;
 
-        let index = getBinIndex(size);
+        let index = Memory.getBinIndex(size);
         let temp = HEAP_START[index];
-        let found = get_best_fit(temp, size);
+        let found = Memory.get_best_fit(temp, size);
 
         while (~found) {
-            if (~((index + 1) < AMOUNT_OF_BINS)) {
+            if ((index + 1) >= AMOUNT_OF_BINS) {
                 return null;
             }
             let index = index + 1;
             let temp = HEAP_START[index];
-            let found = get_best_fit(temp, size);
+            let found = Memory.get_best_fit(temp, size);
         }
 
-        do remove_node(HEAP_START[getBinIndex(found[node_size])], found);
+        do Memory.remove_node(HEAP_START[Memory.getBinIndex(found[node_size])], found);
 
         let remaining_size = found[node_size] - size - 5; // Header (4) + Footer (1)
-        if (~(remaining_size < 5)) { // Minimum chunk size
+        if (remaining_size >= 5) { // Minimum chunk size
             let found[node_size] = size;
             let found[node_hole] = 0;
             do Memory.create_foot(found);
@@ -132,7 +132,7 @@ class Memory {
             let new_node[node_size] = remaining_size;
             let new_node[node_hole] = 1;
             do Memory.create_foot(new_node);
-            do Memory.add_node(HEAP_START[getBinIndex(remaining_size)], new_node);
+            do Memory.add_node(HEAP_START[Memory.getBinIndex(remaining_size)], new_node);
         } else {
             let found[node_hole] = 0;
             do Memory.create_foot(found);
@@ -162,18 +162,18 @@ class Memory {
         let node = ptr - 1;
         let node[node_hole] = 1;
 
-        let prev_node = getPrevNode(node);
-        let next_node = getNextNode(node);
+        let prev_node = Memory.getPrevNode(node);
+        let next_node = Memory.getNextNode(node);
 
-        if (prev_node & prev_node[node_hole] = 1) {
-            do remove_node(HEAP_START[getBinIndex(prev_node[node_size])], prev_node);
+        if (prev_node & (prev_node[node_hole] = 1)) {
+            do Memory.remove_node(HEAP_START[Memory.getBinIndex(prev_node[node_size])], prev_node);
             let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
             do Memory.create_foot(prev_node);
             let node = prev_node;
         }
 
-        if (next_node & next_node[node_hole] = 1) {
-            do remove_node(HEAP_START[getBinIndex(next_node[node_size])], next_node);
+        if (next_node & (next_node[node_hole] = 1)) {
+            do Memory.remove_node(HEAP_START[Memory.getBinIndex(next_node[node_size])], next_node);
             let node[node_size] = node[node_size] + next_node[node_size] + 5;
             do Memory.create_foot(node);
         }
@@ -187,27 +187,28 @@ class Memory {
      * Allocates a new block, copies contents, frees the old block.
      */
     function int realloc(int ptr, int newSize) {
-        var int oldSize, newPtr, copySize;
+        var int oldSize, newPtr, copySize, foo;
 
         if (ptr = null) {
-            return alloc(newSize);
+            return Memory.alloc(newSize);
         }
 
-        let oldSize = getBlockSize(ptr - 1); // Get size from block header
-        let newPtr = alloc(newSize);
+        let foo = ptr - 1;
+        let oldSize = foo[node_size]; // Get size from block header
+        let newPtr = Memory.alloc(newSize);
 
         if (newPtr = null) {
             return null;
         }
 
-        if (oldSize < newSize) {
+        if (oldSize <= newSize) {
             let copySize = oldSize;
         } else {
             let copySize = newSize;
         }
 
         do Memory.copy(ptr, newPtr, copySize);
-        do free(ptr);
+        do Memory.free(ptr);
         return newPtr;
     }
 
@@ -246,7 +247,7 @@ class Memory {
         var int i;
         let i = 0;
         while (i < AMOUNT_OF_BINS) {
-            if (~(size > (i + 1) * 16)) {
+            if (size <= ((i + 1) * 16)) {
                 return i;
             }
             let i = i + 1;
@@ -259,7 +260,7 @@ class Memory {
         var int temp;
         let temp = bin_p;
         while (temp) {
-            if (~(temp[node_size] < size)) {
+            if (temp[node_size] >= size) {
                 return temp;
             }
             let temp = temp[node_next];
@@ -293,7 +294,7 @@ class Memory {
         let current = bin_p[0];
         let prev = null;
 
-        while (~(current = null) & ~(current[node_size] > node_p[node_size])) {
+        while (~(current = null) & (current[node_size] <= node_p[node_size])) {
             let prev = current;
             let current = current[node_next];
         }
@@ -317,7 +318,7 @@ class Memory {
     function int getPrevNode(int node) {
         var int prev;
         let prev = node - 5;
-        if (prev[node_size] + prev + 5 = node) {
+        if ((prev[node_size] + prev + 5) = node) {
             return prev;
         }
         return null;

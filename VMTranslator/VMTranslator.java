@@ -31,11 +31,11 @@ public class VMTranslator {
 
                 "// want  (left  < right)  ⇔ (R15 < 0)", "(DO_LT)", "@15", "D=M", "@RETURN_TRUE", "D;JLT", "@RETURN_FALSE", "0;JMP",
 
-                "// ---- set boolean in D --------------------------------------", "(RETURN_TRUE)", "D = -1  // true", "@WRITE_BACK", "0;JMP",
+                "// ---- set boolean in D --------------------------------------", "(RETURN_TRUE)", "D=-1", "@WRITE_BACK", "0;JMP",
 
-                "(RETURN_FALSE)", "D = 0   // false", "@WRITE_BACK", "0;JMP",
+                "(RETURN_FALSE)", "D=0", "@WRITE_BACK", "0;JMP",
 
-                "// ---- collapse stack and return -----------------------------", "(WRITE_BACK)", "@13 // go back to caller", "A = M", "0;JMP",
+                "// ---- collapse stack and return -----------------------------", "(WRITE_BACK)", "@13", "A=M", "0;JMP",
 
                 "(SKIP)",
 

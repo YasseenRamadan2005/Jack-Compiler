@@ -1,143 +1,153 @@
-function Math.init.0 0
+function Math.init 0
 push constant 16
-call Array.new.1 1
+call Array.new 1
 pop static 0
-push constant 0
 push static 0
+push constant 0
 add
 pop pointer 1
 push constant 0
 pop that 0
+push static 0
 push constant 1
-push static 0
 add
 pop pointer 1
 push constant 2
 pop that 0
-push constant 2
 push static 0
+push constant 2
 add
 pop pointer 1
 push constant 4
 pop that 0
-push constant 3
 push static 0
+push constant 3
 add
 pop pointer 1
 push constant 8
 pop that 0
-push constant 4
 push static 0
+push constant 4
 add
 pop pointer 1
 push constant 16
 pop that 0
-push constant 5
 push static 0
+push constant 5
 add
 pop pointer 1
 push constant 32
 pop that 0
-push constant 6
 push static 0
+push constant 6
 add
 pop pointer 1
 push constant 64
 pop that 0
-push constant 7
 push static 0
+push constant 7
 add
 pop pointer 1
 push constant 128
 pop that 0
-push constant 8
 push static 0
+push constant 8
 add
 pop pointer 1
 push constant 256
 pop that 0
-push constant 9
 push static 0
+push constant 9
 add
 pop pointer 1
 push constant 512
 pop that 0
-push constant 10
 push static 0
+push constant 10
 add
 pop pointer 1
 push constant 1024
 pop that 0
-push constant 11
 push static 0
+push constant 11
 add
 pop pointer 1
 push constant 2048
 pop that 0
-push constant 12
 push static 0
+push constant 12
 add
 pop pointer 1
 push constant 4096
 pop that 0
-push constant 13
 push static 0
+push constant 13
 add
 pop pointer 1
 push constant 8192
 pop that 0
-push constant 14
 push static 0
+push constant 14
 add
 pop pointer 1
 push constant 16384
 pop that 0
-push constant 15
 push static 0
+push constant 15
 add
 pop pointer 1
-push constant 32768
+push constant 16384
+push constant 16384
+add
 pop that 0
 push constant 0
 return
-function Math.bit.2 0
-push argument 0
-push argument 1
+function Math.two_to_the_power_of 0
 push static 0
+push argument 0
+add
+pop pointer 1
+push that 0
+return
+function Math.bit 0
+push argument 0
+push static 0
+push argument 1
 add
 pop pointer 1
 push that 0
 and
 not
-if-goto Math.bit.2.IfElse1
+if-goto Math.bit.IfElse1
 push constant 0
 not
 return
-label Math.bit.2.IfElse1
+label Math.bit.IfElse1
 push constant 0
 return
-function Math.multiply.2 3
+function Math.multiply 3
 push constant 0
 pop local 0
 push argument 0
 pop local 1
 push constant 0
 pop local 2
-label WHILE_START_Math.multiply.21
+label WHILE_START_Math.multiply1
 push local 2
 push constant 16
 lt
-if-goto WHILE_END_Math.multiply.21
+not
+if-goto WHILE_END_Math.multiply1
 push argument 0
 push local 2
-call Math.bit.2 2
+call Math.bit 2
 not
-if-goto Math.multiply.2.IfElse1
+if-goto Math.multiply.IfElse1
 push local 0
 push local 1
 add
 pop local 0
-label Math.multiply.2.IfElse1
+label Math.multiply.IfElse1
 push local 1
 push local 1
 add
@@ -146,32 +156,32 @@ push local 2
 push constant 1
 add
 pop local 2
-goto WHILE_START_Math.multiply.21
-label WHILE_END_Math.multiply.21
+goto WHILE_START_Math.multiply1
+label WHILE_END_Math.multiply1
 push local 0
 return
-function Math.divide.2 1
+function Math.divide 1
 push argument 1
 push argument 0
 gt
 not
-if-goto Math.divide.2.IfElse1
+if-goto Math.divide.IfElse1
 push constant 0
 return
-label Math.divide.2.IfElse1
+label Math.divide.IfElse1
 push argument 1
 push argument 0
 eq
 not
-if-goto Math.divide.2.IfElse2
+if-goto Math.divide.IfElse2
 push constant 1
 return
-label Math.divide.2.IfElse2
+label Math.divide.IfElse2
 push argument 0
 push argument 1
 push argument 1
 add
-call Math.divide.2 2
+call Math.divide 2
 pop local 0
 push argument 0
 push local 0
@@ -183,24 +193,24 @@ sub
 push argument 1
 lt
 not
-if-goto Math.divide.2.IfElse3
+if-goto Math.divide.IfElse3
 push local 0
 push local 0
 add
 return
-label Math.divide.2.IfElse3
+label Math.divide.IfElse3
 push local 0
 push local 0
 add
 push constant 1
 add
 return
-function Math.sqrt.1 3
+function Math.sqrt 3
 push constant 0
 pop local 0
 push constant 15
 pop local 1
-label WHILE_START_Math.sqrt.11
+label WHILE_START_Math.sqrt1
 push local 1
 push constant 0
 gt
@@ -208,10 +218,11 @@ push local 1
 push constant 0
 eq
 or
-if-goto WHILE_END_Math.sqrt.11
+not
+if-goto WHILE_END_Math.sqrt1
 push local 0
-push local 1
 push static 0
+push local 1
 add
 pop pointer 1
 push that 0
@@ -224,49 +235,49 @@ push argument 0
 gt
 not
 not
-if-goto Math.sqrt.1.IfElse1
+if-goto Math.sqrt.IfElse1
 push local 2
 pop local 0
-label Math.sqrt.1.IfElse1
+label Math.sqrt.IfElse1
 push local 1
 push constant 1
 sub
 pop local 1
-goto WHILE_START_Math.sqrt.11
-label WHILE_END_Math.sqrt.11
+goto WHILE_START_Math.sqrt1
+label WHILE_END_Math.sqrt1
 push local 0
 return
-function Math.max.2 0
+function Math.max 0
 push argument 0
 push argument 1
 gt
 not
-if-goto Math.max.2.IfElse1
+if-goto Math.max.IfElse1
 push argument 0
 return
-label Math.max.2.IfElse1
+label Math.max.IfElse1
 push argument 1
 return
-function Math.min.2 0
+function Math.min 0
 push argument 0
 push argument 1
 lt
 not
-if-goto Math.min.2.IfElse1
+if-goto Math.min.IfElse1
 push argument 0
 return
-label Math.min.2.IfElse1
+label Math.min.IfElse1
 push argument 1
 return
-function Math.abs.1 0
+function Math.abs 0
 push argument 0
 push constant 0
 lt
 not
-if-goto Math.abs.1.IfElse1
+if-goto Math.abs.IfElse1
 push argument 0
 neg
 return
-label Math.abs.1.IfElse1
+label Math.abs.IfElse1
 push argument 0
 return

@@ -1,7 +1,7 @@
-function Output.init.0 0
+function Output.init 0
 push constant 16384
 pop static 3
-call Output.initMap.0 0
+call Output.initMap 0
 pop temp 0
 push constant 0
 pop static 1
@@ -9,9 +9,9 @@ push constant 0
 pop static 2
 push constant 0
 return
-function Output.initMap.0 1
+function Output.initMap 1
 push constant 127
-call Array.new.1 1
+call Array.new 1
 pop static 0
 push constant 0
 push constant 63
@@ -25,7 +25,7 @@ push constant 63
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 32
 push constant 0
@@ -39,7 +39,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 33
 push constant 12
@@ -53,7 +53,7 @@ push constant 12
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 34
 push constant 54
@@ -67,7 +67,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 35
 push constant 0
@@ -81,7 +81,7 @@ push constant 18
 push constant 18
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 36
 push constant 12
@@ -95,7 +95,7 @@ push constant 30
 push constant 12
 push constant 12
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 37
 push constant 0
@@ -109,7 +109,7 @@ push constant 51
 push constant 49
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 38
 push constant 12
@@ -123,7 +123,7 @@ push constant 27
 push constant 54
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 39
 push constant 12
@@ -137,7 +137,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 40
 push constant 24
@@ -151,7 +151,7 @@ push constant 12
 push constant 24
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 41
 push constant 6
@@ -165,7 +165,7 @@ push constant 12
 push constant 6
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 42
 push constant 0
@@ -179,7 +179,7 @@ push constant 51
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 43
 push constant 0
@@ -193,7 +193,7 @@ push constant 12
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 44
 push constant 0
@@ -207,7 +207,7 @@ push constant 12
 push constant 12
 push constant 6
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 45
 push constant 0
@@ -221,7 +221,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 46
 push constant 0
@@ -235,7 +235,7 @@ push constant 12
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 47
 push constant 0
@@ -249,7 +249,7 @@ push constant 3
 push constant 1
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 48
 push constant 12
@@ -263,7 +263,7 @@ push constant 30
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 49
 push constant 12
@@ -277,7 +277,7 @@ push constant 12
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 50
 push constant 30
@@ -291,7 +291,7 @@ push constant 51
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 51
 push constant 30
@@ -305,7 +305,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 52
 push constant 16
@@ -319,7 +319,7 @@ push constant 24
 push constant 60
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 53
 push constant 63
@@ -333,7 +333,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 54
 push constant 28
@@ -347,7 +347,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 55
 push constant 63
@@ -361,7 +361,7 @@ push constant 12
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 56
 push constant 30
@@ -375,7 +375,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 57
 push constant 30
@@ -389,7 +389,7 @@ push constant 24
 push constant 14
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 58
 push constant 0
@@ -403,7 +403,7 @@ push constant 12
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 59
 push constant 0
@@ -417,7 +417,7 @@ push constant 12
 push constant 6
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 60
 push constant 0
@@ -431,7 +431,7 @@ push constant 12
 push constant 24
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 61
 push constant 0
@@ -445,7 +445,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 62
 push constant 0
@@ -459,7 +459,7 @@ push constant 6
 push constant 3
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 64
 push constant 30
@@ -473,7 +473,7 @@ push constant 3
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 63
 push constant 30
@@ -487,7 +487,7 @@ push constant 12
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 65
 push constant 0
@@ -501,7 +501,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 66
 push constant 31
@@ -515,7 +515,7 @@ push constant 51
 push constant 31
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 67
 push constant 28
@@ -529,7 +529,7 @@ push constant 54
 push constant 28
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 68
 push constant 15
@@ -543,7 +543,7 @@ push constant 27
 push constant 15
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 69
 push constant 63
@@ -557,7 +557,7 @@ push constant 51
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 70
 push constant 63
@@ -571,7 +571,7 @@ push constant 3
 push constant 3
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 71
 push constant 28
@@ -585,7 +585,7 @@ push constant 54
 push constant 44
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 72
 push constant 51
@@ -599,7 +599,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 73
 push constant 30
@@ -613,7 +613,7 @@ push constant 12
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 74
 push constant 60
@@ -627,7 +627,7 @@ push constant 27
 push constant 14
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 75
 push constant 51
@@ -641,7 +641,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 76
 push constant 3
@@ -655,7 +655,7 @@ push constant 51
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 77
 push constant 33
@@ -669,7 +669,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 78
 push constant 51
@@ -683,7 +683,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 79
 push constant 30
@@ -697,7 +697,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 80
 push constant 31
@@ -711,7 +711,7 @@ push constant 3
 push constant 3
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 81
 push constant 30
@@ -725,7 +725,7 @@ push constant 59
 push constant 30
 push constant 48
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 82
 push constant 31
@@ -739,7 +739,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 83
 push constant 30
@@ -753,7 +753,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 84
 push constant 63
@@ -767,7 +767,7 @@ push constant 12
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 85
 push constant 51
@@ -781,7 +781,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 86
 push constant 51
@@ -795,7 +795,7 @@ push constant 12
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 87
 push constant 51
@@ -809,7 +809,7 @@ push constant 63
 push constant 18
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 88
 push constant 51
@@ -823,7 +823,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 89
 push constant 51
@@ -837,7 +837,7 @@ push constant 12
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 90
 push constant 63
@@ -851,7 +851,7 @@ push constant 51
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 91
 push constant 30
@@ -865,7 +865,7 @@ push constant 6
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 92
 push constant 0
@@ -879,7 +879,7 @@ push constant 48
 push constant 32
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 93
 push constant 30
@@ -893,7 +893,7 @@ push constant 24
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 94
 push constant 8
@@ -907,7 +907,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 95
 push constant 0
@@ -921,7 +921,7 @@ push constant 0
 push constant 0
 push constant 63
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 96
 push constant 6
@@ -935,7 +935,7 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 97
 push constant 0
@@ -949,7 +949,7 @@ push constant 27
 push constant 54
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 98
 push constant 3
@@ -963,7 +963,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 99
 push constant 0
@@ -977,7 +977,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 100
 push constant 48
@@ -991,7 +991,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 101
 push constant 0
@@ -1005,7 +1005,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 102
 push constant 28
@@ -1019,7 +1019,7 @@ push constant 6
 push constant 15
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 103
 push constant 0
@@ -1033,7 +1033,7 @@ push constant 48
 push constant 51
 push constant 30
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 104
 push constant 3
@@ -1047,7 +1047,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 105
 push constant 12
@@ -1061,7 +1061,7 @@ push constant 12
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 106
 push constant 48
@@ -1075,7 +1075,7 @@ push constant 48
 push constant 51
 push constant 30
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 107
 push constant 3
@@ -1089,7 +1089,7 @@ push constant 27
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 108
 push constant 14
@@ -1103,7 +1103,7 @@ push constant 12
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 109
 push constant 0
@@ -1117,7 +1117,7 @@ push constant 43
 push constant 43
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 110
 push constant 0
@@ -1131,7 +1131,7 @@ push constant 51
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 111
 push constant 0
@@ -1145,7 +1145,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 112
 push constant 0
@@ -1159,7 +1159,7 @@ push constant 31
 push constant 3
 push constant 3
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 113
 push constant 0
@@ -1173,7 +1173,7 @@ push constant 62
 push constant 48
 push constant 48
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 114
 push constant 0
@@ -1187,7 +1187,7 @@ push constant 3
 push constant 7
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 115
 push constant 0
@@ -1201,7 +1201,7 @@ push constant 51
 push constant 30
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 116
 push constant 4
@@ -1215,7 +1215,7 @@ push constant 54
 push constant 28
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 117
 push constant 0
@@ -1229,7 +1229,7 @@ push constant 27
 push constant 54
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 118
 push constant 0
@@ -1243,7 +1243,7 @@ push constant 30
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 119
 push constant 0
@@ -1257,7 +1257,7 @@ push constant 63
 push constant 18
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 120
 push constant 0
@@ -1271,7 +1271,7 @@ push constant 30
 push constant 51
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 121
 push constant 0
@@ -1285,7 +1285,7 @@ push constant 48
 push constant 24
 push constant 15
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 122
 push constant 0
@@ -1299,7 +1299,7 @@ push constant 51
 push constant 63
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 123
 push constant 56
@@ -1313,7 +1313,7 @@ push constant 12
 push constant 56
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 124
 push constant 12
@@ -1327,7 +1327,7 @@ push constant 12
 push constant 12
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 125
 push constant 7
@@ -1341,7 +1341,7 @@ push constant 12
 push constant 7
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 126
 push constant 38
@@ -1355,89 +1355,89 @@ push constant 0
 push constant 0
 push constant 0
 push constant 0
-call Output.create.12 12
+call Output.create 12
 pop temp 0
 push constant 0
 return
-function Output.create.12 1
+function Output.create 1
 push constant 11
-call Array.new.1 1
+call Array.new 1
 pop local 0
-push argument 0
 push static 0
+push argument 0
 add
 pop pointer 1
 push local 0
 pop that 0
-push constant 0
 push local 0
+push constant 0
 add
 pop pointer 1
 push argument 1
 pop that 0
-push constant 1
 push local 0
+push constant 1
 add
 pop pointer 1
 push argument 2
 pop that 0
-push constant 2
 push local 0
+push constant 2
 add
 pop pointer 1
 push argument 3
 pop that 0
-push constant 3
 push local 0
+push constant 3
 add
 pop pointer 1
 push argument 4
 pop that 0
-push constant 4
 push local 0
+push constant 4
 add
 pop pointer 1
 push argument 5
 pop that 0
-push constant 5
 push local 0
+push constant 5
 add
 pop pointer 1
 push argument 6
 pop that 0
-push constant 6
 push local 0
+push constant 6
 add
 pop pointer 1
 push argument 7
 pop that 0
-push constant 7
 push local 0
+push constant 7
 add
 pop pointer 1
 push argument 8
 pop that 0
-push constant 8
 push local 0
+push constant 8
 add
 pop pointer 1
 push argument 9
 pop that 0
-push constant 9
 push local 0
+push constant 9
 add
 pop pointer 1
 push argument 10
 pop that 0
-push constant 10
 push local 0
+push constant 10
 add
 pop pointer 1
 push argument 11
 pop that 0
 push constant 0
 return
-function Output.getMap.1 0
+function Output.getMap 0
 push argument 0
 push constant 32
 lt
@@ -1446,31 +1446,31 @@ push constant 126
 gt
 or
 not
-if-goto Output.getMap.1.IfElse1
+if-goto Output.getMap.IfElse1
 push constant 0
 pop argument 0
-label Output.getMap.1.IfElse1
-push argument 0
+label Output.getMap.IfElse1
 push static 0
+push argument 0
 add
 pop pointer 1
 push that 0
 return
-function Output.moveCursor.2 0
+function Output.moveCursor 0
 push argument 0
 pop static 1
 push argument 1
 pop static 2
 push constant 0
-call Output.printChar.1 1
+call Output.printChar 1
 pop temp 0
-call Output.backSpace.0 0
+call Output.backSpace 0
 pop temp 0
 push constant 0
 return
-function Output.printChar.1 4
+function Output.printChar 4
 push argument 0
-call Output.getMap.1 1
+call Output.getMap 1
 pop local 0
 push static 3
 push static 2
@@ -1484,41 +1484,40 @@ add
 pop local 1
 push constant 0
 pop local 3
-label WHILE_START_Output.printChar.11
+label WHILE_START_Output.printChar1
 push local 3
 push constant 11
 lt
-if-goto WHILE_END_Output.printChar.11
+not
+if-goto WHILE_END_Output.printChar1
 push static 1
 push constant 1
 and
 push constant 0
 eq
 not
-if-goto Output.printChar.1.IfElse1
-push local 3
+if-goto Output.printChar.IfElse1
 push local 0
+push local 3
 add
 pop pointer 1
 push that 0
 push constant 256
 call Math.multiply 2
 pop local 2
-goto Output.printChar.1.IfElse1
-label Output.printChar.1.IfElse1
-push local 3
+label Output.printChar.IfElse1
 push local 0
+push local 3
 add
 pop pointer 1
 push that 0
 pop local 2
-label Output.printChar.1.IfElse1
-push constant 0
 push local 1
+push constant 0
 add
 pop pointer 1
-push constant 0
 push local 1
+push constant 0
 add
 pop pointer 1
 push that 0
@@ -1529,97 +1528,93 @@ push local 3
 push constant 1
 add
 pop local 3
-goto WHILE_START_Output.printChar.11
-label WHILE_END_Output.printChar.11
+goto WHILE_START_Output.printChar1
+label WHILE_END_Output.printChar1
 push static 1
 push constant 63
 eq
 not
-if-goto Output.printChar.1.IfElse2
-call Output.println.0 0
+if-goto Output.printChar.IfElse2
+call Output.println 0
 pop temp 0
-goto Output.printChar.1.IfElse2
-label Output.printChar.1.IfElse2
+label Output.printChar.IfElse2
 push static 1
 push constant 1
 add
 pop static 1
-label Output.printChar.1.IfElse2
 push constant 0
 return
-function Output.printString.1 1
+function Output.printString 1
 push constant 0
 pop local 0
-label WHILE_START_Output.printString.11
+label WHILE_START_Output.printString1
 push local 0
 push argument 0
-call String.length.1 1
+call String.length 1
 lt
-if-goto WHILE_END_Output.printString.11
-push local 0
+not
+if-goto WHILE_END_Output.printString1
 push argument 0
+push local 0
 add
 pop pointer 1
 push that 0
-call Output.printChar.1 1
+call Output.printChar 1
 pop temp 0
 push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Output.printString.11
-label WHILE_END_Output.printString.11
+goto WHILE_START_Output.printString1
+label WHILE_END_Output.printString1
 push constant 0
 return
-function Output.printInt.1 1
+function Output.printInt 1
+push local 0
 push argument 0
-call String.int2String.1 1
-pop local 0
-push local 0
-call Output.printString.1 1
+call String.setInt 2
 pop temp 0
 push local 0
-call String.dispose.1 1
+call Output.printString 1
+pop temp 0
+push local 0
+call String.dispose 1
 pop temp 0
 push constant 0
 return
-function Output.println.0 0
+function Output.println 0
 push constant 0
 pop static 1
 push static 2
 push constant 22
 eq
 not
-if-goto Output.println.0.IfElse1
+if-goto Output.println.IfElse1
 push constant 0
 pop static 2
-goto Output.println.0.IfElse1
-label Output.println.0.IfElse1
+label Output.println.IfElse1
 push static 2
 push constant 1
 add
 pop static 2
-label Output.println.0.IfElse1
 push constant 0
 return
-function Output.backSpace.0 0
+function Output.backSpace 0
 push static 1
 push constant 0
 eq
 not
-if-goto Output.backSpace.0.IfElse1
+if-goto Output.backSpace.IfElse1
 push static 2
 push constant 1
 sub
 pop static 2
 push constant 63
 pop static 1
-goto Output.backSpace.0.IfElse1
-label Output.backSpace.0.IfElse1
+label Output.backSpace.IfElse1
 push static 1
 push constant 1
 sub
 pop static 1
-label Output.backSpace.0.IfElse1
 push constant 0
 return

@@ -35,8 +35,8 @@ public class JackCompiler {
                 throw new IOException("No .vm files found in directory: " + parentDir);
             }
 
-            // Step 3: Translate .vm to .hack
-            String outputName = parentDir.getName() + ".hack"; // directory-based output
+            // Step 3: Translate .vm to .asm
+            String outputName = parentDir.getName() + ".asm"; // directory-based output
             File outputFile = new File(parentDir, outputName);
 
             try {

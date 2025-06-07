@@ -106,6 +106,7 @@ public class CodeGenerator {
 
                 whileCode.add("label " + labelStart);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
+                whileCode.add("not");
                 whileCode.add("if-goto " + labelEnd);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // body
                 whileCode.add("goto " + labelStart);
@@ -119,39 +120,64 @@ public class CodeGenerator {
 
                 List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
                 ifCode.add("not");
-                ifCode.add("if-goto " + funcName + ".IfElse" + y);
+                ifCode.add("if-goto " + funcName + ".IfElse" + y); //We jump if the condition is false. Bitwise not of false (0) is -1, which is all ones (true). Technically, any value not zero is truthy, even though the true keyword is specifically -1
 
                 ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then block
-
+                ifCode.add("label " + funcName + ".IfElse" + y);
                 if (node.children.size() > 7) {
-                    ifCode.add("goto " + funcName + ".IfElse" + y);
-                    ifCode.add("label " + funcName + ".IfElse" + y);
                     ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block
                 }
-
-                ifCode.add("label " + funcName + ".IfElse" + y);
                 return ifCode;
 
 
-            case LET_STATEMENT:
+            case LET_STATEMENT: {
                 String varName = node.children.get(1).value;
                 List<String> letCode = new ArrayList<>();
 
-                if (node.children.size() > 5) {
-                    // let x[expr1] = expr2;
-                    letCode.addAll(Objects.requireNonNull(compileTree(node.children.get(3)))); // expr1
-                    letCode.add(ps.handleVarName(varName, true)); // push base
-                    letCode.add("add");
+                // Index tracking
+                int i = 2;
+                List<Node> bracketExprs = new ArrayList<>();
+
+                // Collect all bracketed expressions: [expr]*
+                while (i < node.children.size() && node.children.get(i).value.equals("[")) {
+                    // children.get(i) == "["
+                    Node expr = node.children.get(i + 1); // expression inside []
+                    bracketExprs.add(expr);
+                    i += 3; // skip over "[", expr, "]"
+                }
+
+                boolean isArray = !bracketExprs.isEmpty();
+
+                // Now the assignment expression is always the second-to-last child
+                Node rhsExpr = node.children.get(node.children.size() - 2);
+
+                if (isArray) {
+                    // push base address
+                    letCode.add(ps.handleVarName(varName, true));
+
+                    // for each [expr], push expression and add
+                    for (Node expr : bracketExprs) {
+                        letCode.addAll(Objects.requireNonNull(compileTree(expr)));
+                        letCode.add("add");
+                    }
+
+                    // pop target address to pointer 1
                     letCode.add("pop pointer 1");
-                    letCode.addAll(Objects.requireNonNull(compileTree(node.children.get(node.children.size() - 2)))); // expr2
+
+                    // compile RHS expression
+                    letCode.addAll(Objects.requireNonNull(compileTree(rhsExpr)));
+
+                    // pop result to that 0
                     letCode.add("pop that 0");
                 } else {
-                    // let x = expr;
-                    letCode.addAll(Objects.requireNonNull(compileTree(node.children.get(node.children.size() - 2))));
-                    letCode.add(ps.handleVarName(varName, false)); // pop into x
+                    // Simple variable assignment
+                    letCode.addAll(Objects.requireNonNull(compileTree(rhsExpr)));
+                    letCode.add(ps.handleVarName(varName, false)); // pop into var
                 }
 
                 return letCode;
+            }
+
 
             case DO_STATEMENT:
                 List<Node> callNodes = node.children.subList(1, node.children.size() - 1); // subroutineCall
@@ -226,10 +252,10 @@ public class CodeGenerator {
                             String strVal = firstChild.value;
                             assert strVal != null;
                             term_vmInstructions.add("push constant " + strVal.length());
-                            term_vmInstructions.add("call String.new.1 1");
+                            term_vmInstructions.add("call String.new 1");
                             for (char c : strVal.toCharArray()) {
                                 term_vmInstructions.add("push constant " + (int) c);
-                                term_vmInstructions.add("call String.appendChar.2 2");
+                                term_vmInstructions.add("call String.appendChar 2");
                             }
                             break;
 
@@ -255,7 +281,6 @@ public class CodeGenerator {
                             break;
 
                         case IDENTIFIER:
-                            // Could be varName alone, varName '[' expression ']', or subroutineCall
                             if (children.size() == 1) {
                                 // Just a variable
                                 term_vmInstructions.add(ps.handleVarName(firstChild.value, true));
@@ -266,11 +291,21 @@ public class CodeGenerator {
                                     String sym = secondChild.value;
 
                                     if ("[".equals(sym)) {
-                                        // varName '[' expression ']'
-                                        term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(2)))); // expression
-                                        term_vmInstructions.addAll(List.of(ps.handleVarName(firstChild.value, true), "add", "pop pointer 1", "push that 0"));
+                                        // Multiple-dimensional indexing: varName [expr] [expr] ...
+                                        // Start with base address
+                                        term_vmInstructions.add(ps.handleVarName(firstChild.value, true));
+
+                                        for (int i = 1; i < children.size(); i++) {
+                                            if ("[".equals(children.get(i).value)) {
+                                                // Compile expression
+                                                term_vmInstructions.addAll(Objects.requireNonNull(compileTree(children.get(i + 1))));
+                                                term_vmInstructions.add("add"); // base + offset
+                                                term_vmInstructions.add("pop pointer 1");
+                                                term_vmInstructions.add("push that 0");
+                                            }
+                                        }
                                     } else if ("(".equals(sym) || ".".equals(sym)) {
-                                        // subroutineCall
+                                        // subroutine call
                                         term_vmInstructions.addAll(compileSubroutineCall(children));
                                     } else {
                                         throw new IllegalStateException("Unexpected symbol after identifier in term: " + sym);
@@ -280,6 +315,7 @@ public class CodeGenerator {
                                 }
                             }
                             break;
+
 
                         case SYMBOL:
                             // Could be unaryOp or parenthesized expression
@@ -350,17 +386,17 @@ public class CodeGenerator {
             if (symbol != null) {
                 // Push object reference as first argument
                 vmInstructions.addFirst(ps.handleVarName(base, true));
-                vmInstructions.add(String.format("call %s.%s.%d %d", symbol.type, subroutineName, argCount + 1, argCount + 1));
+                vmInstructions.add(String.format("call %s.%s %d", symbol.type, subroutineName, argCount + 1));
             } else {
                 // Static call like ClassName.func(...)
-                vmInstructions.add(String.format("call %s.%s.%d %d", base, subroutineName, argCount, argCount));
+                vmInstructions.add(String.format("call %s.%s %d", base, subroutineName, argCount));
             }
         } else if (nodes.size() == 4) {
             // Case: foo(...) — method in current class
             String subroutineName = nodes.getFirst().value;
 
             vmInstructions.add("push pointer 0"); // push `this` reference
-            vmInstructions.add(String.format("call %s.%s.%d %d", ps.getClassName(), subroutineName, argCount + 1, argCount + 1));
+            vmInstructions.add(String.format("call %s.%s %d", ps.getClassName(), subroutineName, argCount + 1));
         }
 
         return vmInstructions;

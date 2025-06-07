@@ -44,6 +44,10 @@ public class Parser {
             }
             n.add(new Node(expected, tt));
         }
+
+        public boolean has(int i) {
+            return pos + i < tokens.size();
+        }
     }
 
     public Node parse() {
@@ -257,10 +261,15 @@ public class Parser {
             node.addChild(new Node(tokens.next(), Node.TokenType.SYMBOL));
             node.addChild(parseTerm(tokens));
         } else if ("[".equals(tokens.tokens.get(tokens.pos + 1))) {
-            node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
-            tokens.expect("[", node, Node.TokenType.SYMBOL);
-            node.addChild(parseExpression(tokens));
-            tokens.expect("]", node, Node.TokenType.SYMBOL);
+            // varName with one or more [expression] blocks
+            node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER)); // varName
+
+            // Loop to handle multiple [expression] segments
+            while (tokens.has(1) && tokens.tokens.get(tokens.pos).equals("[")) {
+                tokens.expect("[", node, Node.TokenType.SYMBOL);
+                node.addChild(parseExpression(tokens));
+                tokens.expect("]", node, Node.TokenType.SYMBOL);
+            }
         } else if (Set.of("(", ".").contains(tokens.tokens.get(tokens.pos + 1))) {
             node.addChildren(parseSubroutineCall(tokens));
         } else {

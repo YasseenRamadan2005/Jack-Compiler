@@ -76,7 +76,7 @@ public class ProgramState {
     }
 
     public String getFunctionDeclarationName() {
-        return className + "." + subroutineName + "." + getVarCount("argument");
+        return className + "." + subroutineName;
     }
 
     public SymbolInfo lookupSymbol(String name) {

@@ -1,0 +1,448 @@
+<CLASS>
+  <KEYWORD> class </KEYWORD>
+  <IDENTIFIER> Keyboard </IDENTIFIER>
+  <SYMBOL> { </SYMBOL>
+  <CONSTANT_DEC>
+    <KEYWORD> constant </KEYWORD>
+    <TERM>
+      <IDENTIFIER> keyboard </IDENTIFIER>
+    </TERM>
+    <TERM>
+      <INTEGER_CONSTANT> 24576 </INTEGER_CONSTANT>
+    </TERM>
+    <SYMBOL> ; </SYMBOL>
+  </CONSTANT_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> void </KEYWORD>
+    <IDENTIFIER> init </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> char </KEYWORD>
+    <IDENTIFIER> keyPressed </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <STATEMENTS>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> keyboard </IDENTIFIER>
+              <SYMBOL> [ </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ] </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> char </KEYWORD>
+    <IDENTIFIER> readChar </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <KEYWORD> char </KEYWORD>
+        <IDENTIFIER> key </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
+      </VAR_DEC>
+      <STATEMENTS>
+        <WHILE_STATEMENT>
+          <KEYWORD> while </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> keyboard </IDENTIFIER>
+              <SYMBOL> [ </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ] </SYMBOL>
+            </TERM>
+            <SYMBOL> = </SYMBOL>
+            <TERM>
+              <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </WHILE_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> key </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> keyboard </IDENTIFIER>
+              <SYMBOL> [ </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ] </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <WHILE_STATEMENT>
+          <KEYWORD> while </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <SYMBOL> ~ </SYMBOL>
+              <TERM>
+                <SYMBOL> ( </SYMBOL>
+                <EXPRESSION>
+                  <TERM>
+                    <IDENTIFIER> keyboard </IDENTIFIER>
+                    <SYMBOL> [ </SYMBOL>
+                    <EXPRESSION>
+                      <TERM>
+                        <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                      </TERM>
+                    </EXPRESSION>
+                    <SYMBOL> ] </SYMBOL>
+                  </TERM>
+                  <SYMBOL> = </SYMBOL>
+                  <TERM>
+                    <INTEGER_CONSTANT> 0 </INTEGER_CONSTANT>
+                  </TERM>
+                </EXPRESSION>
+                <SYMBOL> ) </SYMBOL>
+              </TERM>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </WHILE_STATEMENT>
+        <DO_STATEMENT>
+          <KEYWORD> do </KEYWORD>
+          <IDENTIFIER> Output </IDENTIFIER>
+          <SYMBOL> . </SYMBOL>
+          <IDENTIFIER> printChar </IDENTIFIER>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION_LIST>
+            <EXPRESSION>
+              <TERM>
+                <IDENTIFIER> key </IDENTIFIER>
+              </TERM>
+            </EXPRESSION>
+          </EXPRESSION_LIST>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> ; </SYMBOL>
+        </DO_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> key </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <IDENTIFIER> String </IDENTIFIER>
+    <IDENTIFIER> readLine </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <IDENTIFIER> String </IDENTIFIER>
+      <IDENTIFIER> message </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <IDENTIFIER> String </IDENTIFIER>
+        <IDENTIFIER> line </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
+      </VAR_DEC>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <KEYWORD> char </KEYWORD>
+        <IDENTIFIER> c </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
+      </VAR_DEC>
+      <STATEMENTS>
+        <DO_STATEMENT>
+          <KEYWORD> do </KEYWORD>
+          <IDENTIFIER> Output </IDENTIFIER>
+          <SYMBOL> . </SYMBOL>
+          <IDENTIFIER> printString </IDENTIFIER>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION_LIST>
+            <EXPRESSION>
+              <TERM>
+                <IDENTIFIER> message </IDENTIFIER>
+              </TERM>
+            </EXPRESSION>
+          </EXPRESSION_LIST>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> ; </SYMBOL>
+        </DO_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> line </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> String </IDENTIFIER>
+              <SYMBOL> . </SYMBOL>
+              <IDENTIFIER> new </IDENTIFIER>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION_LIST>
+                <EXPRESSION>
+                  <TERM>
+                    <INTEGER_CONSTANT> 50 </INTEGER_CONSTANT>
+                  </TERM>
+                </EXPRESSION>
+              </EXPRESSION_LIST>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> c </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> Keyboard </IDENTIFIER>
+              <SYMBOL> . </SYMBOL>
+              <IDENTIFIER> readChar </IDENTIFIER>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION_LIST>
+              </EXPRESSION_LIST>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <WHILE_STATEMENT>
+          <KEYWORD> while </KEYWORD>
+          <SYMBOL> ( </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <SYMBOL> ~ </SYMBOL>
+              <TERM>
+                <SYMBOL> ( </SYMBOL>
+                <EXPRESSION>
+                  <TERM>
+                    <IDENTIFIER> c </IDENTIFIER>
+                  </TERM>
+                  <SYMBOL> = </SYMBOL>
+                  <TERM>
+                    <IDENTIFIER> String </IDENTIFIER>
+                    <SYMBOL> . </SYMBOL>
+                    <IDENTIFIER> newLine </IDENTIFIER>
+                    <SYMBOL> ( </SYMBOL>
+                    <EXPRESSION_LIST>
+                    </EXPRESSION_LIST>
+                    <SYMBOL> ) </SYMBOL>
+                  </TERM>
+                </EXPRESSION>
+                <SYMBOL> ) </SYMBOL>
+              </TERM>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ) </SYMBOL>
+          <SYMBOL> { </SYMBOL>
+          <STATEMENTS>
+            <IF_STATEMENT>
+              <KEYWORD> if </KEYWORD>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> c </IDENTIFIER>
+                </TERM>
+                <SYMBOL> = </SYMBOL>
+                <TERM>
+                  <IDENTIFIER> String </IDENTIFIER>
+                  <SYMBOL> . </SYMBOL>
+                  <IDENTIFIER> backSpace </IDENTIFIER>
+                  <SYMBOL> ( </SYMBOL>
+                  <EXPRESSION_LIST>
+                  </EXPRESSION_LIST>
+                  <SYMBOL> ) </SYMBOL>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ) </SYMBOL>
+              <SYMBOL> { </SYMBOL>
+              <STATEMENTS>
+                <DO_STATEMENT>
+                  <KEYWORD> do </KEYWORD>
+                  <IDENTIFIER> line </IDENTIFIER>
+                  <SYMBOL> . </SYMBOL>
+                  <IDENTIFIER> eraseLastChar </IDENTIFIER>
+                  <SYMBOL> ( </SYMBOL>
+                  <EXPRESSION_LIST>
+                  </EXPRESSION_LIST>
+                  <SYMBOL> ) </SYMBOL>
+                  <SYMBOL> ; </SYMBOL>
+                </DO_STATEMENT>
+              </STATEMENTS>
+              <SYMBOL> } </SYMBOL>
+              <KEYWORD> else </KEYWORD>
+              <SYMBOL> { </SYMBOL>
+              <STATEMENTS>
+                <DO_STATEMENT>
+                  <KEYWORD> do </KEYWORD>
+                  <IDENTIFIER> line </IDENTIFIER>
+                  <SYMBOL> . </SYMBOL>
+                  <IDENTIFIER> appendChar </IDENTIFIER>
+                  <SYMBOL> ( </SYMBOL>
+                  <EXPRESSION_LIST>
+                    <EXPRESSION>
+                      <TERM>
+                        <IDENTIFIER> c </IDENTIFIER>
+                      </TERM>
+                    </EXPRESSION>
+                  </EXPRESSION_LIST>
+                  <SYMBOL> ) </SYMBOL>
+                  <SYMBOL> ; </SYMBOL>
+                </DO_STATEMENT>
+              </STATEMENTS>
+              <SYMBOL> } </SYMBOL>
+            </IF_STATEMENT>
+            <LET_STATEMENT>
+              <KEYWORD> let </KEYWORD>
+              <IDENTIFIER> c </IDENTIFIER>
+              <SYMBOL> = </SYMBOL>
+              <EXPRESSION>
+                <TERM>
+                  <IDENTIFIER> Keyboard </IDENTIFIER>
+                  <SYMBOL> . </SYMBOL>
+                  <IDENTIFIER> readChar </IDENTIFIER>
+                  <SYMBOL> ( </SYMBOL>
+                  <EXPRESSION_LIST>
+                  </EXPRESSION_LIST>
+                  <SYMBOL> ) </SYMBOL>
+                </TERM>
+              </EXPRESSION>
+              <SYMBOL> ; </SYMBOL>
+            </LET_STATEMENT>
+          </STATEMENTS>
+          <SYMBOL> } </SYMBOL>
+        </WHILE_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> line </IDENTIFIER>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SUBROUTINE_DEC>
+    <KEYWORD> function </KEYWORD>
+    <KEYWORD> int </KEYWORD>
+    <IDENTIFIER> readInt </IDENTIFIER>
+    <SYMBOL> ( </SYMBOL>
+    <PARAMETER_LIST>
+      <IDENTIFIER> String </IDENTIFIER>
+      <IDENTIFIER> message </IDENTIFIER>
+    </PARAMETER_LIST>
+    <SYMBOL> ) </SYMBOL>
+    <SUBROUTINE_BODY>
+      <SYMBOL> { </SYMBOL>
+      <VAR_DEC>
+        <KEYWORD> var </KEYWORD>
+        <IDENTIFIER> String </IDENTIFIER>
+        <IDENTIFIER> line </IDENTIFIER>
+        <SYMBOL> ; </SYMBOL>
+      </VAR_DEC>
+      <STATEMENTS>
+        <LET_STATEMENT>
+          <KEYWORD> let </KEYWORD>
+          <IDENTIFIER> line </IDENTIFIER>
+          <SYMBOL> = </SYMBOL>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> Keyboard </IDENTIFIER>
+              <SYMBOL> . </SYMBOL>
+              <IDENTIFIER> readLine </IDENTIFIER>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION_LIST>
+                <EXPRESSION>
+                  <TERM>
+                    <IDENTIFIER> message </IDENTIFIER>
+                  </TERM>
+                </EXPRESSION>
+              </EXPRESSION_LIST>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </LET_STATEMENT>
+        <RETURN_STATEMENT>
+          <KEYWORD> return </KEYWORD>
+          <EXPRESSION>
+            <TERM>
+              <IDENTIFIER> line </IDENTIFIER>
+              <SYMBOL> . </SYMBOL>
+              <IDENTIFIER> intValue </IDENTIFIER>
+              <SYMBOL> ( </SYMBOL>
+              <EXPRESSION_LIST>
+              </EXPRESSION_LIST>
+              <SYMBOL> ) </SYMBOL>
+            </TERM>
+          </EXPRESSION>
+          <SYMBOL> ; </SYMBOL>
+        </RETURN_STATEMENT>
+      </STATEMENTS>
+      <SYMBOL> } </SYMBOL>
+    </SUBROUTINE_BODY>
+  </SUBROUTINE_DEC>
+  <SYMBOL> } </SYMBOL>
+</CLASS>
