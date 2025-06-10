@@ -64,7 +64,9 @@ public class BinaryPushGroup extends PushGroup {
 
     @Override
     List<String> setD() throws Exception {
-        if (isConstant()) return new PushInstruction(new Address("constant", getConstant())).setD();
+        if (isConstant()) {
+            return new PushInstruction(new Address("constant", getConstant())).setD();
+        }
 
         List<String> asm = new ArrayList<>();
 

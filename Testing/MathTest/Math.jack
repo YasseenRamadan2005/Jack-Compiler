@@ -30,7 +30,7 @@ class Math {
         let powersOfTwo[12] = 4096;
         let powersOfTwo[13] = 8192;
         let powersOfTwo[14] = 16384;
-        let powersOfTwo[15] = -32768;
+        let powersOfTwo[15] = 16384 + 16384;
         return;
     }
 
@@ -65,21 +65,23 @@ class Math {
      *  Thus, x/y and Math.divide(x,y) return the same value. */
     function int divide(int x, int y) {
         var int q; // Quotient
-        if ((x = 0) | (Math.abs(y) > Math.abs(x))) {
+        var int y_a;
+        var int x_a;
+        let x_a = Math.abs(x);
+        let y_a = Math.abs(y);
+        if ((x = 0) | (y_a > x_a)) {
             return 0;
         }
         if (x = y) {
             return 1;
         }
-        let q = Math.abs(x) / Math.abs(y);
         if ((x < 0) & (y < 0)) {
-            return q;
+            return x_a / y_a;
         } else {
-                if ((x < 0) | (y < 0)) {
-                    return -q;
+            if ((x < 0) | (y < 0)) {
+                return -(x_a / y_a);
             }
         }
-
         let q = x / (y + y);
         if ((x - ((q + q) * y)) < y) {
             return q + q;
@@ -90,7 +92,7 @@ class Math {
 
    /** Returns the remainder part of x/y */
     function int mod(int x, int y) {
-        return x - (x / y * y);
+        return x - ((x / y) * y);
     }
 
 
@@ -100,7 +102,7 @@ class Math {
         var int y, j, k, k_squared;
         let y = 0;
         let j = 7;
-        while (j >= 0)){
+        while (j >= 0){
             let k = y + powersOfTwo[j]; //k = y + 2^j
             let k_squared = k * k;
             if ((k_squared <= x) & (k_squared > 0)){

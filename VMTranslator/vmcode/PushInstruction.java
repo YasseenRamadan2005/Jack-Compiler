@@ -32,7 +32,7 @@ public class PushInstruction extends PushGroup {
                 return List.of("D=" + c);
             }
             if (c < 0){
-                return List.of("@" + c, "D=-A");
+                return List.of("@" + (-c), "D=-A");
             }
             return List.of("@" + c, "D=A");
         }

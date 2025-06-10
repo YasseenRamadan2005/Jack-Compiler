@@ -167,22 +167,16 @@ public class Parser {
         Node node = new Node(Node.StructureType.LET_STATEMENT);
         tokens.expect("let", node, Node.TokenType.KEYWORD);
 
-        // Variable base
-        Node varNode = new Node(tokens.next(), Node.TokenType.IDENTIFIER);
-        node.addChild(varNode);
-
-        // Support multiple [expr] indexers
-        while (tokens.peek().equals("[")) {
-            tokens.expect("[", node, Node.TokenType.SYMBOL);
-            node.addChild(parseExpression(tokens));
-            tokens.expect("]", node, Node.TokenType.SYMBOL);
-        }
+        // Let the LHS be a full TERM, which can be a[b][c] etc.
+        node.addChild(parseTerm(tokens));
 
         tokens.expect("=", node, Node.TokenType.SYMBOL);
         node.addChild(parseExpression(tokens));
+
         tokens.expect(";", node, Node.TokenType.SYMBOL);
         return node;
     }
+
 
 
     private Node parseIf(TokenStream tokens) {
@@ -247,6 +241,8 @@ public class Parser {
         Node node = new Node(Node.StructureType.TERM);
         String token = tokens.peek();
         assert token != null;
+
+        // Parse the base term
         if (token.matches("\\d+")) {
             node.addChild(new Node(tokens.next(), Node.TokenType.INTEGER_CONSTANT));
         } else if (token.startsWith("\"")) {
@@ -260,23 +256,22 @@ public class Parser {
         } else if (Set.of("-", "~").contains(token)) {
             node.addChild(new Node(tokens.next(), Node.TokenType.SYMBOL));
             node.addChild(parseTerm(tokens));
-        } else if ("[".equals(tokens.tokens.get(tokens.pos + 1))) {
-            // varName with one or more [expression] blocks
-            node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER)); // varName
-
-            // Loop to handle multiple [expression] segments
-            while (tokens.has(1) && tokens.tokens.get(tokens.pos).equals("[")) {
-                tokens.expect("[", node, Node.TokenType.SYMBOL);
-                node.addChild(parseExpression(tokens));
-                tokens.expect("]", node, Node.TokenType.SYMBOL);
-            }
         } else if (Set.of("(", ".").contains(tokens.tokens.get(tokens.pos + 1))) {
             node.addChildren(parseSubroutineCall(tokens));
         } else {
             node.addChild(new Node(tokens.next(), Node.TokenType.IDENTIFIER));
         }
+
+        // After base term, parse any `[expression]` segments
+        while (tokens.has(1) && tokens.tokens.get(tokens.pos).equals("[")) {
+            tokens.expect("[", node, Node.TokenType.SYMBOL);
+            node.addChild(parseExpression(tokens));
+            tokens.expect("]", node, Node.TokenType.SYMBOL);
+        }
+
         return node;
     }
+
 
     private Node parseType(TokenStream tokens) {
         String token = tokens.next();

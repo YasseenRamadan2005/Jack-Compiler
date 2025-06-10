@@ -96,7 +96,9 @@ public class ProgramState {
 
 
         SymbolInfo info = lookupSymbol(varName);
-        if (info == null) return "// Error: variable not found: " + varName;
+        if (info == null) {
+            return "// Error: variable not found: " + varName;
+        }
 
         String kind = info.kind;
         if (kind.equals("field")) kind = "this";

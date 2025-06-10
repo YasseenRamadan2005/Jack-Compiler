@@ -1,12 +1,6 @@
 function Output.init 0
-push constant 16384
-pop static 3
 call Output.initMap 0
 pop temp 0
-push constant 0
-pop static 1
-push constant 0
-pop static 2
 push constant 0
 return
 function Output.initMap 1
@@ -1363,101 +1357,77 @@ function Output.create 1
 push constant 11
 call Array.new 1
 pop local 0
-push argument 0
+push local 0
 push static 0
+push argument 0
 add
-push local 0
-pop temp 0
 pop pointer 1
-push temp 0
 pop that 0
-push constant 0
-push local 0
-add
 push argument 1
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 1
 push local 0
+push constant 0
 add
+pop pointer 1
+pop that 0
 push argument 2
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 2
 push local 0
+push constant 1
 add
+pop pointer 1
+pop that 0
 push argument 3
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 3
 push local 0
+push constant 2
 add
+pop pointer 1
+pop that 0
 push argument 4
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 4
 push local 0
+push constant 3
 add
+pop pointer 1
+pop that 0
 push argument 5
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 5
 push local 0
+push constant 4
 add
+pop pointer 1
+pop that 0
 push argument 6
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 6
 push local 0
+push constant 5
 add
+pop pointer 1
+pop that 0
 push argument 7
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 7
 push local 0
+push constant 6
 add
+pop pointer 1
+pop that 0
 push argument 8
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 8
 push local 0
+push constant 7
 add
+pop pointer 1
+pop that 0
 push argument 9
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 9
 push local 0
+push constant 8
 add
+pop pointer 1
+pop that 0
 push argument 10
-pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
-push constant 10
 push local 0
+push constant 9
 add
-push argument 11
-pop temp 0
 pop pointer 1
-push temp 0
+pop that 0
+push argument 11
+push local 0
+push constant 10
+add
+pop pointer 1
 pop that 0
 push constant 0
 return
@@ -1469,123 +1439,132 @@ push argument 0
 push constant 126
 gt
 or
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
+push constant 0
+eq
+if-goto Output.getMap.IfElse1
 push constant 0
 pop argument 0
-label IF_FALSE0
-push argument 0
+label Output.getMap.IfElse1
 push static 0
+push argument 0
 add
 pop pointer 1
 push that 0
 return
 function Output.moveCursor 0
-push argument 1
-pop static 1
 push argument 0
+push constant 0
+lt
+push argument 1
+push constant 0
+lt
+or
+push argument 0
+push constant 22
+gt
+or
+push argument 1
+push constant 63
+gt
+or
+push constant 0
+eq
+if-goto Output.moveCursor.IfElse1
+push constant 20
+call Sys.error 1
+pop temp 0
+label Output.moveCursor.IfElse1
+push argument 0
+pop static 1
+push argument 1
 pop static 2
 push constant 0
 return
-function Output.printChar 4
+function Output.printChar 5
 push argument 0
 call Output.getMap 1
 pop local 0
-push constant 0
-pop local 3
-label WHILE_EXP0
-push local 3
+label WHILE_START_Output.printChar1
+push local 1
 push constant 11
 lt
-not
-if-goto WHILE_END0
-push static 3
-push static 2
-push constant 11
-call Math.multiply 2
-push local 3
-add
-push constant 32
-call Math.multiply 2
-add
-push static 1
-push constant 2
-call Math.divide 2
-add
-pop local 1
-push static 1
-push constant 1
-and
 push constant 0
 eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push local 3
-push local 0
-add
-pop pointer 1
-push that 0
-pop local 2
-goto IF_END0
-label IF_FALSE0
-push local 3
-push local 0
-add
-pop pointer 1
-push that 0
-push constant 256
+if-goto WHILE_END_Output.printChar1
+push static 1
+push constant 11
 call Math.multiply 2
-pop local 2
-label IF_END0
-push constant 0
 push local 1
 add
+pop local 3
 push constant 0
+pop local 2
+label WHILE_START_Output.printChar2
+push local 2
+push constant 8
+lt
+push constant 0
+eq
+if-goto WHILE_END_Output.printChar2
+push static 2
+push constant 8
+call Math.multiply 2
+push local 2
+add
+pop local 4
+push local 0
 push local 1
 add
 pop pointer 1
 push that 0
 push local 2
-or
+call Math.getBit 2
+push constant 1
+eq
+call Screen.setColor 1
 pop temp 0
-pop pointer 1
-push temp 0
-pop that 0
+push local 4
 push local 3
+call Screen.drawPixel 2
+pop temp 0
+push local 2
 push constant 1
 add
-pop local 3
-goto WHILE_EXP0
-label WHILE_END0
-push static 1
+pop local 2
+goto WHILE_START_Output.printChar2
+label WHILE_END_Output.printChar2
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_START_Output.printChar1
+label WHILE_END_Output.printChar1
+push static 2
 push constant 63
+lt
+push constant 0
 eq
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
+if-goto Output.printChar.IfElse1
+push static 2
+push constant 1
+add
+pop static 2
+label Output.printChar.IfElse1
 call Output.println 0
 pop temp 0
-goto IF_END1
-label IF_FALSE1
-push static 1
-push constant 1
-add
-pop static 1
-label IF_END1
 push constant 0
 return
 function Output.printString 1
 push constant 0
 pop local 0
-label WHILE_EXP0
+label WHILE_START_Output.printString1
 push local 0
 push argument 0
 call String.length 1
 lt
-not
-if-goto WHILE_END0
+push constant 0
+eq
+if-goto WHILE_END_Output.printString1
 push argument 0
 push local 0
 call String.charAt 2
@@ -1595,12 +1574,12 @@ push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_EXP0
-label WHILE_END0
+goto WHILE_START_Output.printString1
+label WHILE_END_Output.printString1
 push constant 0
 return
 function Output.printInt 1
-push constant 10
+push constant 6
 call String.new 1
 pop local 0
 push local 0
@@ -1610,50 +1589,35 @@ pop temp 0
 push local 0
 call Output.printString 1
 pop temp 0
-push local 0
-call String.dispose 1
-pop temp 0
 push constant 0
 return
 function Output.println 0
+push static 1
+push constant 23
+lt
 push constant 0
-pop static 1
-push static 2
-push constant 22
 eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
+if-goto Output.println.IfElse1
 push constant 0
 pop static 2
-goto IF_END0
-label IF_FALSE0
-push static 2
+push static 1
 push constant 1
 add
-pop static 2
-label IF_END0
+pop static 1
+label Output.println.IfElse1
 push constant 0
 return
 function Output.backSpace 0
-push static 1
+push static 2
+push constant 0
+gt
 push constant 0
 eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
+if-goto Output.backSpace.IfElse1
 push static 2
 push constant 1
 sub
 pop static 2
-push constant 63
-pop static 1
-goto IF_END0
-label IF_FALSE0
-push static 1
-push constant 1
-sub
-pop static 1
-label IF_END0
+label Output.backSpace.IfElse1
 push constant 0
 return

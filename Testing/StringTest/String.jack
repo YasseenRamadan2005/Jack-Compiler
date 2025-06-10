@@ -12,9 +12,11 @@
 class String {
     field Array s;
     field int size;
+    field int capacity; //Capacity is the total amount we can store at the moment. Size is what is currently being filled
     //constructs a new empty string (of length zero) that can contain at most maxLength characters
     constructor String new(int maxLength){
         let s = Array.new(maxLength);
+        let capacity = maxLength;
         let size = 0;
     }
 
@@ -43,12 +45,24 @@ class String {
 
     //appends c to this string and returns this string
     method String appendChar(char c){
-        if (size = s.maxLength()){
-            let s.realloc(size + 1);
+        var Array new_s;
+        if (size = capacity){
+            //We double the capacity for a new string
+            let new_s = Array.new(capacity + capacity);
+
+            //Now we copy the characters
+            do Memory.copy(s, new_s, size);
+
+            //Free the old memory
+            do s.dispose();
+
+            //Update the info
+            let capacity = capacity + capacity; //Ideally this is a nice optimization if my VM to Hack assembly translator is working properly
+            let s = new_s;
         }
         let s[size] = c;
         let size = size + 1;
-        return this; 
+        return this;
     }
 
     //erases the last character from this string
