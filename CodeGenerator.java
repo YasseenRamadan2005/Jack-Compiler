@@ -106,7 +106,7 @@ public class CodeGenerator {
 
                 whileCode.add("label " + labelStart);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
-                whileCode.add("not");
+                whileCode .addAll(List.of("push constant 0", "eq")); //if the condition is not false
                 whileCode.add("if-goto " + labelEnd);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // body
                 whileCode.add("goto " + labelStart);
@@ -119,7 +119,7 @@ public class CodeGenerator {
                 String funcName = ps.getFunctionDeclarationName();
 
                 List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
-                ifCode.add("not");
+                ifCode.addAll(List.of("push constant 0", "eq")); //if the condition is not false
                 ifCode.add("if-goto " + funcName + ".IfElse" + y); //We jump if the condition is false. Bitwise not of false (0) is -1, which is all ones (true). Technically, any value not zero is truthy, even though the true keyword is specifically -1
 
                 ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then block
@@ -152,6 +152,8 @@ public class CodeGenerator {
                 Node rhsExpr = node.children.get(node.children.size() - 2);
 
                 if (isArray) {
+                    // compile RHS expression
+                    letCode.addAll(Objects.requireNonNull(compileTree(rhsExpr)));
                     // push base address
                     letCode.add(ps.handleVarName(varName, true));
 
@@ -163,9 +165,6 @@ public class CodeGenerator {
 
                     // pop target address to pointer 1
                     letCode.add("pop pointer 1");
-
-                    // compile RHS expression
-                    letCode.addAll(Objects.requireNonNull(compileTree(rhsExpr)));
 
                     // pop result to that 0
                     letCode.add("pop that 0");
@@ -198,11 +197,9 @@ public class CodeGenerator {
             case EXPRESSION: {
                 // Compile the first term
                 List<String> vmInstructions = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.getFirst())));
-
                 // Process (op term)* — binary operations
                 for (int i = 1; i < node.children.size(); i += 2) {
                     String operator = node.children.get(i).value;
-
                     // Compile the next term
                     vmInstructions.addAll(Objects.requireNonNull(compileTree(node.children.get(i + 1))));
 
@@ -289,12 +286,10 @@ public class CodeGenerator {
 
                                 if (secondChild.tokenType == Node.TokenType.SYMBOL) {
                                     String sym = secondChild.value;
-
                                     if ("[".equals(sym)) {
                                         // Multiple-dimensional indexing: varName [expr] [expr] ...
                                         // Start with base address
                                         term_vmInstructions.add(ps.handleVarName(firstChild.value, true));
-
                                         for (int i = 1; i < children.size(); i++) {
                                             if ("[".equals(children.get(i).value)) {
                                                 // Compile expression
@@ -315,7 +310,6 @@ public class CodeGenerator {
                                 }
                             }
                             break;
-
 
                         case SYMBOL:
                             // Could be unaryOp or parenthesized expression
