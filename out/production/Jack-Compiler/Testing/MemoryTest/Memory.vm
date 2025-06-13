@@ -3,7 +3,11 @@ push constant 2048
 push constant 7
 add
 pop local 0
-push constant 14423
+push constant 14428
+push constant 5
+sub
+push constant 7
+sub
 push local 0
 push constant 0
 add
