@@ -3,11 +3,7 @@ push constant 2048
 push constant 7
 add
 pop local 0
-push constant 14428
-push constant 5
-sub
-push constant 7
-sub
+push constant 14423
 push local 0
 push constant 0
 add
@@ -58,7 +54,8 @@ call Memory.get_best_fit 2
 pop local 2
 label WHILE_START_Memory.alloc1
 push local 2
-not
+push constant 0
+eq
 push constant 0
 eq
 if-goto WHILE_END_Memory.alloc1
@@ -98,8 +95,6 @@ pop pointer 1
 push that 0
 call Memory.getBinIndex 1
 add
-pop pointer 1
-push that 0
 push local 2
 call Memory.remove_node 2
 pop temp 0
@@ -160,8 +155,6 @@ push constant 2048
 push local 3
 call Memory.getBinIndex 1
 add
-pop pointer 1
-push that 0
 push local 4
 call Memory.add_node 2
 pop temp 0
@@ -212,7 +205,7 @@ goto WHILE_START_Memory.calloc1
 label WHILE_END_Memory.calloc1
 push local 0
 return
-function Memory.free 3
+function Memory.deAlloc 3
 push argument 0
 push constant 1
 sub
@@ -240,7 +233,7 @@ eq
 and
 push constant 0
 eq
-if-goto Memory.free.IfElse1
+if-goto Memory.deAlloc.IfElse1
 push constant 2048
 push local 1
 push constant 0
@@ -277,7 +270,7 @@ call Memory.create_foot 1
 pop temp 0
 push local 1
 pop local 0
-label Memory.free.IfElse1
+label Memory.deAlloc.IfElse1
 push local 2
 push local 2
 push constant 1
@@ -289,7 +282,7 @@ eq
 and
 push constant 0
 eq
-if-goto Memory.free.IfElse2
+if-goto Memory.deAlloc.IfElse2
 push constant 2048
 push local 2
 push constant 0
@@ -324,7 +317,7 @@ pop that 0
 push local 0
 call Memory.create_foot 1
 pop temp 0
-label Memory.free.IfElse2
+label Memory.deAlloc.IfElse2
 push constant 2048
 push local 0
 push constant 0
@@ -392,7 +385,7 @@ push local 2
 call Memory.copy 3
 pop temp 0
 push argument 0
-call Memory.free 1
+call Memory.deAlloc 1
 pop temp 0
 push local 1
 return
@@ -432,6 +425,9 @@ pop pointer 1
 push that 0
 push constant 0
 eq
+not
+push constant 0
+eq
 if-goto Memory.remove_node.IfElse1
 push argument 1
 push constant 3
@@ -461,6 +457,9 @@ push constant 3
 add
 pop pointer 1
 push that 0
+push constant 0
+eq
+not
 push constant 0
 eq
 if-goto Memory.remove_node.IfElse2

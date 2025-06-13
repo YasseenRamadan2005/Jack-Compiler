@@ -30,7 +30,7 @@
  --- Key Methods ---
  - `init()`: Initializes memory, setting up bins and the initial free block.
  - `alloc(size)`: Finds a free block of at least `size`, possibly splitting it.
- - `free(ptr)`: Marks a block as free and merges it with adjacent free blocks if possible.
+ - `deAlloc(ptr)`: Marks a block as free and merges it with adjacent free blocks if possible.
  - `add_node(bin, node)`: Adds a free block to the appropriate bin.
  - `remove_node(bin, node)`: Removes a block from its bin when allocated or merged.
  - `get_best_fit(bin, size)`: Finds the smallest free block that fits `size`.
@@ -112,7 +112,7 @@ class Memory {
         let temp = HEAP_START[index];
         let found = Memory.get_best_fit(temp, size);
 
-        while (~found) {
+        while (found = null) {
             if ((index + 1) >= AMOUNT_OF_BINS) {
                 return null;
             }
@@ -121,7 +121,7 @@ class Memory {
             let found = Memory.get_best_fit(temp, size);
         }
 
-        do Memory.remove_node(HEAP_START[Memory.getBinIndex(found[node_size])], found);
+        do Memory.remove_node(HEAP_START + Memory.getBinIndex(found[node_size]), found);
 
         let remaining_size = found[node_size] - size - 5; // Header (4) + Footer (1)
         if (remaining_size >= 5) { // Minimum chunk size
@@ -133,7 +133,7 @@ class Memory {
             let new_node[node_size] = remaining_size;
             let new_node[node_hole] = 1;
             do Memory.create_foot(new_node);
-            do Memory.add_node(HEAP_START[Memory.getBinIndex(remaining_size)], new_node);
+            do Memory.add_node(HEAP_START + Memory.getBinIndex(remaining_size), new_node);
         } else {
             let found[node_hole] = 0;
             do Memory.create_foot(found);
@@ -157,7 +157,7 @@ class Memory {
     }
 
     /** Frees an allocated block and merges it with adjacent free blocks if possible. */
-    function void free(int ptr) {
+    function void deAlloc(int ptr) {
         var int node, prev_node, next_node;
 
         let node = ptr - 1;
@@ -167,19 +167,19 @@ class Memory {
         let next_node = Memory.getNextNode(node);
 
         if (prev_node & (prev_node[node_hole] = 1)) {
-            do Memory.remove_node(HEAP_START[Memory.getBinIndex(prev_node[node_size])], prev_node);
+            do Memory.remove_node(HEAP_START + Memory.getBinIndex(prev_node[node_size]), prev_node);
             let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
             do Memory.create_foot(prev_node);
             let node = prev_node;
         }
 
         if (next_node & (next_node[node_hole] = 1)) {
-            do Memory.remove_node(HEAP_START[Memory.getBinIndex(next_node[node_size])], next_node);
+            do Memory.remove_node(HEAP_START + Memory.getBinIndex(next_node[node_size]), next_node);
             let node[node_size] = node[node_size] + next_node[node_size] + 5;
             do Memory.create_foot(node);
         }
 
-        do Memory.add_node(HEAP_START[getBinIndex(node[node_size])], node);
+        do Memory.add_node(HEAP_START + getBinIndex(node[node_size]) , node);
         return;
     }
 
@@ -209,7 +209,7 @@ class Memory {
         }
 
         do Memory.copy(ptr, newPtr, copySize);
-        do Memory.free(ptr);
+        do Memory.deAlloc(ptr);
         return newPtr;
     }
 
@@ -228,13 +228,13 @@ class Memory {
 
     /** Removes a node from its bin. */
     function void remove_node(int bin_p, int node_p) {
-        if (node_p[node_prev]) {
+        if (node_p[node_prev] ~= null) {
             let node_p[node_prev][node_next] = node_p[node_next];
         } else {
             let bin_p[0] = node_p[node_next];
         }
 
-        if (node_p[node_next]) {
+        if (node_p[node_next] ~= null) {
             let node_p[node_next][node_prev] = node_p[node_prev];
         }
 
@@ -242,6 +242,7 @@ class Memory {
         let node_p[node_next] = null;
         return;
     }
+
 
     /** Returns the bin index based on the block size. */
     function int getBinIndex(int size) {
@@ -314,7 +315,7 @@ class Memory {
     function int getPrevNode(int node) {
         var int prev;
         let prev = node - 5;
-        if ((prev[node_size] + prev + 5) = node) {
+        if ((prev[node_size] + node) = node) {
             return prev;
         }
         return null;

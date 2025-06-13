@@ -1205,28 +1205,37 @@ M=D
 (WHILE_START_Memory.alloc1)
 
 
-@Memory.peek.EQ.0
+@Memory.peek.EQ.1
+D=A
+@13
+M=D
+@Memory.peek.EQ.2
 D=A
 @13
 M=D
 @LCL
 A=M+1
 A=A+1
-D=!M
+D=M
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.0)
+(Memory.peek.EQ.2)
+@15
+M=D
+@DO_EQ
+0;JMP
+(Memory.peek.EQ.1)
 @WHILE_END_Memory.alloc1
 D;JNE
 
 
-@Memory.peek.EQ.2
+@Memory.peek.EQ.4
 D=A
 @13
 M=D
-@Memory.peek.LT.3
+@Memory.peek.LT.5
 D=A
 @13
 M=D
@@ -1239,13 +1248,13 @@ D=D-A
 M=D
 @DO_LT
 0;JMP
-(Memory.peek.LT.3)
+(Memory.peek.LT.5)
 D=!D
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.2)
+(Memory.peek.EQ.4)
 @Memory.alloc.IfElse1
 D;JNE
 
@@ -1359,13 +1368,6 @@ AM=M-1
 D=M
 @2048
 D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
 @SP
 AM=M+1
 A=A-1
@@ -1426,11 +1428,11 @@ A=A+1
 M=D
 
 
-@Memory.peek.EQ.5
+@Memory.peek.EQ.7
 D=A
 @13
 M=D
-@Memory.peek.LT.6
+@Memory.peek.LT.8
 D=A
 @13
 M=D
@@ -1445,13 +1447,13 @@ D=D-A
 M=D
 @DO_LT
 0;JMP
-(Memory.peek.LT.6)
+(Memory.peek.LT.8)
 D=!D
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.5)
+(Memory.peek.EQ.7)
 @Memory.alloc.IfElse2
 D;JNE
 
@@ -1617,13 +1619,6 @@ AM=M-1
 D=M
 @2048
 D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
 @SP
 AM=M+1
 A=A-1
@@ -1753,7 +1748,7 @@ A=M
 M=D
 
 
-@Memory.peek.EQ.7
+@Memory.peek.EQ.9
 D=A
 @13
 M=D
@@ -1764,7 +1759,7 @@ D=!M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.7)
+(Memory.peek.EQ.9)
 @Memory.calloc.IfElse1
 D;JNE
 
@@ -1788,11 +1783,11 @@ M=D
 (WHILE_START_Memory.calloc1)
 
 
-@Memory.peek.EQ.9
+@Memory.peek.EQ.11
 D=A
 @13
 M=D
-@Memory.peek.GT.10
+@Memory.peek.GT.12
 D=A
 @13
 M=D
@@ -1803,12 +1798,12 @@ D=M
 M=D
 @DO_GT
 0;JMP
-(Memory.peek.GT.10)
+(Memory.peek.GT.12)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.9)
+(Memory.peek.EQ.11)
 @WHILE_END_Memory.calloc1
 D;JNE
 
@@ -1857,8 +1852,8 @@ M=D
 0;JMP
 
 
-// function Memory.free with 3
-(Memory.free)
+// function Memory.deAlloc with 3
+(Memory.deAlloc)
 @SP
 AM=M+1
 A=A-1
@@ -1907,11 +1902,11 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.0
+@Memory.deAlloc.ret.0
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.0)
+(Memory.deAlloc.ret.0)
 @SP
 AM=M-1
 D=M
@@ -1936,11 +1931,11 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.1
+@Memory.deAlloc.ret.1
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.1)
+(Memory.deAlloc.ret.1)
 @SP
 AM=M-1
 D=M
@@ -1950,7 +1945,7 @@ A=A+1
 M=D
 
 
-@Memory.peek.EQ.12
+@Memory.peek.EQ.14
 D=A
 @13
 M=D
@@ -1961,191 +1956,27 @@ D=M
 AM=M+1
 A=A-1
 M=D
-@Memory.peek.EQ.13
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M-1
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.13)
-@SP
-AM=M-1
-D=D&M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.12)
-@Memory.free.IfElse1
-D;JNE
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.free.ret.3
-D=A
-@CALL
-0;JMP
-(Memory.free.ret.3)
-@SP
-AM=M-1
-D=M
-@2048
-D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.remove_node
-@7
-D=A
-@14
-M=D
-@Memory.remove_node
-D=A
-@13
-M=D
-@Memory.free.ret.4
-D=A
-@CALL
-0;JMP
-(Memory.free.ret.4)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@4
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@4
-M=D
-@THAT
-A=M
-D=M
-D=D+M
-@5
-D=D+A
-@THAT
-A=M
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.free.ret.5
-D=A
-@CALL
-0;JMP
-(Memory.free.ret.5)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@LCL
-A=M
-M=D
-
-
-// label Memory.free.IfElse1
-(Memory.free.IfElse1)
-
-
 @Memory.peek.EQ.15
 D=A
 @13
 M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@Memory.peek.EQ.16
-D=A
-@13
-M=D
 @THAT
 A=M
 D=M-1
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.16)
-@SP
-AM=M-1
-D=D&M
 @15
 M=D
 @DO_EQ
 0;JMP
 (Memory.peek.EQ.15)
-@Memory.free.IfElse2
+@SP
+AM=M-1
+D=D&M
+@15
+M=D
+@DO_EQ
+0;JMP
+(Memory.peek.EQ.14)
+@Memory.deAlloc.IfElse1
 D;JNE
 
 
@@ -2165,23 +1996,173 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.7
+@Memory.deAlloc.ret.3
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.7)
+(Memory.deAlloc.ret.3)
 @SP
 AM=M-1
 D=M
 @2048
 D=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.remove_node
+@7
+D=A
+@14
+M=D
+@Memory.remove_node
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.4
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.4)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+@LCL
+A=M+1
+D=M
 @4
 M=D
+
+
+@LCL
+A=M+1
+D=M
+@4
+M=D
+@THAT
+A=M
+D=M
+D=D+M
+@5
+D=D+A
+@THAT
+A=M
+M=D
+
+
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.5
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.5)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+@LCL
+A=M+1
+D=M
+@LCL
+A=M
+M=D
+
+
+// label Memory.deAlloc.IfElse1
+(Memory.deAlloc.IfElse1)
+
+
+@Memory.peek.EQ.17
+D=A
+@13
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@Memory.peek.EQ.18
+D=A
+@13
+M=D
+@THAT
+A=M
+D=M-1
+@15
+M=D
+@DO_EQ
+0;JMP
+(Memory.peek.EQ.18)
+@SP
+AM=M-1
+D=D&M
+@15
+M=D
+@DO_EQ
+0;JMP
+(Memory.peek.EQ.17)
+@Memory.deAlloc.IfElse2
+D;JNE
 
 
 @THAT
 A=M
 D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.getBinIndex
+@6
+D=A
+@14
+M=D
+@Memory.getBinIndex
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.7
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.7)
+@SP
+AM=M-1
+D=M
+@2048
+D=D+A
 @SP
 AM=M+1
 A=A-1
@@ -2203,11 +2184,11 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.8
+@Memory.deAlloc.ret.8
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.8)
+(Memory.deAlloc.ret.8)
 @SP
 AM=M-1
 D=M
@@ -2254,11 +2235,11 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.9
+@Memory.deAlloc.ret.9
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.9)
+(Memory.deAlloc.ret.9)
 @SP
 AM=M-1
 D=M
@@ -2266,8 +2247,8 @@ D=M
 M=D
 
 
-// label Memory.free.IfElse2
-(Memory.free.IfElse2)
+// label Memory.deAlloc.IfElse2
+(Memory.deAlloc.IfElse2)
 
 
 @THAT
@@ -2292,23 +2273,16 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.11
+@Memory.deAlloc.ret.11
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.11)
+(Memory.deAlloc.ret.11)
 @SP
 AM=M-1
 D=M
 @2048
 D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
 @SP
 AM=M+1
 A=A-1
@@ -2329,11 +2303,11 @@ M=D
 D=A
 @13
 M=D
-@Memory.free.ret.12
+@Memory.deAlloc.ret.12
 D=A
 @CALL
 0;JMP
-(Memory.free.ret.12)
+(Memory.deAlloc.ret.12)
 @SP
 AM=M-1
 D=M
@@ -2372,11 +2346,11 @@ A=A-1
 M=0
 
 
-@Memory.peek.EQ.18
+@Memory.peek.EQ.20
 D=A
 @13
 M=D
-@Memory.peek.EQ.19
+@Memory.peek.EQ.21
 D=A
 @13
 M=D
@@ -2387,12 +2361,12 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.19)
+(Memory.peek.EQ.21)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.18)
+(Memory.peek.EQ.20)
 @Memory.realloc.IfElse1
 D;JNE
 
@@ -2484,11 +2458,11 @@ A=M+1
 M=D
 
 
-@Memory.peek.EQ.21
+@Memory.peek.EQ.23
 D=A
 @13
 M=D
-@Memory.peek.EQ.22
+@Memory.peek.EQ.24
 D=A
 @13
 M=D
@@ -2499,12 +2473,12 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.22)
+(Memory.peek.EQ.24)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.21)
+(Memory.peek.EQ.23)
 @Memory.realloc.IfElse2
 D;JNE
 
@@ -2524,11 +2498,11 @@ M=D
 (Memory.realloc.IfElse2)
 
 
-@Memory.peek.EQ.24
+@Memory.peek.EQ.26
 D=A
 @13
 M=D
-@Memory.peek.GT.25
+@Memory.peek.GT.27
 D=A
 @13
 M=D
@@ -2546,13 +2520,13 @@ D=M-D
 M=D
 @DO_GT
 0;JMP
-(Memory.peek.GT.25)
+(Memory.peek.GT.27)
 D=!D
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.24)
+(Memory.peek.EQ.26)
 @Memory.realloc.IfElse3
 D;JNE
 
@@ -2629,12 +2603,12 @@ D=M
 AM=M+1
 A=A-1
 M=D
-// call Memory.free
+// call Memory.deAlloc
 @6
 D=A
 @14
 M=D
-@Memory.free
+@Memory.deAlloc
 D=A
 @13
 M=D
@@ -2680,11 +2654,11 @@ M=0
 (WHILE_START_Memory.copy1)
 
 
-@Memory.peek.EQ.27
+@Memory.peek.EQ.29
 D=A
 @13
 M=D
-@Memory.peek.LT.28
+@Memory.peek.LT.30
 D=A
 @13
 M=D
@@ -2703,12 +2677,12 @@ D=M-D
 M=D
 @DO_LT
 0;JMP
-(Memory.peek.LT.28)
+(Memory.peek.LT.30)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.27)
+(Memory.peek.EQ.29)
 @WHILE_END_Memory.copy1
 D;JNE
 
@@ -2785,7 +2759,11 @@ D=D+A
 M=D
 
 
-@Memory.peek.EQ.29
+@Memory.peek.EQ.32
+D=A
+@13
+M=D
+@Memory.peek.EQ.33
 D=A
 @13
 M=D
@@ -2796,7 +2774,13 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.29)
+(Memory.peek.EQ.33)
+D=!D
+@15
+M=D
+@DO_EQ
+0;JMP
+(Memory.peek.EQ.32)
 @Memory.remove_node.IfElse1
 D;JNE
 
@@ -2862,7 +2846,11 @@ D=D+A
 M=D
 
 
-@Memory.peek.EQ.30
+@Memory.peek.EQ.35
+D=A
+@13
+M=D
+@Memory.peek.EQ.36
 D=A
 @13
 M=D
@@ -2873,7 +2861,13 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.30)
+(Memory.peek.EQ.36)
+D=!D
+@15
+M=D
+@DO_EQ
+0;JMP
+(Memory.peek.EQ.35)
 @Memory.remove_node.IfElse2
 D;JNE
 
@@ -2960,11 +2954,11 @@ M=0
 (WHILE_START_Memory.getBinIndex1)
 
 
-@Memory.peek.EQ.32
+@Memory.peek.EQ.38
 D=A
 @13
 M=D
-@Memory.peek.LT.33
+@Memory.peek.LT.39
 D=A
 @13
 M=D
@@ -2977,21 +2971,21 @@ D=D-A
 M=D
 @DO_LT
 0;JMP
-(Memory.peek.LT.33)
+(Memory.peek.LT.39)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.32)
+(Memory.peek.EQ.38)
 @WHILE_END_Memory.getBinIndex1
 D;JNE
 
 
-@Memory.peek.EQ.35
+@Memory.peek.EQ.41
 D=A
 @13
 M=D
-@Memory.peek.GT.36
+@Memory.peek.GT.42
 D=A
 @13
 M=D
@@ -3039,13 +3033,13 @@ D=M-D
 M=D
 @DO_GT
 0;JMP
-(Memory.peek.GT.36)
+(Memory.peek.GT.42)
 D=!D
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.35)
+(Memory.peek.EQ.41)
 @Memory.getBinIndex.IfElse1
 D;JNE
 
@@ -3113,7 +3107,7 @@ M=D
 (WHILE_START_Memory.get_best_fit1)
 
 
-@Memory.peek.EQ.37
+@Memory.peek.EQ.43
 D=A
 @13
 M=D
@@ -3124,7 +3118,7 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.37)
+(Memory.peek.EQ.43)
 @WHILE_END_Memory.get_best_fit1
 D;JNE
 
@@ -3136,11 +3130,11 @@ D=M
 M=D
 
 
-@Memory.peek.EQ.39
+@Memory.peek.EQ.45
 D=A
 @13
 M=D
-@Memory.peek.LT.40
+@Memory.peek.LT.46
 D=A
 @13
 M=D
@@ -3158,13 +3152,13 @@ D=M-D
 M=D
 @DO_LT
 0;JMP
-(Memory.peek.LT.40)
+(Memory.peek.LT.46)
 D=!D
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.39)
+(Memory.peek.EQ.45)
 @Memory.get_best_fit.IfElse1
 D;JNE
 
@@ -3306,11 +3300,11 @@ D=M
 M=D
 
 
-@Memory.peek.EQ.42
+@Memory.peek.EQ.48
 D=A
 @13
 M=D
-@Memory.peek.EQ.43
+@Memory.peek.EQ.49
 D=A
 @13
 M=D
@@ -3321,12 +3315,12 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.43)
+(Memory.peek.EQ.49)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.42)
+(Memory.peek.EQ.48)
 @Memory.add_node.IfElse1
 D;JNE
 
@@ -3383,11 +3377,11 @@ M=0
 (WHILE_START_Memory.add_node1)
 
 
-@Memory.peek.EQ.46
+@Memory.peek.EQ.52
 D=A
 @13
 M=D
-@Memory.peek.EQ.47
+@Memory.peek.EQ.53
 D=A
 @13
 M=D
@@ -3398,13 +3392,13 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.47)
+(Memory.peek.EQ.53)
 D=!D
 @SP
 AM=M+1
 A=A-1
 M=D
-@Memory.peek.GT.48
+@Memory.peek.GT.54
 D=A
 @13
 M=D
@@ -3416,7 +3410,7 @@ D=D-M
 M=D
 @DO_GT
 0;JMP
-(Memory.peek.GT.48)
+(Memory.peek.GT.54)
 D=!D
 @SP
 AM=M-1
@@ -3425,7 +3419,7 @@ D=D&M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.46)
+(Memory.peek.EQ.52)
 @WHILE_END_Memory.add_node1
 D;JNE
 
@@ -3464,7 +3458,7 @@ M=D
 (WHILE_END_Memory.add_node1)
 
 
-@Memory.peek.EQ.49
+@Memory.peek.EQ.55
 D=A
 @13
 M=D
@@ -3475,7 +3469,7 @@ D=!M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.49)
+(Memory.peek.EQ.55)
 @Memory.add_node.IfElse2
 D;JNE
 
@@ -3564,7 +3558,7 @@ A=M
 M=D
 
 
-@Memory.peek.EQ.50
+@Memory.peek.EQ.56
 D=A
 @13
 M=D
@@ -3575,7 +3569,7 @@ D=M
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.50)
+(Memory.peek.EQ.56)
 @Memory.add_node.IfElse3
 D;JNE
 
@@ -3650,11 +3644,11 @@ D=M
 M=D
 
 
-@Memory.peek.EQ.52
+@Memory.peek.EQ.58
 D=A
 @13
 M=D
-@Memory.peek.EQ.53
+@Memory.peek.EQ.59
 D=A
 @13
 M=D
@@ -3684,12 +3678,12 @@ D=M-D
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.53)
+(Memory.peek.EQ.59)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.52)
+(Memory.peek.EQ.58)
 @Memory.getPrevNode.IfElse1
 D;JNE
 
@@ -3754,11 +3748,11 @@ D=M
 M=D
 
 
-@Memory.peek.EQ.55
+@Memory.peek.EQ.61
 D=A
 @13
 M=D
-@Memory.peek.GT.56
+@Memory.peek.GT.62
 D=A
 @13
 M=D
@@ -3769,12 +3763,12 @@ D=M
 M=D
 @DO_GT
 0;JMP
-(Memory.peek.GT.56)
+(Memory.peek.GT.62)
 @15
 M=D
 @DO_EQ
 0;JMP
-(Memory.peek.EQ.55)
+(Memory.peek.EQ.61)
 @Memory.getNextNode.IfElse1
 D;JNE
 
