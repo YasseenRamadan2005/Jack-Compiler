@@ -54,7 +54,9 @@ eq
 if-goto Main.main.IfElse1
 push constant 1
 pop local 1
+goto Main.main.IfElseEND1
 label Main.main.IfElse1
+label Main.main.IfElseEND1
 push constant 8003
 push local 3
 push constant 1
@@ -94,7 +96,9 @@ eq
 if-goto Main.main.IfElse2
 push constant 1
 pop local 1
+goto Main.main.IfElseEND2
 label Main.main.IfElse2
+label Main.main.IfElseEND2
 push local 4
 push local 3
 eq
@@ -105,7 +109,9 @@ push local 1
 push constant 10
 add
 pop local 1
+goto Main.main.IfElseEND3
 label Main.main.IfElse3
+label Main.main.IfElseEND3
 push constant 8004
 push local 4
 push constant 499
@@ -147,7 +153,9 @@ eq
 if-goto Main.main.IfElse4
 push constant 1
 pop local 1
+goto Main.main.IfElseEND4
 label Main.main.IfElse4
+label Main.main.IfElseEND4
 push constant 8005
 push local 3
 push constant 0

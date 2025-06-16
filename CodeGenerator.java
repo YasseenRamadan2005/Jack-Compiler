@@ -123,10 +123,12 @@ public class CodeGenerator {
                 ifCode.add("if-goto " + funcName + ".IfElse" + y); //We jump if the condition is false. Bitwise not of false (0) is -1, which is all ones (true). Technically, any value not zero is truthy, even though the true keyword is specifically -1
 
                 ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then block
+                ifCode.add("goto " + funcName + ".IfElseEND" + y);
                 ifCode.add("label " + funcName + ".IfElse" + y);
                 if (node.children.size() > 7) {
                     ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block
                 }
+                ifCode.add("label " + funcName + ".IfElseEND" + y);
                 return ifCode;
 
 

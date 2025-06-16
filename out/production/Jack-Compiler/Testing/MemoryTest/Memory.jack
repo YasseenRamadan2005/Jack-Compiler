@@ -108,28 +108,28 @@ class Memory {
     function int alloc(int size) {
         var int index, temp, found, remaining_size, new_node;
 
-        let index = Memory.getBinIndex(size);
-        let temp = HEAP_START[index];
-        let found = Memory.get_best_fit(temp, size);
+        let index = Memory.getBinIndex(size); //Returns the non-null bin index
+        let temp = HEAP_START + index;
+        let found = Memory.get_best_fit(temp, size); //Within that bin, return the address of the first node with enough space
 
-        while (found = null) {
+        while (found = null) { //This only occurs in the case that getBinIndex returns a correct bin with at least one node, but get_best_fit returns null because that node doesn't have enough size.
             if ((index + 1) >= AMOUNT_OF_BINS) {
-                return null;
+                return null; //If we are out of bins, alloc fails :(
             }
             let index = index + 1;
-            let temp = HEAP_START[index];
-            let found = Memory.get_best_fit(temp, size);
+            let temp = HEAP_START + index;
+            let found = Memory.get_best_fit(temp, size); //Try to look a node in the next bin
         }
 
         do Memory.remove_node(HEAP_START + Memory.getBinIndex(found[node_size]), found);
 
-        let remaining_size = found[node_size] - size - 5; // Header (4) + Footer (1)
+        let remaining_size = found[node_size] - size; // Header (4) + Footer (1)
         if (remaining_size >= 5) { // Minimum chunk size
             let found[node_size] = size;
             let found[node_hole] = 0;
             do Memory.create_foot(found);
 
-            let new_node = found + size + 4; // Move to the new block start
+            let new_node = found + size + 5; // Move to the new block start
             let new_node[node_size] = remaining_size;
             let new_node[node_hole] = 1;
             do Memory.create_foot(new_node);
@@ -139,7 +139,7 @@ class Memory {
             do Memory.create_foot(found);
         }
 
-        return found + 1; // Return pointer to usable memory (after header)
+        return found + 4; // Return pointer to usable memory (after header)
     }
 
     /** Returns a chunk of memory of all zeros*/
@@ -160,26 +160,29 @@ class Memory {
     function void deAlloc(int ptr) {
         var int node, prev_node, next_node;
 
-        let node = ptr - 1;
+        let node = ptr - 4;
         let node[node_hole] = 1;
 
-        let prev_node = Memory.getPrevNode(node);
-        let next_node = Memory.getNextNode(node);
+        let prev_node = node[node_prev];
+        let next_node = node[node_next];
 
-        if (prev_node & (prev_node[node_hole] = 1)) {
-            do Memory.remove_node(HEAP_START + Memory.getBinIndex(prev_node[node_size]), prev_node);
-            let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
-            do Memory.create_foot(prev_node);
-            let node = prev_node;
+        if (prev_node ~= null){
+            if(prev_node[node_hole] = 1){
+                do Memory.remove_node(HEAP_START + Memory.getBinIndex(prev_node[node_size]), prev_node);
+                let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
+                do Memory.create_foot(prev_node);
+                let node = prev_node;
+            }
         }
 
-        if (next_node & (next_node[node_hole] = 1)) {
-            do Memory.remove_node(HEAP_START + Memory.getBinIndex(next_node[node_size]), next_node);
-            let node[node_size] = node[node_size] + next_node[node_size] + 5;
-            do Memory.create_foot(node);
+        if (next_node ~= null){
+            if (next_node[node_hole] = 1){
+                do Memory.remove_node(HEAP_START + Memory.getBinIndex(next_node[node_size]), next_node);
+                let node[node_size] = node[node_size] + next_node[node_size] + 5;
+                do Memory.create_foot(node);
+            }
         }
-
-        do Memory.add_node(HEAP_START + getBinIndex(node[node_size]) , node);
+        do Memory.add_node(HEAP_START + Memory.getBinIndex(node[node_size]) , node);
         return;
     }
 
@@ -248,7 +251,7 @@ class Memory {
     function int getBinIndex(int size) {
         var int i;
         let i = 0;
-        while (i < AMOUNT_OF_BINS) {
+        while (i < AMOUNT_OF_BINS & (HEAP_START[i] ~= null)) {
             if (size <= ((i + 1) * 16)) {
                 return i;
             }
@@ -260,19 +263,22 @@ class Memory {
     /** Returns the best fitting block in the given bin. */
     function int get_best_fit(int bin_p, int size) {
         var int temp;
-        let temp = bin_p;
-        while (temp) {
-            if (temp[node_size] >= size) {
-                return temp;
-            }
+        let temp = bin_p[0];
+        if (temp[node_size] >= size) {
+           return temp;
+        }
+        while (temp[node_next] ~= null) {
             let temp = temp[node_next];
+            if (temp[node_size] >= size) {
+               return temp;
+            }
         }
         return null;
     }
 
     /** Creates a footer for a node. */
     function void create_foot(int head) {
-        let head[head[node_size] + 5] = head;
+        let head[head[node_size] + 4] = head;
         return;
     }
 
@@ -310,27 +316,6 @@ class Memory {
         }
         return;
     }
-
-    /** Returns the previous node in memory. */
-    function int getPrevNode(int node) {
-        var int prev;
-        let prev = node - 5;
-        if ((prev[node_size] + prev + 5) = node) {
-            return prev;
-        }
-        return null;
-    }
-
-    /** Returns the next node in memory. */
-    function int getNextNode(int node) {
-        var int next;
-        let next = node + node[node_size] + 5;
-        if (next[node_size] > 0) {
-            return next;
-        }
-        return null;
-    }
-
 
     function void poke(int x, int y){
         let x[0] = y;

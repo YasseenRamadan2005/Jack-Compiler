@@ -45,8 +45,6 @@ pop local 0
 push constant 2048
 push local 0
 add
-pop pointer 1
-push that 0
 pop local 1
 push local 1
 push argument 0
@@ -70,7 +68,9 @@ eq
 if-goto Memory.alloc.IfElse1
 push constant 0
 return
+goto Memory.alloc.IfElseEND1
 label Memory.alloc.IfElse1
+label Memory.alloc.IfElseEND1
 push local 0
 push constant 1
 add
@@ -78,8 +78,6 @@ pop local 0
 push constant 2048
 push local 0
 add
-pop pointer 1
-push that 0
 pop local 1
 push local 1
 push argument 0
@@ -104,8 +102,6 @@ add
 pop pointer 1
 push that 0
 push argument 0
-sub
-push constant 5
 sub
 pop local 3
 push local 3
@@ -133,7 +129,7 @@ pop temp 0
 push local 2
 push argument 0
 add
-push constant 4
+push constant 5
 add
 pop local 4
 push local 3
@@ -158,6 +154,7 @@ add
 push local 4
 call Memory.add_node 2
 pop temp 0
+goto Memory.alloc.IfElseEND2
 label Memory.alloc.IfElse2
 push constant 0
 push local 2
@@ -168,8 +165,9 @@ pop that 0
 push local 2
 call Memory.create_foot 1
 pop temp 0
+label Memory.alloc.IfElseEND2
 push local 2
-push constant 1
+push constant 4
 add
 return
 function Memory.calloc 1
@@ -183,7 +181,9 @@ eq
 if-goto Memory.calloc.IfElse1
 push constant 0
 return
+goto Memory.calloc.IfElseEND1
 label Memory.calloc.IfElse1
+label Memory.calloc.IfElseEND1
 label WHILE_START_Memory.calloc1
 push argument 0
 push constant 0
@@ -207,7 +207,7 @@ push local 0
 return
 function Memory.deAlloc 3
 push argument 0
-push constant 1
+push constant 4
 sub
 pop local 0
 push constant 1
@@ -217,12 +217,24 @@ add
 pop pointer 1
 pop that 0
 push local 0
-call Memory.getPrevNode 1
+push constant 2
+add
+pop pointer 1
+push that 0
 pop local 1
 push local 0
-call Memory.getNextNode 1
+push constant 3
+add
+pop pointer 1
+push that 0
 pop local 2
 push local 1
+push constant 0
+eq
+not
+push constant 0
+eq
+if-goto Memory.deAlloc.IfElse1
 push local 1
 push constant 1
 add
@@ -230,10 +242,9 @@ pop pointer 1
 push that 0
 push constant 1
 eq
-and
 push constant 0
 eq
-if-goto Memory.deAlloc.IfElse1
+if-goto Memory.deAlloc.IfElse2
 push constant 2048
 push local 1
 push constant 0
@@ -268,8 +279,19 @@ call Memory.create_foot 1
 pop temp 0
 push local 1
 pop local 0
+goto Memory.deAlloc.IfElseEND2
+label Memory.deAlloc.IfElse2
+label Memory.deAlloc.IfElseEND2
+goto Memory.deAlloc.IfElseEND1
 label Memory.deAlloc.IfElse1
+label Memory.deAlloc.IfElseEND1
 push local 2
+push constant 0
+eq
+not
+push constant 0
+eq
+if-goto Memory.deAlloc.IfElse3
 push local 2
 push constant 1
 add
@@ -277,10 +299,9 @@ pop pointer 1
 push that 0
 push constant 1
 eq
-and
 push constant 0
 eq
-if-goto Memory.deAlloc.IfElse2
+if-goto Memory.deAlloc.IfElse4
 push constant 2048
 push local 2
 push constant 0
@@ -313,15 +334,19 @@ pop that 0
 push local 0
 call Memory.create_foot 1
 pop temp 0
-label Memory.deAlloc.IfElse2
+goto Memory.deAlloc.IfElseEND4
+label Memory.deAlloc.IfElse4
+label Memory.deAlloc.IfElseEND4
+goto Memory.deAlloc.IfElseEND3
+label Memory.deAlloc.IfElse3
+label Memory.deAlloc.IfElseEND3
 push constant 2048
 push local 0
 push constant 0
 add
 pop pointer 1
 push that 0
-push pointer 0
-call Memory.getBinIndex 2
+call Memory.getBinIndex 1
 add
 push local 0
 call Memory.add_node 2
@@ -338,7 +363,9 @@ if-goto Memory.realloc.IfElse1
 push argument 1
 call Memory.alloc 1
 return
+goto Memory.realloc.IfElseEND1
 label Memory.realloc.IfElse1
+label Memory.realloc.IfElseEND1
 push argument 0
 push constant 1
 sub
@@ -360,7 +387,9 @@ eq
 if-goto Memory.realloc.IfElse2
 push constant 0
 return
+goto Memory.realloc.IfElseEND2
 label Memory.realloc.IfElse2
+label Memory.realloc.IfElseEND2
 push local 0
 push argument 1
 gt
@@ -370,9 +399,11 @@ eq
 if-goto Memory.realloc.IfElse3
 push local 0
 pop local 2
+goto Memory.realloc.IfElseEND3
 label Memory.realloc.IfElse3
 push argument 1
 pop local 2
+label Memory.realloc.IfElseEND3
 push argument 0
 push local 1
 push local 2
@@ -435,6 +466,7 @@ push constant 3
 add
 pop pointer 1
 pop that 0
+goto Memory.remove_node.IfElseEND1
 label Memory.remove_node.IfElse1
 push argument 1
 push constant 3
@@ -446,6 +478,7 @@ push constant 0
 add
 pop pointer 1
 pop that 0
+label Memory.remove_node.IfElseEND1
 push argument 1
 push constant 3
 add
@@ -469,7 +502,9 @@ push constant 2
 add
 pop pointer 1
 pop that 0
+goto Memory.remove_node.IfElseEND2
 label Memory.remove_node.IfElse2
+label Memory.remove_node.IfElseEND2
 push constant 0
 push argument 1
 push constant 2
@@ -491,6 +526,15 @@ label WHILE_START_Memory.getBinIndex1
 push local 0
 push constant 7
 lt
+push constant 2048
+push local 0
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+not
+and
 push constant 0
 eq
 if-goto WHILE_END_Memory.getBinIndex1
@@ -507,7 +551,9 @@ eq
 if-goto Memory.getBinIndex.IfElse1
 push local 0
 return
+goto Memory.getBinIndex.IfElseEND1
 label Memory.getBinIndex.IfElse1
+label Memory.getBinIndex.IfElseEND1
 push local 0
 push constant 1
 add
@@ -520,12 +566,11 @@ sub
 return
 function Memory.get_best_fit 1
 push argument 0
-pop local 0
-label WHILE_START_Memory.get_best_fit1
-push local 0
 push constant 0
-eq
-if-goto WHILE_END_Memory.get_best_fit1
+add
+pop pointer 1
+push that 0
+pop local 0
 push local 0
 push constant 0
 add
@@ -539,13 +584,43 @@ eq
 if-goto Memory.get_best_fit.IfElse1
 push local 0
 return
+goto Memory.get_best_fit.IfElseEND1
 label Memory.get_best_fit.IfElse1
+label Memory.get_best_fit.IfElseEND1
+label WHILE_START_Memory.get_best_fit1
+push local 0
+push constant 3
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+not
+push constant 0
+eq
+if-goto WHILE_END_Memory.get_best_fit1
 push local 0
 push constant 3
 add
 pop pointer 1
 push that 0
 pop local 0
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push argument 1
+lt
+not
+push constant 0
+eq
+if-goto Memory.get_best_fit.IfElse2
+push local 0
+return
+goto Memory.get_best_fit.IfElseEND2
+label Memory.get_best_fit.IfElse2
+label Memory.get_best_fit.IfElseEND2
 goto WHILE_START_Memory.get_best_fit1
 label WHILE_END_Memory.get_best_fit1
 push constant 0
@@ -558,7 +633,7 @@ push constant 0
 add
 pop pointer 1
 push that 0
-push constant 5
+push constant 4
 add
 add
 pop pointer 1
@@ -596,7 +671,9 @@ pop pointer 1
 pop that 0
 push constant 0
 return
+goto Memory.add_node.IfElseEND1
 label Memory.add_node.IfElse1
+label Memory.add_node.IfElseEND1
 push argument 0
 push constant 0
 add
@@ -665,6 +742,7 @@ push constant 0
 add
 pop pointer 1
 pop that 0
+goto Memory.add_node.IfElseEND2
 label Memory.add_node.IfElse2
 push local 0
 push argument 1
@@ -688,63 +766,16 @@ push constant 2
 add
 pop pointer 1
 pop that 0
+goto Memory.add_node.IfElseEND3
 label Memory.add_node.IfElse3
+label Memory.add_node.IfElseEND3
 push argument 1
 push local 1
 push constant 3
 add
 pop pointer 1
 pop that 0
-push constant 0
-return
-function Memory.getPrevNode 1
-push argument 0
-push constant 5
-sub
-pop local 0
-push local 0
-push constant 0
-add
-pop pointer 1
-push that 0
-push local 0
-add
-push constant 5
-add
-push argument 0
-eq
-push constant 0
-eq
-if-goto Memory.getPrevNode.IfElse1
-push local 0
-return
-label Memory.getPrevNode.IfElse1
-push constant 0
-return
-function Memory.getNextNode 1
-push argument 0
-push argument 0
-push constant 0
-add
-pop pointer 1
-push that 0
-add
-push constant 5
-add
-pop local 0
-push local 0
-push constant 0
-add
-pop pointer 1
-push that 0
-push constant 0
-gt
-push constant 0
-eq
-if-goto Memory.getNextNode.IfElse1
-push local 0
-return
-label Memory.getNextNode.IfElse1
+label Memory.add_node.IfElseEND2
 push constant 0
 return
 function Memory.poke 0
