@@ -63,8 +63,6 @@ class Keyboard {
             //backspace character
             if( c = 129 ) {
                 do line.eraseLastChar();
-				do Output.backSpace();
-				do Output.printChar(" ");
             }
             else {
                 do line.appendChar(c);

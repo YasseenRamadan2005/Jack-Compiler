@@ -35,7 +35,6 @@
  - `remove_node(bin, node)`: Removes a block from its bin when allocated or merged.
  - `get_best_fit(bin, size)`: Finds the smallest free block that fits `size`.
  - `create_foot(head)`: Creates a footer for a memory block.
- - `getPrevNode(node)`, `getNextNode(node)`: Identify neighboring blocks for merging.
 
  --- Memory Management Strategy ---
  - When allocating, the system searches for the best-fitting free block.

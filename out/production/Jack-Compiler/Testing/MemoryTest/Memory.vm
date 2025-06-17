@@ -3,7 +3,11 @@ push constant 2048
 push constant 7
 add
 pop local 0
-push constant 14423
+push constant 16384
+push local 0
+sub
+push constant 5
+sub
 push local 0
 push constant 0
 add
@@ -106,8 +110,7 @@ sub
 pop local 3
 push local 3
 push constant 5
-lt
-not
+gt
 push constant 0
 eq
 if-goto Memory.alloc.IfElse2
@@ -133,6 +136,8 @@ push constant 5
 add
 pop local 4
 push local 3
+push constant 5
+sub
 push local 4
 push constant 0
 add

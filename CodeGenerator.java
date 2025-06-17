@@ -377,7 +377,7 @@ public class CodeGenerator {
             // Case: foo(...) — method in current class
             String subroutineName = nodes.getFirst().value;
 
-            vmInstructions.add("push pointer 0"); // push `this` reference
+            vmInstructions.addFirst("push pointer 0"); // push `this` reference
             vmInstructions.add(String.format("call %s.%s %d", ps.getClassName(), subroutineName, argCount + 1));
         }
 

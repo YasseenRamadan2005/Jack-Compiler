@@ -1,6 +1,4 @@
 function Output.init 0
-push constant 16384
-pop static 3
 call Output.initMap 0
 pop temp 0
 push constant 0
@@ -1479,7 +1477,7 @@ lt
 push constant 0
 eq
 if-goto WHILE_END_Output.printChar1
-push static 3
+push constant 16384
 push static 2
 push constant 11
 call Math.multiply 2

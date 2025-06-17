@@ -1016,8 +1016,13 @@ A=M
 D=M
 @4
 M=D
-@14423
-D=A
+@LCL
+A=M
+D=M
+@16384
+D=A-D
+@5
+D=D-A
 @THAT
 A=M
 M=D
@@ -1461,7 +1466,7 @@ M=D
 D=A
 @13
 M=D
-@Memory.peek.LT.8
+@Memory.peek.GT.8
 D=A
 @13
 M=D
@@ -1474,10 +1479,9 @@ D=M
 D=D-A
 @15
 M=D
-@DO_LT
+@DO_GT
 0;JMP
-(Memory.peek.LT.8)
-D=!D
+(Memory.peek.GT.8)
 @15
 M=D
 @DO_EQ
@@ -1573,6 +1577,8 @@ A=M+1
 A=A+1
 A=A+1
 D=M
+@5
+D=D-A
 @THAT
 A=M
 M=D

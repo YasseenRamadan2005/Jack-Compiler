@@ -25,17 +25,16 @@ class Output {
     */
 
 
+    constant SCREEN 16384;
     // Character map for displaying characters
     static Array charMaps;
 
     static int cursor_x, cursor_y;
 
-    static Array screen;
     static Array charMasks;
 
     /** Initializes the screen, and locates the cursor at the screen's top-left. */
     function void init() {
-        let screen = 16384; //The location of the screen in memory;
         do Output.initMap();
         let cursor_x = 0;
         let cursor_y = 0;
@@ -211,7 +210,7 @@ class Output {
         // Print each row in the character map
         let i = 0;
         while( i < 11 ) {
-           let address = screen + ((cursor_y * 11 + i) * 32) + (cursor_x / 2);
+           let address = SCREEN + ((cursor_y * 11 + i) * 32) + (cursor_x / 2);
             //Each bit map is a byte, so the first 8 bits are all zeros
 
             if (cursor_x & 1 = 0){ //dumb trick to check if even
