@@ -5,25 +5,26 @@ import java.util.List;
 import java.util.Map;
 
 public class FunctionInstruction implements VMinstruction {
-    private final String functionName;
     private final int numLocals;
     private final Map<String, Integer> funcMapping;
-
+    private String funcName;
     public FunctionInstruction(String functionName, int numLocals, Map<String, Integer> funcMapping) {
-        this.functionName = functionName;
+        funcName = functionName;
+        VMParser.currentFunction = funcName;
         this.numLocals = numLocals;
         this.funcMapping = funcMapping;
     }
 
     @Override
     public List<String> decode() {
+        VMParser.currentFunction = funcName;
         List<String> asm = new ArrayList<>();
 
         // Reset the call count for this function in the map
-        funcMapping.put(functionName, 0);
+        funcMapping.put(VMParser.currentFunction, 0);
 
-        asm.add("// function " + functionName + " with " + numLocals);
-        asm.add("(" + functionName + ")");
+        asm.add("// function " + VMParser.currentFunction + " with " + numLocals);
+        asm.add("(" + VMParser.currentFunction + ")");
 
         // Initialize local variables to 0 by pushing 0 numLocals times
         for (int i = 0; i < numLocals; i++) {
@@ -33,10 +34,15 @@ public class FunctionInstruction implements VMinstruction {
         return asm;
     }
 
+    public String getFuncName() {
+        return funcName;
+    }
+
     @Override
     public String toString() {
+        VMParser.currentFunction = funcName;
         return "FunctionInstruction{" +
-                "functionName='" + functionName + '\'' +
+                "functionName='" + VMParser.currentFunction + '\'' +
                 ", numLocals=" + numLocals +
                 ", funcMapping=" + funcMapping +
                 '}';

@@ -72,7 +72,7 @@ public final class ArithmeticInstruction implements VMinstruction {
             return this == LT || this == EQ || this == GT;
         }
 
-        /// constant folding: apply this op to <code>v</code> (only meaningful for unary ops)
+        /// constant folding: apply this op to v (only meaningful for unary ops)
         int apply(int v) {
             return v;
         }                 // default (binary ops do nothing)

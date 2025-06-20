@@ -33,6 +33,7 @@ public class VMParser {
         for (String line : removeComments(lines)) {
             flat.add(parseLine(line));
         }
+        //return flat;
         return group(flat);
     }
 
@@ -56,6 +57,12 @@ public class VMParser {
                     if (top instanceof PushGroup pgTop) {
                         stack.addLast(new PushPopPair(pgTop, pop));
                     } else if (top instanceof PushPopPair ppp && stack.peekLast() instanceof PushGroup pg2) {
+                        for (VMinstruction v : stack){
+                            if (v instanceof FunctionInstruction f && f.getFuncName().equals("Memory.create_foot")){
+                                int x = 0;
+                                break;
+                            }
+                        }
                         stack.removeLast();               // remove pg2
                         stack.addLast(new PushPopPair(ppp, pg2, pop));
                     } else {
@@ -114,6 +121,11 @@ public class VMParser {
                     stack.addLast(new ConditionalGroup(cond, ifg));
                 }
 
+                case FunctionInstruction f -> {
+                    //stack.clear();
+                    VMParser.currentFunction = f.getFuncName();
+                    stack.addLast(f);
+                }
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
         }
@@ -145,12 +157,12 @@ public class VMParser {
             }
             case "function" -> {
                 requireLength(tokens, 3, line);
-                currentFunction = tokens[1];
+                VMParser.currentFunction = tokens[1];
                 return new FunctionInstruction(tokens[1], Integer.parseInt(tokens[2]), funcMapping);
             }
             case "call" -> {
                 requireLength(tokens, 3, line);
-                return new CallInstruction(tokens[1], Integer.parseInt(tokens[2]), funcMapping, currentFunction);
+                return new CallInstruction(tokens[1], Integer.parseInt(tokens[2]), funcMapping);
             }
             case "return" -> {
                 requireLength(tokens, 1, line);

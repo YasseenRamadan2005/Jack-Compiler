@@ -146,12 +146,12 @@ M=D
 A=M
 0;JMP
 (SKIPo)
-// call Sys.init.0
+// call Sys.init
 @5
 D=A
 @14
 M=D
-@Sys.init.0
+@Sys.init
 D=A
 @13
 M=D
@@ -160,13 +160,3484 @@ D=A
 @CALL
 0;JMP
 (global.ret.0)
-// function Array.new with 0
-(Array.new)
+//FunctionInstruction{functionName='Screen.init', numLocals=0, funcMapping={}}
+// function Screen.init with 0
+(Screen.init)
 
+
+//PPP : push UnaryPushGroup(    PushInstruction("constant 0"),
+//NOT)
+//pop PopInstruction{address=Screen.0} END PPP 
+
+@Screen.0
+M=-1
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.setColor', numLocals=0, funcMapping={Screen.init=0}}
+// function Screen.setColor with 0
+(Screen.setColor)
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=Screen.0} END PPP 
 
 @ARG
 A=M
 D=M
+@Screen.0
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.drawPixel', numLocals=2, funcMapping={Screen.init=0, Screen.setColor=0}}
+// function Screen.drawPixel with 2
+(Screen.drawPixel)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        BinaryPushGroup(
+//            left:
+//CallGroup{pushes=[PushInstruction("argument 1"), PushInstruction("constant 32")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Screen.init=0, Screen.setColor=0, Screen.drawPixel=0}, currentFunction='Screen.drawPixel'}},
+//            right:
+//CallGroup{pushes=[PushInstruction("argument 0"), PushInstruction("constant 16")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Screen.init=0, Screen.setColor=0, Screen.drawPixel=0}, currentFunction='Screen.drawPixel'}},
+//            binaryOp: "ADD"
+//        ),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@32
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.multiply
+@7
+D=A
+@14
+M=D
+@Math.multiply
+D=A
+@13
+M=D
+@Screen.drawPixel.ret.2
+D=A
+@CALL
+0;JMP
+(Screen.drawPixel.ret.2)
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@16
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide
+@7
+D=A
+@14
+M=D
+@Math.divide
+D=A
+@13
+M=D
+@Screen.drawPixel.ret.3
+D=A
+@CALL
+0;JMP
+(Screen.drawPixel.ret.3)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M-1
+D=D+M
+@16384
+D=D+A
+@LCL
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 15"),
+//    binaryOp: "AND"
+//)
+//pop PopInstruction{address=local 1} END PPP 
+
+@ARG
+A=M
+D=M
+@15
+D=D&A
+@LCL
+A=M+1
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("static 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawPixel.IfElse1}}
+@Screen.0
+D=M
+@15
+M=D
+@Screen.drawPixel.EQ.2
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawPixel.EQ.2)
+D=!D
+@15
+M=D
+@Screen.drawPixel.EQ.1
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawPixel.EQ.1)
+@Screen.drawPixel.IfElse1
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//CallGroup{pushes=[PushInstruction("local 1")], call=CallInstruction{calleeFunction='Math.twoToThe', numArgs=1, funcMapping={Screen.init=0, Screen.setColor=0, Screen.drawPixel=4}, currentFunction='Screen.drawPixel'}},
+//    binaryOp: "OR"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+@THAT
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.twoToThe
+@6
+D=A
+@14
+M=D
+@Math.twoToThe
+D=A
+@13
+M=D
+@Screen.drawPixel.ret.4
+D=A
+@CALL
+0;JMP
+(Screen.drawPixel.ret.4)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M-1
+D=D|M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Screen.drawPixel.IfElseEND1}
+// goto Screen.drawPixel.IfElseEND1
+@Screen.drawPixel.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawPixel.IfElse1}
+// label Screen.drawPixel.IfElse1
+(Screen.drawPixel.IfElse1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        UnaryPushGroup(CallGroup{pushes=[PushInstruction("local 1")], call=CallInstruction{calleeFunction='Math.twoToThe', numArgs=1, funcMapping={Screen.init=0, Screen.setColor=0, Screen.drawPixel=5}, currentFunction='Screen.drawPixel'}},
+//NOT),
+//    binaryOp: "AND"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+@THAT
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.twoToThe
+@6
+D=A
+@14
+M=D
+@Math.twoToThe
+D=A
+@13
+M=D
+@Screen.drawPixel.ret.5
+D=A
+@CALL
+0;JMP
+(Screen.drawPixel.ret.5)
+@SP
+AM=M-1
+D=M
+D=!D
+@SP
+AM=M-1
+D=D&M
+@THAT
+A=M
+M=D
+
+
+//LabelInstruction{label='Screen.drawPixel.IfElseEND1}
+// label Screen.drawPixel.IfElseEND1
+(Screen.drawPixel.IfElseEND1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.drawLine', numLocals=6, funcMapping={Screen.init=0, Screen.setColor=0, Screen.drawPixel=6}}
+// function Screen.drawLine with 6
+(Screen.drawLine)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 2"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "SUB"
+//)], call=CallInstruction{calleeFunction='Math.abs', numArgs=1, funcMapping={Screen.init=0, Screen.drawLine=0, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawLine'}}
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M+1
+A=A+1
+D=M
+A=A-1
+A=A-1
+D=D-M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.abs
+@6
+D=A
+@14
+M=D
+@Math.abs
+D=A
+@13
+M=D
+@Screen.drawLine.ret.0
+D=A
+@CALL
+0;JMP
+(Screen.drawLine.ret.0)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 3"),
+//    right:
+//        PushInstruction("argument 1"),
+//    binaryOp: "SUB"
+//)], call=CallInstruction{calleeFunction='Math.abs', numArgs=1, funcMapping={Screen.init=0, Screen.drawLine=1, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawLine'}}
+//pop PopInstruction{address=local 1} END PPP 
+
+@ARG
+A=M+1
+A=A+1
+A=A+1
+D=M
+A=A-1
+A=A-1
+D=D-M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.abs
+@6
+D=A
+@14
+M=D
+@Math.abs
+D=A
+@13
+M=D
+@Screen.drawLine.ret.1
+D=A
+@CALL
+0;JMP
+(Screen.drawLine.ret.1)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("argument 2"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawLine.IfElse1}}
+@ARG
+A=M+1
+A=A+1
+D=M
+A=A-1
+A=A-1
+D=M-D
+@15
+M=D
+@Screen.drawLine.LT.5
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Screen.drawLine.LT.5)
+@15
+M=D
+@Screen.drawLine.EQ.4
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.4)
+@Screen.drawLine.IfElse1
+D;JNE
+
+
+//PPP : push PushInstruction("constant 1")
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+M=1
+
+
+//GotoInstruction{label='Screen.drawLine.IfElseEND1}
+// goto Screen.drawLine.IfElseEND1
+@Screen.drawLine.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawLine.IfElse1}
+// label Screen.drawLine.IfElse1
+(Screen.drawLine.IfElse1)
+
+
+//PPP : push UnaryPushGroup(    PushInstruction("constant 1"),
+//NEG)
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+M=-1
+
+
+//LabelInstruction{label='Screen.drawLine.IfElseEND1}
+// label Screen.drawLine.IfElseEND1
+(Screen.drawLine.IfElseEND1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("argument 3"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawLine.IfElse2}}
+@ARG
+A=M+1
+A=A+1
+A=A+1
+D=M
+A=A-1
+A=A-1
+D=M-D
+@15
+M=D
+@Screen.drawLine.LT.8
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Screen.drawLine.LT.8)
+@15
+M=D
+@Screen.drawLine.EQ.7
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.7)
+@Screen.drawLine.IfElse2
+D;JNE
+
+
+//PPP : push PushInstruction("constant 1")
+//pop PopInstruction{address=local 3} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=1
+
+
+//GotoInstruction{label='Screen.drawLine.IfElseEND2}
+// goto Screen.drawLine.IfElseEND2
+@Screen.drawLine.IfElseEND2
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawLine.IfElse2}
+// label Screen.drawLine.IfElse2
+(Screen.drawLine.IfElse2)
+
+
+//PPP : push UnaryPushGroup(    PushInstruction("constant 1"),
+//NEG)
+//pop PopInstruction{address=local 3} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=-1
+
+
+//LabelInstruction{label='Screen.drawLine.IfElseEND2}
+// label Screen.drawLine.IfElseEND2
+(Screen.drawLine.IfElseEND2)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 4} END PPP 
+
+@LCL
+A=M+1
+D=M
+A=A-1
+D=M-D
+@LCL
+D=M
+@4
+A=D+A
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Screen.drawLine1}
+// label WHILE_START_Screen.drawLine1
+(WHILE_START_Screen.drawLine1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            PushInstruction("constant 0"),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Screen.drawLine1}}
+D=0
+@WHILE_END_Screen.drawLine1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0"), PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Screen.drawPixel', numArgs=2, funcMapping={Screen.init=0, Screen.drawLine=2, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawLine'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawPixel
+@7
+D=A
+@14
+M=D
+@Screen.drawPixel
+D=A
+@13
+M=D
+@Screen.drawLine.ret.2
+D=A
+@CALL
+0;JMP
+(Screen.drawLine.ret.2)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("argument 2"),
+//                    binaryOp: "EQ"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 1"),
+//                    right:
+//                        PushInstruction("argument 3"),
+//                    binaryOp: "EQ"
+//                ),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawLine.IfElse3}}
+@ARG
+A=M+1
+A=A+1
+D=M
+A=A-1
+A=A-1
+D=M-D
+@15
+M=D
+@Screen.drawLine.EQ.12
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.12)
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+A=A+1
+A=A+1
+D=M
+A=A-1
+A=A-1
+D=M-D
+@15
+M=D
+@Screen.drawLine.EQ.13
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.13)
+@SP
+AM=M-1
+D=D&M
+@15
+M=D
+@Screen.drawLine.EQ.11
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.11)
+@Screen.drawLine.IfElse3
+D;JNE
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Screen.drawLine.IfElseEND3}
+// goto Screen.drawLine.IfElseEND3
+@Screen.drawLine.IfElseEND3
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawLine.IfElse3}
+// label Screen.drawLine.IfElse3
+(Screen.drawLine.IfElse3)
+
+
+//LabelInstruction{label='Screen.drawLine.IfElseEND3}
+// label Screen.drawLine.IfElseEND3
+(Screen.drawLine.IfElseEND3)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("local 4"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 5} END PPP 
+
+@LCL
+D=M
+@5
+A=D+A
+D=A
+@13
+M=D
+@LCL
+D=M
+@4
+A=D+A
+D=M
+D=D+M
+@13
+A=M
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("local 5"),
+//                    right:
+//                        PushInstruction("local 1"),
+//                    binaryOp: "ADD"
+//                ),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawLine.IfElse4}}
+@LCL
+D=M
+@5
+A=D+A
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=D+M
+@15
+M=D
+@Screen.drawLine.GT.16
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Screen.drawLine.GT.16)
+@15
+M=D
+@Screen.drawLine.EQ.15
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.15)
+@Screen.drawLine.IfElse4
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 4} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+D=M
+A=A-1
+A=A-1
+A=A-1
+D=D-M
+@LCL
+D=M
+@4
+A=D+A
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=argument 0} END PPP 
+
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@R13
+D=D+M
+@ARG
+A=M
+M=D
+
+
+//GotoInstruction{label='Screen.drawLine.IfElseEND4}
+// goto Screen.drawLine.IfElseEND4
+@Screen.drawLine.IfElseEND4
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawLine.IfElse4}
+// label Screen.drawLine.IfElse4
+(Screen.drawLine.IfElse4)
+
+
+//LabelInstruction{label='Screen.drawLine.IfElseEND4}
+// label Screen.drawLine.IfElseEND4
+(Screen.drawLine.IfElseEND4)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 5"),
+//            right:
+//                PushInstruction("local 0"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawLine.IfElse5}}
+@LCL
+D=M
+@5
+A=D+A
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Screen.drawLine.LT.19
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Screen.drawLine.LT.19)
+@15
+M=D
+@Screen.drawLine.EQ.18
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawLine.EQ.18)
+@Screen.drawLine.IfElse5
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 4} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=D+M
+@LCL
+D=M
+@4
+A=D+A
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("local 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=argument 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@R13
+D=D+M
+@ARG
+A=M+1
+M=D
+
+
+//GotoInstruction{label='Screen.drawLine.IfElseEND5}
+// goto Screen.drawLine.IfElseEND5
+@Screen.drawLine.IfElseEND5
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawLine.IfElse5}
+// label Screen.drawLine.IfElse5
+(Screen.drawLine.IfElse5)
+
+
+//LabelInstruction{label='Screen.drawLine.IfElseEND5}
+// label Screen.drawLine.IfElseEND5
+(Screen.drawLine.IfElseEND5)
+
+
+//GotoInstruction{label='WHILE_START_Screen.drawLine1}
+// goto WHILE_START_Screen.drawLine1
+@WHILE_START_Screen.drawLine1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Screen.drawLine1}
+// label WHILE_END_Screen.drawLine1
+(WHILE_END_Screen.drawLine1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.drawHorizontalLine', numLocals=1, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.setColor=0, Screen.drawPixel=6}}
+// function Screen.drawHorizontalLine with 1
+(Screen.drawHorizontalLine)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Screen.drawHorizontalLine1}
+// label WHILE_START_Screen.drawHorizontalLine1
+(WHILE_START_Screen.drawHorizontalLine1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 0"),
+//                right:
+//                    PushInstruction("argument 1"),
+//                binaryOp: "GT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Screen.drawHorizontalLine1}}
+@LCL
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Screen.drawHorizontalLine.GT.22
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Screen.drawHorizontalLine.GT.22)
+D=!D
+@15
+M=D
+@Screen.drawHorizontalLine.EQ.21
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawHorizontalLine.EQ.21)
+@WHILE_END_Screen.drawHorizontalLine1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0"), PushInstruction("argument 2")], call=CallInstruction{calleeFunction='Screen.drawPixel', numArgs=2, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawHorizontalLine=0, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawHorizontalLine'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawPixel
+@7
+D=A
+@14
+M=D
+@Screen.drawPixel
+D=A
+@13
+M=D
+@Screen.drawHorizontalLine.ret.0
+D=A
+@CALL
+0;JMP
+(Screen.drawHorizontalLine.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Screen.drawHorizontalLine1}
+// goto WHILE_START_Screen.drawHorizontalLine1
+@WHILE_START_Screen.drawHorizontalLine1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Screen.drawHorizontalLine1}
+// label WHILE_END_Screen.drawHorizontalLine1
+(WHILE_END_Screen.drawHorizontalLine1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.drawCircle', numLocals=5, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawHorizontalLine=1, Screen.setColor=0, Screen.drawPixel=6}}
+// function Screen.drawCircle with 5
+(Screen.drawCircle)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=0
+
+
+//PPP : push PushInstruction("argument 2")
+//pop PopInstruction{address=local 1} END PPP 
+
+@ARG
+A=M+1
+A=A+1
+D=M
+@LCL
+A=M+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 1"),
+//    right:
+//        PushInstruction("argument 2"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 2} END PPP 
+
+@ARG
+A=M+1
+A=A+1
+D=M-1
+D=-D
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Screen.drawCircle1}
+// label WHILE_START_Screen.drawCircle1
+(WHILE_START_Screen.drawCircle1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 0"),
+//                right:
+//                    PushInstruction("local 1"),
+//                binaryOp: "GT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Screen.drawCircle1}}
+@LCL
+A=M+1
+D=M
+A=A-1
+D=M-D
+@15
+M=D
+@Screen.drawCircle.GT.25
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Screen.drawCircle.GT.25)
+D=!D
+@15
+M=D
+@Screen.drawCircle.EQ.24
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawCircle.EQ.24)
+@WHILE_END_Screen.drawCircle1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "SUB"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "ADD"
+//)], call=CallInstruction{calleeFunction='Screen.drawHorizontalLine', numArgs=3, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=0, Screen.drawHorizontalLine=1, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawCircle'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawHorizontalLine
+@8
+D=A
+@14
+M=D
+@Screen.drawHorizontalLine
+D=A
+@13
+M=D
+@Screen.drawCircle.ret.0
+D=A
+@CALL
+0;JMP
+(Screen.drawCircle.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "SUB"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "SUB"
+//)], call=CallInstruction{calleeFunction='Screen.drawHorizontalLine', numArgs=3, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=1, Screen.drawHorizontalLine=1, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawCircle'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawHorizontalLine
+@8
+D=A
+@14
+M=D
+@Screen.drawHorizontalLine
+D=A
+@13
+M=D
+@Screen.drawCircle.ret.1
+D=A
+@CALL
+0;JMP
+(Screen.drawCircle.ret.1)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "SUB"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "ADD"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)], call=CallInstruction{calleeFunction='Screen.drawHorizontalLine', numArgs=3, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=2, Screen.drawHorizontalLine=1, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawCircle'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawHorizontalLine
+@8
+D=A
+@14
+M=D
+@Screen.drawHorizontalLine
+D=A
+@13
+M=D
+@Screen.drawCircle.ret.2
+D=A
+@CALL
+0;JMP
+(Screen.drawCircle.ret.2)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "SUB"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "ADD"
+//), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "SUB"
+//)], call=CallInstruction{calleeFunction='Screen.drawHorizontalLine', numArgs=3, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=3, Screen.drawHorizontalLine=1, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawCircle'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=M-D
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawHorizontalLine
+@8
+D=A
+@14
+M=D
+@Screen.drawHorizontalLine
+D=A
+@13
+M=D
+@Screen.drawCircle.ret.3
+D=A
+@CALL
+0;JMP
+(Screen.drawCircle.ret.3)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 2"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawCircle.IfElse1}}
+@LCL
+A=M+1
+A=A+1
+D=M
+@15
+M=D
+@Screen.drawCircle.LT.28
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Screen.drawCircle.LT.28)
+@15
+M=D
+@Screen.drawCircle.EQ.27
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawCircle.EQ.27)
+@Screen.drawCircle.IfElse1
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 2"),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("local 0"),
+//                    right:
+//                        PushInstruction("local 0"),
+//                    binaryOp: "ADD"
+//                ),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M
+D=M
+D=D+M
+@SP
+AM=M-1
+D=D+M
+@3
+D=D+A
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//GotoInstruction{label='Screen.drawCircle.IfElseEND1}
+// goto Screen.drawCircle.IfElseEND1
+@Screen.drawCircle.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawCircle.IfElse1}
+// label Screen.drawCircle.IfElse1
+(Screen.drawCircle.IfElse1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 2"),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        BinaryPushGroup(
+//                            left:
+//                                PushInstruction("local 0"),
+//                            right:
+//                                PushInstruction("local 1"),
+//                            binaryOp: "SUB"
+//                        ),
+//                    right:
+//                        BinaryPushGroup(
+//                            left:
+//                                PushInstruction("local 0"),
+//                            right:
+//                                PushInstruction("local 1"),
+//                            binaryOp: "SUB"
+//                        ),
+//                    binaryOp: "ADD"
+//                ),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+D=M
+A=A-1
+D=M-D
+@R13
+M=D
+D=D+M
+@SP
+AM=M-1
+D=D+M
+@5
+D=D+A
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M+1
+M=M-1
+
+
+//LabelInstruction{label='Screen.drawCircle.IfElseEND1}
+// label Screen.drawCircle.IfElseEND1
+(Screen.drawCircle.IfElseEND1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Screen.drawCircle1}
+// goto WHILE_START_Screen.drawCircle1
+@WHILE_START_Screen.drawCircle1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Screen.drawCircle1}
+// label WHILE_END_Screen.drawCircle1
+(WHILE_END_Screen.drawCircle1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.drawRectangle', numLocals=10, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.setColor=0, Screen.drawPixel=6}}
+// function Screen.drawRectangle with 10
+(Screen.drawRectangle)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push UnaryPushGroup(    PushInstruction("constant 1"),
+//NEG)
+//pop PopInstruction{address=local 9} END PPP 
+
+@LCL
+D=M
+@9
+A=D+A
+M=-1
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            PushInstruction("static 0"),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawRectangle.IfElse1}}
+@Screen.0
+D=!M
+@15
+M=D
+@Screen.drawRectangle.EQ.29
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.29)
+@Screen.drawRectangle.IfElse1
+D;JNE
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 9} END PPP 
+
+@LCL
+D=M
+@9
+A=D+A
+M=0
+
+
+//GotoInstruction{label='Screen.drawRectangle.IfElseEND1}
+// goto Screen.drawRectangle.IfElseEND1
+@Screen.drawRectangle.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElse1}
+// label Screen.drawRectangle.IfElse1
+(Screen.drawRectangle.IfElse1)
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElseEND1}
+// label Screen.drawRectangle.IfElseEND1
+(Screen.drawRectangle.IfElseEND1)
+
+
+//PPP : push PushInstruction("argument 1")
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@LCL
+A=M
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Screen.drawRectangle1}
+// label WHILE_START_Screen.drawRectangle1
+(WHILE_START_Screen.drawRectangle1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 0"),
+//                right:
+//                    PushInstruction("argument 3"),
+//                binaryOp: "GT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Screen.drawRectangle1}}
+@LCL
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M+1
+A=A+1
+A=A+1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Screen.drawRectangle.GT.32
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Screen.drawRectangle.GT.32)
+D=!D
+@15
+M=D
+@Screen.drawRectangle.EQ.31
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.31)
+@WHILE_END_Screen.drawRectangle1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0"), PushInstruction("constant 16")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=0, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}}
+//pop PopInstruction{address=local 1} END PPP 
+
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@16
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide
+@7
+D=A
+@14
+M=D
+@Math.divide
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.0
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.0)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 2"), PushInstruction("constant 16")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=1, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}}
+//pop PopInstruction{address=local 2} END PPP 
+
+@ARG
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@16
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide
+@7
+D=A
+@14
+M=D
+@Math.divide
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.1
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.1)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 15"),
+//    binaryOp: "AND"
+//)
+//pop PopInstruction{address=local 3} END PPP 
+
+@ARG
+A=M
+D=M
+@15
+D=D&A
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 2"),
+//    right:
+//        PushInstruction("constant 15"),
+//    binaryOp: "AND"
+//)
+//pop PopInstruction{address=local 4} END PPP 
+
+@ARG
+A=M+1
+A=A+1
+D=M
+@15
+D=D&A
+@LCL
+D=M
+@4
+A=D+A
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0"), PushInstruction("constant 32")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=2, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}}
+//pop PopInstruction{address=local 5} END PPP 
+
+@LCL
+D=M
+@5
+A=D+A
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@32
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.multiply
+@7
+D=A
+@14
+M=D
+@Math.multiply
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.2
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.2)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M-1
+A=M
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 1"),
+//            right:
+//                PushInstruction("local 2"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawRectangle.IfElse2}}
+@LCL
+A=M+1
+A=A+1
+D=M
+A=A-1
+D=M-D
+@15
+M=D
+@Screen.drawRectangle.EQ.35
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.35)
+@15
+M=D
+@Screen.drawRectangle.EQ.34
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.34)
+@Screen.drawRectangle.IfElse2
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)], call=CallInstruction{calleeFunction='Math.twoToThe', numArgs=1, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=3, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}},
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "SUB"
+//        ),
+//    right:
+//        BinaryPushGroup(
+//            left:
+//CallGroup{pushes=[PushInstruction("local 3")], call=CallInstruction{calleeFunction='Math.twoToThe', numArgs=1, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=3, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}},
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "SUB"
+//        ),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 6} END PPP 
+
+@LCL
+D=M
+@6
+A=D+A
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+D=M
+@4
+A=D+A
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D+1
+// call Math.twoToThe
+@6
+D=A
+@14
+M=D
+@Math.twoToThe
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.3
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.3)
+@SP
+AM=M-1
+D=M
+D=M-1
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.twoToThe
+@6
+D=A
+@14
+M=D
+@Math.twoToThe
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.4
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.4)
+@SP
+AM=M-1
+D=M
+D=M-1
+@SP
+AM=M-1
+D=M-D
+@SP
+AM=M-1
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 5"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 7} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=A
+@13
+M=D
+@LCL
+D=M
+@5
+A=D+A
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=D+M
+@13
+A=M
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawRectangle.IfElse3}}
+@Screen.0
+D=M
+@15
+M=D
+@Screen.drawRectangle.EQ.36
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.36)
+@Screen.drawRectangle.IfElse3
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        PushInstruction("local 6"),
+//    binaryOp: "OR"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@R13
+M=D
+@LCL
+D=M
+@6
+A=D+A
+D=M
+@R13
+D=D|M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Screen.drawRectangle.IfElseEND3}
+// goto Screen.drawRectangle.IfElseEND3
+@Screen.drawRectangle.IfElseEND3
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElse3}
+// label Screen.drawRectangle.IfElse3
+(Screen.drawRectangle.IfElse3)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        UnaryPushGroup(            PushInstruction("local 6"),
+//NOT),
+//    binaryOp: "AND"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@R13
+M=D
+@LCL
+D=M
+@6
+A=D+A
+D=!M
+@R13
+D=D&M
+@THAT
+A=M
+M=D
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElseEND3}
+// label Screen.drawRectangle.IfElseEND3
+(Screen.drawRectangle.IfElseEND3)
+
+
+//GotoInstruction{label='Screen.drawRectangle.IfElseEND2}
+// goto Screen.drawRectangle.IfElseEND2
+@Screen.drawRectangle.IfElseEND2
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElse2}
+// label Screen.drawRectangle.IfElse2
+(Screen.drawRectangle.IfElse2)
+
+
+//PPP : push UnaryPushGroup(    BinaryPushGroup(
+//        left:
+//CallGroup{pushes=[PushInstruction("local 3")], call=CallInstruction{calleeFunction='Math.twoToThe', numArgs=1, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=5, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}},
+//        right:
+//            PushInstruction("constant 1"),
+//        binaryOp: "SUB"
+//    ),
+//NOT)
+//pop PopInstruction{address=local 6} END PPP 
+
+@LCL
+D=M
+@6
+A=D+A
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.twoToThe
+@6
+D=A
+@14
+M=D
+@Math.twoToThe
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.5
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.5)
+@SP
+AM=M-1
+D=M
+D=M-1
+D=!D
+@SP
+AM=M-1
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 5"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 7} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=A
+@13
+M=D
+@LCL
+D=M
+@5
+A=D+A
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+D=M
+@R13
+D=D+M
+@13
+A=M
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawRectangle.IfElse4}}
+@Screen.0
+D=M
+@15
+M=D
+@Screen.drawRectangle.EQ.37
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.37)
+@Screen.drawRectangle.IfElse4
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        PushInstruction("local 6"),
+//    binaryOp: "OR"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@R13
+M=D
+@LCL
+D=M
+@6
+A=D+A
+D=M
+@R13
+D=D|M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Screen.drawRectangle.IfElseEND4}
+// goto Screen.drawRectangle.IfElseEND4
+@Screen.drawRectangle.IfElseEND4
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElse4}
+// label Screen.drawRectangle.IfElse4
+(Screen.drawRectangle.IfElse4)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        UnaryPushGroup(            PushInstruction("local 6"),
+//NOT),
+//    binaryOp: "AND"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@R13
+M=D
+@LCL
+D=M
+@6
+A=D+A
+D=!M
+@R13
+D=D&M
+@THAT
+A=M
+M=D
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElseEND4}
+// label Screen.drawRectangle.IfElseEND4
+(Screen.drawRectangle.IfElseEND4)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 8} END PPP 
+
+@LCL
+D=M
+@8
+A=D+A
+D=A
+@13
+M=D
+@LCL
+A=M+1
+D=M+1
+@13
+A=M
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Screen.drawRectangle2}
+// label WHILE_START_Screen.drawRectangle2
+(WHILE_START_Screen.drawRectangle2)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 8"),
+//            right:
+//                PushInstruction("local 2"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Screen.drawRectangle2}}
+@LCL
+D=M
+@8
+A=D+A
+D=M
+@R13
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Screen.drawRectangle.LT.40
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Screen.drawRectangle.LT.40)
+@15
+M=D
+@Screen.drawRectangle.EQ.39
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.39)
+@WHILE_END_Screen.drawRectangle2
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 5"),
+//    right:
+//        PushInstruction("local 8"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 7} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=A
+@13
+M=D
+@LCL
+D=M
+@8
+A=D+A
+D=M
+A=A-1
+A=A-1
+A=A-1
+D=D+M
+@13
+A=M
+M=D
+
+
+//PPP : push PushInstruction("local 9")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@LCL
+D=M
+@9
+A=D+A
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 8"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 8} END PPP 
+
+@LCL
+D=M
+@8
+A=D+A
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Screen.drawRectangle2}
+// goto WHILE_START_Screen.drawRectangle2
+@WHILE_START_Screen.drawRectangle2
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Screen.drawRectangle2}
+// label WHILE_END_Screen.drawRectangle2
+(WHILE_END_Screen.drawRectangle2)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)], call=CallInstruction{calleeFunction='Math.twoToThe', numArgs=1, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=6, Screen.setColor=0, Screen.drawPixel=6}, currentFunction='Screen.drawRectangle'}},
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 6} END PPP 
+
+@LCL
+D=M
+@6
+A=D+A
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+D=M
+@4
+A=D+A
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D+1
+// call Math.twoToThe
+@6
+D=A
+@14
+M=D
+@Math.twoToThe
+D=A
+@13
+M=D
+@Screen.drawRectangle.ret.6
+D=A
+@CALL
+0;JMP
+(Screen.drawRectangle.ret.6)
+@SP
+AM=M-1
+D=M
+D=M-1
+@SP
+AM=M-1
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 5"),
+//    right:
+//        PushInstruction("local 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 7} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=A
+@13
+M=D
+@LCL
+D=M
+@5
+A=D+A
+D=M
+A=A-1
+A=A-1
+A=A-1
+D=D+M
+@13
+A=M
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Screen.drawRectangle.IfElse5}}
+@Screen.0
+D=M
+@15
+M=D
+@Screen.drawRectangle.EQ.41
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.drawRectangle.EQ.41)
+@Screen.drawRectangle.IfElse5
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        PushInstruction("local 6"),
+//    binaryOp: "OR"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@R13
+M=D
+@LCL
+D=M
+@6
+A=D+A
+D=M
+@R13
+D=D|M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Screen.drawRectangle.IfElseEND5}
+// goto Screen.drawRectangle.IfElseEND5
+@Screen.drawRectangle.IfElseEND5
+0;JMP
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElse5}
+// label Screen.drawRectangle.IfElse5
+(Screen.drawRectangle.IfElse5)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        UnaryPushGroup(            PushInstruction("local 6"),
+//NOT),
+//    binaryOp: "AND"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@7
+A=D+A
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@R13
+M=D
+@LCL
+D=M
+@6
+A=D+A
+D=!M
+@R13
+D=D&M
+@THAT
+A=M
+M=D
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElseEND5}
+// label Screen.drawRectangle.IfElseEND5
+(Screen.drawRectangle.IfElseEND5)
+
+
+//LabelInstruction{label='Screen.drawRectangle.IfElseEND2}
+// label Screen.drawRectangle.IfElseEND2
+(Screen.drawRectangle.IfElseEND2)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Screen.drawRectangle1}
+// goto WHILE_START_Screen.drawRectangle1
+@WHILE_START_Screen.drawRectangle1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Screen.drawRectangle1}
+// label WHILE_END_Screen.drawRectangle1
+(WHILE_END_Screen.drawRectangle1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Screen.clearScreen', numLocals=1, funcMapping={Screen.init=0, Screen.drawLine=3, Screen.drawCircle=4, Screen.drawHorizontalLine=1, Screen.drawRectangle=7, Screen.setColor=0, Screen.drawPixel=6}}
+// function Screen.clearScreen with 1
+(Screen.clearScreen)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=0
+
+
+//LabelInstruction{label='WHILE_START_Screen.clearScreen1}
+// label WHILE_START_Screen.clearScreen1
+(WHILE_START_Screen.clearScreen1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 0"),
+//            right:
+//                PushInstruction("constant 8192"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Screen.clearScreen1}}
+@LCL
+A=M
+D=M
+@8192
+D=D-A
+@15
+M=D
+@Screen.clearScreen.LT.44
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Screen.clearScreen.LT.44)
+@15
+M=D
+@Screen.clearScreen.EQ.43
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Screen.clearScreen.EQ.43)
+@WHILE_END_Screen.clearScreen1
+D;JNE
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@16384
+D=D+A
+@4
+M=D
+@THAT
+A=M
+M=0
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Screen.clearScreen1}
+// goto WHILE_START_Screen.clearScreen1
+@WHILE_START_Screen.clearScreen1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Screen.clearScreen1}
+// label WHILE_END_Screen.clearScreen1
+(WHILE_END_Screen.clearScreen1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.new', numLocals=0, funcMapping={}}
+// function String.new with 0
+(String.new)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 3")], call=CallInstruction{calleeFunction='Memory.alloc', numArgs=1, funcMapping={String.new=0}, currentFunction='String.new'}}
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@3
+D=A
 @SP
 AM=M+1
 A=A-1
@@ -180,20 +3651,153 @@ M=D
 D=A
 @13
 M=D
-@Array.new.ret.0
+@String.new.ret.0
 D=A
 @CALL
 0;JMP
-(Array.new.ret.0)
+(String.new.ret.0)
+@SP
+AM=M-1
+D=M
+@3
+M=D
 
 
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.new.IfElse1}}
+@ARG
+A=M
+D=M
+@15
+M=D
+@String.new.EQ.2
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.new.EQ.2)
+@15
+M=D
+@String.new.EQ.1
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.new.EQ.1)
+@String.new.IfElse1
+D;JNE
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=this 0} END PPP 
+
+@THIS
+A=M
+M=0
+
+
+//GotoInstruction{label='String.new.IfElseEND1}
+// goto String.new.IfElseEND1
+@String.new.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='String.new.IfElse1}
+// label String.new.IfElse1
+(String.new.IfElse1)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Array.new', numArgs=1, funcMapping={String.new=1}, currentFunction='String.new'}}
+//pop PopInstruction{address=this 0} END PPP 
+
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Array.new
+@6
+D=A
+@14
+M=D
+@Array.new
+D=A
+@13
+M=D
+@String.new.ret.1
+D=A
+@CALL
+0;JMP
+(String.new.ret.1)
+@SP
+AM=M-1
+D=M
+@THIS
+A=M
+M=D
+
+
+//LabelInstruction{label='String.new.IfElseEND1}
+// label String.new.IfElseEND1
+(String.new.IfElseEND1)
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=this 2} END PPP 
+
+@ARG
+A=M
+D=M
+@THIS
+A=M+1
+A=A+1
+M=D
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=this 1} END PPP 
+
+@THIS
+A=M+1
+M=0
+
+
+//PushInstruction("pointer 0")
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Array.dispose with 0
-(Array.dispose)
+//FunctionInstruction{functionName='String.dispose', numLocals=0, funcMapping={String.new=2}}
+// function String.dispose with 0
+(String.dispose)
 
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
 
 @ARG
 A=M
@@ -202,214 +3806,70 @@ D=M
 M=D
 
 
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.deAlloc
-@6
-D=A
-@14
-M=D
-@Memory.deAlloc
-D=A
-@13
-M=D
-@Array.dispose.ret.0
-D=A
-@CALL
-0;JMP
-(Array.dispose.ret.0)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Keyboard.init with 0
-(Keyboard.init)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Keyboard.keyPressed with 0
-(Keyboard.keyPressed)
-
-
-@24576
-D=A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Keyboard.readChar with 1
-(Keyboard.readChar)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-// label WHILE_START_Keyboard.readChar1
-(WHILE_START_Keyboard.readChar1)
-
-
-@24576
-D=A
-@4
-M=D
-
-
-@Keyboard.readInt.EQ.1
-D=A
-@13
-M=D
-@Keyboard.readInt.EQ.2
-D=A
-@13
-M=D
-@THAT
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("this 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.dispose.IfElse1}}
+@THIS
 A=M
 D=M
 @15
 M=D
-@DO_EQ
-0;JMP
-(Keyboard.readInt.EQ.2)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Keyboard.readInt.EQ.1)
-@WHILE_END_Keyboard.readChar1
-D;JNE
-
-
-// goto WHILE_START_Keyboard.readChar1
-@WHILE_START_Keyboard.readChar1
-0;JMP
-
-
-// label WHILE_END_Keyboard.readChar1
-(WHILE_END_Keyboard.readChar1)
-
-
-@24576
-D=A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-// label WHILE_START_Keyboard.readChar2
-(WHILE_START_Keyboard.readChar2)
-
-
-@24576
-D=A
-@4
-M=D
-
-
-@Keyboard.readInt.EQ.4
+@String.dispose.EQ.5
 D=A
 @13
 M=D
-@Keyboard.readInt.EQ.5
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@15
-M=D
 @DO_EQ
 0;JMP
-(Keyboard.readInt.EQ.5)
+(String.dispose.EQ.5)
 D=!D
 @15
 M=D
+@String.dispose.EQ.4
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Keyboard.readInt.EQ.4)
-@WHILE_END_Keyboard.readChar2
+(String.dispose.EQ.4)
+@String.dispose.IfElse1
 D;JNE
 
 
-// goto WHILE_START_Keyboard.readChar2
-@WHILE_START_Keyboard.readChar2
-0;JMP
+//PPP : push CallGroup{pushes=[PushInstruction("this 0")], call=CallInstruction{calleeFunction='Array.dispose', numArgs=1, funcMapping={String.dispose=0, String.new=2}, currentFunction='String.dispose'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
-
-// label WHILE_END_Keyboard.readChar2
-(WHILE_END_Keyboard.readChar2)
-
-
-@LCL
+@THIS
 A=M
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call Output.printChar
+// call Array.dispose
 @6
 D=A
 @14
 M=D
-@Output.printChar
+@Array.dispose
 D=A
 @13
 M=D
-@Keyboard.readChar.ret.0
+@String.dispose.ret.0
 D=A
 @CALL
 0;JMP
-(Keyboard.readChar.ret.0)
+(String.dispose.ret.0)
 @SP
 AM=M-1
 D=M
@@ -417,52 +3877,315 @@ D=M
 M=D
 
 
-@LCL
-A=M
-D=M
+//GotoInstruction{label='String.dispose.IfElseEND1}
+// goto String.dispose.IfElseEND1
+@String.dispose.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='String.dispose.IfElse1}
+// label String.dispose.IfElse1
+(String.dispose.IfElse1)
+
+
+//LabelInstruction{label='String.dispose.IfElseEND1}
+// label String.dispose.IfElseEND1
+(String.dispose.IfElseEND1)
+
+
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Keyboard.readLine with 2
-(Keyboard.readLine)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
+//FunctionInstruction{functionName='String.length', numLocals=0, funcMapping={String.dispose=1, String.new=2}}
+// function String.length with 0
+(String.length)
 
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
 
 @ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PushInstruction("this 1")
+@THIS
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.charAt', numLocals=0, funcMapping={String.dispose=1, String.length=0, String.new=2}}
+// function String.charAt with 0
+(String.charAt)
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("this 0"),
+//    right:
+//        PushInstruction("argument 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@THIS
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+D=D+M
+@4
+M=D
+
+
+//PushInstruction("that 0")
+@THAT
 A=M
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call Output.printString
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.setCharAt', numLocals=0, funcMapping={String.dispose=1, String.charAt=0, String.length=0, String.new=2}}
+// function String.setCharAt with 0
+(String.setCharAt)
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PPP : push PushInstruction("argument 2")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("this 0"),
+//    right:
+//        PushInstruction("argument 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@THIS
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+D=D+M
+@4
+M=D
+@ARG
+A=M+1
+A=A+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.appendChar', numLocals=1, funcMapping={String.dispose=1, String.charAt=0, String.setCharAt=0, String.length=0, String.new=2}}
+// function String.appendChar with 1
+(String.appendChar)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("this 1"),
+//            right:
+//                PushInstruction("this 2"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.appendChar.IfElse1}}
+@THIS
+A=M+1
+A=A+1
+D=M
+A=A-1
+D=M-D
+@15
+M=D
+@String.appendChar.EQ.8
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.appendChar.EQ.8)
+@15
+M=D
+@String.appendChar.EQ.7
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.appendChar.EQ.7)
+@String.appendChar.IfElse1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("this 2"),
+//    right:
+//        PushInstruction("this 2"),
+//    binaryOp: "ADD"
+//)], call=CallInstruction{calleeFunction='Array.new', numArgs=1, funcMapping={String.dispose=1, String.charAt=0, String.appendChar=0, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.appendChar'}}
+//pop PopInstruction{address=local 0} END PPP 
+
+@THIS
+A=M+1
+A=A+1
+D=M
+D=D+M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Array.new
 @6
 D=A
 @14
 M=D
-@Output.printString
+@Array.new
 D=A
 @13
 M=D
-@Keyboard.readLine.ret.0
+@String.appendChar.ret.0
 D=A
 @CALL
 0;JMP
-(Keyboard.readLine.ret.0)
+(String.appendChar.ret.0)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("this 0"), PushInstruction("local 0"), PushInstruction("this 1")], call=CallInstruction{calleeFunction='Memory.copy', numArgs=3, funcMapping={String.dispose=1, String.charAt=0, String.appendChar=1, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.appendChar'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@THIS
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@THIS
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.copy
+@8
+D=A
+@14
+M=D
+@Memory.copy
+D=A
+@13
+M=D
+@String.appendChar.ret.1
+D=A
+@CALL
+0;JMP
+(String.appendChar.ret.1)
 @SP
 AM=M-1
 D=M
@@ -470,158 +4193,1395 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("this 0")], call=CallInstruction{calleeFunction='Array.dispose', numArgs=1, funcMapping={String.dispose=1, String.charAt=0, String.appendChar=2, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.appendChar'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@THIS
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Array.dispose
+@6
+D=A
+@14
+M=D
+@Array.dispose
+D=A
+@13
+M=D
+@String.appendChar.ret.2
+D=A
+@CALL
+0;JMP
+(String.appendChar.ret.2)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("this 2"),
+//    right:
+//        PushInstruction("this 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=this 2} END PPP 
+
+@THIS
+A=M+1
+A=A+1
+D=M
+D=D+M
+@THIS
+A=M+1
+A=A+1
+M=D
+
+
+//PPP : push PushInstruction("local 0")
+//pop PopInstruction{address=this 0} END PPP 
+
+@LCL
+A=M
+D=M
+@THIS
+A=M
+M=D
+
+
+//GotoInstruction{label='String.appendChar.IfElseEND1}
+// goto String.appendChar.IfElseEND1
+@String.appendChar.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='String.appendChar.IfElse1}
+// label String.appendChar.IfElse1
+(String.appendChar.IfElse1)
+
+
+//LabelInstruction{label='String.appendChar.IfElseEND1}
+// label String.appendChar.IfElseEND1
+(String.appendChar.IfElseEND1)
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("this 0"),
+//    right:
+//        PushInstruction("this 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@THIS
+A=M+1
+D=M
+A=A-1
+D=D+M
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("this 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=this 1} END PPP 
+
+@THIS
+A=M+1
+M=M+1
+
+
+//PushInstruction("pointer 0")
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.eraseLastChar', numLocals=0, funcMapping={String.dispose=1, String.charAt=0, String.appendChar=3, String.setCharAt=0, String.length=0, String.new=2}}
+// function String.eraseLastChar with 0
+(String.eraseLastChar)
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("this 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=this 1} END PPP 
+
+@THIS
+A=M+1
+M=M-1
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.intValue', numLocals=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.appendChar=3, String.setCharAt=0, String.length=0, String.new=2}}
+// function String.intValue with 2
+(String.intValue)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PPP : push PushInstruction("constant 1")
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M+1
+M=1
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=0
+
+
+//LabelInstruction{label='WHILE_START_String.intValue1}
+// label WHILE_START_String.intValue1
+(WHILE_START_String.intValue1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 1"),
+//            right:
+//                PushInstruction("this 1"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_String.intValue1}}
+@LCL
+A=M+1
+D=M
+@R13
+M=D
+@THIS
+A=M+1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@String.intValue.LT.11
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(String.intValue.LT.11)
+@15
+M=D
+@String.intValue.EQ.10
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.intValue.EQ.10)
+@WHILE_END_String.intValue1
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//CallGroup{pushes=[PushInstruction("local 0"), PushInstruction("constant 10")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=0, String.appendChar=3, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.intValue'}},
+//    right:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("constant 48"),
+//            binaryOp: "SUB"
+//        ),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@10
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.multiply
+@7
+D=A
+@14
+M=D
+@Math.multiply
+D=A
+@13
+M=D
+@String.intValue.ret.0
+D=A
+@CALL
+0;JMP
+(String.intValue.ret.0)
+@THAT
+A=M
+D=M
+@48
+D=D-A
+@SP
+AM=M-1
+D=D+M
+@LCL
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M+1
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_String.intValue1}
+// goto WHILE_START_String.intValue1
+@WHILE_START_String.intValue1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_String.intValue1}
+// label WHILE_END_String.intValue1
+(WHILE_END_String.intValue1)
+
+
+//PushInstruction("local 0")
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.setInt', numLocals=6, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setCharAt=0, String.length=0, String.new=2}}
+// function String.setInt with 6
+(String.setInt)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=this 1} END PPP 
+
+@THIS
+A=M+1
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 4} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+M=0
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.setInt.IfElse1}}
+@ARG
+A=M+1
+D=M
+@15
+M=D
+@String.setInt.EQ.14
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.14)
+@15
+M=D
+@String.setInt.EQ.13
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.13)
+@String.setInt.IfElse1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 48")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=0, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@48
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@String.setInt.ret.0
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='String.setInt.IfElseEND1}
+// goto String.setInt.IfElseEND1
+@String.setInt.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='String.setInt.IfElse1}
+// label String.setInt.IfElse1
+(String.setInt.IfElse1)
+
+
+//LabelInstruction{label='String.setInt.IfElseEND1}
+// label String.setInt.IfElseEND1
+(String.setInt.IfElseEND1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.setInt.IfElse2}}
+@ARG
+A=M+1
+D=M
+@15
+M=D
+@String.setInt.LT.17
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(String.setInt.LT.17)
+@15
+M=D
+@String.setInt.EQ.16
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.16)
+@String.setInt.IfElse2
+D;JNE
+
+
+//PPP : push PushInstruction("constant 1")
+//pop PopInstruction{address=local 4} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+M=1
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 1"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "LT"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        BinaryPushGroup(
+//                            left:
+//                                PushInstruction("argument 1"),
+//                            right:
+//                                PushInstruction("constant 32767"),
+//                            binaryOp: "AND"
+//                        ),
+//                    right:
+//                        PushInstruction("constant 32767"),
+//                    binaryOp: "EQ"
+//                ),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.setInt.IfElse3}}
+@ARG
+A=M+1
+D=M
+@15
+M=D
+@String.setInt.LT.21
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(String.setInt.LT.21)
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M+1
+D=M
+@32767
+D=D&A
+@32767
+D=D-A
+@15
+M=D
+@String.setInt.EQ.22
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.22)
+@SP
+AM=M-1
+D=D&M
+@15
+M=D
+@String.setInt.EQ.20
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.20)
+@String.setInt.IfElse3
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 45")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=1, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@45
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@String.setInt.ret.1
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.1)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 51")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=2, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@51
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@String.setInt.ret.2
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.2)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 50")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=3, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
 @50
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-// call String.new
-@6
+// call String.appendChar
+@7
 D=A
 @14
 M=D
-@String.new
+@String.appendChar
 D=A
 @13
 M=D
-@Keyboard.readLine.ret.1
+@String.setInt.ret.3
 D=A
 @CALL
 0;JMP
-(Keyboard.readLine.ret.1)
+(String.setInt.ret.3)
 @SP
 AM=M-1
 D=M
-@LCL
-A=M
+@5
 M=D
 
 
-// call Keyboard.readChar
-@5
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 55")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=4, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@55
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
 D=A
 @14
 M=D
-@Keyboard.readChar
+@String.appendChar
 D=A
 @13
 M=D
-@Keyboard.readLine.ret.2
+@String.setInt.ret.4
 D=A
 @CALL
 0;JMP
-(Keyboard.readLine.ret.2)
+(String.setInt.ret.4)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 54")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=5, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@54
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@String.setInt.ret.5
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.5)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 56")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=6, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@56
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@String.setInt.ret.6
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.6)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='String.setInt.IfElseEND3}
+// goto String.setInt.IfElseEND3
+@String.setInt.IfElseEND3
+0;JMP
+
+
+//LabelInstruction{label='String.setInt.IfElse3}
+// label String.setInt.IfElse3
+(String.setInt.IfElse3)
+
+
+//LabelInstruction{label='String.setInt.IfElseEND3}
+// label String.setInt.IfElseEND3
+(String.setInt.IfElseEND3)
+
+
+//PPP : push UnaryPushGroup(    PushInstruction("argument 1"),
+//NEG)
+//pop PopInstruction{address=argument 1} END PPP 
+
+@ARG
+A=M+1
+M=-M
+
+
+//GotoInstruction{label='String.setInt.IfElseEND2}
+// goto String.setInt.IfElseEND2
+@String.setInt.IfElseEND2
+0;JMP
+
+
+//LabelInstruction{label='String.setInt.IfElse2}
+// label String.setInt.IfElse2
+(String.setInt.IfElse2)
+
+
+//LabelInstruction{label='String.setInt.IfElseEND2}
+// label String.setInt.IfElseEND2
+(String.setInt.IfElseEND2)
+
+
+//PPP : push PushInstruction("argument 1")
+//pop PopInstruction{address=local 2} END PPP 
+
+@ARG
+A=M+1
+D=M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 3} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=0
+
+
+//LabelInstruction{label='WHILE_START_String.setInt1}
+// label WHILE_START_String.setInt1
+(WHILE_START_String.setInt1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 2"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_String.setInt1}}
+@LCL
+A=M+1
+A=A+1
+D=M
+@15
+M=D
+@String.setInt.GT.25
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(String.setInt.GT.25)
+@15
+M=D
+@String.setInt.EQ.24
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.24)
+@WHILE_END_String.setInt1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 2"), PushInstruction("constant 10")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=7, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@10
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide
+@7
+D=A
+@14
+M=D
+@Math.divide
+D=A
+@13
+M=D
+@String.setInt.ret.7
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.7)
 @SP
 AM=M-1
 D=M
 @LCL
 A=M+1
+A=A+1
 M=D
 
 
-// label WHILE_START_Keyboard.readLine1
-(WHILE_START_Keyboard.readLine1)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 3"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 3} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=M+1
 
 
-@Keyboard.readInt.EQ.7
+//GotoInstruction{label='WHILE_START_String.setInt1}
+// goto WHILE_START_String.setInt1
+@WHILE_START_String.setInt1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_String.setInt1}
+// label WHILE_END_String.setInt1
+(WHILE_END_String.setInt1)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 3")], call=CallInstruction{calleeFunction='Array.new', numArgs=1, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=8, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=local 5} END PPP 
+
+@LCL
+D=M
+@5
+A=D+A
 D=A
-@13
-M=D
-@Keyboard.readInt.EQ.8
-D=A
-@13
+@SP
+AM=M+1
+A=A-1
 M=D
 @LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Array.new
+@6
+D=A
+@14
+M=D
+@Array.new
+D=A
+@13
+M=D
+@String.setInt.ret.8
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.8)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M-1
+A=M
+M=D
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M+1
+M=0
+
+
+//LabelInstruction{label='WHILE_START_String.setInt2}
+// label WHILE_START_String.setInt2
+(WHILE_START_String.setInt2)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_String.setInt2}}
+@ARG
+A=M+1
+D=M
+@15
+M=D
+@String.setInt.GT.28
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(String.setInt.GT.28)
+@15
+M=D
+@String.setInt.EQ.27
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.27)
+@WHILE_END_String.setInt2
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//CallGroup{pushes=[CallGroup{pushes=[PushInstruction("argument 1"), PushInstruction("constant 10")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=9, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}, PushInstruction("constant 10")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=9, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}},
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
 A=M+1
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call String.newLine
-@5
+@ARG
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@10
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide
+@7
 D=A
 @14
 M=D
-@String.newLine
+@Math.divide
 D=A
 @13
 M=D
-@Keyboard.readLine.ret.4
+@String.setInt.ret.9
 D=A
 @CALL
 0;JMP
-(Keyboard.readLine.ret.4)
+(String.setInt.ret.9)
+@10
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.multiply
+@7
+D=A
+@14
+M=D
+@Math.multiply
+D=A
+@13
+M=D
+@String.setInt.ret.10
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.10)
 @SP
 AM=M-1
 D=M
 @SP
 AM=M-1
 D=M-D
-@15
+@LCL
+A=M
 M=D
-@DO_EQ
-0;JMP
-(Keyboard.readInt.EQ.8)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Keyboard.readInt.EQ.7)
-@WHILE_END_Keyboard.readLine1
-D;JNE
 
 
-@Keyboard.readInt.EQ.10
-D=A
-@13
-M=D
-@Keyboard.readInt.EQ.11
-D=A
-@13
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 48"),
+//    binaryOp: "ADD"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 5"),
+//    right:
+//        PushInstruction("local 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@5
+A=D+A
+D=M
+@R13
 M=D
 @LCL
 A=M+1
 D=M
-@129
-D=D-A
-@15
+@R13
+D=D+M
+@4
 M=D
-@DO_EQ
-0;JMP
-(Keyboard.readInt.EQ.11)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Keyboard.readInt.EQ.10)
-@Keyboard.readLine.IfElse1
-D;JNE
-
-
 @LCL
 A=M
+D=M
+@48
+D=D+A
+@THAT
+A=M
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 1"), PushInstruction("constant 10")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=11, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=argument 1} END PPP 
+
+@ARG
+A=M+1
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call String.eraseLastChar
-@6
+@10
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Math.divide
+@7
 D=A
 @14
 M=D
-@String.eraseLastChar
+@Math.divide
 D=A
 @13
 M=D
-@Keyboard.readLine.ret.5
+@String.setInt.ret.11
 D=A
 @CALL
 0;JMP
-(Keyboard.readLine.ret.5)
+(String.setInt.ret.11)
+@SP
+AM=M-1
+D=M
+@ARG
+A=M+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M+1
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_String.setInt2}
+// goto WHILE_START_String.setInt2
+@WHILE_START_String.setInt2
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_String.setInt2}
+// label WHILE_END_String.setInt2
+(WHILE_END_String.setInt2)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 4"),
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='String.setInt.IfElse4}}
+@LCL
+D=M
+@4
+A=D+A
+D=M-1
+@15
+M=D
+@String.setInt.EQ.31
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.31)
+@15
+M=D
+@String.setInt.EQ.30
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.30)
+@String.setInt.IfElse4
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("constant 45")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=12, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@45
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@String.setInt.ret.12
+D=A
+@CALL
+0;JMP
+(String.setInt.ret.12)
 @SP
 AM=M-1
 D=M
@@ -629,24 +5589,90 @@ D=M
 M=D
 
 
-// goto Keyboard.readLine.IfElseEND1
-@Keyboard.readLine.IfElseEND1
+//GotoInstruction{label='String.setInt.IfElseEND4}
+// goto String.setInt.IfElseEND4
+@String.setInt.IfElseEND4
 0;JMP
 
 
-// label Keyboard.readLine.IfElse1
-(Keyboard.readLine.IfElse1)
+//LabelInstruction{label='String.setInt.IfElse4}
+// label String.setInt.IfElse4
+(String.setInt.IfElse4)
 
+
+//LabelInstruction{label='String.setInt.IfElseEND4}
+// label String.setInt.IfElseEND4
+(String.setInt.IfElseEND4)
+
+
+//LabelInstruction{label='WHILE_START_String.setInt3}
+// label WHILE_START_String.setInt3
+(WHILE_START_String.setInt3)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 1"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_String.setInt3}}
+@LCL
+A=M+1
+D=M
+@15
+M=D
+@String.setInt.GT.34
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(String.setInt.GT.34)
+@15
+M=D
+@String.setInt.EQ.33
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(String.setInt.EQ.33)
+@WHILE_END_String.setInt3
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 1} END PPP 
 
 @LCL
-A=M
+A=M+1
+M=M-1
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0"), PushInstruction("that 0")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=13, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-@LCL
-A=M+1
+@THAT
+A=M
 D=M
 @SP
 AM=M+1
@@ -661,11 +5687,11 @@ M=D
 D=A
 @13
 M=D
-@Keyboard.readLine.ret.6
+@String.setInt.ret.13
 D=A
 @CALL
 0;JMP
-(Keyboard.readLine.ret.6)
+(String.setInt.ret.13)
 @SP
 AM=M-1
 D=M
@@ -673,894 +5699,126 @@ D=M
 M=D
 
 
-// label Keyboard.readLine.IfElseEND1
-(Keyboard.readLine.IfElseEND1)
-
-
-// call Keyboard.readChar
-@5
-D=A
-@14
-M=D
-@Keyboard.readChar
-D=A
-@13
-M=D
-@Keyboard.readLine.ret.7
-D=A
-@CALL
+//GotoInstruction{label='WHILE_START_String.setInt3}
+// goto WHILE_START_String.setInt3
+@WHILE_START_String.setInt3
 0;JMP
-(Keyboard.readLine.ret.7)
-@SP
-AM=M-1
+
+
+//LabelInstruction{label='WHILE_END_String.setInt3}
+// label WHILE_END_String.setInt3
+(WHILE_END_String.setInt3)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 5")], call=CallInstruction{calleeFunction='Array.dispose', numArgs=1, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=14, String.setCharAt=0, String.length=0, String.new=2}, currentFunction='String.setInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
 D=M
-@LCL
-A=M+1
-M=D
-
-
-// goto WHILE_START_Keyboard.readLine1
-@WHILE_START_Keyboard.readLine1
-0;JMP
-
-
-// label WHILE_END_Keyboard.readLine1
-(WHILE_END_Keyboard.readLine1)
-
-
-@LCL
-A=M
+@5
+A=D+A
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-
-
-@RETURN
+// call Array.dispose
+@6
+D=A
+@14
+M=D
+@Array.dispose
+D=A
+@13
+M=D
+@String.setInt.ret.14
+D=A
+@CALL
 0;JMP
+(String.setInt.ret.14)
+@SP
+AM=M-1
+D=M
+@5
+M=D
 
 
-// function Keyboard.readInt with 1
-(Keyboard.readInt)
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
 M=0
 
 
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Keyboard.readLine
-@6
-D=A
-@14
-M=D
-@Keyboard.readLine
-D=A
-@13
-M=D
-@Keyboard.readInt.ret.0
-D=A
-@CALL
-0;JMP
-(Keyboard.readInt.ret.0)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.intValue
-@6
-D=A
-@14
-M=D
-@String.intValue
-D=A
-@13
-M=D
-@Keyboard.readInt.ret.1
-D=A
-@CALL
-0;JMP
-(Keyboard.readInt.ret.1)
-
-
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Main.main with 0
-(Main.main)
+//FunctionInstruction{functionName='String.backSpace', numLocals=0, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=15, String.setCharAt=0, String.length=0, String.new=2}}
+// function String.backSpace with 0
+(String.backSpace)
 
 
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-@220
+//PushInstruction("constant 129")
+@129
 D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@511
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@220
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.0
-D=A
-@CALL
-0;JMP
-(Main.main.ret.0)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@280
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@90
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@410
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@220
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawRectangle
-@9
-D=A
-@14
-M=D
-@Screen.drawRectangle
-D=A
-@13
-M=D
-@Main.main.ret.1
-D=A
-@CALL
-0;JMP
-(Main.main.ret.1)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.setColor
-@6
-D=A
-@14
-M=D
-@Screen.setColor
-D=A
-@13
-M=D
-@Main.main.ret.2
-D=A
-@CALL
-0;JMP
-(Main.main.ret.2)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@350
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@120
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@390
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@219
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawRectangle
-@9
-D=A
-@14
-M=D
-@Screen.drawRectangle
-D=A
-@13
-M=D
-@Main.main.ret.3
-D=A
-@CALL
-0;JMP
-(Main.main.ret.3)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@292
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@120
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@332
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@150
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawRectangle
-@9
-D=A
-@14
-M=D
-@Screen.drawRectangle
-D=A
-@13
-M=D
-@Main.main.ret.4
-D=A
-@CALL
-0;JMP
-(Main.main.ret.4)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@SP
-AM=M+1
-A=A-1
-M=-1
-// call Screen.setColor
-@6
-D=A
-@14
-M=D
-@Screen.setColor
-D=A
-@13
-M=D
-@Main.main.ret.5
-D=A
-@CALL
-0;JMP
-(Main.main.ret.5)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@360
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@170
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@3
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawCircle
-@8
-D=A
-@14
-M=D
-@Screen.drawCircle
-D=A
-@13
-M=D
-@Main.main.ret.6
-D=A
-@CALL
-0;JMP
-(Main.main.ret.6)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@280
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@90
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@345
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@35
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.7
-D=A
-@CALL
-0;JMP
-(Main.main.ret.7)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@345
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@35
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@410
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@90
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.8
-D=A
-@CALL
-0;JMP
-(Main.main.ret.8)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@140
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@60
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@30
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawCircle
-@8
-D=A
-@14
-M=D
-@Screen.drawCircle
-D=A
-@13
-M=D
-@Main.main.ret.9
-D=A
-@CALL
-0;JMP
-(Main.main.ret.9)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@140
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@26
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@140
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@6
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.10
-D=A
-@CALL
-0;JMP
-(Main.main.ret.10)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@163
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@35
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@178
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@20
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.11
-D=A
-@CALL
-0;JMP
-(Main.main.ret.11)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@174
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@60
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@194
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@60
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.12
-D=A
-@CALL
-0;JMP
-(Main.main.ret.12)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@163
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@85
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@178
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@100
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.13
-D=A
-@CALL
-0;JMP
-(Main.main.ret.13)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@140
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@94
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@140
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@114
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.14
-D=A
-@CALL
-0;JMP
-(Main.main.ret.14)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@117
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@85
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@102
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@100
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.15
-D=A
-@CALL
-0;JMP
-(Main.main.ret.15)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@106
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@60
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@86
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@60
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.16
-D=A
-@CALL
-0;JMP
-(Main.main.ret.16)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@117
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@35
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@102
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@20
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawLine
-@9
-D=A
-@14
-M=D
-@Screen.drawLine
-D=A
-@13
-M=D
-@Main.main.ret.17
-D=A
-@CALL
-0;JMP
-(Main.main.ret.17)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
 @SP
 AM=M+1
 A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='String.doubleQuote', numLocals=0, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=15, String.setCharAt=0, String.length=0, String.new=2, String.backSpace=0}}
+// function String.doubleQuote with 0
+(String.doubleQuote)
+
+
+//PushInstruction("constant 34")
+@34
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='String.newLine', numLocals=0, funcMapping={String.dispose=1, String.charAt=0, String.eraseLastChar=0, String.intValue=1, String.appendChar=3, String.setInt=15, String.doubleQuote=0, String.setCharAt=0, String.length=0, String.new=2, String.backSpace=0}}
+// function String.newLine with 0
+(String.newLine)
+
+
+//PushInstruction("constant 128")
+@128
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Math.init', numLocals=0, funcMapping={}}
 // function Math.init with 0
 (Math.init)
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 16")], call=CallInstruction{calleeFunction='Array.new', numArgs=1, funcMapping={Math.init=0}, currentFunction='Math.init'}}
+//pop PopInstruction{address=Math.0} END PPP 
 
 @16
 D=A
@@ -1589,6 +5847,18 @@ D=M
 M=D
 
 
+//PPP : push PushInstruction("constant 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @4
@@ -1597,6 +5867,18 @@ M=D
 A=M
 M=1
 
+
+//PPP : push PushInstruction("constant 2")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M+1
@@ -1608,6 +5890,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 4")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1621,6 +5915,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 8")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1635,6 +5941,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 16")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 4"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @4
@@ -1647,6 +5965,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 32")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1661,6 +5991,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 64")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 6"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @6
@@ -1673,6 +6015,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 128")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1687,6 +6041,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 256")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 8"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @8
@@ -1699,6 +6065,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 512")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 9"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1713,6 +6091,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 1024")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 10"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @10
@@ -1725,6 +6115,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 2048")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 11"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1739,6 +6141,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 4096")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 12"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @12
@@ -1751,6 +6165,18 @@ D=A
 A=M
 M=D
 
+
+//PPP : push PushInstruction("constant 8192")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 13"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1765,6 +6191,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 16384")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 14"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Math.0
 D=M
 @14
@@ -1777,6 +6215,24 @@ D=A
 A=M
 M=D
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 16384"),
+//    right:
+//        PushInstruction("constant 16384"),
+//    binaryOp: "ADD"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("constant 15"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @Math.0
 D=M
@@ -1791,21 +6247,30 @@ A=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.bit', numLocals=0, funcMapping={Math.init=1}}
 // function Math.bit with 0
 (Math.bit)
 
 
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("that 0"),
+//    binaryOp: "AND"
+//)
 @ARG
 A=M
 D=M
@@ -1822,10 +6287,12 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.multiply', numLocals=3, funcMapping={Math.init=1, Math.bit=0}}
 // function Math.multiply with 3
 (Math.multiply)
 @SP
@@ -1842,99 +6309,142 @@ A=A-1
 M=0
 
 
-@Math.abs.EQ.2
-D=A
-@13
-M=D
-@Math.abs.EQ.3
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "EQ"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 1"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "EQ"
+//                ),
+//            binaryOp: "OR"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.multiply.IfElse1}}
 @ARG
 A=M
 D=M
 @15
 M=D
+@Math.multiply.EQ.3
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.3)
+(Math.multiply.EQ.3)
 @SP
 AM=M+1
 A=A-1
-M=D
-@Math.abs.EQ.4
-D=A
-@13
 M=D
 @ARG
 A=M+1
 D=M
 @15
 M=D
+@Math.multiply.EQ.4
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.4)
+(Math.multiply.EQ.4)
 @SP
 AM=M-1
 D=D|M
 @15
 M=D
+@Math.multiply.EQ.2
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.2)
+(Math.multiply.EQ.2)
 @Math.multiply.IfElse1
 D;JNE
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.multiply.IfElseEND1}
 // goto Math.multiply.IfElseEND1
 @Math.multiply.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Math.multiply.IfElse1}
 // label Math.multiply.IfElse1
 (Math.multiply.IfElse1)
 
 
+//LabelInstruction{label='Math.multiply.IfElseEND1}
 // label Math.multiply.IfElseEND1
 (Math.multiply.IfElseEND1)
 
 
-@Math.abs.EQ.6
-D=A
-@13
-M=D
-@Math.abs.EQ.7
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.multiply.IfElse2}}
 @ARG
 A=M
 D=M-1
 @15
 M=D
-@DO_EQ
-0;JMP
-(Math.abs.EQ.7)
-@15
+@Math.multiply.EQ.7
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.6)
+(Math.multiply.EQ.7)
+@15
+M=D
+@Math.multiply.EQ.6
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Math.multiply.EQ.6)
 @Math.multiply.IfElse2
 D;JNE
 
 
+//PushInstruction("argument 1")
 @ARG
 A=M+1
 D=M
@@ -1944,48 +6454,66 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.multiply.IfElseEND2}
 // goto Math.multiply.IfElseEND2
 @Math.multiply.IfElseEND2
 0;JMP
 
 
+//LabelInstruction{label='Math.multiply.IfElse2}
 // label Math.multiply.IfElse2
 (Math.multiply.IfElse2)
 
 
+//LabelInstruction{label='Math.multiply.IfElseEND2}
 // label Math.multiply.IfElseEND2
 (Math.multiply.IfElseEND2)
 
 
-@Math.abs.EQ.9
-D=A
-@13
-M=D
-@Math.abs.EQ.10
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.multiply.IfElse3}}
 @ARG
 A=M+1
 D=M-1
 @15
 M=D
-@DO_EQ
-0;JMP
-(Math.abs.EQ.10)
-@15
+@Math.multiply.EQ.10
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.9)
+(Math.multiply.EQ.10)
+@15
+M=D
+@Math.multiply.EQ.9
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Math.multiply.EQ.9)
 @Math.multiply.IfElse3
 D;JNE
 
 
+//PushInstruction("argument 0")
 @ARG
 A=M
 D=M
@@ -1995,31 +6523,40 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.multiply.IfElseEND3}
 // goto Math.multiply.IfElseEND3
 @Math.multiply.IfElseEND3
 0;JMP
 
 
+//LabelInstruction{label='Math.multiply.IfElse3}
 // label Math.multiply.IfElse3
 (Math.multiply.IfElse3)
 
 
+//LabelInstruction{label='Math.multiply.IfElseEND3}
 // label Math.multiply.IfElseEND3
 (Math.multiply.IfElseEND3)
 
 
-@Math.abs.EQ.12
-D=A
-@13
-M=D
-@Math.abs.EQ.13
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 2"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.multiply.IfElse4}}
 @ARG
 A=M
 D=M
@@ -2027,18 +6564,33 @@ D=M
 D=D-A
 @15
 M=D
-@DO_EQ
-0;JMP
-(Math.abs.EQ.13)
-@15
+@Math.multiply.EQ.13
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.12)
+(Math.multiply.EQ.13)
+@15
+M=D
+@Math.multiply.EQ.12
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Math.multiply.EQ.12)
 @Math.multiply.IfElse4
 D;JNE
 
 
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("argument 1"),
+//    binaryOp: "ADD"
+//)
 @ARG
 A=M+1
 D=M
@@ -2049,31 +6601,40 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.multiply.IfElseEND4}
 // goto Math.multiply.IfElseEND4
 @Math.multiply.IfElseEND4
 0;JMP
 
 
+//LabelInstruction{label='Math.multiply.IfElse4}
 // label Math.multiply.IfElse4
 (Math.multiply.IfElse4)
 
 
+//LabelInstruction{label='Math.multiply.IfElseEND4}
 // label Math.multiply.IfElseEND4
 (Math.multiply.IfElseEND4)
 
 
-@Math.abs.EQ.15
-D=A
-@13
-M=D
-@Math.abs.EQ.16
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 2"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.multiply.IfElse5}}
 @ARG
 A=M+1
 D=M
@@ -2081,18 +6642,33 @@ D=M
 D=D-A
 @15
 M=D
-@DO_EQ
-0;JMP
-(Math.abs.EQ.16)
-@15
+@Math.multiply.EQ.16
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.15)
+(Math.multiply.EQ.16)
+@15
+M=D
+@Math.multiply.EQ.15
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Math.multiply.EQ.15)
 @Math.multiply.IfElse5
 D;JNE
 
 
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
 @ARG
 A=M
 D=M
@@ -2103,22 +6679,29 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.multiply.IfElseEND5}
 // goto Math.multiply.IfElseEND5
 @Math.multiply.IfElseEND5
 0;JMP
 
 
+//LabelInstruction{label='Math.multiply.IfElse5}
 // label Math.multiply.IfElse5
 (Math.multiply.IfElse5)
 
 
+//LabelInstruction{label='Math.multiply.IfElseEND5}
 // label Math.multiply.IfElseEND5
 (Math.multiply.IfElseEND5)
 
+
+//PPP : push PushInstruction("constant 1")
+//pop PopInstruction{address=local 2} END PPP 
 
 @LCL
 A=M+1
@@ -2126,18 +6709,24 @@ A=A+1
 M=1
 
 
+//LabelInstruction{label='WHILE_START_Math.multiply1}
 // label WHILE_START_Math.multiply1
 (WHILE_START_Math.multiply1)
 
 
-@Math.abs.EQ.18
-D=A
-@13
-M=D
-@Math.abs.LT.19
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 1"),
+//            right:
+//                PushInstruction("constant 16"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Math.multiply1}}
 @LCL
 A=M+1
 D=M
@@ -2145,22 +6734,39 @@ D=M
 D=D-A
 @15
 M=D
+@Math.multiply.LT.19
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.19)
+(Math.multiply.LT.19)
 @15
+M=D
+@Math.multiply.EQ.18
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.18)
+(Math.multiply.EQ.18)
 @WHILE_END_Math.multiply1
 D;JNE
 
 
-@Math.abs.EQ.20
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("local 2"),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.multiply.IfElse6}}
 @ARG
 A=M+1
 D=M
@@ -2174,12 +6780,25 @@ D=M
 D=D&M
 @15
 M=D
+@Math.multiply.EQ.20
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.20)
+(Math.multiply.EQ.20)
 @Math.multiply.IfElse6
 D;JNE
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
 
 @LCL
 A=M
@@ -2196,18 +6815,30 @@ A=M
 M=D
 
 
+//GotoInstruction{label='Math.multiply.IfElseEND6}
 // goto Math.multiply.IfElseEND6
 @Math.multiply.IfElseEND6
 0;JMP
 
 
+//LabelInstruction{label='Math.multiply.IfElse6}
 // label Math.multiply.IfElse6
 (Math.multiply.IfElse6)
 
 
+//LabelInstruction{label='Math.multiply.IfElseEND6}
 // label Math.multiply.IfElseEND6
 (Math.multiply.IfElseEND6)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=argument 0} END PPP 
 
 @ARG
 A=M
@@ -2217,12 +6848,30 @@ D=D+M
 A=M
 M=D
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 1} END PPP 
 
 @LCL
 A=M+1
 M=M+1
 
 
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("local 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 2} END PPP 
+
 @LCL
 A=M+1
 A=A+1
@@ -2234,15 +6883,18 @@ A=A+1
 M=D
 
 
+//GotoInstruction{label='WHILE_START_Math.multiply1}
 // goto WHILE_START_Math.multiply1
 @WHILE_START_Math.multiply1
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Math.multiply1}
 // label WHILE_END_Math.multiply1
 (WHILE_END_Math.multiply1)
 
 
+//PushInstruction("local 0")
 @LCL
 A=M
 D=M
@@ -2252,10 +6904,12 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.divide', numLocals=3, funcMapping={Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.divide with 3
 (Math.divide)
 @SP
@@ -2271,6 +6925,9 @@ AM=M+1
 A=A-1
 M=0
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Math.abs', numArgs=1, funcMapping={Math.divide=0, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.divide'}}
+//pop PopInstruction{address=local 2} END PPP 
 
 @ARG
 A=M
@@ -2302,6 +6959,9 @@ A=A+1
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Math.abs', numArgs=1, funcMapping={Math.divide=1, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.divide'}}
+//pop PopInstruction{address=local 1} END PPP 
+
 @ARG
 A=M+1
 D=M
@@ -2331,29 +6991,46 @@ A=M+1
 M=D
 
 
-@Math.abs.EQ.23
-D=A
-@13
-M=D
-@Math.abs.EQ.24
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "EQ"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("local 1"),
+//                    right:
+//                        PushInstruction("local 2"),
+//                    binaryOp: "GT"
+//                ),
+//            binaryOp: "OR"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.divide.IfElse1}}
 @ARG
 A=M
 D=M
 @15
 M=D
+@Math.divide.EQ.24
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.24)
+(Math.divide.EQ.24)
 @SP
 AM=M+1
 A=A-1
-M=D
-@Math.abs.GT.25
-D=A
-@13
 M=D
 @LCL
 A=M+1
@@ -2363,53 +7040,70 @@ A=A-1
 D=M-D
 @15
 M=D
+@Math.divide.GT.25
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Math.abs.GT.25)
+(Math.divide.GT.25)
 @SP
 AM=M-1
 D=D|M
 @15
 M=D
+@Math.divide.EQ.23
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.23)
+(Math.divide.EQ.23)
 @Math.divide.IfElse1
 D;JNE
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.divide.IfElseEND1}
 // goto Math.divide.IfElseEND1
 @Math.divide.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Math.divide.IfElse1}
 // label Math.divide.IfElse1
 (Math.divide.IfElse1)
 
 
+//LabelInstruction{label='Math.divide.IfElseEND1}
 // label Math.divide.IfElseEND1
 (Math.divide.IfElseEND1)
 
 
-@Math.abs.EQ.27
-D=A
-@13
-M=D
-@Math.abs.EQ.28
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("argument 1"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.divide.IfElse2}}
 @ARG
 A=M+1
 D=M
@@ -2417,85 +7111,125 @@ A=A-1
 D=M-D
 @15
 M=D
-@DO_EQ
-0;JMP
-(Math.abs.EQ.28)
-@15
+@Math.divide.EQ.28
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.27)
+(Math.divide.EQ.28)
+@15
+M=D
+@Math.divide.EQ.27
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Math.divide.EQ.27)
 @Math.divide.IfElse2
 D;JNE
 
 
-D=1
+//PushInstruction("constant 1")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=1
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.divide.IfElseEND2}
 // goto Math.divide.IfElseEND2
 @Math.divide.IfElseEND2
 0;JMP
 
 
+//LabelInstruction{label='Math.divide.IfElse2}
 // label Math.divide.IfElse2
 (Math.divide.IfElse2)
 
 
+//LabelInstruction{label='Math.divide.IfElseEND2}
 // label Math.divide.IfElseEND2
 (Math.divide.IfElseEND2)
 
 
-@Math.abs.EQ.31
-D=A
-@13
-M=D
-@Math.abs.LT.32
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "LT"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 1"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "LT"
+//                ),
+//            binaryOp: "OR"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.divide.IfElse3}}
 @ARG
 A=M
 D=M
 @15
 M=D
+@Math.divide.LT.32
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.32)
+(Math.divide.LT.32)
 @SP
 AM=M+1
 A=A-1
-M=D
-@Math.abs.LT.33
-D=A
-@13
 M=D
 @ARG
 A=M+1
 D=M
 @15
 M=D
+@Math.divide.LT.33
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.33)
+(Math.divide.LT.33)
 @SP
 AM=M-1
 D=D|M
 @15
 M=D
+@Math.divide.EQ.31
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.31)
+(Math.divide.EQ.31)
 @Math.divide.IfElse3
 D;JNE
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 2"), PushInstruction("local 1")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Math.divide=2, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.divide'}}
+//pop PopInstruction{address=local 0} END PPP 
 
 @LCL
 A=M+1
@@ -2534,50 +7268,76 @@ A=M
 M=D
 
 
-@Math.abs.EQ.36
-D=A
-@13
-M=D
-@Math.abs.LT.37
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "LT"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 1"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "LT"
+//                ),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.divide.IfElse4}}
 @ARG
 A=M
 D=M
 @15
 M=D
+@Math.divide.LT.37
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.37)
+(Math.divide.LT.37)
 @SP
 AM=M+1
 A=A-1
-M=D
-@Math.abs.LT.38
-D=A
-@13
 M=D
 @ARG
 A=M+1
 D=M
 @15
 M=D
+@Math.divide.LT.38
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.38)
+(Math.divide.LT.38)
 @SP
 AM=M-1
 D=D&M
 @15
 M=D
+@Math.divide.EQ.36
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.36)
+(Math.divide.EQ.36)
 @Math.divide.IfElse4
 D;JNE
 
 
+//PushInstruction("local 0")
 @LCL
 A=M
 D=M
@@ -2587,23 +7347,29 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.divide.IfElseEND4}
 // goto Math.divide.IfElseEND4
 @Math.divide.IfElseEND4
 0;JMP
 
 
+//LabelInstruction{label='Math.divide.IfElse4}
 // label Math.divide.IfElse4
 (Math.divide.IfElse4)
 
 
+//LabelInstruction{label='Math.divide.IfElseEND4}
 // label Math.divide.IfElseEND4
 (Math.divide.IfElseEND4)
 
 
+//UnaryPushGroup(    PushInstruction("local 0"),
+//NEG)
 @LCL
 A=M
 D=M
@@ -2616,22 +7382,35 @@ A=M-1
 M=-D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.divide.IfElseEND3}
 // goto Math.divide.IfElseEND3
 @Math.divide.IfElseEND3
 0;JMP
 
 
+//LabelInstruction{label='Math.divide.IfElse3}
 // label Math.divide.IfElse3
 (Math.divide.IfElse3)
 
 
+//LabelInstruction{label='Math.divide.IfElseEND3}
 // label Math.divide.IfElseEND3
 (Math.divide.IfElseEND3)
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0"), BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("argument 1"),
+//    binaryOp: "ADD"
+//)], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Math.divide=3, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.divide'}}
+//pop PopInstruction{address=local 0} END PPP 
 
 @ARG
 A=M
@@ -2670,14 +7449,31 @@ A=M
 M=D
 
 
-@Math.abs.EQ.40
-D=A
-@13
-M=D
-@Math.abs.LT.41
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//), PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Math.divide=4, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.divide'}},
+//                    binaryOp: "SUB"
+//                ),
+//            right:
+//                PushInstruction("argument 1"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.divide.IfElse5}}
 @ARG
 A=M
 D=M
@@ -2732,18 +7528,33 @@ AM=M-1
 D=M-D
 @15
 M=D
+@Math.divide.LT.41
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.41)
+(Math.divide.LT.41)
 @15
+M=D
+@Math.divide.EQ.40
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.40)
+(Math.divide.EQ.40)
 @Math.divide.IfElse5
 D;JNE
 
 
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
 @LCL
 A=M
 D=M
@@ -2754,23 +7565,40 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.divide.IfElseEND5}
 // goto Math.divide.IfElseEND5
 @Math.divide.IfElseEND5
 0;JMP
 
 
+//LabelInstruction{label='Math.divide.IfElse5}
 // label Math.divide.IfElse5
 (Math.divide.IfElse5)
 
 
+//LabelInstruction{label='Math.divide.IfElseEND5}
 // label Math.divide.IfElseEND5
 (Math.divide.IfElseEND5)
 
 
+//BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 0"),
+//            right:
+//                PushInstruction("local 0"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
 @LCL
 A=M
 D=M
@@ -2782,14 +7610,23 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.mod', numLocals=0, funcMapping={Math.divide=6, Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.mod with 0
 (Math.mod)
 
 
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//CallGroup{pushes=[CallGroup{pushes=[PushInstruction("argument 0"), PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Math.divide=6, Math.mod=0, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.mod'}}, PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Math.divide=6, Math.mod=0, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.mod'}},
+//    binaryOp: "SUB"
+//)
 @ARG
 A=M
 D=M
@@ -2858,13 +7695,24 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.twoToThe', numLocals=0, funcMapping={Math.divide=6, Math.mod=2, Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.twoToThe with 0
 (Math.twoToThe)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
 
 @Math.0
 D=M
@@ -2879,6 +7727,7 @@ D=D+M
 M=D
 
 
+//PushInstruction("that 0")
 @THAT
 A=M
 D=M
@@ -2888,10 +7737,12 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.sqrt', numLocals=4, funcMapping={Math.divide=6, Math.mod=2, Math.twoToThe=0, Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.sqrt with 4
 (Math.sqrt)
 @SP
@@ -2912,10 +7763,16 @@ A=A-1
 M=0
 
 
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
+
 @LCL
 A=M
 M=0
 
+
+//PPP : push PushInstruction("constant 7")
+//pop PopInstruction{address=local 1} END PPP 
 
 @7
 D=A
@@ -2924,35 +7781,59 @@ A=M+1
 M=D
 
 
+//LabelInstruction{label='WHILE_START_Math.sqrt1}
 // label WHILE_START_Math.sqrt1
 (WHILE_START_Math.sqrt1)
 
 
-@Math.abs.EQ.43
-D=A
-@13
-M=D
-@Math.abs.LT.44
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 1"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "LT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Math.sqrt1}}
 @LCL
 A=M+1
 D=M
 @15
 M=D
+@Math.sqrt.LT.44
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.44)
+(Math.sqrt.LT.44)
 D=!D
 @15
 M=D
+@Math.sqrt.EQ.43
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.43)
+(Math.sqrt.EQ.43)
 @WHILE_END_Math.sqrt1
 D;JNE
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("that 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 2} END PPP 
 
 @LCL
 A=M
@@ -2969,6 +7850,9 @@ A=M+1
 A=A+1
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 2"), PushInstruction("local 2")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Math.divide=6, Math.mod=2, Math.twoToThe=0, Math.sqrt=0, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.sqrt'}}
+//pop PopInstruction{address=local 3} END PPP 
 
 @LCL
 A=M+1
@@ -3010,14 +7894,32 @@ A=A+1
 M=D
 
 
-@Math.abs.EQ.47
-D=A
-@13
-M=D
-@Math.abs.GT.48
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                UnaryPushGroup(                    BinaryPushGroup(
+//                        left:
+//                            PushInstruction("local 3"),
+//                        right:
+//                            PushInstruction("argument 0"),
+//                        binaryOp: "GT"
+//                    ),
+//NOT),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("local 3"),
+//                    right:
+//                        PushInstruction("constant 0"),
+//                    binaryOp: "GT"
+//                ),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.sqrt.IfElse1}}
 @LCL
 A=M+1
 A=A+1
@@ -3032,18 +7934,20 @@ D=M
 D=M-D
 @15
 M=D
+@Math.sqrt.GT.48
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Math.abs.GT.48)
-D=!D
+(Math.sqrt.GT.48)
 @SP
 AM=M+1
 A=A-1
 M=D
-@Math.abs.GT.49
-D=A
-@13
-M=D
+@SP
+A=M-1
+M=!D
 @LCL
 A=M+1
 A=A+1
@@ -3051,20 +7955,31 @@ A=A+1
 D=M
 @15
 M=D
+@Math.sqrt.GT.49
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Math.abs.GT.49)
+(Math.sqrt.GT.49)
 @SP
 AM=M-1
 D=D&M
 @15
 M=D
+@Math.sqrt.EQ.47
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.47)
+(Math.sqrt.EQ.47)
 @Math.sqrt.IfElse1
 D;JNE
 
+
+//PPP : push PushInstruction("local 2")
+//pop PopInstruction{address=local 0} END PPP 
 
 @LCL
 A=M+1
@@ -3075,33 +7990,48 @@ A=M
 M=D
 
 
+//GotoInstruction{label='Math.sqrt.IfElseEND1}
 // goto Math.sqrt.IfElseEND1
 @Math.sqrt.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Math.sqrt.IfElse1}
 // label Math.sqrt.IfElse1
 (Math.sqrt.IfElse1)
 
 
+//LabelInstruction{label='Math.sqrt.IfElseEND1}
 // label Math.sqrt.IfElseEND1
 (Math.sqrt.IfElseEND1)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 1} END PPP 
 
 @LCL
 A=M+1
 M=M-1
 
 
+//GotoInstruction{label='WHILE_START_Math.sqrt1}
 // goto WHILE_START_Math.sqrt1
 @WHILE_START_Math.sqrt1
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Math.sqrt1}
 // label WHILE_END_Math.sqrt1
 (WHILE_END_Math.sqrt1)
 
 
+//PushInstruction("local 0")
 @LCL
 A=M
 D=M
@@ -3111,22 +8041,29 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.max', numLocals=0, funcMapping={Math.divide=6, Math.mod=2, Math.twoToThe=0, Math.sqrt=1, Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.max with 0
 (Math.max)
 
 
-@Math.abs.EQ.51
-D=A
-@13
-M=D
-@Math.abs.GT.52
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("argument 1"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.max.IfElse1}}
 @ARG
 A=M+1
 D=M
@@ -3134,18 +8071,27 @@ A=A-1
 D=M-D
 @15
 M=D
+@Math.max.GT.52
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Math.abs.GT.52)
+(Math.max.GT.52)
 @15
+M=D
+@Math.max.EQ.51
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.51)
+(Math.max.EQ.51)
 @Math.max.IfElse1
 D;JNE
 
 
+//PushInstruction("argument 0")
 @ARG
 A=M
 D=M
@@ -3155,23 +8101,28 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.max.IfElseEND1}
 // goto Math.max.IfElseEND1
 @Math.max.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Math.max.IfElse1}
 // label Math.max.IfElse1
 (Math.max.IfElse1)
 
 
+//LabelInstruction{label='Math.max.IfElseEND1}
 // label Math.max.IfElseEND1
 (Math.max.IfElseEND1)
 
 
+//PushInstruction("argument 1")
 @ARG
 A=M+1
 D=M
@@ -3181,22 +8132,29 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.min', numLocals=0, funcMapping={Math.divide=6, Math.mod=2, Math.twoToThe=0, Math.sqrt=1, Math.max=0, Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.min with 0
 (Math.min)
 
 
-@Math.abs.EQ.54
-D=A
-@13
-M=D
-@Math.abs.LT.55
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("argument 1"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Math.min.IfElse1}}
 @ARG
 A=M+1
 D=M
@@ -3204,18 +8162,27 @@ A=A-1
 D=M-D
 @15
 M=D
+@Math.min.LT.55
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Math.abs.LT.55)
+(Math.min.LT.55)
 @15
+M=D
+@Math.min.EQ.54
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Math.abs.EQ.54)
+(Math.min.EQ.54)
 @Math.min.IfElse1
 D;JNE
 
 
+//PushInstruction("argument 0")
 @ARG
 A=M
 D=M
@@ -3225,23 +8192,28 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//GotoInstruction{label='Math.min.IfElseEND1}
 // goto Math.min.IfElseEND1
 @Math.min.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Math.min.IfElse1}
 // label Math.min.IfElse1
 (Math.min.IfElse1)
 
 
+//LabelInstruction{label='Math.min.IfElseEND1}
 // label Math.min.IfElseEND1
 (Math.min.IfElseEND1)
 
 
+//PushInstruction("argument 1")
 @ARG
 A=M+1
 D=M
@@ -3251,14 +8223,18 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Math.abs', numLocals=0, funcMapping={Math.divide=6, Math.mod=2, Math.min=0, Math.twoToThe=0, Math.sqrt=1, Math.max=0, Math.init=1, Math.bit=0, Math.multiply=0}}
 // function Math.abs with 0
 (Math.abs)
 
 
+//CallGroup{pushes=[PushInstruction("argument 0"), UnaryPushGroup(    PushInstruction("argument 0"),
+//NEG)], call=CallInstruction{calleeFunction='Math.max', numArgs=2, funcMapping={Math.divide=6, Math.mod=2, Math.min=0, Math.abs=0, Math.twoToThe=0, Math.sqrt=1, Math.max=0, Math.init=1, Math.bit=0, Math.multiply=0}, currentFunction='Math.abs'}}
 @ARG
 A=M
 D=M
@@ -3292,3012 +8268,18 @@ D=A
 (Math.abs.ret.0)
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Memory.init with 2
-(Memory.init)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@2055
-D=A
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-@LCL
-A=M
-D=M
-@16384
-D=A-D
-@5
-D=D-A
-@THAT
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M+1
-@4
-M=D
-@THAT
-A=M
-M=1
-
-
-@LCL
-A=M
-D=M
-@2
-D=D+A
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@LCL
-A=M
-D=M
-@3
-D=D+A
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.init.ret.0
-D=A
-@CALL
-0;JMP
-(Memory.init.ret.0)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@2054
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.add_node
-@7
-D=A
-@14
-M=D
-@Memory.add_node
-D=A
-@13
-M=D
-@Memory.init.ret.1
-D=A
-@CALL
-0;JMP
-(Memory.init.ret.1)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.alloc with 5
-(Memory.alloc)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.alloc.ret.0
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.0)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M
-@2048
-D=D+A
-@LCL
-A=M+1
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.get_best_fit
-@7
-D=A
-@14
-M=D
-@Memory.get_best_fit
-D=A
-@13
-M=D
-@Memory.alloc.ret.1
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.1)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-// label WHILE_START_Memory.alloc1
-(WHILE_START_Memory.alloc1)
-
-
-@Memory.peek.EQ.1
-D=A
-@13
-M=D
-@Memory.peek.EQ.2
-D=A
-@13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.2)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.1)
-@WHILE_END_Memory.alloc1
-D;JNE
-
-
-@Memory.peek.EQ.4
-D=A
-@13
-M=D
-@Memory.peek.LT.5
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M+1
-@7
-D=D-A
-@15
-M=D
-@DO_LT
-0;JMP
-(Memory.peek.LT.5)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.4)
-@Memory.alloc.IfElse1
-D;JNE
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.alloc.IfElseEND1
-@Memory.alloc.IfElseEND1
-0;JMP
-
-
-// label Memory.alloc.IfElse1
-(Memory.alloc.IfElse1)
-
-
-// label Memory.alloc.IfElseEND1
-(Memory.alloc.IfElseEND1)
-
-
-@LCL
-A=M
-M=M+1
-
-
-@LCL
-A=M
-D=M
-@2048
-D=D+A
-@LCL
-A=M+1
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.get_best_fit
-@7
-D=A
-@14
-M=D
-@Memory.get_best_fit
-D=A
-@13
-M=D
-@Memory.alloc.ret.2
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.2)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-// goto WHILE_START_Memory.alloc1
-@WHILE_START_Memory.alloc1
-0;JMP
-
-
-// label WHILE_END_Memory.alloc1
-(WHILE_END_Memory.alloc1)
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.alloc.ret.4
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.4)
-@SP
-AM=M-1
-D=M
-@2048
-D=D+A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.remove_node
-@7
-D=A
-@14
-M=D
-@Memory.remove_node
-D=A
-@13
-M=D
-@Memory.alloc.ret.5
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.5)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M
-D=M
-@R13
-D=M-D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=D
-
-
-@Memory.peek.EQ.7
-D=A
-@13
-M=D
-@Memory.peek.GT.8
-D=A
-@13
-M=D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@5
-D=D-A
-@15
-M=D
-@DO_GT
-0;JMP
-(Memory.peek.GT.8)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.7)
-@Memory.alloc.IfElse2
-D;JNE
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@4
-M=D
-@ARG
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-D=M+1
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.alloc.ret.6
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.6)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@R13
-M=D
-@ARG
-A=M
-D=M
-@R13
-D=D+M
-@5
-D=D+A
-@LCL
-D=M
-@4
-A=D+A
-M=D
-
-
-@LCL
-D=M
-@4
-A=D+A
-D=M
-@4
-M=D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@5
-D=D-A
-@THAT
-A=M
-M=D
-
-
-@LCL
-D=M
-@4
-A=D+A
-D=M+1
-@4
-M=D
-@THAT
-A=M
-M=1
-
-
-@LCL
-D=M
-@4
-A=D+A
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.alloc.ret.7
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.7)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.alloc.ret.9
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.9)
-@SP
-AM=M-1
-D=M
-@2048
-D=D+A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-D=M
-@4
-A=D+A
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.add_node
-@7
-D=A
-@14
-M=D
-@Memory.add_node
-D=A
-@13
-M=D
-@Memory.alloc.ret.10
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.10)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-// goto Memory.alloc.IfElseEND2
-@Memory.alloc.IfElseEND2
-0;JMP
-
-
-// label Memory.alloc.IfElse2
-(Memory.alloc.IfElse2)
-
-
-@LCL
-A=M+1
-A=A+1
-D=M+1
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.alloc.ret.11
-D=A
-@CALL
-0;JMP
-(Memory.alloc.ret.11)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-// label Memory.alloc.IfElseEND2
-(Memory.alloc.IfElseEND2)
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@4
-D=D+A
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.calloc with 1
-(Memory.calloc)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.alloc
-@6
-D=A
-@14
-M=D
-@Memory.alloc
-D=A
-@13
-M=D
-@Memory.calloc.ret.0
-D=A
-@CALL
-0;JMP
-(Memory.calloc.ret.0)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M
-M=D
-
-
-@Memory.peek.EQ.9
-D=A
-@13
-M=D
-@LCL
-A=M
-D=!M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.9)
-@Memory.calloc.IfElse1
-D;JNE
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.calloc.IfElseEND1
-@Memory.calloc.IfElseEND1
-0;JMP
-
-
-// label Memory.calloc.IfElse1
-(Memory.calloc.IfElse1)
-
-
-// label Memory.calloc.IfElseEND1
-(Memory.calloc.IfElseEND1)
-
-
-// label WHILE_START_Memory.calloc1
-(WHILE_START_Memory.calloc1)
-
-
-@Memory.peek.EQ.11
-D=A
-@13
-M=D
-@Memory.peek.GT.12
-D=A
-@13
-M=D
-@ARG
-A=M
-D=M
-@15
-M=D
-@DO_GT
-0;JMP
-(Memory.peek.GT.12)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.11)
-@WHILE_END_Memory.calloc1
-D;JNE
-
-
-@ARG
-A=M
-M=M-1
-
-
-@LCL
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M
-D=M
-@R13
-D=D+M
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-// goto WHILE_START_Memory.calloc1
-@WHILE_START_Memory.calloc1
-0;JMP
-
-
-// label WHILE_END_Memory.calloc1
-(WHILE_END_Memory.calloc1)
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.deAlloc with 3
-(Memory.deAlloc)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M
-D=M
-@4
-D=D-A
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M+1
-@4
-M=D
-@THAT
-A=M
-M=1
-
-
-@LCL
-A=M
-D=M
-@2
-D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M+1
-M=D
-
-
-@LCL
-A=M
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-@Memory.peek.EQ.14
-D=A
-@13
-M=D
-@Memory.peek.EQ.15
-D=A
-@13
-M=D
-@LCL
-A=M+1
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.15)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.14)
-@Memory.deAlloc.IfElse1
-D;JNE
-
-
-@LCL
-A=M+1
-D=M+1
-@4
-M=D
-
-
-@Memory.peek.EQ.17
-D=A
-@13
-M=D
-@Memory.peek.EQ.18
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M-1
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.18)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.17)
-@Memory.deAlloc.IfElse2
-D;JNE
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.1
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.1)
-@SP
-AM=M-1
-D=M
-@2048
-D=D+A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.remove_node
-@7
-D=A
-@14
-M=D
-@Memory.remove_node
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.2
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.2)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@4
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@4
-M=D
-@THAT
-A=M
-D=M
-D=D+M
-@5
-D=D+A
-@THAT
-A=M
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.3
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.3)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@LCL
-A=M
-M=D
-
-
-// goto Memory.deAlloc.IfElseEND2
-@Memory.deAlloc.IfElseEND2
-0;JMP
-
-
-// label Memory.deAlloc.IfElse2
-(Memory.deAlloc.IfElse2)
-
-
-// label Memory.deAlloc.IfElseEND2
-(Memory.deAlloc.IfElseEND2)
-
-
-// goto Memory.deAlloc.IfElseEND1
-@Memory.deAlloc.IfElseEND1
-0;JMP
-
-
-// label Memory.deAlloc.IfElse1
-(Memory.deAlloc.IfElse1)
-
-
-// label Memory.deAlloc.IfElseEND1
-(Memory.deAlloc.IfElseEND1)
-
-
-@Memory.peek.EQ.20
-D=A
-@13
-M=D
-@Memory.peek.EQ.21
-D=A
-@13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.21)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.20)
-@Memory.deAlloc.IfElse3
-D;JNE
-
-
-@LCL
-A=M+1
-A=A+1
-D=M+1
-@4
-M=D
-
-
-@Memory.peek.EQ.23
-D=A
-@13
-M=D
-@Memory.peek.EQ.24
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M-1
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.24)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.23)
-@Memory.deAlloc.IfElse4
-D;JNE
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.5
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.5)
-@SP
-AM=M-1
-D=M
-@2048
-D=D+A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.remove_node
-@7
-D=A
-@14
-M=D
-@Memory.remove_node
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.6
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.6)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-@THAT
-A=M
-D=M
-D=D+M
-@5
-D=D+A
-@THAT
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.create_foot
-@6
-D=A
-@14
-M=D
-@Memory.create_foot
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.7
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.7)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-// goto Memory.deAlloc.IfElseEND4
-@Memory.deAlloc.IfElseEND4
-0;JMP
-
-
-// label Memory.deAlloc.IfElse4
-(Memory.deAlloc.IfElse4)
-
-
-// label Memory.deAlloc.IfElseEND4
-(Memory.deAlloc.IfElseEND4)
-
-
-// goto Memory.deAlloc.IfElseEND3
-@Memory.deAlloc.IfElseEND3
-0;JMP
-
-
-// label Memory.deAlloc.IfElse3
-(Memory.deAlloc.IfElse3)
-
-
-// label Memory.deAlloc.IfElseEND3
-(Memory.deAlloc.IfElseEND3)
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.getBinIndex
-@6
-D=A
-@14
-M=D
-@Memory.getBinIndex
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.9
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.9)
-@SP
-AM=M-1
-D=M
-@2048
-D=D+A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.add_node
-@7
-D=A
-@14
-M=D
-@Memory.add_node
-D=A
-@13
-M=D
-@Memory.deAlloc.ret.10
-D=A
-@CALL
-0;JMP
-(Memory.deAlloc.ret.10)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.realloc with 4
-(Memory.realloc)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@Memory.peek.EQ.26
-D=A
-@13
-M=D
-@Memory.peek.EQ.27
-D=A
-@13
-M=D
-@ARG
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.27)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.26)
-@Memory.realloc.IfElse1
-D;JNE
-
-
-@ARG
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.alloc
-@6
-D=A
-@14
-M=D
-@Memory.alloc
-D=A
-@13
-M=D
-@Memory.realloc.ret.0
-D=A
-@CALL
-0;JMP
-(Memory.realloc.ret.0)
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.realloc.IfElseEND1
-@Memory.realloc.IfElseEND1
-0;JMP
-
-
-// label Memory.realloc.IfElse1
-(Memory.realloc.IfElse1)
-
-
-// label Memory.realloc.IfElseEND1
-(Memory.realloc.IfElseEND1)
-
-
-@ARG
-A=M
-D=M-1
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.alloc
-@6
-D=A
-@14
-M=D
-@Memory.alloc
-D=A
-@13
-M=D
-@Memory.realloc.ret.1
-D=A
-@CALL
-0;JMP
-(Memory.realloc.ret.1)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-M=D
-
-
-@Memory.peek.EQ.29
-D=A
-@13
-M=D
-@Memory.peek.EQ.30
-D=A
-@13
-M=D
-@LCL
-A=M+1
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.30)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.29)
-@Memory.realloc.IfElse2
-D;JNE
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.realloc.IfElseEND2
-@Memory.realloc.IfElseEND2
-0;JMP
-
-
-// label Memory.realloc.IfElse2
-(Memory.realloc.IfElse2)
-
-
-// label Memory.realloc.IfElseEND2
-(Memory.realloc.IfElseEND2)
-
-
-@Memory.peek.EQ.32
-D=A
-@13
-M=D
-@Memory.peek.GT.33
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_GT
-0;JMP
-(Memory.peek.GT.33)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.32)
-@Memory.realloc.IfElse3
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-// goto Memory.realloc.IfElseEND3
-@Memory.realloc.IfElseEND3
-0;JMP
-
-
-// label Memory.realloc.IfElse3
-(Memory.realloc.IfElse3)
-
-
-@ARG
-A=M+1
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-// label Memory.realloc.IfElseEND3
-(Memory.realloc.IfElseEND3)
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.copy
-@8
-D=A
-@14
-M=D
-@Memory.copy
-D=A
-@13
-M=D
-@Memory.realloc.ret.2
-D=A
-@CALL
-0;JMP
-(Memory.realloc.ret.2)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Memory.deAlloc
-@6
-D=A
-@14
-M=D
-@Memory.deAlloc
-D=A
-@13
-M=D
-@Memory.realloc.ret.3
-D=A
-@CALL
-0;JMP
-(Memory.realloc.ret.3)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.copy with 1
-(Memory.copy)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@LCL
-A=M
-M=0
-
-
-// label WHILE_START_Memory.copy1
-(WHILE_START_Memory.copy1)
-
-
-@Memory.peek.EQ.35
-D=A
-@13
-M=D
-@Memory.peek.LT.36
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-A=A+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Memory.peek.LT.36)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.35)
-@WHILE_END_Memory.copy1
-D;JNE
-
-
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=D+M
-@4
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=D+M
-@4
-M=D
-@THAT
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-@LCL
-A=M
-M=M+1
-
-
-// goto WHILE_START_Memory.copy1
-@WHILE_START_Memory.copy1
-0;JMP
-
-
-// label WHILE_END_Memory.copy1
-(WHILE_END_Memory.copy1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.remove_node with 0
-(Memory.remove_node)
-
-
-@ARG
-A=M+1
-D=M
-@2
-D=D+A
-@4
-M=D
-
-
-@Memory.peek.EQ.38
-D=A
-@13
-M=D
-@Memory.peek.EQ.39
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.39)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.38)
-@Memory.remove_node.IfElse1
-D;JNE
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@2
-D=D+A
-@3
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-// goto Memory.remove_node.IfElseEND1
-@Memory.remove_node.IfElseEND1
-0;JMP
-
-
-// label Memory.remove_node.IfElse1
-(Memory.remove_node.IfElse1)
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-@THAT
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-// label Memory.remove_node.IfElseEND1
-(Memory.remove_node.IfElseEND1)
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@Memory.peek.EQ.41
-D=A
-@13
-M=D
-@Memory.peek.EQ.42
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.42)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.41)
-@Memory.remove_node.IfElse2
-D;JNE
-
-
-@ARG
-A=M+1
-D=M
-@2
-D=D+A
-@4
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@2
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-// goto Memory.remove_node.IfElseEND2
-@Memory.remove_node.IfElseEND2
-0;JMP
-
-
-// label Memory.remove_node.IfElse2
-(Memory.remove_node.IfElse2)
-
-
-// label Memory.remove_node.IfElseEND2
-(Memory.remove_node.IfElseEND2)
-
-
-@ARG
-A=M+1
-D=M
-@2
-D=D+A
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.getBinIndex with 1
-(Memory.getBinIndex)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@LCL
-A=M
-M=0
-
-
-// label WHILE_START_Memory.getBinIndex1
-(WHILE_START_Memory.getBinIndex1)
-
-
-@Memory.peek.EQ.45
-D=A
-@13
-M=D
-@Memory.peek.LT.46
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@7
-D=D-A
-@15
-M=D
-@DO_LT
-0;JMP
-(Memory.peek.LT.46)
-@SP
-AM=M+1
-A=A-1
-M=D
-@Memory.peek.EQ.47
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.47)
-D=!D
-@SP
-AM=M-1
-D=D&M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.45)
-@WHILE_END_Memory.getBinIndex1
-D;JNE
-
-
-@Memory.peek.EQ.49
-D=A
-@13
-M=D
-@Memory.peek.GT.50
-D=A
-@13
-M=D
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D+1
-@16
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.multiply
-@7
-D=A
-@14
-M=D
-@Math.multiply
-D=A
-@13
-M=D
-@Memory.getBinIndex.ret.1
-D=A
-@CALL
-0;JMP
-(Memory.getBinIndex.ret.1)
-@SP
-AM=M-1
-D=M
-@SP
-AM=M-1
-D=M-D
-@15
-M=D
-@DO_GT
-0;JMP
-(Memory.peek.GT.50)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.49)
-@Memory.getBinIndex.IfElse1
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.getBinIndex.IfElseEND1
-@Memory.getBinIndex.IfElseEND1
-0;JMP
-
-
-// label Memory.getBinIndex.IfElse1
-(Memory.getBinIndex.IfElse1)
-
-
-// label Memory.getBinIndex.IfElseEND1
-(Memory.getBinIndex.IfElseEND1)
-
-
-@LCL
-A=M
-M=M+1
-
-
-// goto WHILE_START_Memory.getBinIndex1
-@WHILE_START_Memory.getBinIndex1
-0;JMP
-
-
-// label WHILE_END_Memory.getBinIndex1
-(WHILE_END_Memory.getBinIndex1)
-
-
-@7
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D-1
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.get_best_fit with 1
-(Memory.get_best_fit)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-
-
-@Memory.peek.EQ.52
-D=A
-@13
-M=D
-@Memory.peek.LT.53
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Memory.peek.LT.53)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.52)
-@Memory.get_best_fit.IfElse1
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.get_best_fit.IfElseEND1
-@Memory.get_best_fit.IfElseEND1
-0;JMP
-
-
-// label Memory.get_best_fit.IfElse1
-(Memory.get_best_fit.IfElse1)
-
-
-// label Memory.get_best_fit.IfElseEND1
-(Memory.get_best_fit.IfElseEND1)
-
-
-// label WHILE_START_Memory.get_best_fit1
-(WHILE_START_Memory.get_best_fit1)
-
-
-@LCL
-A=M
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@Memory.peek.EQ.55
-D=A
-@13
-M=D
-@Memory.peek.EQ.56
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.56)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.55)
-@WHILE_END_Memory.get_best_fit1
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-
-
-@Memory.peek.EQ.58
-D=A
-@13
-M=D
-@Memory.peek.LT.59
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Memory.peek.LT.59)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.58)
-@Memory.get_best_fit.IfElse2
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.get_best_fit.IfElseEND2
-@Memory.get_best_fit.IfElseEND2
-0;JMP
-
-
-// label Memory.get_best_fit.IfElse2
-(Memory.get_best_fit.IfElse2)
-
-
-// label Memory.get_best_fit.IfElseEND2
-(Memory.get_best_fit.IfElseEND2)
-
-
-// goto WHILE_START_Memory.get_best_fit1
-@WHILE_START_Memory.get_best_fit1
-0;JMP
-
-
-// label WHILE_END_Memory.get_best_fit1
-(WHILE_END_Memory.get_best_fit1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.create_foot with 0
-(Memory.create_foot)
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@THAT
-A=M
-D=M
-@4
-D=D+A
-@SP
-AM=M-1
-D=D+M
-@4
-M=D
-@ARG
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.add_node with 2
-(Memory.add_node)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M+1
-D=M
-@2
-D=D+A
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-@THAT
-A=M
-M=0
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-
-
-@Memory.peek.EQ.61
-D=A
-@13
-M=D
-@Memory.peek.EQ.62
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.62)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.61)
-@Memory.add_node.IfElse1
-D;JNE
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Memory.add_node.IfElseEND1
-@Memory.add_node.IfElseEND1
-0;JMP
-
-
-// label Memory.add_node.IfElse1
-(Memory.add_node.IfElse1)
-
-
-// label Memory.add_node.IfElseEND1
-(Memory.add_node.IfElseEND1)
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M+1
-M=0
-
-
-// label WHILE_START_Memory.add_node1
-(WHILE_START_Memory.add_node1)
-
-
-@Memory.peek.EQ.65
-D=A
-@13
-M=D
-@Memory.peek.EQ.66
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.66)
-D=!D
-@SP
-AM=M+1
-A=A-1
-M=D
-@Memory.peek.GT.67
-D=A
-@13
-M=D
-@THAT
-A=M
-D=M
-D=D-M
-@15
-M=D
-@DO_GT
-0;JMP
-(Memory.peek.GT.67)
-D=!D
-@SP
-AM=M-1
-D=D&M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.65)
-@WHILE_END_Memory.add_node1
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@LCL
-A=M+1
-M=D
-
-
-@LCL
-A=M
-D=M
-@3
-D=D+A
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-// goto WHILE_START_Memory.add_node1
-@WHILE_START_Memory.add_node1
-0;JMP
-
-
-// label WHILE_END_Memory.add_node1
-(WHILE_END_Memory.add_node1)
-
-
-@Memory.peek.EQ.68
-D=A
-@13
-M=D
-@LCL
-A=M+1
-D=!M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.68)
-@Memory.add_node.IfElse2
-D;JNE
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-@ARG
-A=M
-D=M
-@2
-D=D+A
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-// goto Memory.add_node.IfElseEND2
-@Memory.add_node.IfElseEND2
-0;JMP
-
-
-// label Memory.add_node.IfElse2
-(Memory.add_node.IfElse2)
-
-
-@ARG
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-@LCL
-A=M
-D=M
-@THAT
-A=M
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@2
-D=D+A
-@4
-M=D
-@LCL
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-@Memory.peek.EQ.69
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Memory.peek.EQ.69)
-@Memory.add_node.IfElse3
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@2
-D=D+A
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-// goto Memory.add_node.IfElseEND3
-@Memory.add_node.IfElseEND3
-0;JMP
-
-
-// label Memory.add_node.IfElse3
-(Memory.add_node.IfElse3)
-
-
-// label Memory.add_node.IfElseEND3
-(Memory.add_node.IfElseEND3)
-
-
-@LCL
-A=M+1
-D=M
-@3
-D=D+A
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-// label Memory.add_node.IfElseEND2
-(Memory.add_node.IfElseEND2)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.poke with 0
-(Memory.poke)
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Memory.peek with 0
-(Memory.peek)
-
-
-@ARG
-A=M
-D=M
-@4
-M=D
-
-
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
+//FunctionInstruction{functionName='Output.init', numLocals=0, funcMapping={}}
 // function Output.init with 0
 (Output.init)
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Output.initMap', numArgs=0, funcMapping={Output.init=0}, currentFunction='Output.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Output.initMap
 @5
@@ -6320,25 +8302,33 @@ D=M
 M=D
 
 
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=Output.1} END PPP 
+
 @Output.1
 M=0
 
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=Output.2} END PPP 
 
 @Output.2
 M=0
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.initMap', numLocals=1, funcMapping={Output.init=1}}
 // function Output.initMap with 1
 (Output.initMap)
 @SP
@@ -6346,6 +8336,9 @@ AM=M+1
 A=A-1
 M=0
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 127")], call=CallInstruction{calleeFunction='Array.new', numArgs=1, funcMapping={Output.init=1, Output.initMap=0}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=Output.0} END PPP 
 
 @127
 D=A
@@ -6374,11 +8367,13 @@ D=M
 M=D
 
 
-D=0
+//PPP : push CallGroup{pushes=[PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=1}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @63
 D=A
 @SP
@@ -6433,16 +8428,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6464,67 +8457,59 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 32"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=2}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @32
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6545,6 +8530,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 33"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=3}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @33
 D=A
@@ -6588,11 +8576,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -6605,16 +8592,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6635,6 +8620,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 34"), PushInstruction("constant 54"), PushInstruction("constant 54"), PushInstruction("constant 20"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=4}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @34
 D=A
@@ -6660,46 +8648,38 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6721,17 +8701,19 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 35"), PushInstruction("constant 0"), PushInstruction("constant 18"), PushInstruction("constant 18"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 18"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 18"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=5}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @35
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @18
 D=A
 @SP
@@ -6780,16 +8762,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6810,6 +8790,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 36"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 3"), PushInstruction("constant 30"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=6}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @36
 D=A
@@ -6877,11 +8860,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6903,22 +8885,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 37"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 51"), PushInstruction("constant 49"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=7}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @37
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @35
 D=A
 @SP
@@ -6961,16 +8944,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -6991,6 +8972,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 38"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 54"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=8}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @38
 D=A
@@ -7052,16 +9036,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7082,6 +9064,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 39"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=9}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @39
 D=A
@@ -7107,46 +9092,38 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7167,6 +9144,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 40"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=10}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @40
 D=A
@@ -7228,16 +9208,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7258,6 +9236,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 41"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=11}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @41
 D=A
@@ -7319,16 +9300,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7350,27 +9329,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 42"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 63"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=12}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @42
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @51
 D=A
 @SP
@@ -7401,21 +9380,18 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7437,27 +9413,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 43"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 63"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=13}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @43
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -7488,21 +9464,18 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7524,47 +9497,43 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 44"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=14}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @44
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -7583,11 +9552,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7609,68 +9577,61 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 45"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=15}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @45
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @63
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7692,47 +9653,43 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 46"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=16}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @46
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -7745,16 +9702,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7776,22 +9731,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 47"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 32"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 1"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=17}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @47
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @32
 D=A
 @SP
@@ -7828,21 +9784,18 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=1
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=1
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7863,6 +9816,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 48"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=18}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @48
 D=A
@@ -7924,16 +9880,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -7954,6 +9908,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 49"), PushInstruction("constant 12"), PushInstruction("constant 14"), PushInstruction("constant 15"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=19}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @49
 D=A
@@ -8015,16 +9972,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8045,6 +10000,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 50"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=20}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @50
 D=A
@@ -8106,16 +10064,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8136,6 +10092,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 28"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=21}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @51
 D=A
@@ -8197,16 +10156,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8227,6 +10184,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 52"), PushInstruction("constant 16"), PushInstruction("constant 24"), PushInstruction("constant 28"), PushInstruction("constant 26"), PushInstruction("constant 25"), PushInstruction("constant 63"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 60"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=22}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @52
 D=A
@@ -8288,16 +10248,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8318,6 +10276,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 53"), PushInstruction("constant 63"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 31"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=23}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @53
 D=A
@@ -8379,16 +10340,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8409,6 +10368,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 54"), PushInstruction("constant 28"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=24}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @54
 D=A
@@ -8470,16 +10432,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8500,6 +10460,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 55"), PushInstruction("constant 63"), PushInstruction("constant 49"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=25}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @55
 D=A
@@ -8561,16 +10524,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8591,6 +10552,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 56"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=26}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @56
 D=A
@@ -8652,16 +10616,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8682,6 +10644,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 57"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 14"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=27}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @57
 D=A
@@ -8743,16 +10708,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8774,22 +10737,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 58"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=28}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @58
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -8802,16 +10766,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -8824,21 +10786,18 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8860,22 +10819,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 59"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=29}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @59
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -8888,16 +10848,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -8916,16 +10874,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -8947,22 +10903,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 60"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=30}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @60
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @24
 D=A
 @SP
@@ -9005,16 +10962,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9036,69 +10991,63 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 61"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=31}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @61
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @63
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @63
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9120,22 +11069,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 62"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 3"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=32}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @62
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @3
 D=A
 @SP
@@ -9178,16 +11128,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9208,6 +11156,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 64"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 59"), PushInstruction("constant 59"), PushInstruction("constant 59"), PushInstruction("constant 27"), PushInstruction("constant 3"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=33}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @64
 D=A
@@ -9269,16 +11220,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9299,6 +11248,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 63"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=34}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @63
 D=A
@@ -9342,11 +11294,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @12
 D=A
 @SP
@@ -9359,16 +11310,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9389,6 +11338,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 65"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=35}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @65
 D=A
@@ -9450,16 +11402,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9480,6 +11430,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 66"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=36}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @66
 D=A
@@ -9541,16 +11494,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9571,6 +11522,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 67"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 35"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 35"), PushInstruction("constant 54"), PushInstruction("constant 28"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=37}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @67
 D=A
@@ -9632,16 +11586,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9662,6 +11614,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 68"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 27"), PushInstruction("constant 15"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=38}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @68
 D=A
@@ -9723,16 +11678,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9753,6 +11706,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 69"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 35"), PushInstruction("constant 11"), PushInstruction("constant 15"), PushInstruction("constant 11"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=39}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @69
 D=A
@@ -9814,16 +11770,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9844,6 +11798,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 70"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 35"), PushInstruction("constant 11"), PushInstruction("constant 15"), PushInstruction("constant 11"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=40}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @70
 D=A
@@ -9905,16 +11862,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -9935,6 +11890,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 71"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 35"), PushInstruction("constant 3"), PushInstruction("constant 59"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 54"), PushInstruction("constant 44"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=41}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @71
 D=A
@@ -9996,16 +11954,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10026,6 +11982,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 72"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=42}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @72
 D=A
@@ -10087,16 +12046,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10117,6 +12074,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 73"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=43}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @73
 D=A
@@ -10178,16 +12138,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10208,6 +12166,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 74"), PushInstruction("constant 60"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 14"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=44}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @74
 D=A
@@ -10269,16 +12230,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10299,6 +12258,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 75"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 27"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=45}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @75
 D=A
@@ -10360,16 +12322,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10390,6 +12350,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 76"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=46}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @76
 D=A
@@ -10451,16 +12414,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10481,6 +12442,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 77"), PushInstruction("constant 33"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=47}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @77
 D=A
@@ -10542,16 +12506,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10572,6 +12534,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 78"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 55"), PushInstruction("constant 55"), PushInstruction("constant 63"), PushInstruction("constant 59"), PushInstruction("constant 59"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=48}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @78
 D=A
@@ -10633,16 +12598,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10663,6 +12626,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 79"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=49}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @79
 D=A
@@ -10724,16 +12690,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10754,6 +12718,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 80"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=50}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @80
 D=A
@@ -10815,16 +12782,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10845,6 +12810,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 81"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 59"), PushInstruction("constant 30"), PushInstruction("constant 48"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=51}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @81
 D=A
@@ -10912,11 +12880,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -10937,6 +12904,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 82"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=52}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @82
 D=A
@@ -10998,16 +12968,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11028,6 +12996,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 83"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 6"), PushInstruction("constant 28"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=53}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @83
 D=A
@@ -11089,16 +13060,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11119,6 +13088,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 84"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 45"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=54}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @84
 D=A
@@ -11180,16 +13152,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11210,6 +13180,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 85"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=55}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @85
 D=A
@@ -11271,16 +13244,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11301,6 +13272,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 86"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=56}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @86
 D=A
@@ -11362,16 +13336,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11392,6 +13364,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 87"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=57}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @87
 D=A
@@ -11453,16 +13428,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11483,6 +13456,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 88"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=58}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @88
 D=A
@@ -11544,16 +13520,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11574,6 +13548,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 89"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=59}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @89
 D=A
@@ -11635,16 +13612,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11665,6 +13640,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 90"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 49"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=60}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @90
 D=A
@@ -11726,16 +13704,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11756,6 +13732,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 91"), PushInstruction("constant 30"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=61}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @91
 D=A
@@ -11817,16 +13796,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11848,27 +13825,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 92"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 1"), PushInstruction("constant 3"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 48"), PushInstruction("constant 32"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=62}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @92
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=1
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=1
 @3
 D=A
 @SP
@@ -11905,16 +13882,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -11935,6 +13910,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 93"), PushInstruction("constant 30"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=63}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @93
 D=A
@@ -11996,16 +13974,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12026,6 +14002,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 94"), PushInstruction("constant 8"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=64}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @94
 D=A
@@ -12051,46 +14030,38 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12112,68 +14083,61 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 95"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=65}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @95
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @63
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12194,6 +14158,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 96"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=66}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @96
 D=A
@@ -12219,46 +14186,38 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12280,27 +14239,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 97"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 14"), PushInstruction("constant 24"), PushInstruction("constant 30"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=67}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @97
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @14
 D=A
 @SP
@@ -12337,16 +14296,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12367,6 +14324,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 98"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=68}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @98
 D=A
@@ -12428,16 +14388,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12459,27 +14417,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 99"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=69}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @99
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -12516,16 +14474,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12546,6 +14502,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 100"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 60"), PushInstruction("constant 54"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=70}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @100
 D=A
@@ -12607,16 +14566,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12638,27 +14595,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 101"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=71}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @101
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -12695,16 +14652,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12725,6 +14680,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 102"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 38"), PushInstruction("constant 6"), PushInstruction("constant 15"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 15"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=72}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @102
 D=A
@@ -12786,16 +14744,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12817,22 +14773,23 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 103"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=73}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @103
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -12881,11 +14838,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12906,6 +14862,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 104"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 27"), PushInstruction("constant 55"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=74}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @104
 D=A
@@ -12967,16 +14926,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -12998,6 +14955,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 105"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 14"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=75}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @105
 D=A
 @SP
@@ -13016,11 +14976,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @14
 D=A
 @SP
@@ -13057,16 +15016,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13088,6 +15045,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 106"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 0"), PushInstruction("constant 56"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=76}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @106
 D=A
 @SP
@@ -13106,11 +15066,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @56
 D=A
 @SP
@@ -13153,11 +15112,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13178,6 +15136,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 107"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 27"), PushInstruction("constant 15"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=77}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @107
 D=A
@@ -13239,16 +15200,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13269,6 +15228,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 108"), PushInstruction("constant 14"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=78}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @108
 D=A
@@ -13330,16 +15292,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13361,27 +15321,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 109"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 29"), PushInstruction("constant 63"), PushInstruction("constant 43"), PushInstruction("constant 43"), PushInstruction("constant 43"), PushInstruction("constant 43"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=79}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @109
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @29
 D=A
 @SP
@@ -13418,16 +15378,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13449,27 +15407,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 110"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 29"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=80}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @110
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @29
 D=A
 @SP
@@ -13506,16 +15464,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13537,27 +15493,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 111"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=81}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @111
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -13594,16 +15550,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13625,27 +15579,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 112"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=82}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @112
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -13688,11 +15642,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13714,27 +15667,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 113"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=83}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @113
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -13777,11 +15730,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13803,27 +15755,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 114"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 29"), PushInstruction("constant 55"), PushInstruction("constant 51"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 7"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=84}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @114
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @29
 D=A
 @SP
@@ -13860,16 +15812,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13891,27 +15841,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 115"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 6"), PushInstruction("constant 24"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=85}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @115
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @30
 D=A
 @SP
@@ -13948,16 +15898,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -13978,6 +15926,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 116"), PushInstruction("constant 4"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 15"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 54"), PushInstruction("constant 28"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=86}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @116
 D=A
@@ -14039,16 +15990,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14070,27 +16019,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 117"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=87}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @117
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @27
 D=A
 @SP
@@ -14127,16 +16076,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14158,27 +16105,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 118"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=88}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @118
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @51
 D=A
 @SP
@@ -14215,16 +16162,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14246,27 +16191,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 119"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=89}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @119
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @51
 D=A
 @SP
@@ -14303,16 +16248,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14334,27 +16277,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 120"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=90}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @120
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @51
 D=A
 @SP
@@ -14391,16 +16334,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14422,27 +16363,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 121"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 15"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=91}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @121
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @51
 D=A
 @SP
@@ -14485,11 +16426,10 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14511,27 +16451,27 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 122"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 27"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=92}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @122
 D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 @63
 D=A
 @SP
@@ -14568,16 +16508,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14598,6 +16536,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 123"), PushInstruction("constant 56"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 7"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 56"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=93}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @123
 D=A
@@ -14659,16 +16600,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14689,6 +16628,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 124"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=94}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @124
 D=A
@@ -14750,16 +16692,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14780,6 +16720,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 125"), PushInstruction("constant 7"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 56"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 7"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=95}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @125
 D=A
@@ -14841,16 +16784,14 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14871,6 +16812,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 126"), PushInstruction("constant 38"), PushInstruction("constant 45"), PushInstruction("constant 25"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Output.create', numArgs=12, funcMapping={Output.init=1, Output.initMap=96}, currentFunction='Output.initMap'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @126
 D=A
@@ -14896,46 +16840,38 @@ D=A
 AM=M+1
 A=A-1
 M=D
-D=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
-D=0
+M=0
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 // call Output.create
 @17
 D=A
@@ -14957,17 +16893,19 @@ D=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.create', numLocals=1, funcMapping={Output.init=1, Output.initMap=97}}
 // function Output.create with 1
 (Output.create)
 @SP
@@ -14975,6 +16913,9 @@ AM=M+1
 A=A-1
 M=0
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 11")], call=CallInstruction{calleeFunction='Array.new', numArgs=1, funcMapping={Output.init=1, Output.initMap=97, Output.create=0}, currentFunction='Output.create'}}
+//pop PopInstruction{address=local 0} END PPP 
 
 @11
 D=A
@@ -15004,6 +16945,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("local 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @Output.0
 D=M
 @R13
@@ -15023,6 +16976,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @LCL
 A=M
 D=M
@@ -15035,6 +17000,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 2")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15049,6 +17026,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 3")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15067,6 +17056,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("argument 4")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @LCL
 A=M
 D=M
@@ -15084,6 +17085,18 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("argument 5")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 4"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
 @LCL
 A=M
 D=M
@@ -15100,6 +17113,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 6")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15117,6 +17142,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 7")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 6"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15134,6 +17171,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 8")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15151,6 +17200,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 9")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 8"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15168,6 +17229,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 10")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 9"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15185,6 +17258,18 @@ D=M
 A=M
 M=D
 
+
+//PPP : push PushInstruction("argument 11")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 10"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
@@ -15203,29 +17288,48 @@ A=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.getMap', numLocals=0, funcMapping={Output.init=1, Output.initMap=97, Output.create=1}}
 // function Output.getMap with 0
 (Output.getMap)
 
 
-@Output.backSpace.EQ.2
-D=A
-@13
-M=D
-@Output.backSpace.LT.3
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("constant 32"),
+//                    binaryOp: "LT"
+//                ),
+//            right:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("argument 0"),
+//                    right:
+//                        PushInstruction("constant 126"),
+//                    binaryOp: "GT"
+//                ),
+//            binaryOp: "OR"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Output.getMap.IfElse1}}
 @ARG
 A=M
 D=M
@@ -15233,16 +17337,16 @@ D=M
 D=D-A
 @15
 M=D
+@Output.getMap.LT.3
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Output.backSpace.LT.3)
+(Output.getMap.LT.3)
 @SP
 AM=M+1
 A=A-1
-M=D
-@Output.backSpace.GT.4
-D=A
-@13
 M=D
 @ARG
 A=M
@@ -15251,38 +17355,61 @@ D=M
 D=D-A
 @15
 M=D
+@Output.getMap.GT.4
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Output.backSpace.GT.4)
+(Output.getMap.GT.4)
 @SP
 AM=M-1
 D=D|M
 @15
 M=D
+@Output.getMap.EQ.2
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(Output.backSpace.EQ.2)
+(Output.getMap.EQ.2)
 @Output.getMap.IfElse1
 D;JNE
 
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=argument 0} END PPP 
 
 @ARG
 A=M
 M=0
 
 
+//GotoInstruction{label='Output.getMap.IfElseEND1}
 // goto Output.getMap.IfElseEND1
 @Output.getMap.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Output.getMap.IfElse1}
 // label Output.getMap.IfElse1
 (Output.getMap.IfElse1)
 
 
+//LabelInstruction{label='Output.getMap.IfElseEND1}
 // label Output.getMap.IfElseEND1
 (Output.getMap.IfElseEND1)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
 
 @Output.0
 D=M
@@ -15297,6 +17424,7 @@ D=D+M
 M=D
 
 
+//PushInstruction("that 0")
 @THAT
 A=M
 D=M
@@ -15306,13 +17434,18 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.moveCursor', numLocals=0, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.create=1}}
 // function Output.moveCursor with 0
 (Output.moveCursor)
 
+
+//PPP : push PushInstruction("argument 1")
+//pop PopInstruction{address=Output.1} END PPP 
 
 @ARG
 A=M+1
@@ -15321,6 +17454,9 @@ D=M
 M=D
 
 
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=Output.2} END PPP 
+
 @ARG
 A=M
 D=M
@@ -15328,17 +17464,19 @@ D=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.printChar', numLocals=4, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.create=1}}
 // function Output.printChar with 4
 (Output.printChar)
 @SP
@@ -15358,6 +17496,9 @@ AM=M+1
 A=A-1
 M=0
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Output.getMap', numArgs=1, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=0, Output.create=1}, currentFunction='Output.printChar'}}
+//pop PopInstruction{address=local 0} END PPP 
 
 @ARG
 A=M
@@ -15388,6 +17529,9 @@ A=M
 M=D
 
 
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 3} END PPP 
+
 @LCL
 A=M+1
 A=A+1
@@ -15395,18 +17539,24 @@ A=A+1
 M=0
 
 
+//LabelInstruction{label='WHILE_START_Output.printChar1}
 // label WHILE_START_Output.printChar1
 (WHILE_START_Output.printChar1)
 
 
-@Output.backSpace.EQ.6
-D=A
-@13
-M=D
-@Output.backSpace.LT.7
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 3"),
+//            right:
+//                PushInstruction("constant 11"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Output.printChar1}}
 @LCL
 A=M+1
 A=A+1
@@ -15416,17 +17566,46 @@ D=M
 D=D-A
 @15
 M=D
+@Output.printChar.LT.7
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Output.backSpace.LT.7)
+(Output.printChar.LT.7)
 @15
+M=D
+@Output.printChar.EQ.6
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Output.backSpace.EQ.6)
+(Output.printChar.EQ.6)
 @WHILE_END_Output.printChar1
 D;JNE
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("constant 16384"),
+//            right:
+//CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//CallGroup{pushes=[PushInstruction("static 2"), PushInstruction("constant 11")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=1, Output.create=1}, currentFunction='Output.printChar'}},
+//    right:
+//        PushInstruction("local 3"),
+//    binaryOp: "ADD"
+//), PushInstruction("constant 32")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=1, Output.create=1}, currentFunction='Output.printChar'}},
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//CallGroup{pushes=[PushInstruction("static 1"), PushInstruction("constant 2")], call=CallInstruction{calleeFunction='Math.divide', numArgs=2, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=1, Output.create=1}, currentFunction='Output.printChar'}},
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 1} END PPP 
 
 @Output.2
 D=M
@@ -15454,13 +17633,6 @@ D=A
 @CALL
 0;JMP
 (Output.printChar.ret.3)
-@SP
-AM=M-1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
 @LCL
 A=M+1
 A=A+1
@@ -15539,31 +17711,59 @@ A=M+1
 M=D
 
 
-@Output.backSpace.EQ.9
-D=A
-@13
-M=D
-@Output.backSpace.EQ.10
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("static 1"),
+//                    right:
+//                        PushInstruction("constant 1"),
+//                    binaryOp: "AND"
+//                ),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Output.printChar.IfElse1}}
 @Output.1
 D=M
 @1
 D=D&A
 @15
 M=D
-@DO_EQ
-0;JMP
-(Output.backSpace.EQ.10)
-@15
+@Output.printChar.EQ.10
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Output.backSpace.EQ.9)
+(Output.printChar.EQ.10)
+@15
+M=D
+@Output.printChar.EQ.9
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Output.printChar.EQ.9)
 @Output.printChar.IfElse1
 D;JNE
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("local 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
 
 @LCL
 A=M+1
@@ -15577,6 +17777,9 @@ D=D+M
 @4
 M=D
 
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 2} END PPP 
 
 @THAT
 A=M
@@ -15587,14 +17790,25 @@ A=A+1
 M=D
 
 
+//GotoInstruction{label='Output.printChar.IfElseEND1}
 // goto Output.printChar.IfElseEND1
 @Output.printChar.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Output.printChar.IfElse1}
 // label Output.printChar.IfElse1
 (Output.printChar.IfElse1)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("local 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
 
 @LCL
 A=M+1
@@ -15608,6 +17822,9 @@ D=D+M
 @4
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("that 0"), PushInstruction("constant 256")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=6, Output.create=1}, currentFunction='Output.printChar'}}
+//pop PopInstruction{address=local 2} END PPP 
 
 @THAT
 A=M
@@ -15645,9 +17862,19 @@ A=A+1
 M=D
 
 
+//LabelInstruction{label='Output.printChar.IfElseEND1}
 // label Output.printChar.IfElseEND1
 (Output.printChar.IfElseEND1)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
 
 @LCL
 A=M+1
@@ -15655,6 +17882,24 @@ D=M
 @4
 M=D
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        PushInstruction("local 2"),
+//    binaryOp: "OR"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M+1
@@ -15677,6 +17922,15 @@ A=M
 M=D
 
 
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 3"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 3} END PPP 
+
 @LCL
 A=M+1
 A=A+1
@@ -15684,40 +17938,58 @@ A=A+1
 M=M+1
 
 
+//GotoInstruction{label='WHILE_START_Output.printChar1}
 // goto WHILE_START_Output.printChar1
 @WHILE_START_Output.printChar1
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Output.printChar1}
 // label WHILE_END_Output.printChar1
 (WHILE_END_Output.printChar1)
 
 
-@Output.backSpace.EQ.12
-D=A
-@13
-M=D
-@Output.backSpace.EQ.13
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("static 1"),
+//            right:
+//                PushInstruction("constant 63"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Output.printChar.IfElse2}}
 @Output.1
 D=M
 @63
 D=D-A
 @15
 M=D
-@DO_EQ
-0;JMP
-(Output.backSpace.EQ.13)
-@15
+@Output.printChar.EQ.13
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Output.backSpace.EQ.12)
+(Output.printChar.EQ.13)
+@15
+M=D
+@Output.printChar.EQ.12
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Output.printChar.EQ.12)
 @Output.printChar.IfElse2
 D;JNE
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Output.println', numArgs=0, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=7, Output.create=1}, currentFunction='Output.printChar'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Output.println
 @5
@@ -15740,34 +18012,48 @@ D=M
 M=D
 
 
+//GotoInstruction{label='Output.printChar.IfElseEND2}
 // goto Output.printChar.IfElseEND2
 @Output.printChar.IfElseEND2
 0;JMP
 
 
+//LabelInstruction{label='Output.printChar.IfElse2}
 // label Output.printChar.IfElse2
 (Output.printChar.IfElse2)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=Output.1} END PPP 
 
 @Output.1
 M=M+1
 
 
+//LabelInstruction{label='Output.printChar.IfElseEND2}
 // label Output.printChar.IfElseEND2
 (Output.printChar.IfElseEND2)
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.printString', numLocals=1, funcMapping={Output.init=1, Output.initMap=97, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}}
 // function Output.printString with 1
 (Output.printString)
 @SP
@@ -15776,23 +18062,32 @@ A=A-1
 M=0
 
 
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
+
 @LCL
 A=M
 M=0
 
 
+//LabelInstruction{label='WHILE_START_Output.printString1}
 // label WHILE_START_Output.printString1
 (WHILE_START_Output.printString1)
 
 
-@Output.backSpace.EQ.15
-D=A
-@13
-M=D
-@Output.backSpace.LT.16
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 0"),
+//            right:
+//CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='String.length', numArgs=1, funcMapping={Output.init=1, Output.initMap=97, Output.printString=0, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printString'}},
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Output.printString1}}
 @LCL
 A=M
 D=M
@@ -15829,17 +18124,28 @@ AM=M-1
 D=M-D
 @15
 M=D
+@Output.printString.LT.16
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Output.backSpace.LT.16)
+(Output.printString.LT.16)
 @15
+M=D
+@Output.printString.EQ.15
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Output.backSpace.EQ.15)
+(Output.printString.EQ.15)
 @WHILE_END_Output.printString1
 D;JNE
 
+
+//PPP : push CallGroup{pushes=[CallGroup{pushes=[PushInstruction("argument 0"), PushInstruction("local 0")], call=CallInstruction{calleeFunction='String.charAt', numArgs=2, funcMapping={Output.init=1, Output.initMap=97, Output.printString=2, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printString'}}], call=CallInstruction{calleeFunction='Output.printChar', numArgs=1, funcMapping={Output.init=1, Output.initMap=97, Output.printString=2, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printString'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @ARG
 A=M
@@ -15890,31 +18196,44 @@ D=M
 M=D
 
 
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
 @LCL
 A=M
 M=M+1
 
 
+//GotoInstruction{label='WHILE_START_Output.printString1}
 // goto WHILE_START_Output.printString1
 @WHILE_START_Output.printString1
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Output.printString1}
 // label WHILE_END_Output.printString1
 (WHILE_END_Output.printString1)
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.printInt', numLocals=1, funcMapping={Output.init=1, Output.initMap=97, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}}
 // function Output.printInt with 1
 (Output.printInt)
 @SP
@@ -15922,6 +18241,9 @@ AM=M+1
 A=A-1
 M=0
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 10")], call=CallInstruction{calleeFunction='String.new', numArgs=1, funcMapping={Output.printInt=0, Output.init=1, Output.initMap=97, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printInt'}}
+//pop PopInstruction{address=local 0} END PPP 
 
 @10
 D=A
@@ -15950,6 +18272,9 @@ D=M
 A=M
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0"), PushInstruction("argument 0")], call=CallInstruction{calleeFunction='String.setInt', numArgs=2, funcMapping={Output.printInt=1, Output.init=1, Output.initMap=97, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @LCL
 A=M
@@ -15986,6 +18311,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='Output.printString', numArgs=1, funcMapping={Output.printInt=2, Output.init=1, Output.initMap=97, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @LCL
 A=M
 D=M
@@ -16013,6 +18341,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='String.dispose', numArgs=1, funcMapping={Output.printInt=3, Output.init=1, Output.initMap=97, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}, currentFunction='Output.printInt'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @LCL
 A=M
@@ -16042,103 +18373,151 @@ D=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.println', numLocals=0, funcMapping={Output.printInt=4, Output.init=1, Output.initMap=97, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}}
 // function Output.println with 0
 (Output.println)
 
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=Output.1} END PPP 
 
 @Output.1
 M=0
 
 
-@Output.backSpace.EQ.18
-D=A
-@13
-M=D
-@Output.backSpace.EQ.19
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("static 2"),
+//            right:
+//                PushInstruction("constant 22"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Output.println.IfElse1}}
 @Output.2
 D=M
 @22
 D=D-A
 @15
 M=D
-@DO_EQ
-0;JMP
-(Output.backSpace.EQ.19)
-@15
+@Output.println.EQ.19
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Output.backSpace.EQ.18)
+(Output.println.EQ.19)
+@15
+M=D
+@Output.println.EQ.18
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Output.println.EQ.18)
 @Output.println.IfElse1
 D;JNE
 
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=Output.2} END PPP 
 
 @Output.2
 M=0
 
 
+//GotoInstruction{label='Output.println.IfElseEND1}
 // goto Output.println.IfElseEND1
 @Output.println.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Output.println.IfElse1}
 // label Output.println.IfElse1
 (Output.println.IfElse1)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 2"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=Output.2} END PPP 
 
 @Output.2
 M=M+1
 
 
+//LabelInstruction{label='Output.println.IfElseEND1}
 // label Output.println.IfElseEND1
 (Output.println.IfElseEND1)
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Output.backSpace', numLocals=0, funcMapping={Output.printInt=4, Output.init=1, Output.initMap=97, Output.println=0, Output.printString=4, Output.getMap=0, Output.moveCursor=0, Output.printChar=8, Output.create=1}}
 // function Output.backSpace with 0
 (Output.backSpace)
 
 
-@Output.backSpace.EQ.21
-D=A
-@13
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("static 1"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Output.backSpace.IfElse1}}
+@Output.1
+D=M
+@15
 M=D
 @Output.backSpace.EQ.22
 D=A
 @13
 M=D
-@Output.1
-D=M
-@15
-M=D
 @DO_EQ
 0;JMP
 (Output.backSpace.EQ.22)
 @15
+M=D
+@Output.backSpace.EQ.21
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
@@ -16147,9 +18526,21 @@ M=D
 D;JNE
 
 
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 2"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=Output.2} END PPP 
+
 @Output.2
 M=M-1
 
+
+//PPP : push PushInstruction("constant 63")
+//pop PopInstruction{address=Output.1} END PPP 
 
 @63
 D=A
@@ -16157,78 +18548,878 @@ D=A
 M=D
 
 
+//GotoInstruction{label='Output.backSpace.IfElseEND1}
 // goto Output.backSpace.IfElseEND1
 @Output.backSpace.IfElseEND1
 0;JMP
 
 
+//LabelInstruction{label='Output.backSpace.IfElse1}
 // label Output.backSpace.IfElse1
 (Output.backSpace.IfElse1)
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("static 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=Output.1} END PPP 
 
 @Output.1
 M=M-1
 
 
+//LabelInstruction{label='Output.backSpace.IfElseEND1}
 // label Output.backSpace.IfElseEND1
 (Output.backSpace.IfElseEND1)
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Screen.init with 0
-(Screen.init)
+//FunctionInstruction{functionName='Main.main', numLocals=0, funcMapping={}}
+// function Main.main with 0
+(Main.main)
 
 
-D=0
-@Screen.0
-M=D
+//PPP : push CallGroup{pushes=[PushInstruction("constant 0"), PushInstruction("constant 220"), PushInstruction("constant 511"), PushInstruction("constant 220")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=0}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
-
-D=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@220
+D=A
 @SP
 AM=M+1
 A=A-1
 M=D
-
-
-@RETURN
+@511
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@220
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.0
+D=A
+@CALL
 0;JMP
-
-
-// function Screen.setColor with 0
-(Screen.setColor)
-
-
-@ARG
-A=M
+(Main.main.ret.0)
+@SP
+AM=M-1
 D=M
-@Screen.0
+@5
 M=D
 
 
-D=0
+//PPP : push CallGroup{pushes=[PushInstruction("constant 280"), PushInstruction("constant 90"), PushInstruction("constant 410"), PushInstruction("constant 220")], call=CallInstruction{calleeFunction='Screen.drawRectangle', numArgs=4, funcMapping={Main.main=1}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@280
+D=A
 @SP
 AM=M+1
 A=A-1
 M=D
+@90
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@410
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@220
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawRectangle
+@9
+D=A
+@14
+M=D
+@Screen.drawRectangle
+D=A
+@13
+M=D
+@Main.main.ret.1
+D=A
+@CALL
+0;JMP
+(Main.main.ret.1)
+@SP
+AM=M-1
+D=M
+@5
+M=D
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("constant 0")], call=CallInstruction{calleeFunction='Screen.setColor', numArgs=1, funcMapping={Main.main=2}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@SP
+AM=M+1
+A=A-1
+M=0
+// call Screen.setColor
+@6
+D=A
+@14
+M=D
+@Screen.setColor
+D=A
+@13
+M=D
+@Main.main.ret.2
+D=A
+@CALL
+0;JMP
+(Main.main.ret.2)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 350"), PushInstruction("constant 120"), PushInstruction("constant 390"), PushInstruction("constant 219")], call=CallInstruction{calleeFunction='Screen.drawRectangle', numArgs=4, funcMapping={Main.main=3}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@350
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@120
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@390
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@219
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawRectangle
+@9
+D=A
+@14
+M=D
+@Screen.drawRectangle
+D=A
+@13
+M=D
+@Main.main.ret.3
+D=A
+@CALL
+0;JMP
+(Main.main.ret.3)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 292"), PushInstruction("constant 120"), PushInstruction("constant 332"), PushInstruction("constant 150")], call=CallInstruction{calleeFunction='Screen.drawRectangle', numArgs=4, funcMapping={Main.main=4}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@292
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@120
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@332
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@150
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawRectangle
+@9
+D=A
+@14
+M=D
+@Screen.drawRectangle
+D=A
+@13
+M=D
+@Main.main.ret.4
+D=A
+@CALL
+0;JMP
+(Main.main.ret.4)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[UnaryPushGroup(    PushInstruction("constant 0"),
+//NOT)], call=CallInstruction{calleeFunction='Screen.setColor', numArgs=1, funcMapping={Main.main=5}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@SP
+AM=M+1
+A=A-1
+M=-1
+// call Screen.setColor
+@6
+D=A
+@14
+M=D
+@Screen.setColor
+D=A
+@13
+M=D
+@Main.main.ret.5
+D=A
+@CALL
+0;JMP
+(Main.main.ret.5)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 360"), PushInstruction("constant 170"), PushInstruction("constant 3")], call=CallInstruction{calleeFunction='Screen.drawCircle', numArgs=3, funcMapping={Main.main=6}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@360
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@170
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@3
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawCircle
+@8
+D=A
+@14
+M=D
+@Screen.drawCircle
+D=A
+@13
+M=D
+@Main.main.ret.6
+D=A
+@CALL
+0;JMP
+(Main.main.ret.6)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 280"), PushInstruction("constant 90"), PushInstruction("constant 345"), PushInstruction("constant 35")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=7}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@280
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@90
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@345
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@35
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.7
+D=A
+@CALL
+0;JMP
+(Main.main.ret.7)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 345"), PushInstruction("constant 35"), PushInstruction("constant 410"), PushInstruction("constant 90")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=8}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@345
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@35
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@410
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@90
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.8
+D=A
+@CALL
+0;JMP
+(Main.main.ret.8)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 140"), PushInstruction("constant 60"), PushInstruction("constant 30")], call=CallInstruction{calleeFunction='Screen.drawCircle', numArgs=3, funcMapping={Main.main=9}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@140
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@60
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@30
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawCircle
+@8
+D=A
+@14
+M=D
+@Screen.drawCircle
+D=A
+@13
+M=D
+@Main.main.ret.9
+D=A
+@CALL
+0;JMP
+(Main.main.ret.9)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 140"), PushInstruction("constant 26"), PushInstruction("constant 140"), PushInstruction("constant 6")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=10}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@140
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@26
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@140
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@6
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.10
+D=A
+@CALL
+0;JMP
+(Main.main.ret.10)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 163"), PushInstruction("constant 35"), PushInstruction("constant 178"), PushInstruction("constant 20")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=11}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@163
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@35
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@178
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@20
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.11
+D=A
+@CALL
+0;JMP
+(Main.main.ret.11)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 174"), PushInstruction("constant 60"), PushInstruction("constant 194"), PushInstruction("constant 60")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=12}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@174
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@60
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@194
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@60
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.12
+D=A
+@CALL
+0;JMP
+(Main.main.ret.12)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 163"), PushInstruction("constant 85"), PushInstruction("constant 178"), PushInstruction("constant 100")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=13}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@163
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@85
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@178
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@100
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.13
+D=A
+@CALL
+0;JMP
+(Main.main.ret.13)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 140"), PushInstruction("constant 94"), PushInstruction("constant 140"), PushInstruction("constant 114")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=14}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@140
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@94
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@140
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@114
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.14
+D=A
+@CALL
+0;JMP
+(Main.main.ret.14)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 117"), PushInstruction("constant 85"), PushInstruction("constant 102"), PushInstruction("constant 100")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=15}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@117
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@85
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@102
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@100
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.15
+D=A
+@CALL
+0;JMP
+(Main.main.ret.15)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 106"), PushInstruction("constant 60"), PushInstruction("constant 86"), PushInstruction("constant 60")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=16}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@106
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@60
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@86
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@60
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.16
+D=A
+@CALL
+0;JMP
+(Main.main.ret.16)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 117"), PushInstruction("constant 35"), PushInstruction("constant 102"), PushInstruction("constant 20")], call=CallInstruction{calleeFunction='Screen.drawLine', numArgs=4, funcMapping={Main.main=17}, currentFunction='Main.main'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@117
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@35
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@102
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@20
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Screen.drawLine
+@9
+D=A
+@14
+M=D
+@Screen.drawLine
+D=A
+@13
+M=D
+@Main.main.ret.17
+D=A
+@CALL
+0;JMP
+(Main.main.ret.17)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Screen.drawPixel with 2
-(Screen.drawPixel)
+//FunctionInstruction{functionName='Memory.init', numLocals=2, funcMapping={}}
+// function Memory.init with 2
+(Memory.init)
 @SP
 AM=M+1
 A=A-1
@@ -16239,1371 +19430,228 @@ A=A-1
 M=0
 
 
-@ARG
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@32
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//        PushInstruction("constant 7"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@2055
 D=A
-@SP
-AM=M+1
-A=A-1
+@LCL
+A=M
 M=D
-// call Math.multiply
-@7
-D=A
-@14
-M=D
-@Math.multiply
-D=A
-@13
-M=D
-@Screen.drawPixel.ret.2
-D=A
-@CALL
-0;JMP
-(Screen.drawPixel.ret.2)
-@SP
-AM=M-1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("constant 16384"),
+//            right:
+//                PushInstruction("local 0"),
+//            binaryOp: "SUB"
+//        ),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "SUB"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
 A=M
 D=M
-@SP
-AM=M+1
-A=A-1
+@4
 M=D
-@16
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.divide
-@7
-D=A
-@14
-M=D
-@Math.divide
-D=A
-@13
-M=D
-@Screen.drawPixel.ret.3
-D=A
-@CALL
-0;JMP
-(Screen.drawPixel.ret.3)
-@SP
-AM=M-1
+@LCL
+A=M
 D=M
-@SP
-AM=M-1
-D=D+M
 @16384
+D=A-D
+@5
+D=D-A
+@THAT
+A=M
+M=D
+
+
+//PPP : push PushInstruction("constant 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M+1
+@4
+M=D
+@THAT
+A=M
+M=1
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@2
 D=D+A
-@LCL
-A=M
-M=D
-
-
-@ARG
-A=M
-D=M
-@15
-D=D&A
-@LCL
-A=M+1
-M=D
-
-
-@Screen.clearScreen.EQ.1
-D=A
-@13
-M=D
-@Screen.clearScreen.EQ.2
-D=A
-@13
-M=D
-@Screen.0
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.2)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.1)
-@Screen.drawPixel.IfElse1
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-
-
-@LCL
-A=M
-D=M
 @4
 M=D
 @THAT
 A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.twoToThe
-@6
-D=A
-@14
-M=D
-@Math.twoToThe
-D=A
-@13
-M=D
-@Screen.drawPixel.ret.4
-D=A
-@CALL
-0;JMP
-(Screen.drawPixel.ret.4)
-@SP
-AM=M-1
-D=M
-@SP
-AM=M-1
-D=D|M
-@THAT
-A=M
-M=D
-
-
-// goto Screen.drawPixel.IfElseEND1
-@Screen.drawPixel.IfElseEND1
-0;JMP
-
-
-// label Screen.drawPixel.IfElse1
-(Screen.drawPixel.IfElse1)
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-
-
-@LCL
-A=M
-D=M
-@4
-M=D
-@THAT
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.twoToThe
-@6
-D=A
-@14
-M=D
-@Math.twoToThe
-D=A
-@13
-M=D
-@Screen.drawPixel.ret.5
-D=A
-@CALL
-0;JMP
-(Screen.drawPixel.ret.5)
-@SP
-AM=M-1
-D=M
-D=!D
-@SP
-AM=M-1
-D=D&M
-@THAT
-A=M
-M=D
-
-
-// label Screen.drawPixel.IfElseEND1
-(Screen.drawPixel.IfElseEND1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Screen.drawLine with 6
-(Screen.drawLine)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
 M=0
 
 
-@ARG
-A=M+1
-A=A+1
-D=M
-A=A-1
-A=A-1
-D=D-M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.abs
-@6
-D=A
-@14
-M=D
-@Math.abs
-D=A
-@13
-M=D
-@Screen.drawLine.ret.0
-D=A
-@CALL
-0;JMP
-(Screen.drawLine.ret.0)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M
-M=D
-
-
-@ARG
-A=M+1
-A=A+1
-A=A+1
-D=M
-A=A-1
-A=A-1
-D=D-M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.abs
-@6
-D=A
-@14
-M=D
-@Math.abs
-D=A
-@13
-M=D
-@Screen.drawLine.ret.1
-D=A
-@CALL
-0;JMP
-(Screen.drawLine.ret.1)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-M=D
-
-
-@Screen.clearScreen.EQ.4
-D=A
-@13
-M=D
-@Screen.clearScreen.LT.5
-D=A
-@13
-M=D
-@ARG
-A=M+1
-A=A+1
-D=M
-A=A-1
-A=A-1
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Screen.clearScreen.LT.5)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.4)
-@Screen.drawLine.IfElse1
-D;JNE
-
-
-@LCL
-A=M+1
-A=A+1
-M=1
-
-
-// goto Screen.drawLine.IfElseEND1
-@Screen.drawLine.IfElseEND1
-0;JMP
-
-
-// label Screen.drawLine.IfElse1
-(Screen.drawLine.IfElse1)
-
-
-D=1
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-// label Screen.drawLine.IfElseEND1
-(Screen.drawLine.IfElseEND1)
-
-
-@Screen.clearScreen.EQ.7
-D=A
-@13
-M=D
-@Screen.clearScreen.LT.8
-D=A
-@13
-M=D
-@ARG
-A=M+1
-A=A+1
-A=A+1
-D=M
-A=A-1
-A=A-1
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Screen.clearScreen.LT.8)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.7)
-@Screen.drawLine.IfElse2
-D;JNE
-
-
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=1
-
-
-// goto Screen.drawLine.IfElseEND2
-@Screen.drawLine.IfElseEND2
-0;JMP
-
-
-// label Screen.drawLine.IfElse2
-(Screen.drawLine.IfElse2)
-
-
-D=1
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=D
-
-
-// label Screen.drawLine.IfElseEND2
-(Screen.drawLine.IfElseEND2)
-
-
-@LCL
-A=M+1
-D=M
-A=A-1
-D=M-D
-@LCL
-D=M
-@4
-A=D+A
-M=D
-
-
-// label WHILE_START_Screen.drawLine1
-(WHILE_START_Screen.drawLine1)
-
-
-D=0
-@WHILE_END_Screen.drawLine1
-D;JNE
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawPixel
-@7
-D=A
-@14
-M=D
-@Screen.drawPixel
-D=A
-@13
-M=D
-@Screen.drawLine.ret.2
-D=A
-@CALL
-0;JMP
-(Screen.drawLine.ret.2)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@Screen.clearScreen.EQ.11
-D=A
-@13
-M=D
-@Screen.clearScreen.EQ.12
-D=A
-@13
-M=D
-@ARG
-A=M+1
-A=A+1
-D=M
-A=A-1
-A=A-1
-D=M-D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.12)
-@SP
-AM=M+1
-A=A-1
-M=D
-@Screen.clearScreen.EQ.13
-D=A
-@13
-M=D
-@ARG
-A=M+1
-A=A+1
-A=A+1
-D=M
-A=A-1
-A=A-1
-D=M-D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.13)
-@SP
-AM=M-1
-D=D&M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.11)
-@Screen.drawLine.IfElse3
-D;JNE
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto Screen.drawLine.IfElseEND3
-@Screen.drawLine.IfElseEND3
-0;JMP
-
-
-// label Screen.drawLine.IfElse3
-(Screen.drawLine.IfElse3)
-
-
-// label Screen.drawLine.IfElseEND3
-(Screen.drawLine.IfElseEND3)
-
-
-@LCL
-D=M
-@5
-A=D+A
-D=A
-@13
-M=D
-@LCL
-D=M
-@4
-A=D+A
-D=M
-D=D+M
-@13
-A=M
-M=D
-
-
-@Screen.clearScreen.EQ.15
-D=A
-@13
-M=D
-@Screen.clearScreen.GT.16
-D=A
-@13
-M=D
-@LCL
-D=M
-@5
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@15
-M=D
-@DO_GT
-0;JMP
-(Screen.clearScreen.GT.16)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.15)
-@Screen.drawLine.IfElse4
-D;JNE
-
-
-@LCL
-D=M
-@4
-A=D+A
-D=M
-A=A-1
-A=A-1
-A=A-1
-D=D-M
-@LCL
-D=M
-@4
-A=D+A
-M=D
-
-
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@R13
-D=D+M
-@ARG
-A=M
-M=D
-
-
-// goto Screen.drawLine.IfElseEND4
-@Screen.drawLine.IfElseEND4
-0;JMP
-
-
-// label Screen.drawLine.IfElse4
-(Screen.drawLine.IfElse4)
-
-
-// label Screen.drawLine.IfElseEND4
-(Screen.drawLine.IfElseEND4)
-
-
-@Screen.clearScreen.EQ.18
-D=A
-@13
-M=D
-@Screen.clearScreen.LT.19
-D=A
-@13
-M=D
-@LCL
-D=M
-@5
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Screen.clearScreen.LT.19)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.18)
-@Screen.drawLine.IfElse5
-D;JNE
-
-
-@LCL
-D=M
-@4
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=D+M
-@LCL
-D=M
-@4
-A=D+A
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@R13
-D=D+M
-@ARG
-A=M+1
-M=D
-
-
-// goto Screen.drawLine.IfElseEND5
-@Screen.drawLine.IfElseEND5
-0;JMP
-
-
-// label Screen.drawLine.IfElse5
-(Screen.drawLine.IfElse5)
-
-
-// label Screen.drawLine.IfElseEND5
-(Screen.drawLine.IfElseEND5)
-
-
-// goto WHILE_START_Screen.drawLine1
-@WHILE_START_Screen.drawLine1
-0;JMP
-
-
-// label WHILE_END_Screen.drawLine1
-(WHILE_END_Screen.drawLine1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Screen.drawHorizontalLine with 1
-(Screen.drawHorizontalLine)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M
-D=M
-@LCL
-A=M
-M=D
-
-
-// label WHILE_START_Screen.drawHorizontalLine1
-(WHILE_START_Screen.drawHorizontalLine1)
-
-
-@Screen.clearScreen.EQ.21
-D=A
-@13
-M=D
-@Screen.clearScreen.GT.22
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_GT
-0;JMP
-(Screen.clearScreen.GT.22)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.21)
-@WHILE_END_Screen.drawHorizontalLine1
-D;JNE
-
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
 
 @LCL
 A=M
 D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawPixel
-@7
-D=A
-@14
-M=D
-@Screen.drawPixel
-D=A
-@13
-M=D
-@Screen.drawHorizontalLine.ret.0
-D=A
-@CALL
-0;JMP
-(Screen.drawHorizontalLine.ret.0)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@LCL
-A=M
-M=M+1
-
-
-// goto WHILE_START_Screen.drawHorizontalLine1
-@WHILE_START_Screen.drawHorizontalLine1
-0;JMP
-
-
-// label WHILE_END_Screen.drawHorizontalLine1
-(WHILE_END_Screen.drawHorizontalLine1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Screen.drawCircle with 5
-(Screen.drawCircle)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@LCL
-A=M
-M=0
-
-
-@ARG
-A=M+1
-A=A+1
-D=M
-@LCL
-A=M+1
-M=D
-
-
-@ARG
-A=M+1
-A=A+1
-D=M-1
-D=-D
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-// label WHILE_START_Screen.drawCircle1
-(WHILE_START_Screen.drawCircle1)
-
-
-@Screen.clearScreen.EQ.24
-D=A
-@13
-M=D
-@Screen.clearScreen.GT.25
-D=A
-@13
-M=D
-@LCL
-A=M+1
-D=M
-A=A-1
-D=M-D
-@15
-M=D
-@DO_GT
-0;JMP
-(Screen.clearScreen.GT.25)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.24)
-@WHILE_END_Screen.drawCircle1
-D;JNE
-
-
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=M-D
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=D+M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawHorizontalLine
-@8
-D=A
-@14
-M=D
-@Screen.drawHorizontalLine
-D=A
-@13
-M=D
-@Screen.drawCircle.ret.0
-D=A
-@CALL
-0;JMP
-(Screen.drawCircle.ret.0)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=M-D
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=D+M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=M-D
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawHorizontalLine
-@8
-D=A
-@14
-M=D
-@Screen.drawHorizontalLine
-D=A
-@13
-M=D
-@Screen.drawCircle.ret.1
-D=A
-@CALL
-0;JMP
-(Screen.drawCircle.ret.1)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=M-D
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=D+M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawHorizontalLine
-@8
-D=A
-@14
-M=D
-@Screen.drawHorizontalLine
-D=A
-@13
-M=D
-@Screen.drawCircle.ret.2
-D=A
-@CALL
-0;JMP
-(Screen.drawCircle.ret.2)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=M-D
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@SP
-AM=M+1
-A=A-1
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-M=D
-@LCL
-A=M
-D=M
-@R13
-D=M-D
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Screen.drawHorizontalLine
-@8
-D=A
-@14
-M=D
-@Screen.drawHorizontalLine
-D=A
-@13
-M=D
-@Screen.drawCircle.ret.3
-D=A
-@CALL
-0;JMP
-(Screen.drawCircle.ret.3)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@Screen.clearScreen.EQ.27
-D=A
-@13
-M=D
-@Screen.clearScreen.LT.28
-D=A
-@13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@15
-M=D
-@DO_LT
-0;JMP
-(Screen.clearScreen.LT.28)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.27)
-@Screen.drawCircle.IfElse1
-D;JNE
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M
-D=M
-D=D+M
-@SP
-AM=M-1
-D=D+M
 @3
 D=D+A
-@LCL
-A=M+1
-A=A+1
+@4
 M=D
+@THAT
+A=M
+M=0
 
 
-// goto Screen.drawCircle.IfElseEND1
-@Screen.drawCircle.IfElseEND1
-0;JMP
-
-
-// label Screen.drawCircle.IfElse1
-(Screen.drawCircle.IfElse1)
-
-
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-D=M
-A=A-1
-D=M-D
-@R13
-M=D
-D=D+M
-@SP
-AM=M-1
-D=D+M
-@5
-D=D+A
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-@LCL
-A=M+1
-M=M-1
-
-
-// label Screen.drawCircle.IfElseEND1
-(Screen.drawCircle.IfElseEND1)
-
+//PPP : push CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='Memory.create_foot', numArgs=1, funcMapping={Memory.init=0}, currentFunction='Memory.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @LCL
 A=M
-M=M+1
-
-
-// goto WHILE_START_Screen.drawCircle1
-@WHILE_START_Screen.drawCircle1
-0;JMP
-
-
-// label WHILE_END_Screen.drawCircle1
-(WHILE_END_Screen.drawCircle1)
-
-
-D=0
+D=M
 @SP
 AM=M+1
 A=A-1
 M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.init.ret.0
+D=A
+@CALL
+0;JMP
+(Memory.init.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
 
 
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//        PushInstruction("constant 6"),
+//    binaryOp: "ADD"
+//), PushInstruction("local 0")], call=CallInstruction{calleeFunction='Memory.add_node', numArgs=2, funcMapping={Memory.init=1}, currentFunction='Memory.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@2054
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@2054
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.add_node
+@7
+D=A
+@14
+M=D
+@Memory.add_node
+D=A
+@13
+M=D
+@Memory.init.ret.1
+D=A
+@CALL
+0;JMP
+(Memory.init.ret.1)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function Screen.drawRectangle with 10
-(Screen.drawRectangle)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
+//FunctionInstruction{functionName='Memory.alloc', numLocals=5, funcMapping={Memory.init=2}}
+// function Memory.alloc with 5
+(Memory.alloc)
 @SP
 AM=M+1
 A=A-1
@@ -17626,1004 +19674,496 @@ A=A-1
 M=0
 
 
-@LCL
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Memory.getBinIndex', numArgs=1, funcMapping={Memory.alloc=0, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M
 D=M
-@9
-A=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.getBinIndex
+@6
+D=A
+@14
+M=D
+@Memory.getBinIndex
 D=A
 @13
 M=D
-D=1
-@13
+@Memory.alloc.ret.0
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.0)
+@SP
+AM=M-1
+D=M
+@LCL
 A=M
 M=D
 
 
-@Screen.clearScreen.EQ.29
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M
+D=M
+@2048
+D=D+A
+@LCL
+A=M+1
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 1"), PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Memory.get_best_fit', numArgs=2, funcMapping={Memory.alloc=1, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.get_best_fit
+@7
+D=A
+@14
+M=D
+@Memory.get_best_fit
 D=A
 @13
 M=D
-@Screen.0
-D=!M
+@Memory.alloc.ret.1
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.1)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Memory.alloc1}
+// label WHILE_START_Memory.alloc1
+(WHILE_START_Memory.alloc1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 2"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Memory.alloc1}}
+@LCL
+A=M+1
+A=A+1
+D=M
 @15
+M=D
+@Memory.alloc.EQ.2
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Screen.clearScreen.EQ.29)
-@Screen.drawRectangle.IfElse1
+(Memory.alloc.EQ.2)
+@15
+M=D
+@Memory.alloc.EQ.1
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.alloc.EQ.1)
+@WHILE_END_Memory.alloc1
 D;JNE
 
 
-@LCL
-D=M
-@9
-A=D+A
-M=0
-
-
-// goto Screen.drawRectangle.IfElseEND1
-@Screen.drawRectangle.IfElseEND1
-0;JMP
-
-
-// label Screen.drawRectangle.IfElse1
-(Screen.drawRectangle.IfElse1)
-
-
-// label Screen.drawRectangle.IfElseEND1
-(Screen.drawRectangle.IfElseEND1)
-
-
-@ARG
-A=M+1
-D=M
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    BinaryPushGroup(
+//                        left:
+//                            PushInstruction("local 0"),
+//                        right:
+//                            PushInstruction("constant 1"),
+//                        binaryOp: "ADD"
+//                    ),
+//                right:
+//                    PushInstruction("constant 7"),
+//                binaryOp: "LT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.alloc.IfElse1}}
 @LCL
 A=M
-M=D
-
-
-// label WHILE_START_Screen.drawRectangle1
-(WHILE_START_Screen.drawRectangle1)
-
-
-@Screen.clearScreen.EQ.31
-D=A
-@13
-M=D
-@Screen.clearScreen.GT.32
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-A=A+1
-A=A+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_GT
-0;JMP
-(Screen.clearScreen.GT.32)
-D=!D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.31)
-@WHILE_END_Screen.drawRectangle1
-D;JNE
-
-
-@ARG
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@16
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.divide
-@7
-D=A
-@14
-M=D
-@Math.divide
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.0
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.0)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-M=D
-
-
-@ARG
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@16
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.divide
-@7
-D=A
-@14
-M=D
-@Math.divide
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.1
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.1)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-@ARG
-A=M
-D=M
-@15
-D=D&A
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=D
-
-
-@ARG
-A=M+1
-A=A+1
-D=M
-@15
-D=D&A
-@LCL
-D=M
-@4
-A=D+A
-M=D
-
-
-@LCL
-D=M
-@5
-A=D+A
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@32
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.multiply
-@7
-D=A
-@14
-M=D
-@Math.multiply
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.2
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.2)
-@SP
-AM=M-1
-D=M
-@SP
-AM=M-1
-A=M
-M=D
-
-
-@Screen.clearScreen.EQ.34
-D=A
-@13
-M=D
-@Screen.clearScreen.EQ.35
-D=A
-@13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-A=A-1
-D=M-D
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.35)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.34)
-@Screen.drawRectangle.IfElse2
-D;JNE
-
-
-@LCL
-D=M
-@6
-A=D+A
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-D=M
-@4
-A=D+A
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D+1
-// call Math.twoToThe
-@6
-D=A
-@14
-M=D
-@Math.twoToThe
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.3
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.3)
-@SP
-AM=M-1
-D=M
-D=M-1
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.twoToThe
-@6
-D=A
-@14
-M=D
-@Math.twoToThe
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.4
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.4)
-@SP
-AM=M-1
-D=M
-D=M-1
-@SP
-AM=M-1
-D=M-D
-@SP
-AM=M-1
-A=M
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=A
-@13
-M=D
-@LCL
-D=M
-@5
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@13
-A=M
-M=D
-
-
-@Screen.clearScreen.EQ.36
-D=A
-@13
-M=D
-@Screen.0
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.36)
-@Screen.drawRectangle.IfElse3
-D;JNE
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@LCL
-D=M
-@6
-A=D+A
-D=M
-@R13
-D=D|M
-@THAT
-A=M
-M=D
-
-
-// goto Screen.drawRectangle.IfElseEND3
-@Screen.drawRectangle.IfElseEND3
-0;JMP
-
-
-// label Screen.drawRectangle.IfElse3
-(Screen.drawRectangle.IfElse3)
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@LCL
-D=M
-@6
-A=D+A
-D=!M
-@R13
-D=D&M
-@THAT
-A=M
-M=D
-
-
-// label Screen.drawRectangle.IfElseEND3
-(Screen.drawRectangle.IfElseEND3)
-
-
-// goto Screen.drawRectangle.IfElseEND2
-@Screen.drawRectangle.IfElseEND2
-0;JMP
-
-
-// label Screen.drawRectangle.IfElse2
-(Screen.drawRectangle.IfElse2)
-
-
-@LCL
-D=M
-@6
-A=D+A
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.twoToThe
-@6
-D=A
-@14
-M=D
-@Math.twoToThe
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.5
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.5)
-@SP
-AM=M-1
-D=M
-D=M-1
-D=!D
-@SP
-AM=M-1
-A=M
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=A
-@13
-M=D
-@LCL
-D=M
-@5
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@13
-A=M
-M=D
-
-
-@Screen.clearScreen.EQ.37
-D=A
-@13
-M=D
-@Screen.0
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.37)
-@Screen.drawRectangle.IfElse4
-D;JNE
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@LCL
-D=M
-@6
-A=D+A
-D=M
-@R13
-D=D|M
-@THAT
-A=M
-M=D
-
-
-// goto Screen.drawRectangle.IfElseEND4
-@Screen.drawRectangle.IfElseEND4
-0;JMP
-
-
-// label Screen.drawRectangle.IfElse4
-(Screen.drawRectangle.IfElse4)
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@LCL
-D=M
-@6
-A=D+A
-D=!M
-@R13
-D=D&M
-@THAT
-A=M
-M=D
-
-
-// label Screen.drawRectangle.IfElseEND4
-(Screen.drawRectangle.IfElseEND4)
-
-
-@LCL
-D=M
-@8
-A=D+A
-D=A
-@13
-M=D
-@LCL
-A=M+1
 D=M+1
-@13
-A=M
-M=D
-
-
-// label WHILE_START_Screen.drawRectangle2
-(WHILE_START_Screen.drawRectangle2)
-
-
-@Screen.clearScreen.EQ.39
-D=A
-@13
-M=D
-@Screen.clearScreen.LT.40
-D=A
-@13
-M=D
-@LCL
-D=M
-@8
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@R13
-D=M-D
-@15
-M=D
-@DO_LT
-0;JMP
-(Screen.clearScreen.LT.40)
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.39)
-@WHILE_END_Screen.drawRectangle2
-D;JNE
-
-
-@LCL
-D=M
 @7
-A=D+A
-D=A
-@13
-M=D
-@LCL
-D=M
-@8
-A=D+A
-D=M
-A=A-1
-A=A-1
-A=A-1
-D=D+M
-@13
-A=M
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@LCL
-D=M
-@9
-A=D+A
-D=M
-@THAT
-A=M
-M=D
-
-
-@LCL
-D=M
-@8
-A=D+A
-M=M+1
-
-
-// goto WHILE_START_Screen.drawRectangle2
-@WHILE_START_Screen.drawRectangle2
-0;JMP
-
-
-// label WHILE_END_Screen.drawRectangle2
-(WHILE_END_Screen.drawRectangle2)
-
-
-@LCL
-D=M
-@6
-A=D+A
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-D=M
-@4
-A=D+A
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D+1
-// call Math.twoToThe
-@6
-D=A
-@14
-M=D
-@Math.twoToThe
-D=A
-@13
-M=D
-@Screen.drawRectangle.ret.6
-D=A
-@CALL
-0;JMP
-(Screen.drawRectangle.ret.6)
-@SP
-AM=M-1
-D=M
-D=M-1
-@SP
-AM=M-1
-A=M
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=A
-@13
-M=D
-@LCL
-D=M
-@5
-A=D+A
-D=M
-A=A-1
-A=A-1
-A=A-1
-D=D+M
-@13
-A=M
-M=D
-
-
-@Screen.clearScreen.EQ.41
-D=A
-@13
-M=D
-@Screen.0
-D=M
-@15
-M=D
-@DO_EQ
-0;JMP
-(Screen.clearScreen.EQ.41)
-@Screen.drawRectangle.IfElse5
-D;JNE
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@LCL
-D=M
-@6
-A=D+A
-D=M
-@R13
-D=D|M
-@THAT
-A=M
-M=D
-
-
-// goto Screen.drawRectangle.IfElseEND5
-@Screen.drawRectangle.IfElseEND5
-0;JMP
-
-
-// label Screen.drawRectangle.IfElse5
-(Screen.drawRectangle.IfElse5)
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-
-
-@LCL
-D=M
-@7
-A=D+A
-D=M
-@16384
-D=D+A
-@4
-M=D
-@THAT
-A=M
-D=M
-@R13
-M=D
-@LCL
-D=M
-@6
-A=D+A
-D=!M
-@R13
-D=D&M
-@THAT
-A=M
-M=D
-
-
-// label Screen.drawRectangle.IfElseEND5
-(Screen.drawRectangle.IfElseEND5)
-
-
-// label Screen.drawRectangle.IfElseEND2
-(Screen.drawRectangle.IfElseEND2)
-
-
-@LCL
-A=M
-M=M+1
-
-
-// goto WHILE_START_Screen.drawRectangle1
-@WHILE_START_Screen.drawRectangle1
-0;JMP
-
-
-// label WHILE_END_Screen.drawRectangle1
-(WHILE_END_Screen.drawRectangle1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function Screen.clearScreen with 1
-(Screen.clearScreen)
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@LCL
-A=M
-M=0
-
-
-// label WHILE_START_Screen.clearScreen1
-(WHILE_START_Screen.clearScreen1)
-
-
-@Screen.clearScreen.EQ.43
-D=A
-@13
-M=D
-@Screen.clearScreen.LT.44
-D=A
-@13
-M=D
-@LCL
-A=M
-D=M
-@8192
 D=D-A
 @15
 M=D
+@Memory.alloc.LT.5
+D=A
+@13
+M=D
 @DO_LT
 0;JMP
-(Screen.clearScreen.LT.44)
+(Memory.alloc.LT.5)
+D=!D
 @15
+M=D
+@Memory.alloc.EQ.4
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Screen.clearScreen.EQ.43)
-@WHILE_END_Screen.clearScreen1
+(Memory.alloc.EQ.4)
+@Memory.alloc.IfElse1
 D;JNE
 
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.alloc.IfElseEND1}
+// goto Memory.alloc.IfElseEND1
+@Memory.alloc.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.alloc.IfElse1}
+// label Memory.alloc.IfElse1
+(Memory.alloc.IfElse1)
+
+
+//LabelInstruction{label='Memory.alloc.IfElseEND1}
+// label Memory.alloc.IfElseEND1
+(Memory.alloc.IfElseEND1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 1} END PPP 
 
 @LCL
 A=M
 D=M
-@16384
+@2048
 D=D+A
+@LCL
+A=M+1
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 1"), PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Memory.get_best_fit', numArgs=2, funcMapping={Memory.alloc=2, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.get_best_fit
+@7
+D=A
+@14
+M=D
+@Memory.get_best_fit
+D=A
+@13
+M=D
+@Memory.alloc.ret.2
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.2)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//GotoInstruction{label='WHILE_START_Memory.alloc1}
+// goto WHILE_START_Memory.alloc1
+@WHILE_START_Memory.alloc1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Memory.alloc1}
+// label WHILE_END_Memory.alloc1
+(WHILE_END_Memory.alloc1)
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//CallGroup{pushes=[PushInstruction("that 0")], call=CallInstruction{calleeFunction='Memory.getBinIndex', numArgs=1, funcMapping={Memory.alloc=3, Memory.init=2}, currentFunction='Memory.alloc'}},
+//    binaryOp: "ADD"
+//), PushInstruction("local 2")], call=CallInstruction{calleeFunction='Memory.remove_node', numArgs=2, funcMapping={Memory.alloc=3, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@THAT
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.getBinIndex
+@6
+D=A
+@14
+M=D
+@Memory.getBinIndex
+D=A
+@13
+M=D
+@Memory.alloc.ret.4
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.4)
+@SP
+AM=M-1
+D=M
+@2048
+D=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.remove_node
+@7
+D=A
+@14
+M=D
+@Memory.remove_node
+D=A
+@13
+M=D
+@Memory.alloc.ret.5
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.5)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("that 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 3} END PPP 
+
+@THAT
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M
+D=M
+@R13
+D=M-D
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 3"),
+//            right:
+//                PushInstruction("constant 5"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.alloc.IfElse2}}
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@5
+D=D-A
+@15
+M=D
+@Memory.alloc.GT.8
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Memory.alloc.GT.8)
+@15
+M=D
+@Memory.alloc.EQ.7
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.alloc.EQ.7)
+@Memory.alloc.IfElse2
+D;JNE
+
+
+//PPP : push PushInstruction("argument 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@4
+M=D
+@ARG
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M+1
 @4
 M=D
 @THAT
@@ -18631,37 +20171,348 @@ A=M
 M=0
 
 
+//PPP : push CallGroup{pushes=[PushInstruction("local 2")], call=CallInstruction{calleeFunction='Memory.create_foot', numArgs=1, funcMapping={Memory.alloc=6, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 @LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.alloc.ret.6
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.6)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 2"),
+//            right:
+//                PushInstruction("argument 0"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 4} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@R13
+M=D
+@ARG
 A=M
-M=M+1
+D=M
+@R13
+D=D+M
+@5
+D=D+A
+@LCL
+D=M
+@4
+A=D+A
+M=D
 
 
-// goto WHILE_START_Screen.clearScreen1
-@WHILE_START_Screen.clearScreen1
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 3"),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "SUB"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+D=M
+@4
+M=D
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@5
+D=D-A
+@THAT
+A=M
+M=D
+
+
+//PPP : push PushInstruction("constant 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 4"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+D=M+1
+@4
+M=D
+@THAT
+A=M
+M=1
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 4")], call=CallInstruction{calleeFunction='Memory.create_foot', numArgs=1, funcMapping={Memory.alloc=7, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+D=M
+@4
+A=D+A
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.alloc.ret.7
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.7)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//CallGroup{pushes=[PushInstruction("local 3")], call=CallInstruction{calleeFunction='Memory.getBinIndex', numArgs=1, funcMapping={Memory.alloc=8, Memory.init=2}, currentFunction='Memory.alloc'}},
+//    binaryOp: "ADD"
+//), PushInstruction("local 4")], call=CallInstruction{calleeFunction='Memory.add_node', numArgs=2, funcMapping={Memory.alloc=8, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.getBinIndex
+@6
+D=A
+@14
+M=D
+@Memory.getBinIndex
+D=A
+@13
+M=D
+@Memory.alloc.ret.9
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.9)
+@SP
+AM=M-1
+D=M
+@2048
+D=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+D=M
+@4
+A=D+A
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.add_node
+@7
+D=A
+@14
+M=D
+@Memory.add_node
+D=A
+@13
+M=D
+@Memory.alloc.ret.10
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.10)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//GotoInstruction{label='Memory.alloc.IfElseEND2}
+// goto Memory.alloc.IfElseEND2
+@Memory.alloc.IfElseEND2
 0;JMP
 
 
-// label WHILE_END_Screen.clearScreen1
-(WHILE_END_Screen.clearScreen1)
+//LabelInstruction{label='Memory.alloc.IfElse2}
+// label Memory.alloc.IfElse2
+(Memory.alloc.IfElse2)
 
 
-D=0
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M+1
+@4
+M=D
+@THAT
+A=M
+M=0
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 2")], call=CallInstruction{calleeFunction='Memory.create_foot', numArgs=1, funcMapping={Memory.alloc=11, Memory.init=2}, currentFunction='Memory.alloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.alloc.ret.11
+D=A
+@CALL
+0;JMP
+(Memory.alloc.ret.11)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//LabelInstruction{label='Memory.alloc.IfElseEND2}
+// label Memory.alloc.IfElseEND2
+(Memory.alloc.IfElseEND2)
+
+
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("constant 4"),
+//    binaryOp: "ADD"
+//)
+@LCL
+A=M+1
+A=A+1
+D=M
+@4
+D=D+A
 @SP
 AM=M+1
 A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function String.new with 0
-(String.new)
+//FunctionInstruction{functionName='Memory.calloc', numLocals=1, funcMapping={Memory.alloc=12, Memory.init=2}}
+// function Memory.calloc with 1
+(Memory.calloc)
+@SP
+AM=M+1
+A=A-1
+M=0
 
 
-@3
-D=A
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Memory.alloc', numArgs=1, funcMapping={Memory.alloc=12, Memory.calloc=0, Memory.init=2}, currentFunction='Memory.calloc'}}
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M
+D=M
 @SP
 AM=M+1
 A=A-1
@@ -18675,174 +20526,454 @@ M=D
 D=A
 @13
 M=D
-@String.new.ret.0
+@Memory.calloc.ret.0
 D=A
 @CALL
 0;JMP
-(String.new.ret.0)
+(Memory.calloc.ret.0)
 @SP
 AM=M-1
 D=M
-@3
+@LCL
+A=M
 M=D
 
 
-@String.newLine.EQ.1
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            PushInstruction("local 0"),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.calloc.IfElse1}}
+@LCL
+A=M
+D=!M
+@15
+M=D
+@Memory.calloc.EQ.9
 D=A
 @13
 M=D
-@String.newLine.EQ.2
-D=A
-@13
-M=D
+@DO_EQ
+0;JMP
+(Memory.calloc.EQ.9)
+@Memory.calloc.IfElse1
+D;JNE
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.calloc.IfElseEND1}
+// goto Memory.calloc.IfElseEND1
+@Memory.calloc.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.calloc.IfElse1}
+// label Memory.calloc.IfElse1
+(Memory.calloc.IfElse1)
+
+
+//LabelInstruction{label='Memory.calloc.IfElseEND1}
+// label Memory.calloc.IfElseEND1
+(Memory.calloc.IfElseEND1)
+
+
+//LabelInstruction{label='WHILE_START_Memory.calloc1}
+// label WHILE_START_Memory.calloc1
+(WHILE_START_Memory.calloc1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Memory.calloc1}}
 @ARG
 A=M
 D=M
 @15
 M=D
-@DO_EQ
+@Memory.calloc.GT.12
+D=A
+@13
+M=D
+@DO_GT
 0;JMP
-(String.newLine.EQ.2)
+(Memory.calloc.GT.12)
 @15
+M=D
+@Memory.calloc.EQ.11
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.1)
-@String.new.IfElse1
+(Memory.calloc.EQ.11)
+@WHILE_END_Memory.calloc1
 D;JNE
 
 
-@THIS
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=argument 0} END PPP 
+
+@ARG
+A=M
+M=M-1
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("argument 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M
+D=M
+@R13
+D=D+M
+@4
+M=D
+@THAT
 A=M
 M=0
 
 
-// goto String.new.IfElseEND1
-@String.new.IfElseEND1
+//GotoInstruction{label='WHILE_START_Memory.calloc1}
+// goto WHILE_START_Memory.calloc1
+@WHILE_START_Memory.calloc1
 0;JMP
 
 
-// label String.new.IfElse1
-(String.new.IfElse1)
+//LabelInstruction{label='WHILE_END_Memory.calloc1}
+// label WHILE_END_Memory.calloc1
+(WHILE_END_Memory.calloc1)
 
 
-@ARG
+//PushInstruction("local 0")
+@LCL
 A=M
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call Array.new
-@6
-D=A
-@14
-M=D
-@Array.new
-D=A
-@13
-M=D
-@String.new.ret.1
-D=A
-@CALL
+
+
+//ReturnInstruction{}
+@RETURN
 0;JMP
-(String.new.ret.1)
+
+
+//FunctionInstruction{functionName='Memory.deAlloc', numLocals=3, funcMapping={Memory.alloc=12, Memory.calloc=1, Memory.init=2}}
+// function Memory.deAlloc with 3
+(Memory.deAlloc)
 @SP
-AM=M-1
-D=M
-@THIS
-A=M
-M=D
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
 
 
-// label String.new.IfElseEND1
-(String.new.IfElseEND1)
-
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 4"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 0} END PPP 
 
 @ARG
 A=M
 D=M
-@THIS
+@4
+D=D-A
+@LCL
+A=M
+M=D
+
+
+//PPP : push PushInstruction("constant 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M+1
+@4
+M=D
+@THAT
+A=M
+M=1
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@2
+D=D+A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 1} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@3
+D=D+A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 2} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
 A=M+1
 A=A+1
 M=D
 
 
-@THIS
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 1"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.deAlloc.IfElse1}}
+@LCL
 A=M+1
-M=0
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function String.dispose with 0
-(String.dispose)
-
-
-@ARG
-A=M
-D=M
-@3
-M=D
-
-
-@String.newLine.EQ.4
-D=A
-@13
-M=D
-@String.newLine.EQ.5
-D=A
-@13
-M=D
-@THIS
-A=M
 D=M
 @15
 M=D
+@Memory.deAlloc.EQ.15
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.5)
+(Memory.deAlloc.EQ.15)
 D=!D
 @15
 M=D
+@Memory.deAlloc.EQ.14
+D=A
+@13
+M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.4)
-@String.dispose.IfElse1
+(Memory.deAlloc.EQ.14)
+@Memory.deAlloc.IfElse1
 D;JNE
 
 
-@THIS
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M+1
+D=M+1
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.deAlloc.IfElse2}}
+@THAT
+A=M
+D=M-1
+@15
+M=D
+@Memory.deAlloc.EQ.18
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.deAlloc.EQ.18)
+@15
+M=D
+@Memory.deAlloc.EQ.17
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.deAlloc.EQ.17)
+@Memory.deAlloc.IfElse2
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//CallGroup{pushes=[PushInstruction("that 0")], call=CallInstruction{calleeFunction='Memory.getBinIndex', numArgs=1, funcMapping={Memory.deAlloc=0, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}},
+//    binaryOp: "ADD"
+//), PushInstruction("local 1")], call=CallInstruction{calleeFunction='Memory.remove_node', numArgs=2, funcMapping={Memory.deAlloc=0, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@THAT
 A=M
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call Array.dispose
+// call Memory.getBinIndex
 @6
 D=A
 @14
 M=D
-@Array.dispose
+@Memory.getBinIndex
 D=A
 @13
 M=D
-@String.dispose.ret.0
+@Memory.deAlloc.ret.1
 D=A
 @CALL
 0;JMP
-(String.dispose.ret.0)
+(Memory.deAlloc.ret.1)
+@SP
+AM=M-1
+D=M
+@2048
+D=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.remove_node
+@7
+D=A
+@14
+M=D
+@Memory.remove_node
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.2
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.2)
 @SP
 AM=M-1
 D=M
@@ -18850,210 +20981,839 @@ D=M
 M=D
 
 
-// goto String.dispose.IfElseEND1
-@String.dispose.IfElseEND1
-0;JMP
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
 
-
-// label String.dispose.IfElse1
-(String.dispose.IfElse1)
-
-
-// label String.dispose.IfElseEND1
-(String.dispose.IfElseEND1)
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function String.length with 0
-(String.length)
-
-
-@ARG
-A=M
-D=M
-@3
-M=D
-
-
-@THIS
+@LCL
 A=M+1
 D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function String.charAt with 0
-(String.charAt)
-
-
-@ARG
-A=M
-D=M
-@3
-M=D
-
-
-@THIS
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-D=D+M
 @4
 M=D
 
 
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("that 0"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "ADD"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M+1
+D=M
+@4
+M=D
 @THAT
 A=M
 D=M
+D=D+M
+@5
+D=D+A
+@THAT
+A=M
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 1")], call=CallInstruction{calleeFunction='Memory.create_foot', numArgs=1, funcMapping={Memory.deAlloc=3, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M+1
+D=M
 @SP
 AM=M+1
 A=A-1
 M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.3
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.3)
+@SP
+AM=M-1
+D=M
+@5
+M=D
 
 
-@RETURN
+//PPP : push PushInstruction("local 1")
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M+1
+D=M
+@LCL
+A=M
+M=D
+
+
+//GotoInstruction{label='Memory.deAlloc.IfElseEND2}
+// goto Memory.deAlloc.IfElseEND2
+@Memory.deAlloc.IfElseEND2
 0;JMP
 
 
-// function String.setCharAt with 0
-(String.setCharAt)
+//LabelInstruction{label='Memory.deAlloc.IfElse2}
+// label Memory.deAlloc.IfElse2
+(Memory.deAlloc.IfElse2)
 
 
-@ARG
-A=M
-D=M
-@3
-M=D
+//LabelInstruction{label='Memory.deAlloc.IfElseEND2}
+// label Memory.deAlloc.IfElseEND2
+(Memory.deAlloc.IfElseEND2)
 
 
-@THIS
-A=M
-D=M
-@R13
-M=D
-@ARG
-A=M+1
-D=M
-@R13
-D=D+M
-@4
-M=D
-@ARG
+//GotoInstruction{label='Memory.deAlloc.IfElseEND1}
+// goto Memory.deAlloc.IfElseEND1
+@Memory.deAlloc.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.deAlloc.IfElse1}
+// label Memory.deAlloc.IfElse1
+(Memory.deAlloc.IfElse1)
+
+
+//LabelInstruction{label='Memory.deAlloc.IfElseEND1}
+// label Memory.deAlloc.IfElseEND1
+(Memory.deAlloc.IfElseEND1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 2"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.deAlloc.IfElse3}}
+@LCL
 A=M+1
 A=A+1
 D=M
+@15
+M=D
+@Memory.deAlloc.EQ.21
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.deAlloc.EQ.21)
+D=!D
+@15
+M=D
+@Memory.deAlloc.EQ.20
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.deAlloc.EQ.20)
+@Memory.deAlloc.IfElse3
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 2"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+D=M+1
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("constant 1"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.deAlloc.IfElse4}}
+@THAT
+A=M
+D=M-1
+@15
+M=D
+@Memory.deAlloc.EQ.24
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.deAlloc.EQ.24)
+@15
+M=D
+@Memory.deAlloc.EQ.23
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.deAlloc.EQ.23)
+@Memory.deAlloc.IfElse4
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//CallGroup{pushes=[PushInstruction("that 0")], call=CallInstruction{calleeFunction='Memory.getBinIndex', numArgs=1, funcMapping={Memory.deAlloc=4, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}},
+//    binaryOp: "ADD"
+//), PushInstruction("local 2")], call=CallInstruction{calleeFunction='Memory.remove_node', numArgs=2, funcMapping={Memory.deAlloc=4, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@THAT
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.getBinIndex
+@6
+D=A
+@14
+M=D
+@Memory.getBinIndex
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.5
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.5)
+@SP
+AM=M-1
+D=M
+@2048
+D=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+A=A+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.remove_node
+@7
+D=A
+@14
+M=D
+@Memory.remove_node
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.6
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.6)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("that 0"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 5"),
+//    binaryOp: "ADD"
+//)
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+@THAT
+A=M
+D=M
+D=D+M
+@5
+D=D+A
 @THAT
 A=M
 M=D
 
 
-D=0
+//PPP : push CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='Memory.create_foot', numArgs=1, funcMapping={Memory.deAlloc=7, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M
+D=M
 @SP
 AM=M+1
 A=A-1
 M=D
+// call Memory.create_foot
+@6
+D=A
+@14
+M=D
+@Memory.create_foot
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.7
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.7)
+@SP
+AM=M-1
+D=M
+@5
+M=D
 
 
-@RETURN
+//GotoInstruction{label='Memory.deAlloc.IfElseEND4}
+// goto Memory.deAlloc.IfElseEND4
+@Memory.deAlloc.IfElseEND4
 0;JMP
 
 
-// function String.appendChar with 1
-(String.appendChar)
+//LabelInstruction{label='Memory.deAlloc.IfElse4}
+// label Memory.deAlloc.IfElse4
+(Memory.deAlloc.IfElse4)
+
+
+//LabelInstruction{label='Memory.deAlloc.IfElseEND4}
+// label Memory.deAlloc.IfElseEND4
+(Memory.deAlloc.IfElseEND4)
+
+
+//GotoInstruction{label='Memory.deAlloc.IfElseEND3}
+// goto Memory.deAlloc.IfElseEND3
+@Memory.deAlloc.IfElseEND3
+0;JMP
+
+
+//LabelInstruction{label='Memory.deAlloc.IfElse3}
+// label Memory.deAlloc.IfElse3
+(Memory.deAlloc.IfElse3)
+
+
+//LabelInstruction{label='Memory.deAlloc.IfElseEND3}
+// label Memory.deAlloc.IfElseEND3
+(Memory.deAlloc.IfElseEND3)
+
+
+//PPP : push CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 2048"),
+//    right:
+//CallGroup{pushes=[PushInstruction("that 0")], call=CallInstruction{calleeFunction='Memory.getBinIndex', numArgs=1, funcMapping={Memory.deAlloc=8, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}},
+//    binaryOp: "ADD"
+//), PushInstruction("local 0")], call=CallInstruction{calleeFunction='Memory.add_node', numArgs=2, funcMapping={Memory.deAlloc=8, Memory.alloc=12, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.deAlloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@THAT
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.getBinIndex
+@6
+D=A
+@14
+M=D
+@Memory.getBinIndex
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.9
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.9)
+@SP
+AM=M-1
+D=M
+@2048
+D=D+A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.add_node
+@7
+D=A
+@14
+M=D
+@Memory.add_node
+D=A
+@13
+M=D
+@Memory.deAlloc.ret.10
+D=A
+@CALL
+0;JMP
+(Memory.deAlloc.ret.10)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
 M=0
 
 
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.realloc', numLocals=4, funcMapping={Memory.deAlloc=11, Memory.alloc=12, Memory.calloc=1, Memory.init=2}}
+// function Memory.realloc with 4
+(Memory.realloc)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.realloc.IfElse1}}
 @ARG
 A=M
 D=M
-@3
+@15
 M=D
-
-
-@String.newLine.EQ.7
+@Memory.realloc.EQ.27
 D=A
 @13
 M=D
-@String.newLine.EQ.8
+@DO_EQ
+0;JMP
+(Memory.realloc.EQ.27)
+@15
+M=D
+@Memory.realloc.EQ.26
 D=A
 @13
 M=D
-@THIS
-A=M+1
-A=A+1
-D=M
-A=A-1
-D=M-D
-@15
-M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.8)
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.7)
-@String.appendChar.IfElse1
+(Memory.realloc.EQ.26)
+@Memory.realloc.IfElse1
 D;JNE
 
 
-@THIS
+//CallGroup{pushes=[PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Memory.alloc', numArgs=1, funcMapping={Memory.deAlloc=11, Memory.alloc=12, Memory.realloc=0, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.realloc'}}
+@ARG
 A=M+1
-A=A+1
 D=M
-D=D+M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call Array.new
+// call Memory.alloc
 @6
 D=A
 @14
 M=D
-@Array.new
+@Memory.alloc
 D=A
 @13
 M=D
-@String.appendChar.ret.0
+@Memory.realloc.ret.0
 D=A
 @CALL
 0;JMP
-(String.appendChar.ret.0)
+(Memory.realloc.ret.0)
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.realloc.IfElseEND1}
+// goto Memory.realloc.IfElseEND1
+@Memory.realloc.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.realloc.IfElse1}
+// label Memory.realloc.IfElse1
+(Memory.realloc.IfElse1)
+
+
+//LabelInstruction{label='Memory.realloc.IfElseEND1}
+// label Memory.realloc.IfElseEND1
+(Memory.realloc.IfElseEND1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 3} END PPP 
+
+@ARG
+A=M
+D=M-1
+@LCL
+A=M+1
+A=A+1
+A=A+1
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 3"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M+1
+A=A+1
+A=A+1
+D=M
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 1")], call=CallInstruction{calleeFunction='Memory.alloc', numArgs=1, funcMapping={Memory.deAlloc=11, Memory.alloc=12, Memory.realloc=1, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.realloc'}}
+//pop PopInstruction{address=local 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.alloc
+@6
+D=A
+@14
+M=D
+@Memory.alloc
+D=A
+@13
+M=D
+@Memory.realloc.ret.1
+D=A
+@CALL
+0;JMP
+(Memory.realloc.ret.1)
 @SP
 AM=M-1
 D=M
 @LCL
-A=M
+A=M+1
 M=D
 
 
-@THIS
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 1"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.realloc.IfElse2}}
+@LCL
+A=M+1
+D=M
+@15
+M=D
+@Memory.realloc.EQ.30
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.realloc.EQ.30)
+@15
+M=D
+@Memory.realloc.EQ.29
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.realloc.EQ.29)
+@Memory.realloc.IfElse2
+D;JNE
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.realloc.IfElseEND2}
+// goto Memory.realloc.IfElseEND2
+@Memory.realloc.IfElseEND2
+0;JMP
+
+
+//LabelInstruction{label='Memory.realloc.IfElse2}
+// label Memory.realloc.IfElse2
+(Memory.realloc.IfElse2)
+
+
+//LabelInstruction{label='Memory.realloc.IfElseEND2}
+// label Memory.realloc.IfElseEND2
+(Memory.realloc.IfElseEND2)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 0"),
+//                right:
+//                    PushInstruction("argument 1"),
+//                binaryOp: "GT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.realloc.IfElse3}}
+@LCL
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Memory.realloc.GT.33
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Memory.realloc.GT.33)
+D=!D
+@15
+M=D
+@Memory.realloc.EQ.32
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.realloc.EQ.32)
+@Memory.realloc.IfElse3
+D;JNE
+
+
+//PPP : push PushInstruction("local 0")
+//pop PopInstruction{address=local 2} END PPP 
+
+@LCL
+A=M
+D=M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//GotoInstruction{label='Memory.realloc.IfElseEND3}
+// goto Memory.realloc.IfElseEND3
+@Memory.realloc.IfElseEND3
+0;JMP
+
+
+//LabelInstruction{label='Memory.realloc.IfElse3}
+// label Memory.realloc.IfElse3
+(Memory.realloc.IfElse3)
+
+
+//PPP : push PushInstruction("argument 1")
+//pop PopInstruction{address=local 2} END PPP 
+
+@ARG
+A=M+1
+D=M
+@LCL
+A=M+1
+A=A+1
+M=D
+
+
+//LabelInstruction{label='Memory.realloc.IfElseEND3}
+// label Memory.realloc.IfElseEND3
+(Memory.realloc.IfElseEND3)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0"), PushInstruction("local 1"), PushInstruction("local 2")], call=CallInstruction{calleeFunction='Memory.copy', numArgs=3, funcMapping={Memory.deAlloc=11, Memory.alloc=12, Memory.realloc=2, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.realloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
 A=M
 D=M
 @SP
@@ -19061,14 +21821,15 @@ AM=M+1
 A=A-1
 M=D
 @LCL
-A=M
+A=M+1
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-@THIS
+@LCL
 A=M+1
+A=A+1
 D=M
 @SP
 AM=M+1
@@ -19083,11 +21844,11 @@ M=D
 D=A
 @13
 M=D
-@String.appendChar.ret.1
+@Memory.realloc.ret.2
 D=A
 @CALL
 0;JMP
-(String.appendChar.ret.1)
+(Memory.realloc.ret.2)
 @SP
 AM=M-1
 D=M
@@ -19095,27 +21856,30 @@ D=M
 M=D
 
 
-@THIS
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Memory.deAlloc', numArgs=1, funcMapping={Memory.deAlloc=11, Memory.alloc=12, Memory.realloc=3, Memory.calloc=1, Memory.init=2}, currentFunction='Memory.realloc'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
 A=M
 D=M
 @SP
 AM=M+1
 A=A-1
 M=D
-// call Array.dispose
+// call Memory.deAlloc
 @6
 D=A
 @14
 M=D
-@Array.dispose
+@Memory.deAlloc
 D=A
 @13
 M=D
-@String.appendChar.ret.2
+@Memory.realloc.ret.3
 D=A
 @CALL
 0;JMP
-(String.appendChar.ret.2)
+(Memory.realloc.ret.3)
 @SP
 AM=M-1
 D=M
@@ -19123,59 +21887,9 @@ D=M
 M=D
 
 
-@THIS
-A=M+1
-A=A+1
-D=M
-D=D+M
-@THIS
-A=M+1
-A=A+1
-M=D
-
-
+//PushInstruction("local 1")
 @LCL
-A=M
-D=M
-@THIS
-A=M
-M=D
-
-
-// goto String.appendChar.IfElseEND1
-@String.appendChar.IfElseEND1
-0;JMP
-
-
-// label String.appendChar.IfElse1
-(String.appendChar.IfElse1)
-
-
-// label String.appendChar.IfElseEND1
-(String.appendChar.IfElseEND1)
-
-
-@THIS
 A=M+1
-D=M
-A=A-1
-D=D+M
-@4
-M=D
-@ARG
-A=M+1
-D=M
-@THAT
-A=M
-M=D
-
-
-@THIS
-A=M+1
-M=M+1
-
-
-@3
 D=M
 @SP
 AM=M+1
@@ -19183,132 +21897,595 @@ A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function String.eraseLastChar with 0
-(String.eraseLastChar)
-
-
-@ARG
-A=M
-D=M
-@3
-M=D
-
-
-@THIS
-A=M+1
-M=M-1
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function String.intValue with 2
-(String.intValue)
-@SP
-AM=M+1
-A=A-1
-M=0
+//FunctionInstruction{functionName='Memory.copy', numLocals=1, funcMapping={Memory.deAlloc=11, Memory.alloc=12, Memory.realloc=4, Memory.calloc=1, Memory.init=2}}
+// function Memory.copy with 1
+(Memory.copy)
 @SP
 AM=M+1
 A=A-1
 M=0
 
 
-@ARG
-A=M
-D=M
-@3
-M=D
-
-
-@LCL
-A=M+1
-M=1
-
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
 
 @LCL
 A=M
 M=0
 
 
-// label WHILE_START_String.intValue1
-(WHILE_START_String.intValue1)
+//LabelInstruction{label='WHILE_START_Memory.copy1}
+// label WHILE_START_Memory.copy1
+(WHILE_START_Memory.copy1)
 
 
-@String.newLine.EQ.10
-D=A
-@13
-M=D
-@String.newLine.LT.11
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 0"),
+//            right:
+//                PushInstruction("argument 2"),
+//            binaryOp: "LT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Memory.copy1}}
 @LCL
-A=M+1
+A=M
 D=M
 @R13
 M=D
-@THIS
+@ARG
 A=M+1
+A=A+1
 D=M
 @R13
 D=M-D
 @15
 M=D
-@DO_LT
-0;JMP
-(String.newLine.LT.11)
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.10)
-@WHILE_END_String.intValue1
-D;JNE
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@10
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.multiply
-@7
-D=A
-@14
-M=D
-@Math.multiply
+@Memory.copy.LT.36
 D=A
 @13
 M=D
-@String.intValue.ret.0
-D=A
-@CALL
+@DO_LT
 0;JMP
-(String.intValue.ret.0)
-@SP
-AM=M-1
+(Memory.copy.LT.36)
+@15
+M=D
+@Memory.copy.EQ.35
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.copy.EQ.35)
+@WHILE_END_Memory.copy1
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M
 D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=D+M
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("local 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@R13
+M=D
+@LCL
+A=M
+D=M
+@R13
+D=D+M
+@4
+M=D
+@THAT
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Memory.copy1}
+// goto WHILE_START_Memory.copy1
+@WHILE_START_Memory.copy1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Memory.copy1}
+// label WHILE_END_Memory.copy1
+(WHILE_END_Memory.copy1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.remove_node', numLocals=0, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.realloc=4, Memory.calloc=1, Memory.init=2}}
+// function Memory.remove_node with 0
+(Memory.remove_node)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@2
+D=D+A
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("that 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.remove_node.IfElse1}}
+@THAT
+A=M
+D=M
+@15
+M=D
+@Memory.remove_node.EQ.39
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.remove_node.EQ.39)
+D=!D
+@15
+M=D
+@Memory.remove_node.EQ.38
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.remove_node.EQ.38)
+@Memory.remove_node.IfElse1
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 2"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@2
+D=D+A
+@3
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Memory.remove_node.IfElseEND1}
+// goto Memory.remove_node.IfElseEND1
+@Memory.remove_node.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.remove_node.IfElse1}
+// label Memory.remove_node.IfElse1
+(Memory.remove_node.IfElse1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+@THAT
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//LabelInstruction{label='Memory.remove_node.IfElseEND1}
+// label Memory.remove_node.IfElseEND1
+(Memory.remove_node.IfElseEND1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("that 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.remove_node.IfElse2}}
+@THAT
+A=M
+D=M
+@15
+M=D
+@Memory.remove_node.EQ.42
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.remove_node.EQ.42)
+D=!D
+@15
+M=D
+@Memory.remove_node.EQ.41
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.remove_node.EQ.41)
+@Memory.remove_node.IfElse2
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M+1
+D=M
+@2
+D=D+A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 1"),
+//            right:
+//                PushInstruction("constant 3"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@2
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Memory.remove_node.IfElseEND2}
+// goto Memory.remove_node.IfElseEND2
+@Memory.remove_node.IfElseEND2
+0;JMP
+
+
+//LabelInstruction{label='Memory.remove_node.IfElse2}
+// label Memory.remove_node.IfElse2
+(Memory.remove_node.IfElse2)
+
+
+//LabelInstruction{label='Memory.remove_node.IfElseEND2}
+// label Memory.remove_node.IfElseEND2
+(Memory.remove_node.IfElseEND2)
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@2
+D=D+A
+@4
+M=D
+@THAT
+A=M
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+@THAT
+A=M
+M=0
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.getBinIndex', numLocals=1, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.realloc=4, Memory.calloc=1, Memory.init=2, Memory.remove_node=0}}
+// function Memory.getBinIndex with 1
+(Memory.getBinIndex)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=0
+
+
+//LabelInstruction{label='WHILE_START_Memory.getBinIndex1}
+// label WHILE_START_Memory.getBinIndex1
+(WHILE_START_Memory.getBinIndex1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("local 0"),
+//                    right:
+//                        PushInstruction("constant 7"),
+//                    binaryOp: "LT"
+//                ),
+//            right:
+//                UnaryPushGroup(                    BinaryPushGroup(
+//                        left:
+//                            PushInstruction("that 0"),
+//                        right:
+//                            PushInstruction("constant 0"),
+//                        binaryOp: "EQ"
+//                    ),
+//NOT),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Memory.getBinIndex1}}
+@LCL
+A=M
+D=M
+@7
+D=D-A
+@15
+M=D
+@Memory.getBinIndex.LT.46
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Memory.getBinIndex.LT.46)
 @SP
 AM=M+1
 A=A-1
@@ -19316,701 +22493,67 @@ M=D
 @THAT
 A=M
 D=M
-@48
-D=D-A
-@SP
-AM=M-1
-D=D+M
-@LCL
-A=M
-M=D
-
-
-@LCL
-A=M+1
-M=M+1
-
-
-// goto WHILE_START_String.intValue1
-@WHILE_START_String.intValue1
-0;JMP
-
-
-// label WHILE_END_String.intValue1
-(WHILE_END_String.intValue1)
-
-
-@LCL
-A=M
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// function String.setInt with 6
-(String.setInt)
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-@SP
-AM=M+1
-A=A-1
-M=0
-
-
-@ARG
-A=M
-D=M
-@3
-M=D
-
-
-@THIS
-A=M+1
-M=0
-
-
-@LCL
-D=M
-@4
-A=D+A
-M=0
-
-
-@String.newLine.EQ.13
-D=A
-@13
-M=D
-@String.newLine.EQ.14
-D=A
-@13
-M=D
-@ARG
-A=M+1
-D=M
 @15
+M=D
+@Memory.getBinIndex.EQ.47
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.14)
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.13)
-@String.setInt.IfElse1
-D;JNE
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@48
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
-D=A
-@13
-M=D
-@String.setInt.ret.0
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.0)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto String.setInt.IfElseEND1
-@String.setInt.IfElseEND1
-0;JMP
-
-
-// label String.setInt.IfElse1
-(String.setInt.IfElse1)
-
-
-// label String.setInt.IfElseEND1
-(String.setInt.IfElseEND1)
-
-
-@String.newLine.EQ.16
-D=A
-@13
-M=D
-@String.newLine.LT.17
-D=A
-@13
-M=D
-@ARG
-A=M+1
-D=M
-@15
-M=D
-@DO_LT
-0;JMP
-(String.newLine.LT.17)
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.16)
-@String.setInt.IfElse2
-D;JNE
-
-
-@LCL
-D=M
-@4
-A=D+A
-M=1
-
-
-@String.newLine.EQ.20
-D=A
-@13
-M=D
-@String.newLine.LT.21
-D=A
-@13
-M=D
-@ARG
-A=M+1
-D=M
-@15
-M=D
-@DO_LT
-0;JMP
-(String.newLine.LT.21)
-@SP
-AM=M+1
-A=A-1
-M=D
-@String.newLine.EQ.22
-D=A
-@13
-M=D
-@ARG
-A=M+1
-D=M
-@32767
-D=D&A
-@32767
-D=D-A
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.22)
+(Memory.getBinIndex.EQ.47)
+D=!D
 @SP
 AM=M-1
 D=D&M
 @15
 M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.20)
-@String.setInt.IfElse3
-D;JNE
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@45
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
+@Memory.getBinIndex.EQ.45
 D=A
 @13
-M=D
-@String.setInt.ret.1
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.1)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@51
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
-D=A
-@13
-M=D
-@String.setInt.ret.2
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.2)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@50
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
-D=A
-@13
-M=D
-@String.setInt.ret.3
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.3)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@55
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
-D=A
-@13
-M=D
-@String.setInt.ret.4
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.4)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@54
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
-D=A
-@13
-M=D
-@String.setInt.ret.5
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.5)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@56
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
-D=A
-@13
-M=D
-@String.setInt.ret.6
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.6)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-D=0
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
-// goto String.setInt.IfElseEND3
-@String.setInt.IfElseEND3
-0;JMP
-
-
-// label String.setInt.IfElse3
-(String.setInt.IfElse3)
-
-
-// label String.setInt.IfElseEND3
-(String.setInt.IfElseEND3)
-
-
-@ARG
-A=M+1
-M=-M
-
-
-// goto String.setInt.IfElseEND2
-@String.setInt.IfElseEND2
-0;JMP
-
-
-// label String.setInt.IfElse2
-(String.setInt.IfElse2)
-
-
-// label String.setInt.IfElseEND2
-(String.setInt.IfElseEND2)
-
-
-@ARG
-A=M+1
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=0
-
-
-// label WHILE_START_String.setInt1
-(WHILE_START_String.setInt1)
-
-
-@String.newLine.EQ.24
-D=A
-@13
-M=D
-@String.newLine.GT.25
-D=A
-@13
-M=D
-@LCL
-A=M+1
-A=A+1
-D=M
-@15
-M=D
-@DO_GT
-0;JMP
-(String.newLine.GT.25)
-@15
 M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.24)
-@WHILE_END_String.setInt1
+(Memory.getBinIndex.EQ.45)
+@WHILE_END_Memory.getBinIndex1
 D;JNE
 
 
-@LCL
-A=M+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@10
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.divide
-@7
-D=A
-@14
-M=D
-@Math.divide
-D=A
-@13
-M=D
-@String.setInt.ret.7
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.7)
-@SP
-AM=M-1
-D=M
-@LCL
-A=M+1
-A=A+1
-M=D
-
-
-@LCL
-A=M+1
-A=A+1
-A=A+1
-M=M+1
-
-
-// goto WHILE_START_String.setInt1
-@WHILE_START_String.setInt1
-0;JMP
-
-
-// label WHILE_END_String.setInt1
-(WHILE_END_String.setInt1)
-
-
-@LCL
-D=M
-@5
-A=D+A
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-@LCL
-A=M+1
-A=A+1
-A=A+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Array.new
-@6
-D=A
-@14
-M=D
-@Array.new
-D=A
-@13
-M=D
-@String.setInt.ret.8
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.8)
-@SP
-AM=M-1
-D=M
-@SP
-AM=M-1
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("argument 0"),
+//                right:
+//CallGroup{pushes=[BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//), PushInstruction("constant 16")], call=CallInstruction{calleeFunction='Math.multiply', numArgs=2, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.realloc=4, Memory.calloc=1, Memory.init=2, Memory.getBinIndex=0, Memory.remove_node=0}, currentFunction='Memory.getBinIndex'}},
+//                binaryOp: "GT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.getBinIndex.IfElse1}}
+@ARG
 A=M
+D=M
+@SP
+AM=M+1
+A=A-1
 M=D
-
-
 @LCL
-A=M+1
-M=0
-
-
-// label WHILE_START_String.setInt2
-(WHILE_START_String.setInt2)
-
-
-@String.newLine.EQ.27
-D=A
-@13
-M=D
-@String.newLine.GT.28
-D=A
-@13
-M=D
-@ARG
-A=M+1
-D=M
-@15
-M=D
-@DO_GT
-0;JMP
-(String.newLine.GT.28)
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.27)
-@WHILE_END_String.setInt2
-D;JNE
-
-
-@ARG
-A=M+1
+A=M
 D=M
 @SP
 AM=M+1
 A=A-1
-M=D
-@ARG
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@10
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.divide
-@7
-D=A
-@14
-M=D
-@Math.divide
-D=A
-@13
-M=D
-@String.setInt.ret.9
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.9)
-@10
+M=D+1
+@16
 D=A
 @SP
 AM=M+1
@@ -20025,203 +22568,486 @@ M=D
 D=A
 @13
 M=D
-@String.setInt.ret.10
+@Memory.getBinIndex.ret.1
 D=A
 @CALL
 0;JMP
-(String.setInt.ret.10)
+(Memory.getBinIndex.ret.1)
 @SP
 AM=M-1
 D=M
 @SP
 AM=M-1
 D=M-D
-@LCL
-A=M
-M=D
-
-
-@LCL
-D=M
-@5
-A=D+A
-D=M
-@R13
-M=D
-@LCL
-A=M+1
-D=M
-@R13
-D=D+M
-@4
-M=D
-@LCL
-A=M
-D=M
-@48
-D=D+A
-@THAT
-A=M
-M=D
-
-
-@ARG
-A=M+1
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@10
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Math.divide
-@7
-D=A
-@14
-M=D
-@Math.divide
-D=A
-@13
-M=D
-@String.setInt.ret.11
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.11)
-@SP
-AM=M-1
-D=M
-@ARG
-A=M+1
-M=D
-
-
-@LCL
-A=M+1
-M=M+1
-
-
-// goto WHILE_START_String.setInt2
-@WHILE_START_String.setInt2
-0;JMP
-
-
-// label WHILE_END_String.setInt2
-(WHILE_END_String.setInt2)
-
-
-@String.newLine.EQ.30
-D=A
-@13
-M=D
-@String.newLine.EQ.31
-D=A
-@13
-M=D
-@LCL
-D=M
-@4
-A=D+A
-D=M-1
 @15
 M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.31)
-@15
-M=D
-@DO_EQ
-0;JMP
-(String.newLine.EQ.30)
-@String.setInt.IfElse4
-D;JNE
-
-
-@3
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-@45
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call String.appendChar
-@7
-D=A
-@14
-M=D
-@String.appendChar
+@Memory.getBinIndex.GT.50
 D=A
 @13
-M=D
-@String.setInt.ret.12
-D=A
-@CALL
-0;JMP
-(String.setInt.ret.12)
-@SP
-AM=M-1
-D=M
-@5
-M=D
-
-
-// goto String.setInt.IfElseEND4
-@String.setInt.IfElseEND4
-0;JMP
-
-
-// label String.setInt.IfElse4
-(String.setInt.IfElse4)
-
-
-// label String.setInt.IfElseEND4
-(String.setInt.IfElseEND4)
-
-
-// label WHILE_START_String.setInt3
-(WHILE_START_String.setInt3)
-
-
-@String.newLine.EQ.33
-D=A
-@13
-M=D
-@String.newLine.GT.34
-D=A
-@13
-M=D
-@LCL
-A=M+1
-D=M
-@15
 M=D
 @DO_GT
 0;JMP
-(String.newLine.GT.34)
+(Memory.getBinIndex.GT.50)
+D=!D
 @15
+M=D
+@Memory.getBinIndex.EQ.49
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(String.newLine.EQ.33)
-@WHILE_END_String.setInt3
+(Memory.getBinIndex.EQ.49)
+@Memory.getBinIndex.IfElse1
 D;JNE
 
 
+//PushInstruction("local 0")
 @LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.getBinIndex.IfElseEND1}
+// goto Memory.getBinIndex.IfElseEND1
+@Memory.getBinIndex.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.getBinIndex.IfElse1}
+// label Memory.getBinIndex.IfElse1
+(Memory.getBinIndex.IfElse1)
+
+
+//LabelInstruction{label='Memory.getBinIndex.IfElseEND1}
+// label Memory.getBinIndex.IfElseEND1
+(Memory.getBinIndex.IfElseEND1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=local 0} END PPP 
+
+@LCL
+A=M
+M=M+1
+
+
+//GotoInstruction{label='WHILE_START_Memory.getBinIndex1}
+// goto WHILE_START_Memory.getBinIndex1
+@WHILE_START_Memory.getBinIndex1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Memory.getBinIndex1}
+// label WHILE_END_Memory.getBinIndex1
+(WHILE_END_Memory.getBinIndex1)
+
+
+//BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 7"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+@6
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@7
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D-1
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.get_best_fit', numLocals=1, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.realloc=4, Memory.calloc=1, Memory.init=2, Memory.getBinIndex=2, Memory.remove_node=0}}
+// function Memory.get_best_fit with 1
+(Memory.get_best_fit)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("that 0"),
+//                right:
+//                    PushInstruction("argument 1"),
+//                binaryOp: "LT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.get_best_fit.IfElse1}}
+@THAT
+A=M
+D=M
+@R13
+M=D
+@ARG
 A=M+1
-M=M-1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Memory.get_best_fit.LT.53
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Memory.get_best_fit.LT.53)
+D=!D
+@15
+M=D
+@Memory.get_best_fit.EQ.52
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.get_best_fit.EQ.52)
+@Memory.get_best_fit.IfElse1
+D;JNE
 
 
+//PushInstruction("local 0")
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.get_best_fit.IfElseEND1}
+// goto Memory.get_best_fit.IfElseEND1
+@Memory.get_best_fit.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Memory.get_best_fit.IfElse1}
+// label Memory.get_best_fit.IfElse1
+(Memory.get_best_fit.IfElse1)
+
+
+//LabelInstruction{label='Memory.get_best_fit.IfElseEND1}
+// label Memory.get_best_fit.IfElseEND1
+(Memory.get_best_fit.IfElseEND1)
+
+
+//LabelInstruction{label='WHILE_START_Memory.get_best_fit1}
+// label WHILE_START_Memory.get_best_fit1
+(WHILE_START_Memory.get_best_fit1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
 @3
+D=D+A
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("that 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Memory.get_best_fit1}}
+@THAT
+A=M
+D=M
+@15
+M=D
+@Memory.get_best_fit.EQ.56
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.get_best_fit.EQ.56)
+D=!D
+@15
+M=D
+@Memory.get_best_fit.EQ.55
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.get_best_fit.EQ.55)
+@WHILE_END_Memory.get_best_fit1
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@3
+D=D+A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("that 0"),
+//                right:
+//                    PushInstruction("argument 1"),
+//                binaryOp: "LT"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.get_best_fit.IfElse2}}
+@THAT
+A=M
+D=M
+@R13
+M=D
+@ARG
+A=M+1
+D=M
+@R13
+D=M-D
+@15
+M=D
+@Memory.get_best_fit.LT.59
+D=A
+@13
+M=D
+@DO_LT
+0;JMP
+(Memory.get_best_fit.LT.59)
+D=!D
+@15
+M=D
+@Memory.get_best_fit.EQ.58
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.get_best_fit.EQ.58)
+@Memory.get_best_fit.IfElse2
+D;JNE
+
+
+//PushInstruction("local 0")
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//GotoInstruction{label='Memory.get_best_fit.IfElseEND2}
+// goto Memory.get_best_fit.IfElseEND2
+@Memory.get_best_fit.IfElseEND2
+0;JMP
+
+
+//LabelInstruction{label='Memory.get_best_fit.IfElse2}
+// label Memory.get_best_fit.IfElse2
+(Memory.get_best_fit.IfElse2)
+
+
+//LabelInstruction{label='Memory.get_best_fit.IfElseEND2}
+// label Memory.get_best_fit.IfElseEND2
+(Memory.get_best_fit.IfElseEND2)
+
+
+//GotoInstruction{label='WHILE_START_Memory.get_best_fit1}
+// goto WHILE_START_Memory.get_best_fit1
+@WHILE_START_Memory.get_best_fit1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Memory.get_best_fit1}
+// label WHILE_END_Memory.get_best_fit1
+(WHILE_END_Memory.get_best_fit1)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.create_foot', numLocals=0, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.realloc=4, Memory.get_best_fit=0, Memory.calloc=1, Memory.init=2, Memory.getBinIndex=2, Memory.remove_node=0}}
+// function Memory.create_foot with 0
+(Memory.create_foot)
+
+
+//PPP : push PushInstruction("argument 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("constant 4"),
+//            binaryOp: "ADD"
+//        ),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M
 D=M
 @SP
 AM=M+1
@@ -20230,132 +23056,753 @@ M=D
 @THAT
 A=M
 D=M
+@4
+D=D+A
+@SP
+AM=M-1
+D=D+M
+@4
+M=D
+@ARG
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.add_node', numLocals=2, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.create_foot=0, Memory.realloc=4, Memory.get_best_fit=0, Memory.calloc=1, Memory.init=2, Memory.getBinIndex=2, Memory.remove_node=0}}
+// function Memory.add_node with 2
+(Memory.add_node)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@2
+D=D+A
+@4
 M=D
-// call String.appendChar
-@7
-D=A
-@14
+@THAT
+A=M
+M=0
+
+
+//PPP : push PushInstruction("constant 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
 M=D
-@String.appendChar
+@THAT
+A=M
+M=0
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.add_node.IfElse1}}
+@THAT
+A=M
+D=M
+@15
+M=D
+@Memory.add_node.EQ.62
 D=A
 @13
 M=D
-@String.setInt.ret.13
-D=A
-@CALL
+@DO_EQ
 0;JMP
-(String.setInt.ret.13)
-@SP
-AM=M-1
+(Memory.add_node.EQ.62)
+@15
+M=D
+@Memory.add_node.EQ.61
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.add_node.EQ.61)
+@Memory.add_node.IfElse1
+D;JNE
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M
 D=M
-@5
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
 M=D
 
 
-// goto WHILE_START_String.setInt3
-@WHILE_START_String.setInt3
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
 0;JMP
 
 
-// label WHILE_END_String.setInt3
-(WHILE_END_String.setInt3)
+//GotoInstruction{label='Memory.add_node.IfElseEND1}
+// goto Memory.add_node.IfElseEND1
+@Memory.add_node.IfElseEND1
+0;JMP
 
+
+//LabelInstruction{label='Memory.add_node.IfElse1}
+// label Memory.add_node.IfElse1
+(Memory.add_node.IfElse1)
+
+
+//LabelInstruction{label='Memory.add_node.IfElseEND1}
+// label Memory.add_node.IfElseEND1
+(Memory.add_node.IfElseEND1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push PushInstruction("constant 0")
+//pop PopInstruction{address=local 1} END PPP 
 
 @LCL
+A=M+1
+M=0
+
+
+//LabelInstruction{label='WHILE_START_Memory.add_node1}
+// label WHILE_START_Memory.add_node1
+(WHILE_START_Memory.add_node1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                UnaryPushGroup(                    BinaryPushGroup(
+//                        left:
+//                            PushInstruction("local 0"),
+//                        right:
+//                            PushInstruction("constant 0"),
+//                        binaryOp: "EQ"
+//                    ),
+//NOT),
+//            right:
+//                UnaryPushGroup(                    BinaryPushGroup(
+//                        left:
+//                            PushInstruction("that 0"),
+//                        right:
+//                            PushInstruction("that 0"),
+//                        binaryOp: "GT"
+//                    ),
+//NOT),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Memory.add_node1}}
+@LCL
+A=M
 D=M
-@5
-A=D+A
-D=M
-@SP
-AM=M+1
-A=A-1
+@15
 M=D
-// call Array.dispose
-@6
-D=A
-@14
-M=D
-@Array.dispose
+@Memory.add_node.EQ.66
 D=A
 @13
 M=D
-@String.setInt.ret.14
-D=A
-@CALL
+@DO_EQ
 0;JMP
-(String.setInt.ret.14)
+(Memory.add_node.EQ.66)
+@SP
+AM=M+1
+A=A-1
+M=D
+@SP
+A=M-1
+M=!D
+@THAT
+A=M
+D=M
+D=D-M
+@15
+M=D
+@Memory.add_node.GT.67
+D=A
+@13
+M=D
+@DO_GT
+0;JMP
+(Memory.add_node.GT.67)
+D=!D
 @SP
 AM=M-1
+D=D&M
+@15
+M=D
+@Memory.add_node.EQ.65
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.add_node.EQ.65)
+@WHILE_END_Memory.add_node1
+D;JNE
+
+
+//PPP : push PushInstruction("local 0")
+//pop PopInstruction{address=local 1} END PPP 
+
+@LCL
+A=M
 D=M
-@5
+@LCL
+A=M+1
 M=D
 
 
-D=0
-@SP
-AM=M+1
-A=A-1
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@LCL
+A=M
+D=M
+@3
+D=D+A
+@4
 M=D
 
 
-@RETURN
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//GotoInstruction{label='WHILE_START_Memory.add_node1}
+// goto WHILE_START_Memory.add_node1
+@WHILE_START_Memory.add_node1
 0;JMP
 
 
-// function String.backSpace with 0
-(String.backSpace)
+//LabelInstruction{label='WHILE_END_Memory.add_node1}
+// label WHILE_END_Memory.add_node1
+(WHILE_END_Memory.add_node1)
 
 
-@129
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            PushInstruction("local 1"),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.add_node.IfElse2}}
+@LCL
+A=M+1
+D=!M
+@15
+M=D
+@Memory.add_node.EQ.68
 D=A
-@SP
-AM=M+1
-A=A-1
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.add_node.EQ.68)
+@Memory.add_node.IfElse2
+D;JNE
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M
+D=M
+@4
 M=D
 
 
-@RETURN
+//PPP : push PushInstruction("that 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+@THAT
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "ADD"
+//        ),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M
+D=M
+@2
+D=D+A
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Memory.add_node.IfElseEND2}
+// goto Memory.add_node.IfElseEND2
+@Memory.add_node.IfElseEND2
 0;JMP
 
 
-// function String.doubleQuote with 0
-(String.doubleQuote)
+//LabelInstruction{label='Memory.add_node.IfElse2}
+// label Memory.add_node.IfElse2
+(Memory.add_node.IfElse2)
 
 
-@34
+//PPP : push PushInstruction("local 0")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+@LCL
+A=M
+D=M
+@THAT
+A=M
+M=D
+
+
+//PPP : push PushInstruction("local 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 1"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M+1
+D=M
+@2
+D=D+A
+@4
+M=D
+@LCL
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Memory.add_node.IfElse3}}
+@LCL
+A=M
+D=M
+@15
+M=D
+@Memory.add_node.EQ.69
 D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Memory.add_node.EQ.69)
+@Memory.add_node.IfElse3
+D;JNE
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 2"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M
+D=M
+@2
+D=D+A
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//GotoInstruction{label='Memory.add_node.IfElseEND3}
+// goto Memory.add_node.IfElseEND3
+@Memory.add_node.IfElseEND3
+0;JMP
+
+
+//LabelInstruction{label='Memory.add_node.IfElse3}
+// label Memory.add_node.IfElse3
+(Memory.add_node.IfElse3)
+
+
+//LabelInstruction{label='Memory.add_node.IfElseEND3}
+// label Memory.add_node.IfElseEND3
+(Memory.add_node.IfElseEND3)
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 1"),
+//    right:
+//        PushInstruction("constant 3"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@LCL
+A=M+1
+D=M
+@3
+D=D+A
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//LabelInstruction{label='Memory.add_node.IfElseEND2}
+// label Memory.add_node.IfElseEND2
+(Memory.add_node.IfElseEND2)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.poke', numLocals=0, funcMapping={Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.add_node=0, Memory.create_foot=0, Memory.realloc=4, Memory.get_best_fit=0, Memory.calloc=1, Memory.init=2, Memory.getBinIndex=2, Memory.remove_node=0}}
+// function Memory.poke with 0
+(Memory.poke)
+
+
+//PPP : push PushInstruction("argument 1")
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+//
+//pop PopInstruction{address=that 0} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+@ARG
+A=M+1
+D=M
+@THAT
+A=M
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Memory.peek', numLocals=0, funcMapping={Memory.poke=0, Memory.deAlloc=11, Memory.copy=0, Memory.alloc=12, Memory.add_node=0, Memory.create_foot=0, Memory.realloc=4, Memory.get_best_fit=0, Memory.calloc=1, Memory.init=2, Memory.getBinIndex=2, Memory.remove_node=0}}
+// function Memory.peek with 0
+(Memory.peek)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@ARG
+A=M
+D=M
+@4
+M=D
+
+
+//PushInstruction("that 0")
+@THAT
+A=M
+D=M
 @SP
 AM=M+1
 A=A-1
 M=D
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
-// function String.newLine with 0
-(String.newLine)
-
-
-@128
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-
-
-@RETURN
-0;JMP
-
-
+//FunctionInstruction{functionName='Sys.init', numLocals=0, funcMapping={}}
 // function Sys.init with 0
 (Sys.init)
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Memory.init', numArgs=0, funcMapping={Sys.init=0}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Memory.init
 @5
@@ -20378,6 +23825,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Math.init', numArgs=0, funcMapping={Sys.init=1}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 // call Math.init
 @5
 D=A
@@ -20398,6 +23848,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Screen.init', numArgs=0, funcMapping={Sys.init=2}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Screen.init
 @5
@@ -20420,6 +23873,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Output.init', numArgs=0, funcMapping={Sys.init=3}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 // call Output.init
 @5
 D=A
@@ -20440,6 +23896,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Keyboard.init', numArgs=0, funcMapping={Sys.init=4}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Keyboard.init
 @5
@@ -20462,6 +23921,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Main.main', numArgs=0, funcMapping={Sys.init=5}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 // call Main.main
 @5
 D=A
@@ -20482,6 +23944,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Sys.halt', numArgs=0, funcMapping={Sys.init=6}, currentFunction='Sys.init'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Sys.halt
 @5
@@ -20504,50 +23969,65 @@ D=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Sys.halt', numLocals=0, funcMapping={Sys.init=7}}
 // function Sys.halt with 0
 (Sys.halt)
 
 
+//LabelInstruction{label='WHILE_START_Sys.halt1}
 // label WHILE_START_Sys.halt1
 (WHILE_START_Sys.halt1)
 
 
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            PushInstruction("constant 0"),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Sys.halt1}}
 D=0
 @WHILE_END_Sys.halt1
 D;JNE
 
 
+//GotoInstruction{label='WHILE_START_Sys.halt1}
 // goto WHILE_START_Sys.halt1
 @WHILE_START_Sys.halt1
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Sys.halt1}
 // label WHILE_END_Sys.halt1
 (WHILE_END_Sys.halt1)
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Sys.wait', numLocals=1, funcMapping={Sys.init=7, Sys.halt=0}}
 // function Sys.wait with 1
 (Sys.wait)
 @SP
@@ -20556,39 +24036,65 @@ A=A-1
 M=0
 
 
+//LabelInstruction{label='WHILE_START_Sys.wait1}
 // label WHILE_START_Sys.wait1
 (WHILE_START_Sys.wait1)
 
 
-@Sys.error.EQ.1
-D=A
-@13
-M=D
-@Sys.error.GT.2
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("argument 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Sys.wait1}}
 @ARG
 A=M
 D=M
 @15
 M=D
+@Sys.wait.GT.2
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Sys.error.GT.2)
+(Sys.wait.GT.2)
 @15
+M=D
+@Sys.wait.EQ.1
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Sys.error.EQ.1)
+(Sys.wait.EQ.1)
 @WHILE_END_Sys.wait1
 D;JNE
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("argument 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=argument 0} END PPP 
 
 @ARG
 A=M
 M=M-1
 
+
+//PPP : push PushInstruction("constant 70")
+//pop PopInstruction{address=local 0} END PPP 
 
 @70
 D=A
@@ -20597,72 +24103,104 @@ A=M
 M=D
 
 
+//LabelInstruction{label='WHILE_START_Sys.wait2}
 // label WHILE_START_Sys.wait2
 (WHILE_START_Sys.wait2)
 
 
-@Sys.error.EQ.4
-D=A
-@13
-M=D
-@Sys.error.GT.5
-D=A
-@13
-M=D
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "GT"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Sys.wait2}}
 @LCL
 A=M
 D=M
 @15
 M=D
+@Sys.wait.GT.5
+D=A
+@13
+M=D
 @DO_GT
 0;JMP
-(Sys.error.GT.5)
+(Sys.wait.GT.5)
 @15
+M=D
+@Sys.wait.EQ.4
+D=A
+@13
 M=D
 @DO_EQ
 0;JMP
-(Sys.error.EQ.4)
+(Sys.wait.EQ.4)
 @WHILE_END_Sys.wait2
 D;JNE
 
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("local 0"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//pop PopInstruction{address=local 0} END PPP 
 
 @LCL
 A=M
 M=M-1
 
 
+//GotoInstruction{label='WHILE_START_Sys.wait2}
 // goto WHILE_START_Sys.wait2
 @WHILE_START_Sys.wait2
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Sys.wait2}
 // label WHILE_END_Sys.wait2
 (WHILE_END_Sys.wait2)
 
 
+//GotoInstruction{label='WHILE_START_Sys.wait1}
 // goto WHILE_START_Sys.wait1
 @WHILE_START_Sys.wait1
 0;JMP
 
 
+//LabelInstruction{label='WHILE_END_Sys.wait1}
 // label WHILE_END_Sys.wait1
 (WHILE_END_Sys.wait1)
 
 
-D=0
+//PushInstruction("constant 0")
 @SP
 AM=M+1
 A=A-1
-M=D
+M=0
 
 
+//ReturnInstruction{}
 @RETURN
 0;JMP
 
 
+//FunctionInstruction{functionName='Sys.error', numLocals=0, funcMapping={Sys.wait=0, Sys.init=7, Sys.halt=0}}
 // function Sys.error with 0
 (Sys.error)
 
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Output.printInt', numArgs=1, funcMapping={Sys.wait=0, Sys.error=0, Sys.init=7, Sys.halt=0}, currentFunction='Sys.error'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 @ARG
 A=M
@@ -20692,6 +24230,9 @@ D=M
 M=D
 
 
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Output.println', numArgs=0, funcMapping={Sys.wait=0, Sys.error=1, Sys.init=7, Sys.halt=0}, currentFunction='Sys.error'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
 // call Output.println
 @5
 D=A
@@ -20712,6 +24253,9 @@ D=M
 @5
 M=D
 
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Sys.halt', numArgs=0, funcMapping={Sys.wait=0, Sys.error=2, Sys.init=7, Sys.halt=0}, currentFunction='Sys.error'}}
+//pop PopInstruction{address=temp 0} END PPP 
 
 // call Sys.halt
 @5
@@ -20734,13 +24278,793 @@ D=M
 M=D
 
 
-D=0
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Keyboard.init', numLocals=0, funcMapping={}}
+// function Keyboard.init with 0
+(Keyboard.init)
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Keyboard.keyPressed', numLocals=0, funcMapping={Keyboard.init=0}}
+// function Keyboard.keyPressed with 0
+(Keyboard.keyPressed)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 24576"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@24576
+D=A
+@4
+M=D
+
+
+//PushInstruction("that 0")
+@THAT
+A=M
+D=M
 @SP
 AM=M+1
 A=A-1
 M=D
 
 
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Keyboard.readChar', numLocals=1, funcMapping={Keyboard.init=0, Keyboard.keyPressed=0}}
+// function Keyboard.readChar with 1
+(Keyboard.readChar)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//LabelInstruction{label='WHILE_START_Keyboard.readChar1}
+// label WHILE_START_Keyboard.readChar1
+(WHILE_START_Keyboard.readChar1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 24576"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@24576
+D=A
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("that 0"),
+//            right:
+//                PushInstruction("constant 0"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Keyboard.readChar1}}
+@THAT
+A=M
+D=M
+@15
+M=D
+@Keyboard.readChar.EQ.2
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readChar.EQ.2)
+@15
+M=D
+@Keyboard.readChar.EQ.1
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readChar.EQ.1)
+@WHILE_END_Keyboard.readChar1
+D;JNE
+
+
+//GotoInstruction{label='WHILE_START_Keyboard.readChar1}
+// goto WHILE_START_Keyboard.readChar1
+@WHILE_START_Keyboard.readChar1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Keyboard.readChar1}
+// label WHILE_END_Keyboard.readChar1
+(WHILE_END_Keyboard.readChar1)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 24576"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@24576
+D=A
+@4
+M=D
+
+
+//PPP : push PushInstruction("that 0")
+//pop PopInstruction{address=local 0} END PPP 
+
+@THAT
+A=M
+D=M
+@LCL
+A=M
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Keyboard.readChar2}
+// label WHILE_START_Keyboard.readChar2
+(WHILE_START_Keyboard.readChar2)
+
+
+//PPP : push BinaryPushGroup(
+//    left:
+//        PushInstruction("constant 24576"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "ADD"
+//)
+//pop PopInstruction{address=pointer 1} END PPP 
+
+@24576
+D=A
+@4
+M=D
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("that 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Keyboard.readChar2}}
+@THAT
+A=M
+D=M
+@15
+M=D
+@Keyboard.readChar.EQ.5
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readChar.EQ.5)
+D=!D
+@15
+M=D
+@Keyboard.readChar.EQ.4
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readChar.EQ.4)
+@WHILE_END_Keyboard.readChar2
+D;JNE
+
+
+//GotoInstruction{label='WHILE_START_Keyboard.readChar2}
+// goto WHILE_START_Keyboard.readChar2
+@WHILE_START_Keyboard.readChar2
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Keyboard.readChar2}
+// label WHILE_END_Keyboard.readChar2
+(WHILE_END_Keyboard.readChar2)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='Output.printChar', numArgs=1, funcMapping={Keyboard.readChar=0, Keyboard.init=0, Keyboard.keyPressed=0}, currentFunction='Keyboard.readChar'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Output.printChar
+@6
+D=A
+@14
+M=D
+@Output.printChar
+D=A
+@13
+M=D
+@Keyboard.readChar.ret.0
+D=A
+@CALL
+0;JMP
+(Keyboard.readChar.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("local 0")
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Keyboard.readLine', numLocals=2, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0}}
+// function Keyboard.readLine with 2
+(Keyboard.readLine)
+@SP
+AM=M+1
+A=A-1
+M=0
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Output.printString', numArgs=1, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=0}, currentFunction='Keyboard.readLine'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Output.printString
+@6
+D=A
+@14
+M=D
+@Output.printString
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.0
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("constant 50")], call=CallInstruction{calleeFunction='String.new', numArgs=1, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=1}, currentFunction='Keyboard.readLine'}}
+//pop PopInstruction{address=local 0} END PPP 
+
+@50
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.new
+@6
+D=A
+@14
+M=D
+@String.new
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.1
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.1)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M
+M=D
+
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Keyboard.readChar', numArgs=0, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=2}, currentFunction='Keyboard.readLine'}}
+//pop PopInstruction{address=local 1} END PPP 
+
+// call Keyboard.readChar
+@5
+D=A
+@14
+M=D
+@Keyboard.readChar
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.2
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.2)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+M=D
+
+
+//LabelInstruction{label='WHILE_START_Keyboard.readLine1}
+// label WHILE_START_Keyboard.readLine1
+(WHILE_START_Keyboard.readLine1)
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        UnaryPushGroup(            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 1"),
+//                right:
+//CallGroup{pushes=[], call=CallInstruction{calleeFunction='String.newLine', numArgs=0, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=3}, currentFunction='Keyboard.readLine'}},
+//                binaryOp: "EQ"
+//            ),
+//NOT),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='WHILE_END_Keyboard.readLine1}}
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.newLine
+@5
+D=A
+@14
+M=D
+@String.newLine
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.4
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.4)
+@SP
+AM=M-1
+D=M
+@SP
+AM=M-1
+D=M-D
+@15
+M=D
+@Keyboard.readLine.EQ.8
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readLine.EQ.8)
+D=!D
+@15
+M=D
+@Keyboard.readLine.EQ.7
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readLine.EQ.7)
+@WHILE_END_Keyboard.readLine1
+D;JNE
+
+
+//ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        BinaryPushGroup(
+//            left:
+//                PushInstruction("local 1"),
+//            right:
+//                PushInstruction("constant 129"),
+//            binaryOp: "EQ"
+//        ),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Keyboard.readLine.IfElse1}}
+@LCL
+A=M+1
+D=M
+@129
+D=D-A
+@15
+M=D
+@Keyboard.readLine.EQ.11
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readLine.EQ.11)
+@15
+M=D
+@Keyboard.readLine.EQ.10
+D=A
+@13
+M=D
+@DO_EQ
+0;JMP
+(Keyboard.readLine.EQ.10)
+@Keyboard.readLine.IfElse1
+D;JNE
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='String.eraseLastChar', numArgs=1, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=5}, currentFunction='Keyboard.readLine'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.eraseLastChar
+@6
+D=A
+@14
+M=D
+@String.eraseLastChar
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.5
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.5)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//GotoInstruction{label='Keyboard.readLine.IfElseEND1}
+// goto Keyboard.readLine.IfElseEND1
+@Keyboard.readLine.IfElseEND1
+0;JMP
+
+
+//LabelInstruction{label='Keyboard.readLine.IfElse1}
+// label Keyboard.readLine.IfElse1
+(Keyboard.readLine.IfElse1)
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("local 0"), PushInstruction("local 1")], call=CallInstruction{calleeFunction='String.appendChar', numArgs=2, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=6}, currentFunction='Keyboard.readLine'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+A=M+1
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.appendChar
+@7
+D=A
+@14
+M=D
+@String.appendChar
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.6
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.6)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//LabelInstruction{label='Keyboard.readLine.IfElseEND1}
+// label Keyboard.readLine.IfElseEND1
+(Keyboard.readLine.IfElseEND1)
+
+
+//PPP : push CallGroup{pushes=[], call=CallInstruction{calleeFunction='Keyboard.readChar', numArgs=0, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=7}, currentFunction='Keyboard.readLine'}}
+//pop PopInstruction{address=local 1} END PPP 
+
+// call Keyboard.readChar
+@5
+D=A
+@14
+M=D
+@Keyboard.readChar
+D=A
+@13
+M=D
+@Keyboard.readLine.ret.7
+D=A
+@CALL
+0;JMP
+(Keyboard.readLine.ret.7)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M+1
+M=D
+
+
+//GotoInstruction{label='WHILE_START_Keyboard.readLine1}
+// goto WHILE_START_Keyboard.readLine1
+@WHILE_START_Keyboard.readLine1
+0;JMP
+
+
+//LabelInstruction{label='WHILE_END_Keyboard.readLine1}
+// label WHILE_END_Keyboard.readLine1
+(WHILE_END_Keyboard.readLine1)
+
+
+//PushInstruction("local 0")
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Keyboard.readInt', numLocals=1, funcMapping={Keyboard.readChar=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=8}}
+// function Keyboard.readInt with 1
+(Keyboard.readInt)
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Keyboard.readLine', numArgs=1, funcMapping={Keyboard.readChar=1, Keyboard.readInt=0, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=8}, currentFunction='Keyboard.readInt'}}
+//pop PopInstruction{address=local 0} END PPP 
+
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Keyboard.readLine
+@6
+D=A
+@14
+M=D
+@Keyboard.readLine
+D=A
+@13
+M=D
+@Keyboard.readInt.ret.0
+D=A
+@CALL
+0;JMP
+(Keyboard.readInt.ret.0)
+@SP
+AM=M-1
+D=M
+@LCL
+A=M
+M=D
+
+
+//CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{calleeFunction='String.intValue', numArgs=1, funcMapping={Keyboard.readChar=1, Keyboard.readInt=1, Keyboard.init=0, Keyboard.keyPressed=0, Keyboard.readLine=8}, currentFunction='Keyboard.readInt'}}
+@LCL
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call String.intValue
+@6
+D=A
+@14
+M=D
+@String.intValue
+D=A
+@13
+M=D
+@Keyboard.readInt.ret.1
+D=A
+@CALL
+0;JMP
+(Keyboard.readInt.ret.1)
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Array.new', numLocals=0, funcMapping={}}
+// function Array.new with 0
+(Array.new)
+
+
+//CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{calleeFunction='Memory.alloc', numArgs=1, funcMapping={Array.new=0}, currentFunction='Array.new'}}
+@ARG
+A=M
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.alloc
+@6
+D=A
+@14
+M=D
+@Memory.alloc
+D=A
+@13
+M=D
+@Array.new.ret.0
+D=A
+@CALL
+0;JMP
+(Array.new.ret.0)
+
+
+//ReturnInstruction{}
+@RETURN
+0;JMP
+
+
+//FunctionInstruction{functionName='Array.dispose', numLocals=0, funcMapping={Array.new=1}}
+// function Array.dispose with 0
+(Array.dispose)
+
+
+//PPP : push PushInstruction("argument 0")
+//pop PopInstruction{address=pointer 0} END PPP 
+
+@ARG
+A=M
+D=M
+@3
+M=D
+
+
+//PPP : push CallGroup{pushes=[PushInstruction("pointer 0")], call=CallInstruction{calleeFunction='Memory.deAlloc', numArgs=1, funcMapping={Array.dispose=0, Array.new=1}, currentFunction='Array.dispose'}}
+//pop PopInstruction{address=temp 0} END PPP 
+
+@3
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Memory.deAlloc
+@6
+D=A
+@14
+M=D
+@Memory.deAlloc
+D=A
+@13
+M=D
+@Array.dispose.ret.0
+D=A
+@CALL
+0;JMP
+(Array.dispose.ret.0)
+@SP
+AM=M-1
+D=M
+@5
+M=D
+
+
+//PushInstruction("constant 0")
+@SP
+AM=M+1
+A=A-1
+M=0
+
+
+//ReturnInstruction{}
 @RETURN
 0;JMP
 

@@ -62,9 +62,9 @@ public class PushPopPair implements VMinstruction {
     }
 
     private boolean optimizeConstantAssign(List<String> asm, Address dest) {
-        if (push instanceof PushInstruction pi && pi.isConstant() && Math.abs(pi.getConstant()) <= 1) {
+        if (push.isConstant() && Math.abs(push.getConstant()) <= 1) {
             asm.addAll(dest.resolveAddressTo("A"));
-            asm.add("M=" + pi.getConstant());
+            asm.add("M=" + push.getConstant());
             return true;
         }
         return false;
@@ -120,11 +120,11 @@ public class PushPopPair implements VMinstruction {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
+
+        sb.append("PPP : push ").append(push.toString()).append("\n");
         if (PPP != null) {
             sb.append(PPP.toString()).append("\n");
         }
-
-        sb.append("PPP : push ").append(push.toString()).append("\n");
         sb.append("pop ").append(pop.toString());
         sb.append(" END PPP \n");
         return sb.toString();

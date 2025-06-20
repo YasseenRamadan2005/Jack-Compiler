@@ -8,13 +8,11 @@ public class CallInstruction implements VMinstruction {
     private final String calleeFunction;
     private final int numArgs;
     private final Map<String, Integer> funcMapping;
-    private final String currentFunction;
 
-    public CallInstruction(String calleeFunction, int numArgs, Map<String, Integer> funcMapping, String currentFunction) {
+    public CallInstruction(String calleeFunction, int numArgs, Map<String, Integer> funcMapping) {
         this.calleeFunction = calleeFunction;
         this.numArgs = numArgs;
         this.funcMapping = funcMapping;
-        this.currentFunction = currentFunction;
     }
 
     public int getArgs() {
@@ -27,10 +25,10 @@ public class CallInstruction implements VMinstruction {
 
         //When I jump to the pre-defined CALL subroutine, I need the return address in the D register already, the function pointer in @13, and the number of arguments plus 5 in @14
 
-        int callCount = funcMapping.getOrDefault(currentFunction, 0);
-        String returnLabel = currentFunction + ".ret." + callCount;
+        int callCount = funcMapping.getOrDefault(VMParser.currentFunction, 0);
+        String returnLabel = VMParser.currentFunction + ".ret." + callCount;
 
-        funcMapping.put(currentFunction, callCount + 1);
+        funcMapping.put(VMParser.currentFunction, callCount + 1);
 
         asm.add("// call " + calleeFunction);
 
@@ -64,7 +62,7 @@ public class CallInstruction implements VMinstruction {
                 "calleeFunction='" + calleeFunction + '\'' +
                 ", numArgs=" + numArgs +
                 ", funcMapping=" + funcMapping +
-                ", currentFunction='" + currentFunction + '\'' +
+                ", currentFunction='" + VMParser.currentFunction + '\'' +
                 '}';
     }
 }

@@ -16,11 +16,17 @@ public final class UnaryPushGroup extends PushGroup {
 
     @Override
     public List<String> decode() throws Exception {
+        List<String> asm = new ArrayList<>();
         if (isConstant()) {
             short constant = getConstant();
             System.out.println(constant);
             if (Math.abs(constant) <= 1) {
                 return new ArrayList<>(List.of("@SP", "AM=M+1", "A=A-1", "M=" + constant));
+            }
+            else{
+                asm.addAll(setD());
+                asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
+                return asm;
             }
         }
         List<String> code = new ArrayList<>(inner.decode());
@@ -32,7 +38,8 @@ public final class UnaryPushGroup extends PushGroup {
     List<String> setD() throws Exception {
         // Constant folding
         if (isConstant()) {
-            return List.of("D=" + op.apply(getConstant()));
+            PushInstruction p = new PushInstruction(new Address("constant", getConstant()));
+            return p.setD();
         }
 
         // Optimize wrapped push
@@ -64,11 +71,13 @@ public final class UnaryPushGroup extends PushGroup {
 
     @Override
     public short getConstant() {
-        return (short) switch (op) {
-            case NOT -> ~inner.getConstant();
-            case NEG -> -inner.getConstant();
-            default -> throw new IllegalStateException();
-        };
+        if (op.equals(ArithmeticInstruction.Op.NOT)){
+            return (short) ~(inner.getConstant());
+        }
+        if (op.equals(ArithmeticInstruction.Op.NEG)){
+            return (short) -(inner.getConstant());
+        }
+        throw new IllegalStateException();
     }
 
     @Override
@@ -97,7 +106,7 @@ public final class UnaryPushGroup extends PushGroup {
 
     @Override
     public String toString(int ind) {
-        return " ".repeat(ind) + "UnaryPushGroup(" + op + ",\n" + inner.toString(ind + 4) + ')';
+        return " ".repeat(ind) + "UnaryPushGroup(" + inner.toString(ind + 4) +  ",\n"  + op + ')';
     }
 
     @Override

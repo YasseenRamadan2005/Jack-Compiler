@@ -46,7 +46,8 @@ public class VMTranslator {
                 "(RETURN)", "@LCL", "D=M", "@14", "M=D", "@5", "A=D-A", "D=M", "@15", "M=D", "@SP", "AM=M-1", "D=M", "@ARG", "A=M", "M=D", "@ARG", "D=M", "@SP", "M=D+1", "@14", "A=M-1", "D=M", "@THAT", "M=D", "@14", "A=M-1", "A=A-1", "D=M", "@THIS", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "D=M", "@ARG", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "A=A-1", "D=M", "@LCL", "M=D", "@15", "A=M", "0;JMP",
 
                 "(SKIPo)"));
-        CallInstruction c = new CallInstruction("Sys.init.0", 0, new HashMap<>(), "global");
+        VMParser.currentFunction = "global";
+        CallInstruction c = new CallInstruction("Sys.init", 0, new HashMap<>());
         allAssemblyLines.addAll(c.decode());
         // Step 2: Process each VM file
         for (File vmFile : vmFiles) {
@@ -56,8 +57,12 @@ public class VMTranslator {
             List<VMinstruction> instructions = parser.parse();
 
             for (VMinstruction inst : instructions) {
+                String foo = inst.toString().replaceAll("(?m)^", "//");
                 List<String> assembly = inst.decode();
-                if (assembly != null) allAssemblyLines.addAll(assembly);
+                if (assembly != null) {
+                    allAssemblyLines.add(foo);
+                    allAssemblyLines.addAll(assembly);
+                }
                 allAssemblyLines.add("\n");
             }
 

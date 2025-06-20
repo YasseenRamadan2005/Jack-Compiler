@@ -18,6 +18,11 @@ public class PushInstruction extends PushGroup {
 
     @Override
     public List<String> decode() {
+        if (isConstant()){
+            if (Math.abs(getConstant()) <= 1) {
+                return new ArrayList<>(List.of("@SP", "AM=M+1", "A=A-1", "M=" + getConstant()));
+            }
+        }
         List<String> asm = new ArrayList<>();
         asm.addAll(setD()); // Handles constant optimization internally
         asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
