@@ -11,6 +11,7 @@ public final class ArithmeticInstruction implements VMinstruction {
     public static int counter;
     private final Op op;
 
+
     public ArithmeticInstruction(Op op) {
         this.op = op;
         counter = 0;
@@ -18,7 +19,7 @@ public final class ArithmeticInstruction implements VMinstruction {
 
     @Override
     public List<String> decode() {
-        return new ArrayList<>(op.emit());
+        return new ArrayList<>(op.emit(true));
     }
 
     public boolean isUnary() {
@@ -92,11 +93,45 @@ public final class ArithmeticInstruction implements VMinstruction {
         }
 
         /**
-         * assembly template for the whole stack sequence (kept from your original class)
+         * assembly template for the whole stack sequence
          */
-        List<String> emit() {
-            return unary ? List.of("@SP", "A=M-1", onM())            // x = op x
-                    : List.of("@SP", "AM=M-1", "D=M", "A=A-1", "M=" + rhs);// y op x
+        List<String> emit(boolean alone) {
+            //if not alone, the final result is in the D register, not on the stack.
+            if (unary) {
+                if (alone) {
+                    return List.of("@SP", "A=M-1", onM().replace('D', 'M'));
+                }
+                return List.of("@SP", "A=M-1", onM());
+            }
+            if (isCompare()) {
+                //Make the subtraction and the label
+                List<String> ls = new ArrayList<>(List.of("@COMPARE_" + VMParser.currentFunction + "_" + rhs + counter, "D=A", "@13", "M=D", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D"));
+                switch (rhs) {
+                    case "lt":
+                        ls.addAll(List.of("@DO_LT", "0;JMP"));
+                        break;
+                    case "eq":
+                        ls.addAll(List.of("@DO_EQ", "0;JMP"));
+                        break;
+                    case "gt":
+                        ls.addAll(List.of("@DO_GT", "0;JMP"));
+                        break;
+                }
+                ls.add("(COMPARE_" + VMParser.currentFunction + "_" + rhs + counter + ")");
+                counter++;
+                if (!alone) {
+                    ls.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
+                }
+                return ls;
+            }
+            List<String> ls = new ArrayList<>(List.of("@SP", "AM=M-1", "D=M", "A=A-1"));
+            if (alone) {
+                ls.add("D=" + rhs);
+            }
+            else{
+                ls.add("M=" + rhs);
+            }
+            return ls;
         }
     }
 }

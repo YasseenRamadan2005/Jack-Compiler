@@ -30,7 +30,7 @@ public final class UnaryPushGroup extends PushGroup {
             }
         }
         List<String> code = new ArrayList<>(inner.decode());
-        code.addAll(op.emit());
+        code.addAll(op.emit(false));
         return code;
     }
 

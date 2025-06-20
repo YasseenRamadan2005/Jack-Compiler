@@ -33,8 +33,8 @@ public class VMParser {
         for (String line : removeComments(lines)) {
             flat.add(parseLine(line));
         }
-        //return flat;
-        return group(flat);
+        return flat;
+        //return group(flat);
     }
 
 // ─────────────────── helper ───────────────────

@@ -88,7 +88,7 @@ public class Address {
 
     public boolean isTrivial() {
         return switch (segment) {
-            case "local", "argument", "this", "that" -> index <= 4;
+            case "local", "argument", "this", "that" -> index < 4;
             default -> true;
         };
     }

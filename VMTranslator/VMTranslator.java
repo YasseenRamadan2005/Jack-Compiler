@@ -1,4 +1,5 @@
 package VMTranslator;
+
 import VMTranslator.vmcode.*;
 
 import java.io.File;
@@ -18,18 +19,18 @@ public class VMTranslator {
     }
 
     public void translate() throws Exception {
-
-        List<String> allAssemblyLines = new ArrayList<>(List.of("//Set 256 to be the start of the stack", "@256", "D=A", "@SP", "M=D",
+        int machineLine = 0;
+        List<String> bootstrapCode  = new ArrayList<>(List.of("//Set 256 to be the start of the stack", "@256", "D=A", "@SP", "M=D",
 
                 "//Set up the comparison ops subroutines", "@SKIP", "0;JMP",
 
-                "// ------------------------------------------------------------", "//  Shared code for gt, lt, eq", "//  Expectations on entry:", "//R13  – return address", "//R15  – (left – right)", "// ------------------------------------------------------------",
+                "// ------------------------------------------------------------", "//  Shared code for gt, lt, eq", "//  Expectations on entry:", "//R13  – return address", "//D  – (left – right)", "// ------------------------------------------------------------",
 
-                "// want  (left  > right)  ⇔ (R15 > 0)", "(DO_GT)", "@15", "D=M", "@RETURN_TRUE", "D;JGT", "@RETURN_FALSE", "0;JMP",
+                "// want  (left  > right)  ⇔ (D > 0)", "(DO_GT)", "@RETURN_TRUE", "D;JGT", "@RETURN_FALSE", "0;JMP",
 
-                "// want  (left == right)  ⇔ (R15 == 0)", "(DO_EQ)", "@15", "D=M", "@RETURN_TRUE", "D;JEQ", "@RETURN_FALSE", "0;JMP",
+                "// want  (left == right)  ⇔ (D == 0)", "(DO_EQ)", "@RETURN_TRUE", "D;JEQ", "@RETURN_FALSE", "0;JMP",
 
-                "// want  (left  < right)  ⇔ (R15 < 0)", "(DO_LT)", "@15", "D=M", "@RETURN_TRUE", "D;JLT", "@RETURN_FALSE", "0;JMP",
+                "// want  (left  < right)  ⇔ (D < 0)", "(DO_LT)", "@RETURN_TRUE", "D;JLT", "@RETURN_FALSE", "0;JMP",
 
                 "// ---- set boolean in D --------------------------------------", "(RETURN_TRUE)", "D=-1", "@WRITE_BACK", "0;JMP",
 
@@ -46,30 +47,46 @@ public class VMTranslator {
                 "(RETURN)", "@LCL", "D=M", "@14", "M=D", "@5", "A=D-A", "D=M", "@15", "M=D", "@SP", "AM=M-1", "D=M", "@ARG", "A=M", "M=D", "@ARG", "D=M", "@SP", "M=D+1", "@14", "A=M-1", "D=M", "@THAT", "M=D", "@14", "A=M-1", "A=A-1", "D=M", "@THIS", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "D=M", "@ARG", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "A=A-1", "D=M", "@LCL", "M=D", "@15", "A=M", "0;JMP",
 
                 "(SKIPo)"));
+        List<String> allAssemblyLines = new ArrayList<>();
+
         VMParser.currentFunction = "global";
         CallInstruction c = new CallInstruction("Sys.init", 0, new HashMap<>());
-        allAssemblyLines.addAll(c.decode());
-        // Step 2: Process each VM file
+        bootstrapCode.addAll(c.decode());
+        // Add bootstrap with line number annotations
+        for (String line : bootstrapCode) {
+            if (isRealInstruction(line)) {
+                allAssemblyLines.add(line + " // " + machineLine++);
+            } else {
+                allAssemblyLines.add(line);
+            }
+        }
+        // Process each .vm file
         for (File vmFile : vmFiles) {
             List<String> lines = Files.readAllLines(vmFile.toPath());
             VMParser parser = new VMParser(lines, getModuleName(vmFile));
-
             List<VMinstruction> instructions = parser.parse();
 
             for (VMinstruction inst : instructions) {
-                String foo = inst.toString().replaceAll("(?m)^", "//");
+                // Add the VM comment
+                String comment = "//" + inst.toString().replaceAll("(?m)^", "//");
+                allAssemblyLines.add(comment);
+
                 List<String> assembly = inst.decode();
                 if (assembly != null) {
-                    allAssemblyLines.add(foo);
-                    allAssemblyLines.addAll(assembly);
+                    for (String line : assembly) {
+                        if (isRealInstruction(line)) {
+                            allAssemblyLines.add(line + " // " + machineLine++);
+                        } else {
+                            allAssemblyLines.add(line);
+                        }
+                    }
                 }
-                allAssemblyLines.add("\n");
+                allAssemblyLines.add(""); // blank line between instructions
             }
 
             System.out.println(vmFile.getName() + "  " + instructions.size());
         }
 
-        // Step 3: Write to output file
         Files.write(outputFile.toPath(), allAssemblyLines);
     }
 
@@ -77,4 +94,10 @@ public class VMTranslator {
         String name = file.getName();
         return name.substring(0, name.lastIndexOf('.'));
     }
+
+    private boolean isRealInstruction(String line) {
+        line = line.trim();
+        return !line.isEmpty() && !line.startsWith("//") && !line.startsWith("(");
+    }
+
 }
