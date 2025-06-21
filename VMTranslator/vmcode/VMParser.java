@@ -19,13 +19,35 @@ public class VMParser {
      * Pops and returns the next (+1) PushGroup, skipping net-zero items.
      */
     private static PushGroup popNextPush(Deque<VMinstruction> stack) throws Exception {
+        List<VMinstruction> temp = new ArrayList<>();
+        PushGroup found = null;
+
         while (!stack.isEmpty()) {
             VMinstruction v = stack.removeLast();
-            if (v instanceof PushGroup pg) return pg;          // found operand
-            // else v is net-neutral (e.g. PushPopPair); drop it and keep looking
+            temp.add(v);
+
+            if (v instanceof PushGroup pg) {
+                found = pg;
+                break;
+            }
         }
-        throw new Exception("stack underflow while searching for operand");
+
+        if (found == null) {
+            // Restore stack
+            for (int i = temp.size() - 1; i >= 0; i--) {
+                stack.addLast(temp.get(i));
+            }
+            throw new Exception("stack underflow while searching for operand");
+        }
+
+        // Put back everything *except* the one we matched
+        for (int i = temp.size() - 2; i >= 0; i--) {
+            stack.addLast(temp.get(i));
+        }
+
+        return found;
     }
+
 
     public List<VMinstruction> parse() throws Exception {
         List<VMinstruction> flat = new ArrayList<>();
@@ -33,8 +55,8 @@ public class VMParser {
         for (String line : removeComments(lines)) {
             flat.add(parseLine(line));
         }
-        return flat;
-        //return group(flat);
+        //return flat;
+        return group(flat);
     }
 
 // ─────────────────── helper ───────────────────
@@ -42,7 +64,7 @@ public class VMParser {
     private List<VMinstruction> group(List<VMinstruction> work) throws Exception {
         Deque<VMinstruction> todo = new ArrayDeque<>(work); // tail == top
         Deque<VMinstruction> stack = new ArrayDeque<>();
-
+        List<VMinstruction> fuck = new ArrayList<>();
         while (!todo.isEmpty()) {
             VMinstruction cur = todo.removeFirst();   // process tail-first
 
@@ -51,24 +73,25 @@ public class VMParser {
 
                 case PushGroup pg -> stack.addLast(pg);
 
+
                 case PopInstruction pop -> {
-                    if (stack.isEmpty()) throw new Exception("pop with empty stack");
-                    VMinstruction top = stack.removeLast();
-                    if (top instanceof PushGroup pgTop) {
-                        stack.addLast(new PushPopPair(pgTop, pop));
-                    } else if (top instanceof PushPopPair ppp && stack.peekLast() instanceof PushGroup pg2) {
-                        for (VMinstruction v : stack){
-                            if (v instanceof FunctionInstruction f && f.getFuncName().equals("Memory.create_foot")){
-                                int x = 0;
-                                break;
-                            }
-                        }
-                        stack.removeLast();               // remove pg2
-                        stack.addLast(new PushPopPair(ppp, pg2, pop));
-                    } else {
-                        throw new Exception("pop without matching push");
+                    if (VMParser.currentFunction.equals("Memory.getBinIndex")) {
+                        int x = 0;
                     }
+                    // Try to find the most recent PushGroup
+                    PushGroup pg = popNextPush(stack);
+                    // See if there’s a previously grouped PPP already waiting to be nested
+                    if (!stack.isEmpty() && stack.peekLast() instanceof PushPopPair ppp) {
+                        stack.removeLast(); // remove the previous PPP
+                        stack.addLast(new PushPopPair(ppp, pg, pop));
+                    } else {
+                        stack.addLast(new PushPopPair(pg, pop));
+                    }
+
+
+                    if (stack.isEmpty()) throw new Exception("pop without matching push");
                 }
+
 
                 case ArithmeticInstruction ai -> {
                     if (ai.isUnary()) {
@@ -122,15 +145,16 @@ public class VMParser {
                 }
 
                 case FunctionInstruction f -> {
-                    //stack.clear();
+                    fuck.addAll(stack);
+                    stack.clear();
                     VMParser.currentFunction = f.getFuncName();
-                    stack.addLast(f);
+                    fuck.addLast(f);
                 }
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
         }
 
-        return new ArrayList<>(stack);
+        return new ArrayList<>(fuck);
     }
 
     private VMinstruction parseLine(String line) {

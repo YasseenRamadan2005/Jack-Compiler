@@ -19,7 +19,6 @@ public final class UnaryPushGroup extends PushGroup {
         List<String> asm = new ArrayList<>();
         if (isConstant()) {
             short constant = getConstant();
-            System.out.println(constant);
             if (Math.abs(constant) <= 1) {
                 return new ArrayList<>(List.of("@SP", "AM=M+1", "A=A-1", "M=" + constant));
             }

@@ -9,7 +9,9 @@ public class PushPopPair implements VMinstruction {
     private final PopInstruction pop;
 
     public PushPopPair(PushGroup push, PopInstruction pop) {
-        this(null, push, pop);
+        this.push = push;
+        this.pop = pop;
+        this.PPP = null;
     }
 
     public PushPopPair(PushPopPair PPP, PushGroup push, PopInstruction pop) {
@@ -118,16 +120,24 @@ public class PushPopPair implements VMinstruction {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-
-        sb.append("PPP : push ").append(push.toString()).append("\n");
-        if (PPP != null) {
-            sb.append(PPP.toString()).append("\n");
-        }
-        sb.append("pop ").append(pop.toString());
-        sb.append(" END PPP \n");
-        return sb.toString();
+        return toStringHelper(0);
     }
 
+    private String toStringHelper(int indent) {
+        StringBuilder sb = new StringBuilder();
+        String pad = "  ".repeat(indent);
+
+        sb.append(pad).append("PushPopPair {\n");
+        sb.append(pad).append("  push: ").append(push).append("\n");
+
+        if (PPP != null) {
+            sb.append(pad).append("  nested:\n");
+            sb.append(PPP.toStringHelper(indent + 2));
+        }
+
+        sb.append(pad).append("  pop:  ").append(pop).append("\n");
+        sb.append(pad).append("}\n");
+
+        return sb.toString();
+    }
 }
