@@ -96,7 +96,7 @@ public final class ArithmeticInstruction implements VMinstruction {
          * assembly template for the whole stack sequence
          */
         List<String> emit(boolean alone) {
-            //if not alone, the final result is in the D register, not on the stack.
+            //if alone, the final result on the stack, else in the D register.
             if (unary) {
                 if (alone) {
                     return List.of("@SP", "A=M-1", onM().replace('D', 'M'));
@@ -119,17 +119,17 @@ public final class ArithmeticInstruction implements VMinstruction {
                 }
                 ls.add("(COMPARE_" + VMParser.currentFunction + "_" + rhs + counter + ")");
                 counter++;
-                if (!alone) {
-                    ls.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
+                if (alone) {
+                    ls.addAll(List.of("@SP", "A=M-1", "M=D"));
                 }
                 return ls;
             }
             List<String> ls = new ArrayList<>(List.of("@SP", "AM=M-1", "D=M", "A=A-1"));
             if (alone) {
-                ls.add("D=" + rhs);
+                ls.add("M=" + rhs);
             }
             else{
-                ls.add("M=" + rhs);
+                ls.add("D=" + rhs);
             }
             return ls;
         }
