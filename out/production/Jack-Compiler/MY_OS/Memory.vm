@@ -525,9 +525,12 @@ pop that 0
 push constant 0
 return
 function Memory.getBinIndex 1
+
 push constant 0
 pop local 0
+
 label WHILE_START_Memory.getBinIndex1
+
 push local 0
 push constant 7
 lt
@@ -543,6 +546,7 @@ and
 push constant 0
 eq
 if-goto WHILE_END_Memory.getBinIndex1
+
 push argument 0
 push local 0
 push constant 1
