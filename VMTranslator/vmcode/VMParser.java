@@ -75,21 +75,18 @@ public class VMParser {
 
 
                 case PopInstruction pop -> {
-                    if (VMParser.currentFunction.equals("Memory.getBinIndex")) {
-                        int x = 0;
-                    }
-                    // Try to find the most recent PushGroup
-                    PushGroup pg = popNextPush(stack);
-                    // See if there’s a previously grouped PPP already waiting to be nested
-                    if (!stack.isEmpty() && stack.peekLast() instanceof PushPopPair ppp) {
-                        stack.removeLast(); // remove the previous PPP
-                        stack.addLast(new PushPopPair(ppp, pg, pop));
+                    PushGroup pg1 = popNextPush(stack); // This removes pg1 from the stack
+
+                    if (pg1 == null) throw new Exception("pop without matching push");
+
+                    // Peek to see if there's another PushGroup to absorb it
+                    VMinstruction maybePg2 = stack.peekLast();
+                    if (maybePg2 instanceof PushGroup pg2) {
+                        pg2.add_PPP(new PushPopPair(pg1, pop));
                     } else {
-                        stack.addLast(new PushPopPair(pg, pop));
+                        // No nesting possible, just wrap as PushPopPair and put it back
+                        stack.addLast(new PushPopPair(pg1, pop));
                     }
-
-
-                    if (stack.isEmpty()) throw new Exception("pop without matching push");
                 }
 
 

@@ -245,12 +245,19 @@ public class BinaryPushGroup extends PushGroup {
     }
 
     @Override
-    public String toString() {
-        return toString(0);
-    }
+    protected void appendSelf(StringBuilder sb, int indent) {
+        sb.append(" ".repeat(indent)).append("BinaryPushGroup(\n");
 
-    public String toString(int indent) {
-        return " ".repeat(indent) + "BinaryPushGroup(\n" + " ".repeat(indent + 4) + "left:\n" + left.toString(indent + 8) + ",\n" + " ".repeat(indent + 4) + "right:\n" + right.toString(indent + 8) + ",\n" + " ".repeat(indent + 4) + "binaryOp: \"" + op + "\"\n" + " ".repeat(indent) + ")";
+        sb.append(" ".repeat(indent + 4)).append("left:\n");
+        left.appendSelf(sb, indent + 8);
+        sb.append(",\n");
+
+        sb.append(" ".repeat(indent + 4)).append("right:\n");
+        right.appendSelf(sb, indent + 8);
+        sb.append(",\n");
+
+        sb.append(" ".repeat(indent + 4)).append("binaryOp: \"").append(op).append("\"\n");
+        sb.append(" ".repeat(indent)).append(")");
     }
 
     @Override

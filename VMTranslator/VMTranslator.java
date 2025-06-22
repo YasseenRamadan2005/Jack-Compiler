@@ -71,7 +71,7 @@ public class VMTranslator {
                 String comment = "//" + inst.toString().replaceAll("(?m)^", "//");
                 allAssemblyLines.add(comment);
 
-                List<String> assembly = inst.decode();
+                List<String> assembly = inst instanceof PushGroup pg ? pg.decodeAll() : inst.decode();
                 if (assembly != null) {
                     for (String line : assembly) {
                         if (isRealInstruction(line)) {

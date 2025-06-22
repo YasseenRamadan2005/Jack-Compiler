@@ -99,13 +99,13 @@ public final class UnaryPushGroup extends PushGroup {
     }
 
     @Override
-    public String toString() {
-        return toString(0);
-    }
-
-    @Override
-    public String toString(int ind) {
-        return " ".repeat(ind) + "UnaryPushGroup(" + inner.toString(ind + 4) +  ",\n"  + op + ')';
+    protected void appendSelf(StringBuilder sb, int indent) {
+        sb.append(" ".repeat(indent)).append("UnaryPushGroup(\n");
+        sb.append(" ".repeat(indent + 4)).append("inner:\n");
+        inner.appendSelf(sb, indent + 8);
+        sb.append(",\n");
+        sb.append(" ".repeat(indent + 4)).append("unaryOp: ").append(op).append("\n");
+        sb.append(" ".repeat(indent)).append(")");
     }
 
     @Override
