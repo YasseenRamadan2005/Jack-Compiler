@@ -37,7 +37,7 @@ public class VMParser {
             for (int i = temp.size() - 1; i >= 0; i--) {
                 stack.addLast(temp.get(i));
             }
-            throw new Exception("stack underflow while searching for operand");
+            return null;
         }
 
         // Put back everything *except* the one we matched
@@ -67,30 +67,56 @@ public class VMParser {
         List<VMinstruction> fuck = new ArrayList<>();
         while (!todo.isEmpty()) {
             VMinstruction cur = todo.removeFirst();   // process tail-first
-
+            if (VMParser.currentFunction.equals("Math.init") && stack.size() == 9){
+                int x =0;
+            }
             switch (cur) {
                 case CallGroup c -> stack.addLast(c);
 
-                case PushGroup pg -> stack.addLast(pg);
+                case PushGroup pg -> {
+                    if (!stack.isEmpty() && stack.getLast() instanceof PushPopPair PPP && PPP.getPopAddress().equals(new Address("pointer", (short) 1)) && pg instanceof PushInstruction pi && pi.equals(new PushInstruction(new Address("that", (short) 0))) && PPP.getPPP() == null) {
+                        Dereference d = new Dereference(PPP.getPush());
+                        stack.removeLast();
+                        stack.addLast(d);
+                    } else {
+                        stack.addLast(pg);
+                    }
+                }
 
 
                 case PopInstruction pop -> {
-                    if (VMParser.currentFunction.equals("Memory.getBinIndex")) {
-                        int x = 0;
+                    if (stack.size() >= 2 &&
+                            stack.peekLast() instanceof PushGroup pg &&
+                            stack.toArray()[stack.size() - 2] instanceof PushPopPair pppCandidate) {
+
+                        // Peek without disturbing order
+                        PopInstruction pppPop = ((PushPopPair) stack.toArray()[stack.size() - 2]).getPop();
+
+                        if (pppPop.getAddress().equals(new Address("pointer", (short) 1)) &&
+                                pop.getAddress().equals(new Address("that", (short) 0))) {
+
+                            // Remove both entries from the stack
+                            stack.removeLast(); // remove pg (top)
+                            stack.removeLast(); // remove PPP
+
+                            // Create and add PushWriter
+                            stack.addLast(new PushWriter(pg, ((PushPopPair) pppCandidate).getPush()));
+                        }
                     }
-                    // Try to find the most recent PushGroup
+
+                    // Otherwise fall back to regular pop logic
                     PushGroup pg = popNextPush(stack);
-                    // See if there’s a previously grouped PPP already waiting to be nested
+                    if (pg == null) throw new Exception("pop without matching push");
+
+                    // Check if there's a PPP directly underneath
                     if (!stack.isEmpty() && stack.peekLast() instanceof PushPopPair ppp) {
-                        stack.removeLast(); // remove the previous PPP
+                        stack.removeLast();
                         stack.addLast(new PushPopPair(ppp, pg, pop));
                     } else {
                         stack.addLast(new PushPopPair(pg, pop));
                     }
-
-
-                    if (stack.isEmpty()) throw new Exception("pop without matching push");
                 }
+
 
 
                 case ArithmeticInstruction ai -> {
@@ -153,9 +179,17 @@ public class VMParser {
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
         }
-
+        fuck.addAll(stack);
         return new ArrayList<>(fuck);
     }
+
+    private static boolean hasEarlierPushGroup(Deque<VMinstruction> stack) {
+        for (VMinstruction v : stack) {
+            if (v instanceof PushGroup) return true;
+        }
+        return false;
+    }
+
 
     private VMinstruction parseLine(String line) {
         String[] tokens = line.split("\\s+");

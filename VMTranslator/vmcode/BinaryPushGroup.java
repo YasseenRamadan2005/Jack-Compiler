@@ -41,8 +41,7 @@ public class BinaryPushGroup extends PushGroup {
             short constant = getConstant();
             if (Math.abs(constant) <= 1) {
                 asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=" + constant));
-            }
-            else{
+            } else {
                 asm.addAll(setD());
                 asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
             }
@@ -168,19 +167,9 @@ public class BinaryPushGroup extends PushGroup {
 
 
         if (op.isCompare()) return doCompare(op, left, right);
-
-
-        if (canUseR13(left) && canUseR13(right)) {
-            asm.addAll(left.setD());
-            asm.addAll(List.of("@R13", "M=D"));
-            asm.addAll(right.setD());
-            asm.add("@R13");
-        }  else {
-            asm.addAll(left.decode());
-            asm.addAll(right.setD());
-            asm.addAll(List.of("@SP", "AM=M-1"));
-        }
-
+        asm.addAll(left.decode());
+        asm.addAll(right.setD());
+        asm.addAll(List.of("@SP", "AM=M-1"));
         asm.add("D=" + opToDOperation("M", true));
         return asm;
     }
@@ -193,11 +182,15 @@ public class BinaryPushGroup extends PushGroup {
     }
 
     private List<String> doCompare(ArithmeticInstruction.Op op, PushGroup left, PushGroup right) throws Exception {
-        //For compare instructions, when jumping to the proper label, I need the return address in register 13.
+        //For compare instructions, when jumping to the proper label, I need the return address in register 13, and the difference in D
         String ret = VMParser.currentFunction + "." + op + "." + ArithmeticInstruction.counter++;
-        List<String> asm = new ArrayList<>();
+        if (ret.equals("Memory.get_best_fit.EQ.52")) {
+            int x = 0;
+        }
+        //push the label on the stack
+        List<String> asm = new ArrayList<>(List.of("@" + ret, "D=A", "@SP", "AM=M+1", "A=A-1", "M=D"));
         asm.addAll(new BinaryPushGroup(left, right, ArithmeticInstruction.Op.SUB).setD());
-        asm.addAll(List.of("@15", "M=D","@" + ret, "D=A", "@13", "M=D"));
+        asm.addAll(List.of("@14", "M=D", "@SP", "AM=M-1", "D=M", "@13", "M=D", "@14", "D=M"));
         asm.add(switch (op) {
             case LT -> "@DO_LT";
             case EQ -> "@DO_EQ";

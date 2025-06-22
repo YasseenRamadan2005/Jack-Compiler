@@ -20,104 +20,54 @@ public class PushPopPair implements VMinstruction {
         this.PPP = PPP;
     }
 
+    public PushPopPair getPPP() {
+        return PPP;
+    }
+
+    public PushGroup getPush() {
+        return push;
+    }
+
+    public PopInstruction getPop() {
+        return pop;
+    }
+
     @Override
     public List<String> decode() throws Exception {
         List<String> asm = new ArrayList<>();
         Address dest = pop.getAddress();
 
-        // Add nested PPP first
-        if (PPP != null) asm.addAll(PPP.decode());
+        //Handling dereferencing
+        if (PPP != null && push.isConstant() && Math.abs(push.getConstant()) <= 1 && PPP.pop.getAddress().equals(new Address("pointer" ,(short) 1 )) && pop.getAddress().equals(new Address("that", (short) 0))){
+            //We write the constant directly with this dereferencing
+            List<String> test = PPP.push.setD();
+            test.set(test.size() - 1, 'A' + test.getLast().substring(1));
+            asm.addAll(test);
+            asm.add("M=" + push.getConstant());
+            return asm;
+        }
 
-        // Peephole optimizations
-        if (optimizeConstantAssign(asm, dest)) return asm;
-        if (optimizeUnaryInPlace(asm, dest)) return asm;
-        if (optimizeSmallBinaryInPlace(asm, dest)) return asm;
-
-        // General write strategies
+        if (PPP != null) {
+            asm.addAll(push.decode());
+            asm.addAll(PPP.decode());
+            asm.addAll(pop.decode());
+            return asm;
+        }
         if (dest.isTrivial()) {
             asm.addAll(push.setD());
             asm.addAll(dest.resolveAddressTo("A"));
             asm.add("M=D");
-        } else if (push instanceof PushInstruction pi && pi.getAddress().isReachable(dest)) {
-            Address src = pi.getAddress();
-            if (!src.equals(dest)) {
-                asm.addAll(push.setD());
-                int delta = src.getIndex() - dest.getIndex();
-                asm.addAll(List.of("@SP", "A=M")); // assume A is aligned by setD
-                for (int i = 0; i < Math.abs(delta); i++)
-                    asm.add(delta > 0 ? "A=A+1" : "A=A-1");
-                asm.add("M=D");
-            }
-        } else if (push.isBasic()) {
-            asm.addAll(dest.resolveAddressTo("A"));
-            asm.addAll(List.of("D=A", "@13", "M=D"));
-            asm.addAll(push.setD());
-            asm.addAll(List.of("@13", "A=M", "M=D"));
         } else {
-            asm.addAll(dest.resolveAddressTo("A"));
-            asm.addAll(List.of("D=A", "@SP", "AM=M+1", "A=A-1", "M=D"));
-            asm.addAll(push.setD());
-            asm.addAll(List.of("@SP", "AM=M-1", "A=M", "M=D"));
+            asm.addAll(push.decode());
+            asm.addAll(pop.decode());
         }
-
         return asm;
     }
 
-    private boolean optimizeConstantAssign(List<String> asm, Address dest) {
-        if (push.isConstant() && Math.abs(push.getConstant()) <= 1) {
-            asm.addAll(dest.resolveAddressTo("A"));
-            asm.add("M=" + push.getConstant());
-            return true;
-        }
-        return false;
+
+    public Address getPopAddress(){
+        return pop.getAddress();
     }
-
-    private boolean optimizeUnaryInPlace(List<String> asm, Address dest) throws Exception {
-        if (push instanceof UnaryPushGroup u && u.getInner() instanceof PushInstruction && dest.equals(u.getInner().getAddress())) {
-            asm.addAll(dest.resolveAddressTo("A"));
-            asm.add("M=" + (u.getOp() == ArithmeticInstruction.Op.NEG ? "-" : "!") + "M");
-            return true;
-        }
-        return false;
-    }
-
-    private boolean optimizeSmallBinaryInPlace(List<String> asm, Address dest) {
-        if (!(push instanceof BinaryPushGroup b)) return false;
-
-        PushInstruction c = null, v = null;
-        if (b.getLeft() instanceof PushInstruction p1 && p1.isConstant() && Math.abs(p1.getConstant()) <= 1 && b.getRight() instanceof PushInstruction p2) {
-            c = p1;
-            v = p2;
-        } else if (b.getRight() instanceof PushInstruction p1 && p1.isConstant() && Math.abs(p1.getConstant()) <= 1 && b.getLeft() instanceof PushInstruction p2) {
-            c = p1;
-            v = p2;
-        }
-
-        if (c != null && v.getAddress().equals(dest)) {
-            asm.addAll(dest.resolveAddressTo("A"));
-            int value = c.getConstant();
-
-            switch (b.getOp()) {
-                case ADD -> asm.add("M=M+" + value);
-                case SUB -> {
-                    if (b.getLeft() == c) {
-                        asm.add("M=M-" + value);
-                        asm.add("M=-M");
-                    } else {
-                        asm.add("M=M-" + value);
-                    }
-                }
-                default -> {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        return false;
-    }
-
-
     @Override
     public String toString() {
         return toStringHelper(0);
@@ -126,14 +76,13 @@ public class PushPopPair implements VMinstruction {
     private String toStringHelper(int indent) {
         StringBuilder sb = new StringBuilder();
         String pad = "  ".repeat(indent);
-
-        sb.append(pad).append("PushPopPair {\n");
-        sb.append(pad).append("  push: ").append(push).append("\n");
-
         if (PPP != null) {
             sb.append(pad).append("  nested:\n");
             sb.append(PPP.toStringHelper(indent + 2));
         }
+        sb.append(pad).append("PushPopPair {\n");
+        sb.append(pad).append("  push: ").append(push).append("\n");
+
 
         sb.append(pad).append("  pop:  ").append(pop).append("\n");
         sb.append(pad).append("}\n");
