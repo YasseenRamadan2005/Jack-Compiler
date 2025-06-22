@@ -5,20 +5,29 @@ import java.util.List;
 
 public class PushPopPair implements VMinstruction {
     private final PushGroup push;
+    private final PushPopPair PPP;
     private final PopInstruction pop;
 
     public PushPopPair(PushGroup push, PopInstruction pop) {
         this.push = push;
         this.pop = pop;
+        this.PPP = null;
     }
+
+    public PushPopPair(PushPopPair PPP, PushGroup push, PopInstruction pop) {
+        this.push = push;
+        this.pop = pop;
+        this.PPP = PPP;
+    }
+
     @Override
     public List<String> decode() throws Exception {
         List<String> asm = new ArrayList<>();
         Address dest = pop.getAddress();
 
-        if (VMParser.currentFunction.equals("Memory.init")){
-            int x = 0;
-        }
+        // Add nested PPP first
+        if (PPP != null) asm.addAll(PPP.decode());
+
         // Peephole optimizations
         if (optimizeConstantAssign(asm, dest)) return asm;
         if (optimizeUnaryInPlace(asm, dest)) return asm;
@@ -109,19 +118,26 @@ public class PushPopPair implements VMinstruction {
     }
 
 
+    @Override
     public String toString() {
-        return toString(0);
+        return toStringHelper(0);
     }
 
-    public String toString(int indent) {
+    private String toStringHelper(int indent) {
         StringBuilder sb = new StringBuilder();
-        sb.append(" ".repeat(indent)).append("PushPopPair {\n");
+        String pad = "  ".repeat(indent);
 
-        sb.append(" ".repeat(indent + 2)).append("push: ").append(push.toString(indent + 4)).append("\n");
-        sb.append(" ".repeat(indent + 2)).append("pop: ").append(pop).append("\n");
+        sb.append(pad).append("PushPopPair {\n");
+        sb.append(pad).append("  push: ").append(push).append("\n");
 
-        sb.append(" ".repeat(indent)).append("}\n");
+        if (PPP != null) {
+            sb.append(pad).append("  nested:\n");
+            sb.append(PPP.toStringHelper(indent + 2));
+        }
+
+        sb.append(pad).append("  pop:  ").append(pop).append("\n");
+        sb.append(pad).append("}\n");
+
         return sb.toString();
     }
-
 }

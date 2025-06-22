@@ -44,25 +44,22 @@ public class CallGroup extends PushGroup{
         return 0;
     }
 
+    public String toString(int indent){
+        return toString();
+    }
+
     @Override
     Address getAddress() throws Exception {
         return null;
     }
 
     @Override
-    protected void appendSelf(StringBuilder sb, int indent) {
-        sb.append(" ".repeat(indent)).append("CallGroup(\n");
-
-        for (int i = 0; i < pushes.size(); i++) {
-            sb.append(" ".repeat(indent + 4)).append("arg[").append(i).append("]:\n");
-            pushes.get(i).appendSelf(sb, indent + 8);
-        }
-
-        sb.append(" ".repeat(indent + 4)).append("call: ").append(call).append("\n");
-        sb.append(" ".repeat(indent)).append(")");
+    public String toString() {
+        return "CallGroup{" +
+                "pushes=" + pushes +
+                ", call=" + call +
+                '}';
     }
-
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -70,6 +67,7 @@ public class CallGroup extends PushGroup{
         return Objects.equals(pushes, other.pushes)
                 && Objects.equals(call, other.call);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(pushes, call);

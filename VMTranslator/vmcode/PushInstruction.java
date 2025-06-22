@@ -68,12 +68,13 @@ public class PushInstruction extends PushGroup {
     }
 
     @Override
-    protected void appendSelf(StringBuilder sb, int indent) {
-        sb.append(" ".repeat(indent))
-                .append("PushInstruction(\"").append(address).append("\")\n");
+    public String toString() {
+        return toString(0);
     }
 
-
+    public String toString(int indent) {
+        return indent(indent) + "PushInstruction(\"" + address.getSegment() + " " + address.getIndex() + "\")";
+    }
 
     @Override
     public boolean equals(Object obj) {
