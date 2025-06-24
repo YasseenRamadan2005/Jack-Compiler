@@ -206,8 +206,9 @@ class Output {
 
         // Print each row in the character map
         let i = 0;
+        let address = SCREEN  + (cursor_x / 2);
         while( i < 11 ) {
-           let address = SCREEN + ((cursor_y * 11 + i) * 32) + (cursor_x / 2);
+           let address = (i * 32) + address;
             //Each bit map is a byte, so the first 8 bits are all zeros
 
             if (cursor_x & 1 = 0){ //dumb trick to check if even

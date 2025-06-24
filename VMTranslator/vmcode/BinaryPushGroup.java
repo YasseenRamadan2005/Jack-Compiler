@@ -74,6 +74,13 @@ public class BinaryPushGroup extends PushGroup {
 
         List<String> asm = new ArrayList<>();
 
+        if (right.isConstant() && right.getConstant() == 0 && left instanceof BinaryPushGroup bpg && bpg.getOp().isCompare()){
+            asm.addAll(left.setD());
+            asm.add("D=!D");
+            return asm;
+        }
+
+
         if (left.equals(right)) {
             if (op.isCompare()) {
                 if (op == ArithmeticInstruction.Op.EQ) {
@@ -83,7 +90,6 @@ public class BinaryPushGroup extends PushGroup {
                 }
             } else {
                 asm.addAll(left.setD());
-                //if it's a Push Instruction, setting the D register automatically sets the M register too
                 asm.addAll(left instanceof PushInstruction ? List.of("D=" + opToDOperation("M", false)) : List.of("@R13", "M=D", "D=" + opToDOperation("M", false)));
                 return asm;
             }
@@ -93,37 +99,42 @@ public class BinaryPushGroup extends PushGroup {
             PushGroup constant = right.isConstant() ? right : left;
             PushGroup other = right.isConstant() ? left : right;
             boolean isPI = other instanceof PushInstruction;
-            List<String> otherD = isPI ? ((PushInstruction) other).getAddress().resolveAddressTo("A") : other.setD();
 
+            //Handle special cases here
             if (Math.abs(constant.getConstant()) <= 1) {
                 if (op.isCompare()) return doCompare(op, left, right);
 
-                if (op == ArithmeticInstruction.Op.AND) return switch (constant.getConstant()) {
-                    case 1 -> combine(otherD, "D=M", "@1", "D=D&A");
-                    case -1 -> isPI ? ((PushInstruction) other).setD() : otherD;
-                    default -> List.of("D=0");
-                };
+                if (VMParser.currentFunction.equals("Output.printChar")){
+                    int x =0;
+                }
 
-                if (op == ArithmeticInstruction.Op.OR) return switch (constant.getConstant()) {
-                    case 1 -> combine(otherD, "D=M", "@1", "D=D|A");
-                    case -1 -> List.of("D=-1");
-                    default -> isPI ? ((PushInstruction) other).setD() : otherD;
-                };
+                if (op == ArithmeticInstruction.Op.AND && constant.getConstant() == 0){
+                    return List.of("D=0");
+                }
+
+                if (op == ArithmeticInstruction.Op.OR && constant.getConstant() == -1){
+                    return List.of("D=-1");
+                }
+                if ((op == ArithmeticInstruction.Op.SUB || op == ArithmeticInstruction.Op.OR) && constant.getConstant() == 0){
+                    return other.setD();
+                }
 
                 if ((op == ArithmeticInstruction.Op.ADD && constant.getConstant() == 1) || (op == ArithmeticInstruction.Op.SUB && constant.getConstant() == -1))
-                    return combine(otherD, "D=M+1");
+                    return combine(other.setD(), "D=D+1");
 
                 if ((op == ArithmeticInstruction.Op.ADD && constant.getConstant() == -1) || (op == ArithmeticInstruction.Op.SUB && constant.getConstant() == 1)) {
                     //Handle the 1-D case here
                     if (left.isConstant()) {
-                        List<String> a = new ArrayList<>(combine(otherD, "D=M-1"));
+                        List<String> a = new ArrayList<>(combine(other.setD(), "D=D-1"));
                         a.add("D=-D");
                         return a;
                     }
-                    return combine(otherD, "D=M-1");
+                    return combine(other.setD(), "D=D-1");
                 }
 
-                return isPI ? ((PushInstruction) other).setD() : otherD;
+                asm.addAll(other.setD());
+                asm.addAll(List.of("@" + Math.abs(constant.getConstant()), "D=" + opToDOperation("A", left.isConstant())));
+                return asm;
             } else if (op.isCompare()) {
                 return doCompare(op, left, right);
             } else if (constant.getConstant() >= 0) {
@@ -182,15 +193,11 @@ public class BinaryPushGroup extends PushGroup {
     }
 
     private List<String> doCompare(ArithmeticInstruction.Op op, PushGroup left, PushGroup right) throws Exception {
-        //For compare instructions, when jumping to the proper label, I need the return address in register 13, and the difference in D
+        //For compare instructions, when jumping to the proper label, I need the return address on the stack, and the difference in D
         String ret = VMParser.currentFunction + "." + op + "." + ArithmeticInstruction.counter++;
-        if (ret.equals("Memory.get_best_fit.EQ.52")) {
-            int x = 0;
-        }
         //push the label on the stack
         List<String> asm = new ArrayList<>(List.of("@" + ret, "D=A", "@SP", "AM=M+1", "A=A-1", "M=D"));
         asm.addAll(new BinaryPushGroup(left, right, ArithmeticInstruction.Op.SUB).setD());
-        asm.addAll(List.of("@14", "M=D", "@SP", "AM=M-1", "D=M", "@13", "M=D", "@14", "D=M"));
         asm.add(switch (op) {
             case LT -> "@DO_LT";
             case EQ -> "@DO_EQ";
@@ -200,13 +207,6 @@ public class BinaryPushGroup extends PushGroup {
         asm.addAll(List.of("0;JMP", "(" + ret + ")"));
         return asm;
     }
-
-
-    // Helper method: returns true if this pushgroup's setD doesn't use R13
-    private boolean canUseR13(PushGroup pg) {
-        return (pg instanceof PushInstruction) || (pg instanceof UnaryPushGroup u && u.isBasic());
-    }
-
 
     private String opToDOperation(String operand, boolean flip) {
         return switch (op) {
@@ -233,11 +233,6 @@ public class BinaryPushGroup extends PushGroup {
 
 
     @Override
-    boolean isBasic() {
-        return isConstant() || (left.isBasic() && right.isBasic() && !op.isCompare());
-    }
-
-    @Override
     public String toString() {
         return toString(0);
     }
@@ -246,10 +241,6 @@ public class BinaryPushGroup extends PushGroup {
         return " ".repeat(indent) + "BinaryPushGroup(\n" + " ".repeat(indent + 4) + "left:\n" + left.toString(indent + 8) + ",\n" + " ".repeat(indent + 4) + "right:\n" + right.toString(indent + 8) + ",\n" + " ".repeat(indent + 4) + "binaryOp: \"" + op + "\"\n" + " ".repeat(indent) + ")";
     }
 
-    @Override
-    Address getAddress() throws Exception {
-        return null;
-    }
 
     public PushGroup getLeft() {
         return left;

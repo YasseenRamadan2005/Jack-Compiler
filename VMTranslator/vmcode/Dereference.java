@@ -25,17 +25,17 @@ public class Dereference extends PushGroup {
 
     @Override
     List<String> setD() throws Exception {
-        List<String> list = new ArrayList<>( base.setD());
-        list.set(list.size() - 1, 'A' + list.get(list.size() - 1).substring(1));
+        List<String> list = new ArrayList<>(base.setD());
+        if (!base.isConstant()) {
+            list.set(list.size() - 1, 'A' + list.get(list.size() - 1).substring(1));
+        }
+        else{
+            list.removeLast();
+        }
         list.add("D=M");
         return list;
     }
 
-
-    @Override
-    boolean isBasic() {
-        return false;
-    }
 
     @Override
     boolean isConstant() {
@@ -46,22 +46,16 @@ public class Dereference extends PushGroup {
     short getConstant() {
         return 0;
     }
+
     @Override
     String toString(int i) {
-        return " ".repeat(i) + "Dereference(\n" +
-                " ".repeat(i + 4) + "base:\n" +
-                base.toString(i + 8) + "\n" +
-                " ".repeat(i) + ")";
+        return " ".repeat(i) + "Dereference(\n" + " ".repeat(i + 4) + "base:\n" + base.toString(i + 8) + "\n" + " ".repeat(i) + ")";
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return toString(0);
     }
 
-    @Override
-    Address getAddress() throws Exception {
-        return null;
-    }
 
 }

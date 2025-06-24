@@ -29,9 +29,9 @@ public class CallGroup extends PushGroup{
         return asm;
     }
 
-    @Override
-    boolean isBasic() {
-        return false;
+
+    public CallInstruction getCall() {
+        return call;
     }
 
     @Override
@@ -46,11 +46,6 @@ public class CallGroup extends PushGroup{
 
     public String toString(int indent){
         return toString();
-    }
-
-    @Override
-    Address getAddress() throws Exception {
-        return null;
     }
 
     @Override

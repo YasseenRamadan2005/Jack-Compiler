@@ -35,7 +35,7 @@ public class PopInstruction implements VMinstruction {
     @Override
     public String toString() {
         return "PopInstruction{" +
-                "address=" + address +
+                "address=" + address.getSegment() + " " + address.getIndex() +
                 '}';
     }
 }

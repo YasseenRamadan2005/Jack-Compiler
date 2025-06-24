@@ -79,11 +79,6 @@ public final class UnaryPushGroup extends PushGroup {
         throw new IllegalStateException();
     }
 
-    @Override
-    Address getAddress() throws Exception {
-        if (inner instanceof PushInstruction pi) return pi.getAddress();
-        throw new Exception("Unary group is not addressable");
-    }
 
     public PushGroup getInner() {
         return inner;
@@ -91,11 +86,6 @@ public final class UnaryPushGroup extends PushGroup {
 
     public ArithmeticInstruction.Op getOp() {
         return op;
-    }
-
-    @Override
-    boolean isBasic() {
-        return inner instanceof PushInstruction;
     }
 
     @Override

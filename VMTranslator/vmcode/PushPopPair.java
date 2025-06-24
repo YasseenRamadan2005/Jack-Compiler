@@ -28,6 +28,20 @@ public class PushPopPair implements VMinstruction {
     public List<String> decode() throws Exception {
         List<String> asm = new ArrayList<>();
         Address dest = pop.getAddress();
+
+        //If the push is a CallGroup and the pop is to temp 0, then we can disregard the return value by just decrementing the stack
+        if (push instanceof CallGroup && dest.equals(new Address("temp", (short) 0))){
+            asm.addAll(push.decode());
+            asm.addAll(List.of("@SP", "M=M-1"));
+            return asm;
+        }
+
+        if (push.isConstant() && Math.abs(push.getConstant()) <= 1){
+            asm.addAll(pop.getAddress().resolveAddressTo("A"));
+            asm.add("M=" + push.getConstant());
+            return asm;
+        }
+
         if (dest.isTrivial()) {
             asm.addAll(push.setD());
             asm.addAll(dest.resolveAddressTo("A"));

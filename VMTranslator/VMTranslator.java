@@ -24,7 +24,7 @@ public class VMTranslator {
 
                 "//Set up the comparison ops subroutines", "@SKIP", "0;JMP",
 
-                "// ------------------------------------------------------------", "//  Shared code for gt, lt, eq", "//  Expectations on entry:", "//R13  – return address", "//D  – (left – right)", "// ------------------------------------------------------------",
+                "// ------------------------------------------------------------", "//  Shared code for gt, lt, eq", "//  Expectations on entry:", "//Stack  – return address", "//D  – (left – right)", "// ------------------------------------------------------------",
 
                 "// want  (left  > right)  ⇔ (D > 0)", "(DO_GT)", "@RETURN_TRUE", "D;JGT", "@RETURN_FALSE", "0;JMP",
 
@@ -36,7 +36,7 @@ public class VMTranslator {
 
                 "(RETURN_FALSE)", "D=0", "@WRITE_BACK", "0;JMP",
 
-                "// ---- collapse stack and return -----------------------------", "(WRITE_BACK)", "@13", "A=M", "0;JMP",
+                "// ---- collapse stack and return -----------------------------", "(WRITE_BACK)", "@SP", "AM=M-1", "A=M", "0;JMP",
 
                 "(SKIP)",
 

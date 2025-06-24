@@ -58,11 +58,6 @@ public class PushInstruction extends PushGroup {
         return address.isTrivial();
     }
 
-    @Override
-    boolean isBasic() {
-        return true;
-    }
-
     public boolean isConstant() {
         return address.isConstant();
     }

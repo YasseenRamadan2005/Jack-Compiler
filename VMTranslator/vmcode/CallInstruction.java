@@ -3,6 +3,7 @@ package VMTranslator.vmcode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class CallInstruction implements VMinstruction {
     private final String calleeFunction;

@@ -145,17 +145,13 @@ return
 function Math.divide 3
 push argument 0
 call Math.abs 1
-pop local 2
+pop local 1
 push argument 1
 call Math.abs 1
-pop local 1
-push argument 0
-push constant 0
-eq
-push local 1
+pop local 2
 push local 2
+push local 1
 gt
-or
 push constant 0
 eq
 if-goto Math.divide.IfElse1
@@ -164,83 +160,85 @@ return
 goto Math.divide.IfElseEND1
 label Math.divide.IfElse1
 label Math.divide.IfElseEND1
-push argument 0
-push argument 1
-eq
+push local 1
+push constant 2
+push local 2
+call Math.multiply 2
+call Math.divide 2
+pop local 0
+push local 1
+push constant 2
+push local 0
+call Math.multiply 2
+push local 2
+call Math.multiply 2
+sub
+push local 2
+lt
 push constant 0
 eq
 if-goto Math.divide.IfElse2
-push constant 1
-return
-goto Math.divide.IfElseEND2
-label Math.divide.IfElse2
-label Math.divide.IfElseEND2
 push argument 0
 push constant 0
 lt
 push argument 1
+and
+push constant 0
+gt
+push argument 0
+push constant 0
+gt
+push argument 1
+and
 push constant 0
 lt
 or
 push constant 0
 eq
 if-goto Math.divide.IfElse3
-push local 2
-push local 1
-call Math.divide 2
+push local 0
+neg
 pop local 0
+goto Math.divide.IfElseEND3
+label Math.divide.IfElse3
+label Math.divide.IfElseEND3
+push constant 2
+push local 0
+call Math.multiply 2
+return
+goto Math.divide.IfElseEND2
+label Math.divide.IfElse2
 push argument 0
 push constant 0
 lt
 push argument 1
+and
+push constant 0
+gt
+push argument 0
+push constant 0
+gt
+push argument 1
+and
 push constant 0
 lt
-and
+or
 push constant 0
 eq
 if-goto Math.divide.IfElse4
 push local 0
-return
+neg
+pop local 0
 goto Math.divide.IfElseEND4
 label Math.divide.IfElse4
 label Math.divide.IfElseEND4
+push constant 2
 push local 0
-neg
-return
-goto Math.divide.IfElseEND3
-label Math.divide.IfElse3
-label Math.divide.IfElseEND3
-push argument 0
-push argument 1
-push argument 1
-add
-call Math.divide 2
-pop local 0
-push argument 0
-push local 0
-push local 0
-add
-push argument 1
 call Math.multiply 2
-sub
-push argument 1
-lt
-push constant 0
-eq
-if-goto Math.divide.IfElse5
-push local 0
-push local 0
-add
-return
-goto Math.divide.IfElseEND5
-label Math.divide.IfElse5
-label Math.divide.IfElseEND5
-push local 0
-push local 0
-add
 push constant 1
 add
 return
+label Math.divide.IfElseEND2
 function Math.mod 0
 push argument 0
 push argument 0

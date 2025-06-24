@@ -71,31 +71,30 @@ class Math {
      *  When a Jack compiler detects the division operator '/'
      *  an an expression, it handles it by invoking this method.
      *  Thus, x/y and Math.divide(x,y) return the same value. */
-    function int divide(int x, int y) {
-        var int q; // Quotient
-        var int y_a;
-        var int x_a;
-        let x_a = Math.abs(x);
-        let y_a = Math.abs(y);
-        if ((x = 0) | (y_a > x_a)) {
+        function int divide(int x, int y) {
+          var int q, nx, ny;
+
+          let nx = Math.abs(x);
+          let ny = Math.abs(y);
+
+          if (ny > nx) {
             return 0;
+          }
+
+          let q = Math.divide(nx, 2 * ny);
+          if ((nx - (2 * q * ny)) < ny) {
+            if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
+              let q = -q;
+            }
+            return 2 * q;
+          } else {
+            if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
+              let q = -q;
+            }
+            return (2 * q) + 1;
+          }
         }
-        if (x = y) {
-            return 1;
-        }
-        if ((x < 0) | (y < 0)) {
-            let q = x_a / y_a;
-             if ((x < 0) & (y < 0)){
-                return q;
-             }
-            return -q;
-        }
-        let q = x / (y + y);
-        if ((x - ((q + q) * y)) < y) {
-            return q + q;
-        }
-        return q + q + 1;
-    }
+
 
 
    /** Returns the remainder part of x/y */
