@@ -30,9 +30,6 @@ class Output {
     static Array charMaps;
 
     static int cursor_x, cursor_y;
-
-    static Array charMasks;
-
     /** Initializes the screen, and locates the cursor at the screen's top-left. */
     function void init() {
         do Output.initMap();
@@ -237,9 +234,10 @@ class Output {
     /** displays the given string starting at the cursor location,
      *  and advances the cursor appropriately. */
     function void printString(String s) {
-        var int i;
+        var int i, l;
         let i = 0;
-        while( i < s.length() ) {
+        let l = s.length();
+        while( i < l ) {
             do Output.printChar(s.charAt(i));
             let i = i + 1;
         }

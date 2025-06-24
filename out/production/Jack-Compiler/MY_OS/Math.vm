@@ -1,105 +1,34 @@
-function Math.init 0
+function Math.init 2
+push constant 1
+pop local 0
+push constant 0
+pop local 1
 push constant 16
 call Array.new 1
 pop static 0
-push constant 1
-push static 0
-push constant 0
-add
-pop pointer 1
-pop that 0
-push constant 2
-push static 0
-push constant 1
-add
-pop pointer 1
-pop that 0
-push constant 4
-push static 0
-push constant 2
-add
-pop pointer 1
-pop that 0
-push constant 8
-push static 0
-push constant 3
-add
-pop pointer 1
-pop that 0
+label WHILE_START_Math.init1
+push local 1
 push constant 16
+lt
+push constant 0
+eq
+if-goto WHILE_END_Math.init1
+push local 0
 push static 0
-push constant 4
+push local 1
 add
 pop pointer 1
 pop that 0
-push constant 32
-push static 0
-push constant 5
+push local 0
+push local 0
 add
-pop pointer 1
-pop that 0
-push constant 64
-push static 0
-push constant 6
+pop local 0
+push local 1
+push constant 1
 add
-pop pointer 1
-pop that 0
-push constant 128
-push static 0
-push constant 7
-add
-pop pointer 1
-pop that 0
-push constant 256
-push static 0
-push constant 8
-add
-pop pointer 1
-pop that 0
-push constant 512
-push static 0
-push constant 9
-add
-pop pointer 1
-pop that 0
-push constant 1024
-push static 0
-push constant 10
-add
-pop pointer 1
-pop that 0
-push constant 2048
-push static 0
-push constant 11
-add
-pop pointer 1
-pop that 0
-push constant 4096
-push static 0
-push constant 12
-add
-pop pointer 1
-pop that 0
-push constant 8192
-push static 0
-push constant 13
-add
-pop pointer 1
-pop that 0
-push constant 16384
-push static 0
-push constant 14
-add
-pop pointer 1
-pop that 0
-push constant 16384
-push constant 16384
-add
-push static 0
-push constant 15
-add
-pop pointer 1
-pop that 0
+pop local 1
+goto WHILE_START_Math.init1
+label WHILE_END_Math.init1
 push constant 0
 return
 function Math.bit 0

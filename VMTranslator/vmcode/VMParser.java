@@ -15,37 +15,18 @@ public class VMParser {
         compNum = 0;
     }
 
-    /**
-     * Pops and returns the next (+1) PushGroup, skipping net-zero items.
-     */
-    private static PushGroup popNextPush(Deque<VMinstruction> stack) throws Exception {
-        List<VMinstruction> temp = new ArrayList<>();
-        PushGroup found = null;
 
-        while (!stack.isEmpty()) {
-            VMinstruction v = stack.removeLast();
-            temp.add(v);
-
-            if (v instanceof PushGroup pg) {
-                found = pg;
-                break;
-            }
+    private static PushGroup getThePushOnTop(Deque<VMinstruction> stack) throws Exception {
+        if (stack.isEmpty()){
+            throw new Exception("Empty stack when looking for a PushGroup");
         }
-
-        if (found == null) {
-            // Restore stack
-            for (int i = temp.size() - 1; i >= 0; i--) {
-                stack.addLast(temp.get(i));
-            }
-            return null;
+        if (stack.peekLast() instanceof PushGroup pg){
+            stack.removeLast();
+            return pg;
         }
-
-        // Put back everything *except* the one we matched
-        for (int i = temp.size() - 2; i >= 0; i--) {
-            stack.addLast(temp.get(i));
+        else{
+            throw new Exception("No PushGroup on top");
         }
-
-        return found;
     }
 
 
@@ -67,14 +48,14 @@ public class VMParser {
         List<VMinstruction> fuck = new ArrayList<>();
         while (!todo.isEmpty()) {
             VMinstruction cur = todo.removeFirst();   // process tail-first
-            if (VMParser.currentFunction.equals("Math.init") && stack.size() == 9){
-                int x =0;
+            if (VMParser.currentFunction.equals("Memory.init")) {
+                int x = 0;
             }
             switch (cur) {
                 case CallGroup c -> stack.addLast(c);
 
                 case PushGroup pg -> {
-                    if (!stack.isEmpty() && stack.getLast() instanceof PushPopPair PPP && PPP.getPopAddress().equals(new Address("pointer", (short) 1)) && pg instanceof PushInstruction pi && pi.equals(new PushInstruction(new Address("that", (short) 0))) && PPP.getPPP() == null) {
+                    if (!stack.isEmpty() && stack.getLast() instanceof PushPopPair PPP && PPP.getPopAddress().equals(new Address("pointer", (short) 1)) && pg instanceof PushInstruction pi && pi.equals(new PushInstruction(new Address("that", (short) 0)))) {
                         Dereference d = new Dereference(PPP.getPush());
                         stack.removeLast();
                         stack.addLast(d);
@@ -85,44 +66,33 @@ public class VMParser {
 
 
                 case PopInstruction pop -> {
-                    if (stack.size() >= 2 &&
-                            stack.peekLast() instanceof PushGroup pg &&
-                            stack.toArray()[stack.size() - 2] instanceof PushPopPair pppCandidate) {
-
-                        // Peek without disturbing order
-                        PopInstruction pppPop = ((PushPopPair) stack.toArray()[stack.size() - 2]).getPop();
-
-                        if (pppPop.getAddress().equals(new Address("pointer", (short) 1)) &&
-                                pop.getAddress().equals(new Address("that", (short) 0))) {
-
-                            // Remove both entries from the stack
-                            stack.removeLast(); // remove pg (top)
-                            stack.removeLast(); // remove PPP
-
-                            // Create and add PushWriter
-                            stack.addLast(new PushWriter(pg, ((PushPopPair) pppCandidate).getPush()));
+                    if (stack.isEmpty()) {
+                        throw new Exception("pop without matching push");
+                    }
+                    if (stack.peekLast() instanceof PushPopPair ppp && ppp.getPopAddress().equals(new Address("pointer", (short) 1)) && pop.getAddress().equals(new Address("that", (short) 0))) {
+                        PushPopPair thePPP = (PushPopPair) stack.removeLast();
+                        if (stack.peekLast() instanceof PushGroup) {
+                            PushGroup pg = (PushGroup) stack.getLast(); //This is the source
+                            stack.removeLast();
+                            stack.addLast(new PushWriter(pg, thePPP.getPush()));
+                        } else {
+                            throw new Exception("error when creating PushWriter");
+                        }
+                    } else {
+                        if (stack.peekLast() instanceof PushGroup pg) {
+                            stack.removeLast();
+                            stack.addLast(new PushPopPair(pg, pop));
+                        } else {
+                            throw new Exception("pop without matching push");
                         }
                     }
-
-                    // Otherwise fall back to regular pop logic
-                    PushGroup pg = popNextPush(stack);
-                    if (pg == null) throw new Exception("pop without matching push");
-
-                    // Check if there's a PPP directly underneath
-                    if (!stack.isEmpty() && stack.peekLast() instanceof PushPopPair ppp) {
-                        stack.removeLast();
-                        stack.addLast(new PushPopPair(ppp, pg, pop));
-                    } else {
-                        stack.addLast(new PushPopPair(pg, pop));
-                    }
                 }
-
 
 
                 case ArithmeticInstruction ai -> {
                     if (ai.isUnary()) {
                         if (stack.isEmpty()) throw new Exception(ai + " unary op without arg");
-                        PushGroup pg = popNextPush(stack);                 // use helper
+                        PushGroup pg = getThePushOnTop(stack);
                         if (pg instanceof UnaryPushGroup u) {
                             if (u.getOp().equals(ai.getOp())) {
                                 // neg(neg(x)) or not(not(x)) → x
@@ -143,8 +113,8 @@ public class VMParser {
 
                     } else { // binary
                         // need two PushGroups, skipping any net-zero items on top
-                        PushGroup right = popNextPush(stack);
-                        PushGroup left = popNextPush(stack);
+                        PushGroup right = getThePushOnTop(stack);
+                        PushGroup left = getThePushOnTop(stack);
                         stack.addLast(new BinaryPushGroup(left, right, ai.getOp()));
                     }
                 }
@@ -156,7 +126,7 @@ public class VMParser {
 
                     for (int i = 0; i < n; i++) {
                         if (stack.isEmpty()) throw new Exception("not enough args for call " + call.getFunctionName());
-                        args.addFirst(popNextPush(stack));    // skip net-0 items
+                        args.addFirst(getThePushOnTop(stack));
                     }
 
                     stack.addLast(new CallGroup(args, call));
@@ -178,8 +148,7 @@ public class VMParser {
                 }
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
-        }
-        fuck.addAll(stack);
+        } fuck.addAll(stack);
         return new ArrayList<>(fuck);
     }
 

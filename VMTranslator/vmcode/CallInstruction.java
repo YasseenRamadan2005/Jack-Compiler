@@ -58,11 +58,6 @@ public class CallInstruction implements VMinstruction {
 
     @Override
     public String toString() {
-        return "CallInstruction{" +
-                "calleeFunction='" + calleeFunction + '\'' +
-                ", numArgs=" + numArgs +
-                ", funcMapping=" + funcMapping +
-                ", currentFunction='" + VMParser.currentFunction + '\'' +
-                '}';
+        return "CallInstruction{" + calleeFunction + '}';
     }
 }

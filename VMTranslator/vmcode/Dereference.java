@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class Dereference extends PushGroup {
-    //Dereferences a Push Group
+    //Grammar
+    //  PushGroup
+    //  pop pointer 1
+    //  push that 0
     PushGroup base;
 
 

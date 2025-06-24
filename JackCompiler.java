@@ -1,5 +1,7 @@
 import java.io.*;
+import java.nio.file.*;
 import java.util.*;
+import java.util.regex.*;
 
 import VMTranslator.VMTranslator;
 
@@ -43,6 +45,7 @@ public class JackCompiler {
                 VMTranslator translator = new VMTranslator(vmFiles, outputFile);
                 translator.translate();
                 System.out.println("Translation complete: " + outputFile.getAbsolutePath());
+                printStaticVariables(outputFile);
             } catch (IOException e) {
                 System.err.println("Translation failed: " + e.getMessage());
                 System.exit(1);
@@ -90,6 +93,63 @@ public class JackCompiler {
 
     private String escapeXML(String text) {
         return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+    }
+
+    private void printStaticVariables(File asmFile) throws IOException {
+        List<String> lines = Files.readAllLines(asmFile.toPath());
+
+        Set<String> labels = new HashSet<>();
+        Set<String> staticVars = new LinkedHashSet<>();
+
+        Pattern labelPattern = Pattern.compile("^\\(([^)]+)\\)$");
+
+        // First pass: collect labels
+        for (String line : lines) {
+            line = line.trim();
+            Matcher labelMatcher = labelPattern.matcher(line);
+            if (labelMatcher.matches()) {
+                labels.add(labelMatcher.group(1));
+            }
+        }
+
+        // Second pass: collect static variables
+        for (String line : lines) {
+            line = line.trim();
+            if (line.startsWith("@")) {
+                String symbol = line.substring(1).split("\\s|//")[0]; // remove @ and ignore inline comments
+                if (!labels.contains(symbol) && !isNumeric(symbol) && !isBuiltIn(symbol)) {
+                    staticVars.add(symbol);
+                }
+            }
+        }
+
+        if (!staticVars.isEmpty()) {
+            System.out.println("Static variables found:");
+            for (String var : staticVars) {
+                System.out.println("  " + var);
+            }
+        }
+    }
+
+
+    private boolean isNumeric(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private boolean isBuiltIn(String symbol) {
+        return symbol.matches("R\\d+") ||
+                symbol.equals("SCREEN") ||
+                symbol.equals("KBD") ||
+                symbol.equals("SP") ||
+                symbol.equals("LCL") ||
+                symbol.equals("ARG") ||
+                symbol.equals("THIS") ||
+                symbol.equals("THAT");
     }
 
 }
