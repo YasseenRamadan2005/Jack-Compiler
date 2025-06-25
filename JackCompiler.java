@@ -7,14 +7,16 @@ import VMTranslator.VMTranslator;
 
 public class JackCompiler {
     private final File[] files;
+    private final boolean keepVmFiles;
 
-    public JackCompiler(File[] jackFiles) {
+    public JackCompiler(File[] jackFiles, boolean keepVmFiles) {
         files = jackFiles;
+        this.keepVmFiles = keepVmFiles;
     }
 
     public void compileFiles() throws Exception {
         File parentDir = null;
-
+        List<File> generatedVmFiles = new ArrayList<>();
         // Step 1: Compile all .jack files to .vm
         for (File input : files) {
             List<String> vmCode = compileFile(input);
@@ -22,7 +24,7 @@ public class JackCompiler {
             String baseName = input.getName().replaceAll("\\.jack$", "");
             parentDir = input.getParentFile(); // save the last used parent
             File outputFile = new File(parentDir, baseName + ".vm");
-
+            generatedVmFiles.add(outputFile);
             try (PrintWriter writer = new PrintWriter(outputFile)) {
                 for (String line : vmCode) {
                     writer.println(line);
@@ -49,6 +51,13 @@ public class JackCompiler {
             } catch (IOException e) {
                 System.err.println("Translation failed: " + e.getMessage());
                 System.exit(1);
+            }
+            if (!keepVmFiles) {
+                for (File vm : generatedVmFiles) {
+                    if (!vm.delete()) {
+                        System.err.println("Warning: Could not delete " + vm.getName());
+                    }
+                }
             }
         } else {
             throw new IllegalStateException("No parent directory found.");
@@ -142,14 +151,7 @@ public class JackCompiler {
     }
 
     private boolean isBuiltIn(String symbol) {
-        return symbol.matches("R\\d+") ||
-                symbol.equals("SCREEN") ||
-                symbol.equals("KBD") ||
-                symbol.equals("SP") ||
-                symbol.equals("LCL") ||
-                symbol.equals("ARG") ||
-                symbol.equals("THIS") ||
-                symbol.equals("THAT");
+        return symbol.matches("R\\d+") || symbol.equals("SCREEN") || symbol.equals("KBD") || symbol.equals("SP") || symbol.equals("LCL") || symbol.equals("ARG") || symbol.equals("THIS") || symbol.equals("THAT");
     }
 
 }

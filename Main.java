@@ -6,8 +6,8 @@ public class Main {
     public static boolean makeXML = false;
 
     public static void main(String[] args) throws IOException {
-        if (args.length < 1 || args.length > 2) {
-            System.err.println("Usage: java Main <directory> [-x]");
+        if (args.length < 1 || args.length > 3) {
+            System.err.println("Usage: java Main <directory> [-x] [-v]");
             System.exit(1);
         }
 
@@ -17,10 +17,11 @@ public class Main {
             System.exit(1);
         }
 
-        // Check for -x flag
+        //Flags
         if (args.length == 2 && args[1].equals("-x")) {
             makeXML = true;
         }
+        boolean keepVmFiles = Arrays.asList(args).contains("-v");
 
         File[] vmFiles = inputDir.listFiles((dir, name) -> name.endsWith(".jack"));
 
@@ -36,7 +37,7 @@ public class Main {
         }
 
         try {
-            JackCompiler compiler = new JackCompiler(vmFiles);
+            JackCompiler compiler = new JackCompiler(vmFiles, keepVmFiles);
             compiler.compileFiles();
         } catch (Exception e) {
             throw new RuntimeException(e);
