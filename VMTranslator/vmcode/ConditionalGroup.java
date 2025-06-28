@@ -15,9 +15,14 @@ public class ConditionalGroup implements VMinstruction {
     @Override
     public List<String> decode() throws Exception {
         List<String> asm = new ArrayList<>();
-
-        asm.addAll(push.setD());
-        asm.addAll(List.of("@" + ifGoto.getLabel(), "D;JNE"));
+        if (push instanceof BinaryPushGroup bpg1 && bpg1.getLeft() instanceof BinaryPushGroup bpg2 && bpg1.getRight().isConstant() && bpg1.getRight().getConstant() == 0 && bpg1.getOp().equals(ArithmeticInstruction.Op.EQ) && bpg2.getRight().isConstant() && bpg2.getRight().getConstant() == 0 && bpg2.getOp().equals(ArithmeticInstruction.Op.EQ)){
+            asm.addAll(bpg2.setD());
+            asm.addAll(List.of("@" + ifGoto.getLabel(), "D;JEQ"));
+        }
+        else {
+            asm.addAll(push.setD());
+            asm.addAll(List.of("@" + ifGoto.getLabel(), "D;JNE"));
+        }
         return asm;
     }
 

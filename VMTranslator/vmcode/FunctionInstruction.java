@@ -18,21 +18,27 @@ public class FunctionInstruction implements VMinstruction {
     @Override
     public List<String> decode() {
         VMParser.currentFunction = funcName;
-        List<String> asm = new ArrayList<>();
-
-        // Reset the call count for this function in the map
         funcMapping.put(VMParser.currentFunction, 0);
 
+        List<String> asm = new ArrayList<>();
         asm.add("// function " + VMParser.currentFunction + " with " + numLocals);
         asm.add("(" + VMParser.currentFunction + ")");
 
-        // Initialize local variables to 0 by pushing 0 numLocals times
+        // Push zero-initialized locals using optimized constant push
+        List<PushGroup> zeroPushes = new ArrayList<>();
         for (int i = 0; i < numLocals; i++) {
-            asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=0"));
+            zeroPushes.add(new PushInstruction(new Address("constant", (short) 0)));
+        }
+
+        try {
+            asm.addAll(PushInstruction.handleMultiplePushes(zeroPushes));
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to generate locals for function " + funcName, e);
         }
 
         return asm;
     }
+
 
     public String getFuncName() {
         return funcName;

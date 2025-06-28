@@ -47,7 +47,7 @@ public class JackCompiler {
                 VMTranslator translator = new VMTranslator(vmFiles, outputFile);
                 translator.translate();
                 System.out.println("Translation complete: " + outputFile.getAbsolutePath());
-                printStaticVariables(outputFile);
+                //printStaticVariables(outputFile);
             } catch (IOException e) {
                 System.err.println("Translation failed: " + e.getMessage());
                 System.exit(1);

@@ -98,6 +98,7 @@ public class VMTranslator {
     private boolean isRealInstruction(String line) {
         line = line.trim();
         return !line.isEmpty() && !line.startsWith("//") && !line.startsWith("(");
+
     }
 
 }

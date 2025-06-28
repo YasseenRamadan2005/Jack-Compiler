@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CallGroup extends PushGroup{
+public class CallGroup extends PushGroup {
     //A call Group is a list of n pushGroups followed by "call Foo n"
     private List<PushGroup> pushes;
     private CallInstruction call;
@@ -13,10 +13,11 @@ public class CallGroup extends PushGroup{
         this.pushes = pushes;
         this.call = call;
     }
+
+    @Override
     public List<String> decode() throws Exception {
         List<String> asm = new ArrayList<>();
-        for (PushGroup p : pushes)
-            asm.addAll(p.decode());
+        asm.addAll(PushInstruction.handleMultiplePushes(pushes));
         asm.addAll(call.decode());
         return asm;
     }
@@ -44,23 +45,20 @@ public class CallGroup extends PushGroup{
         return 0;
     }
 
-    public String toString(int indent){
+    public String toString(int indent) {
         return toString();
     }
 
     @Override
     public String toString() {
-        return "CallGroup{" +
-                "pushes=" + pushes +
-                ", call=" + call +
-                '}';
+        return "CallGroup{" + "pushes=" + pushes + ", call=" + call + '}';
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (!(obj instanceof CallGroup other)) return false;
-        return Objects.equals(pushes, other.pushes)
-                && Objects.equals(call, other.call);
+        return Objects.equals(pushes, other.pushes) && Objects.equals(call, other.call);
     }
 
     @Override
