@@ -132,12 +132,12 @@ public class JackCompiler {
             }
         }
 
-        if (!staticVars.isEmpty()) {
-            System.out.println("Static variables found:");
-            for (String var : staticVars) {
-                System.out.println("  " + var);
-            }
-        }
+        //if (!staticVars.isEmpty()) {
+        //    System.out.println("Static variables found:");
+        //    for (String var : staticVars) {
+        //        System.out.println("  " + var);
+        //    }
+        //}
     }
 
 

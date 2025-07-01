@@ -84,7 +84,7 @@ public class VMTranslator {
                 allAssemblyLines.add(""); // blank line between instructions
             }
 
-            System.out.println(vmFile.getName() + "  " + instructions.size());
+            //System.out.println(vmFile.getName() + "  " + instructions.size());
         }
 
         Files.write(outputFile.toPath(), allAssemblyLines);
