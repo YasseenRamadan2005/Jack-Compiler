@@ -81,17 +81,17 @@ class Math {
             return 0;
           }
 
-          let q = Math.divide(nx, 2 * ny);
-          if ((nx - (2 * q * ny)) < ny) {
+          let q = Math.divide(nx, ny + ny);
+          if ((nx - ((q+q) * ny)) < ny) {
             if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
               let q = -q;
             }
-            return 2 * q;
+            return q + q;
           } else {
             if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
               let q = -q;
             }
-            return (2 * q) + 1;
+            return (q + q) + 1;
           }
         }
 

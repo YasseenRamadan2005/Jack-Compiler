@@ -20,9 +20,6 @@ public class PushWriter implements VMinstruction {
 
     @Override
     public List<String> decode() throws Exception {
-        if (VMParser.currentFunction.equals("Memory.init")){
-            int x =0;
-        }
         List<String> asm = new ArrayList<>(dest.decode());
         asm.addAll(source.setD());
         asm.addAll(List.of("@SP", "AM=M-1", "A=M", "M=D"));
