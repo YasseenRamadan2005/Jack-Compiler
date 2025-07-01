@@ -48,9 +48,6 @@ public class VMParser {
         List<VMinstruction> fuck = new ArrayList<>();
         while (!todo.isEmpty()) {
             VMinstruction cur = todo.removeFirst();   // process tail-first
-            if (VMParser.currentFunction.equals("Memory.init")) {
-                int x = 0;
-            }
             switch (cur) {
                 case CallGroup c -> stack.addLast(c);
 
@@ -151,14 +148,6 @@ public class VMParser {
         } fuck.addAll(stack);
         return new ArrayList<>(fuck);
     }
-
-    private static boolean hasEarlierPushGroup(Deque<VMinstruction> stack) {
-        for (VMinstruction v : stack) {
-            if (v instanceof PushGroup) return true;
-        }
-        return false;
-    }
-
 
     private VMinstruction parseLine(String line) {
         String[] tokens = line.split("\\s+");
