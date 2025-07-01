@@ -45,9 +45,6 @@ public class PushInstruction extends PushGroup {
     }
 
     public static List<String> handleMultiplePushes(List<PushGroup> pushes) throws Exception {
-        if (VMParser.currentFunction.equals("Keyboard.readLine")){
-            int x = 0;
-        }
         if (pushes.isEmpty()) {
             return new ArrayList<>();
         }
@@ -213,14 +210,9 @@ public class PushInstruction extends PushGroup {
 
         int n = pushes.size();
 
-        asm.add("@" + n);
-        asm.add("D=A");
-        asm.add("@SP");
-        asm.add("M=D+M");
+        asm.addAll(List.of("@" + n, "D=A", "@SP", "M=D+M"));
         asm.addAll(((PushInstruction) firstPush).setD());
-        asm.add("@SP");
-        asm.add("A=M-1");
-        asm.add("M=D");
+        asm.addAll(List.of("@SP", "A=M-1", "M=D"));
 
         // write the rest trivial constants downward
         for (int k = pushes.size() - 1; k >= 1; k--) {
@@ -248,10 +240,6 @@ public class PushInstruction extends PushGroup {
 
     public Address getAddress() {
         return address;
-    }
-
-    public boolean isTrivial() {
-        return address.isTrivial();
     }
 
     public boolean isConstant() {

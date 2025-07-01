@@ -2,7 +2,6 @@ package VMTranslator.vmcode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Dereference extends PushGroup {
     //Grammar

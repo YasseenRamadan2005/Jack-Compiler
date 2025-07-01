@@ -103,11 +103,6 @@ public class BinaryPushGroup extends PushGroup {
             //Handle special cases here
             if (Math.abs(constant.getConstant()) <= 1) {
                 if (op.isCompare()) return doCompare(op, left, right);
-
-                if (VMParser.currentFunction.equals("Output.printChar")){
-                    int x =0;
-                }
-
                 if (op == ArithmeticInstruction.Op.AND && constant.getConstant() == 0){
                     return List.of("D=0");
                 }
