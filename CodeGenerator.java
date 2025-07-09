@@ -106,7 +106,7 @@ public class CodeGenerator {
 
                 whileCode.add("label " + labelStart);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
-                whileCode.addAll(List.of("push constant 0", "eq")); //if the condition is not false
+                whileCode.add("not");
                 whileCode.add("if-goto " + labelEnd);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // body
                 whileCode.add("goto " + labelStart);
@@ -119,16 +119,23 @@ public class CodeGenerator {
                 String funcName = ps.getFunctionDeclarationName();
 
                 List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
-                ifCode.addAll(List.of("push constant 0", "eq")); //if the condition is not false
-                ifCode.add("if-goto " + funcName + ".IfElse" + y); //We jump if the condition is false. Bitwise not of false (0) is -1, which is all ones (true). Technically, any value not zero is truthy, even though the true keyword is specifically -1
+                ifCode.add("not");
 
-                ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then block
-                ifCode.add("goto " + funcName + ".IfElseEND" + y);
-                ifCode.add("label " + funcName + ".IfElse" + y);
                 if (node.children.size() > 7) {
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else block
+                    // has else block
+                    ifCode.add("if-goto " + funcName + ".IfElse" + y);
+                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then
+                    ifCode.add("goto " + funcName + ".IfElseEND" + y);
+                    ifCode.add("label " + funcName + ".IfElse" + y);
+                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else
+                    ifCode.add("label " + funcName + ".IfElseEND" + y);
+                } else {
+                    // no else block
+                    ifCode.add("if-goto " + funcName + ".IfElseEND" + y); // skip then if false
+                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then
+                    ifCode.add("label " + funcName + ".IfElseEND" + y);
                 }
-                ifCode.add("label " + funcName + ".IfElseEND" + y);
+
                 return ifCode;
 
 

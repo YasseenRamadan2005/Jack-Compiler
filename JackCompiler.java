@@ -75,6 +75,30 @@ public class JackCompiler {
         return the_codeGenerator.generateCode();
     }
 
+
+    public void translateOnlyVmFiles() throws IOException {
+        File parentDir = null;
+        if (files.length > 0) {
+            parentDir = files[0].getParentFile();
+        }
+
+        if (parentDir == null) {
+            throw new IllegalStateException("No parent directory found.");
+        }
+
+        File outputFile = new File(parentDir, parentDir.getName() + ".asm");
+
+        try {
+            VMTranslator translator = new VMTranslator(files, outputFile);
+            translator.translate();
+            System.out.println("Translation complete: " + outputFile.getAbsolutePath());
+        } catch (Exception e) {
+            System.err.println("Translation failed: " + e.getMessage());
+            System.exit(1);
+        }
+    }
+
+
     private void writeXML(Node root, File input) throws IOException {
         String filename = input.getName().replace(".jack", ".xml");
         File output = new File(input.getParentFile(), filename);
@@ -102,56 +126,6 @@ public class JackCompiler {
 
     private String escapeXML(String text) {
         return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
-    }
-
-    private void printStaticVariables(File asmFile) throws IOException {
-        List<String> lines = Files.readAllLines(asmFile.toPath());
-
-        Set<String> labels = new HashSet<>();
-        Set<String> staticVars = new LinkedHashSet<>();
-
-        Pattern labelPattern = Pattern.compile("^\\(([^)]+)\\)$");
-
-        // First pass: collect labels
-        for (String line : lines) {
-            line = line.trim();
-            Matcher labelMatcher = labelPattern.matcher(line);
-            if (labelMatcher.matches()) {
-                labels.add(labelMatcher.group(1));
-            }
-        }
-
-        // Second pass: collect static variables
-        for (String line : lines) {
-            line = line.trim();
-            if (line.startsWith("@")) {
-                String symbol = line.substring(1).split("\\s|//")[0]; // remove @ and ignore inline comments
-                if (!labels.contains(symbol) && !isNumeric(symbol) && !isBuiltIn(symbol)) {
-                    staticVars.add(symbol);
-                }
-            }
-        }
-
-        //if (!staticVars.isEmpty()) {
-        //    System.out.println("Static variables found:");
-        //    for (String var : staticVars) {
-        //        System.out.println("  " + var);
-        //    }
-        //}
-    }
-
-
-    private boolean isNumeric(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    private boolean isBuiltIn(String symbol) {
-        return symbol.matches("R\\d+") || symbol.equals("SCREEN") || symbol.equals("KBD") || symbol.equals("SP") || symbol.equals("LCL") || symbol.equals("ARG") || symbol.equals("THIS") || symbol.equals("THAT");
     }
 
 }

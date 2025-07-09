@@ -14,23 +14,15 @@ class Math {
 
     // Initializes the Math library.
     function void init() {
+        var int mask, i;
+        let mask = 1;
+        let i = 0;
         let powersOfTwo = Array.new(16);
-        let powersOfTwo[0] = 1;
-        let powersOfTwo[1] = 2;
-        let powersOfTwo[2] = 4;
-        let powersOfTwo[3] = 8;
-        let powersOfTwo[4] = 16;
-        let powersOfTwo[5] = 32;
-        let powersOfTwo[6] = 64;
-        let powersOfTwo[7] = 128;
-        let powersOfTwo[8] = 256;
-        let powersOfTwo[9] = 512;
-        let powersOfTwo[10] = 1024;
-        let powersOfTwo[11] = 2048;
-        let powersOfTwo[12] = 4096;
-        let powersOfTwo[13] = 8192;
-        let powersOfTwo[14] = 16384;
-        let powersOfTwo[15] = 16384 + 16384;
+        while (i < 16){
+           let powersOfTwo[i] = mask;
+           let mask=mask+mask;
+           let i = i + 1;
+        }
         return;
     }
 
@@ -62,8 +54,10 @@ class Math {
         }
 
         let mask = 1;
+        let index = 0;
+        let sum = 0;
         while (index < 16) {
-            if (y & mask) {
+            if ((y & mask) ~= 0) {
                 let sum = sum + x;
             }
             let x = x + x;
@@ -75,35 +69,36 @@ class Math {
     }
 
 
+
+
     /** Returns the integer part of x / y.
      *  When a Jack compiler detects the division operator '/'
      *  an an expression, it handles it by invoking this method.
      *  Thus, x/y and Math.divide(x,y) return the same value. */
-    function int divide(int x, int y) {
-        var int q; // Quotient
-        var int y_a;
-        var int x_a;
-        let x_a = Math.abs(x);
-        let y_a = Math.abs(y);
-        if ((x = 0) | (y_a > x_a)) {
+        function int divide(int x, int y) {
+          var int q, nx, ny;
+
+          let nx = Math.abs(x);
+          let ny = Math.abs(y);
+
+          if (ny > nx) {
             return 0;
-        }
-        if (x = y) {
-            return 1;
-        }
-        if ((x < 0) | (y < 0)) {
-            let q = x_a / y_a;
-             if ((x < 0) & (y < 0)){
-                return q;
-             }
-            return -q;
-        }
-        let q = x / (y + y);
-        if ((x - ((q + q) * y)) < y) {
+          }
+
+          let q = Math.divide(nx, ny + ny);
+          if ((nx - ((q+q) * ny)) < ny) {
+            if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
+              let q = -q;
+            }
             return q + q;
+          } else {
+            if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
+              let q = -q;
+            }
+            return (q + q) + 1;
+          }
         }
-        return q + q + 1;
-    }
+
 
 
    /** Returns the remainder part of x/y */
@@ -111,6 +106,10 @@ class Math {
         return x - ((x / y) * y);
     }
 
+    //Returns 2 ^ x
+    function int twoToThe(int x){
+        return powersOfTwo[x];
+    }
 
 
     /** Returns the integer part of the square root of x. */
