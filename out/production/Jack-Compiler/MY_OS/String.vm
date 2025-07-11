@@ -29,12 +29,10 @@ push constant 0
 eq
 not
 not
-if-goto String.dispose.IfElse1
+if-goto String.dispose.IfElseEND1
 push this 0
 call Array.dispose 1
 pop temp 0
-goto String.dispose.IfElseEND1
-label String.dispose.IfElse1
 label String.dispose.IfElseEND1
 push constant 0
 return
@@ -70,7 +68,7 @@ push this 1
 push this 2
 eq
 not
-if-goto String.appendChar.IfElse1
+if-goto String.appendChar.IfElseEND1
 push this 2
 push this 2
 add
@@ -90,8 +88,6 @@ add
 pop this 2
 push local 0
 pop this 0
-goto String.appendChar.IfElseEND1
-label String.appendChar.IfElse1
 label String.appendChar.IfElseEND1
 push argument 1
 push this 0
@@ -158,21 +154,19 @@ push argument 1
 push constant 0
 eq
 not
-if-goto String.setInt.IfElse1
+if-goto String.setInt.IfElseEND1
 push pointer 0
 push constant 48
 call String.appendChar 2
 pop temp 0
 push constant 0
 return
-goto String.setInt.IfElseEND1
-label String.setInt.IfElse1
 label String.setInt.IfElseEND1
 push argument 1
 push constant 0
 lt
 not
-if-goto String.setInt.IfElse2
+if-goto String.setInt.IfElseEND2
 push constant 1
 pop local 4
 push argument 1
@@ -185,7 +179,7 @@ push constant 32767
 eq
 and
 not
-if-goto String.setInt.IfElse3
+if-goto String.setInt.IfElseEND3
 push pointer 0
 push constant 45
 call String.appendChar 2
@@ -212,14 +206,10 @@ call String.appendChar 2
 pop temp 0
 push constant 0
 return
-goto String.setInt.IfElseEND3
-label String.setInt.IfElse3
 label String.setInt.IfElseEND3
 push argument 1
 neg
 pop argument 1
-goto String.setInt.IfElseEND2
-label String.setInt.IfElse2
 label String.setInt.IfElseEND2
 push argument 1
 pop local 2
@@ -282,13 +272,11 @@ push local 4
 push constant 1
 eq
 not
-if-goto String.setInt.IfElse4
+if-goto String.setInt.IfElseEND4
 push pointer 0
 push constant 45
 call String.appendChar 2
 pop temp 0
-goto String.setInt.IfElseEND4
-label String.setInt.IfElse4
 label String.setInt.IfElseEND4
 label WHILE_START_String.setInt3
 push local 1

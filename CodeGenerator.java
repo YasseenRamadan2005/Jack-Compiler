@@ -86,7 +86,7 @@ public class CodeGenerator {
                 for (int i = 2; i < node.children.size(); i++) {
                     Node child = node.children.get(i);
                     if (child.tokenType == Node.TokenType.IDENTIFIER) {
-                        ps.addToSubroutineST(child.value, node.children.get(1).value, "local");
+                        ps.addToSubroutineST(child.value, localType, "local");
                     }
                 }
                 return List.of();

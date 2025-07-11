@@ -1,13 +1,4 @@
-function Output.init 0
-call Output.initMap 0
-pop temp 0
-push constant 0
-pop static 1
-push constant 0
-pop static 2
-push constant 0
-return
-function Output.initMap 1
+function Output.init 1
 push constant 127
 call Array.new 1
 pop static 0
@@ -1355,6 +1346,10 @@ push constant 0
 push constant 0
 call Output.create 12
 pop temp 0
+push constant 0
+pop static 1
+push constant 0
+pop static 2
 push constant 0
 return
 function Output.create 1

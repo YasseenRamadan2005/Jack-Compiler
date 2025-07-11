@@ -87,12 +87,12 @@ class Math {
 
           let q = Math.divide(nx, ny + ny);
           if ((nx - ((q+q) * ny)) < ny) {
-            if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
+            if (((x < 0) & (y > 0)) | ((x > 0) & (y < 0))) {
               let q = -q;
             }
             return q + q;
           } else {
-            if ((x < 0 & y > 0) | (x > 0 & y < 0)) {
+            if (((x < 0) & (y > 0)) | ((x > 0 )& (y < 0))) {
               let q = -q;
             }
             return (q + q) + 1;

@@ -48,60 +48,52 @@ push constant 0
 eq
 or
 not
-if-goto Math.multiply.IfElse1
+if-goto Math.multiply.IfElseEND1
 push constant 0
 return
-goto Math.multiply.IfElseEND1
-label Math.multiply.IfElse1
 label Math.multiply.IfElseEND1
 push argument 0
 push constant 1
 eq
 not
-if-goto Math.multiply.IfElse2
+if-goto Math.multiply.IfElseEND2
 push argument 1
 return
-goto Math.multiply.IfElseEND2
-label Math.multiply.IfElse2
 label Math.multiply.IfElseEND2
 push argument 1
 push constant 1
 eq
 not
-if-goto Math.multiply.IfElse3
+if-goto Math.multiply.IfElseEND3
 push argument 0
 return
-goto Math.multiply.IfElseEND3
-label Math.multiply.IfElse3
 label Math.multiply.IfElseEND3
 push argument 0
 push constant 2
 eq
 not
-if-goto Math.multiply.IfElse4
+if-goto Math.multiply.IfElseEND4
 push argument 1
 push argument 1
 add
 return
-goto Math.multiply.IfElseEND4
-label Math.multiply.IfElse4
 label Math.multiply.IfElseEND4
 push argument 1
 push constant 2
 eq
 not
-if-goto Math.multiply.IfElse5
+if-goto Math.multiply.IfElseEND5
 push argument 0
 push argument 0
 add
 return
-goto Math.multiply.IfElseEND5
-label Math.multiply.IfElse5
 label Math.multiply.IfElseEND5
 push constant 1
 pop local 2
 push constant 0
 pop local 1
+push constant 0
+pop local 0
 label WHILE_START_Math.multiply1
 push local 1
 push constant 16
@@ -111,14 +103,15 @@ if-goto WHILE_END_Math.multiply1
 push argument 1
 push local 2
 and
+push constant 0
+eq
 not
-if-goto Math.multiply.IfElse6
+not
+if-goto Math.multiply.IfElseEND6
 push local 0
 push argument 0
 add
 pop local 0
-goto Math.multiply.IfElseEND6
-label Math.multiply.IfElse6
 label Math.multiply.IfElseEND6
 push argument 0
 push argument 0
@@ -147,11 +140,9 @@ push local 2
 push local 1
 gt
 not
-if-goto Math.divide.IfElse1
+if-goto Math.divide.IfElseEND1
 push constant 0
 return
-goto Math.divide.IfElseEND1
-label Math.divide.IfElse1
 label Math.divide.IfElseEND1
 push local 1
 push local 2
@@ -174,24 +165,22 @@ push argument 0
 push constant 0
 lt
 push argument 1
-and
 push constant 0
 gt
+and
 push argument 0
 push constant 0
 gt
 push argument 1
-and
 push constant 0
 lt
+and
 or
 not
-if-goto Math.divide.IfElse3
+if-goto Math.divide.IfElseEND3
 push local 0
 neg
 pop local 0
-goto Math.divide.IfElseEND3
-label Math.divide.IfElse3
 label Math.divide.IfElseEND3
 push local 0
 push local 0
@@ -203,24 +192,22 @@ push argument 0
 push constant 0
 lt
 push argument 1
-and
 push constant 0
 gt
+and
 push argument 0
 push constant 0
 gt
 push argument 1
-and
 push constant 0
 lt
+and
 or
 not
-if-goto Math.divide.IfElse4
+if-goto Math.divide.IfElseEND4
 push local 0
 neg
 pop local 0
-goto Math.divide.IfElseEND4
-label Math.divide.IfElse4
 label Math.divide.IfElseEND4
 push local 0
 push local 0
@@ -278,11 +265,9 @@ push constant 0
 gt
 and
 not
-if-goto Math.sqrt.IfElse1
+if-goto Math.sqrt.IfElseEND1
 push local 2
 pop local 0
-goto Math.sqrt.IfElseEND1
-label Math.sqrt.IfElse1
 label Math.sqrt.IfElseEND1
 push local 1
 push constant 1
@@ -297,11 +282,9 @@ push argument 0
 push argument 1
 gt
 not
-if-goto Math.max.IfElse1
+if-goto Math.max.IfElseEND1
 push argument 0
 return
-goto Math.max.IfElseEND1
-label Math.max.IfElse1
 label Math.max.IfElseEND1
 push argument 1
 return
@@ -310,11 +293,9 @@ push argument 0
 push argument 1
 lt
 not
-if-goto Math.min.IfElse1
+if-goto Math.min.IfElseEND1
 push argument 0
 return
-goto Math.min.IfElseEND1
-label Math.min.IfElse1
 label Math.min.IfElseEND1
 push argument 1
 return

@@ -56,7 +56,7 @@ call Keyboard.readChar 0
 pop local 1
 label WHILE_START_Keyboard.readLine1
 push local 1
-call String.newLine 0
+push constant 128
 eq
 not
 not

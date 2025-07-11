@@ -53,7 +53,7 @@ public class VMParser {
 
                 case PushGroup pg -> {
                     if (!stack.isEmpty() && stack.getLast() instanceof PushPopPair PPP && PPP.getPopAddress().equals(new Address("pointer", (short) 1)) && pg instanceof PushInstruction pi && pi.equals(new PushInstruction(new Address("that", (short) 0)))) {
-                        Dereference d = new Dereference((BinaryPushGroup) PPP.getPush());
+                        Dereference d = new Dereference(PPP.getPush());
                         stack.removeLast();
                         stack.addLast(d);
                     } else {
@@ -150,7 +150,8 @@ public class VMParser {
                 }
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
-        } fuck.addAll(stack);
+        }
+        fuck.addAll(stack);
         return new ArrayList<>(fuck);
     }
 

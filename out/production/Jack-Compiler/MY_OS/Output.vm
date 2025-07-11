@@ -1,13 +1,4 @@
-function Output.init 0
-call Output.initMap 0
-pop temp 0
-push constant 0
-pop static 1
-push constant 0
-pop static 2
-push constant 0
-return
-function Output.initMap 1
+function Output.init 1
 push constant 127
 call Array.new 1
 pop static 0
@@ -1356,6 +1347,10 @@ push constant 0
 call Output.create 12
 pop temp 0
 push constant 0
+pop static 1
+push constant 0
+pop static 2
+push constant 0
 return
 function Output.create 1
 push constant 11
@@ -1444,11 +1439,9 @@ push constant 126
 gt
 or
 not
-if-goto Output.getMap.IfElse1
+if-goto Output.getMap.IfElseEND1
 push constant 0
 pop argument 0
-goto Output.getMap.IfElseEND1
-label Output.getMap.IfElse1
 label Output.getMap.IfElseEND1
 push static 0
 push argument 0

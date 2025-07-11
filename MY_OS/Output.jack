@@ -32,18 +32,9 @@ class Output {
     static int cursor_x, cursor_y;
     /** Initializes the screen, and locates the cursor at the screen's top-left. */
     function void init() {
-        do Output.initMap();
-        let cursor_x = 0;
-        let cursor_y = 0;
-        return;
-    }
-
-    // Initializes the character map array
-    function void initMap() {
         var int i;
-
         let charMaps = Array.new(127);
-
+        // Initializes the character map array (inlining initMap)
         // Black square, used for displaying non-printable characters.
         do Output.create(0,63,63,63,63,63,63,63,63,63,0,0);
 
@@ -152,8 +143,11 @@ class Output {
         do Output.create(125,7,12,12,12,56,12,12,12,7,0,0);    // }
         do Output.create(126,38,45,25,0,0,0,0,0,0,0,0);        // ~
 
-	return;
+        let cursor_x = 0;
+        let cursor_y = 0;
+        return;
     }
+
     // Creates the character map array of the given character index, using the given values.
     function void create(int index, int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k) {
 	    var Array map;

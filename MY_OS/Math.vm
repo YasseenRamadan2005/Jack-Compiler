@@ -165,16 +165,16 @@ push argument 0
 push constant 0
 lt
 push argument 1
-and
 push constant 0
 gt
+and
 push argument 0
 push constant 0
 gt
 push argument 1
-and
 push constant 0
 lt
+and
 or
 not
 if-goto Math.divide.IfElseEND3
@@ -192,16 +192,16 @@ push argument 0
 push constant 0
 lt
 push argument 1
-and
 push constant 0
 gt
+and
 push argument 0
 push constant 0
 gt
 push argument 1
-and
 push constant 0
 lt
+and
 or
 not
 if-goto Math.divide.IfElseEND4

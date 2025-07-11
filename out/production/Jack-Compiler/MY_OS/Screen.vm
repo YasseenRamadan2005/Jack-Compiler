@@ -120,11 +120,9 @@ push argument 3
 eq
 and
 not
-if-goto Screen.drawLine.IfElse3
+if-goto Screen.drawLine.IfElseEND3
 push constant 0
 return
-goto Screen.drawLine.IfElseEND3
-label Screen.drawLine.IfElse3
 label Screen.drawLine.IfElseEND3
 push local 4
 push local 4
@@ -136,7 +134,7 @@ add
 push constant 0
 gt
 not
-if-goto Screen.drawLine.IfElse4
+if-goto Screen.drawLine.IfElseEND4
 push local 4
 push local 1
 sub
@@ -145,14 +143,12 @@ push argument 0
 push local 2
 add
 pop argument 0
-goto Screen.drawLine.IfElseEND4
-label Screen.drawLine.IfElse4
 label Screen.drawLine.IfElseEND4
 push local 5
 push local 0
 lt
 not
-if-goto Screen.drawLine.IfElse5
+if-goto Screen.drawLine.IfElseEND5
 push local 4
 push local 0
 add
@@ -161,8 +157,6 @@ push argument 1
 push local 3
 add
 pop argument 1
-goto Screen.drawLine.IfElseEND5
-label Screen.drawLine.IfElse5
 label Screen.drawLine.IfElseEND5
 goto WHILE_START_Screen.drawLine1
 label WHILE_END_Screen.drawLine1
@@ -297,11 +291,9 @@ pop local 9
 push static 0
 not
 not
-if-goto Screen.drawRectangle.IfElse1
+if-goto Screen.drawRectangle.IfElseEND1
 push constant 0
 pop local 9
-goto Screen.drawRectangle.IfElseEND1
-label Screen.drawRectangle.IfElse1
 label Screen.drawRectangle.IfElseEND1
 push argument 1
 pop local 0
