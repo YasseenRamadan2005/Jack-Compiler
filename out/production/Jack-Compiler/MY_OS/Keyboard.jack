@@ -59,7 +59,7 @@ class Keyboard {
         do Output.printString(message);
         let line = String.new(LINE_BUFFER);
         let c = Keyboard.readChar();
-        while( c ~= String.newLine() ) {
+        while( c ~= 128 ) {
             //backspace character
             if( c = 129 ) {
                 do line.eraseLastChar();
