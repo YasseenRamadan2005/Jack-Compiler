@@ -1438,11 +1438,12 @@ push argument 0
 push constant 126
 gt
 or
-not
-if-goto Output.getMap.IfElseEND1
+if-goto Output.getMap$IF_TRUE1
+goto Output.getMap$IF_FALSE1
+label Output.getMap$IF_TRUE1
 push constant 0
 pop argument 0
-label Output.getMap.IfElseEND1
+label Output.getMap$IF_FALSE1
 push static 0
 push argument 0
 add
@@ -1462,12 +1463,12 @@ call Output.getMap 1
 pop local 0
 push constant 0
 pop local 3
-label WHILE_START_Output.printChar1
+label Output.printChar_WHILE_EXP1
 push local 3
 push constant 11
 lt
 not
-if-goto WHILE_END_Output.printChar1
+if-goto Output.printChar_WHILE_END1
 push constant 16384
 push static 2
 push constant 11
@@ -1487,16 +1488,17 @@ push constant 1
 and
 push constant 0
 eq
-not
-if-goto Output.printChar.IfElse1
+if-goto Output.printChar$IF_TRUE1
+goto Output.printChar$IF_FALSE1
+label Output.printChar$IF_TRUE1
 push local 0
 push local 3
 add
 pop pointer 1
 push that 0
 pop local 2
-goto Output.printChar.IfElseEND1
-label Output.printChar.IfElse1
+goto Output.printChar$IF_END1
+label Output.printChar$IF_FALSE1
 push local 0
 push local 3
 add
@@ -1505,7 +1507,7 @@ push that 0
 push constant 256
 call Math.multiply 2
 pop local 2
-label Output.printChar.IfElseEND1
+label Output.printChar$IF_END1
 push local 1
 push constant 0
 add
@@ -1522,22 +1524,23 @@ push local 3
 push constant 1
 add
 pop local 3
-goto WHILE_START_Output.printChar1
-label WHILE_END_Output.printChar1
+goto Output.printChar_WHILE_EXP1
+label Output.printChar_WHILE_END1
 push static 1
 push constant 63
 eq
-not
-if-goto Output.printChar.IfElse2
+if-goto Output.printChar$IF_TRUE2
+goto Output.printChar$IF_FALSE2
+label Output.printChar$IF_TRUE2
 call Output.println 0
 pop temp 0
-goto Output.printChar.IfElseEND2
-label Output.printChar.IfElse2
+goto Output.printChar$IF_END2
+label Output.printChar$IF_FALSE2
 push static 1
 push constant 1
 add
 pop static 1
-label Output.printChar.IfElseEND2
+label Output.printChar$IF_END2
 push constant 0
 return
 function Output.printString 2
@@ -1546,12 +1549,12 @@ pop local 0
 push argument 0
 call String.length 1
 pop local 1
-label WHILE_START_Output.printString1
+label Output.printString_WHILE_EXP1
 push local 0
 push local 1
 lt
 not
-if-goto WHILE_END_Output.printString1
+if-goto Output.printString_WHILE_END1
 push argument 0
 push local 0
 call String.charAt 2
@@ -1561,8 +1564,8 @@ push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Output.printString1
-label WHILE_END_Output.printString1
+goto Output.printString_WHILE_EXP1
+label Output.printString_WHILE_END1
 push constant 0
 return
 function Output.printInt 1
@@ -1587,37 +1590,39 @@ pop static 1
 push static 2
 push constant 22
 eq
-not
-if-goto Output.println.IfElse1
+if-goto Output.println$IF_TRUE1
+goto Output.println$IF_FALSE1
+label Output.println$IF_TRUE1
 push constant 0
 pop static 2
-goto Output.println.IfElseEND1
-label Output.println.IfElse1
+goto Output.println$IF_END1
+label Output.println$IF_FALSE1
 push static 2
 push constant 1
 add
 pop static 2
-label Output.println.IfElseEND1
+label Output.println$IF_END1
 push constant 0
 return
 function Output.backSpace 0
 push static 1
 push constant 0
 eq
-not
-if-goto Output.backSpace.IfElse1
+if-goto Output.backSpace$IF_TRUE1
+goto Output.backSpace$IF_FALSE1
+label Output.backSpace$IF_TRUE1
 push static 2
 push constant 1
 sub
 pop static 2
 push constant 63
 pop static 1
-goto Output.backSpace.IfElseEND1
-label Output.backSpace.IfElse1
+goto Output.backSpace$IF_END1
+label Output.backSpace$IF_FALSE1
 push static 1
 push constant 1
 sub
 pop static 1
-label Output.backSpace.IfElseEND1
+label Output.backSpace$IF_END1
 push constant 0
 return
