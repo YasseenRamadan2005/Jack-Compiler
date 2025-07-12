@@ -101,39 +101,49 @@ public class CodeGenerator {
             case WHILE_STATEMENT:
                 List<String> whileCode = new ArrayList<>();
                 int x = ps.getStatementCounter("while");
-                String labelStart = "WHILE_START_" + ps.getFunctionDeclarationName() + x;
-                String labelEnd = "WHILE_END_" + ps.getFunctionDeclarationName() + x;
+                String while_funcName = ps.getFunctionDeclarationName();
 
-                whileCode.add("label " + labelStart);
+                String labelExp = while_funcName + "_WHILE_EXP" + x;
+                String labelEnd = while_funcName + "_WHILE_END" + x;
+
+                whileCode.add("label " + labelExp);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
                 whileCode.add("not");
                 whileCode.add("if-goto " + labelEnd);
                 whileCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // body
-                whileCode.add("goto " + labelStart);
+                whileCode.add("goto " + labelExp);
                 whileCode.add("label " + labelEnd);
 
                 return whileCode;
 
             case IF_STATEMENT:
                 int y = ps.getStatementCounter("if");
-                String funcName = ps.getFunctionDeclarationName();
+                String funcName = ps.getFunctionDeclarationName(); // e.g., "Main.main"
 
-                List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2)))); // condition
-                ifCode.add("not");
+                String if_labelTrue = funcName + "$IF_TRUE" + y;
+                String if_labelFalse = funcName + "$IF_FALSE" + y;
+                String if_labelEnd = funcName + "$IF_END" + y;
+
+                // Compile the condition
+                List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2))));
+                ifCode.add("if-goto " + if_labelTrue);
+                ifCode.add("goto " + if_labelFalse);
+
+                // THEN block
+                ifCode.add("label " + if_labelTrue);
+                ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5))));
 
                 if (node.children.size() > 7) {
-                    // has else block
-                    ifCode.add("if-goto " + funcName + ".IfElse" + y);
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then
-                    ifCode.add("goto " + funcName + ".IfElseEND" + y);
-                    ifCode.add("label " + funcName + ".IfElse" + y);
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9)))); // else
-                    ifCode.add("label " + funcName + ".IfElseEND" + y);
-                } else {
-                    // no else block
-                    ifCode.add("if-goto " + funcName + ".IfElseEND" + y); // skip then if false
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5)))); // then
-                    ifCode.add("label " + funcName + ".IfElseEND" + y);
+                    // has ELSE block
+                    ifCode.add("goto " + if_labelEnd);
+                }
+
+                // ELSE or fallthrough
+                ifCode.add("label " + if_labelFalse);
+
+                if (node.children.size() > 7) {
+                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9))));
+                    ifCode.add("label " + if_labelEnd);
                 }
 
                 return ifCode;

@@ -57,4 +57,7 @@ public class Dereference extends PushGroup {
     }
 
 
+    public PushGroup getBase() {
+        return base;
+    }
 }
