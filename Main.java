@@ -6,8 +6,8 @@ public class Main {
     public static boolean makeXML = false;
 
     public static void main(String[] args) throws IOException {
-        if (args.length < 1 || args.length > 4) {
-            System.err.println("Usage: java Main <directory> [--vm] [-x] [-v]");
+        if (args.length < 1 || args.length > 5) {
+            System.err.println("Usage: java Main <directory> [--vm] [-x] [-v] [-a]");
             System.exit(1);
         }
 
@@ -20,6 +20,7 @@ public class Main {
         boolean isVmOnly = Arrays.asList(args).contains("--vm");
         makeXML = Arrays.asList(args).contains("-x");
         boolean keepVmFiles = Arrays.asList(args).contains("-v");
+        boolean runAssembler = Arrays.asList(args).contains("-a");  // NEW: -a flag for assembler
 
         File[] jackFiles = inputDir.listFiles((dir, name) -> name.endsWith(".jack"));
         File[] vmFiles = inputDir.listFiles((dir, name) -> name.endsWith(".vm"));
@@ -31,7 +32,7 @@ public class Main {
             }
             try {
                 JackCompiler compiler = new JackCompiler(vmFiles, true); // force keepVmFiles = true
-                compiler.translateOnlyVmFiles(); // new method
+                compiler.translateOnlyVmFiles();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -52,6 +53,18 @@ public class Main {
         try {
             JackCompiler compiler = new JackCompiler(jackFiles, keepVmFiles);
             compiler.compileFiles();
+
+            // If -a flag is present, run your assembler on the generated .asm file
+            if (runAssembler) {
+                File asmFile = new File(inputDir, inputDir.getName() + ".asm");
+                if (asmFile.exists()) {
+                    System.out.println("Running assembler on: " + asmFile.getAbsolutePath());
+                    MY_OS.Assembler.processFile(asmFile.toPath());
+                    System.out.println("Assembler finished.");
+                } else {
+                    System.err.println("Expected .asm file not found: " + asmFile.getAbsolutePath());
+                }
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
