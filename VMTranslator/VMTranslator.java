@@ -49,11 +49,13 @@ public class VMTranslator {
                 "(SKIPo)"));
         Map<String, List<VMinstruction>> functionBodies = new HashMap<>();
         Map<String, Set<String>> callGraph = new HashMap<>();
+        Map<String, Set<String>> reverseCallGraph = new HashMap<>();
         String currentFunction = null;
 
         for (File vmFile : vmFiles) {
             List<String> lines = Files.readAllLines(vmFile.toPath());
             VMParser parser = new VMParser(lines, getModuleName(vmFile));
+            VMParser.moduleName = getModuleName(vmFile);
             List<VMinstruction> instructions = parser.parse();
 
             for (VMinstruction inst : instructions) {
@@ -70,6 +72,7 @@ public class VMTranslator {
                 if (inst instanceof CallInstruction callInst) {
                     String callee = callInst.getFunctionName();
                     callGraph.computeIfAbsent(currentFunction, k -> new HashSet<>()).add(callee);
+                    reverseCallGraph.computeIfAbsent(callee, k -> new HashSet<>()).add(currentFunction);
                 }
             }
         }
@@ -86,7 +89,7 @@ public class VMTranslator {
         List<String> allAssemblyLines = new ArrayList<>();
         int machineLine = 0;
 
-    // Add bootstrap code
+        // Add bootstrap code
         CallInstruction c = new CallInstruction("Sys.init", 0, new HashMap<>());
         bootstrapCode.addAll(c.decode());
         for (String line : bootstrapCode) {
@@ -98,9 +101,11 @@ public class VMTranslator {
         }
 
         //Group the code
-    // Only generate code for reachable functions
+        // Only generate code for reachable functions
         for (String function : reachableFunctions) {
+            VMParser.moduleName = function.substring(0, function.indexOf("."));
             functionBodies.put(function, VMParser.group(functionBodies.get(function)));
+
             List<VMinstruction> instructions = functionBodies.get(function);
             if (instructions == null) continue; // function might not be defined
 
@@ -122,16 +127,18 @@ public class VMTranslator {
                 allAssemblyLines.add(""); // blank line
             }
         }
-        System.out.println("Reachable functions:");
-        reachableFunctions.stream()
-                .sorted()
-                .forEach(System.out::println);
+        System.out.println("\nFunction relationships:");
+        for (String function : reachableFunctions.stream().sorted().toList()) {
+            System.out.println("Function: " + function);
 
-        Set<String> unreachableFunctions = new TreeSet<>(functionBodies.keySet());
-        unreachableFunctions.removeAll(reachableFunctions);
+            if (!function.equals("Sys.init")) {
+                Set<String> callers = reverseCallGraph.getOrDefault(function, Set.of());
+                System.out.println("  Called by: " + (callers.isEmpty() ? "(none)" : String.join(", ", callers)));
+            }
 
-        System.out.println("Unreachable functions:");
-        unreachableFunctions.forEach(System.out::println);
+            Set<String> callees = callGraph.getOrDefault(function, Set.of());
+            System.out.println("  Calls: " + (callees.isEmpty() ? "(none)" : String.join(", ", callees)));
+        }
 
         Files.write(outputFile.toPath(), allAssemblyLines);
     }

@@ -59,7 +59,7 @@ public class Main {
                 File asmFile = new File(inputDir, inputDir.getName() + ".asm");
                 if (asmFile.exists()) {
                     System.out.println("Running assembler on: " + asmFile.getAbsolutePath());
-                    MY_OS.Assembler.processFile(asmFile.toPath());
+                    Assembler.processFile(asmFile.toPath());
                     System.out.println("Assembler finished.");
                 } else {
                     System.err.println("Expected .asm file not found: " + asmFile.getAbsolutePath());
