@@ -17,14 +17,13 @@ public class VMParser {
 
 
     private static PushGroup getThePushOnTop(Deque<VMinstruction> stack) throws Exception {
-        if (stack.isEmpty()){
+        if (stack.isEmpty()) {
             throw new Exception("Empty stack when looking for a PushGroup");
         }
-        if (stack.peekLast() instanceof PushGroup pg){
+        if (stack.peekLast() instanceof PushGroup pg) {
             stack.removeLast();
             return pg;
-        }
-        else{
+        } else {
             throw new Exception("No PushGroup on top");
         }
     }
@@ -36,13 +35,12 @@ public class VMParser {
         for (String line : removeComments(lines)) {
             flat.add(parseLine(line));
         }
-        //return flat;
-        return group(flat);
+        return flat;
     }
 
 // ─────────────────── helper ───────────────────
 
-    private List<VMinstruction> group(List<VMinstruction> work) throws Exception {
+    static public List<VMinstruction> group(List<VMinstruction> work) throws Exception {
         Deque<VMinstruction> todo = new ArrayDeque<>(work); // tail == top
         Deque<VMinstruction> stack = new ArrayDeque<>();
         List<VMinstruction> fuck = new ArrayList<>();
