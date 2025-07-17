@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class CodeGenerator {
     private final Node root;
@@ -116,7 +118,7 @@ public class CodeGenerator {
 
                 return whileCode;
 
-            case IF_STATEMENT:
+            case IF_STATEMENT: {
                 int y = ps.getStatementCounter("if");
                 String funcName = ps.getFunctionDeclarationName(); // e.g., "Main.main"
 
@@ -124,29 +126,36 @@ public class CodeGenerator {
                 String if_labelFalse = funcName + "$IF_FALSE" + y;
                 String if_labelEnd = funcName + "$IF_END" + y;
 
-                // Compile the condition
-                List<String> ifCode = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2))));
-                ifCode.add("if-goto " + if_labelTrue);
-                ifCode.add("goto " + if_labelFalse);
+                List<String> code = new ArrayList<>();
 
-                // THEN block
-                ifCode.add("label " + if_labelTrue);
-                ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(5))));
+                // Compile condition
+                code.addAll(Objects.requireNonNull(compileTree(node.children.get(2))));
 
                 if (node.children.size() > 7) {
-                    // has ELSE block
-                    ifCode.add("goto " + if_labelEnd);
+                    // With ELSE
+                    code.add("if-goto " + if_labelTrue);
+                    code.add("goto " + if_labelFalse);
+
+                    code.add("label " + if_labelTrue);
+                    code.addAll(Objects.requireNonNull(compileTree(node.children.get(5))));
+                    code.add("goto " + if_labelEnd);
+
+                    code.add("label " + if_labelFalse);
+                    code.addAll(Objects.requireNonNull(compileTree(node.children.get(9))));
+                    code.add("label " + if_labelEnd);
+                } else {
+                    // No ELSE: fallthrough avoids unnecessary label/jump
+                    code.add("if-goto " + if_labelTrue);
+                    code.add("goto " + if_labelEnd);
+
+                    code.add("label " + if_labelTrue);
+                    code.addAll(Objects.requireNonNull(compileTree(node.children.get(5))));
+                    // No jump to END needed
+                    code.add("label " + if_labelEnd);
                 }
 
-                // ELSE or fallthrough
-                ifCode.add("label " + if_labelFalse);
-
-                if (node.children.size() > 7) {
-                    ifCode.addAll(Objects.requireNonNull(compileTree(node.children.get(9))));
-                    ifCode.add("label " + if_labelEnd);
-                }
-
-                return ifCode;
+                return code;
+            }
 
 
             case LET_STATEMENT: {
@@ -173,11 +182,17 @@ public class CodeGenerator {
                     letCode.addAll(Objects.requireNonNull(compileTree(rhsExpr)));
                     // Push base address
                     letCode.add(ps.handleVarName(varName, true));
-                    // For each index expression: compile and add
-                    for (Node expr : bracketExprs) {
-                        letCode.addAll(Objects.requireNonNull(compileTree(expr)));
-                        letCode.add("add");
+                    // For each index: compute and dereference
+                    for (int i = 0; i < bracketExprs.size() - 1; i++) {
+                        letCode.addAll(compileTree(bracketExprs.get(i))); // index expression
+                        letCode.add("add");                   // add offset
+                        letCode.add("pop pointer 1");         // THAT = base + index
+                        letCode.add("push that 0");           // base = *THAT
                     }
+                    // Last index — do not dereference the pointer, just compute final address
+                    letCode.addAll(compileTree(bracketExprs.getLast()));
+                    letCode.add("add");          // final address
+
                     letCode.add("pop pointer 1"); // target address → pointer 1
                     letCode.add("pop that 0");    // value → *that
                 } else {
@@ -333,17 +348,27 @@ public class CodeGenerator {
                 }
 
                 // Step 2: Handle any `[expression]` segments
-                for (int i = 1; i < children.size(); i++) {
-                    Node current = children.get(i);
-                    if ("[".equals(current.value)) {
-                        Node expr = children.get(i + 1); // The expression inside []
-                        term_vmInstructions.addAll(Objects.requireNonNull(compileTree(expr))); // base and index are now on stack
-                        term_vmInstructions.add("add");                // base + index
-                        term_vmInstructions.add("pop pointer 1");      // THAT = base + index
-                        term_vmInstructions.add("push that 0");        // *THAT
-                        i += 2; // skip [ and expression and ]
+                int i = 1;
+                while (i < children.size()) {
+                    if ("[".equals(children.get(i).value)) {
+                        Node expr = children.get(i + 1);
+                        term_vmInstructions.addAll(Objects.requireNonNull(compileTree(expr)));
+                        term_vmInstructions.add("add");
+                        if (i + 3 < children.size() && "[".equals(children.get(i + 3).value)) {
+                            // There is another bracket after this one: dereference for nesting
+                            term_vmInstructions.add("pop pointer 1");
+                            term_vmInstructions.add("push that 0");
+                        } else {
+                            // Final index: use as address
+                            term_vmInstructions.add("pop pointer 1");
+                            term_vmInstructions.add("push that 0");
+                        }
+                        i += 3; // skip [, expr, ]
+                    } else {
+                        i++;
                     }
                 }
+
 
                 return term_vmInstructions;
             }
@@ -366,7 +391,7 @@ public class CodeGenerator {
     private List<String> compileSubroutineCall(List<Node> nodes) {
         List<String> vmInstructions = new ArrayList<>();
 
-        // Count arguments in the expressionList
+        // Count and compile all arguments in the expressionList
         int argCount = 0;
         for (Node expr : nodes.get(nodes.size() - 2).children) {
             if (expr.structureType == Node.StructureType.EXPRESSION) {
@@ -376,29 +401,52 @@ public class CodeGenerator {
         }
 
         if (nodes.size() == 6) {
-            // Case: foo.bar(...)
-            String base = nodes.get(0).value; // foo
+            // Case: obj.method(...) or Class.function(...)
+            String base = nodes.get(0).value; // either variable name (object) or class name
             String subroutineName = nodes.get(2).value;
 
             ProgramState.SymbolInfo symbol = ps.lookupSymbol(base);
 
             if (symbol != null) {
-                // Push object reference as first argument
-                vmInstructions.addFirst(ps.handleVarName(base, true));
+                // obj.method(...)
+                // Check for Array.dispose → call Memory.deAlloc directly
+                if ("Array".equals(symbol.type) && "dispose".equals(subroutineName)) {
+                    vmInstructions.addFirst(ps.handleVarName(base, true)); // push obj as first arg
+                    vmInstructions.add("call Memory.deAlloc 1");
+                    return vmInstructions;
+                }
+
+                // Otherwise, normal method call
+                vmInstructions.addFirst(ps.handleVarName(base, true)); // push obj as first arg
                 vmInstructions.add(String.format("call %s.%s %d", symbol.type, subroutineName, argCount + 1));
             } else {
-                // Static call like ClassName.func(...)
+                // Class.function(...) — could be Array.new
+                if ("Array".equals(base) && "new".equals(subroutineName)) {
+                    vmInstructions.add(String.format("call Memory.alloc %d", argCount));
+                    return vmInstructions;
+                }
+
+                // Otherwise, normal function call
                 vmInstructions.add(String.format("call %s.%s %d", base, subroutineName, argCount));
             }
         } else if (nodes.size() == 4) {
-            // Case: foo(...) — method in current class
+            // Case: method(...) — implicit `this` method call
             String subroutineName = nodes.getFirst().value;
 
-            vmInstructions.addFirst("push pointer 0"); // push `this` reference
+            // Check for Array.dispose on current object — we don't support this use case, but can be safe
+            if ("dispose".equals(subroutineName) && "Array".equals(ps.getClassName())) {
+                vmInstructions.addFirst("push pointer 0"); // push this
+                vmInstructions.add("call Memory.deAlloc 1");
+                return vmInstructions;
+            }
+
+            // Normal method on this
+            vmInstructions.addFirst("push pointer 0"); // push this
             vmInstructions.add(String.format("call %s.%s %d", ps.getClassName(), subroutineName, argCount + 1));
         }
 
         return vmInstructions;
     }
+
 
 }

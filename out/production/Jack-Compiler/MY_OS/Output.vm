@@ -1,6 +1,6 @@
 function Output.init 1
 push constant 127
-call Array.new 1
+call Memory.alloc 1
 pop static 0
 push constant 0
 push constant 63
@@ -1354,7 +1354,7 @@ push constant 0
 return
 function Output.create 1
 push constant 11
-call Array.new 1
+call Memory.alloc 1
 pop local 0
 push local 0
 push static 0

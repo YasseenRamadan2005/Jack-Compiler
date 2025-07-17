@@ -45,6 +45,7 @@ public class JackCompiler {
                 VMTranslator translator = new VMTranslator(vmFiles, outputFile);
                 translator.translate();
                 System.out.println("Translation complete: " + outputFile.getAbsolutePath());
+                System.out.println("Number of asm lines:" + translator.machineLine);
                 //printStaticVariables(outputFile);
             } catch (IOException e) {
                 System.err.println("Translation failed: " + e.getMessage());

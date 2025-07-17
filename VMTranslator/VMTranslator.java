@@ -13,10 +13,11 @@ import java.util.*;
 public class VMTranslator {
     private final File[] vmFiles;
     private final File outputFile;
-
+    public int machineLine;
     public VMTranslator(File[] vmFiles, File outputFile) {
         this.vmFiles = vmFiles;
         this.outputFile = outputFile;
+        machineLine = 0;
     }
 
     public void translate() throws Exception {
@@ -79,7 +80,6 @@ public class VMTranslator {
         Set<String> reachableFunctions = new HashSet<>();
         Deque<String> worklist = new ArrayDeque<>();
         worklist.add("Sys.init");
-
         while (!worklist.isEmpty()) {
             String function = worklist.poll();
             if (!reachableFunctions.add(function)) continue;
@@ -87,9 +87,9 @@ public class VMTranslator {
             worklist.addAll(callGraph.getOrDefault(function, Set.of()));
         }
         List<String> allAssemblyLines = new ArrayList<>();
-        int machineLine = 0;
 
         // Add bootstrap code
+        VMParser.currentFunction = "global";
         CallInstruction c = new CallInstruction("Sys.init", 0, new HashMap<>());
         bootstrapCode.addAll(c.decode());
         for (String line : bootstrapCode) {
