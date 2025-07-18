@@ -636,7 +636,7 @@ class Int32 {
 
     let i = 0;
 
-    while (i < 20 & ~(old_guess.cmp(guess) = 0)) {
+    while (i < 20 & (old_guess.cmp(guess) ~= 0)) {
       let inv = clone();
       do inv.do_div(guess);
 
@@ -665,26 +665,21 @@ class Int32 {
   }
 
     method void do_neg() {
-        let parts[0] = ((~parts[0]) + 1) & 255;
+        var int i;
+        let parts[0] = (-(parts[0])) & 255;
         let parts[1] = (~parts[1]) & 255;
         let parts[2] = (~parts[2]) & 255;
         let parts[3] = (~parts[3]) & 255;
-
-        if (parts[0] = 0) {
-          let parts[1] = parts[1] + 1;
-          if (parts[1] = 256) {
-            let parts[1] = 0;
-            let parts[2] = parts[2] + 1;
-            if (parts[2] = 256) {
-              let parts[2] = 0;
-              let parts[3] = parts[3] + 1;
-              if (parts[3] = 256) {
-                let parts[3] = 0;
-              }
-            }
+        let i = 0;
+        while (i < 4) {
+          let parts[i] = parts[i] + 1;
+          if (parts[i] < 256) {
+            let i = 4; // break
+          } else {
+            let parts[i] = 0;
+            let i = i + 1;
           }
         }
-
         return;
     }
 

@@ -120,11 +120,11 @@ push argument 3
 eq
 and
 if-goto Screen.drawLine$IF_TRUE3
-goto Screen.drawLine$IF_FALSE3
+goto Screen.drawLine$IF_END3
 label Screen.drawLine$IF_TRUE3
 push constant 0
 return
-label Screen.drawLine$IF_FALSE3
+label Screen.drawLine$IF_END3
 push local 4
 push local 4
 add
@@ -135,7 +135,7 @@ add
 push constant 0
 gt
 if-goto Screen.drawLine$IF_TRUE4
-goto Screen.drawLine$IF_FALSE4
+goto Screen.drawLine$IF_END4
 label Screen.drawLine$IF_TRUE4
 push local 4
 push local 1
@@ -145,12 +145,12 @@ push argument 0
 push local 2
 add
 pop argument 0
-label Screen.drawLine$IF_FALSE4
+label Screen.drawLine$IF_END4
 push local 5
 push local 0
 lt
 if-goto Screen.drawLine$IF_TRUE5
-goto Screen.drawLine$IF_FALSE5
+goto Screen.drawLine$IF_END5
 label Screen.drawLine$IF_TRUE5
 push local 4
 push local 0
@@ -160,7 +160,7 @@ push argument 1
 push local 3
 add
 pop argument 1
-label Screen.drawLine$IF_FALSE5
+label Screen.drawLine$IF_END5
 goto Screen.drawLine_WHILE_EXP1
 label Screen.drawLine_WHILE_END1
 push constant 0
@@ -295,11 +295,11 @@ pop local 9
 push static 0
 not
 if-goto Screen.drawRectangle$IF_TRUE1
-goto Screen.drawRectangle$IF_FALSE1
+goto Screen.drawRectangle$IF_END1
 label Screen.drawRectangle$IF_TRUE1
 push constant 0
 pop local 9
-label Screen.drawRectangle$IF_FALSE1
+label Screen.drawRectangle$IF_END1
 push argument 1
 pop local 0
 label Screen.drawRectangle_WHILE_EXP1

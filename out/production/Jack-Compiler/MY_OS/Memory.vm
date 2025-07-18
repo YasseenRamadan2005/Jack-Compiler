@@ -67,11 +67,11 @@ push constant 7
 lt
 not
 if-goto Memory.alloc$IF_TRUE1
-goto Memory.alloc$IF_FALSE1
+goto Memory.alloc$IF_END1
 label Memory.alloc$IF_TRUE1
 push constant 0
 return
-label Memory.alloc$IF_FALSE1
+label Memory.alloc$IF_END1
 push local 0
 push constant 1
 add
@@ -179,11 +179,11 @@ pop local 0
 push local 0
 not
 if-goto Memory.calloc$IF_TRUE1
-goto Memory.calloc$IF_FALSE1
+goto Memory.calloc$IF_END1
 label Memory.calloc$IF_TRUE1
 push constant 0
 return
-label Memory.calloc$IF_FALSE1
+label Memory.calloc$IF_END1
 label Memory.calloc_WHILE_EXP1
 push argument 0
 push constant 0
@@ -232,7 +232,7 @@ push constant 0
 eq
 not
 if-goto Memory.deAlloc$IF_TRUE1
-goto Memory.deAlloc$IF_FALSE1
+goto Memory.deAlloc$IF_END1
 label Memory.deAlloc$IF_TRUE1
 push local 1
 push constant 1
@@ -242,7 +242,7 @@ push that 0
 push constant 1
 eq
 if-goto Memory.deAlloc$IF_TRUE2
-goto Memory.deAlloc$IF_FALSE2
+goto Memory.deAlloc$IF_END2
 label Memory.deAlloc$IF_TRUE2
 push constant 2048
 push local 1
@@ -278,14 +278,14 @@ call Memory.create_foot 1
 pop temp 0
 push local 1
 pop local 0
-label Memory.deAlloc$IF_FALSE2
-label Memory.deAlloc$IF_FALSE1
+label Memory.deAlloc$IF_END2
+label Memory.deAlloc$IF_END1
 push local 2
 push constant 0
 eq
 not
 if-goto Memory.deAlloc$IF_TRUE3
-goto Memory.deAlloc$IF_FALSE3
+goto Memory.deAlloc$IF_END3
 label Memory.deAlloc$IF_TRUE3
 push local 2
 push constant 1
@@ -295,7 +295,7 @@ push that 0
 push constant 1
 eq
 if-goto Memory.deAlloc$IF_TRUE4
-goto Memory.deAlloc$IF_FALSE4
+goto Memory.deAlloc$IF_END4
 label Memory.deAlloc$IF_TRUE4
 push constant 2048
 push local 2
@@ -329,8 +329,8 @@ pop that 0
 push local 0
 call Memory.create_foot 1
 pop temp 0
-label Memory.deAlloc$IF_FALSE4
-label Memory.deAlloc$IF_FALSE3
+label Memory.deAlloc$IF_END4
+label Memory.deAlloc$IF_END3
 push constant 2048
 push local 0
 push constant 0
@@ -349,12 +349,12 @@ push argument 0
 push constant 0
 eq
 if-goto Memory.realloc$IF_TRUE1
-goto Memory.realloc$IF_FALSE1
+goto Memory.realloc$IF_END1
 label Memory.realloc$IF_TRUE1
 push argument 1
 call Memory.alloc 1
 return
-label Memory.realloc$IF_FALSE1
+label Memory.realloc$IF_END1
 push argument 0
 push constant 1
 sub
@@ -372,11 +372,11 @@ push local 1
 push constant 0
 eq
 if-goto Memory.realloc$IF_TRUE2
-goto Memory.realloc$IF_FALSE2
+goto Memory.realloc$IF_END2
 label Memory.realloc$IF_TRUE2
 push constant 0
 return
-label Memory.realloc$IF_FALSE2
+label Memory.realloc$IF_END2
 push local 0
 push argument 1
 gt
@@ -476,7 +476,7 @@ push constant 0
 eq
 not
 if-goto Memory.remove_node$IF_TRUE2
-goto Memory.remove_node$IF_FALSE2
+goto Memory.remove_node$IF_END2
 label Memory.remove_node$IF_TRUE2
 push argument 1
 push constant 2
@@ -492,7 +492,7 @@ push constant 2
 add
 pop pointer 1
 pop that 0
-label Memory.remove_node$IF_FALSE2
+label Memory.remove_node$IF_END2
 push constant 0
 push argument 1
 push constant 2
@@ -534,11 +534,11 @@ call Math.multiply 2
 gt
 not
 if-goto Memory.getBinIndex$IF_TRUE1
-goto Memory.getBinIndex$IF_FALSE1
+goto Memory.getBinIndex$IF_END1
 label Memory.getBinIndex$IF_TRUE1
 push local 0
 return
-label Memory.getBinIndex$IF_FALSE1
+label Memory.getBinIndex$IF_END1
 push local 0
 push constant 1
 add
@@ -565,11 +565,11 @@ push argument 1
 lt
 not
 if-goto Memory.get_best_fit$IF_TRUE1
-goto Memory.get_best_fit$IF_FALSE1
+goto Memory.get_best_fit$IF_END1
 label Memory.get_best_fit$IF_TRUE1
 push local 0
 return
-label Memory.get_best_fit$IF_FALSE1
+label Memory.get_best_fit$IF_END1
 label Memory.get_best_fit_WHILE_EXP1
 push local 0
 push constant 3
@@ -596,11 +596,11 @@ push argument 1
 lt
 not
 if-goto Memory.get_best_fit$IF_TRUE2
-goto Memory.get_best_fit$IF_FALSE2
+goto Memory.get_best_fit$IF_END2
 label Memory.get_best_fit$IF_TRUE2
 push local 0
 return
-label Memory.get_best_fit$IF_FALSE2
+label Memory.get_best_fit$IF_END2
 goto Memory.get_best_fit_WHILE_EXP1
 label Memory.get_best_fit_WHILE_END1
 push constant 0
@@ -641,7 +641,7 @@ push that 0
 push constant 0
 eq
 if-goto Memory.add_node$IF_TRUE1
-goto Memory.add_node$IF_FALSE1
+goto Memory.add_node$IF_END1
 label Memory.add_node$IF_TRUE1
 push argument 1
 push argument 0
@@ -651,7 +651,7 @@ pop pointer 1
 pop that 0
 push constant 0
 return
-label Memory.add_node$IF_FALSE1
+label Memory.add_node$IF_END1
 push argument 0
 push constant 0
 add
@@ -737,7 +737,7 @@ pop pointer 1
 pop that 0
 push local 0
 if-goto Memory.add_node$IF_TRUE3
-goto Memory.add_node$IF_FALSE3
+goto Memory.add_node$IF_END3
 label Memory.add_node$IF_TRUE3
 push argument 1
 push local 0
@@ -745,7 +745,7 @@ push constant 2
 add
 pop pointer 1
 pop that 0
-label Memory.add_node$IF_FALSE3
+label Memory.add_node$IF_END3
 push argument 1
 push local 1
 push constant 3

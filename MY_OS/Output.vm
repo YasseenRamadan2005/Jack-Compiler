@@ -1439,11 +1439,11 @@ push constant 126
 gt
 or
 if-goto Output.getMap$IF_TRUE1
-goto Output.getMap$IF_FALSE1
+goto Output.getMap$IF_END1
 label Output.getMap$IF_TRUE1
 push constant 0
 pop argument 0
-label Output.getMap$IF_FALSE1
+label Output.getMap$IF_END1
 push static 0
 push argument 0
 add

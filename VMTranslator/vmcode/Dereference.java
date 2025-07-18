@@ -24,12 +24,51 @@ public class Dereference extends PushGroup {
 
     @Override
     List<String> setD() throws Exception {
-        List<String> list = new ArrayList<>(base.setD());
-        if (!base.isConstant()) {
-            list.set(list.size() - 1, 'A' + list.get(list.size() - 1).substring(1));
+        List<String> list;
+
+        if (base instanceof BinaryPushGroup bpg && bpg.getOp() == ArithmeticInstruction.Op.ADD) {
+            PushGroup constSide = null, otherSide = null;
+            short c = 0;
+
+            if (bpg.getRight().isConstant()) {
+                constSide = bpg.getRight();
+                otherSide = bpg.getLeft();
+                c = constSide.getConstant();
+            } else if (bpg.getLeft().isConstant()) {
+                constSide = bpg.getLeft();
+                otherSide = bpg.getRight();
+                c = constSide.getConstant();
+            }
+
+            if (constSide != null) {
+                list = new ArrayList<>(otherSide.setD());
+                if (Math.abs(c) <= 1) {
+                    if (c == 0) {
+                        list.removeLast();
+                        list.add("A=M");
+                    }
+                    if (c == 1) {
+                        list.removeLast();
+                        list.add("A=M+1");
+                    }
+                    if (c == -1) {
+                        list.add("A=D-1");
+                    }
+                } else {
+                    list.addAll(bpg.setD());
+                    list.add("A=D");
+                }
+                list.add("D=M");
+                return list;
+            }
         }
-        else{
+
+        list = new ArrayList<>(base.setD());
+        if (base.isConstant()) {
             list.removeLast();
+        }
+        else {
+            list.set(list.size() - 1, 'A' + list.getLast().substring(1));
         }
         list.add("D=M");
         return list;

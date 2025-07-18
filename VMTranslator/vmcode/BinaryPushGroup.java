@@ -74,7 +74,7 @@ public class BinaryPushGroup extends PushGroup {
 
         List<String> asm = new ArrayList<>();
 
-        if (right.isConstant() && right.getConstant() == 0 && left instanceof BinaryPushGroup bpg && bpg.getOp().isCompare()){
+        if (right.isConstant() && right.getConstant() == 0 && left instanceof BinaryPushGroup bpg && bpg.getOp().isCompare()) {
             asm.addAll(left.setD());
             asm.add("D=!D");
             return asm;
@@ -103,14 +103,14 @@ public class BinaryPushGroup extends PushGroup {
             //Handle special cases here
             if (Math.abs(constant.getConstant()) <= 1) {
                 if (op.isCompare()) return doCompare(op, left, right);
-                if (op == ArithmeticInstruction.Op.AND && constant.getConstant() == 0){
+                if (op == ArithmeticInstruction.Op.AND && constant.getConstant() == 0) {
                     return List.of("D=0");
                 }
 
-                if (op == ArithmeticInstruction.Op.OR && constant.getConstant() == -1){
+                if (op == ArithmeticInstruction.Op.OR && constant.getConstant() == -1) {
                     return List.of("D=-1");
                 }
-                if ((op == ArithmeticInstruction.Op.SUB || op == ArithmeticInstruction.Op.OR) && constant.getConstant() == 0){
+                if ((op == ArithmeticInstruction.Op.SUB || op == ArithmeticInstruction.Op.OR) && constant.getConstant() == 0) {
                     return other.setD();
                 }
 
@@ -138,6 +138,7 @@ public class BinaryPushGroup extends PushGroup {
                 return asm;
             }
         }
+        if (op.isCompare()) return doCompare(op, left, right);
 
         if (left instanceof PushInstruction pLeft && right instanceof PushInstruction pRight) {
             Address a1 = pLeft.getAddress(), a2 = pRight.getAddress();
@@ -169,10 +170,14 @@ public class BinaryPushGroup extends PushGroup {
                     return asm;
                 }
             }
+            else if (a1.isTrivial() && a2.isTrivial()) {
+                asm.addAll(pLeft.setD());
+                asm.addAll(a2.resolveAddressTo("A"));
+                asm.add("D=" + opToDOperation("M", true));
+                return asm;
+            }
         }
 
-
-        if (op.isCompare()) return doCompare(op, left, right);
         asm.addAll(left.decode());
         asm.addAll(right.setD());
         asm.addAll(List.of("@SP", "AM=M-1"));

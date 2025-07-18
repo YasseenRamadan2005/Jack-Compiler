@@ -88,8 +88,20 @@ public class VMParser {
                     if (ai.isUnary()) {
                         if (stack.isEmpty()) throw new Exception(ai + " unary op without arg");
                         PushGroup pg = getThePushOnTop(stack);
-                        if (pg instanceof UnaryPushGroup u) {
-                            if (u.getOp().equals(ai.getOp())) {
+
+                        if (pg.isConstant()) {
+                            // Constant folding for unary op
+                            short value = pg.getConstant();
+                            ArithmeticInstruction.Op op = ai.getOp();
+                            if (op == ArithmeticInstruction.Op.NEG) {
+                                stack.addLast(new PushInstruction(new Address("constant", (short) (-value))));
+                            } else if (op == ArithmeticInstruction.Op.NOT) {
+                                stack.addLast(new PushInstruction(new Address("constant", (short) (~value))));
+                            } else {
+                                stack.addLast(new UnaryPushGroup(pg, op)); // fallback
+                            }
+                        } else if (pg instanceof UnaryPushGroup u) {
+                            if (u.getOp() == ai.getOp()) {
                                 // neg(neg(x)) or not(not(x)) → x
                                 stack.addLast(u.getInner());
                             } else if ((ai.getOp() == ArithmeticInstruction.Op.NOT && u.getOp() == ArithmeticInstruction.Op.NEG) || (ai.getOp() == ArithmeticInstruction.Op.NEG && u.getOp() == ArithmeticInstruction.Op.NOT)) {
@@ -98,20 +110,41 @@ public class VMParser {
                                 ArithmeticInstruction.Op binOp = (ai.getOp() == ArithmeticInstruction.Op.NOT) ? ArithmeticInstruction.Op.SUB : ArithmeticInstruction.Op.ADD;
                                 stack.addLast(new BinaryPushGroup(u.getInner(), one, binOp));
                             } else {
-                                // No simplification
                                 stack.addLast(new UnaryPushGroup(pg, ai.getOp()));
                             }
                         } else {
                             stack.addLast(new UnaryPushGroup(pg, ai.getOp()));
                         }
 
-
                     } else { // binary
-                        // need two PushGroups, skipping any net-zero items on top
                         PushGroup right = getThePushOnTop(stack);
                         PushGroup left = getThePushOnTop(stack);
-                        stack.addLast(new BinaryPushGroup(left, right, ai.getOp()));
+                        ArithmeticInstruction.Op op = ai.getOp();
+
+                        if (left.isConstant() && right.isConstant()) {
+                            // Constant folding for binary op
+                            int lv = left.getConstant(), rv = right.getConstant();
+                            short result;
+
+                            switch (op) {
+                                case ADD -> result = (short) (lv + rv);
+                                case SUB -> result = (short) (lv - rv);
+                                case AND -> result = (short) (lv & rv);
+                                case OR -> result = (short) (lv | rv);
+                                case LT -> result = (short) ((lv < rv) ? -1 : 0);
+                                case GT -> result = (short) ((lv > rv) ? -1 : 0);
+                                case EQ -> result = (short) ((lv == rv) ? -1 : 0);
+                                default -> {
+                                    throw new IllegalStateException("Unexpected op " + op);
+                                }
+                            }
+
+                            stack.addLast(new PushInstruction(new Address("constant", result)));
+                        } else {
+                            stack.addLast(new BinaryPushGroup(left, right, op));
+                        }
                     }
+
                 }
 
 

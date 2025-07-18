@@ -6,7 +6,8 @@ import java.util.Objects;
 
 public class PushInstruction extends PushGroup {
     private final Address address;
-
+    public static int amount_of_non_trivial_decodings = 0;
+    public static int size = 0;
 
     public PushInstruction(Address address) {
         this.address = address;
@@ -26,6 +27,12 @@ public class PushInstruction extends PushGroup {
         List<String> asm = new ArrayList<>();
         asm.addAll(setD()); // Handles constant optimization internally
         asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
+        if (!address.isTrivial()) {
+            amount_of_non_trivial_decodings++;
+            if (asm.size() > size) {
+                size = asm.size();
+            }
+        }
         return asm;
     }
 
@@ -67,7 +74,7 @@ public class PushInstruction extends PushGroup {
 
     private static List<String> encodeTrivialConstants(List<PushGroup> pushes) {
         int n = pushes.size();
-        if (n == 0){
+        if (n == 0) {
             return new ArrayList<>();
         }
         if (n == 1) {
@@ -197,7 +204,7 @@ public class PushInstruction extends PushGroup {
     private static List<String> encodeTrivialConstantsPlusOnePush(List<PushGroup> pushes) throws Exception {
         List<String> asm = new ArrayList<>();
         if (pushes.isEmpty()) return asm;
-        if (pushes.size() == 1){
+        if (pushes.size() == 1) {
             return pushes.getFirst().decode();
         }
         // The first element is the non-trivial push
