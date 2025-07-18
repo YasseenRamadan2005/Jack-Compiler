@@ -126,10 +126,8 @@ public class CodeGenerator {
                 String if_labelFalse = funcName + "$IF_FALSE" + y;
                 String if_labelEnd = funcName + "$IF_END" + y;
 
-                List<String> code = new ArrayList<>();
-
                 // Compile condition
-                code.addAll(Objects.requireNonNull(compileTree(node.children.get(2))));
+                List<String> code = new ArrayList<>(Objects.requireNonNull(compileTree(node.children.get(2))));
 
                 if (node.children.size() > 7) {
                     // With ELSE

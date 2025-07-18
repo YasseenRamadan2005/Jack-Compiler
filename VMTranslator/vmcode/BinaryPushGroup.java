@@ -173,7 +173,7 @@ public class BinaryPushGroup extends PushGroup {
             else if (a1.isTrivial() && a2.isTrivial()) {
                 asm.addAll(pLeft.setD());
                 asm.addAll(a2.resolveAddressTo("A"));
-                asm.add("D=" + opToDOperation("M", true));
+                asm.add("D=" + opToDOperation("M", false));
                 return asm;
             }
         }

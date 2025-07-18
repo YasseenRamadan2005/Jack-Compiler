@@ -30,6 +30,9 @@ public class ReturnInstruction implements VMinstruction {
 
     @Override
     public String toString() {
+        if (pg == null){
+            return "//Return";
+        }
         return pg.toString();
     }
 }
