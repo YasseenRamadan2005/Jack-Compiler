@@ -46,19 +46,6 @@ public class BinaryPushGroup extends PushGroup {
                 asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
             }
         }
-        if (right.isConstant() || left.isConstant()) {
-            int constant = right.isConstant() ? right.getConstant() : left.getConstant();
-            PushGroup other = right.isConstant() ? left : right;
-            //Handle M+1 or M-1 optimizations
-            if ((constant == 1 || constant == 0) && other instanceof PushInstruction p && (op == ArithmeticInstruction.Op.ADD || (op == ArithmeticInstruction.Op.SUB && right.isConstant()))) {
-                asm.addAll(p.decode());
-                if (Math.abs(constant) == 1) {
-                    asm.removeLast();
-                    asm.add("M=" + opToDOperation("1", false));
-                }
-                return asm;
-            }
-        }
         asm.addAll(setD());
         asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
 

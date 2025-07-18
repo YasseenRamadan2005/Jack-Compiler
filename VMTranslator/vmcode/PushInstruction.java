@@ -6,8 +6,7 @@ import java.util.Objects;
 
 public class PushInstruction extends PushGroup {
     private final Address address;
-    public static int amount_of_non_trivial_decodings = 0;
-    public static int size = 0;
+    private static int label_count = 0;
 
     public PushInstruction(Address address) {
         this.address = address;
@@ -25,13 +24,13 @@ public class PushInstruction extends PushGroup {
             }
         }
         List<String> asm = new ArrayList<>();
-        asm.addAll(setD()); // Handles constant optimization internally
-        asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
         if (!address.isTrivial()) {
-            amount_of_non_trivial_decodings++;
-            if (asm.size() > size) {
-                size = asm.size();
-            }
+            String label = "RETURN_PUSH_LABEL_" + label_count;
+            asm.addAll(List.of("@" + label, "D=A", "@13", "M=D", "@" + address.getIndex(), "D=A", "@" + address.getShortSegmentName() + "_PUSH", "0;JMP", "(" + label + ")"));
+            label_count++;
+        } else {
+            asm.addAll(setD()); // Handles constant optimization internally
+            asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
         }
         return asm;
     }

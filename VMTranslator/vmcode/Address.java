@@ -14,7 +14,7 @@ public class Address {
         this.index = index;
     }
 
-    private String getShortSegmentName() {
+    public String getShortSegmentName() {
 
         return switch (segment) {
             case "local" -> "LCL";

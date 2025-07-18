@@ -70,7 +70,5 @@ public class Main {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        System.out.println(PushInstruction.amount_of_non_trivial_decodings);
-        System.out.println(PushInstruction.size);
     }
 }

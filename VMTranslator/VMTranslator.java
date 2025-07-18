@@ -14,6 +14,7 @@ public class VMTranslator {
     private final File[] vmFiles;
     private final File outputFile;
     public int machineLine;
+
     public VMTranslator(File[] vmFiles, File outputFile) {
         this.vmFiles = vmFiles;
         this.outputFile = outputFile;
@@ -21,33 +22,37 @@ public class VMTranslator {
     }
 
     public void translate() throws Exception {
-        List<String> bootstrapCode = new ArrayList<>(List.of("//Set 256 to be the start of the stack", "@256", "D=A", "@SP", "M=D",
+        List<String> bootstrapCode = new ArrayList<>(List.of("// Set 256 to be the start of the stack", "@256", "D=A", "@SP", "M=D",
 
-                "//Set up the comparison ops subroutines", "@SKIP", "0;JMP",
+                "// Set up the comparison ops subroutines", "@SKIP", "0;JMP",
 
-                "// ------------------------------------------------------------", "//  Shared code for gt, lt, eq", "//  Expectations on entry:", "//Stack  – return address", "//D  – (left – right)", "// ------------------------------------------------------------",
+                "// gt: D > 0", "(DO_GT)", "@RETURN_TRUE", "D;JGT", "@RETURN_FALSE", "0;JMP",
 
-                "// want  (left  > right)  ⇔ (D > 0)", "(DO_GT)", "@RETURN_TRUE", "D;JGT", "@RETURN_FALSE", "0;JMP",
+                "// eq: D == 0", "(DO_EQ)", "@RETURN_TRUE", "D;JEQ", "@RETURN_FALSE", "0;JMP",
 
-                "// want  (left == right)  ⇔ (D == 0)", "(DO_EQ)", "@RETURN_TRUE", "D;JEQ", "@RETURN_FALSE", "0;JMP",
+                "// lt: D < 0", "(DO_LT)", "@RETURN_TRUE", "D;JLT", "@RETURN_FALSE", "0;JMP",
 
-                "// want  (left  < right)  ⇔ (D < 0)", "(DO_LT)", "@RETURN_TRUE", "D;JLT", "@RETURN_FALSE", "0;JMP",
+                "// Set boolean in D", "(RETURN_TRUE)", "D=-1", "@WRITE_BACK", "0;JMP", "(RETURN_FALSE)", "D=0", "@WRITE_BACK", "0;JMP",
 
-                "// ---- set boolean in D --------------------------------------", "(RETURN_TRUE)", "D=-1", "@WRITE_BACK", "0;JMP",
+                "// Collapse stack and return", "(WRITE_BACK)", "@SP", "AM=M-1", "A=M", "0;JMP",
 
-                "(RETURN_FALSE)", "D=0", "@WRITE_BACK", "0;JMP",
+                "// Function call/return setup", "(SKIP)", "@SKIP1", "0;JMP",
 
-                "// ---- collapse stack and return -----------------------------", "(WRITE_BACK)", "@SP", "AM=M-1", "A=M", "0;JMP",
+                "(CALL)", "@SP", "AM=M+1", "A=A-1", "M=D", // push return address (in D)
+                "@LCL", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@ARG", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@THIS", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@THAT", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@14", "D=M", "@SP", "D=M-D", "@ARG", "M=D", "@SP", "D=M", "@LCL", "M=D", "@13", "A=M", "0;JMP",
 
-                "(SKIP)",
+                "(RETURN)", "@LCL", "D=M", "@14", "M=D", "@5", "A=D-A", "D=M", "@15", "M=D", // store return address
+                "@SP", "AM=M-1", "D=M", "@ARG", "A=M", "M=D", // reposition return value
+                "@ARG", "D=M", "@SP", "M=D+1", // SP = ARG + 1
 
-                "//Set up calling and returning from functions", "@SKIPo", "0;JMP",
+                "@14", "A=M-1", "D=M", "@THAT", "M=D", "@14", "A=M-1", "A=A-1", "D=M", "@THIS", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "D=M", "@ARG", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "A=A-1", "D=M", "@LCL", "M=D", "@15", "A=M", "0;JMP",
 
-                "(CALL)", "@SP", "AM=M+1", "A=A-1", "M=D", "@LCL", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@ARG", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@THIS", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@THAT", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", "@14", "D=M", "@SP", "D=M-D", "@ARG", "M=D", "@SP", "D=M", "@LCL", "M=D", "@13", "A=M", "0;JMP",
+                "(PUSH_D)", "@SP", "AM=M+1", "A=A-1", "M=D", "@13", "A=M", "0;JMP",
 
-                "(RETURN)", "@LCL", "D=M", "@14", "M=D", "@5", "A=D-A", "D=M", "@15", "M=D", "@SP", "AM=M-1", "D=M", "@ARG", "A=M", "M=D", "@ARG", "D=M", "@SP", "M=D+1", "@14", "A=M-1", "D=M", "@THAT", "M=D", "@14", "A=M-1", "A=A-1", "D=M", "@THIS", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "D=M", "@ARG", "M=D", "@14", "A=M-1", "A=A-1", "A=A-1", "A=A-1", "D=M", "@LCL", "M=D", "@15", "A=M", "0;JMP",
+                "(ARG_PUSH)", "@ARG", "A=D+M", "D=M", "@PUSH_D", "0;JMP", "(LCL_PUSH)", "@LCL", "A=D+M", "D=M", "@PUSH_D", "0;JMP", "(THIS_PUSH)", "@THIS", "A=D+M", "D=M", "@PUSH_D", "0;JMP", "(THAT_PUSH)", "@THAT", "A=D+M", "D=M", "@PUSH_D", "0;JMP",
 
-                "(SKIPo)"));
+                "(SKIP1)"));
+
         Map<String, List<VMinstruction>> functionBodies = new HashMap<>();
         Map<String, Set<String>> callGraph = new HashMap<>();
         Map<String, Set<String>> reverseCallGraph = new HashMap<>();
