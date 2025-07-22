@@ -1,5 +1,7 @@
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,11 @@ public final class ArithmeticInstruction implements VMinstruction {
     }
 
     @Override
-    public List<String> decode() {
+    public List<String> decode()
+    {
+        if (VMTranslator.thread){
+            return new ArrayList<>(List.of("@" + op, "0;JMP"));
+        }
         return new ArrayList<>(op.emit(true));
     }
 

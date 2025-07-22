@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.util.*;
 
 //Basic: 47 lines
+
 public class VMTranslator {
     public static boolean thread = false;
     private final File[] vmFiles;
@@ -95,62 +96,64 @@ public class VMTranslator {
             //Collect all the Push and Pop address
             bootstrapCode.clear();
             bootstrapCode.addAll(List.of("@256", "D=A", "@SP", "M=D", "@SKIP", "0;JMP"));
+
+            Set<Address> pushAddresses = new HashSet<>();
+            Set<Address> popAddresses = new HashSet<>();
+            Set<Address> pushStaticAddress = new HashSet<>();
+            Set<Address> popStaticAddresses = new HashSet<>();
             for (String function : reachableFunctions) {
                 VMParser.moduleName = function.substring(0, function.indexOf("."));
                 List<VMinstruction> grouped = VMParser.group(functionBodies.get(function));
                 functionBodies.put(function, grouped);
-                Set<Address> pushAddresses = new HashSet<>();
-                Set<Address> popAddresses = new HashSet<>();
-
                 for (VMinstruction v : grouped) {
                     if (v instanceof PushInstruction pushI) {
-                        pushAddresses.add(pushI.getAddress());
+                        if (pushI.getAddress().getSegment().equals("static")) {
+                            pushStaticAddress.add(pushI.getAddress());
+                        } else {
+                            pushAddresses.add(pushI.getAddress());
+                        }
                     } else if (v instanceof PopInstruction popI) {
-                        popAddresses.add(popI.getAddress());
+                        if (popI.getAddress().getSegment().equals("static")) {
+                            popStaticAddresses.add(popI.getAddress());
+                        } else {
+                            popAddresses.add(popI.getAddress());
+                        }
                     }
                 }
-
-                for (Address a : pushAddresses) {
-                    String label = "PUSH_" + a.getSegment() + "_" + a.getIndex(); // e.g., PUSH_ADDRESS_2
-
-                    switch (a.getSegment()) {
-                        case "constant" ->
-                                bootstrapCode.addAll(List.of("(" + label + ")", "@" + a.getIndex(), "D=A", "@PC_PUSH", "0;JMP"));
-                        case "static" -> {
-                            label = VMParser.moduleName + "." + a.getIndex() + "_PUSH";
-                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + VMParser.moduleName + "." + a.getIndex(), "D=M", "@PC_PUSH", "0;JMP"));
-                        }
-                        case "pointer" -> {
-                            int base = 3 + a.getIndex(); // pointer 0 -> R3, 1 -> R4
-                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + base, "D=M", "@PC_PUSH", "0;JMP"));
-                        }
-                        default ->
-                                bootstrapCode.addAll(List.of("(" + label + ")", "@" + a.getIndex(), "D=A", "@" + a.getSegment().toUpperCase(), "A=D+M", "D=M", "@PC_PUSH", "0;JMP"));
-                    }
+                //While we are here, handle the static address, since we know the module name
+                for (Address a : pushStaticAddress) {
+                    bootstrapCode.addAll(List.of("(" + VMParser.moduleName + "." + a.getIndex() + "_PUSH" + ")", "@" + VMParser.moduleName + "." + a.getIndex(), "D=M", "@PC_PUSH", "0;JMP"));
                 }
+                for (Address a : popStaticAddresses) {
+                    bootstrapCode.addAll(List.of("(" + VMParser.moduleName + "." + a.getIndex() + "_POP)", "@SP", "AM=M-1", "D=M", "@" + "POP_" + a.getSegment() + "_" + a.getIndex(), "M=D", "@PC_2", "0;JMP"));
 
-                for (Address a : popAddresses) {
-                    String label = "POP_" + a.getSegment() + "_" + a.getIndex(); // e.g., POP_ADDRESS_3
-                    String ret = label + "$RET";
+                }
+            }
 
-                    switch (a.getSegment()) {
-                        case "static" -> {
-                            label = VMParser.moduleName + "." + a.getIndex() + "_POP";
-                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + VMParser.moduleName + "." + a.getIndex(), "D=A", "@13", "M=D", "@POP_D", "0;JMP", "(" + ret + ")", "@13", "A=M", "M=D"));
-                        }
+            for (Address a : pushAddresses) {
+                String label = "PUSH_" + a.getSegment() + "_" + a.getIndex(); // e.g., PUSH_ADDRESS_2
 
-                        case "pointer" -> {
-                            int base = 3 + a.getIndex();
-                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + base, "D=A", "@13", "M=D", "@POP_D", "0;JMP", "(" + ret + ")", "@13", "A=M", "M=D"));
-                        }
+                switch (a.getSegment()) {
+                    case "constant" ->
+                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + a.getIndex(), "D=A", "@PC_PUSH", "0;JMP"));
+                    case "pointer" ->
+                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + (3 + a.getIndex()), "D=M", "@PC_PUSH", "0;JMP"));
+                    default ->
+                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + a.getIndex(), "D=A", "@" + a.getShortSegmentName(), "A=D+M", "D=M", "@PC_PUSH", "0;JMP"));
+                }
+            }
 
-                        case "temp" -> {
-                            int base = 5 + a.getIndex();
-                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + base, "D=A", "@13", "M=D", "@POP_D", "0;JMP", "(" + ret + ")", "@13", "A=M", "M=D"));
-                        }
-                        default ->
-                                bootstrapCode.addAll(List.of("(" + label + ")", "@" + ret, "D=A", "@13", "M=D", "@POP_D", "0;JMP", "(" + ret + ")", "@13", "M=D", "@" + a.getIndex(), "D=A", "@" + a.getSegment().toUpperCase(), "D=D+M", "@14", "M=D", "@13", "D=M", "@14", "A=M", "M=D"));
-                    }
+            for (Address a : popAddresses) {
+                String label = "POP_" + a.getSegment() + "_" + a.getIndex();
+                switch (a.getSegment()) {
+                    case "pointer" ->
+                            bootstrapCode.addAll(List.of("(" + label + ")", "@SP", "AM=M-1", "D=M", "@" + (3 + a.getIndex()), "M=D", "@PC_2", "0;JMP"));
+
+                    case "temp" ->
+                            bootstrapCode.addAll(List.of("(" + label + ")", "@SP", "AM=M-1", "D=M", "@" + (5 + a.getIndex()), "M=D", "@PC_2", "0;JMP"));
+
+                    default ->
+                            bootstrapCode.addAll(List.of("(" + label + ")", "@" + a.getIndex(), "D=A", "@" + a.getShortSegmentName(), "D=D+M", "@14", "M=D", "@SP", "AM=M-1", "D=M", "@14", "A=M", "M=D", "@PC_2", "0;JMP"));
                 }
             }
             bootstrapCode.addAll(List.of(
@@ -164,7 +167,7 @@ public class VMTranslator {
 
                     "@THAT", "D=M", "@SP", "AM=M+1", "A=A-1", "M=D", // Push THAT
 
-                    "@SP", "D=M", "@5", "D=D-A", "@14", "D=D-M", "@ARG", "M=D",       // ARG = SP - 5 - numArgs (in R14)
+                    "@14", "D=M", "@SP", "D=M-D", "@ARG", "M=D",       // ARG = SP - 5 - numArgs (in R14)
 
                     "@SP", "D=M", "@LCL", "M=D",         // LCL = SP
 
@@ -188,22 +191,23 @@ public class VMTranslator {
 
                     "@13", "AM=M-1", "D=M", "@LCL", "M=D",  // Restore LCL
 
-                    "@14", "D=M", "@15", "AM=D;JMP"         // goto RET
+                    "@14", "D=M", "@10", "D=D+A", "@15", "AM=D;JMP"         // goto RET
             ));
 
-
-            bootstrapCode.addAll(List.of("(GT)", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D", "@PC_TRUE_GT", "D;JGT", "@SP", "A=M-1", "M=0", "@PC_+=2", "0;JMP", "(PC_TRUE_GT)", "@SP", "A=M-1", "M=-1", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(LT)", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D", "@PC_TRUE_LT", "D;JLT", "@SP", "A=M-1", "M=0", "@PC_+=2", "0;JMP", "(PC_TRUE_LT)", "@SP", "A=M-1", "M=-1", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(EQ)", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D", "@PC_TRUE_EQ", "D;JEQ", "@SP", "A=M-1", "M=0", "@PC_+=2", "0;JMP", "(PC_TRUE_EQ)", "@SP", "A=M-1", "M=-1", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(ADD)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=D+M", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(SUB)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=M-D", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(AND)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=D&M", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(OR)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=D|M", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(NEG)", "@SP", "A=M-1", "M=-M", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(NOT)", "@SP", "A=M-1", "M=!M", "@PC_+=2", "0;JMP"));
-            bootstrapCode.addAll(List.of("(PC_PUSH)", "@SP", "AM=M+1", "A=A-1", "M=D", "@PC_+=2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(IF_GOTO)", "@13", "M=D", "@SP", "AM=M-1", "D=M", "@IF_GOTO_TRUE", "D;JNE", "@PC_2", "0;JMP", "(IF_GOTO_TRUE)", "@13", "A=M", "0;JMP"));
+            bootstrapCode.addAll(List.of("(GT)", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D", "@PC_TRUE_GT", "D;JGT", "@SP", "A=M-1", "M=0", "@PC_2", "0;JMP", "(PC_TRUE_GT)", "@SP", "A=M-1", "M=-1", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(LT)", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D", "@PC_TRUE_LT", "D;JLT", "@SP", "A=M-1", "M=0", "@PC_2", "0;JMP", "(PC_TRUE_LT)", "@SP", "A=M-1", "M=-1", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(EQ)", "@SP", "AM=M-1", "D=M", "A=A-1", "D=M-D", "@PC_TRUE_EQ", "D;JEQ", "@SP", "A=M-1", "M=0", "@PC_2", "0;JMP", "(PC_TRUE_EQ)", "@SP", "A=M-1", "M=-1", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(ADD)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=D+M", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(SUB)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=M-D", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(AND)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=D&M", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(OR)", "@SP", "AM=M-1", "D=M", "A=A-1", "M=D|M", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(NEG)", "@SP", "A=M-1", "M=-M", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(NOT)", "@SP", "A=M-1", "M=!M", "@PC_2", "0;JMP"));
+            bootstrapCode.addAll(List.of("(PC_PUSH)", "@SP", "AM=M+1", "A=A-1", "M=D", "@PC_2", "0;JMP"));
             bootstrapCode.addAll(List.of("(POP_D)", "@SP", "AM=M-1", "D=M", "@13", "A=M", "M=D"));
-            bootstrapCode.addAll(List.of("(@PC_+=2)", "@15", "M=M+1", "AM=M+1"));
+            bootstrapCode.addAll(List.of("(PC_2)", "@15", "M=M+1", "AM=M+1;JMP"));
+            bootstrapCode.addAll(List.of("(SKIP)", "@4096", "D=A", "@15", "M=D"));
         }
         // Add bootstrap code
         VMParser.currentFunction = "global";
@@ -244,7 +248,11 @@ public class VMTranslator {
             }
         }
         System.out.println("\nFunction relationships:");
-        for (String function : reachableFunctions.stream().sorted().toList()) {
+        for (String function : reachableFunctions.stream().
+
+                sorted().
+
+                toList()) {
             System.out.println("Function: " + function);
 
             if (!function.equals("Sys.init")) {

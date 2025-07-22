@@ -1,6 +1,8 @@
 // vmcode/GotoInstruction.java
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,11 @@ public class GotoInstruction implements VMinstruction {
         List<String> asm = new ArrayList<>();
         asm.add("// goto " + label);
         asm.add("@" + label);
+        if (VMTranslator.thread){
+            asm.add("D=A");
+            asm.add("@15");
+            asm.add("AM=D;JMP");
+        }
         asm.add("0;JMP");
         return asm;
     }

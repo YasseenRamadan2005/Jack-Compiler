@@ -15,7 +15,6 @@ public class Address {
     }
 
     public String getShortSegmentName() {
-
         return switch (segment) {
             case "local" -> "LCL";
             case "argument" -> "ARG";

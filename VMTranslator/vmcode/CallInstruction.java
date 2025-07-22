@@ -1,5 +1,7 @@
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +34,21 @@ public class CallInstruction implements VMinstruction {
         funcMapping.put(VMParser.currentFunction, callCount + 1);
 
         asm.add("// call " + calleeFunction);
+        if (VMTranslator.thread){
+            asm.add("@" + (numArgs + 5));
+            asm.add("D=A");
+            asm.add("@14");
+            asm.add("M=D"); //Deposit this ARGS + 5 for later
+
+            asm.add("@" + calleeFunction);
+            asm.add("D=A");
+            asm.add("@13");
+            asm.add("M=D");
+            asm.add("@CALL");
+            asm.add("0;JMP");
+            asm.add("(" + returnLabel + ")");
+            return asm;
+        }
 
         asm.add("@" + (numArgs + 5));
         asm.add("D=A");

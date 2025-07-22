@@ -1,6 +1,8 @@
 // vmcode/IfGotoInstruction.java
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,12 @@ public class IfGotoInstruction implements VMinstruction {
     public List<String> decode() {
         List<String> asm = new ArrayList<>();
         asm.add("// if-goto " + label);
-
+        if (VMTranslator.thread){
+            asm.add("@" + label);
+            asm.add("D=A");
+            asm.add("@IF_GOTO");
+            asm.add("0;JMP");
+        }
         // Decrement SP and load *SP into D
         asm.add("@SP");
         asm.add("AM=M-1");

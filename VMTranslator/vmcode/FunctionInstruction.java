@@ -1,5 +1,7 @@
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +27,12 @@ public class FunctionInstruction implements VMinstruction {
         asm.add("(" + VMParser.currentFunction + ")");
 
         // Push zero-initialized locals using optimized constant push
+        if (VMTranslator.thread){
+            for (int i = 0; i < numLocals; i++) {
+                asm.addAll(new PushInstruction(new Address("constant", (short) 0)).decode());
+            }
+            return asm;
+        }
         List<PushGroup> zeroPushes = new ArrayList<>();
         for (int i = 0; i < numLocals; i++) {
             zeroPushes.add(new PushInstruction(new Address("constant", (short) 0)));
