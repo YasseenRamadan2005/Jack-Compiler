@@ -273,18 +273,15 @@ public class CodeGenerator {
                             String strVal = base.value;
                             assert strVal != null;
 
-                            if (strVal.length() == 1) {
-                                // Single character: push as Unicode integer
-                                term_vmInstructions.add("push constant " + (int) strVal.charAt(0));
-                            } else {
-                                // General string (stupid leak for now) :p
-                                term_vmInstructions.add("push constant " + strVal.length());
-                                term_vmInstructions.add("call String.new 1");
-                                for (char c : strVal.toCharArray()) {
-                                    term_vmInstructions.add("push constant " + (int) c);
-                                    term_vmInstructions.add("call String.appendChar 2");
-                                }
+
+                            // General string (stupid leak for now) :p
+                            term_vmInstructions.add("push constant " + strVal.length());
+                            term_vmInstructions.add("call String.new 1");
+                            for (char c : strVal.toCharArray()) {
+                                term_vmInstructions.add("push constant " + (int) c);
+                                term_vmInstructions.add("call String.appendChar 2");
                             }
+
                             break;
 
 

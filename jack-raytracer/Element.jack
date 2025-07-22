@@ -15,10 +15,10 @@ class Element {
     }
 
     method void dispose() {
-      if (plane) {
+      if (~(plane = null)) {
         do plane.dispose();
       }
-      if (sphere) {
+      if (~(sphere = null)) {
         do sphere.dispose();
       }
       do Memory.deAlloc(this);
@@ -26,30 +26,30 @@ class Element {
     }
 
     method Number intersect(Ray ray) {
-      if (plane) {
+      if (~(plane = null)) {
         return plane.intersect(ray);
       }
-      if (sphere) {
+      if (~(sphere = null)) {
         return sphere.intersect(ray);
       }
       return null;
     }
 
     method Vec3 color(Vec3 hit_point) {
-      if (plane) {
+      if (~(plane = null)) {
         return plane.color(hit_point);
       }
-      if (sphere) {
+      if (~(sphere = null)) {
         return sphere.color();
       }
       return null;
     }
 
     method Vec3 surface_normal(Vec3 hit_point) {
-      if (plane) {
+      if (~(plane = null)) {
         return plane.surface_normal();
       }
-      if (sphere) {
+      if (~(sphere = null)) {
         return sphere.surface_normal(hit_point);
       }
       return null;

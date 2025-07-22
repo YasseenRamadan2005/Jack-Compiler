@@ -19,18 +19,6 @@ push constant 1
 add
 pop pointer 1
 pop that 0
-push constant 0
-push local 0
-push constant 2
-add
-pop pointer 1
-pop that 0
-push constant 0
-push local 0
-push constant 3
-add
-pop pointer 1
-pop that 0
 push local 0
 call Memory.create_foot 1
 pop temp 0

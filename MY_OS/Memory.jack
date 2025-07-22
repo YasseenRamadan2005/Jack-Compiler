@@ -79,8 +79,8 @@ class Memory {
         let node_ptr = HEAP_START + AMOUNT_OF_BINS;  // = 2048 + 7 = 2055
         let node_ptr[node_size] = HEAP_END - node_ptr - 5;
         let node_ptr[node_hole] = 1;
-        let node_ptr[node_prev] = null;
-        let node_ptr[node_next] = null;
+        //let node_ptr[node_prev] = null;
+        //let node_ptr[node_next] = null;
 
         do Memory.create_foot(node_ptr);
         do Memory.add_node(HEAP_START + 6 , node_ptr);

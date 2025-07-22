@@ -9,7 +9,7 @@ class DirectionalLight {
       var Number epsilon;
 
       let neg1 = Number.new(-1);
-      let epsilon = Main.getSomething(1, 20);
+      let epsilon = Main.getOneTwentieth();
 
       let direction = d;
       let color = c;

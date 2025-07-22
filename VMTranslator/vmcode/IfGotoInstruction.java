@@ -32,6 +32,7 @@ public class IfGotoInstruction implements VMinstruction {
             asm.add("D=A");
             asm.add("@IF_GOTO");
             asm.add("0;JMP");
+            return asm;
         }
         // Decrement SP and load *SP into D
         asm.add("@SP");

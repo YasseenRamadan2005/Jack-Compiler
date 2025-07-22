@@ -9,6 +9,11 @@ class Keyboard {
 
     constant KEYBOARD_START_ADDRESS 24576;
     constant LINE_BUFFER 50;
+    /** Initializes the keyboard. */
+    function void init() {
+        return;
+    }
+
     /**
      * Returns the character of the currently pressed key on the keyboard;
      * if no key is currently pressed, returns 0.

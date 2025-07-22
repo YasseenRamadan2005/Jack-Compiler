@@ -79,8 +79,8 @@ class Memory {
         let node_ptr = HEAP_START + AMOUNT_OF_BINS;  // = 2048 + 7 = 2055
         let node_ptr[node_size] = HEAP_END - node_ptr - 5;
         let node_ptr[node_hole] = 1;
-        let node_ptr[node_prev] = null;
-        let node_ptr[node_next] = null;
+        //let node_ptr[node_prev] = null;
+        //let node_ptr[node_next] = null;
 
         do Memory.create_foot(node_ptr);
         do Memory.add_node(HEAP_START + 6 , node_ptr);
@@ -113,7 +113,7 @@ class Memory {
 
         while (found = null) { //This only occurs in the case that getBinIndex returns a correct bin with at least one node, but get_best_fit returns null because that node doesn't have enough size.
             if ((index + 1) >= AMOUNT_OF_BINS) {
-                do Sys.error(10);
+                do Sys.error();
                 return null; //If we are out of bins, alloc fails :(
             }
             let index = index + 1;
@@ -158,37 +158,33 @@ class Memory {
 
     /** Frees an allocated block and merges it with adjacent free blocks if possible. */
     function void deAlloc(int ptr) {
-        var int node, prev_node, next_node, prev_foot;
+        var int node, prev_node, next_node;
 
         let node = ptr - 4;
         let node[node_hole] = 1;
 
-        // Try to coalesce with previous block using its footer
-        let prev_foot = node - 1;
-        let prev_node = prev_foot[0];
+        let prev_node = node[node_prev];
+        let next_node = node[node_next];
 
-        // Is prev_node within the heap and marked as hole?
-        if (prev_node >= HEAP_START & prev_node[node_hole] = 1) {
-            do Memory.remove_node(HEAP_START + Memory.getBinIndex(prev_node[node_size]), prev_node);
-            let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
-            do Memory.create_foot(prev_node);
-            let node = prev_node;  // Update node pointer to new merged block
+        if (prev_node ~= null){
+            if(prev_node[node_hole] = 1){
+                do Memory.remove_node(HEAP_START + Memory.getBinIndex(prev_node[node_size]), prev_node);
+                let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
+                do Memory.create_foot(prev_node);
+                let node = prev_node;
+            }
         }
 
-        // Try to coalesce with next block by going to header after current block
-        let next_node = node + node[node_size] + 5;
-
-        // Only try merging if it's within heap and marked as hole
-        if (next_node < HEAP_END & next_node[node_hole] = 1) {
-            do Memory.remove_node(HEAP_START + Memory.getBinIndex(next_node[node_size]), next_node);
-            let node[node_size] = node[node_size] + next_node[node_size] + 5;
-            do Memory.create_foot(node);
+        if (next_node ~= null){
+            if (next_node[node_hole] = 1){
+                do Memory.remove_node(HEAP_START + Memory.getBinIndex(next_node[node_size]), next_node);
+                let node[node_size] = node[node_size] + next_node[node_size] + 5;
+                do Memory.create_foot(node);
+            }
         }
-
-        do Memory.add_node(HEAP_START + Memory.getBinIndex(node[node_size]), node);
+        do Memory.add_node(HEAP_START + Memory.getBinIndex(node[node_size]) , node);
         return;
     }
-
 
     /**
      * Reallocates the block at `ptr` to a new size `newSize`.
@@ -306,7 +302,7 @@ class Memory {
             let current = current[node_next];
         }
 
-        if (prev = null) {
+        if (~prev) {
             let node_p[node_next] = bin_p[0];
             let bin_p[0][node_prev] = node_p;
             let bin_p[0] = node_p;

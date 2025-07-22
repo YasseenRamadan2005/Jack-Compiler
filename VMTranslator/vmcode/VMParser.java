@@ -5,7 +5,7 @@ import VMTranslator.VMTranslator;
 import java.util.*;
 
 public class VMParser {
-    public static String moduleName; //Name of the current X.vm file
+    public static String moduleName = ""; //Name of the current X.vm file
     public static String currentFunction = "";//Name of the current function we are in
     private final List<String> lines;
     public Map<String, Integer> funcMapping = new HashMap<>();

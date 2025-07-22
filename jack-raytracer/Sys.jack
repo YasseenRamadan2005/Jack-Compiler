@@ -14,6 +14,7 @@ class Sys {
         do Math.init();
         do Screen.init();
         do Output.init();
+        //do Keyboard.init();
         // String and Array has no init function
         do Main.main();
         do Sys.halt();
@@ -42,14 +43,12 @@ class Sys {
     /** Displays the given error code in the form "ERR<errorCode>",
      *  and halts the program's execution. */
     function void error(int errorCode) {
-            var int i;
-            let i = 0;
-            while (i < 8192) {
-                let i[16384] = -1;
-                let i = i + 1;
-            }
-        do Output.printInt(errorCode);
-        do Output.println();
+       var int i;
+       let i = 0;
+       while (i < 8192) {
+           let i[16384] = -1;
+           let i = i + 1;
+       }
         do Sys.halt();
         return;
     }
