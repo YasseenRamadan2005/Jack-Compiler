@@ -165,6 +165,26 @@ public class BinaryPushGroup extends PushGroup {
             }
         }
 
+        if (left instanceof PushInstruction || right instanceof PushInstruction){
+            PushInstruction theSimplePush = null;
+            PushGroup theNonTrivialPush = null;
+            boolean flip;
+            if (left instanceof PushInstruction pleft && pleft.getAddress().isTrivial()){
+                theSimplePush = pleft;
+                theNonTrivialPush = right;
+                asm.addAll(theNonTrivialPush.setD());
+                asm.addAll(theSimplePush.getAddress().resolveAddressTo("A"));
+                asm.add("D=" + opToDOperation("M", true));
+            }
+            if (right instanceof PushInstruction pright && pright.getAddress().isTrivial()){
+                theSimplePush = pright;
+                theNonTrivialPush = left;
+                asm.addAll(theNonTrivialPush.setD());
+                asm.addAll(theSimplePush.getAddress().resolveAddressTo("A"));
+                asm.add("D=" + opToDOperation("M", false));
+            }
+
+        }
         asm.addAll(left.decode());
         asm.addAll(right.setD());
         asm.addAll(List.of("@SP", "AM=M-1"));

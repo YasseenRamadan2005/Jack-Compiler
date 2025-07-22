@@ -1,12 +1,14 @@
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class PushInstruction extends PushGroup {
-    private final Address address;
     private static int label_count = 0;
+    private final Address address;
 
     public PushInstruction(Address address) {
         this.address = address;
@@ -14,40 +16,6 @@ public class PushInstruction extends PushGroup {
 
     private static String indent(int n) {
         return " ".repeat(n);
-    }
-
-    @Override
-    public List<String> decode() {
-        if (isConstant()) {
-            if (Math.abs(getConstant()) <= 1) {
-                return new ArrayList<>(List.of("@SP", "AM=M+1", "A=A-1", "M=" + getConstant()));
-            }
-        }
-        List<String> asm = new ArrayList<>();
-        if (!address.isTrivial()) {
-            String label = "RETURN_PUSH_LABEL_" + label_count;
-            asm.addAll(List.of("@" + label, "D=A", "@13", "M=D", "@" + address.getIndex(), "D=A", "@" + address.getShortSegmentName() + "_PUSH", "0;JMP", "(" + label + ")"));
-            label_count++;
-        } else {
-            asm.addAll(setD()); // Handles constant optimization internally
-            asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
-        }
-        return asm;
-    }
-
-    @Override
-    List<String> setD() {
-        if (isConstant()) {
-            short c = getConstant();
-            if (c == 0 || c == 1 || c == -1) {
-                return List.of("D=" + c);
-            }
-            if (c < 0) {
-                return List.of("@" + (-c), "D=-A");
-            }
-            return List.of("@" + c, "D=A");
-        }
-        return address.setDreg();
     }
 
     public static List<String> handleMultiplePushes(List<PushGroup> pushes) throws Exception {
@@ -229,7 +197,6 @@ public class PushInstruction extends PushGroup {
         return asm;
     }
 
-
     private static boolean isTrivialConstant(PushGroup p) {
         return p.isConstant() && Math.abs(p.getConstant()) <= 1;
     }
@@ -238,6 +205,50 @@ public class PushInstruction extends PushGroup {
         return !(p instanceof PushInstruction pi) || !(pi.isConstant() && Math.abs(p.getConstant()) <= 1);
     }
 
+    @Override
+    public List<String> decode() {
+        List<String> asm = new ArrayList<>();
+
+        if (VMTranslator.thread) {
+            String label;
+            if (address.getSegment().equals("static")) {
+                label = VMParser.moduleName + "." + address.getIndex() + "_PUSH";
+            } else {
+                label = "PUSH_" + address.getSegment() + "_" + address.getIndex();
+            }
+            return List.of("@" + label, "0;JMP");
+        }
+
+        if (isConstant()) {
+            if (Math.abs(getConstant()) <= 1) {
+                return new ArrayList<>(List.of("@SP", "AM=M+1", "A=A-1", "M=" + getConstant()));
+            }
+        }
+        if (!address.isTrivial()) {
+            String label = "RETURN_PUSH_LABEL_" + label_count;
+            asm.addAll(List.of("@" + label, "D=A", "@13", "M=D", "@" + address.getIndex(), "D=A", "@" + address.getShortSegmentName() + "_PUSH", "0;JMP", "(" + label + ")"));
+            label_count++;
+        } else {
+            asm.addAll(setD()); // Handles constant optimization internally
+            asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
+        }
+        return asm;
+    }
+
+    @Override
+    List<String> setD() {
+        if (isConstant()) {
+            short c = getConstant();
+            if (c == 0 || c == 1 || c == -1) {
+                return List.of("D=" + c);
+            }
+            if (c < 0) {
+                return List.of("@" + (-c), "D=-A");
+            }
+            return List.of("@" + c, "D=A");
+        }
+        return address.setDreg();
+    }
 
     @Override
     public short getConstant() {

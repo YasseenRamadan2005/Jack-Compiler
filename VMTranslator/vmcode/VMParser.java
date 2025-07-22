@@ -1,5 +1,7 @@
 package VMTranslator.vmcode;
 
+import VMTranslator.VMTranslator;
+
 import java.util.*;
 
 public class VMParser {
@@ -44,6 +46,9 @@ public class VMParser {
         Deque<VMinstruction> todo = new ArrayDeque<>(work); // tail == top
         Deque<VMinstruction> stack = new ArrayDeque<>();
         List<VMinstruction> fuck = new ArrayList<>();
+        if (VMTranslator.thread){
+            return work;
+        }
         while (!todo.isEmpty()) {
             VMinstruction cur = todo.removeFirst();   // process tail-first
             switch (cur) {

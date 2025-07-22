@@ -1,10 +1,15 @@
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Assembler {
-    private static final Map<String, Integer> A_INSTRUCTIONS = new HashMap<>();
-    private static final Map<String, String> C_INSTRUCTIONS = new HashMap<>();
+    private static final Map<String, Integer> SYMBOL_TABLE = new HashMap<>();
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("\\d+");
     private static int nextVariableAddress = 16;
 
     public static void processFile(Path inputFile) throws IOException {
@@ -13,9 +18,8 @@ public class Assembler {
 
         List<String> lines = Files.readAllLines(inputFile);
         List<String> cleaned = new ArrayList<>();
-        A_INSTRUCTIONS.clear();
+        SYMBOL_TABLE.clear();
         initializePredefinedSymbols();
-        loadCInstructions();
 
         // First pass: handle labels
         int instructionAddress = 0;
@@ -25,7 +29,7 @@ public class Assembler {
 
             if (cleanedLine.startsWith("(") && cleanedLine.endsWith(")")) {
                 String label = cleanedLine.substring(1, cleanedLine.length() - 1);
-                A_INSTRUCTIONS.put(label, instructionAddress);
+                SYMBOL_TABLE.put(label, instructionAddress);
             } else {
                 cleaned.add(cleanedLine);
                 instructionAddress++;
@@ -38,9 +42,7 @@ public class Assembler {
             if (line.startsWith("@")) {
                 output.add(translateAInstruction(line));
             } else {
-                String binary = C_INSTRUCTIONS.get(line);
-                if (binary == null) throw new IllegalArgumentException("Unknown C-instruction: " + line);
-                output.add(binary);
+                output.add(convertCInstruction(line));
             }
         }
 
@@ -48,463 +50,133 @@ public class Assembler {
         System.out.println("Wrote: " + outputFile + "\n");
     }
 
-    private static String cleanLine(String line) {
-        return line.replaceAll("//.*", "")  // Remove comments
-                .replaceAll("\\s", "");  // Remove all whitespace
-    }
-
     private static String translateAInstruction(String line) {
         String symbol = line.substring(1);
-
         int address;
-        if (symbol.matches("\\d+")) {
+
+        if (NUMBER_PATTERN.matcher(symbol).matches()) {
             address = Integer.parseInt(symbol);
-        } else if (symbol.matches("R\\d+")) {
-            address = Integer.parseInt(symbol.substring(1));
         } else {
-            if (!A_INSTRUCTIONS.containsKey(symbol)) {
-                A_INSTRUCTIONS.put(symbol, nextVariableAddress++);
+            if (!SYMBOL_TABLE.containsKey(symbol)) {
+                SYMBOL_TABLE.put(symbol, nextVariableAddress++);
             }
-            address = A_INSTRUCTIONS.get(symbol);
+            address = SYMBOL_TABLE.get(symbol);
         }
 
-        return String.format("%16s", Integer.toBinaryString(address)).replace(' ', '0');
+        String binary = Integer.toBinaryString(address);
+        return "0".repeat(16 - binary.length()) + binary;
+    }
+
+    private static String convertCInstruction(String line) {
+        String destBits = "000";
+        String compBits;
+        String jumpBits = "000";
+
+        String dest = null;
+        String comp;
+        String jump = null;
+
+        if (line.contains("=")) {
+            String[] parts = line.split("=", 2);
+            dest = parts[0];
+            line = parts[1];
+        }
+
+        if (line.contains(";")) {
+            String[] parts = line.split(";", 2);
+            comp = parts[0];
+            jump = parts[1];
+        } else {
+            comp = line;
+        }
+
+        compBits = compTable(comp);
+        if (dest != null) destBits = destTable(dest);
+        if (jump != null) jumpBits = jumpTable(jump);
+
+        return "111" + compBits + destBits + jumpBits;
+    }
+
+    private static String compTable(String comp) {
+        return switch (comp) {
+            case "0" -> "0101010";
+            case "1" -> "0111111";
+            case "-1" -> "0111010";
+            case "D" -> "0001100";
+            case "A" -> "0110000";
+            case "M" -> "1110000";
+            case "!D" -> "0001101";
+            case "!A" -> "0110001";
+            case "!M" -> "1110001";
+            case "-D" -> "0001111";
+            case "-A" -> "0110011";
+            case "-M" -> "1110011";
+            case "D+1" -> "0011111";
+            case "A+1" -> "0110111";
+            case "M+1" -> "1110111";
+            case "D-1" -> "0001110";
+            case "A-1" -> "0110010";
+            case "M-1" -> "1110010";
+            case "D+A" -> "0000010";
+            case "D+M" -> "1000010";
+            case "D-A" -> "0010011";
+            case "D-M" -> "1010011";
+            case "A-D" -> "0000111";
+            case "M-D" -> "1000111";
+            case "D&A" -> "0000000";
+            case "D&M" -> "1000000";
+            case "D|A" -> "0010101";
+            case "D|M" -> "1010101";
+            default -> throw new IllegalArgumentException("Invalid comp: " + comp);
+        };
+    }
+
+    private static String destTable(String dest) {
+        int d = 0;
+        if (dest.contains("A")) d |= 0b100;
+        if (dest.contains("D")) d |= 0b010;
+        if (dest.contains("M")) d |= 0b001;
+        return String.format("%3s", Integer.toBinaryString(d)).replace(' ', '0');
+    }
+
+
+    private static String jumpTable(String jump) {
+        return switch (jump) {
+            case "JGT" -> "001";
+            case "JEQ" -> "010";
+            case "JGE" -> "011";
+            case "JLT" -> "100";
+            case "JNE" -> "101";
+            case "JLE" -> "110";
+            case "JMP" -> "111";
+            default -> "000"; // null or empty
+        };
+    }
+
+    private static String cleanLine(String line) {
+        int commentIndex = line.indexOf("//");
+        if (commentIndex != -1) {
+            line = line.substring(0, commentIndex);
+        }
+        StringBuilder sb = new StringBuilder();
+        for (char c : line.toCharArray()) {
+            if (!Character.isWhitespace(c)) {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
     }
 
     private static void initializePredefinedSymbols() {
-        A_INSTRUCTIONS.put("SP", 0);
-        A_INSTRUCTIONS.put("LCL", 1);
-        A_INSTRUCTIONS.put("ARG", 2);
-        A_INSTRUCTIONS.put("THIS", 3);
-        A_INSTRUCTIONS.put("THAT", 4);
+        SYMBOL_TABLE.put("SP", 0);
+        SYMBOL_TABLE.put("LCL", 1);
+        SYMBOL_TABLE.put("ARG", 2);
+        SYMBOL_TABLE.put("THIS", 3);
+        SYMBOL_TABLE.put("THAT", 4);
         for (int i = 0; i <= 15; i++) {
-            A_INSTRUCTIONS.put("R" + i, i);
+            SYMBOL_TABLE.put("R" + i, i);
         }
-        A_INSTRUCTIONS.put("SCREEN", 16384);
-        A_INSTRUCTIONS.put("KBD", 24576);
-    }
-
-    private static void loadCInstructions() {
-        // Generated from Lua C_instructions table
-        C_INSTRUCTIONS.put("A;JGT", "1110110000000001");
-        C_INSTRUCTIONS.put("M;JGT", "1111110000000001");
-        C_INSTRUCTIONS.put("A;JGE", "1110110000000011");
-        C_INSTRUCTIONS.put("M;JGE", "1111110000000011");
-        C_INSTRUCTIONS.put("A;JLT", "1110110000000100");
-        C_INSTRUCTIONS.put("M;JLT", "1111110000000100");
-        C_INSTRUCTIONS.put("A;JEQ", "1110110000000010");
-        C_INSTRUCTIONS.put("M;JEQ", "1111110000000010");
-        C_INSTRUCTIONS.put("A;JLE", "1110110000000110");
-        C_INSTRUCTIONS.put("M;JLE", "1111110000000110");
-        C_INSTRUCTIONS.put("A;JMP", "1110110000000111");
-        C_INSTRUCTIONS.put("M;JMP", "1111110000000111");
-        C_INSTRUCTIONS.put("A;JNE", "1110110000000101");
-        C_INSTRUCTIONS.put("M;JNE", "1111110000000101");
-        C_INSTRUCTIONS.put("D+A;JGT", "1110000010000001");
-        C_INSTRUCTIONS.put("D+M;JGT", "1111000010000001");
-        C_INSTRUCTIONS.put("D+A;JGE", "1110000010000011");
-        C_INSTRUCTIONS.put("D+M;JGE", "1111000010000011");
-        C_INSTRUCTIONS.put("D+A;JLT", "1110000010000100");
-        C_INSTRUCTIONS.put("D+M;JLT", "1111000010000100");
-        C_INSTRUCTIONS.put("D+A;JEQ", "1110000010000010");
-        C_INSTRUCTIONS.put("D+M;JEQ", "1111000010000010");
-        C_INSTRUCTIONS.put("D+A;JLE", "1110000010000110");
-        C_INSTRUCTIONS.put("D+M;JLE", "1111000010000110");
-        C_INSTRUCTIONS.put("D+A;JMP", "1110000010000111");
-        C_INSTRUCTIONS.put("D+M;JMP", "1111000010000111");
-        C_INSTRUCTIONS.put("D+A;JNE", "1110000010000101");
-        C_INSTRUCTIONS.put("D+M;JNE", "1111000010000101");
-        C_INSTRUCTIONS.put("!A;JGT", "1110110001000001");
-        C_INSTRUCTIONS.put("!M;JGT", "1111110001000001");
-        C_INSTRUCTIONS.put("!A;JGE", "1110110001000011");
-        C_INSTRUCTIONS.put("!M;JGE", "1111110001000011");
-        C_INSTRUCTIONS.put("!A;JLT", "1110110001000100");
-        C_INSTRUCTIONS.put("!M;JLT", "1111110001000100");
-        C_INSTRUCTIONS.put("!A;JEQ", "1110110001000010");
-        C_INSTRUCTIONS.put("!M;JEQ", "1111110001000010");
-        C_INSTRUCTIONS.put("!A;JLE", "1110110001000110");
-        C_INSTRUCTIONS.put("!M;JLE", "1111110001000110");
-        C_INSTRUCTIONS.put("!A;JMP", "1110110001000111");
-        C_INSTRUCTIONS.put("!M;JMP", "1111110001000111");
-        C_INSTRUCTIONS.put("!A;JNE", "1110110001000101");
-        C_INSTRUCTIONS.put("!M;JNE", "1111110001000101");
-        C_INSTRUCTIONS.put("D&A;JGT", "1110000000000001");
-        C_INSTRUCTIONS.put("D&M;JGT", "1111000000000001");
-        C_INSTRUCTIONS.put("D&A;JGE", "1110000000000011");
-        C_INSTRUCTIONS.put("D&M;JGE", "1111000000000011");
-        C_INSTRUCTIONS.put("D&A;JLT", "1110000000000100");
-        C_INSTRUCTIONS.put("D&M;JLT", "1111000000000100");
-        C_INSTRUCTIONS.put("D&A;JEQ", "1110000000000010");
-        C_INSTRUCTIONS.put("D&M;JEQ", "1111000000000010");
-        C_INSTRUCTIONS.put("D&A;JLE", "1110000000000110");
-        C_INSTRUCTIONS.put("D&M;JLE", "1111000000000110");
-        C_INSTRUCTIONS.put("D&A;JMP", "1110000000000111");
-        C_INSTRUCTIONS.put("D&M;JMP", "1111000000000111");
-        C_INSTRUCTIONS.put("D&A;JNE", "1110000000000101");
-        C_INSTRUCTIONS.put("D&M;JNE", "1111000000000101");
-        C_INSTRUCTIONS.put("!D;JGT", "1110001101000001");
-        C_INSTRUCTIONS.put("!D;JGE", "1110001101000011");
-        C_INSTRUCTIONS.put("!D;JLT", "1110001101000100");
-        C_INSTRUCTIONS.put("!D;JEQ", "1110001101000010");
-        C_INSTRUCTIONS.put("!D;JLE", "1110001101000110");
-        C_INSTRUCTIONS.put("!D;JMP", "1110001101000111");
-        C_INSTRUCTIONS.put("!D;JNE", "1110001101000101");
-        C_INSTRUCTIONS.put("D;JGT", "1110001100000001");
-        C_INSTRUCTIONS.put("D;JGE", "1110001100000011");
-        C_INSTRUCTIONS.put("D;JLT", "1110001100000100");
-        C_INSTRUCTIONS.put("D;JEQ", "1110001100000010");
-        C_INSTRUCTIONS.put("D;JLE", "1110001100000110");
-        C_INSTRUCTIONS.put("D;JMP", "1110001100000111");
-        C_INSTRUCTIONS.put("D;JNE", "1110001100000101");
-        C_INSTRUCTIONS.put("D-A;JGT", "1110010011000001");
-        C_INSTRUCTIONS.put("D-M;JGT", "1111010011000001");
-        C_INSTRUCTIONS.put("D-A;JGE", "1110010011000011");
-        C_INSTRUCTIONS.put("D-M;JGE", "1111010011000011");
-        C_INSTRUCTIONS.put("D-A;JLT", "1110010011000100");
-        C_INSTRUCTIONS.put("D-M;JLT", "1111010011000100");
-        C_INSTRUCTIONS.put("D-A;JEQ", "1110010011000010");
-        C_INSTRUCTIONS.put("D-M;JEQ", "1111010011000010");
-        C_INSTRUCTIONS.put("D-A;JLE", "1110010011000110");
-        C_INSTRUCTIONS.put("D-M;JLE", "1111010011000110");
-        C_INSTRUCTIONS.put("D-A;JMP", "1110010011000111");
-        C_INSTRUCTIONS.put("D-M;JMP", "1111010011000111");
-        C_INSTRUCTIONS.put("D-A;JNE", "1110010011000101");
-        C_INSTRUCTIONS.put("D-M;JNE", "1111010011000101");
-        C_INSTRUCTIONS.put("D-1;JGT", "1110001110000001");
-        C_INSTRUCTIONS.put("D-1;JGE", "1110001110000011");
-        C_INSTRUCTIONS.put("D-1;JLT", "1110001110000100");
-        C_INSTRUCTIONS.put("D-1;JEQ", "1110001110000010");
-        C_INSTRUCTIONS.put("D-1;JLE", "1110001110000110");
-        C_INSTRUCTIONS.put("D-1;JMP", "1110001110000111");
-        C_INSTRUCTIONS.put("D-1;JNE", "1110001110000101");
-        C_INSTRUCTIONS.put("-D;JGT", "1110001111000001");
-        C_INSTRUCTIONS.put("-D;JGE", "1110001111000011");
-        C_INSTRUCTIONS.put("-D;JLT", "1110001111000100");
-        C_INSTRUCTIONS.put("-D;JEQ", "1110001111000010");
-        C_INSTRUCTIONS.put("-D;JLE", "1110001111000110");
-        C_INSTRUCTIONS.put("-D;JMP", "1110001111000111");
-        C_INSTRUCTIONS.put("-D;JNE", "1110001111000101");
-        C_INSTRUCTIONS.put("-A;JGT", "1110110011000001");
-        C_INSTRUCTIONS.put("-M;JGT", "1111110011000001");
-        C_INSTRUCTIONS.put("-A;JGE", "1110110011000011");
-        C_INSTRUCTIONS.put("-M;JGE", "1111110011000011");
-        C_INSTRUCTIONS.put("-A;JLT", "1110110011000100");
-        C_INSTRUCTIONS.put("-M;JLT", "1111110011000100");
-        C_INSTRUCTIONS.put("-A;JEQ", "1110110011000010");
-        C_INSTRUCTIONS.put("-M;JEQ", "1111110011000010");
-        C_INSTRUCTIONS.put("-A;JLE", "1110110011000110");
-        C_INSTRUCTIONS.put("-M;JLE", "1111110011000110");
-        C_INSTRUCTIONS.put("-A;JMP", "1110110011000111");
-        C_INSTRUCTIONS.put("-M;JMP", "1111110011000111");
-        C_INSTRUCTIONS.put("-A;JNE", "1110110011000101");
-        C_INSTRUCTIONS.put("-M;JNE", "1111110011000101");
-        C_INSTRUCTIONS.put("1;JGT", "1110111111000001");
-        C_INSTRUCTIONS.put("1;JGE", "1110111111000011");
-        C_INSTRUCTIONS.put("1;JLT", "1110111111000100");
-        C_INSTRUCTIONS.put("1;JEQ", "1110111111000010");
-        C_INSTRUCTIONS.put("1;JLE", "1110111111000110");
-        C_INSTRUCTIONS.put("1;JMP", "1110111111000111");
-        C_INSTRUCTIONS.put("1;JNE", "1110111111000101");
-        C_INSTRUCTIONS.put("0;JGT", "1110101010000001");
-        C_INSTRUCTIONS.put("0;JGE", "1110101010000011");
-        C_INSTRUCTIONS.put("0;JLT", "1110101010000100");
-        C_INSTRUCTIONS.put("0;JEQ", "1110101010000010");
-        C_INSTRUCTIONS.put("0;JLE", "1110101010000110");
-        C_INSTRUCTIONS.put("0;JMP", "1110101010000111");
-        C_INSTRUCTIONS.put("0;JNE", "1110101010000101");
-        C_INSTRUCTIONS.put("D|A;JGT", "1110010101000001");
-        C_INSTRUCTIONS.put("D|M;JGT", "1111010101000001");
-        C_INSTRUCTIONS.put("D|A;JGE", "1110010101000011");
-        C_INSTRUCTIONS.put("D|M;JGE", "1111010101000011");
-        C_INSTRUCTIONS.put("D|A;JLT", "1110010101000100");
-        C_INSTRUCTIONS.put("D|M;JLT", "1111010101000100");
-        C_INSTRUCTIONS.put("D|A;JEQ", "1110010101000010");
-        C_INSTRUCTIONS.put("D|M;JEQ", "1111010101000010");
-        C_INSTRUCTIONS.put("D|A;JLE", "1110010101000110");
-        C_INSTRUCTIONS.put("D|M;JLE", "1111010101000110");
-        C_INSTRUCTIONS.put("D|A;JMP", "1110010101000111");
-        C_INSTRUCTIONS.put("D|M;JMP", "1111010101000111");
-        C_INSTRUCTIONS.put("D|A;JNE", "1110010101000101");
-        C_INSTRUCTIONS.put("D|M;JNE", "1111010101000101");
-        C_INSTRUCTIONS.put("A-D;JGT", "1110000111000001");
-        C_INSTRUCTIONS.put("M-D;JGT", "1111000111000001");
-        C_INSTRUCTIONS.put("A-D;JGE", "1110000111000011");
-        C_INSTRUCTIONS.put("M-D;JGE", "1111000111000011");
-        C_INSTRUCTIONS.put("A-D;JLT", "1110000111000100");
-        C_INSTRUCTIONS.put("M-D;JLT", "1111000111000100");
-        C_INSTRUCTIONS.put("A-D;JEQ", "1110000111000010");
-        C_INSTRUCTIONS.put("M-D;JEQ", "1111000111000010");
-        C_INSTRUCTIONS.put("A-D;JLE", "1110000111000110");
-        C_INSTRUCTIONS.put("M-D;JLE", "1111000111000110");
-        C_INSTRUCTIONS.put("A-D;JMP", "1110000111000111");
-        C_INSTRUCTIONS.put("M-D;JMP", "1111000111000111");
-        C_INSTRUCTIONS.put("A-D;JNE", "1110000111000101");
-        C_INSTRUCTIONS.put("M-D;JNE", "1111000111000101");
-        C_INSTRUCTIONS.put("A+1;JGT", "1110110111000001");
-        C_INSTRUCTIONS.put("M+1;JGT", "1111110111000001");
-        C_INSTRUCTIONS.put("A+1;JGE", "1110110111000011");
-        C_INSTRUCTIONS.put("M+1;JGE", "1111110111000011");
-        C_INSTRUCTIONS.put("A+1;JLT", "1110110111000100");
-        C_INSTRUCTIONS.put("M+1;JLT", "1111110111000100");
-        C_INSTRUCTIONS.put("A+1;JEQ", "1110110111000010");
-        C_INSTRUCTIONS.put("M+1;JEQ", "1111110111000010");
-        C_INSTRUCTIONS.put("A+1;JLE", "1110110111000110");
-        C_INSTRUCTIONS.put("M+1;JLE", "1111110111000110");
-        C_INSTRUCTIONS.put("A+1;JMP", "1110110111000111");
-        C_INSTRUCTIONS.put("M+1;JMP", "1111110111000111");
-        C_INSTRUCTIONS.put("A+1;JNE", "1110110111000101");
-        C_INSTRUCTIONS.put("M+1;JNE", "1111110111000101");
-        C_INSTRUCTIONS.put("D+1;JGT", "1110011111000001");
-        C_INSTRUCTIONS.put("D+1;JGE", "1110011111000011");
-        C_INSTRUCTIONS.put("D+1;JLT", "1110011111000100");
-        C_INSTRUCTIONS.put("D+1;JEQ", "1110011111000010");
-        C_INSTRUCTIONS.put("D+1;JLE", "1110011111000110");
-        C_INSTRUCTIONS.put("D+1;JMP", "1110011111000111");
-        C_INSTRUCTIONS.put("D+1;JNE", "1110011111000101");
-        C_INSTRUCTIONS.put("-1;JGT", "1110111010000001");
-        C_INSTRUCTIONS.put("-1;JGE", "1110111010000011");
-        C_INSTRUCTIONS.put("-1;JLT", "1110111010000100");
-        C_INSTRUCTIONS.put("-1;JEQ", "1110111010000010");
-        C_INSTRUCTIONS.put("-1;JLE", "1110111010000110");
-        C_INSTRUCTIONS.put("-1;JMP", "1110111010000111");
-        C_INSTRUCTIONS.put("-1;JNE", "1110111010000101");
-        C_INSTRUCTIONS.put("A-1;JGT", "1110110010000001");
-        C_INSTRUCTIONS.put("M-1;JGT", "1111110010000001");
-        C_INSTRUCTIONS.put("A-1;JGE", "1110110010000011");
-        C_INSTRUCTIONS.put("M-1;JGE", "1111110010000011");
-        C_INSTRUCTIONS.put("A-1;JLT", "1110110010000100");
-        C_INSTRUCTIONS.put("M-1;JLT", "1111110010000100");
-        C_INSTRUCTIONS.put("A-1;JEQ", "1110110010000010");
-        C_INSTRUCTIONS.put("M-1;JEQ", "1111110010000010");
-        C_INSTRUCTIONS.put("A-1;JLE", "1110110010000110");
-        C_INSTRUCTIONS.put("M-1;JLE", "1111110010000110");
-        C_INSTRUCTIONS.put("A-1;JMP", "1110110010000111");
-        C_INSTRUCTIONS.put("M-1;JMP", "1111110010000111");
-        C_INSTRUCTIONS.put("A-1;JNE", "1110110010000101");
-        C_INSTRUCTIONS.put("M-1;JNE", "1111110010000101");
-        C_INSTRUCTIONS.put("AD=A", "1110110000110000");
-        C_INSTRUCTIONS.put("AD=M", "1111110000110000");
-        C_INSTRUCTIONS.put("AD=D+A", "1110000010110000");
-        C_INSTRUCTIONS.put("AD=D+M", "1111000010110000");
-        C_INSTRUCTIONS.put("AD=!A", "1110110001110000");
-        C_INSTRUCTIONS.put("AD=!M", "1111110001110000");
-        C_INSTRUCTIONS.put("AD=D&A", "1110000000110000");
-        C_INSTRUCTIONS.put("AD=D&M", "1111000000110000");
-        C_INSTRUCTIONS.put("AD=!D", "1110001101110000");
-        C_INSTRUCTIONS.put("AD=D", "1110001100110000");
-        C_INSTRUCTIONS.put("AD=D-A", "1110010011110000");
-        C_INSTRUCTIONS.put("AD=D-M", "1111010011110000");
-        C_INSTRUCTIONS.put("AD=D-1", "1110001110110000");
-        C_INSTRUCTIONS.put("AD=-D", "1110001111110000");
-        C_INSTRUCTIONS.put("AD=-A", "1110110011110000");
-        C_INSTRUCTIONS.put("AD=-M", "1111110011110000");
-        C_INSTRUCTIONS.put("AD=1", "1110111111110000");
-        C_INSTRUCTIONS.put("AD=0", "1110101010110000");
-        C_INSTRUCTIONS.put("AD=D|A", "1110010101110000");
-        C_INSTRUCTIONS.put("AD=D|M", "1111010101110000");
-        C_INSTRUCTIONS.put("AD=A-D", "1110000111110000");
-        C_INSTRUCTIONS.put("AD=M-D", "1111000111110000");
-        C_INSTRUCTIONS.put("AD=A+1", "1110110111110000");
-        C_INSTRUCTIONS.put("AD=M+1", "1111110111110000");
-        C_INSTRUCTIONS.put("AD=D+1", "1110011111110000");
-        C_INSTRUCTIONS.put("AD=-1", "1110111010110000");
-        C_INSTRUCTIONS.put("AD=A-1", "1110110010110000");
-        C_INSTRUCTIONS.put("AD=M-1", "1111110010110000");
-        C_INSTRUCTIONS.put("D=A", "1110110000010000");
-        C_INSTRUCTIONS.put("D=M", "1111110000010000");
-        C_INSTRUCTIONS.put("D=D+A", "1110000010010000");
-        C_INSTRUCTIONS.put("D=D+M", "1111000010010000");
-        C_INSTRUCTIONS.put("D=!A", "1110110001010000");
-        C_INSTRUCTIONS.put("D=!M", "1111110001010000");
-        C_INSTRUCTIONS.put("D=D&A", "1110000000010000");
-        C_INSTRUCTIONS.put("D=D&M", "1111000000010000");
-        C_INSTRUCTIONS.put("D=!D", "1110001101010000");
-        C_INSTRUCTIONS.put("D=D", "1110001100010000");
-        C_INSTRUCTIONS.put("D=D-A", "1110010011010000");
-        C_INSTRUCTIONS.put("D=D-M", "1111010011010000");
-        C_INSTRUCTIONS.put("D=D-1", "1110001110010000");
-        C_INSTRUCTIONS.put("D=-D", "1110001111010000");
-        C_INSTRUCTIONS.put("D=-A", "1110110011010000");
-        C_INSTRUCTIONS.put("D=-M", "1111110011010000");
-        C_INSTRUCTIONS.put("D=1", "1110111111010000");
-        C_INSTRUCTIONS.put("D=0", "1110101010010000");
-        C_INSTRUCTIONS.put("D=D|A", "1110010101010000");
-        C_INSTRUCTIONS.put("D=D|M", "1111010101010000");
-        C_INSTRUCTIONS.put("D=A-D", "1110000111010000");
-        C_INSTRUCTIONS.put("D=M-D", "1111000111010000");
-        C_INSTRUCTIONS.put("D=A+1", "1110110111010000");
-        C_INSTRUCTIONS.put("D=M+1", "1111110111010000");
-        C_INSTRUCTIONS.put("D=D+1", "1110011111010000");
-        C_INSTRUCTIONS.put("D=-1", "1110111010010000");
-        C_INSTRUCTIONS.put("D=A-1", "1110110010010000");
-        C_INSTRUCTIONS.put("D=M-1", "1111110010010000");
-        C_INSTRUCTIONS.put("DM=A", "1110110000011000");
-        C_INSTRUCTIONS.put("DM=M", "1111110000011000");
-        C_INSTRUCTIONS.put("DM=D+A", "1110000010011000");
-        C_INSTRUCTIONS.put("DM=D+M", "1111000010011000");
-        C_INSTRUCTIONS.put("DM=!A", "1110110001011000");
-        C_INSTRUCTIONS.put("DM=!M", "1111110001011000");
-        C_INSTRUCTIONS.put("DM=D&A", "1110000000011000");
-        C_INSTRUCTIONS.put("DM=D&M", "1111000000011000");
-        C_INSTRUCTIONS.put("DM=!D", "1110001101011000");
-        C_INSTRUCTIONS.put("DM=D", "1110001100011000");
-        C_INSTRUCTIONS.put("DM=D-A", "1110010011011000");
-        C_INSTRUCTIONS.put("DM=D-M", "1111010011011000");
-        C_INSTRUCTIONS.put("DM=D-1", "1110001110011000");
-        C_INSTRUCTIONS.put("DM=-D", "1110001111011000");
-        C_INSTRUCTIONS.put("DM=-A", "1110110011011000");
-        C_INSTRUCTIONS.put("DM=-M", "1111110011011000");
-        C_INSTRUCTIONS.put("DM=1", "1110111111011000");
-        C_INSTRUCTIONS.put("DM=0", "1110101010011000");
-        C_INSTRUCTIONS.put("DM=D|A", "1110010101011000");
-        C_INSTRUCTIONS.put("DM=D|M", "1111010101011000");
-        C_INSTRUCTIONS.put("DM=A-D", "1110000111011000");
-        C_INSTRUCTIONS.put("DM=M-D", "1111000111011000");
-        C_INSTRUCTIONS.put("DM=A+1", "1110110111011000");
-        C_INSTRUCTIONS.put("DM=M+1", "1111110111011000");
-        C_INSTRUCTIONS.put("DM=D+1", "1110011111011000");
-        C_INSTRUCTIONS.put("DM=-1", "1110111010011000");
-        C_INSTRUCTIONS.put("DM=A-1", "1110110010011000");
-        C_INSTRUCTIONS.put("DM=M-1", "1111110010011000");
-        C_INSTRUCTIONS.put("AM=A", "1110110000101000");
-        C_INSTRUCTIONS.put("AM=M", "1111110000101000");
-        C_INSTRUCTIONS.put("AM=D+A", "1110000010101000");
-        C_INSTRUCTIONS.put("AM=D+M", "1111000010101000");
-        C_INSTRUCTIONS.put("AM=!A", "1110110001101000");
-        C_INSTRUCTIONS.put("AM=!M", "1111110001101000");
-        C_INSTRUCTIONS.put("AM=D&A", "1110000000101000");
-        C_INSTRUCTIONS.put("AM=D&M", "1111000000101000");
-        C_INSTRUCTIONS.put("AM=!D", "1110001101101000");
-        C_INSTRUCTIONS.put("AM=D", "1110001100101000");
-        C_INSTRUCTIONS.put("AM=D-A", "1110010011101000");
-        C_INSTRUCTIONS.put("AM=D-M", "1111010011101000");
-        C_INSTRUCTIONS.put("AM=D-1", "1110001110101000");
-        C_INSTRUCTIONS.put("AM=-D", "1110001111101000");
-        C_INSTRUCTIONS.put("AM=-A", "1110110011101000");
-        C_INSTRUCTIONS.put("AM=-M", "1111110011101000");
-        C_INSTRUCTIONS.put("AM=1", "1110111111101000");
-        C_INSTRUCTIONS.put("AM=0", "1110101010101000");
-        C_INSTRUCTIONS.put("AM=D|A", "1110010101101000");
-        C_INSTRUCTIONS.put("AM=D|M", "1111010101101000");
-        C_INSTRUCTIONS.put("AM=A-D", "1110000111101000");
-        C_INSTRUCTIONS.put("AM=M-D", "1111000111101000");
-        C_INSTRUCTIONS.put("AM=A+1", "1110110111101000");
-        C_INSTRUCTIONS.put("AM=M+1", "1111110111101000");
-        C_INSTRUCTIONS.put("AM=D+1", "1110011111101000");
-        C_INSTRUCTIONS.put("AM=-1", "1110111010101000");
-        C_INSTRUCTIONS.put("AM=A-1", "1110110010101000");
-        C_INSTRUCTIONS.put("AM=M-1", "1111110010101000");
-        C_INSTRUCTIONS.put("M=A", "1110110000001000");
-        C_INSTRUCTIONS.put("M=M", "1111110000001000");
-        C_INSTRUCTIONS.put("M=D+A", "1110000010001000");
-        C_INSTRUCTIONS.put("M=D+M", "1111000010001000");
-        C_INSTRUCTIONS.put("M=!A", "1110110001001000");
-        C_INSTRUCTIONS.put("M=!M", "1111110001001000");
-        C_INSTRUCTIONS.put("M=D&A", "1110000000001000");
-        C_INSTRUCTIONS.put("M=D&M", "1111000000001000");
-        C_INSTRUCTIONS.put("M=!D", "1110001101001000");
-        C_INSTRUCTIONS.put("M=D", "1110001100001000");
-        C_INSTRUCTIONS.put("M=D-A", "1110010011001000");
-        C_INSTRUCTIONS.put("M=D-M", "1111010011001000");
-        C_INSTRUCTIONS.put("M=D-1", "1110001110001000");
-        C_INSTRUCTIONS.put("M=-D", "1110001111001000");
-        C_INSTRUCTIONS.put("M=-A", "1110110011001000");
-        C_INSTRUCTIONS.put("M=-M", "1111110011001000");
-        C_INSTRUCTIONS.put("M=1", "1110111111001000");
-        C_INSTRUCTIONS.put("M=0", "1110101010001000");
-        C_INSTRUCTIONS.put("M=D|A", "1110010101001000");
-        C_INSTRUCTIONS.put("M=D|M", "1111010101001000");
-        C_INSTRUCTIONS.put("M=A-D", "1110000111001000");
-        C_INSTRUCTIONS.put("M=M-D", "1111000111001000");
-        C_INSTRUCTIONS.put("M=A+1", "1110110111001000");
-        C_INSTRUCTIONS.put("M=M+1", "1111110111001000");
-        C_INSTRUCTIONS.put("M=D+1", "1110011111001000");
-        C_INSTRUCTIONS.put("M=-1", "1110111010001000");
-        C_INSTRUCTIONS.put("M=A-1", "1110110010001000");
-        C_INSTRUCTIONS.put("M=M-1", "1111110010001000");
-        C_INSTRUCTIONS.put("MD=A", "1110110000011000");
-        C_INSTRUCTIONS.put("MD=M", "1111110000011000");
-        C_INSTRUCTIONS.put("MD=D+A", "1110000010011000");
-        C_INSTRUCTIONS.put("MD=D+M", "1111000010011000");
-        C_INSTRUCTIONS.put("MD=!A", "1110110001011000");
-        C_INSTRUCTIONS.put("MD=!M", "1111110001011000");
-        C_INSTRUCTIONS.put("MD=D&A", "1110000000011000");
-        C_INSTRUCTIONS.put("MD=D&M", "1111000000011000");
-        C_INSTRUCTIONS.put("MD=!D", "1110001101011000");
-        C_INSTRUCTIONS.put("MD=D", "1110001100011000");
-        C_INSTRUCTIONS.put("MD=D-A", "1110010011011000");
-        C_INSTRUCTIONS.put("MD=D-M", "1111010011011000");
-        C_INSTRUCTIONS.put("MD=D-1", "1110001110011000");
-        C_INSTRUCTIONS.put("MD=-D", "1110001111011000");
-        C_INSTRUCTIONS.put("MD=-A", "1110110011011000");
-        C_INSTRUCTIONS.put("MD=-M", "1111110011011000");
-        C_INSTRUCTIONS.put("MD=1", "1110111111011000");
-        C_INSTRUCTIONS.put("MD=0", "1110101010011000");
-        C_INSTRUCTIONS.put("MD=D|A", "1110010101011000");
-        C_INSTRUCTIONS.put("MD=D|M", "1111010101011000");
-        C_INSTRUCTIONS.put("MD=A-D", "1110000111011000");
-        C_INSTRUCTIONS.put("MD=M-D", "1111000111011000");
-        C_INSTRUCTIONS.put("MD=A+1", "1110110111011000");
-        C_INSTRUCTIONS.put("MD=M+1", "1111110111011000");
-        C_INSTRUCTIONS.put("MD=D+1", "1110011111011000");
-        C_INSTRUCTIONS.put("MD=-1", "1110111010011000");
-        C_INSTRUCTIONS.put("MD=A-1", "1110110010011000");
-        C_INSTRUCTIONS.put("MD=M-1", "1111110010011000");
-        C_INSTRUCTIONS.put("ADM=A", "1110110000111000");
-        C_INSTRUCTIONS.put("ADM=M", "1111110000111000");
-        C_INSTRUCTIONS.put("ADM=D+A", "1110000010111000");
-        C_INSTRUCTIONS.put("ADM=D+M", "1111000010111000");
-        C_INSTRUCTIONS.put("ADM=!A", "1110110001111000");
-        C_INSTRUCTIONS.put("ADM=!M", "1111110001111000");
-        C_INSTRUCTIONS.put("ADM=D&A", "1110000000111000");
-        C_INSTRUCTIONS.put("ADM=D&M", "1111000000111000");
-        C_INSTRUCTIONS.put("ADM=!D", "1110001101111000");
-        C_INSTRUCTIONS.put("ADM=D", "1110001100111000");
-        C_INSTRUCTIONS.put("ADM=D-A", "1110010011111000");
-        C_INSTRUCTIONS.put("ADM=D-M", "1111010011111000");
-        C_INSTRUCTIONS.put("ADM=D-1", "1110001110111000");
-        C_INSTRUCTIONS.put("ADM=-D", "1110001111111000");
-        C_INSTRUCTIONS.put("ADM=-A", "1110110011111000");
-        C_INSTRUCTIONS.put("ADM=-M", "1111110011111000");
-        C_INSTRUCTIONS.put("ADM=1", "1110111111111000");
-        C_INSTRUCTIONS.put("ADM=0", "1110101010111000");
-        C_INSTRUCTIONS.put("ADM=D|A", "1110010101111000");
-        C_INSTRUCTIONS.put("ADM=D|M", "1111010101111000");
-        C_INSTRUCTIONS.put("ADM=A-D", "1110000111111000");
-        C_INSTRUCTIONS.put("ADM=M-D", "1111000111111000");
-        C_INSTRUCTIONS.put("ADM=A+1", "1110110111111000");
-        C_INSTRUCTIONS.put("ADM=M+1", "1111110111111000");
-        C_INSTRUCTIONS.put("ADM=D+1", "1110011111111000");
-        C_INSTRUCTIONS.put("ADM=-1", "1110111010111000");
-        C_INSTRUCTIONS.put("ADM=A-1", "1110110010111000");
-        C_INSTRUCTIONS.put("ADM=M-1", "1111110010111000");
-        C_INSTRUCTIONS.put("A=A", "1110110000100000");
-        C_INSTRUCTIONS.put("A=M", "1111110000100000");
-        C_INSTRUCTIONS.put("A=D+A", "1110000010100000");
-        C_INSTRUCTIONS.put("A=D+M", "1111000010100000");
-        C_INSTRUCTIONS.put("A=!A", "1110110001100000");
-        C_INSTRUCTIONS.put("A=!M", "1111110001100000");
-        C_INSTRUCTIONS.put("A=D&A", "1110000000100000");
-        C_INSTRUCTIONS.put("A=D&M", "1111000000100000");
-        C_INSTRUCTIONS.put("A=!D", "1110001101100000");
-        C_INSTRUCTIONS.put("A=D", "1110001100100000");
-        C_INSTRUCTIONS.put("A=D-A", "1110010011100000");
-        C_INSTRUCTIONS.put("A=D-M", "1111010011100000");
-        C_INSTRUCTIONS.put("A=D-1", "1110001110100000");
-        C_INSTRUCTIONS.put("A=-D", "1110001111100000");
-        C_INSTRUCTIONS.put("A=-A", "1110110011100000");
-        C_INSTRUCTIONS.put("A=-M", "1111110011100000");
-        C_INSTRUCTIONS.put("A=1", "1110111111100000");
-        C_INSTRUCTIONS.put("A=0", "1110101010100000");
-        C_INSTRUCTIONS.put("A=D|A", "1110010101100000");
-        C_INSTRUCTIONS.put("A=D|M", "1111010101100000");
-        C_INSTRUCTIONS.put("A=A-D", "1110000111100000");
-        C_INSTRUCTIONS.put("A=M-D", "1111000111100000");
-        C_INSTRUCTIONS.put("A=A+1", "1110110111100000");
-        C_INSTRUCTIONS.put("A=M+1", "1111110111100000");
-        C_INSTRUCTIONS.put("A=D+1", "1110011111100000");
-        C_INSTRUCTIONS.put("A=-1", "1110111010100000");
-        C_INSTRUCTIONS.put("A=A-1", "1110110010100000");
-        C_INSTRUCTIONS.put("A=M-1", "1111110010100000");
+        SYMBOL_TABLE.put("SCREEN", 16384);
+        SYMBOL_TABLE.put("KBD", 24576);
     }
 }

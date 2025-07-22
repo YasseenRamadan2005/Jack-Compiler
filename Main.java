@@ -1,15 +1,15 @@
-import VMTranslator.vmcode.PushInstruction;
+import VMTranslator.VMTranslator;
 
 import java.io.File;
-import java.util.Arrays;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
     public static boolean makeXML = false;
 
     public static void main(String[] args) throws IOException {
         if (args.length < 1 || args.length > 5) {
-            System.err.println("Usage: java Main <directory> [--vm] [-x] [-v] [-a]");
+            System.err.println("Usage: java Main <directory> [--vm] [-x] [-v] [-a] [-t]");
             System.exit(1);
         }
 
@@ -21,6 +21,7 @@ public class Main {
 
         boolean isVmOnly = Arrays.asList(args).contains("--vm");
         makeXML = Arrays.asList(args).contains("-x");
+        VMTranslator.thread = Arrays.asList(args).contains("-t");
         boolean keepVmFiles = Arrays.asList(args).contains("-v");
         boolean runAssembler = Arrays.asList(args).contains("-a");  // NEW: -a flag for assembler
 
