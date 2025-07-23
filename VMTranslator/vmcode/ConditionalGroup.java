@@ -21,6 +21,13 @@ public class ConditionalGroup implements VMinstruction {
     }
 
     @Override
+    public List<VMinstruction> unWrap() {
+        List<VMinstruction> result = new ArrayList<>(push.unWrap());
+        result.add(ifGoto);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "ConditionalGroup{" + "push=" + push + ", ifGoto=" + ifGoto + '}';
     }

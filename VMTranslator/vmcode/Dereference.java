@@ -66,14 +66,20 @@ public class Dereference extends PushGroup {
         list = new ArrayList<>(base.setD());
         if (base.isConstant()) {
             list.removeLast();
-        }
-        else {
+        } else {
             list.set(list.size() - 1, 'A' + list.getLast().substring(1));
         }
         list.add("D=M");
         return list;
     }
 
+    @Override
+    public List<VMinstruction> unWrap() {
+        List<VMinstruction> result = new ArrayList<>(base.unWrap());
+        result.add(new PopInstruction(new Address("pointer", (short) 1)));
+        result.add(new PushInstruction(new Address("that", (short) 0)));
+        return result;
+    }
 
     @Override
     boolean isConstant() {

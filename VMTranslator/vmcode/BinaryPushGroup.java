@@ -156,8 +156,7 @@ public class BinaryPushGroup extends PushGroup {
                     asm.add("D=" + dOp);
                     return asm;
                 }
-            }
-            else if (a1.isTrivial() && a2.isTrivial()) {
+            } else if (a1.isTrivial() && a2.isTrivial()) {
                 asm.addAll(pLeft.setD());
                 asm.addAll(a2.resolveAddressTo("A"));
                 asm.add("D=" + opToDOperation("M", false));
@@ -165,18 +164,18 @@ public class BinaryPushGroup extends PushGroup {
             }
         }
 
-        if (left instanceof PushInstruction || right instanceof PushInstruction){
+        if (left instanceof PushInstruction || right instanceof PushInstruction) {
             PushInstruction theSimplePush = null;
             PushGroup theNonTrivialPush = null;
             boolean flip;
-            if (left instanceof PushInstruction pleft && pleft.getAddress().isTrivial()){
+            if (left instanceof PushInstruction pleft && pleft.getAddress().isTrivial()) {
                 theSimplePush = pleft;
                 theNonTrivialPush = right;
                 asm.addAll(theNonTrivialPush.setD());
                 asm.addAll(theSimplePush.getAddress().resolveAddressTo("A"));
                 asm.add("D=" + opToDOperation("M", true));
             }
-            if (right instanceof PushInstruction pright && pright.getAddress().isTrivial()){
+            if (right instanceof PushInstruction pright && pright.getAddress().isTrivial()) {
                 theSimplePush = pright;
                 theNonTrivialPush = left;
                 asm.addAll(theNonTrivialPush.setD());
@@ -225,6 +224,14 @@ public class BinaryPushGroup extends PushGroup {
         };
     }
 
+
+    @Override
+    public List<VMinstruction> unWrap() {
+        List<VMinstruction> result = new ArrayList<>(left.unWrap());
+        result.addAll(right.unWrap());
+        result.add(new ArithmeticInstruction(op));
+        return result;
+    }
 
     @Override
     public boolean equals(Object obj) {

@@ -30,14 +30,14 @@ public class PushPopPair implements VMinstruction {
         Address dest = pop.getAddress();
 
         //If the push is a CallGroup and the pop is to temp 0, then we can disregard the return value by just decrementing the stack
-        if (push instanceof CallGroup && dest.equals(new Address("temp", (short) 0))){
+        if (push instanceof CallGroup && dest.equals(new Address("temp", (short) 0))) {
             asm.addAll(push.decode());
             asm.addAll(List.of("@SP", "M=M-1"));
             return asm;
         }
 
         //Handle the constant case here
-        if (push.isConstant() && Math.abs(push.getConstant()) <= 1){
+        if (push.isConstant() && Math.abs(push.getConstant()) <= 1) {
             asm.addAll(pop.getAddress().resolveAddressTo("A"));
             asm.add("M=" + push.getConstant());
             return asm;
@@ -46,12 +46,8 @@ public class PushPopPair implements VMinstruction {
         //Handle any increment or decrement case here
         if (push instanceof BinaryPushGroup bpg) {
             if (bpg.getLeft() instanceof PushInstruction || bpg.getRight() instanceof PushInstruction) {
-                PushInstruction pi = bpg.getLeft() instanceof PushInstruction
-                        ? (PushInstruction) bpg.getLeft()
-                        : (PushInstruction) bpg.getRight();
-                PushGroup other = bpg.getLeft() instanceof PushInstruction
-                        ? bpg.getRight()
-                        : bpg.getLeft();
+                PushInstruction pi = bpg.getLeft() instanceof PushInstruction ? (PushInstruction) bpg.getLeft() : (PushInstruction) bpg.getRight();
+                PushGroup other = bpg.getLeft() instanceof PushInstruction ? bpg.getRight() : bpg.getLeft();
 
                 if (pi.getAddress().equals(dest) && other.isConstant()) {
                     int val = other.getConstant();
@@ -99,8 +95,8 @@ public class PushPopPair implements VMinstruction {
                         case ADD -> "D+M";
                         case SUB -> "D-M";
                         case AND -> "D&M";
-                        case OR  -> "D|M";
-                        default  -> null;
+                        case OR -> "D|M";
+                        default -> null;
                     };
 
                     if (opAsm != null) {
@@ -111,9 +107,7 @@ public class PushPopPair implements VMinstruction {
                             return asm;
                         } else if (rightAddr.equals(dest)) {
                             // Commutative ops only: ADD, AND, OR
-                            if (op == ArithmeticInstruction.Op.ADD ||
-                                    op == ArithmeticInstruction.Op.AND ||
-                                    op == ArithmeticInstruction.Op.OR) {
+                            if (op == ArithmeticInstruction.Op.ADD || op == ArithmeticInstruction.Op.AND || op == ArithmeticInstruction.Op.OR) {
                                 asm.addAll(left.setD());
                                 asm.addAll(dest.resolveAddressTo("A"));
                                 asm.add("M=" + opAsm);
@@ -137,10 +131,18 @@ public class PushPopPair implements VMinstruction {
         return asm;
     }
 
+    @Override
+    public List<VMinstruction> unWrap() {
+        List<VMinstruction> result = new ArrayList<>(push.unWrap());
+        result.add(pop);
+        return result;
+    }
 
-    public Address getPopAddress(){
+
+    public Address getPopAddress() {
         return pop.getAddress();
     }
+
     @Override
     public String toString() {
         return toStringHelper(0);

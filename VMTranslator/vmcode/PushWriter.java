@@ -13,8 +13,9 @@ public class PushWriter implements VMinstruction {
     private PushGroup source;
     private PushGroup dest; //Does RAM[dest] = source
 
-    public PushWriter (PushGroup source, PushGroup dest){
-        this.source = source; this.dest = dest;
+    public PushWriter(PushGroup source, PushGroup dest) {
+        this.source = source;
+        this.dest = dest;
     }
 
 
@@ -27,10 +28,21 @@ public class PushWriter implements VMinstruction {
     }
 
     @Override
+    public List<VMinstruction> unWrap() {
+
+        // Evaluate dest, store in pointer 1
+        List<VMinstruction> result = new ArrayList<>(dest.unWrap());
+        result.add(new PopInstruction(new Address("pointer", (short) 1)));
+
+        // Evaluate source, write to that 0
+        result.addAll(source.unWrap());
+        result.add(new PopInstruction(new Address("that", (short) 0)));
+
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "PushWriter{" +
-                "source=" + source +
-                ", dest=" + dest +
-                '}';
+        return "PushWriter{" + "source=" + source + ", dest=" + dest + '}';
     }
 }

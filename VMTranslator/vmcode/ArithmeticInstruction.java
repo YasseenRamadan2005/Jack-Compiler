@@ -28,6 +28,11 @@ public final class ArithmeticInstruction implements VMinstruction {
         return new ArrayList<>(op.emit(true));
     }
 
+    @Override
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
+    }
+
     public boolean isUnary() {
         return op.unary;
     }

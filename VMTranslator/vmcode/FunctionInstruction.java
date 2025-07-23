@@ -47,6 +47,11 @@ public class FunctionInstruction implements VMinstruction {
         return asm;
     }
 
+    @Override
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
+    }
+
 
     public String getFuncName() {
         return funcName;

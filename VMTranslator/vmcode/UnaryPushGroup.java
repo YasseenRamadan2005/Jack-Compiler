@@ -21,8 +21,7 @@ public final class UnaryPushGroup extends PushGroup {
             short constant = getConstant();
             if (Math.abs(constant) <= 1) {
                 return new ArrayList<>(List.of("@SP", "AM=M+1", "A=A-1", "M=" + constant));
-            }
-            else{
+            } else {
                 asm.addAll(setD());
                 asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
                 return asm;
@@ -56,6 +55,13 @@ public final class UnaryPushGroup extends PushGroup {
         return asm;
     }
 
+    @Override
+    public List<VMinstruction> unWrap() {
+        List<VMinstruction> result = new ArrayList<>(inner.unWrap());
+        result.add(new ArithmeticInstruction(op));
+        return result;
+    }
+
     /**
      * Detects whether this is a wrapped PushInstruction or nested UnaryPushGroup wrapping a PushInstruction
      */
@@ -70,10 +76,10 @@ public final class UnaryPushGroup extends PushGroup {
 
     @Override
     public short getConstant() {
-        if (op.equals(ArithmeticInstruction.Op.NOT)){
+        if (op.equals(ArithmeticInstruction.Op.NOT)) {
             return (short) ~(inner.getConstant());
         }
-        if (op.equals(ArithmeticInstruction.Op.NEG)){
+        if (op.equals(ArithmeticInstruction.Op.NEG)) {
             return (short) -(inner.getConstant());
         }
         throw new IllegalStateException();
@@ -95,7 +101,7 @@ public final class UnaryPushGroup extends PushGroup {
 
     @Override
     public String toString(int ind) {
-        return " ".repeat(ind) + "UnaryPushGroup(" + inner.toString(ind + 4) +  ",\n"  + op + ')';
+        return " ".repeat(ind) + "UnaryPushGroup(" + inner.toString(ind + 4) + ",\n" + op + ')';
     }
 
     @Override

@@ -215,6 +215,9 @@ public class PushInstruction extends PushGroup {
                 label = VMParser.moduleName + "." + address.getIndex() + "_PUSH";
             } else {
                 label = "PUSH_" + address.getSegment() + "_" + address.getIndex();
+                if (address.getSegment().equals("constant") && address.getIndex() < 0){
+                    label = "PUSH_" + address.getSegment() + "_" + (address.getIndex() * -1) + "_NEG";
+                }
             }
             return List.of("@" + label, "0;JMP");
         }
@@ -233,6 +236,11 @@ public class PushInstruction extends PushGroup {
             asm.addAll(List.of("@SP", "AM=M+1", "A=A-1", "M=D"));
         }
         return asm;
+    }
+
+    @Override
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
     }
 
     @Override
@@ -276,7 +284,7 @@ public class PushInstruction extends PushGroup {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (!(obj instanceof PushInstruction other)) return false;
-        return Objects.equals(getAddress(), other.getAddress());
+        return address.equals(other.address);
     }
 
     @Override

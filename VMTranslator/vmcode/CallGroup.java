@@ -50,6 +50,15 @@ public class CallGroup extends PushGroup {
     }
 
     @Override
+    public List<VMinstruction> unWrap() {
+        List<VMinstruction> result = new ArrayList<>();
+        for (PushGroup pg : pushes) {
+            result.addAll(pg.unWrap());
+        }
+        result.add(call);
+        return result;
+    }
+    @Override
     public String toString() {
         return "CallGroup{" + "pushes=" + pushes + ", call=" + call + '}';
     }

@@ -20,6 +20,11 @@ public class LabelInstruction implements VMinstruction {
     }
 
     @Override
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
+    }
+
+    @Override
     public String toString() {
         return "LabelInstruction{" + "label='" + label + '}';
     }

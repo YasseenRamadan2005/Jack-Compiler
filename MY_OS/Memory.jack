@@ -113,6 +113,7 @@ class Memory {
 
         while (found = null) { //This only occurs in the case that getBinIndex returns a correct bin with at least one node, but get_best_fit returns null because that node doesn't have enough size.
             if ((index + 1) >= AMOUNT_OF_BINS) {
+                do Sys.error(0);
                 return null; //If we are out of bins, alloc fails :(
             }
             let index = index + 1;

@@ -52,12 +52,28 @@ goto Sys.wait_WHILE_EXP1
 label Sys.wait_WHILE_END1
 push constant 0
 return
-function Sys.error 0
-push argument 0
-call Output.printInt 1
-pop temp 0
-call Output.println 0
-pop temp 0
+function Sys.error 1
+push constant 0
+pop local 0
+label Sys.error_WHILE_EXP1
+push local 0
+push constant 8192
+lt
+not
+if-goto Sys.error_WHILE_END1
+push constant 1
+neg
+push local 0
+push constant 16384
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Sys.error_WHILE_EXP1
+label Sys.error_WHILE_END1
 call Sys.halt 0
 pop temp 0
 push constant 0

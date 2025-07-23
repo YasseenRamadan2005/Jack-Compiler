@@ -5,34 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReturnInstruction implements VMinstruction {
-    private PushGroup pg;
-    public ReturnInstruction(PushGroup pg) {
-        this.pg = pg;
-    }
 
-    public void setPg(PushGroup pg) {
-        this.pg = pg;
+    public ReturnInstruction() {
     }
-
-    public PushGroup getPg() {
-        return pg;
+    @Override
+    public List<String> decode() throws Exception {
+        return new ArrayList<>(List.of("@RETURN", "0;JMP"));
     }
 
     @Override
-    public List<String> decode() throws Exception {
-        List<String> asm = new ArrayList<>();
-        if (pg != null){
-            asm.addAll(pg.decode());
-        }
-        asm.addAll(List.of("@RETURN", "0;JMP"));
-        return asm;
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
     }
 
     @Override
     public String toString() {
-        if (pg == null){
-            return "//Return";
-        }
-        return pg.toString();
+        return "//Return";
     }
 }

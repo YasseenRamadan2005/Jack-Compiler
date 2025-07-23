@@ -38,6 +38,11 @@ public class PopInstruction implements VMinstruction {
         return asm;
     }
 
+    @Override
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
+    }
+
     public Address getAddress() {
         return address;
     }

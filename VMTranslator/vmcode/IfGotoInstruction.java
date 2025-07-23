@@ -45,4 +45,9 @@ public class IfGotoInstruction implements VMinstruction {
 
         return asm;
     }
+
+    @Override
+    public List<VMinstruction> unWrap() {
+        return List.of(this);
+    }
 }

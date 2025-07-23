@@ -45,15 +45,11 @@ public class VMParser {
     static public List<VMinstruction> group(List<VMinstruction> work) throws Exception {
         Deque<VMinstruction> todo = new ArrayDeque<>(work); // tail == top
         Deque<VMinstruction> stack = new ArrayDeque<>();
-        List<VMinstruction> fuck = new ArrayList<>();
-        if (VMTranslator.thread){
-            return work;
-        }
+        List<VMinstruction> context = new ArrayList<>();
         while (!todo.isEmpty()) {
             VMinstruction cur = todo.removeFirst();   // process tail-first
             switch (cur) {
                 case CallGroup c -> stack.addLast(c);
-
                 case PushGroup pg -> {
                     if (!stack.isEmpty() && stack.getLast() instanceof PushPopPair PPP && PPP.getPopAddress().equals(new Address("pointer", (short) 1)) && pg instanceof PushInstruction pi && pi.equals(new PushInstruction(new Address("that", (short) 0)))) {
                         Dereference d = new Dereference(PPP.getPush());
@@ -63,7 +59,6 @@ public class VMParser {
                         stack.addLast(pg);
                     }
                 }
-
 
                 case PopInstruction pop -> {
                     if (stack.isEmpty()) {
@@ -174,21 +169,80 @@ public class VMParser {
                 }
 
                 case FunctionInstruction f -> {
-                    fuck.addAll(stack);
+                    context.addAll(stack);
                     stack.clear();
                     VMParser.currentFunction = f.getFuncName();
-                    fuck.addLast(f);
+                    context.addLast(f);
                 }
 
-                case ReturnInstruction r -> {
-                    r.setPg((PushGroup) stack.removeLast());
-                    stack.addLast(r);
-                }
+                case ReturnInstruction r -> stack.addLast(r);
+
+
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
         }
-        fuck.addAll(stack);
-        return new ArrayList<>(fuck);
+        context.addAll(stack);
+        return new ArrayList<>(context);
+    }
+
+    public static List<VMinstruction> groupConstantsOnly(List<VMinstruction> work) throws Exception {
+        Deque<VMinstruction> todo = new ArrayDeque<>(work);  // tail == top
+        Deque<VMinstruction> stack = new ArrayDeque<>();
+
+        while (!todo.isEmpty()) {
+            VMinstruction cur = todo.removeFirst();
+
+            switch (cur) {
+                case ArithmeticInstruction ai -> {
+                    if (ai.isUnary()) {
+                        if (stack.isEmpty()) throw new Exception("Unary op with no operand");
+                        VMinstruction last = stack.removeLast();
+                        if (last instanceof PushInstruction pi && pi.getAddress().getSegment().equals("constant")) {
+                            short value = pi.getAddress().getIndex();
+                            short folded = switch (ai.getOp()) {
+                                case NEG -> (short) -value;
+                                case NOT -> (short) ~value;
+                                default -> throw new IllegalStateException("Invalid unary op: " + ai.getOp());
+                            };
+                            stack.addLast(new PushInstruction(new Address("constant", folded)));
+                        } else {
+                            stack.addLast(last);
+                            stack.addLast(ai); // no folding
+                        }
+                    } else {
+                        if (stack.size() < 2) throw new Exception("Binary op with too few operands");
+                        VMinstruction b = stack.removeLast();
+                        VMinstruction a = stack.removeLast();
+
+                        if (a instanceof PushInstruction pa && b instanceof PushInstruction pb && pa.getAddress().getSegment().equals("constant") && pb.getAddress().getSegment().equals("constant")) {
+
+                            int x = pa.getAddress().getIndex();
+                            int y = pb.getAddress().getIndex();
+                            short folded = switch (ai.getOp()) {
+                                case ADD -> (short) (x + y);
+                                case SUB -> (short) (x - y);
+                                case AND -> (short) (x & y);
+                                case OR -> (short) (x | y);
+                                case EQ -> (short) (x == y ? -1 : 0);
+                                case LT -> (short) (x < y ? -1 : 0);
+                                case GT -> (short) (x > y ? -1 : 0);
+                                default -> throw new IllegalStateException("Invalid binary op: " + ai.getOp());
+                            };
+
+                            stack.addLast(new PushInstruction(new Address("constant", folded)));
+                        } else {
+                            stack.addLast(a);
+                            stack.addLast(b);
+                            stack.addLast(ai); // no folding
+                        }
+                    }
+                }
+
+                default -> stack.addLast(cur); // keep everything else
+            }
+        }
+
+        return new ArrayList<>(stack);
     }
 
     private VMinstruction parseLine(String line) {
@@ -224,7 +278,7 @@ public class VMParser {
             }
             case "return" -> {
                 requireLength(tokens, 1, line);
-                return new ReturnInstruction(null);
+                return new ReturnInstruction();
             }
             case "add", "sub", "neg", "and", "or", "not", "gt", "lt", "eq" -> {
                 requireLength(tokens, 1, line);
