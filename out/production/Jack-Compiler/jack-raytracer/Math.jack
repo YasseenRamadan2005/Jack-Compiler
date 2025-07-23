@@ -77,15 +77,9 @@ class Math {
      *  Thus, x/y and Math.divide(x,y) return the same value. */
         function int divide(int x, int y) {
           var int q, nx, ny;
-          if (y = 0){
-            return 0;
-          }
-          if (x = y){
-            return 1;
-          }
 
-          let nx = Math.max(x, -x);
-          let ny = Math.max(y, -y);
+          let nx = Math.abs(x);
+          let ny = Math.abs(y);
 
           if (ny > nx) {
             return 0;

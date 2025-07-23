@@ -1,4 +1,4 @@
-function Main.main 1
+function Main.main 2
 push constant 0
 push constant 220
 push constant 511
@@ -137,5 +137,22 @@ pop temp 0
 push local 0
 call String.dispose 1
 pop temp 0
+push constant 32
+pop local 1
+label Main.main_WHILE_EXP1
+push local 1
+push constant 127
+lt
+not
+if-goto Main.main_WHILE_END1
+push local 1
+call Output.printChar 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto Main.main_WHILE_EXP1
+label Main.main_WHILE_END1
 push constant 0
 return
