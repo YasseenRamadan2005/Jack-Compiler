@@ -1,10 +1,4 @@
 function Main.main 2
-push constant 0
-push constant 220
-push constant 511
-push constant 220
-call Screen.drawLine 4
-pop temp 0
 push constant 280
 push constant 90
 push constant 410
@@ -141,7 +135,7 @@ push constant 32
 pop local 1
 label Main.main_WHILE_EXP1
 push local 1
-push constant 127
+push constant 126
 lt
 not
 if-goto Main.main_WHILE_END1

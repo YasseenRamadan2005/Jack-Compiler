@@ -142,15 +142,35 @@ pop local 1
 push argument 1
 call Math.abs 1
 pop local 2
-push local 2
-push local 1
-gt
+push argument 1
+push constant 0
+eq
 if-goto Math.divide$IF_TRUE1
 goto Math.divide$IF_END1
 label Math.divide$IF_TRUE1
 push constant 0
 return
 label Math.divide$IF_END1
+push local 2
+push local 1
+gt
+if-goto Math.divide$IF_TRUE2
+goto Math.divide$IF_END2
+label Math.divide$IF_TRUE2
+push constant 0
+return
+label Math.divide$IF_END2
+push local 2
+push local 2
+add
+push constant 0
+lt
+if-goto Math.divide$IF_TRUE3
+goto Math.divide$IF_END3
+label Math.divide$IF_TRUE3
+push constant 1
+return
+label Math.divide$IF_END3
 push local 1
 push local 2
 push local 2
@@ -166,9 +186,9 @@ call Math.multiply 2
 sub
 push local 2
 lt
-if-goto Math.divide$IF_TRUE2
-goto Math.divide$IF_FALSE2
-label Math.divide$IF_TRUE2
+if-goto Math.divide$IF_TRUE4
+goto Math.divide$IF_FALSE4
+label Math.divide$IF_TRUE4
 push argument 0
 push constant 0
 lt
@@ -184,19 +204,19 @@ push constant 0
 lt
 and
 or
-if-goto Math.divide$IF_TRUE3
-goto Math.divide$IF_END3
-label Math.divide$IF_TRUE3
+if-goto Math.divide$IF_TRUE5
+goto Math.divide$IF_END5
+label Math.divide$IF_TRUE5
 push local 0
 neg
 pop local 0
-label Math.divide$IF_END3
+label Math.divide$IF_END5
 push local 0
 push local 0
 add
 return
-goto Math.divide$IF_END2
-label Math.divide$IF_FALSE2
+goto Math.divide$IF_END4
+label Math.divide$IF_FALSE4
 push argument 0
 push constant 0
 lt
@@ -212,20 +232,20 @@ push constant 0
 lt
 and
 or
-if-goto Math.divide$IF_TRUE4
-goto Math.divide$IF_END4
-label Math.divide$IF_TRUE4
+if-goto Math.divide$IF_TRUE6
+goto Math.divide$IF_END6
+label Math.divide$IF_TRUE6
 push local 0
 neg
 pop local 0
-label Math.divide$IF_END4
+label Math.divide$IF_END6
 push local 0
 push local 0
 add
 push constant 1
 add
 return
-label Math.divide$IF_END2
+label Math.divide$IF_END4
 function Math.mod 0
 push argument 0
 push argument 0

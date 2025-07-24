@@ -230,14 +230,14 @@ public class VMTranslator {
                 VMTranslator.thread = false;
                 List<String> assembly_not_threaded = inst.decode();
                 List<String> assembly = assembly_threaded;
-                /*
+
                 if ((assembly_not_threaded.size() + 4) < assembly_threaded.size()) {
                     assembly = assembly_not_threaded;
-                    assembly.add("@" + assembly_not_threaded.size() + 4);
+                    assembly.add("@" + (assembly_not_threaded.size() + 4));
                     assembly.addAll(List.of("D=A", "@15", "AM=D+M;JMP"));
                     x++;
                 }
-                 */
+
                 //Check if threading is better
                 for (String line : assembly) {
                     if (isRealInstruction(line)) {

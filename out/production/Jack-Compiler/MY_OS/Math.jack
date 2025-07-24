@@ -81,10 +81,17 @@ class Math {
           let nx = Math.abs(x);
           let ny = Math.abs(y);
 
+          if (y = 0){
+            return 0;
+          }
           if (ny > nx) {
             return 0;
           }
 
+          //Overflow case
+          if ((ny + ny )< 0){
+            return 1;
+          }
           let q = Math.divide(nx, ny + ny);
           if ((nx - ((q+q) * ny)) < ny) {
             if (((x < 0) & (y > 0)) | ((x > 0) & (y < 0))) {

@@ -293,7 +293,8 @@ push constant 1
 neg
 pop local 9
 push static 0
-not
+push constant 0
+eq
 if-goto Screen.drawRectangle$IF_TRUE1
 goto Screen.drawRectangle$IF_END1
 label Screen.drawRectangle$IF_TRUE1

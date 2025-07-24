@@ -30,12 +30,10 @@ public class PushWriter implements VMinstruction {
     @Override
     public List<VMinstruction> unWrap() {
 
-        // Evaluate dest, store in pointer 1
-        List<VMinstruction> result = new ArrayList<>(dest.unWrap());
+        List<VMinstruction> result = new ArrayList<>(source.unWrap());
+        result.addAll(dest.unWrap());
         result.add(new PopInstruction(new Address("pointer", (short) 1)));
 
-        // Evaluate source, write to that 0
-        result.addAll(source.unWrap());
         result.add(new PopInstruction(new Address("that", (short) 0)));
 
         return result;

@@ -58,6 +58,9 @@ if-goto Memory.alloc$IF_TRUE1
 goto Memory.alloc$IF_END1
 label Memory.alloc$IF_TRUE1
 push constant 0
+call Sys.error 1
+pop temp 0
+push constant 0
 return
 label Memory.alloc$IF_END1
 push local 0

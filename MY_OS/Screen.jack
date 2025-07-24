@@ -124,7 +124,7 @@ class Screen{
 
         // Set color word based on the_color
         let colorWord = -1; // black (all bits 1)
-        if (~the_color) {
+        if (the_color = false) {
             let colorWord = 0; // white (all bits 0)
         }
 
