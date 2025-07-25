@@ -1,0 +1,41 @@
+class Shell {
+    constant KEYBOARD_START_ADDRESS 24576;
+
+    static int cursor;
+
+    function void main() {
+        var char character;
+
+        let cursor = 0;
+        do Output.printChar(36); // '$'
+        do Output.printChar(0);  // black square
+        while (true) {
+            // Wait for key press
+            while (KEYBOARD_START_ADDRESS[0] = 0) {}
+
+            let character = KEYBOARD_START_ADDRESS[0];
+
+            if ((character = 129) & (cursor > 0)) {
+                do Output.backSpace();
+
+                do Output.backSpace();
+
+                // Show new black square
+                do Output.printChar(0);
+
+                // Move cursor variable back
+                let cursor = cursor - 1;
+            } else {
+                // Overwrite square with typed character
+                //do Output.backSpace();        // move back over square
+                do Output.printChar(character); // print char
+                //do Output.printChar(0);       // new square
+
+                let cursor = cursor + 1;
+            }
+
+        }
+
+        return;
+    }
+}

@@ -1450,7 +1450,7 @@ add
 pop pointer 1
 push that 0
 return
-function Output.moveCursor 0
+function Output.moveCursor 2
 push argument 1
 pop static 1
 push argument 0
@@ -1497,6 +1497,12 @@ add
 pop pointer 1
 push that 0
 pop local 2
+push local 2
+push local 1
+push constant 0
+add
+pop pointer 1
+pop that 0
 goto Output.printChar$IF_END1
 label Output.printChar$IF_FALSE1
 push local 0
@@ -1507,7 +1513,6 @@ push that 0
 push constant 256
 call Math.multiply 2
 pop local 2
-label Output.printChar$IF_END1
 push local 1
 push constant 0
 add
@@ -1520,6 +1525,7 @@ push constant 0
 add
 pop pointer 1
 pop that 0
+label Output.printChar$IF_END1
 push local 3
 push constant 1
 add
@@ -1593,8 +1599,8 @@ eq
 if-goto Output.println$IF_TRUE1
 goto Output.println$IF_FALSE1
 label Output.println$IF_TRUE1
-push constant 0
-pop static 2
+call Output.scroll 0
+pop temp 0
 goto Output.println$IF_END1
 label Output.println$IF_FALSE1
 push static 2
@@ -1604,7 +1610,7 @@ pop static 2
 label Output.println$IF_END1
 push constant 0
 return
-function Output.backSpace 0
+function Output.backSpace 2
 push static 1
 push constant 0
 eq
@@ -1624,5 +1630,108 @@ push constant 1
 sub
 pop static 1
 label Output.backSpace$IF_END1
+push static 1
+pop local 0
+push static 2
+pop local 1
+push constant 32
+call Output.printChar 1
+pop temp 0
+push local 0
+pop static 1
+push local 1
+pop static 2
+push constant 0
+return
+function Output.scroll 4
+push constant 11
+pop local 0
+label Output.scroll_WHILE_EXP1
+push local 0
+push constant 256
+lt
+not
+if-goto Output.scroll_WHILE_END1
+push constant 0
+pop local 1
+label Output.scroll_WHILE_EXP2
+push local 1
+push constant 32
+lt
+not
+if-goto Output.scroll_WHILE_END2
+push constant 16384
+push local 0
+push constant 32
+call Math.multiply 2
+add
+push local 1
+add
+pop local 2
+push constant 16384
+push local 0
+push constant 11
+sub
+push constant 32
+call Math.multiply 2
+add
+push local 1
+add
+pop local 3
+push local 3
+push local 2
+call Memory.peek 1
+call Memory.poke 2
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto Output.scroll_WHILE_EXP2
+label Output.scroll_WHILE_END2
+push local 0
+push constant 1
+add
+pop local 0
+goto Output.scroll_WHILE_EXP1
+label Output.scroll_WHILE_END1
+push constant 245
+pop local 0
+label Output.scroll_WHILE_EXP3
+push local 0
+push constant 256
+lt
+not
+if-goto Output.scroll_WHILE_END3
+push constant 0
+pop local 1
+label Output.scroll_WHILE_EXP4
+push local 1
+push constant 32
+lt
+not
+if-goto Output.scroll_WHILE_END4
+push constant 0
+push local 1
+push local 0
+push constant 32
+call Math.multiply 2
+push constant 16384
+add
+add
+pop pointer 1
+pop that 0
+push local 1
+push constant 1
+add
+pop local 1
+goto Output.scroll_WHILE_EXP4
+label Output.scroll_WHILE_END4
+push local 0
+push constant 1
+add
+pop local 0
+goto Output.scroll_WHILE_EXP3
+label Output.scroll_WHILE_END3
 push constant 0
 return

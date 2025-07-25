@@ -92,8 +92,12 @@ public class VMTranslator {
             // Now switch to current module
             VMParser.moduleName = currentModule;
             previousModule = currentModule;
-
-            List<VMinstruction> grouped = VMParser.groupConstantsOnly(functionBodies.get(function));
+            List<VMinstruction> grouped;
+            try {
+                grouped = VMParser.groupConstantsOnly(functionBodies.get(function));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
             functionBodies.put(function, grouped);
 
             for (VMinstruction v : grouped) {

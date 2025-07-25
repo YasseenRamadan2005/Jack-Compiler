@@ -183,6 +183,7 @@ class Output {
     /** Moves the cursor to the j-th column of the i-th row,
      *  and erases the character displayed there. */
     function void moveCursor(int i, int j) {
+        var int address, a;
         let cursor_x = j;
         let cursor_y = i;
         return;
@@ -205,12 +206,11 @@ class Output {
                 //Each bit map is a byte, so the first 8 bits are all zeros
 
                 if (cursor_x & 1 = 0){ //dumb trick to check if even
-                    let bitmap = map[i]; // tfw no shift so have to multiply to do the trick
+                    let address[0] = map[i];
                 }
                 else {
-                    let bitmap = map[i] * 256;
+                    let address[0] = address[0] | (map[i] * 256);
                 }
-                let address[0] = address[0] | bitmap;
                 let i = i + 1;
             }
 
@@ -261,23 +261,62 @@ class Output {
     /** Advances the cursor to the beginning of the next line. */
     function void println() {
         let cursor_x = 0;
-        if (cursor_y = 22){
-            let cursor_y = 0;
-        }
-        else{
+        if (cursor_y = 22) {
+            do Output.scroll();
+        } else {
             let cursor_y = cursor_y + 1;
         }
         return;
     }
 
-    /** Moves the cursor one column back. */
     function void backSpace() {
-        if (cursor_x = 0){
+        var int savedX, savedY;
+        if (cursor_x = 0) {
             let cursor_y = cursor_y - 1;
             let cursor_x = 63;
-        }
-        else{
+        } else {
             let cursor_x = cursor_x - 1;
+        }
+        // Save current cursor position
+        let savedX = cursor_x;
+        let savedY = cursor_y;
+
+        // Temporarily print space
+        do Output.printChar(32);
+        // Restore position to prevent cursor advance
+        let cursor_x = savedX;
+        let cursor_y = savedY;
+
+        return;
+    }
+
+
+
+    /** Scrolls the screen up by one character row (11 pixel rows). */
+    function void scroll() {
+        var int y, x, fromAddr, toAddr;
+
+        let y = 11;
+        while (y < 256) {
+            let x = 0;
+            while (x < 32) {
+                let fromAddr = SCREEN + (y * 32) + x;
+                let toAddr = SCREEN + ((y - 11) * 32) + x;
+                do Memory.poke(toAddr, Memory.peek(fromAddr));
+                let x = x + 1;
+            }
+            let y = y + 1;
+        }
+
+        // Clear the bottom 11 pixel rows (rows 245–255)
+        let y = 245;
+        while (y < 256) {
+            let x = 0;
+            while (x < 32) {
+                let x[(y * 32) + SCREEN] = 0;
+                let x = x + 1;
+            }
+            let y = y + 1;
         }
         return;
     }
