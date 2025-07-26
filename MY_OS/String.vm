@@ -35,6 +35,8 @@ label String.dispose$IF_TRUE1
 push this 0
 call Memory.deAlloc 1
 pop temp 0
+push constant 0
+pop this 1
 label String.dispose$IF_END1
 push constant 0
 return
