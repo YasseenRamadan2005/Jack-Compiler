@@ -196,7 +196,6 @@ class Output {
             var int address, bitmap, i;
 
             let map = Output.getMap(c);
-
             //For the screen, I am altering either the first or the last 8 bits, dependent on whether or not cursor_x is even.
 
             // Print each row in the character map
@@ -205,12 +204,14 @@ class Output {
                let address = SCREEN + ((cursor_y * 11 + i) * 32) + (cursor_x / 2);
                 //Each bit map is a byte, so the first 8 bits are all zeros
 
-                if (cursor_x & 1 = 0){ //dumb trick to check if even
-                    let address[0] = map[i];
+                if (cursor_x & 1 = 0) {
+                    // left 8 bits
+                    let address[0] = (address[0] & 65280) | map[i]; // mask right 8 bits off
+                } else {
+                    // right 8 bits
+                    let address[0] = (address[0] & 255) | (map[i] * 256); // mask left 8 bits off
                 }
-                else {
-                    let address[0] = address[0] | (map[i] * 256);
-                }
+
                 let i = i + 1;
             }
 
@@ -270,25 +271,27 @@ class Output {
     }
 
     function void backSpace() {
-        var int savedX, savedY;
         if (cursor_x = 0) {
             let cursor_y = cursor_y - 1;
             let cursor_x = 63;
         } else {
             let cursor_x = cursor_x - 1;
         }
-        // Save current cursor position
-        let savedX = cursor_x;
-        let savedY = cursor_y;
 
-        // Temporarily print space
+        // Erase the character
         do Output.printChar(32);
-        // Restore position to prevent cursor advance
-        let cursor_x = savedX;
-        let cursor_y = savedY;
+
+        // Move back again so the cursor is placed before the black square
+        if (cursor_x = 0) {
+            let cursor_y = cursor_y - 1;
+            let cursor_x = 63;
+        } else {
+            let cursor_x = cursor_x - 1;
+        }
 
         return;
     }
+
 
 
 

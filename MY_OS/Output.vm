@@ -1491,11 +1491,19 @@ eq
 if-goto Output.printChar$IF_TRUE1
 goto Output.printChar$IF_FALSE1
 label Output.printChar$IF_TRUE1
+push local 1
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 65280
+and
 push local 0
 push local 3
 add
 pop pointer 1
 push that 0
+or
 push local 1
 push constant 0
 add
@@ -1508,6 +1516,8 @@ push constant 0
 add
 pop pointer 1
 push that 0
+push constant 255
+and
 push local 0
 push local 3
 add
@@ -1606,7 +1616,7 @@ pop static 2
 label Output.println$IF_END1
 push constant 0
 return
-function Output.backSpace 2
+function Output.backSpace 0
 push static 1
 push constant 0
 eq
@@ -1626,17 +1636,28 @@ push constant 1
 sub
 pop static 1
 label Output.backSpace$IF_END1
-push static 1
-pop local 0
-push static 2
-pop local 1
 push constant 32
 call Output.printChar 1
 pop temp 0
-push local 0
-pop static 1
-push local 1
+push static 1
+push constant 0
+eq
+if-goto Output.backSpace$IF_TRUE2
+goto Output.backSpace$IF_FALSE2
+label Output.backSpace$IF_TRUE2
+push static 2
+push constant 1
+sub
 pop static 2
+push constant 63
+pop static 1
+goto Output.backSpace$IF_END2
+label Output.backSpace$IF_FALSE2
+push static 1
+push constant 1
+sub
+pop static 1
+label Output.backSpace$IF_END2
 push constant 0
 return
 function Output.scroll 4

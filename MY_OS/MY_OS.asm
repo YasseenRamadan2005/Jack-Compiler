@@ -538,756 +538,764 @@ D=A // 440
 D=A // 444
 @PC_PUSH // 445
 0;JMP // 446
-(PUSH_constant_1_NEG)
-@1 // 447
-D=-A // 448
+(PUSH_constant_255)
+@255 // 447
+D=A // 448
 @PC_PUSH // 449
 0;JMP // 450
-(PUSH_constant_0)
-@0 // 451
-D=A // 452
+(PUSH_constant_1_NEG)
+@1 // 451
+D=-A // 452
 @PC_PUSH // 453
 0;JMP // 454
-(PUSH_constant_2048)
-@2048 // 455
+(PUSH_constant_0)
+@0 // 455
 D=A // 456
 @PC_PUSH // 457
 0;JMP // 458
-(PUSH_constant_16384)
-@16384 // 459
+(PUSH_constant_2048)
+@2048 // 459
 D=A // 460
 @PC_PUSH // 461
 0;JMP // 462
-(PUSH_constant_256)
-@256 // 463
+(PUSH_constant_16384)
+@16384 // 463
 D=A // 464
 @PC_PUSH // 465
 0;JMP // 466
-(PUSH_constant_24576)
-@24576 // 467
-D=A // 468
+(PUSH_constant_256_NEG)
+@256 // 467
+D=-A // 468
 @PC_PUSH // 469
 0;JMP // 470
-(PUSH_constant_8192)
-@8192 // 471
+(PUSH_constant_256)
+@256 // 471
 D=A // 472
 @PC_PUSH // 473
 0;JMP // 474
-(PUSH_constant_1)
-@1 // 475
+(PUSH_constant_24576)
+@24576 // 475
 D=A // 476
 @PC_PUSH // 477
 0;JMP // 478
-(PUSH_constant_2)
-@2 // 479
+(PUSH_constant_8192)
+@8192 // 479
 D=A // 480
 @PC_PUSH // 481
 0;JMP // 482
-(PUSH_constant_24)
-@24 // 483
+(PUSH_constant_1)
+@1 // 483
 D=A // 484
 @PC_PUSH // 485
 0;JMP // 486
-(PUSH_constant_25)
-@25 // 487
+(PUSH_constant_2)
+@2 // 487
 D=A // 488
 @PC_PUSH // 489
 0;JMP // 490
-(PUSH_constant_26)
-@26 // 491
+(PUSH_constant_24)
+@24 // 491
 D=A // 492
 @PC_PUSH // 493
 0;JMP // 494
-(PUSH_constant_20)
-@20 // 495
+(PUSH_constant_25)
+@25 // 495
 D=A // 496
 @PC_PUSH // 497
 0;JMP // 498
-(PUSH_constant_22)
-@22 // 499
+(PUSH_constant_26)
+@26 // 499
 D=A // 500
 @PC_PUSH // 501
 0;JMP // 502
-(PUSH_constant_31)
-@31 // 503
+(PUSH_constant_20)
+@20 // 503
 D=A // 504
 @PC_PUSH // 505
 0;JMP // 506
-(PUSH_that_0)
-@0 // 507
+(PUSH_constant_22)
+@22 // 507
 D=A // 508
-@THAT // 509
-A=D+M // 510
-D=M // 511
-@PC_PUSH // 512
-0;JMP // 513
-(PUSH_constant_32)
-@32 // 514
-D=A // 515
-@PC_PUSH // 516
-0;JMP // 517
-(PUSH_constant_33)
-@33 // 518
-D=A // 519
+@PC_PUSH // 509
+0;JMP // 510
+(PUSH_constant_31)
+@31 // 511
+D=A // 512
+@PC_PUSH // 513
+0;JMP // 514
+(PUSH_that_0)
+@0 // 515
+D=A // 516
+@THAT // 517
+A=D+M // 518
+D=M // 519
 @PC_PUSH // 520
 0;JMP // 521
-(PUSH_constant_34)
-@34 // 522
+(PUSH_constant_32)
+@32 // 522
 D=A // 523
 @PC_PUSH // 524
 0;JMP // 525
-(PUSH_constant_27)
-@27 // 526
+(PUSH_constant_33)
+@33 // 526
 D=A // 527
 @PC_PUSH // 528
 0;JMP // 529
-(PUSH_constant_28)
-@28 // 530
+(PUSH_constant_34)
+@34 // 530
 D=A // 531
 @PC_PUSH // 532
 0;JMP // 533
-(PUSH_constant_29)
-@29 // 534
+(PUSH_constant_27)
+@27 // 534
 D=A // 535
 @PC_PUSH // 536
 0;JMP // 537
-(PUSH_constant_30)
-@30 // 538
+(PUSH_constant_28)
+@28 // 538
 D=A // 539
 @PC_PUSH // 540
 0;JMP // 541
-(PUSH_constant_7)
-@7 // 542
+(PUSH_constant_29)
+@29 // 542
 D=A // 543
 @PC_PUSH // 544
 0;JMP // 545
-(PUSH_constant_2055)
-@2055 // 546
+(PUSH_constant_30)
+@30 // 546
 D=A // 547
 @PC_PUSH // 548
 0;JMP // 549
-(PUSH_constant_8)
-@8 // 550
+(PUSH_constant_7)
+@7 // 550
 D=A // 551
 @PC_PUSH // 552
 0;JMP // 553
-(PUSH_constant_9)
-@9 // 554
+(PUSH_constant_2055)
+@2055 // 554
 D=A // 555
 @PC_PUSH // 556
 0;JMP // 557
-(PUSH_constant_10)
-@10 // 558
+(PUSH_constant_8)
+@8 // 558
 D=A // 559
 @PC_PUSH // 560
 0;JMP // 561
-(PUSH_constant_3)
-@3 // 562
+(PUSH_constant_9)
+@9 // 562
 D=A // 563
 @PC_PUSH // 564
 0;JMP // 565
-(PUSH_constant_4)
-@4 // 566
+(PUSH_constant_10)
+@10 // 566
 D=A // 567
 @PC_PUSH // 568
 0;JMP // 569
-(PUSH_constant_5)
-@5 // 570
+(PUSH_constant_3)
+@3 // 570
 D=A // 571
 @PC_PUSH // 572
 0;JMP // 573
-(PUSH_constant_6)
-@6 // 574
+(PUSH_constant_4)
+@4 // 574
 D=A // 575
 @PC_PUSH // 576
 0;JMP // 577
-(PUSH_constant_2054)
-@2054 // 578
+(PUSH_constant_5)
+@5 // 578
 D=A // 579
 @PC_PUSH // 580
 0;JMP // 581
-(PUSH_constant_15)
-@15 // 582
+(PUSH_constant_6)
+@6 // 582
 D=A // 583
 @PC_PUSH // 584
 0;JMP // 585
-(PUSH_constant_16)
-@16 // 586
+(PUSH_constant_2054)
+@2054 // 586
 D=A // 587
 @PC_PUSH // 588
 0;JMP // 589
-(PUSH_constant_18)
-@18 // 590
+(PUSH_constant_15)
+@15 // 590
 D=A // 591
 @PC_PUSH // 592
 0;JMP // 593
-(PUSH_constant_11)
-@11 // 594
+(PUSH_constant_16)
+@16 // 594
 D=A // 595
 @PC_PUSH // 596
 0;JMP // 597
-(PUSH_constant_12)
-@12 // 598
+(PUSH_constant_18)
+@18 // 598
 D=A // 599
 @PC_PUSH // 600
 0;JMP // 601
-(PUSH_constant_14)
-@14 // 602
+(PUSH_constant_11)
+@11 // 602
 D=A // 603
 @PC_PUSH // 604
 0;JMP // 605
-(PUSH_constant_119)
-@119 // 606
+(PUSH_constant_12)
+@12 // 606
 D=A // 607
 @PC_PUSH // 608
 0;JMP // 609
-(PUSH_constant_120)
-@120 // 610
+(PUSH_constant_14)
+@14 // 610
 D=A // 611
 @PC_PUSH // 612
 0;JMP // 613
-(PUSH_constant_121)
-@121 // 614
+(PUSH_constant_119)
+@119 // 614
 D=A // 615
 @PC_PUSH // 616
 0;JMP // 617
-(PUSH_constant_122)
-@122 // 618
+(PUSH_constant_120)
+@120 // 618
 D=A // 619
 @PC_PUSH // 620
 0;JMP // 621
-(PUSH_constant_115)
-@115 // 622
+(PUSH_constant_121)
+@121 // 622
 D=A // 623
 @PC_PUSH // 624
 0;JMP // 625
-(PUSH_constant_116)
-@116 // 626
+(PUSH_constant_122)
+@122 // 626
 D=A // 627
 @PC_PUSH // 628
 0;JMP // 629
-(PUSH_constant_117)
-@117 // 630
+(PUSH_constant_115)
+@115 // 630
 D=A // 631
 @PC_PUSH // 632
 0;JMP // 633
-(PUSH_constant_118)
-@118 // 634
+(PUSH_constant_116)
+@116 // 634
 D=A // 635
 @PC_PUSH // 636
 0;JMP // 637
-(PUSH_constant_127)
-@127 // 638
+(PUSH_constant_117)
+@117 // 638
 D=A // 639
 @PC_PUSH // 640
 0;JMP // 641
-(PUSH_constant_129)
-@129 // 642
+(PUSH_constant_118)
+@118 // 642
 D=A // 643
 @PC_PUSH // 644
 0;JMP // 645
-(PUSH_constant_123)
-@123 // 646
+(PUSH_constant_127)
+@127 // 646
 D=A // 647
 @PC_PUSH // 648
 0;JMP // 649
-(PUSH_constant_124)
-@124 // 650
+(PUSH_constant_129)
+@129 // 650
 D=A // 651
 @PC_PUSH // 652
 0;JMP // 653
-(PUSH_constant_125)
-@125 // 654
+(PUSH_constant_123)
+@123 // 654
 D=A // 655
 @PC_PUSH // 656
 0;JMP // 657
-(PUSH_constant_126)
-@126 // 658
+(PUSH_constant_124)
+@124 // 658
 D=A // 659
 @PC_PUSH // 660
 0;JMP // 661
-(PUSH_constant_103)
-@103 // 662
+(PUSH_constant_125)
+@125 // 662
 D=A // 663
 @PC_PUSH // 664
 0;JMP // 665
-(PUSH_constant_104)
-@104 // 666
+(PUSH_constant_126)
+@126 // 666
 D=A // 667
 @PC_PUSH // 668
 0;JMP // 669
-(PUSH_constant_105)
-@105 // 670
+(PUSH_constant_103)
+@103 // 670
 D=A // 671
 @PC_PUSH // 672
 0;JMP // 673
-(PUSH_constant_106)
-@106 // 674
+(PUSH_constant_104)
+@104 // 674
 D=A // 675
 @PC_PUSH // 676
 0;JMP // 677
-(PUSH_constant_99)
-@99 // 678
+(PUSH_constant_105)
+@105 // 678
 D=A // 679
 @PC_PUSH // 680
 0;JMP // 681
-(PUSH_constant_100)
-@100 // 682
+(PUSH_constant_106)
+@106 // 682
 D=A // 683
 @PC_PUSH // 684
 0;JMP // 685
-(PUSH_constant_101)
-@101 // 686
+(PUSH_constant_99)
+@99 // 686
 D=A // 687
 @PC_PUSH // 688
 0;JMP // 689
-(PUSH_constant_102)
-@102 // 690
+(PUSH_constant_100)
+@100 // 690
 D=A // 691
 @PC_PUSH // 692
 0;JMP // 693
-(PUSH_constant_111)
-@111 // 694
+(PUSH_constant_101)
+@101 // 694
 D=A // 695
 @PC_PUSH // 696
 0;JMP // 697
-(PUSH_constant_112)
-@112 // 698
+(PUSH_constant_102)
+@102 // 698
 D=A // 699
 @PC_PUSH // 700
 0;JMP // 701
-(PUSH_constant_113)
-@113 // 702
+(PUSH_constant_111)
+@111 // 702
 D=A // 703
 @PC_PUSH // 704
 0;JMP // 705
-(PUSH_constant_114)
-@114 // 706
+(PUSH_constant_112)
+@112 // 706
 D=A // 707
 @PC_PUSH // 708
 0;JMP // 709
-(PUSH_constant_107)
-@107 // 710
+(PUSH_constant_113)
+@113 // 710
 D=A // 711
 @PC_PUSH // 712
 0;JMP // 713
-(PUSH_constant_108)
-@108 // 714
+(PUSH_constant_114)
+@114 // 714
 D=A // 715
 @PC_PUSH // 716
 0;JMP // 717
-(PUSH_constant_109)
-@109 // 718
+(PUSH_constant_107)
+@107 // 718
 D=A // 719
 @PC_PUSH // 720
 0;JMP // 721
-(PUSH_constant_110)
-@110 // 722
+(PUSH_constant_108)
+@108 // 722
 D=A // 723
 @PC_PUSH // 724
 0;JMP // 725
-(POP_local_0)
-@0 // 726
+(PUSH_constant_109)
+@109 // 726
 D=A // 727
-@LCL // 728
-D=D+M // 729
-@14 // 730
-M=D // 731
-@SP // 732
-AM=M-1 // 733
-D=M // 734
-@14 // 735
-A=M // 736
-M=D // 737
-@PC_2 // 738
-0;JMP // 739
-(POP_local_1)
-@1 // 740
-D=A // 741
-@LCL // 742
-D=D+M // 743
-@14 // 744
+@PC_PUSH // 728
+0;JMP // 729
+(PUSH_constant_110)
+@110 // 730
+D=A // 731
+@PC_PUSH // 732
+0;JMP // 733
+(POP_local_0)
+@0 // 734
+D=A // 735
+@LCL // 736
+D=D+M // 737
+@14 // 738
+M=D // 739
+@SP // 740
+AM=M-1 // 741
+D=M // 742
+@14 // 743
+A=M // 744
 M=D // 745
-@SP // 746
-AM=M-1 // 747
-D=M // 748
-@14 // 749
-A=M // 750
-M=D // 751
-@PC_2 // 752
-0;JMP // 753
-(POP_argument_0)
-@0 // 754
-D=A // 755
-@ARG // 756
-D=D+M // 757
-@14 // 758
+@PC_2 // 746
+0;JMP // 747
+(POP_local_1)
+@1 // 748
+D=A // 749
+@LCL // 750
+D=D+M // 751
+@14 // 752
+M=D // 753
+@SP // 754
+AM=M-1 // 755
+D=M // 756
+@14 // 757
+A=M // 758
 M=D // 759
-@SP // 760
-AM=M-1 // 761
-D=M // 762
-@14 // 763
-A=M // 764
-M=D // 765
-@PC_2 // 766
-0;JMP // 767
-(POP_that_0)
-@0 // 768
-D=A // 769
-@THAT // 770
-D=D+M // 771
-@14 // 772
+@PC_2 // 760
+0;JMP // 761
+(POP_argument_0)
+@0 // 762
+D=A // 763
+@ARG // 764
+D=D+M // 765
+@14 // 766
+M=D // 767
+@SP // 768
+AM=M-1 // 769
+D=M // 770
+@14 // 771
+A=M // 772
 M=D // 773
-@SP // 774
-AM=M-1 // 775
-D=M // 776
-@14 // 777
-A=M // 778
-M=D // 779
-@PC_2 // 780
-0;JMP // 781
-(POP_local_4)
-@4 // 782
-D=A // 783
-@LCL // 784
-D=D+M // 785
-@14 // 786
+@PC_2 // 774
+0;JMP // 775
+(POP_that_0)
+@0 // 776
+D=A // 777
+@THAT // 778
+D=D+M // 779
+@14 // 780
+M=D // 781
+@SP // 782
+AM=M-1 // 783
+D=M // 784
+@14 // 785
+A=M // 786
 M=D // 787
-@SP // 788
-AM=M-1 // 789
-D=M // 790
-@14 // 791
-A=M // 792
-M=D // 793
-@PC_2 // 794
-0;JMP // 795
-(POP_pointer_1)
+@PC_2 // 788
+0;JMP // 789
+(POP_local_4)
+@4 // 790
+D=A // 791
+@LCL // 792
+D=D+M // 793
+@14 // 794
+M=D // 795
 @SP // 796
 AM=M-1 // 797
 D=M // 798
-@4 // 799
-M=D // 800
-@PC_2 // 801
-0;JMP // 802
-(POP_local_2)
-@2 // 803
-D=A // 804
-@LCL // 805
-D=D+M // 806
-@14 // 807
+@14 // 799
+A=M // 800
+M=D // 801
+@PC_2 // 802
+0;JMP // 803
+(POP_pointer_1)
+@SP // 804
+AM=M-1 // 805
+D=M // 806
+@4 // 807
 M=D // 808
-@SP // 809
-AM=M-1 // 810
-D=M // 811
-@14 // 812
-A=M // 813
-M=D // 814
-@PC_2 // 815
-0;JMP // 816
-(POP_temp_0)
+@PC_2 // 809
+0;JMP // 810
+(POP_local_2)
+@2 // 811
+D=A // 812
+@LCL // 813
+D=D+M // 814
+@14 // 815
+M=D // 816
 @SP // 817
 AM=M-1 // 818
 D=M // 819
-@5 // 820
-M=D // 821
-@PC_2 // 822
-0;JMP // 823
-(POP_local_3)
-@3 // 824
-D=A // 825
-@LCL // 826
-D=D+M // 827
-@14 // 828
+@14 // 820
+A=M // 821
+M=D // 822
+@PC_2 // 823
+0;JMP // 824
+(POP_temp_0)
+@SP // 825
+AM=M-1 // 826
+D=M // 827
+@5 // 828
 M=D // 829
-@SP // 830
-AM=M-1 // 831
-D=M // 832
-@14 // 833
-A=M // 834
-M=D // 835
-@PC_2 // 836
-0;JMP // 837
-(CALL)
-@15 // 838
-D=M // 839
-@SP // 840
-AM=M+1 // 841
-A=A-1 // 842
+@PC_2 // 830
+0;JMP // 831
+(POP_local_3)
+@3 // 832
+D=A // 833
+@LCL // 834
+D=D+M // 835
+@14 // 836
+M=D // 837
+@SP // 838
+AM=M-1 // 839
+D=M // 840
+@14 // 841
+A=M // 842
 M=D // 843
-@LCL // 844
-D=M // 845
-@SP // 846
-AM=M+1 // 847
-A=A-1 // 848
-M=D // 849
-@ARG // 850
-D=M // 851
-@SP // 852
-AM=M+1 // 853
-A=A-1 // 854
-M=D // 855
-@THIS // 856
-D=M // 857
-@SP // 858
-AM=M+1 // 859
-A=A-1 // 860
-M=D // 861
-@THAT // 862
-D=M // 863
-@SP // 864
-AM=M+1 // 865
-A=A-1 // 866
-M=D // 867
-@14 // 868
-D=M // 869
-@SP // 870
-D=M-D // 871
-@ARG // 872
-M=D // 873
-@SP // 874
-D=M // 875
-@LCL // 876
-M=D // 877
-@13 // 878
-D=M // 879
-@15 // 880
-AM=D;JMP // 881
-(RETURN)
-@LCL // 882
+@PC_2 // 844
+0;JMP // 845
+(CALL)
+@15 // 846
+D=M // 847
+@SP // 848
+AM=M+1 // 849
+A=A-1 // 850
+M=D // 851
+@LCL // 852
+D=M // 853
+@SP // 854
+AM=M+1 // 855
+A=A-1 // 856
+M=D // 857
+@ARG // 858
+D=M // 859
+@SP // 860
+AM=M+1 // 861
+A=A-1 // 862
+M=D // 863
+@THIS // 864
+D=M // 865
+@SP // 866
+AM=M+1 // 867
+A=A-1 // 868
+M=D // 869
+@THAT // 870
+D=M // 871
+@SP // 872
+AM=M+1 // 873
+A=A-1 // 874
+M=D // 875
+@14 // 876
+D=M // 877
+@SP // 878
+D=M-D // 879
+@ARG // 880
+M=D // 881
+@SP // 882
 D=M // 883
-@14 // 884
+@LCL // 884
 M=D // 885
-@5 // 886
-A=D-A // 887
-D=M // 888
-@13 // 889
-M=D // 890
-@SP // 891
-AM=M-1 // 892
-D=M // 893
-@ARG // 894
-A=M // 895
-M=D // 896
-@ARG // 897
-D=M // 898
+@13 // 886
+D=M // 887
+@15 // 888
+AM=D;JMP // 889
+(RETURN)
+@LCL // 890
+D=M // 891
+@14 // 892
+M=D // 893
+@5 // 894
+A=D-A // 895
+D=M // 896
+@13 // 897
+M=D // 898
 @SP // 899
-M=D+1 // 900
-@14 // 901
-A=M-1 // 902
-D=M // 903
-@THAT // 904
-M=D // 905
-@14 // 906
-A=M-1 // 907
-A=A-1 // 908
-D=M // 909
-@THIS // 910
-M=D // 911
-@14 // 912
-A=M-1 // 913
-A=A-1 // 914
-A=A-1 // 915
-D=M // 916
-@ARG // 917
-M=D // 918
-@14 // 919
-A=M-1 // 920
-A=A-1 // 921
+AM=M-1 // 900
+D=M // 901
+@ARG // 902
+A=M // 903
+M=D // 904
+@ARG // 905
+D=M // 906
+@SP // 907
+M=D+1 // 908
+@14 // 909
+A=M-1 // 910
+D=M // 911
+@THAT // 912
+M=D // 913
+@14 // 914
+A=M-1 // 915
+A=A-1 // 916
+D=M // 917
+@THIS // 918
+M=D // 919
+@14 // 920
+A=M-1 // 921
 A=A-1 // 922
 A=A-1 // 923
 D=M // 924
-@LCL // 925
+@ARG // 925
 M=D // 926
-@13 // 927
-D=M // 928
-@10 // 929
-D=D+A // 930
-@15 // 931
-AM=D;JMP // 932
-(IF_GOTO)
-@13 // 933
+@14 // 927
+A=M-1 // 928
+A=A-1 // 929
+A=A-1 // 930
+A=A-1 // 931
+D=M // 932
+@LCL // 933
 M=D // 934
-@SP // 935
-AM=M-1 // 936
-D=M // 937
-@IF_GOTO_TRUE // 938
-D;JNE // 939
-@4 // 940
-D=A // 941
-@15 // 942
-AM=D+M;JMP // 943
-(IF_GOTO_TRUE)
-@13 // 944
+@13 // 935
+D=M // 936
+@10 // 937
+D=D+A // 938
+@15 // 939
+AM=D;JMP // 940
+(IF_GOTO)
+@13 // 941
+M=D // 942
+@SP // 943
+AM=M-1 // 944
 D=M // 945
-@15 // 946
-AM=D;JMP // 947
+@IF_GOTO_TRUE // 946
+D;JNE // 947
+@4 // 948
+D=A // 949
+@15 // 950
+AM=D+M;JMP // 951
+(IF_GOTO_TRUE)
+@13 // 952
+D=M // 953
+@15 // 954
+AM=D;JMP // 955
 // gt: D > 0
 (DO_GT)
-@RETURN_TRUE // 948
-D;JGT // 949
-@RETURN_FALSE // 950
-0;JMP // 951
-// eq: D == 0
-(DO_EQ)
-@RETURN_TRUE // 952
-D;JEQ // 953
-@RETURN_FALSE // 954
-0;JMP // 955
-// lt: D < 0
-(DO_LT)
 @RETURN_TRUE // 956
-D;JLT // 957
+D;JGT // 957
 @RETURN_FALSE // 958
 0;JMP // 959
+// eq: D == 0
+(DO_EQ)
+@RETURN_TRUE // 960
+D;JEQ // 961
+@RETURN_FALSE // 962
+0;JMP // 963
+// lt: D < 0
+(DO_LT)
+@RETURN_TRUE // 964
+D;JLT // 965
+@RETURN_FALSE // 966
+0;JMP // 967
 // Set boolean in D
 (RETURN_TRUE)
-D=-1 // 960
-@WRITE_BACK // 961
-0;JMP // 962
+D=-1 // 968
+@WRITE_BACK // 969
+0;JMP // 970
 (RETURN_FALSE)
-D=0 // 963
-@WRITE_BACK // 964
-0;JMP // 965
+D=0 // 971
+@WRITE_BACK // 972
+0;JMP // 973
 // Collapse stack and return
 (WRITE_BACK)
-@SP // 966
-AM=M-1 // 967
-D=M // 968
-@15 // 969
-AM=D+M;JMP // 970
+@SP // 974
+AM=M-1 // 975
+D=M // 976
+@15 // 977
+AM=D+M;JMP // 978
 (GT)
-@SP // 971
-AM=M-1 // 972
-D=M // 973
-A=A-1 // 974
-D=M-D // 975
-@PC_TRUE_GT // 976
-D;JGT // 977
-@SP // 978
-A=M-1 // 979
-M=0 // 980
-@PC_2 // 981
-0;JMP // 982
+@SP // 979
+AM=M-1 // 980
+D=M // 981
+A=A-1 // 982
+D=M-D // 983
+@PC_TRUE_GT // 984
+D;JGT // 985
+@SP // 986
+A=M-1 // 987
+M=0 // 988
+@PC_2 // 989
+0;JMP // 990
 (PC_TRUE_GT)
-@SP // 983
-A=M-1 // 984
-M=-1 // 985
-@PC_2 // 986
-0;JMP // 987
+@SP // 991
+A=M-1 // 992
+M=-1 // 993
+@PC_2 // 994
+0;JMP // 995
 (LT)
-@SP // 988
-AM=M-1 // 989
-D=M // 990
-A=A-1 // 991
-D=M-D // 992
-@PC_TRUE_LT // 993
-D;JLT // 994
-@SP // 995
-A=M-1 // 996
-M=0 // 997
-@PC_2 // 998
-0;JMP // 999
+@SP // 996
+AM=M-1 // 997
+D=M // 998
+A=A-1 // 999
+D=M-D // 1000
+@PC_TRUE_LT // 1001
+D;JLT // 1002
+@SP // 1003
+A=M-1 // 1004
+M=0 // 1005
+@PC_2 // 1006
+0;JMP // 1007
 (PC_TRUE_LT)
-@SP // 1000
-A=M-1 // 1001
-M=-1 // 1002
-@PC_2 // 1003
-0;JMP // 1004
+@SP // 1008
+A=M-1 // 1009
+M=-1 // 1010
+@PC_2 // 1011
+0;JMP // 1012
 (EQ)
-@SP // 1005
-AM=M-1 // 1006
-D=M // 1007
-A=A-1 // 1008
-D=M-D // 1009
-@PC_TRUE_EQ // 1010
-D;JEQ // 1011
-@SP // 1012
-A=M-1 // 1013
-M=0 // 1014
-@PC_2 // 1015
-0;JMP // 1016
+@SP // 1013
+AM=M-1 // 1014
+D=M // 1015
+A=A-1 // 1016
+D=M-D // 1017
+@PC_TRUE_EQ // 1018
+D;JEQ // 1019
+@SP // 1020
+A=M-1 // 1021
+M=0 // 1022
+@PC_2 // 1023
+0;JMP // 1024
 (PC_TRUE_EQ)
-@SP // 1017
-A=M-1 // 1018
-M=-1 // 1019
-@PC_2 // 1020
-0;JMP // 1021
+@SP // 1025
+A=M-1 // 1026
+M=-1 // 1027
+@PC_2 // 1028
+0;JMP // 1029
 (ADD)
-@SP // 1022
-AM=M-1 // 1023
-D=M // 1024
-A=A-1 // 1025
-M=D+M // 1026
-@PC_2 // 1027
-0;JMP // 1028
+@SP // 1030
+AM=M-1 // 1031
+D=M // 1032
+A=A-1 // 1033
+M=D+M // 1034
+@PC_2 // 1035
+0;JMP // 1036
 (SUB)
-@SP // 1029
-AM=M-1 // 1030
-D=M // 1031
-A=A-1 // 1032
-M=M-D // 1033
-@PC_2 // 1034
-0;JMP // 1035
+@SP // 1037
+AM=M-1 // 1038
+D=M // 1039
+A=A-1 // 1040
+M=M-D // 1041
+@PC_2 // 1042
+0;JMP // 1043
 (AND)
-@SP // 1036
-AM=M-1 // 1037
-D=M // 1038
-A=A-1 // 1039
-M=D&M // 1040
-@PC_2 // 1041
-0;JMP // 1042
+@SP // 1044
+AM=M-1 // 1045
+D=M // 1046
+A=A-1 // 1047
+M=D&M // 1048
+@PC_2 // 1049
+0;JMP // 1050
 (OR)
-@SP // 1043
-AM=M-1 // 1044
-D=M // 1045
-A=A-1 // 1046
-M=D|M // 1047
-@PC_2 // 1048
-0;JMP // 1049
+@SP // 1051
+AM=M-1 // 1052
+D=M // 1053
+A=A-1 // 1054
+M=D|M // 1055
+@PC_2 // 1056
+0;JMP // 1057
 (NEG)
-@SP // 1050
-A=M-1 // 1051
-M=-M // 1052
-@PC_2 // 1053
-0;JMP // 1054
+@SP // 1058
+A=M-1 // 1059
+M=-M // 1060
+@PC_2 // 1061
+0;JMP // 1062
 (NOT)
-@SP // 1055
-A=M-1 // 1056
-M=!M // 1057
-@PC_2 // 1058
-0;JMP // 1059
+@SP // 1063
+A=M-1 // 1064
+M=!M // 1065
+@PC_2 // 1066
+0;JMP // 1067
 (PC_PUSH)
-@SP // 1060
-AM=M+1 // 1061
-A=A-1 // 1062
-M=D // 1063
-@PC_2 // 1064
-0;JMP // 1065
-(POP_D)
-@SP // 1066
-AM=M-1 // 1067
-D=M // 1068
-@13 // 1069
-A=M // 1070
+@SP // 1068
+AM=M+1 // 1069
+A=A-1 // 1070
 M=D // 1071
+@PC_2 // 1072
+0;JMP // 1073
+(POP_D)
+@SP // 1074
+AM=M-1 // 1075
+D=M // 1076
+@13 // 1077
+A=M // 1078
+M=D // 1079
 (PC_2)
-@15 // 1072
-M=M+1 // 1073
-AM=M+1;JMP // 1074
+@15 // 1080
+M=M+1 // 1081
+AM=M+1;JMP // 1082
 (SKIP)
 // call Sys.init
-@5 // 1075
-D=A // 1076
-@14 // 1077
-M=D // 1078
-@Sys.init // 1079
-D=A // 1080
-@13 // 1081
-M=D // 1082
-@global.ret.0 // 1083
+@5 // 1083
 D=A // 1084
-@CALL // 1085
-0;JMP // 1086
+@14 // 1085
+M=D // 1086
+@Sys.init // 1087
+D=A // 1088
+@13 // 1089
+M=D // 1090
+@CALL // 1091
+0;JMP // 1092
 (global.ret.0)
 ////FunctionInstruction{functionName='Memory.poke', numLocals=0, funcMapping={}}
 // function Memory.poke with 0
@@ -1300,26 +1308,26 @@ D=A // 1084
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 1087
-0;JMP // 1088
-@PUSH_argument_0 // 1089
-0;JMP // 1090
-@PUSH_constant_0 // 1091
-0;JMP // 1092
-@ADD // 1093
+@PUSH_argument_1 // 1093
 0;JMP // 1094
-@POP_pointer_1 // 1095
+@PUSH_argument_0 // 1095
 0;JMP // 1096
-@POP_that_0 // 1097
+@PUSH_constant_0 // 1097
 0;JMP // 1098
+@ADD // 1099
+0;JMP // 1100
+@POP_pointer_1 // 1101
+0;JMP // 1102
+@POP_that_0 // 1103
+0;JMP // 1104
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1099
-0;JMP // 1100
+@PUSH_constant_0 // 1105
+0;JMP // 1106
 
 //////Return
-@RETURN // 1101
-0;JMP // 1102
+@RETURN // 1107
+0;JMP // 1108
 
 ////FunctionInstruction{functionName='Output.println', numLocals=0, funcMapping={}}
 // function Output.println with 0
@@ -1330,10 +1338,10 @@ D=A // 1084
 //  pop:  PopInstruction{address=static 1}
 //}
 
-@PUSH_constant_0 // 1103
-0;JMP // 1104
-@Output.1_POP // 1105
-0;JMP // 1106
+@PUSH_constant_0 // 1109
+0;JMP // 1110
+@Output.1_POP // 1111
+0;JMP // 1112
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -1342,25 +1350,25 @@ D=A // 1084
 //        PushInstruction("constant 22"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Output.println$IF_TRUE1}}
-@Output.2_PUSH // 1107
-0;JMP // 1108
-@PUSH_constant_22 // 1109
-0;JMP // 1110
-@EQ // 1111
-0;JMP // 1112
-// if-goto Output.println$IF_TRUE1
-@Output.println$IF_TRUE1 // 1113
-D=A // 1114
-@IF_GOTO // 1115
+@Output.2_PUSH // 1113
+0;JMP // 1114
+@PUSH_constant_22 // 1115
 0;JMP // 1116
+@EQ // 1117
+0;JMP // 1118
+// if-goto Output.println$IF_TRUE1
+@Output.println$IF_TRUE1 // 1119
+D=A // 1120
+@IF_GOTO // 1121
+0;JMP // 1122
 
 ////GotoInstruction{label='Output.println$IF_FALSE1}
 // goto Output.println$IF_FALSE1
-@Output.println$IF_FALSE1 // 1117
-D=A // 1118
-@15 // 1119
-AM=D;JMP // 1120
-0;JMP // 1121
+@Output.println$IF_FALSE1 // 1123
+D=A // 1124
+@15 // 1125
+AM=D;JMP // 1126
+0;JMP // 1127
 
 ////LabelInstruction{label='Output.println$IF_TRUE1}
 // label Output.println$IF_TRUE1
@@ -1372,27 +1380,27 @@ AM=D;JMP // 1120
 //}
 
 // call Output.scroll
-@5 // 1122
-D=A // 1123
-@14 // 1124
-M=D // 1125
-@Output.scroll // 1126
-D=A // 1127
-@13 // 1128
-M=D // 1129
-@CALL // 1130
-0;JMP // 1131
+@5 // 1128
+D=A // 1129
+@14 // 1130
+M=D // 1131
+@Output.scroll // 1132
+D=A // 1133
+@13 // 1134
+M=D // 1135
+@CALL // 1136
+0;JMP // 1137
 (Output.println.ret.0)
-@POP_temp_0 // 1132
-0;JMP // 1133
+@POP_temp_0 // 1138
+0;JMP // 1139
 
 ////GotoInstruction{label='Output.println$IF_END1}
 // goto Output.println$IF_END1
-@Output.println$IF_END1 // 1134
-D=A // 1135
-@15 // 1136
-AM=D;JMP // 1137
-0;JMP // 1138
+@Output.println$IF_END1 // 1140
+D=A // 1141
+@15 // 1142
+AM=D;JMP // 1143
+0;JMP // 1144
 
 ////LabelInstruction{label='Output.println$IF_FALSE1}
 // label Output.println$IF_FALSE1
@@ -1409,30 +1417,30 @@ AM=D;JMP // 1137
 //  pop:  PopInstruction{address=static 2}
 //}
 
-@Output.2 // 1139
-M=M+1 // 1140
-@6 // 1141
-D=A // 1142
-@15 // 1143
-AM=D+M;JMP // 1144
+@Output.2 // 1145
+M=M+1 // 1146
+@6 // 1147
+D=A // 1148
+@15 // 1149
+AM=D+M;JMP // 1150
 
 ////LabelInstruction{label='Output.println$IF_END1}
 // label Output.println$IF_END1
 (Output.println$IF_END1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1145
-0;JMP // 1146
+@PUSH_constant_0 // 1151
+0;JMP // 1152
 
 //////Return
-@RETURN // 1147
-0;JMP // 1148
+@RETURN // 1153
+0;JMP // 1154
 
 ////FunctionInstruction{functionName='Memory.get_best_fit', numLocals=1, funcMapping={Memory.poke=0}}
 // function Memory.get_best_fit with 1
 (Memory.get_best_fit)
-@PUSH_constant_0 // 1149
-0;JMP // 1150
+@PUSH_constant_0 // 1155
+0;JMP // 1156
 
 ////PushPopPair {
 //  push: Dereference(
@@ -1448,17 +1456,17 @@ AM=D+M;JMP // 1144
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@ARG // 1151
-A=M // 1152
-A=M // 1153
-D=M // 1154
-@LCL // 1155
-A=M // 1156
-M=D // 1157
-@11 // 1158
-D=A // 1159
-@15 // 1160
-AM=D+M;JMP // 1161
+@ARG // 1157
+A=M // 1158
+A=M // 1159
+D=M // 1160
+@LCL // 1161
+A=M // 1162
+M=D // 1163
+@11 // 1164
+D=A // 1165
+@15 // 1166
+AM=D+M;JMP // 1167
 
 ////ConditionalGroup{push=UnaryPushGroup(    BinaryPushGroup(
 //        left:
@@ -1477,47 +1485,47 @@ AM=D+M;JMP // 1161
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.get_best_fit$IF_TRUE1}}
-@PUSH_local_0 // 1162
-0;JMP // 1163
-@PUSH_constant_0 // 1164
-0;JMP // 1165
-@ADD // 1166
-0;JMP // 1167
-@POP_pointer_1 // 1168
+@PUSH_local_0 // 1168
 0;JMP // 1169
-@PUSH_that_0 // 1170
+@PUSH_constant_0 // 1170
 0;JMP // 1171
-@PUSH_argument_1 // 1172
+@ADD // 1172
 0;JMP // 1173
-@LT // 1174
+@POP_pointer_1 // 1174
 0;JMP // 1175
-@NOT // 1176
+@PUSH_that_0 // 1176
 0;JMP // 1177
-// if-goto Memory.get_best_fit$IF_TRUE1
-@Memory.get_best_fit$IF_TRUE1 // 1178
-D=A // 1179
-@IF_GOTO // 1180
+@PUSH_argument_1 // 1178
+0;JMP // 1179
+@LT // 1180
 0;JMP // 1181
+@NOT // 1182
+0;JMP // 1183
+// if-goto Memory.get_best_fit$IF_TRUE1
+@Memory.get_best_fit$IF_TRUE1 // 1184
+D=A // 1185
+@IF_GOTO // 1186
+0;JMP // 1187
 
 ////GotoInstruction{label='Memory.get_best_fit$IF_END1}
 // goto Memory.get_best_fit$IF_END1
-@Memory.get_best_fit$IF_END1 // 1182
-D=A // 1183
-@15 // 1184
-AM=D;JMP // 1185
-0;JMP // 1186
+@Memory.get_best_fit$IF_END1 // 1188
+D=A // 1189
+@15 // 1190
+AM=D;JMP // 1191
+0;JMP // 1192
 
 ////LabelInstruction{label='Memory.get_best_fit$IF_TRUE1}
 // label Memory.get_best_fit$IF_TRUE1
 (Memory.get_best_fit$IF_TRUE1)
 
 ////PushInstruction("local 0")
-@PUSH_local_0 // 1187
-0;JMP // 1188
+@PUSH_local_0 // 1193
+0;JMP // 1194
 
 //////Return
-@RETURN // 1189
-0;JMP // 1190
+@RETURN // 1195
+0;JMP // 1196
 
 ////LabelInstruction{label='Memory.get_best_fit$IF_END1}
 // label Memory.get_best_fit$IF_END1
@@ -1543,25 +1551,25 @@ AM=D;JMP // 1185
 //        PushInstruction("constant 0"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Memory.get_best_fit_WHILE_END1}}
-@PUSH_local_0 // 1191
-0;JMP // 1192
-@PUSH_constant_3 // 1193
-0;JMP // 1194
-@ADD // 1195
-0;JMP // 1196
-@POP_pointer_1 // 1197
+@PUSH_local_0 // 1197
 0;JMP // 1198
-@PUSH_that_0 // 1199
+@PUSH_constant_3 // 1199
 0;JMP // 1200
-@PUSH_constant_0 // 1201
+@ADD // 1201
 0;JMP // 1202
-@EQ // 1203
+@POP_pointer_1 // 1203
 0;JMP // 1204
-// if-goto Memory.get_best_fit_WHILE_END1
-@Memory.get_best_fit_WHILE_END1 // 1205
-D=A // 1206
-@IF_GOTO // 1207
+@PUSH_that_0 // 1205
+0;JMP // 1206
+@PUSH_constant_0 // 1207
 0;JMP // 1208
+@EQ // 1209
+0;JMP // 1210
+// if-goto Memory.get_best_fit_WHILE_END1
+@Memory.get_best_fit_WHILE_END1 // 1211
+D=A // 1212
+@IF_GOTO // 1213
+0;JMP // 1214
 
 ////PushPopPair {
 //  push: Dereference(
@@ -1577,18 +1585,18 @@ D=A // 1206
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_0 // 1209
-0;JMP // 1210
-@PUSH_constant_3 // 1211
-0;JMP // 1212
-@ADD // 1213
-0;JMP // 1214
-@POP_pointer_1 // 1215
+@PUSH_local_0 // 1215
 0;JMP // 1216
-@PUSH_that_0 // 1217
+@PUSH_constant_3 // 1217
 0;JMP // 1218
-@POP_local_0 // 1219
+@ADD // 1219
 0;JMP // 1220
+@POP_pointer_1 // 1221
+0;JMP // 1222
+@PUSH_that_0 // 1223
+0;JMP // 1224
+@POP_local_0 // 1225
+0;JMP // 1226
 
 ////ConditionalGroup{push=UnaryPushGroup(    BinaryPushGroup(
 //        left:
@@ -1607,47 +1615,47 @@ D=A // 1206
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.get_best_fit$IF_TRUE2}}
-@PUSH_local_0 // 1221
-0;JMP // 1222
-@PUSH_constant_0 // 1223
-0;JMP // 1224
-@ADD // 1225
-0;JMP // 1226
-@POP_pointer_1 // 1227
+@PUSH_local_0 // 1227
 0;JMP // 1228
-@PUSH_that_0 // 1229
+@PUSH_constant_0 // 1229
 0;JMP // 1230
-@PUSH_argument_1 // 1231
+@ADD // 1231
 0;JMP // 1232
-@LT // 1233
+@POP_pointer_1 // 1233
 0;JMP // 1234
-@NOT // 1235
+@PUSH_that_0 // 1235
 0;JMP // 1236
-// if-goto Memory.get_best_fit$IF_TRUE2
-@Memory.get_best_fit$IF_TRUE2 // 1237
-D=A // 1238
-@IF_GOTO // 1239
+@PUSH_argument_1 // 1237
+0;JMP // 1238
+@LT // 1239
 0;JMP // 1240
+@NOT // 1241
+0;JMP // 1242
+// if-goto Memory.get_best_fit$IF_TRUE2
+@Memory.get_best_fit$IF_TRUE2 // 1243
+D=A // 1244
+@IF_GOTO // 1245
+0;JMP // 1246
 
 ////GotoInstruction{label='Memory.get_best_fit$IF_END2}
 // goto Memory.get_best_fit$IF_END2
-@Memory.get_best_fit$IF_END2 // 1241
-D=A // 1242
-@15 // 1243
-AM=D;JMP // 1244
-0;JMP // 1245
+@Memory.get_best_fit$IF_END2 // 1247
+D=A // 1248
+@15 // 1249
+AM=D;JMP // 1250
+0;JMP // 1251
 
 ////LabelInstruction{label='Memory.get_best_fit$IF_TRUE2}
 // label Memory.get_best_fit$IF_TRUE2
 (Memory.get_best_fit$IF_TRUE2)
 
 ////PushInstruction("local 0")
-@PUSH_local_0 // 1246
-0;JMP // 1247
+@PUSH_local_0 // 1252
+0;JMP // 1253
 
 //////Return
-@RETURN // 1248
-0;JMP // 1249
+@RETURN // 1254
+0;JMP // 1255
 
 ////LabelInstruction{label='Memory.get_best_fit$IF_END2}
 // label Memory.get_best_fit$IF_END2
@@ -1655,39 +1663,39 @@ AM=D;JMP // 1244
 
 ////GotoInstruction{label='Memory.get_best_fit_WHILE_EXP1}
 // goto Memory.get_best_fit_WHILE_EXP1
-@Memory.get_best_fit_WHILE_EXP1 // 1250
-D=A // 1251
-@15 // 1252
-AM=D;JMP // 1253
-0;JMP // 1254
+@Memory.get_best_fit_WHILE_EXP1 // 1256
+D=A // 1257
+@15 // 1258
+AM=D;JMP // 1259
+0;JMP // 1260
 
 ////LabelInstruction{label='Memory.get_best_fit_WHILE_END1}
 // label Memory.get_best_fit_WHILE_END1
 (Memory.get_best_fit_WHILE_END1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1255
-0;JMP // 1256
+@PUSH_constant_0 // 1261
+0;JMP // 1262
 
 //////Return
-@RETURN // 1257
-0;JMP // 1258
+@RETURN // 1263
+0;JMP // 1264
 
 ////FunctionInstruction{functionName='Sys.error', numLocals=1, funcMapping={}}
 // function Sys.error with 1
 (Sys.error)
-@PUSH_constant_0 // 1259
-0;JMP // 1260
+@PUSH_constant_0 // 1265
+0;JMP // 1266
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_0 // 1261
-0;JMP // 1262
-@POP_local_0 // 1263
-0;JMP // 1264
+@PUSH_constant_0 // 1267
+0;JMP // 1268
+@POP_local_0 // 1269
+0;JMP // 1270
 
 ////LabelInstruction{label='Sys.error_WHILE_EXP1}
 // label Sys.error_WHILE_EXP1
@@ -1701,19 +1709,19 @@ AM=D;JMP // 1253
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Sys.error_WHILE_END1}}
-@PUSH_local_0 // 1265
-0;JMP // 1266
-@PUSH_constant_8192 // 1267
-0;JMP // 1268
-@LT // 1269
-0;JMP // 1270
-@NOT // 1271
+@PUSH_local_0 // 1271
 0;JMP // 1272
-// if-goto Sys.error_WHILE_END1
-@Sys.error_WHILE_END1 // 1273
-D=A // 1274
-@IF_GOTO // 1275
+@PUSH_constant_8192 // 1273
+0;JMP // 1274
+@LT // 1275
 0;JMP // 1276
+@NOT // 1277
+0;JMP // 1278
+// if-goto Sys.error_WHILE_END1
+@Sys.error_WHILE_END1 // 1279
+D=A // 1280
+@IF_GOTO // 1281
+0;JMP // 1282
 
 ////PushWriter{source=PushInstruction("constant -1"), dest=BinaryPushGroup(
 //    left:
@@ -1722,18 +1730,18 @@ D=A // 1274
 //        PushInstruction("constant 16384"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_1_NEG // 1277
-0;JMP // 1278
-@PUSH_local_0 // 1279
-0;JMP // 1280
-@PUSH_constant_16384 // 1281
-0;JMP // 1282
-@ADD // 1283
+@PUSH_constant_1_NEG // 1283
 0;JMP // 1284
-@POP_pointer_1 // 1285
+@PUSH_local_0 // 1285
 0;JMP // 1286
-@POP_that_0 // 1287
+@PUSH_constant_16384 // 1287
 0;JMP // 1288
+@ADD // 1289
+0;JMP // 1290
+@POP_pointer_1 // 1291
+0;JMP // 1292
+@POP_that_0 // 1293
+0;JMP // 1294
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -1746,21 +1754,21 @@ D=A // 1274
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@LCL // 1289
-A=M // 1290
-M=M+1 // 1291
-@7 // 1292
-D=A // 1293
-@15 // 1294
-AM=D+M;JMP // 1295
+@LCL // 1295
+A=M // 1296
+M=M+1 // 1297
+@7 // 1298
+D=A // 1299
+@15 // 1300
+AM=D+M;JMP // 1301
 
 ////GotoInstruction{label='Sys.error_WHILE_EXP1}
 // goto Sys.error_WHILE_EXP1
-@Sys.error_WHILE_EXP1 // 1296
-D=A // 1297
-@15 // 1298
-AM=D;JMP // 1299
-0;JMP // 1300
+@Sys.error_WHILE_EXP1 // 1302
+D=A // 1303
+@15 // 1304
+AM=D;JMP // 1305
+0;JMP // 1306
 
 ////LabelInstruction{label='Sys.error_WHILE_END1}
 // label Sys.error_WHILE_END1
@@ -1772,27 +1780,27 @@ AM=D;JMP // 1299
 //}
 
 // call Sys.halt
-@5 // 1301
-D=A // 1302
-@14 // 1303
-M=D // 1304
-@Sys.halt // 1305
-D=A // 1306
-@13 // 1307
-M=D // 1308
-@CALL // 1309
-0;JMP // 1310
+@5 // 1307
+D=A // 1308
+@14 // 1309
+M=D // 1310
+@Sys.halt // 1311
+D=A // 1312
+@13 // 1313
+M=D // 1314
+@CALL // 1315
+0;JMP // 1316
 (Sys.error.ret.0)
-@POP_temp_0 // 1311
-0;JMP // 1312
+@POP_temp_0 // 1317
+0;JMP // 1318
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1313
-0;JMP // 1314
+@PUSH_constant_0 // 1319
+0;JMP // 1320
 
 //////Return
-@RETURN // 1315
-0;JMP // 1316
+@RETURN // 1321
+0;JMP // 1322
 
 ////FunctionInstruction{functionName='Output.getMap', numLocals=0, funcMapping={Output.println=2}}
 // function Output.getMap with 0
@@ -1817,33 +1825,33 @@ M=D // 1308
 //        ),
 //    binaryOp: "OR"
 //), ifGoto=IfGotoInstruction{label='Output.getMap$IF_TRUE1}}
-@PUSH_argument_0 // 1317
-0;JMP // 1318
-@PUSH_constant_32 // 1319
-0;JMP // 1320
-@LT // 1321
-0;JMP // 1322
 @PUSH_argument_0 // 1323
 0;JMP // 1324
-@PUSH_constant_126 // 1325
+@PUSH_constant_32 // 1325
 0;JMP // 1326
-@GT // 1327
+@LT // 1327
 0;JMP // 1328
-@OR // 1329
+@PUSH_argument_0 // 1329
 0;JMP // 1330
-// if-goto Output.getMap$IF_TRUE1
-@Output.getMap$IF_TRUE1 // 1331
-D=A // 1332
-@IF_GOTO // 1333
+@PUSH_constant_126 // 1331
+0;JMP // 1332
+@GT // 1333
 0;JMP // 1334
+@OR // 1335
+0;JMP // 1336
+// if-goto Output.getMap$IF_TRUE1
+@Output.getMap$IF_TRUE1 // 1337
+D=A // 1338
+@IF_GOTO // 1339
+0;JMP // 1340
 
 ////GotoInstruction{label='Output.getMap$IF_END1}
 // goto Output.getMap$IF_END1
-@Output.getMap$IF_END1 // 1335
-D=A // 1336
-@15 // 1337
-AM=D;JMP // 1338
-0;JMP // 1339
+@Output.getMap$IF_END1 // 1341
+D=A // 1342
+@15 // 1343
+AM=D;JMP // 1344
+0;JMP // 1345
 
 ////LabelInstruction{label='Output.getMap$IF_TRUE1}
 // label Output.getMap$IF_TRUE1
@@ -1854,10 +1862,10 @@ AM=D;JMP // 1338
 //  pop:  PopInstruction{address=argument 0}
 //}
 
-@PUSH_constant_0 // 1340
-0;JMP // 1341
-@POP_argument_0 // 1342
-0;JMP // 1343
+@PUSH_constant_0 // 1346
+0;JMP // 1347
+@POP_argument_0 // 1348
+0;JMP // 1349
 
 ////LabelInstruction{label='Output.getMap$IF_END1}
 // label Output.getMap$IF_END1
@@ -1873,93 +1881,93 @@ AM=D;JMP // 1338
 //            binaryOp: "ADD"
 //        )
 //)
-@Output.0_PUSH // 1344
-0;JMP // 1345
-@PUSH_argument_0 // 1346
-0;JMP // 1347
-@ADD // 1348
-0;JMP // 1349
-@POP_pointer_1 // 1350
+@Output.0_PUSH // 1350
 0;JMP // 1351
-@PUSH_that_0 // 1352
+@PUSH_argument_0 // 1352
 0;JMP // 1353
+@ADD // 1354
+0;JMP // 1355
+@POP_pointer_1 // 1356
+0;JMP // 1357
+@PUSH_that_0 // 1358
+0;JMP // 1359
 
 //////Return
-@RETURN // 1354
-0;JMP // 1355
+@RETURN // 1360
+0;JMP // 1361
 
 ////FunctionInstruction{functionName='Shell.main', numLocals=1, funcMapping={}}
 // function Shell.main with 1
 (Shell.main)
-@PUSH_constant_0 // 1356
-0;JMP // 1357
+@PUSH_constant_0 // 1362
+0;JMP // 1363
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=static 0}
 //}
 
-@PUSH_constant_0 // 1358
-0;JMP // 1359
-@Shell.0_POP // 1360
-0;JMP // 1361
+@PUSH_constant_0 // 1364
+0;JMP // 1365
+@Shell.0_POP // 1366
+0;JMP // 1367
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 36")], call=CallInstruction{Output.printChar}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_36 // 1362
-0;JMP // 1363
+@PUSH_constant_36 // 1368
+0;JMP // 1369
 // call Output.printChar
-@6 // 1364
-D=A // 1365
-@14 // 1366
-M=D // 1367
-@Output.printChar // 1368
-D=A // 1369
-@13 // 1370
-M=D // 1371
-@CALL // 1372
-0;JMP // 1373
+@6 // 1370
+D=A // 1371
+@14 // 1372
+M=D // 1373
+@Output.printChar // 1374
+D=A // 1375
+@13 // 1376
+M=D // 1377
+@CALL // 1378
+0;JMP // 1379
 (Shell.main.ret.0)
-@POP_temp_0 // 1374
-0;JMP // 1375
+@POP_temp_0 // 1380
+0;JMP // 1381
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 0")], call=CallInstruction{Output.printChar}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_0 // 1376
-0;JMP // 1377
+@PUSH_constant_0 // 1382
+0;JMP // 1383
 // call Output.printChar
-@6 // 1378
-D=A // 1379
-@14 // 1380
-M=D // 1381
-@Output.printChar // 1382
-D=A // 1383
-@13 // 1384
-M=D // 1385
-@CALL // 1386
-0;JMP // 1387
+@6 // 1384
+D=A // 1385
+@14 // 1386
+M=D // 1387
+@Output.printChar // 1388
+D=A // 1389
+@13 // 1390
+M=D // 1391
+@CALL // 1392
+0;JMP // 1393
 (Shell.main.ret.2)
-@POP_temp_0 // 1388
-0;JMP // 1389
+@POP_temp_0 // 1394
+0;JMP // 1395
 
 ////LabelInstruction{label='Shell.main_WHILE_EXP1}
 // label Shell.main_WHILE_EXP1
 (Shell.main_WHILE_EXP1)
 
 ////ConditionalGroup{push=PushInstruction("constant 0"), ifGoto=IfGotoInstruction{label='Shell.main_WHILE_END1}}
-@PUSH_constant_0 // 1390
-0;JMP // 1391
+@PUSH_constant_0 // 1396
+0;JMP // 1397
 // if-goto Shell.main_WHILE_END1
-@Shell.main_WHILE_END1 // 1392
-D=A // 1393
-@IF_GOTO // 1394
-0;JMP // 1395
+@Shell.main_WHILE_END1 // 1398
+D=A // 1399
+@IF_GOTO // 1400
+0;JMP // 1401
 
 ////LabelInstruction{label='Shell.main_WHILE_EXP2}
 // label Shell.main_WHILE_EXP2
@@ -1976,31 +1984,31 @@ D=A // 1393
 //        binaryOp: "EQ"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Shell.main_WHILE_END2}}
-@PUSH_constant_24576 // 1396
-0;JMP // 1397
-@POP_pointer_1 // 1398
-0;JMP // 1399
-@PUSH_that_0 // 1400
-0;JMP // 1401
-@PUSH_constant_0 // 1402
+@PUSH_constant_24576 // 1402
 0;JMP // 1403
-@EQ // 1404
+@POP_pointer_1 // 1404
 0;JMP // 1405
-@NOT // 1406
+@PUSH_that_0 // 1406
 0;JMP // 1407
-// if-goto Shell.main_WHILE_END2
-@Shell.main_WHILE_END2 // 1408
-D=A // 1409
-@IF_GOTO // 1410
+@PUSH_constant_0 // 1408
+0;JMP // 1409
+@EQ // 1410
 0;JMP // 1411
+@NOT // 1412
+0;JMP // 1413
+// if-goto Shell.main_WHILE_END2
+@Shell.main_WHILE_END2 // 1414
+D=A // 1415
+@IF_GOTO // 1416
+0;JMP // 1417
 
 ////GotoInstruction{label='Shell.main_WHILE_EXP2}
 // goto Shell.main_WHILE_EXP2
-@Shell.main_WHILE_EXP2 // 1412
-D=A // 1413
-@15 // 1414
-AM=D;JMP // 1415
-0;JMP // 1416
+@Shell.main_WHILE_EXP2 // 1418
+D=A // 1419
+@15 // 1420
+AM=D;JMP // 1421
+0;JMP // 1422
 
 ////LabelInstruction{label='Shell.main_WHILE_END2}
 // label Shell.main_WHILE_END2
@@ -2014,14 +2022,14 @@ AM=D;JMP // 1415
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_24576 // 1417
-0;JMP // 1418
-@POP_pointer_1 // 1419
-0;JMP // 1420
-@PUSH_that_0 // 1421
-0;JMP // 1422
-@POP_local_0 // 1423
+@PUSH_constant_24576 // 1423
 0;JMP // 1424
+@POP_pointer_1 // 1425
+0;JMP // 1426
+@PUSH_that_0 // 1427
+0;JMP // 1428
+@POP_local_0 // 1429
+0;JMP // 1430
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -2042,33 +2050,33 @@ AM=D;JMP // 1415
 //        ),
 //    binaryOp: "AND"
 //), ifGoto=IfGotoInstruction{label='Shell.main$IF_TRUE1}}
-@PUSH_local_0 // 1425
-0;JMP // 1426
-@PUSH_constant_129 // 1427
-0;JMP // 1428
-@EQ // 1429
-0;JMP // 1430
-@Shell.0_PUSH // 1431
+@PUSH_local_0 // 1431
 0;JMP // 1432
-@PUSH_constant_0 // 1433
+@PUSH_constant_129 // 1433
 0;JMP // 1434
-@GT // 1435
+@EQ // 1435
 0;JMP // 1436
-@AND // 1437
+@Shell.0_PUSH // 1437
 0;JMP // 1438
-// if-goto Shell.main$IF_TRUE1
-@Shell.main$IF_TRUE1 // 1439
-D=A // 1440
-@IF_GOTO // 1441
+@PUSH_constant_0 // 1439
+0;JMP // 1440
+@GT // 1441
 0;JMP // 1442
+@AND // 1443
+0;JMP // 1444
+// if-goto Shell.main$IF_TRUE1
+@Shell.main$IF_TRUE1 // 1445
+D=A // 1446
+@IF_GOTO // 1447
+0;JMP // 1448
 
 ////GotoInstruction{label='Shell.main$IF_FALSE1}
 // goto Shell.main$IF_FALSE1
-@Shell.main$IF_FALSE1 // 1443
-D=A // 1444
-@15 // 1445
-AM=D;JMP // 1446
-0;JMP // 1447
+@Shell.main$IF_FALSE1 // 1449
+D=A // 1450
+@15 // 1451
+AM=D;JMP // 1452
+0;JMP // 1453
 
 ////LabelInstruction{label='Shell.main$IF_TRUE1}
 // label Shell.main$IF_TRUE1
@@ -2080,19 +2088,19 @@ AM=D;JMP // 1446
 //}
 
 // call Output.backSpace
-@5 // 1448
-D=A // 1449
-@14 // 1450
-M=D // 1451
-@Output.backSpace // 1452
-D=A // 1453
-@13 // 1454
-M=D // 1455
-@CALL // 1456
-0;JMP // 1457
+@5 // 1454
+D=A // 1455
+@14 // 1456
+M=D // 1457
+@Output.backSpace // 1458
+D=A // 1459
+@13 // 1460
+M=D // 1461
+@CALL // 1462
+0;JMP // 1463
 (Shell.main.ret.4)
-@POP_temp_0 // 1458
-0;JMP // 1459
+@POP_temp_0 // 1464
+0;JMP // 1465
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[], call=CallInstruction{Output.backSpace}}
@@ -2100,41 +2108,41 @@ M=D // 1455
 //}
 
 // call Output.backSpace
-@5 // 1460
-D=A // 1461
-@14 // 1462
-M=D // 1463
-@Output.backSpace // 1464
-D=A // 1465
-@13 // 1466
-M=D // 1467
-@CALL // 1468
-0;JMP // 1469
+@5 // 1466
+D=A // 1467
+@14 // 1468
+M=D // 1469
+@Output.backSpace // 1470
+D=A // 1471
+@13 // 1472
+M=D // 1473
+@CALL // 1474
+0;JMP // 1475
 (Shell.main.ret.6)
-@POP_temp_0 // 1470
-0;JMP // 1471
+@POP_temp_0 // 1476
+0;JMP // 1477
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 0")], call=CallInstruction{Output.printChar}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_0 // 1472
-0;JMP // 1473
+@PUSH_constant_0 // 1478
+0;JMP // 1479
 // call Output.printChar
-@6 // 1474
-D=A // 1475
-@14 // 1476
-M=D // 1477
-@Output.printChar // 1478
-D=A // 1479
-@13 // 1480
-M=D // 1481
-@CALL // 1482
-0;JMP // 1483
+@6 // 1480
+D=A // 1481
+@14 // 1482
+M=D // 1483
+@Output.printChar // 1484
+D=A // 1485
+@13 // 1486
+M=D // 1487
+@CALL // 1488
+0;JMP // 1489
 (Shell.main.ret.8)
-@POP_temp_0 // 1484
-0;JMP // 1485
+@POP_temp_0 // 1490
+0;JMP // 1491
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2147,46 +2155,142 @@ M=D // 1481
 //  pop:  PopInstruction{address=static 0}
 //}
 
-@Shell.0 // 1486
-M=M-1 // 1487
-@6 // 1488
-D=A // 1489
-@15 // 1490
-AM=D+M;JMP // 1491
+@Shell.0 // 1492
+M=M-1 // 1493
+@6 // 1494
+D=A // 1495
+@15 // 1496
+AM=D+M;JMP // 1497
 
 ////GotoInstruction{label='Shell.main$IF_END1}
 // goto Shell.main$IF_END1
-@Shell.main$IF_END1 // 1492
-D=A // 1493
-@15 // 1494
-AM=D;JMP // 1495
-0;JMP // 1496
+@Shell.main$IF_END1 // 1498
+D=A // 1499
+@15 // 1500
+AM=D;JMP // 1501
+0;JMP // 1502
 
 ////LabelInstruction{label='Shell.main$IF_FALSE1}
 // label Shell.main$IF_FALSE1
 (Shell.main$IF_FALSE1)
+
+////ConditionalGroup{push=UnaryPushGroup(    BinaryPushGroup(
+//        left:
+//            BinaryPushGroup(
+//                left:
+//                    PushInstruction("local 0"),
+//                right:
+//                    PushInstruction("constant 129"),
+//                binaryOp: "EQ"
+//            ),
+//        right:
+//            BinaryPushGroup(
+//                left:
+//                    PushInstruction("static 0"),
+//                right:
+//                    PushInstruction("constant 0"),
+//                binaryOp: "EQ"
+//            ),
+//        binaryOp: "AND"
+//    ),
+//NOT), ifGoto=IfGotoInstruction{label='Shell.main$IF_TRUE2}}
+@PUSH_local_0 // 1503
+0;JMP // 1504
+@PUSH_constant_129 // 1505
+0;JMP // 1506
+@EQ // 1507
+0;JMP // 1508
+@Shell.0_PUSH // 1509
+0;JMP // 1510
+@PUSH_constant_0 // 1511
+0;JMP // 1512
+@EQ // 1513
+0;JMP // 1514
+@AND // 1515
+0;JMP // 1516
+@NOT // 1517
+0;JMP // 1518
+// if-goto Shell.main$IF_TRUE2
+@Shell.main$IF_TRUE2 // 1519
+D=A // 1520
+@IF_GOTO // 1521
+0;JMP // 1522
+
+////GotoInstruction{label='Shell.main$IF_END2}
+// goto Shell.main$IF_END2
+@Shell.main$IF_END2 // 1523
+D=A // 1524
+@15 // 1525
+AM=D;JMP // 1526
+0;JMP // 1527
+
+////LabelInstruction{label='Shell.main$IF_TRUE2}
+// label Shell.main$IF_TRUE2
+(Shell.main$IF_TRUE2)
+
+////PushPopPair {
+//  push: CallGroup{pushes=[], call=CallInstruction{Output.backSpace}}
+//  pop:  PopInstruction{address=temp 0}
+//}
+
+// call Output.backSpace
+@5 // 1528
+D=A // 1529
+@14 // 1530
+M=D // 1531
+@Output.backSpace // 1532
+D=A // 1533
+@13 // 1534
+M=D // 1535
+@CALL // 1536
+0;JMP // 1537
+(Shell.main.ret.10)
+@POP_temp_0 // 1538
+0;JMP // 1539
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{Output.printChar}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_local_0 // 1497
-0;JMP // 1498
+@PUSH_local_0 // 1540
+0;JMP // 1541
 // call Output.printChar
-@6 // 1499
-D=A // 1500
-@14 // 1501
-M=D // 1502
-@Output.printChar // 1503
-D=A // 1504
-@13 // 1505
-M=D // 1506
-@CALL // 1507
-0;JMP // 1508
-(Shell.main.ret.10)
-@POP_temp_0 // 1509
-0;JMP // 1510
+@6 // 1542
+D=A // 1543
+@14 // 1544
+M=D // 1545
+@Output.printChar // 1546
+D=A // 1547
+@13 // 1548
+M=D // 1549
+@CALL // 1550
+0;JMP // 1551
+(Shell.main.ret.12)
+@POP_temp_0 // 1552
+0;JMP // 1553
+
+////PushPopPair {
+//  push: CallGroup{pushes=[PushInstruction("constant 0")], call=CallInstruction{Output.printChar}}
+//  pop:  PopInstruction{address=temp 0}
+//}
+
+@PUSH_constant_0 // 1554
+0;JMP // 1555
+// call Output.printChar
+@6 // 1556
+D=A // 1557
+@14 // 1558
+M=D // 1559
+@Output.printChar // 1560
+D=A // 1561
+@13 // 1562
+M=D // 1563
+@CALL // 1564
+0;JMP // 1565
+(Shell.main.ret.14)
+@POP_temp_0 // 1566
+0;JMP // 1567
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2199,36 +2303,50 @@ M=D // 1506
 //  pop:  PopInstruction{address=static 0}
 //}
 
-@Shell.0 // 1511
-M=M+1 // 1512
-@6 // 1513
-D=A // 1514
-@15 // 1515
-AM=D+M;JMP // 1516
+@Shell.0 // 1568
+M=M+1 // 1569
+@6 // 1570
+D=A // 1571
+@15 // 1572
+AM=D+M;JMP // 1573
+
+////LabelInstruction{label='Shell.main$IF_END2}
+// label Shell.main$IF_END2
+(Shell.main$IF_END2)
 
 ////LabelInstruction{label='Shell.main$IF_END1}
 // label Shell.main$IF_END1
 (Shell.main$IF_END1)
 
+////PushWriter{source=PushInstruction("constant 0"), dest=PushInstruction("constant 24576")}
+@PUSH_constant_0 // 1574
+0;JMP // 1575
+@PUSH_constant_24576 // 1576
+0;JMP // 1577
+@POP_pointer_1 // 1578
+0;JMP // 1579
+@POP_that_0 // 1580
+0;JMP // 1581
+
 ////GotoInstruction{label='Shell.main_WHILE_EXP1}
 // goto Shell.main_WHILE_EXP1
-@Shell.main_WHILE_EXP1 // 1517
-D=A // 1518
-@15 // 1519
-AM=D;JMP // 1520
-0;JMP // 1521
+@Shell.main_WHILE_EXP1 // 1582
+D=A // 1583
+@15 // 1584
+AM=D;JMP // 1585
+0;JMP // 1586
 
 ////LabelInstruction{label='Shell.main_WHILE_END1}
 // label Shell.main_WHILE_END1
 (Shell.main_WHILE_END1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1522
-0;JMP // 1523
+@PUSH_constant_0 // 1587
+0;JMP // 1588
 
 //////Return
-@RETURN // 1524
-0;JMP // 1525
+@RETURN // 1589
+0;JMP // 1590
 
 ////FunctionInstruction{functionName='Memory.peek', numLocals=0, funcMapping={Memory.poke=0, Memory.get_best_fit=0}}
 // function Memory.peek with 0
@@ -2244,42 +2362,42 @@ AM=D;JMP // 1520
 //            binaryOp: "ADD"
 //        )
 //)
-@PUSH_argument_0 // 1526
-0;JMP // 1527
-@PUSH_constant_0 // 1528
-0;JMP // 1529
-@ADD // 1530
-0;JMP // 1531
-@POP_pointer_1 // 1532
-0;JMP // 1533
-@PUSH_that_0 // 1534
-0;JMP // 1535
+@PUSH_argument_0 // 1591
+0;JMP // 1592
+@PUSH_constant_0 // 1593
+0;JMP // 1594
+@ADD // 1595
+0;JMP // 1596
+@POP_pointer_1 // 1597
+0;JMP // 1598
+@PUSH_that_0 // 1599
+0;JMP // 1600
 
 //////Return
-@RETURN // 1536
-0;JMP // 1537
+@RETURN // 1601
+0;JMP // 1602
 
 ////FunctionInstruction{functionName='Output.scroll', numLocals=4, funcMapping={Output.println=2, Output.getMap=0}}
 // function Output.scroll with 4
 (Output.scroll)
-@PUSH_constant_0 // 1538
-0;JMP // 1539
-@PUSH_constant_0 // 1540
-0;JMP // 1541
-@PUSH_constant_0 // 1542
-0;JMP // 1543
-@PUSH_constant_0 // 1544
-0;JMP // 1545
+@PUSH_constant_0 // 1603
+0;JMP // 1604
+@PUSH_constant_0 // 1605
+0;JMP // 1606
+@PUSH_constant_0 // 1607
+0;JMP // 1608
+@PUSH_constant_0 // 1609
+0;JMP // 1610
 
 ////PushPopPair {
 //  push: PushInstruction("constant 11")
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_11 // 1546
-0;JMP // 1547
-@POP_local_0 // 1548
-0;JMP // 1549
+@PUSH_constant_11 // 1611
+0;JMP // 1612
+@POP_local_0 // 1613
+0;JMP // 1614
 
 ////LabelInstruction{label='Output.scroll_WHILE_EXP1}
 // label Output.scroll_WHILE_EXP1
@@ -2293,29 +2411,29 @@ AM=D;JMP // 1520
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Output.scroll_WHILE_END1}}
-@PUSH_local_0 // 1550
-0;JMP // 1551
-@PUSH_constant_256 // 1552
-0;JMP // 1553
-@LT // 1554
-0;JMP // 1555
-@NOT // 1556
-0;JMP // 1557
+@PUSH_local_0 // 1615
+0;JMP // 1616
+@PUSH_constant_256 // 1617
+0;JMP // 1618
+@LT // 1619
+0;JMP // 1620
+@NOT // 1621
+0;JMP // 1622
 // if-goto Output.scroll_WHILE_END1
-@Output.scroll_WHILE_END1 // 1558
-D=A // 1559
-@IF_GOTO // 1560
-0;JMP // 1561
+@Output.scroll_WHILE_END1 // 1623
+D=A // 1624
+@IF_GOTO // 1625
+0;JMP // 1626
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_0 // 1562
-0;JMP // 1563
-@POP_local_1 // 1564
-0;JMP // 1565
+@PUSH_constant_0 // 1627
+0;JMP // 1628
+@POP_local_1 // 1629
+0;JMP // 1630
 
 ////LabelInstruction{label='Output.scroll_WHILE_EXP2}
 // label Output.scroll_WHILE_EXP2
@@ -2329,19 +2447,19 @@ D=A // 1559
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Output.scroll_WHILE_END2}}
-@PUSH_local_1 // 1566
-0;JMP // 1567
-@PUSH_constant_32 // 1568
-0;JMP // 1569
-@LT // 1570
-0;JMP // 1571
-@NOT // 1572
-0;JMP // 1573
+@PUSH_local_1 // 1631
+0;JMP // 1632
+@PUSH_constant_32 // 1633
+0;JMP // 1634
+@LT // 1635
+0;JMP // 1636
+@NOT // 1637
+0;JMP // 1638
 // if-goto Output.scroll_WHILE_END2
-@Output.scroll_WHILE_END2 // 1574
-D=A // 1575
-@IF_GOTO // 1576
-0;JMP // 1577
+@Output.scroll_WHILE_END2 // 1639
+D=A // 1640
+@IF_GOTO // 1641
+0;JMP // 1642
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2360,32 +2478,32 @@ D=A // 1575
 //  pop:  PopInstruction{address=local 2}
 //}
 
-@PUSH_constant_16384 // 1578
-0;JMP // 1579
-@PUSH_local_0 // 1580
-0;JMP // 1581
-@PUSH_constant_32 // 1582
-0;JMP // 1583
+@PUSH_constant_16384 // 1643
+0;JMP // 1644
+@PUSH_local_0 // 1645
+0;JMP // 1646
+@PUSH_constant_32 // 1647
+0;JMP // 1648
 // call Math.multiply
-@7 // 1584
-D=A // 1585
-@14 // 1586
-M=D // 1587
-@Math.multiply // 1588
-D=A // 1589
-@13 // 1590
-M=D // 1591
-@CALL // 1592
-0;JMP // 1593
+@7 // 1649
+D=A // 1650
+@14 // 1651
+M=D // 1652
+@Math.multiply // 1653
+D=A // 1654
+@13 // 1655
+M=D // 1656
+@CALL // 1657
+0;JMP // 1658
 (Output.scroll.ret.0)
-@ADD // 1594
-0;JMP // 1595
-@PUSH_local_1 // 1596
-0;JMP // 1597
-@ADD // 1598
-0;JMP // 1599
-@POP_local_2 // 1600
-0;JMP // 1601
+@ADD // 1659
+0;JMP // 1660
+@PUSH_local_1 // 1661
+0;JMP // 1662
+@ADD // 1663
+0;JMP // 1664
+@POP_local_2 // 1665
+0;JMP // 1666
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2410,72 +2528,72 @@ M=D // 1591
 //  pop:  PopInstruction{address=local 3}
 //}
 
-@PUSH_constant_16384 // 1602
-0;JMP // 1603
-@PUSH_local_0 // 1604
-0;JMP // 1605
-@PUSH_constant_11 // 1606
-0;JMP // 1607
-@SUB // 1608
-0;JMP // 1609
-@PUSH_constant_32 // 1610
-0;JMP // 1611
+@PUSH_constant_16384 // 1667
+0;JMP // 1668
+@PUSH_local_0 // 1669
+0;JMP // 1670
+@PUSH_constant_11 // 1671
+0;JMP // 1672
+@SUB // 1673
+0;JMP // 1674
+@PUSH_constant_32 // 1675
+0;JMP // 1676
 // call Math.multiply
-@7 // 1612
-D=A // 1613
-@14 // 1614
-M=D // 1615
-@Math.multiply // 1616
-D=A // 1617
-@13 // 1618
-M=D // 1619
-@CALL // 1620
-0;JMP // 1621
+@7 // 1677
+D=A // 1678
+@14 // 1679
+M=D // 1680
+@Math.multiply // 1681
+D=A // 1682
+@13 // 1683
+M=D // 1684
+@CALL // 1685
+0;JMP // 1686
 (Output.scroll.ret.3)
-@ADD // 1622
-0;JMP // 1623
-@PUSH_local_1 // 1624
-0;JMP // 1625
-@ADD // 1626
-0;JMP // 1627
-@POP_local_3 // 1628
-0;JMP // 1629
+@ADD // 1687
+0;JMP // 1688
+@PUSH_local_1 // 1689
+0;JMP // 1690
+@ADD // 1691
+0;JMP // 1692
+@POP_local_3 // 1693
+0;JMP // 1694
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 3"), CallGroup{pushes=[PushInstruction("local 2")], call=CallInstruction{Memory.peek}}], call=CallInstruction{Memory.poke}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_local_3 // 1630
-0;JMP // 1631
-@PUSH_local_2 // 1632
-0;JMP // 1633
+@PUSH_local_3 // 1695
+0;JMP // 1696
+@PUSH_local_2 // 1697
+0;JMP // 1698
 // call Memory.peek
-@6 // 1634
-D=A // 1635
-@14 // 1636
-M=D // 1637
-@Memory.peek // 1638
-D=A // 1639
-@13 // 1640
-M=D // 1641
-@CALL // 1642
-0;JMP // 1643
+@6 // 1699
+D=A // 1700
+@14 // 1701
+M=D // 1702
+@Memory.peek // 1703
+D=A // 1704
+@13 // 1705
+M=D // 1706
+@CALL // 1707
+0;JMP // 1708
 (Output.scroll.ret.6)
 // call Memory.poke
-@7 // 1644
-D=A // 1645
-@14 // 1646
-M=D // 1647
-@Memory.poke // 1648
-D=A // 1649
-@13 // 1650
-M=D // 1651
-@CALL // 1652
-0;JMP // 1653
+@7 // 1709
+D=A // 1710
+@14 // 1711
+M=D // 1712
+@Memory.poke // 1713
+D=A // 1714
+@13 // 1715
+M=D // 1716
+@CALL // 1717
+0;JMP // 1718
 (Output.scroll.ret.7)
-@POP_temp_0 // 1654
-0;JMP // 1655
+@POP_temp_0 // 1719
+0;JMP // 1720
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2488,21 +2606,21 @@ M=D // 1651
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@LCL // 1656
-A=M+1 // 1657
-M=M+1 // 1658
-@7 // 1659
-D=A // 1660
-@15 // 1661
-AM=D+M;JMP // 1662
+@LCL // 1721
+A=M+1 // 1722
+M=M+1 // 1723
+@7 // 1724
+D=A // 1725
+@15 // 1726
+AM=D+M;JMP // 1727
 
 ////GotoInstruction{label='Output.scroll_WHILE_EXP2}
 // goto Output.scroll_WHILE_EXP2
-@Output.scroll_WHILE_EXP2 // 1663
-D=A // 1664
-@15 // 1665
-AM=D;JMP // 1666
-0;JMP // 1667
+@Output.scroll_WHILE_EXP2 // 1728
+D=A // 1729
+@15 // 1730
+AM=D;JMP // 1731
+0;JMP // 1732
 
 ////LabelInstruction{label='Output.scroll_WHILE_END2}
 // label Output.scroll_WHILE_END2
@@ -2519,21 +2637,21 @@ AM=D;JMP // 1666
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@LCL // 1668
-A=M // 1669
-M=M+1 // 1670
-@7 // 1671
-D=A // 1672
-@15 // 1673
-AM=D+M;JMP // 1674
+@LCL // 1733
+A=M // 1734
+M=M+1 // 1735
+@7 // 1736
+D=A // 1737
+@15 // 1738
+AM=D+M;JMP // 1739
 
 ////GotoInstruction{label='Output.scroll_WHILE_EXP1}
 // goto Output.scroll_WHILE_EXP1
-@Output.scroll_WHILE_EXP1 // 1675
-D=A // 1676
-@15 // 1677
-AM=D;JMP // 1678
-0;JMP // 1679
+@Output.scroll_WHILE_EXP1 // 1740
+D=A // 1741
+@15 // 1742
+AM=D;JMP // 1743
+0;JMP // 1744
 
 ////LabelInstruction{label='Output.scroll_WHILE_END1}
 // label Output.scroll_WHILE_END1
@@ -2544,10 +2662,10 @@ AM=D;JMP // 1678
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_245 // 1680
-0;JMP // 1681
-@POP_local_0 // 1682
-0;JMP // 1683
+@PUSH_constant_245 // 1745
+0;JMP // 1746
+@POP_local_0 // 1747
+0;JMP // 1748
 
 ////LabelInstruction{label='Output.scroll_WHILE_EXP3}
 // label Output.scroll_WHILE_EXP3
@@ -2561,29 +2679,29 @@ AM=D;JMP // 1678
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Output.scroll_WHILE_END3}}
-@PUSH_local_0 // 1684
-0;JMP // 1685
-@PUSH_constant_256 // 1686
-0;JMP // 1687
-@LT // 1688
-0;JMP // 1689
-@NOT // 1690
-0;JMP // 1691
+@PUSH_local_0 // 1749
+0;JMP // 1750
+@PUSH_constant_256 // 1751
+0;JMP // 1752
+@LT // 1753
+0;JMP // 1754
+@NOT // 1755
+0;JMP // 1756
 // if-goto Output.scroll_WHILE_END3
-@Output.scroll_WHILE_END3 // 1692
-D=A // 1693
-@IF_GOTO // 1694
-0;JMP // 1695
+@Output.scroll_WHILE_END3 // 1757
+D=A // 1758
+@IF_GOTO // 1759
+0;JMP // 1760
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_0 // 1696
-0;JMP // 1697
-@POP_local_1 // 1698
-0;JMP // 1699
+@PUSH_constant_0 // 1761
+0;JMP // 1762
+@POP_local_1 // 1763
+0;JMP // 1764
 
 ////LabelInstruction{label='Output.scroll_WHILE_EXP4}
 // label Output.scroll_WHILE_EXP4
@@ -2597,19 +2715,19 @@ D=A // 1693
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Output.scroll_WHILE_END4}}
-@PUSH_local_1 // 1700
-0;JMP // 1701
-@PUSH_constant_32 // 1702
-0;JMP // 1703
-@LT // 1704
-0;JMP // 1705
-@NOT // 1706
-0;JMP // 1707
+@PUSH_local_1 // 1765
+0;JMP // 1766
+@PUSH_constant_32 // 1767
+0;JMP // 1768
+@LT // 1769
+0;JMP // 1770
+@NOT // 1771
+0;JMP // 1772
 // if-goto Output.scroll_WHILE_END4
-@Output.scroll_WHILE_END4 // 1708
-D=A // 1709
-@IF_GOTO // 1710
-0;JMP // 1711
+@Output.scroll_WHILE_END4 // 1773
+D=A // 1774
+@IF_GOTO // 1775
+0;JMP // 1776
 
 ////PushWriter{source=PushInstruction("constant 0"), dest=BinaryPushGroup(
 //    left:
@@ -2624,36 +2742,36 @@ D=A // 1709
 //        ),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 1712
-0;JMP // 1713
-@PUSH_local_1 // 1714
-0;JMP // 1715
-@PUSH_local_0 // 1716
-0;JMP // 1717
-@PUSH_constant_32 // 1718
-0;JMP // 1719
+@PUSH_constant_0 // 1777
+0;JMP // 1778
+@PUSH_local_1 // 1779
+0;JMP // 1780
+@PUSH_local_0 // 1781
+0;JMP // 1782
+@PUSH_constant_32 // 1783
+0;JMP // 1784
 // call Math.multiply
-@7 // 1720
-D=A // 1721
-@14 // 1722
-M=D // 1723
-@Math.multiply // 1724
-D=A // 1725
-@13 // 1726
-M=D // 1727
-@CALL // 1728
-0;JMP // 1729
+@7 // 1785
+D=A // 1786
+@14 // 1787
+M=D // 1788
+@Math.multiply // 1789
+D=A // 1790
+@13 // 1791
+M=D // 1792
+@CALL // 1793
+0;JMP // 1794
 (Output.scroll.ret.10)
-@PUSH_constant_16384 // 1730
-0;JMP // 1731
-@ADD // 1732
-0;JMP // 1733
-@ADD // 1734
-0;JMP // 1735
-@POP_pointer_1 // 1736
-0;JMP // 1737
-@POP_that_0 // 1738
-0;JMP // 1739
+@PUSH_constant_16384 // 1795
+0;JMP // 1796
+@ADD // 1797
+0;JMP // 1798
+@ADD // 1799
+0;JMP // 1800
+@POP_pointer_1 // 1801
+0;JMP // 1802
+@POP_that_0 // 1803
+0;JMP // 1804
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2666,21 +2784,21 @@ M=D // 1727
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@LCL // 1740
-A=M+1 // 1741
-M=M+1 // 1742
-@7 // 1743
-D=A // 1744
-@15 // 1745
-AM=D+M;JMP // 1746
+@LCL // 1805
+A=M+1 // 1806
+M=M+1 // 1807
+@7 // 1808
+D=A // 1809
+@15 // 1810
+AM=D+M;JMP // 1811
 
 ////GotoInstruction{label='Output.scroll_WHILE_EXP4}
 // goto Output.scroll_WHILE_EXP4
-@Output.scroll_WHILE_EXP4 // 1747
-D=A // 1748
-@15 // 1749
-AM=D;JMP // 1750
-0;JMP // 1751
+@Output.scroll_WHILE_EXP4 // 1812
+D=A // 1813
+@15 // 1814
+AM=D;JMP // 1815
+0;JMP // 1816
 
 ////LabelInstruction{label='Output.scroll_WHILE_END4}
 // label Output.scroll_WHILE_END4
@@ -2697,33 +2815,33 @@ AM=D;JMP // 1750
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@LCL // 1752
-A=M // 1753
-M=M+1 // 1754
-@7 // 1755
-D=A // 1756
-@15 // 1757
-AM=D+M;JMP // 1758
+@LCL // 1817
+A=M // 1818
+M=M+1 // 1819
+@7 // 1820
+D=A // 1821
+@15 // 1822
+AM=D+M;JMP // 1823
 
 ////GotoInstruction{label='Output.scroll_WHILE_EXP3}
 // goto Output.scroll_WHILE_EXP3
-@Output.scroll_WHILE_EXP3 // 1759
-D=A // 1760
-@15 // 1761
-AM=D;JMP // 1762
-0;JMP // 1763
+@Output.scroll_WHILE_EXP3 // 1824
+D=A // 1825
+@15 // 1826
+AM=D;JMP // 1827
+0;JMP // 1828
 
 ////LabelInstruction{label='Output.scroll_WHILE_END3}
 // label Output.scroll_WHILE_END3
 (Output.scroll_WHILE_END3)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1764
-0;JMP // 1765
+@PUSH_constant_0 // 1829
+0;JMP // 1830
 
 //////Return
-@RETURN // 1766
-0;JMP // 1767
+@RETURN // 1831
+0;JMP // 1832
 
 ////FunctionInstruction{functionName='Screen.init', numLocals=0, funcMapping={}}
 // function Screen.init with 0
@@ -2734,54 +2852,54 @@ AM=D;JMP // 1762
 //  pop:  PopInstruction{address=static 0}
 //}
 
-@PUSH_constant_1_NEG // 1768
-0;JMP // 1769
-@Screen.0_POP // 1770
-0;JMP // 1771
+@PUSH_constant_1_NEG // 1833
+0;JMP // 1834
+@Screen.0_POP // 1835
+0;JMP // 1836
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1772
-0;JMP // 1773
+@PUSH_constant_0 // 1837
+0;JMP // 1838
 
 //////Return
-@RETURN // 1774
-0;JMP // 1775
+@RETURN // 1839
+0;JMP // 1840
 
 ////FunctionInstruction{functionName='Memory.alloc', numLocals=5, funcMapping={Memory.poke=0, Memory.get_best_fit=0, Memory.peek=0}}
 // function Memory.alloc with 5
 (Memory.alloc)
-@PUSH_constant_0 // 1776
-0;JMP // 1777
-@PUSH_constant_0 // 1778
-0;JMP // 1779
-@PUSH_constant_0 // 1780
-0;JMP // 1781
-@PUSH_constant_0 // 1782
-0;JMP // 1783
-@PUSH_constant_0 // 1784
-0;JMP // 1785
+@PUSH_constant_0 // 1841
+0;JMP // 1842
+@PUSH_constant_0 // 1843
+0;JMP // 1844
+@PUSH_constant_0 // 1845
+0;JMP // 1846
+@PUSH_constant_0 // 1847
+0;JMP // 1848
+@PUSH_constant_0 // 1849
+0;JMP // 1850
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{Memory.getBinIndex}}
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_argument_0 // 1786
-0;JMP // 1787
+@PUSH_argument_0 // 1851
+0;JMP // 1852
 // call Memory.getBinIndex
-@6 // 1788
-D=A // 1789
-@14 // 1790
-M=D // 1791
-@Memory.getBinIndex // 1792
-D=A // 1793
-@13 // 1794
-M=D // 1795
-@CALL // 1796
-0;JMP // 1797
+@6 // 1853
+D=A // 1854
+@14 // 1855
+M=D // 1856
+@Memory.getBinIndex // 1857
+D=A // 1858
+@13 // 1859
+M=D // 1860
+@CALL // 1861
+0;JMP // 1862
 (Memory.alloc.ret.0)
-@POP_local_0 // 1798
-0;JMP // 1799
+@POP_local_0 // 1863
+0;JMP // 1864
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2794,38 +2912,38 @@ M=D // 1795
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_2048 // 1800
-0;JMP // 1801
-@PUSH_local_0 // 1802
-0;JMP // 1803
-@ADD // 1804
-0;JMP // 1805
-@POP_local_1 // 1806
-0;JMP // 1807
+@PUSH_constant_2048 // 1865
+0;JMP // 1866
+@PUSH_local_0 // 1867
+0;JMP // 1868
+@ADD // 1869
+0;JMP // 1870
+@POP_local_1 // 1871
+0;JMP // 1872
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 1"), PushInstruction("argument 0")], call=CallInstruction{Memory.get_best_fit}}
 //  pop:  PopInstruction{address=local 2}
 //}
 
-@PUSH_local_1 // 1808
-0;JMP // 1809
-@PUSH_argument_0 // 1810
-0;JMP // 1811
+@PUSH_local_1 // 1873
+0;JMP // 1874
+@PUSH_argument_0 // 1875
+0;JMP // 1876
 // call Memory.get_best_fit
-@7 // 1812
-D=A // 1813
-@14 // 1814
-M=D // 1815
-@Memory.get_best_fit // 1816
-D=A // 1817
-@13 // 1818
-M=D // 1819
-@CALL // 1820
-0;JMP // 1821
+@7 // 1877
+D=A // 1878
+@14 // 1879
+M=D // 1880
+@Memory.get_best_fit // 1881
+D=A // 1882
+@13 // 1883
+M=D // 1884
+@CALL // 1885
+0;JMP // 1886
 (Memory.alloc.ret.2)
-@POP_local_2 // 1822
-0;JMP // 1823
+@POP_local_2 // 1887
+0;JMP // 1888
 
 ////LabelInstruction{label='Memory.alloc_WHILE_EXP1}
 // label Memory.alloc_WHILE_EXP1
@@ -2839,19 +2957,19 @@ M=D // 1819
 //        binaryOp: "EQ"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.alloc_WHILE_END1}}
-@PUSH_local_2 // 1824
-0;JMP // 1825
-@PUSH_constant_0 // 1826
-0;JMP // 1827
-@EQ // 1828
-0;JMP // 1829
-@NOT // 1830
-0;JMP // 1831
+@PUSH_local_2 // 1889
+0;JMP // 1890
+@PUSH_constant_0 // 1891
+0;JMP // 1892
+@EQ // 1893
+0;JMP // 1894
+@NOT // 1895
+0;JMP // 1896
 // if-goto Memory.alloc_WHILE_END1
-@Memory.alloc_WHILE_END1 // 1832
-D=A // 1833
-@IF_GOTO // 1834
-0;JMP // 1835
+@Memory.alloc_WHILE_END1 // 1897
+D=A // 1898
+@IF_GOTO // 1899
+0;JMP // 1900
 
 ////ConditionalGroup{push=UnaryPushGroup(    BinaryPushGroup(
 //        left:
@@ -2867,31 +2985,31 @@ D=A // 1833
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.alloc$IF_TRUE1}}
-@PUSH_local_0 // 1836
-0;JMP // 1837
-@PUSH_constant_1 // 1838
-0;JMP // 1839
-@ADD // 1840
-0;JMP // 1841
-@PUSH_constant_7 // 1842
-0;JMP // 1843
-@LT // 1844
-0;JMP // 1845
-@NOT // 1846
-0;JMP // 1847
+@PUSH_local_0 // 1901
+0;JMP // 1902
+@PUSH_constant_1 // 1903
+0;JMP // 1904
+@ADD // 1905
+0;JMP // 1906
+@PUSH_constant_7 // 1907
+0;JMP // 1908
+@LT // 1909
+0;JMP // 1910
+@NOT // 1911
+0;JMP // 1912
 // if-goto Memory.alloc$IF_TRUE1
-@Memory.alloc$IF_TRUE1 // 1848
-D=A // 1849
-@IF_GOTO // 1850
-0;JMP // 1851
+@Memory.alloc$IF_TRUE1 // 1913
+D=A // 1914
+@IF_GOTO // 1915
+0;JMP // 1916
 
 ////GotoInstruction{label='Memory.alloc$IF_END1}
 // goto Memory.alloc$IF_END1
-@Memory.alloc$IF_END1 // 1852
-D=A // 1853
-@15 // 1854
-AM=D;JMP // 1855
-0;JMP // 1856
+@Memory.alloc$IF_END1 // 1917
+D=A // 1918
+@15 // 1919
+AM=D;JMP // 1920
+0;JMP // 1921
 
 ////LabelInstruction{label='Memory.alloc$IF_TRUE1}
 // label Memory.alloc$IF_TRUE1
@@ -2902,30 +3020,30 @@ AM=D;JMP // 1855
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_0 // 1857
-0;JMP // 1858
+@PUSH_constant_0 // 1922
+0;JMP // 1923
 // call Sys.error
-@6 // 1859
-D=A // 1860
-@14 // 1861
-M=D // 1862
-@Sys.error // 1863
-D=A // 1864
-@13 // 1865
-M=D // 1866
-@CALL // 1867
-0;JMP // 1868
+@6 // 1924
+D=A // 1925
+@14 // 1926
+M=D // 1927
+@Sys.error // 1928
+D=A // 1929
+@13 // 1930
+M=D // 1931
+@CALL // 1932
+0;JMP // 1933
 (Memory.alloc.ret.4)
-@POP_temp_0 // 1869
-0;JMP // 1870
+@POP_temp_0 // 1934
+0;JMP // 1935
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 1871
-0;JMP // 1872
+@PUSH_constant_0 // 1936
+0;JMP // 1937
 
 //////Return
-@RETURN // 1873
-0;JMP // 1874
+@RETURN // 1938
+0;JMP // 1939
 
 ////LabelInstruction{label='Memory.alloc$IF_END1}
 // label Memory.alloc$IF_END1
@@ -2942,13 +3060,13 @@ M=D // 1866
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@LCL // 1875
-A=M // 1876
-M=M+1 // 1877
-@7 // 1878
-D=A // 1879
-@15 // 1880
-AM=D+M;JMP // 1881
+@LCL // 1940
+A=M // 1941
+M=M+1 // 1942
+@7 // 1943
+D=A // 1944
+@15 // 1945
+AM=D+M;JMP // 1946
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -2961,46 +3079,46 @@ AM=D+M;JMP // 1881
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_2048 // 1882
-0;JMP // 1883
-@PUSH_local_0 // 1884
-0;JMP // 1885
-@ADD // 1886
-0;JMP // 1887
-@POP_local_1 // 1888
-0;JMP // 1889
+@PUSH_constant_2048 // 1947
+0;JMP // 1948
+@PUSH_local_0 // 1949
+0;JMP // 1950
+@ADD // 1951
+0;JMP // 1952
+@POP_local_1 // 1953
+0;JMP // 1954
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 1"), PushInstruction("argument 0")], call=CallInstruction{Memory.get_best_fit}}
 //  pop:  PopInstruction{address=local 2}
 //}
 
-@PUSH_local_1 // 1890
-0;JMP // 1891
-@PUSH_argument_0 // 1892
-0;JMP // 1893
+@PUSH_local_1 // 1955
+0;JMP // 1956
+@PUSH_argument_0 // 1957
+0;JMP // 1958
 // call Memory.get_best_fit
-@7 // 1894
-D=A // 1895
-@14 // 1896
-M=D // 1897
-@Memory.get_best_fit // 1898
-D=A // 1899
-@13 // 1900
-M=D // 1901
-@CALL // 1902
-0;JMP // 1903
+@7 // 1959
+D=A // 1960
+@14 // 1961
+M=D // 1962
+@Memory.get_best_fit // 1963
+D=A // 1964
+@13 // 1965
+M=D // 1966
+@CALL // 1967
+0;JMP // 1968
 (Memory.alloc.ret.6)
-@POP_local_2 // 1904
-0;JMP // 1905
+@POP_local_2 // 1969
+0;JMP // 1970
 
 ////GotoInstruction{label='Memory.alloc_WHILE_EXP1}
 // goto Memory.alloc_WHILE_EXP1
-@Memory.alloc_WHILE_EXP1 // 1906
-D=A // 1907
-@15 // 1908
-AM=D;JMP // 1909
-0;JMP // 1910
+@Memory.alloc_WHILE_EXP1 // 1971
+D=A // 1972
+@15 // 1973
+AM=D;JMP // 1974
+0;JMP // 1975
 
 ////LabelInstruction{label='Memory.alloc_WHILE_END1}
 // label Memory.alloc_WHILE_END1
@@ -3026,48 +3144,48 @@ AM=D;JMP // 1909
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_2048 // 1911
-0;JMP // 1912
-@PUSH_local_2 // 1913
-0;JMP // 1914
-@PUSH_constant_0 // 1915
-0;JMP // 1916
-@ADD // 1917
-0;JMP // 1918
-@POP_pointer_1 // 1919
-0;JMP // 1920
-@PUSH_that_0 // 1921
-0;JMP // 1922
+@PUSH_constant_2048 // 1976
+0;JMP // 1977
+@PUSH_local_2 // 1978
+0;JMP // 1979
+@PUSH_constant_0 // 1980
+0;JMP // 1981
+@ADD // 1982
+0;JMP // 1983
+@POP_pointer_1 // 1984
+0;JMP // 1985
+@PUSH_that_0 // 1986
+0;JMP // 1987
 // call Memory.getBinIndex
-@6 // 1923
-D=A // 1924
-@14 // 1925
-M=D // 1926
-@Memory.getBinIndex // 1927
-D=A // 1928
-@13 // 1929
-M=D // 1930
-@CALL // 1931
-0;JMP // 1932
+@6 // 1988
+D=A // 1989
+@14 // 1990
+M=D // 1991
+@Memory.getBinIndex // 1992
+D=A // 1993
+@13 // 1994
+M=D // 1995
+@CALL // 1996
+0;JMP // 1997
 (Memory.alloc.ret.8)
-@ADD // 1933
-0;JMP // 1934
-@PUSH_local_2 // 1935
-0;JMP // 1936
+@ADD // 1998
+0;JMP // 1999
+@PUSH_local_2 // 2000
+0;JMP // 2001
 // call Memory.remove_node
-@7 // 1937
-D=A // 1938
-@14 // 1939
-M=D // 1940
-@Memory.remove_node // 1941
-D=A // 1942
-@13 // 1943
-M=D // 1944
-@CALL // 1945
-0;JMP // 1946
+@7 // 2002
+D=A // 2003
+@14 // 2004
+M=D // 2005
+@Memory.remove_node // 2006
+D=A // 2007
+@13 // 2008
+M=D // 2009
+@CALL // 2010
+0;JMP // 2011
 (Memory.alloc.ret.9)
-@POP_temp_0 // 1947
-0;JMP // 1948
+@POP_temp_0 // 2012
+0;JMP // 2013
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -3089,22 +3207,22 @@ M=D // 1944
 //  pop:  PopInstruction{address=local 3}
 //}
 
-@PUSH_local_2 // 1949
-0;JMP // 1950
-@PUSH_constant_0 // 1951
-0;JMP // 1952
-@ADD // 1953
-0;JMP // 1954
-@POP_pointer_1 // 1955
-0;JMP // 1956
-@PUSH_that_0 // 1957
-0;JMP // 1958
-@PUSH_argument_0 // 1959
-0;JMP // 1960
-@SUB // 1961
-0;JMP // 1962
-@POP_local_3 // 1963
-0;JMP // 1964
+@PUSH_local_2 // 2014
+0;JMP // 2015
+@PUSH_constant_0 // 2016
+0;JMP // 2017
+@ADD // 2018
+0;JMP // 2019
+@POP_pointer_1 // 2020
+0;JMP // 2021
+@PUSH_that_0 // 2022
+0;JMP // 2023
+@PUSH_argument_0 // 2024
+0;JMP // 2025
+@SUB // 2026
+0;JMP // 2027
+@POP_local_3 // 2028
+0;JMP // 2029
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -3113,25 +3231,25 @@ M=D // 1944
 //        PushInstruction("constant 5"),
 //    binaryOp: "GT"
 //), ifGoto=IfGotoInstruction{label='Memory.alloc$IF_TRUE2}}
-@PUSH_local_3 // 1965
-0;JMP // 1966
-@PUSH_constant_5 // 1967
-0;JMP // 1968
-@GT // 1969
-0;JMP // 1970
+@PUSH_local_3 // 2030
+0;JMP // 2031
+@PUSH_constant_5 // 2032
+0;JMP // 2033
+@GT // 2034
+0;JMP // 2035
 // if-goto Memory.alloc$IF_TRUE2
-@Memory.alloc$IF_TRUE2 // 1971
-D=A // 1972
-@IF_GOTO // 1973
-0;JMP // 1974
+@Memory.alloc$IF_TRUE2 // 2036
+D=A // 2037
+@IF_GOTO // 2038
+0;JMP // 2039
 
 ////GotoInstruction{label='Memory.alloc$IF_FALSE2}
 // goto Memory.alloc$IF_FALSE2
-@Memory.alloc$IF_FALSE2 // 1975
-D=A // 1976
-@15 // 1977
-AM=D;JMP // 1978
-0;JMP // 1979
+@Memory.alloc$IF_FALSE2 // 2040
+D=A // 2041
+@15 // 2042
+AM=D;JMP // 2043
+0;JMP // 2044
 
 ////LabelInstruction{label='Memory.alloc$IF_TRUE2}
 // label Memory.alloc$IF_TRUE2
@@ -3144,18 +3262,18 @@ AM=D;JMP // 1978
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_0 // 1980
-0;JMP // 1981
-@PUSH_local_2 // 1982
-0;JMP // 1983
-@PUSH_constant_0 // 1984
-0;JMP // 1985
-@ADD // 1986
-0;JMP // 1987
-@POP_pointer_1 // 1988
-0;JMP // 1989
-@POP_that_0 // 1990
-0;JMP // 1991
+@PUSH_argument_0 // 2045
+0;JMP // 2046
+@PUSH_local_2 // 2047
+0;JMP // 2048
+@PUSH_constant_0 // 2049
+0;JMP // 2050
+@ADD // 2051
+0;JMP // 2052
+@POP_pointer_1 // 2053
+0;JMP // 2054
+@POP_that_0 // 2055
+0;JMP // 2056
 
 ////PushWriter{source=PushInstruction("constant 0"), dest=BinaryPushGroup(
 //    left:
@@ -3164,40 +3282,40 @@ AM=D;JMP // 1978
 //        PushInstruction("constant 1"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 1992
-0;JMP // 1993
-@PUSH_local_2 // 1994
-0;JMP // 1995
-@PUSH_constant_1 // 1996
-0;JMP // 1997
-@ADD // 1998
-0;JMP // 1999
-@POP_pointer_1 // 2000
-0;JMP // 2001
-@POP_that_0 // 2002
-0;JMP // 2003
+@PUSH_constant_0 // 2057
+0;JMP // 2058
+@PUSH_local_2 // 2059
+0;JMP // 2060
+@PUSH_constant_1 // 2061
+0;JMP // 2062
+@ADD // 2063
+0;JMP // 2064
+@POP_pointer_1 // 2065
+0;JMP // 2066
+@POP_that_0 // 2067
+0;JMP // 2068
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 2")], call=CallInstruction{Memory.create_foot}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_local_2 // 2004
-0;JMP // 2005
+@PUSH_local_2 // 2069
+0;JMP // 2070
 // call Memory.create_foot
-@6 // 2006
-D=A // 2007
-@14 // 2008
-M=D // 2009
-@Memory.create_foot // 2010
-D=A // 2011
-@13 // 2012
-M=D // 2013
-@CALL // 2014
-0;JMP // 2015
+@6 // 2071
+D=A // 2072
+@14 // 2073
+M=D // 2074
+@Memory.create_foot // 2075
+D=A // 2076
+@13 // 2077
+M=D // 2078
+@CALL // 2079
+0;JMP // 2080
 (Memory.alloc.ret.12)
-@POP_temp_0 // 2016
-0;JMP // 2017
+@POP_temp_0 // 2081
+0;JMP // 2082
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -3216,18 +3334,18 @@ M=D // 2013
 //  pop:  PopInstruction{address=local 4}
 //}
 
-@PUSH_local_2 // 2018
-0;JMP // 2019
-@PUSH_argument_0 // 2020
-0;JMP // 2021
-@ADD // 2022
-0;JMP // 2023
-@PUSH_constant_5 // 2024
-0;JMP // 2025
-@ADD // 2026
-0;JMP // 2027
-@POP_local_4 // 2028
-0;JMP // 2029
+@PUSH_local_2 // 2083
+0;JMP // 2084
+@PUSH_argument_0 // 2085
+0;JMP // 2086
+@ADD // 2087
+0;JMP // 2088
+@PUSH_constant_5 // 2089
+0;JMP // 2090
+@ADD // 2091
+0;JMP // 2092
+@POP_local_4 // 2093
+0;JMP // 2094
 
 ////PushWriter{source=BinaryPushGroup(
 //    left:
@@ -3242,22 +3360,22 @@ M=D // 2013
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_3 // 2030
-0;JMP // 2031
-@PUSH_constant_5 // 2032
-0;JMP // 2033
-@SUB // 2034
-0;JMP // 2035
-@PUSH_local_4 // 2036
-0;JMP // 2037
-@PUSH_constant_0 // 2038
-0;JMP // 2039
-@ADD // 2040
-0;JMP // 2041
-@POP_pointer_1 // 2042
-0;JMP // 2043
-@POP_that_0 // 2044
-0;JMP // 2045
+@PUSH_local_3 // 2095
+0;JMP // 2096
+@PUSH_constant_5 // 2097
+0;JMP // 2098
+@SUB // 2099
+0;JMP // 2100
+@PUSH_local_4 // 2101
+0;JMP // 2102
+@PUSH_constant_0 // 2103
+0;JMP // 2104
+@ADD // 2105
+0;JMP // 2106
+@POP_pointer_1 // 2107
+0;JMP // 2108
+@POP_that_0 // 2109
+0;JMP // 2110
 
 ////PushWriter{source=PushInstruction("constant 1"), dest=BinaryPushGroup(
 //    left:
@@ -3266,40 +3384,40 @@ M=D // 2013
 //        PushInstruction("constant 1"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_1 // 2046
-0;JMP // 2047
-@PUSH_local_4 // 2048
-0;JMP // 2049
-@PUSH_constant_1 // 2050
-0;JMP // 2051
-@ADD // 2052
-0;JMP // 2053
-@POP_pointer_1 // 2054
-0;JMP // 2055
-@POP_that_0 // 2056
-0;JMP // 2057
+@PUSH_constant_1 // 2111
+0;JMP // 2112
+@PUSH_local_4 // 2113
+0;JMP // 2114
+@PUSH_constant_1 // 2115
+0;JMP // 2116
+@ADD // 2117
+0;JMP // 2118
+@POP_pointer_1 // 2119
+0;JMP // 2120
+@POP_that_0 // 2121
+0;JMP // 2122
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 4")], call=CallInstruction{Memory.create_foot}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_local_4 // 2058
-0;JMP // 2059
+@PUSH_local_4 // 2123
+0;JMP // 2124
 // call Memory.create_foot
-@6 // 2060
-D=A // 2061
-@14 // 2062
-M=D // 2063
-@Memory.create_foot // 2064
-D=A // 2065
-@13 // 2066
-M=D // 2067
-@CALL // 2068
-0;JMP // 2069
+@6 // 2125
+D=A // 2126
+@14 // 2127
+M=D // 2128
+@Memory.create_foot // 2129
+D=A // 2130
+@13 // 2131
+M=D // 2132
+@CALL // 2133
+0;JMP // 2134
 (Memory.alloc.ret.14)
-@POP_temp_0 // 2070
-0;JMP // 2071
+@POP_temp_0 // 2135
+0;JMP // 2136
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[BinaryPushGroup(
@@ -3312,48 +3430,48 @@ M=D // 2067
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_2048 // 2072
-0;JMP // 2073
-@PUSH_local_3 // 2074
-0;JMP // 2075
+@PUSH_constant_2048 // 2137
+0;JMP // 2138
+@PUSH_local_3 // 2139
+0;JMP // 2140
 // call Memory.getBinIndex
-@6 // 2076
-D=A // 2077
-@14 // 2078
-M=D // 2079
-@Memory.getBinIndex // 2080
-D=A // 2081
-@13 // 2082
-M=D // 2083
-@CALL // 2084
-0;JMP // 2085
+@6 // 2141
+D=A // 2142
+@14 // 2143
+M=D // 2144
+@Memory.getBinIndex // 2145
+D=A // 2146
+@13 // 2147
+M=D // 2148
+@CALL // 2149
+0;JMP // 2150
 (Memory.alloc.ret.16)
-@ADD // 2086
-0;JMP // 2087
-@PUSH_local_4 // 2088
-0;JMP // 2089
+@ADD // 2151
+0;JMP // 2152
+@PUSH_local_4 // 2153
+0;JMP // 2154
 // call Memory.add_node
-@7 // 2090
-D=A // 2091
-@14 // 2092
-M=D // 2093
-@Memory.add_node // 2094
-D=A // 2095
-@13 // 2096
-M=D // 2097
-@CALL // 2098
-0;JMP // 2099
+@7 // 2155
+D=A // 2156
+@14 // 2157
+M=D // 2158
+@Memory.add_node // 2159
+D=A // 2160
+@13 // 2161
+M=D // 2162
+@CALL // 2163
+0;JMP // 2164
 (Memory.alloc.ret.17)
-@POP_temp_0 // 2100
-0;JMP // 2101
+@POP_temp_0 // 2165
+0;JMP // 2166
 
 ////GotoInstruction{label='Memory.alloc$IF_END2}
 // goto Memory.alloc$IF_END2
-@Memory.alloc$IF_END2 // 2102
-D=A // 2103
-@15 // 2104
-AM=D;JMP // 2105
-0;JMP // 2106
+@Memory.alloc$IF_END2 // 2167
+D=A // 2168
+@15 // 2169
+AM=D;JMP // 2170
+0;JMP // 2171
 
 ////LabelInstruction{label='Memory.alloc$IF_FALSE2}
 // label Memory.alloc$IF_FALSE2
@@ -3366,40 +3484,40 @@ AM=D;JMP // 2105
 //        PushInstruction("constant 1"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 2107
-0;JMP // 2108
-@PUSH_local_2 // 2109
-0;JMP // 2110
-@PUSH_constant_1 // 2111
-0;JMP // 2112
-@ADD // 2113
-0;JMP // 2114
-@POP_pointer_1 // 2115
-0;JMP // 2116
-@POP_that_0 // 2117
-0;JMP // 2118
+@PUSH_constant_0 // 2172
+0;JMP // 2173
+@PUSH_local_2 // 2174
+0;JMP // 2175
+@PUSH_constant_1 // 2176
+0;JMP // 2177
+@ADD // 2178
+0;JMP // 2179
+@POP_pointer_1 // 2180
+0;JMP // 2181
+@POP_that_0 // 2182
+0;JMP // 2183
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 2")], call=CallInstruction{Memory.create_foot}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_local_2 // 2119
-0;JMP // 2120
+@PUSH_local_2 // 2184
+0;JMP // 2185
 // call Memory.create_foot
-@6 // 2121
-D=A // 2122
-@14 // 2123
-M=D // 2124
-@Memory.create_foot // 2125
-D=A // 2126
-@13 // 2127
-M=D // 2128
-@CALL // 2129
-0;JMP // 2130
+@6 // 2186
+D=A // 2187
+@14 // 2188
+M=D // 2189
+@Memory.create_foot // 2190
+D=A // 2191
+@13 // 2192
+M=D // 2193
+@CALL // 2194
+0;JMP // 2195
 (Memory.alloc.ret.20)
-@POP_temp_0 // 2131
-0;JMP // 2132
+@POP_temp_0 // 2196
+0;JMP // 2197
 
 ////LabelInstruction{label='Memory.alloc$IF_END2}
 // label Memory.alloc$IF_END2
@@ -3412,16 +3530,16 @@ M=D // 2128
 //        PushInstruction("constant 4"),
 //    binaryOp: "ADD"
 //)
-@PUSH_local_2 // 2133
-0;JMP // 2134
-@PUSH_constant_4 // 2135
-0;JMP // 2136
-@ADD // 2137
-0;JMP // 2138
+@PUSH_local_2 // 2198
+0;JMP // 2199
+@PUSH_constant_4 // 2200
+0;JMP // 2201
+@ADD // 2202
+0;JMP // 2203
 
 //////Return
-@RETURN // 2139
-0;JMP // 2140
+@RETURN // 2204
+0;JMP // 2205
 
 ////FunctionInstruction{functionName='Memory.create_foot', numLocals=0, funcMapping={Memory.poke=0, Memory.alloc=22, Memory.get_best_fit=0, Memory.peek=0}}
 // function Memory.create_foot with 0
@@ -3449,38 +3567,38 @@ M=D // 2128
 //        ),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_0 // 2141
-0;JMP // 2142
-@PUSH_argument_0 // 2143
-0;JMP // 2144
-@PUSH_argument_0 // 2145
-0;JMP // 2146
-@PUSH_constant_0 // 2147
-0;JMP // 2148
-@ADD // 2149
-0;JMP // 2150
-@POP_pointer_1 // 2151
-0;JMP // 2152
-@PUSH_that_0 // 2153
-0;JMP // 2154
-@PUSH_constant_4 // 2155
-0;JMP // 2156
-@ADD // 2157
-0;JMP // 2158
-@ADD // 2159
-0;JMP // 2160
-@POP_pointer_1 // 2161
-0;JMP // 2162
-@POP_that_0 // 2163
-0;JMP // 2164
+@PUSH_argument_0 // 2206
+0;JMP // 2207
+@PUSH_argument_0 // 2208
+0;JMP // 2209
+@PUSH_argument_0 // 2210
+0;JMP // 2211
+@PUSH_constant_0 // 2212
+0;JMP // 2213
+@ADD // 2214
+0;JMP // 2215
+@POP_pointer_1 // 2216
+0;JMP // 2217
+@PUSH_that_0 // 2218
+0;JMP // 2219
+@PUSH_constant_4 // 2220
+0;JMP // 2221
+@ADD // 2222
+0;JMP // 2223
+@ADD // 2224
+0;JMP // 2225
+@POP_pointer_1 // 2226
+0;JMP // 2227
+@POP_that_0 // 2228
+0;JMP // 2229
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 2165
-0;JMP // 2166
+@PUSH_constant_0 // 2230
+0;JMP // 2231
 
 //////Return
-@RETURN // 2167
-0;JMP // 2168
+@RETURN // 2232
+0;JMP // 2233
 
 ////FunctionInstruction{functionName='Math.abs', numLocals=0, funcMapping={}}
 // function Math.abs with 0
@@ -3488,36 +3606,32 @@ M=D // 2128
 
 ////CallGroup{pushes=[PushInstruction("argument 0"), UnaryPushGroup(    PushInstruction("argument 0"),
 //NEG)], call=CallInstruction{Math.max}}
-@PUSH_argument_0 // 2169
-0;JMP // 2170
-@PUSH_argument_0 // 2171
-0;JMP // 2172
-@NEG // 2173
-0;JMP // 2174
+@PUSH_argument_0 // 2234
+0;JMP // 2235
+@PUSH_argument_0 // 2236
+0;JMP // 2237
+@NEG // 2238
+0;JMP // 2239
 // call Math.max
-@7 // 2175
-D=A // 2176
-@14 // 2177
-M=D // 2178
-@Math.max // 2179
-D=A // 2180
-@13 // 2181
-M=D // 2182
-@CALL // 2183
-0;JMP // 2184
+@7 // 2240
+D=A // 2241
+@14 // 2242
+M=D // 2243
+@Math.max // 2244
+D=A // 2245
+@13 // 2246
+M=D // 2247
+@CALL // 2248
+0;JMP // 2249
 (Math.abs.ret.0)
 
 //////Return
-@RETURN // 2185
-0;JMP // 2186
+@RETURN // 2250
+0;JMP // 2251
 
-////FunctionInstruction{functionName='Output.backSpace', numLocals=2, funcMapping={Output.println=2, Output.getMap=0, Output.scroll=13}}
-// function Output.backSpace with 2
+////FunctionInstruction{functionName='Output.backSpace', numLocals=0, funcMapping={Output.println=2, Output.getMap=0, Output.scroll=13}}
+// function Output.backSpace with 0
 (Output.backSpace)
-@PUSH_constant_0 // 2187
-0;JMP // 2188
-@PUSH_constant_0 // 2189
-0;JMP // 2190
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -3526,25 +3640,25 @@ M=D // 2182
 //        PushInstruction("constant 0"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Output.backSpace$IF_TRUE1}}
-@Output.1_PUSH // 2191
-0;JMP // 2192
-@PUSH_constant_0 // 2193
-0;JMP // 2194
-@EQ // 2195
-0;JMP // 2196
+@Output.1_PUSH // 2252
+0;JMP // 2253
+@PUSH_constant_0 // 2254
+0;JMP // 2255
+@EQ // 2256
+0;JMP // 2257
 // if-goto Output.backSpace$IF_TRUE1
-@Output.backSpace$IF_TRUE1 // 2197
-D=A // 2198
-@IF_GOTO // 2199
-0;JMP // 2200
+@Output.backSpace$IF_TRUE1 // 2258
+D=A // 2259
+@IF_GOTO // 2260
+0;JMP // 2261
 
 ////GotoInstruction{label='Output.backSpace$IF_FALSE1}
 // goto Output.backSpace$IF_FALSE1
-@Output.backSpace$IF_FALSE1 // 2201
-D=A // 2202
-@15 // 2203
-AM=D;JMP // 2204
-0;JMP // 2205
+@Output.backSpace$IF_FALSE1 // 2262
+D=A // 2263
+@15 // 2264
+AM=D;JMP // 2265
+0;JMP // 2266
 
 ////LabelInstruction{label='Output.backSpace$IF_TRUE1}
 // label Output.backSpace$IF_TRUE1
@@ -3561,30 +3675,30 @@ AM=D;JMP // 2204
 //  pop:  PopInstruction{address=static 2}
 //}
 
-@Output.2 // 2206
-M=M-1 // 2207
-@6 // 2208
-D=A // 2209
-@15 // 2210
-AM=D+M;JMP // 2211
+@Output.2 // 2267
+M=M-1 // 2268
+@6 // 2269
+D=A // 2270
+@15 // 2271
+AM=D+M;JMP // 2272
 
 ////PushPopPair {
 //  push: PushInstruction("constant 63")
 //  pop:  PopInstruction{address=static 1}
 //}
 
-@PUSH_constant_63 // 2212
-0;JMP // 2213
-@Output.1_POP // 2214
-0;JMP // 2215
+@PUSH_constant_63 // 2273
+0;JMP // 2274
+@Output.1_POP // 2275
+0;JMP // 2276
 
 ////GotoInstruction{label='Output.backSpace$IF_END1}
 // goto Output.backSpace$IF_END1
-@Output.backSpace$IF_END1 // 2216
-D=A // 2217
-@15 // 2218
-AM=D;JMP // 2219
-0;JMP // 2220
+@Output.backSpace$IF_END1 // 2277
+D=A // 2278
+@15 // 2279
+AM=D;JMP // 2280
+0;JMP // 2281
 
 ////LabelInstruction{label='Output.backSpace$IF_FALSE1}
 // label Output.backSpace$IF_FALSE1
@@ -3601,114 +3715,167 @@ AM=D;JMP // 2219
 //  pop:  PopInstruction{address=static 1}
 //}
 
-@Output.1 // 2221
-M=M-1 // 2222
-@6 // 2223
-D=A // 2224
-@15 // 2225
-AM=D+M;JMP // 2226
+@Output.1 // 2282
+M=M-1 // 2283
+@6 // 2284
+D=A // 2285
+@15 // 2286
+AM=D+M;JMP // 2287
 
 ////LabelInstruction{label='Output.backSpace$IF_END1}
 // label Output.backSpace$IF_END1
 (Output.backSpace$IF_END1)
 
 ////PushPopPair {
-//  push: PushInstruction("static 1")
-//  pop:  PopInstruction{address=local 0}
-//}
-
-@Output.1_PUSH // 2227
-0;JMP // 2228
-@POP_local_0 // 2229
-0;JMP // 2230
-
-////PushPopPair {
-//  push: PushInstruction("static 2")
-//  pop:  PopInstruction{address=local 1}
-//}
-
-@Output.2_PUSH // 2231
-0;JMP // 2232
-@POP_local_1 // 2233
-0;JMP // 2234
-
-////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 32")], call=CallInstruction{Output.printChar}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_32 // 2235
-0;JMP // 2236
+@PUSH_constant_32 // 2288
+0;JMP // 2289
 // call Output.printChar
-@6 // 2237
-D=A // 2238
-@14 // 2239
-M=D // 2240
-@Output.printChar // 2241
-D=A // 2242
-@13 // 2243
-M=D // 2244
-@CALL // 2245
-0;JMP // 2246
+@6 // 2290
+D=A // 2291
+@14 // 2292
+M=D // 2293
+@Output.printChar // 2294
+D=A // 2295
+@13 // 2296
+M=D // 2297
+@CALL // 2298
+0;JMP // 2299
 (Output.backSpace.ret.0)
-@POP_temp_0 // 2247
-0;JMP // 2248
+@POP_temp_0 // 2300
+0;JMP // 2301
+
+////ConditionalGroup{push=BinaryPushGroup(
+//    left:
+//        PushInstruction("static 1"),
+//    right:
+//        PushInstruction("constant 0"),
+//    binaryOp: "EQ"
+//), ifGoto=IfGotoInstruction{label='Output.backSpace$IF_TRUE2}}
+@Output.1_PUSH // 2302
+0;JMP // 2303
+@PUSH_constant_0 // 2304
+0;JMP // 2305
+@EQ // 2306
+0;JMP // 2307
+// if-goto Output.backSpace$IF_TRUE2
+@Output.backSpace$IF_TRUE2 // 2308
+D=A // 2309
+@IF_GOTO // 2310
+0;JMP // 2311
+
+////GotoInstruction{label='Output.backSpace$IF_FALSE2}
+// goto Output.backSpace$IF_FALSE2
+@Output.backSpace$IF_FALSE2 // 2312
+D=A // 2313
+@15 // 2314
+AM=D;JMP // 2315
+0;JMP // 2316
+
+////LabelInstruction{label='Output.backSpace$IF_TRUE2}
+// label Output.backSpace$IF_TRUE2
+(Output.backSpace$IF_TRUE2)
 
 ////PushPopPair {
-//  push: PushInstruction("local 0")
-//  pop:  PopInstruction{address=static 1}
-//}
-
-@PUSH_local_0 // 2249
-0;JMP // 2250
-@Output.1_POP // 2251
-0;JMP // 2252
-
-////PushPopPair {
-//  push: PushInstruction("local 1")
+//  push: BinaryPushGroup(
+//    left:
+//        PushInstruction("static 2"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
 //  pop:  PopInstruction{address=static 2}
 //}
 
-@PUSH_local_1 // 2253
-0;JMP // 2254
-@Output.2_POP // 2255
-0;JMP // 2256
+@Output.2 // 2317
+M=M-1 // 2318
+@6 // 2319
+D=A // 2320
+@15 // 2321
+AM=D+M;JMP // 2322
+
+////PushPopPair {
+//  push: PushInstruction("constant 63")
+//  pop:  PopInstruction{address=static 1}
+//}
+
+@PUSH_constant_63 // 2323
+0;JMP // 2324
+@Output.1_POP // 2325
+0;JMP // 2326
+
+////GotoInstruction{label='Output.backSpace$IF_END2}
+// goto Output.backSpace$IF_END2
+@Output.backSpace$IF_END2 // 2327
+D=A // 2328
+@15 // 2329
+AM=D;JMP // 2330
+0;JMP // 2331
+
+////LabelInstruction{label='Output.backSpace$IF_FALSE2}
+// label Output.backSpace$IF_FALSE2
+(Output.backSpace$IF_FALSE2)
+
+////PushPopPair {
+//  push: BinaryPushGroup(
+//    left:
+//        PushInstruction("static 1"),
+//    right:
+//        PushInstruction("constant 1"),
+//    binaryOp: "SUB"
+//)
+//  pop:  PopInstruction{address=static 1}
+//}
+
+@Output.1 // 2332
+M=M-1 // 2333
+@6 // 2334
+D=A // 2335
+@15 // 2336
+AM=D+M;JMP // 2337
+
+////LabelInstruction{label='Output.backSpace$IF_END2}
+// label Output.backSpace$IF_END2
+(Output.backSpace$IF_END2)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 2257
-0;JMP // 2258
+@PUSH_constant_0 // 2338
+0;JMP // 2339
 
 //////Return
-@RETURN // 2259
-0;JMP // 2260
+@RETURN // 2340
+0;JMP // 2341
 
 ////FunctionInstruction{functionName='Output.create', numLocals=1, funcMapping={Output.println=2, Output.backSpace=2, Output.getMap=0, Output.scroll=13}}
 // function Output.create with 1
 (Output.create)
-@PUSH_constant_0 // 2261
-0;JMP // 2262
+@PUSH_constant_0 // 2342
+0;JMP // 2343
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 11")], call=CallInstruction{Memory.alloc}}
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_11 // 2263
-0;JMP // 2264
+@PUSH_constant_11 // 2344
+0;JMP // 2345
 // call Memory.alloc
-@6 // 2265
-D=A // 2266
-@14 // 2267
-M=D // 2268
-@Memory.alloc // 2269
-D=A // 2270
-@13 // 2271
-M=D // 2272
-@CALL // 2273
-0;JMP // 2274
+@6 // 2346
+D=A // 2347
+@14 // 2348
+M=D // 2349
+@Memory.alloc // 2350
+D=A // 2351
+@13 // 2352
+M=D // 2353
+@CALL // 2354
+0;JMP // 2355
 (Output.create.ret.0)
-@POP_local_0 // 2275
-0;JMP // 2276
+@POP_local_0 // 2356
+0;JMP // 2357
 
 ////PushWriter{source=PushInstruction("local 0"), dest=BinaryPushGroup(
 //    left:
@@ -3717,18 +3884,18 @@ M=D // 2272
 //        PushInstruction("argument 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_0 // 2277
-0;JMP // 2278
-@Output.0_PUSH // 2279
-0;JMP // 2280
-@PUSH_argument_0 // 2281
-0;JMP // 2282
-@ADD // 2283
-0;JMP // 2284
-@POP_pointer_1 // 2285
-0;JMP // 2286
-@POP_that_0 // 2287
-0;JMP // 2288
+@PUSH_local_0 // 2358
+0;JMP // 2359
+@Output.0_PUSH // 2360
+0;JMP // 2361
+@PUSH_argument_0 // 2362
+0;JMP // 2363
+@ADD // 2364
+0;JMP // 2365
+@POP_pointer_1 // 2366
+0;JMP // 2367
+@POP_that_0 // 2368
+0;JMP // 2369
 
 ////PushWriter{source=PushInstruction("argument 1"), dest=BinaryPushGroup(
 //    left:
@@ -3737,18 +3904,18 @@ M=D // 2272
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 2289
-0;JMP // 2290
-@PUSH_local_0 // 2291
-0;JMP // 2292
-@PUSH_constant_0 // 2293
-0;JMP // 2294
-@ADD // 2295
-0;JMP // 2296
-@POP_pointer_1 // 2297
-0;JMP // 2298
-@POP_that_0 // 2299
-0;JMP // 2300
+@PUSH_argument_1 // 2370
+0;JMP // 2371
+@PUSH_local_0 // 2372
+0;JMP // 2373
+@PUSH_constant_0 // 2374
+0;JMP // 2375
+@ADD // 2376
+0;JMP // 2377
+@POP_pointer_1 // 2378
+0;JMP // 2379
+@POP_that_0 // 2380
+0;JMP // 2381
 
 ////PushWriter{source=PushInstruction("argument 2"), dest=BinaryPushGroup(
 //    left:
@@ -3757,18 +3924,18 @@ M=D // 2272
 //        PushInstruction("constant 1"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_2 // 2301
-0;JMP // 2302
-@PUSH_local_0 // 2303
-0;JMP // 2304
-@PUSH_constant_1 // 2305
-0;JMP // 2306
-@ADD // 2307
-0;JMP // 2308
-@POP_pointer_1 // 2309
-0;JMP // 2310
-@POP_that_0 // 2311
-0;JMP // 2312
+@PUSH_argument_2 // 2382
+0;JMP // 2383
+@PUSH_local_0 // 2384
+0;JMP // 2385
+@PUSH_constant_1 // 2386
+0;JMP // 2387
+@ADD // 2388
+0;JMP // 2389
+@POP_pointer_1 // 2390
+0;JMP // 2391
+@POP_that_0 // 2392
+0;JMP // 2393
 
 ////PushWriter{source=PushInstruction("argument 3"), dest=BinaryPushGroup(
 //    left:
@@ -3777,18 +3944,18 @@ M=D // 2272
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_3 // 2313
-0;JMP // 2314
-@PUSH_local_0 // 2315
-0;JMP // 2316
-@PUSH_constant_2 // 2317
-0;JMP // 2318
-@ADD // 2319
-0;JMP // 2320
-@POP_pointer_1 // 2321
-0;JMP // 2322
-@POP_that_0 // 2323
-0;JMP // 2324
+@PUSH_argument_3 // 2394
+0;JMP // 2395
+@PUSH_local_0 // 2396
+0;JMP // 2397
+@PUSH_constant_2 // 2398
+0;JMP // 2399
+@ADD // 2400
+0;JMP // 2401
+@POP_pointer_1 // 2402
+0;JMP // 2403
+@POP_that_0 // 2404
+0;JMP // 2405
 
 ////PushWriter{source=PushInstruction("argument 4"), dest=BinaryPushGroup(
 //    left:
@@ -3797,18 +3964,18 @@ M=D // 2272
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_4 // 2325
-0;JMP // 2326
-@PUSH_local_0 // 2327
-0;JMP // 2328
-@PUSH_constant_3 // 2329
-0;JMP // 2330
-@ADD // 2331
-0;JMP // 2332
-@POP_pointer_1 // 2333
-0;JMP // 2334
-@POP_that_0 // 2335
-0;JMP // 2336
+@PUSH_argument_4 // 2406
+0;JMP // 2407
+@PUSH_local_0 // 2408
+0;JMP // 2409
+@PUSH_constant_3 // 2410
+0;JMP // 2411
+@ADD // 2412
+0;JMP // 2413
+@POP_pointer_1 // 2414
+0;JMP // 2415
+@POP_that_0 // 2416
+0;JMP // 2417
 
 ////PushWriter{source=PushInstruction("argument 5"), dest=BinaryPushGroup(
 //    left:
@@ -3817,18 +3984,18 @@ M=D // 2272
 //        PushInstruction("constant 4"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_5 // 2337
-0;JMP // 2338
-@PUSH_local_0 // 2339
-0;JMP // 2340
-@PUSH_constant_4 // 2341
-0;JMP // 2342
-@ADD // 2343
-0;JMP // 2344
-@POP_pointer_1 // 2345
-0;JMP // 2346
-@POP_that_0 // 2347
-0;JMP // 2348
+@PUSH_argument_5 // 2418
+0;JMP // 2419
+@PUSH_local_0 // 2420
+0;JMP // 2421
+@PUSH_constant_4 // 2422
+0;JMP // 2423
+@ADD // 2424
+0;JMP // 2425
+@POP_pointer_1 // 2426
+0;JMP // 2427
+@POP_that_0 // 2428
+0;JMP // 2429
 
 ////PushWriter{source=PushInstruction("argument 6"), dest=BinaryPushGroup(
 //    left:
@@ -3837,18 +4004,18 @@ M=D // 2272
 //        PushInstruction("constant 5"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_6 // 2349
-0;JMP // 2350
-@PUSH_local_0 // 2351
-0;JMP // 2352
-@PUSH_constant_5 // 2353
-0;JMP // 2354
-@ADD // 2355
-0;JMP // 2356
-@POP_pointer_1 // 2357
-0;JMP // 2358
-@POP_that_0 // 2359
-0;JMP // 2360
+@PUSH_argument_6 // 2430
+0;JMP // 2431
+@PUSH_local_0 // 2432
+0;JMP // 2433
+@PUSH_constant_5 // 2434
+0;JMP // 2435
+@ADD // 2436
+0;JMP // 2437
+@POP_pointer_1 // 2438
+0;JMP // 2439
+@POP_that_0 // 2440
+0;JMP // 2441
 
 ////PushWriter{source=PushInstruction("argument 7"), dest=BinaryPushGroup(
 //    left:
@@ -3857,18 +4024,18 @@ M=D // 2272
 //        PushInstruction("constant 6"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_7 // 2361
-0;JMP // 2362
-@PUSH_local_0 // 2363
-0;JMP // 2364
-@PUSH_constant_6 // 2365
-0;JMP // 2366
-@ADD // 2367
-0;JMP // 2368
-@POP_pointer_1 // 2369
-0;JMP // 2370
-@POP_that_0 // 2371
-0;JMP // 2372
+@PUSH_argument_7 // 2442
+0;JMP // 2443
+@PUSH_local_0 // 2444
+0;JMP // 2445
+@PUSH_constant_6 // 2446
+0;JMP // 2447
+@ADD // 2448
+0;JMP // 2449
+@POP_pointer_1 // 2450
+0;JMP // 2451
+@POP_that_0 // 2452
+0;JMP // 2453
 
 ////PushWriter{source=PushInstruction("argument 8"), dest=BinaryPushGroup(
 //    left:
@@ -3877,18 +4044,18 @@ M=D // 2272
 //        PushInstruction("constant 7"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_8 // 2373
-0;JMP // 2374
-@PUSH_local_0 // 2375
-0;JMP // 2376
-@PUSH_constant_7 // 2377
-0;JMP // 2378
-@ADD // 2379
-0;JMP // 2380
-@POP_pointer_1 // 2381
-0;JMP // 2382
-@POP_that_0 // 2383
-0;JMP // 2384
+@PUSH_argument_8 // 2454
+0;JMP // 2455
+@PUSH_local_0 // 2456
+0;JMP // 2457
+@PUSH_constant_7 // 2458
+0;JMP // 2459
+@ADD // 2460
+0;JMP // 2461
+@POP_pointer_1 // 2462
+0;JMP // 2463
+@POP_that_0 // 2464
+0;JMP // 2465
 
 ////PushWriter{source=PushInstruction("argument 9"), dest=BinaryPushGroup(
 //    left:
@@ -3897,18 +4064,18 @@ M=D // 2272
 //        PushInstruction("constant 8"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_9 // 2385
-0;JMP // 2386
-@PUSH_local_0 // 2387
-0;JMP // 2388
-@PUSH_constant_8 // 2389
-0;JMP // 2390
-@ADD // 2391
-0;JMP // 2392
-@POP_pointer_1 // 2393
-0;JMP // 2394
-@POP_that_0 // 2395
-0;JMP // 2396
+@PUSH_argument_9 // 2466
+0;JMP // 2467
+@PUSH_local_0 // 2468
+0;JMP // 2469
+@PUSH_constant_8 // 2470
+0;JMP // 2471
+@ADD // 2472
+0;JMP // 2473
+@POP_pointer_1 // 2474
+0;JMP // 2475
+@POP_that_0 // 2476
+0;JMP // 2477
 
 ////PushWriter{source=PushInstruction("argument 10"), dest=BinaryPushGroup(
 //    left:
@@ -3917,18 +4084,18 @@ M=D // 2272
 //        PushInstruction("constant 9"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_10 // 2397
-0;JMP // 2398
-@PUSH_local_0 // 2399
-0;JMP // 2400
-@PUSH_constant_9 // 2401
-0;JMP // 2402
-@ADD // 2403
-0;JMP // 2404
-@POP_pointer_1 // 2405
-0;JMP // 2406
-@POP_that_0 // 2407
-0;JMP // 2408
+@PUSH_argument_10 // 2478
+0;JMP // 2479
+@PUSH_local_0 // 2480
+0;JMP // 2481
+@PUSH_constant_9 // 2482
+0;JMP // 2483
+@ADD // 2484
+0;JMP // 2485
+@POP_pointer_1 // 2486
+0;JMP // 2487
+@POP_that_0 // 2488
+0;JMP // 2489
 
 ////PushWriter{source=PushInstruction("argument 11"), dest=BinaryPushGroup(
 //    left:
@@ -3937,42 +4104,42 @@ M=D // 2272
 //        PushInstruction("constant 10"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_11 // 2409
-0;JMP // 2410
-@PUSH_local_0 // 2411
-0;JMP // 2412
-@PUSH_constant_10 // 2413
-0;JMP // 2414
-@ADD // 2415
-0;JMP // 2416
-@POP_pointer_1 // 2417
-0;JMP // 2418
-@POP_that_0 // 2419
-0;JMP // 2420
+@PUSH_argument_11 // 2490
+0;JMP // 2491
+@PUSH_local_0 // 2492
+0;JMP // 2493
+@PUSH_constant_10 // 2494
+0;JMP // 2495
+@ADD // 2496
+0;JMP // 2497
+@POP_pointer_1 // 2498
+0;JMP // 2499
+@POP_that_0 // 2500
+0;JMP // 2501
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 2421
-0;JMP // 2422
+@PUSH_constant_0 // 2502
+0;JMP // 2503
 
 //////Return
-@RETURN // 2423
-0;JMP // 2424
+@RETURN // 2504
+0;JMP // 2505
 
 ////FunctionInstruction{functionName='Memory.getBinIndex', numLocals=1, funcMapping={Memory.poke=0, Memory.alloc=22, Memory.create_foot=0, Memory.get_best_fit=0, Memory.peek=0}}
 // function Memory.getBinIndex with 1
 (Memory.getBinIndex)
-@PUSH_constant_0 // 2425
-0;JMP // 2426
+@PUSH_constant_0 // 2506
+0;JMP // 2507
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_0 // 2427
-0;JMP // 2428
-@POP_local_0 // 2429
-0;JMP // 2430
+@PUSH_constant_0 // 2508
+0;JMP // 2509
+@POP_local_0 // 2510
+0;JMP // 2511
 
 ////LabelInstruction{label='Memory.getBinIndex_WHILE_EXP1}
 // label Memory.getBinIndex_WHILE_EXP1
@@ -4008,37 +4175,37 @@ M=D // 2272
 //        binaryOp: "AND"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.getBinIndex_WHILE_END1}}
-@PUSH_local_0 // 2431
-0;JMP // 2432
-@PUSH_constant_7 // 2433
-0;JMP // 2434
-@LT // 2435
-0;JMP // 2436
-@PUSH_constant_2048 // 2437
-0;JMP // 2438
-@PUSH_local_0 // 2439
-0;JMP // 2440
-@ADD // 2441
-0;JMP // 2442
-@POP_pointer_1 // 2443
-0;JMP // 2444
-@PUSH_that_0 // 2445
-0;JMP // 2446
-@PUSH_constant_0 // 2447
-0;JMP // 2448
-@EQ // 2449
-0;JMP // 2450
-@NOT // 2451
-0;JMP // 2452
-@AND // 2453
-0;JMP // 2454
-@NOT // 2455
-0;JMP // 2456
+@PUSH_local_0 // 2512
+0;JMP // 2513
+@PUSH_constant_7 // 2514
+0;JMP // 2515
+@LT // 2516
+0;JMP // 2517
+@PUSH_constant_2048 // 2518
+0;JMP // 2519
+@PUSH_local_0 // 2520
+0;JMP // 2521
+@ADD // 2522
+0;JMP // 2523
+@POP_pointer_1 // 2524
+0;JMP // 2525
+@PUSH_that_0 // 2526
+0;JMP // 2527
+@PUSH_constant_0 // 2528
+0;JMP // 2529
+@EQ // 2530
+0;JMP // 2531
+@NOT // 2532
+0;JMP // 2533
+@AND // 2534
+0;JMP // 2535
+@NOT // 2536
+0;JMP // 2537
 // if-goto Memory.getBinIndex_WHILE_END1
-@Memory.getBinIndex_WHILE_END1 // 2457
-D=A // 2458
-@IF_GOTO // 2459
-0;JMP // 2460
+@Memory.getBinIndex_WHILE_END1 // 2538
+D=A // 2539
+@IF_GOTO // 2540
+0;JMP // 2541
 
 ////ConditionalGroup{push=UnaryPushGroup(    BinaryPushGroup(
 //        left:
@@ -4054,57 +4221,57 @@ D=A // 2458
 //        binaryOp: "GT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.getBinIndex$IF_TRUE1}}
-@PUSH_argument_0 // 2461
-0;JMP // 2462
-@PUSH_local_0 // 2463
-0;JMP // 2464
-@PUSH_constant_1 // 2465
-0;JMP // 2466
-@ADD // 2467
-0;JMP // 2468
-@PUSH_constant_16 // 2469
-0;JMP // 2470
+@PUSH_argument_0 // 2542
+0;JMP // 2543
+@PUSH_local_0 // 2544
+0;JMP // 2545
+@PUSH_constant_1 // 2546
+0;JMP // 2547
+@ADD // 2548
+0;JMP // 2549
+@PUSH_constant_16 // 2550
+0;JMP // 2551
 // call Math.multiply
-@7 // 2471
-D=A // 2472
-@14 // 2473
-M=D // 2474
-@Math.multiply // 2475
-D=A // 2476
-@13 // 2477
-M=D // 2478
-@CALL // 2479
-0;JMP // 2480
+@7 // 2552
+D=A // 2553
+@14 // 2554
+M=D // 2555
+@Math.multiply // 2556
+D=A // 2557
+@13 // 2558
+M=D // 2559
+@CALL // 2560
+0;JMP // 2561
 (Memory.getBinIndex.ret.0)
-@GT // 2481
-0;JMP // 2482
-@NOT // 2483
-0;JMP // 2484
+@GT // 2562
+0;JMP // 2563
+@NOT // 2564
+0;JMP // 2565
 // if-goto Memory.getBinIndex$IF_TRUE1
-@Memory.getBinIndex$IF_TRUE1 // 2485
-D=A // 2486
-@IF_GOTO // 2487
-0;JMP // 2488
+@Memory.getBinIndex$IF_TRUE1 // 2566
+D=A // 2567
+@IF_GOTO // 2568
+0;JMP // 2569
 
 ////GotoInstruction{label='Memory.getBinIndex$IF_END1}
 // goto Memory.getBinIndex$IF_END1
-@Memory.getBinIndex$IF_END1 // 2489
-D=A // 2490
-@15 // 2491
-AM=D;JMP // 2492
-0;JMP // 2493
+@Memory.getBinIndex$IF_END1 // 2570
+D=A // 2571
+@15 // 2572
+AM=D;JMP // 2573
+0;JMP // 2574
 
 ////LabelInstruction{label='Memory.getBinIndex$IF_TRUE1}
 // label Memory.getBinIndex$IF_TRUE1
 (Memory.getBinIndex$IF_TRUE1)
 
 ////PushInstruction("local 0")
-@PUSH_local_0 // 2494
-0;JMP // 2495
+@PUSH_local_0 // 2575
+0;JMP // 2576
 
 //////Return
-@RETURN // 2496
-0;JMP // 2497
+@RETURN // 2577
+0;JMP // 2578
 
 ////LabelInstruction{label='Memory.getBinIndex$IF_END1}
 // label Memory.getBinIndex$IF_END1
@@ -4121,43 +4288,43 @@ AM=D;JMP // 2492
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@LCL // 2498
-A=M // 2499
-M=M+1 // 2500
-@7 // 2501
-D=A // 2502
-@15 // 2503
-AM=D+M;JMP // 2504
+@LCL // 2579
+A=M // 2580
+M=M+1 // 2581
+@7 // 2582
+D=A // 2583
+@15 // 2584
+AM=D+M;JMP // 2585
 
 ////GotoInstruction{label='Memory.getBinIndex_WHILE_EXP1}
 // goto Memory.getBinIndex_WHILE_EXP1
-@Memory.getBinIndex_WHILE_EXP1 // 2505
-D=A // 2506
-@15 // 2507
-AM=D;JMP // 2508
-0;JMP // 2509
+@Memory.getBinIndex_WHILE_EXP1 // 2586
+D=A // 2587
+@15 // 2588
+AM=D;JMP // 2589
+0;JMP // 2590
 
 ////LabelInstruction{label='Memory.getBinIndex_WHILE_END1}
 // label Memory.getBinIndex_WHILE_END1
 (Memory.getBinIndex_WHILE_END1)
 
 ////PushInstruction("constant 6")
-@PUSH_constant_6 // 2510
-0;JMP // 2511
+@PUSH_constant_6 // 2591
+0;JMP // 2592
 
 //////Return
-@RETURN // 2512
-0;JMP // 2513
+@RETURN // 2593
+0;JMP // 2594
 
 ////FunctionInstruction{functionName='Math.multiply', numLocals=3, funcMapping={Math.abs=2}}
 // function Math.multiply with 3
 (Math.multiply)
-@PUSH_constant_0 // 2514
-0;JMP // 2515
-@PUSH_constant_0 // 2516
-0;JMP // 2517
-@PUSH_constant_0 // 2518
-0;JMP // 2519
+@PUSH_constant_0 // 2595
+0;JMP // 2596
+@PUSH_constant_0 // 2597
+0;JMP // 2598
+@PUSH_constant_0 // 2599
+0;JMP // 2600
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -4178,45 +4345,45 @@ AM=D;JMP // 2508
 //        ),
 //    binaryOp: "OR"
 //), ifGoto=IfGotoInstruction{label='Math.multiply$IF_TRUE1}}
-@PUSH_argument_0 // 2520
-0;JMP // 2521
-@PUSH_constant_0 // 2522
-0;JMP // 2523
-@EQ // 2524
-0;JMP // 2525
-@PUSH_argument_1 // 2526
-0;JMP // 2527
-@PUSH_constant_0 // 2528
-0;JMP // 2529
-@EQ // 2530
-0;JMP // 2531
-@OR // 2532
-0;JMP // 2533
+@PUSH_argument_0 // 2601
+0;JMP // 2602
+@PUSH_constant_0 // 2603
+0;JMP // 2604
+@EQ // 2605
+0;JMP // 2606
+@PUSH_argument_1 // 2607
+0;JMP // 2608
+@PUSH_constant_0 // 2609
+0;JMP // 2610
+@EQ // 2611
+0;JMP // 2612
+@OR // 2613
+0;JMP // 2614
 // if-goto Math.multiply$IF_TRUE1
-@Math.multiply$IF_TRUE1 // 2534
-D=A // 2535
-@IF_GOTO // 2536
-0;JMP // 2537
+@Math.multiply$IF_TRUE1 // 2615
+D=A // 2616
+@IF_GOTO // 2617
+0;JMP // 2618
 
 ////GotoInstruction{label='Math.multiply$IF_END1}
 // goto Math.multiply$IF_END1
-@Math.multiply$IF_END1 // 2538
-D=A // 2539
-@15 // 2540
-AM=D;JMP // 2541
-0;JMP // 2542
+@Math.multiply$IF_END1 // 2619
+D=A // 2620
+@15 // 2621
+AM=D;JMP // 2622
+0;JMP // 2623
 
 ////LabelInstruction{label='Math.multiply$IF_TRUE1}
 // label Math.multiply$IF_TRUE1
 (Math.multiply$IF_TRUE1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 2543
-0;JMP // 2544
+@PUSH_constant_0 // 2624
+0;JMP // 2625
 
 //////Return
-@RETURN // 2545
-0;JMP // 2546
+@RETURN // 2626
+0;JMP // 2627
 
 ////LabelInstruction{label='Math.multiply$IF_END1}
 // label Math.multiply$IF_END1
@@ -4229,37 +4396,37 @@ AM=D;JMP // 2541
 //        PushInstruction("constant 1"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Math.multiply$IF_TRUE2}}
-@PUSH_argument_0 // 2547
-0;JMP // 2548
-@PUSH_constant_1 // 2549
-0;JMP // 2550
-@EQ // 2551
-0;JMP // 2552
+@PUSH_argument_0 // 2628
+0;JMP // 2629
+@PUSH_constant_1 // 2630
+0;JMP // 2631
+@EQ // 2632
+0;JMP // 2633
 // if-goto Math.multiply$IF_TRUE2
-@Math.multiply$IF_TRUE2 // 2553
-D=A // 2554
-@IF_GOTO // 2555
-0;JMP // 2556
+@Math.multiply$IF_TRUE2 // 2634
+D=A // 2635
+@IF_GOTO // 2636
+0;JMP // 2637
 
 ////GotoInstruction{label='Math.multiply$IF_END2}
 // goto Math.multiply$IF_END2
-@Math.multiply$IF_END2 // 2557
-D=A // 2558
-@15 // 2559
-AM=D;JMP // 2560
-0;JMP // 2561
+@Math.multiply$IF_END2 // 2638
+D=A // 2639
+@15 // 2640
+AM=D;JMP // 2641
+0;JMP // 2642
 
 ////LabelInstruction{label='Math.multiply$IF_TRUE2}
 // label Math.multiply$IF_TRUE2
 (Math.multiply$IF_TRUE2)
 
 ////PushInstruction("argument 1")
-@PUSH_argument_1 // 2562
-0;JMP // 2563
+@PUSH_argument_1 // 2643
+0;JMP // 2644
 
 //////Return
-@RETURN // 2564
-0;JMP // 2565
+@RETURN // 2645
+0;JMP // 2646
 
 ////LabelInstruction{label='Math.multiply$IF_END2}
 // label Math.multiply$IF_END2
@@ -4272,37 +4439,37 @@ AM=D;JMP // 2560
 //        PushInstruction("constant 1"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Math.multiply$IF_TRUE3}}
-@PUSH_argument_1 // 2566
-0;JMP // 2567
-@PUSH_constant_1 // 2568
-0;JMP // 2569
-@EQ // 2570
-0;JMP // 2571
+@PUSH_argument_1 // 2647
+0;JMP // 2648
+@PUSH_constant_1 // 2649
+0;JMP // 2650
+@EQ // 2651
+0;JMP // 2652
 // if-goto Math.multiply$IF_TRUE3
-@Math.multiply$IF_TRUE3 // 2572
-D=A // 2573
-@IF_GOTO // 2574
-0;JMP // 2575
+@Math.multiply$IF_TRUE3 // 2653
+D=A // 2654
+@IF_GOTO // 2655
+0;JMP // 2656
 
 ////GotoInstruction{label='Math.multiply$IF_END3}
 // goto Math.multiply$IF_END3
-@Math.multiply$IF_END3 // 2576
-D=A // 2577
-@15 // 2578
-AM=D;JMP // 2579
-0;JMP // 2580
+@Math.multiply$IF_END3 // 2657
+D=A // 2658
+@15 // 2659
+AM=D;JMP // 2660
+0;JMP // 2661
 
 ////LabelInstruction{label='Math.multiply$IF_TRUE3}
 // label Math.multiply$IF_TRUE3
 (Math.multiply$IF_TRUE3)
 
 ////PushInstruction("argument 0")
-@PUSH_argument_0 // 2581
-0;JMP // 2582
+@PUSH_argument_0 // 2662
+0;JMP // 2663
 
 //////Return
-@RETURN // 2583
-0;JMP // 2584
+@RETURN // 2664
+0;JMP // 2665
 
 ////LabelInstruction{label='Math.multiply$IF_END3}
 // label Math.multiply$IF_END3
@@ -4315,25 +4482,25 @@ AM=D;JMP // 2579
 //        PushInstruction("constant 2"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Math.multiply$IF_TRUE4}}
-@PUSH_argument_0 // 2585
-0;JMP // 2586
-@PUSH_constant_2 // 2587
-0;JMP // 2588
-@EQ // 2589
-0;JMP // 2590
+@PUSH_argument_0 // 2666
+0;JMP // 2667
+@PUSH_constant_2 // 2668
+0;JMP // 2669
+@EQ // 2670
+0;JMP // 2671
 // if-goto Math.multiply$IF_TRUE4
-@Math.multiply$IF_TRUE4 // 2591
-D=A // 2592
-@IF_GOTO // 2593
-0;JMP // 2594
+@Math.multiply$IF_TRUE4 // 2672
+D=A // 2673
+@IF_GOTO // 2674
+0;JMP // 2675
 
 ////GotoInstruction{label='Math.multiply$IF_END4}
 // goto Math.multiply$IF_END4
-@Math.multiply$IF_END4 // 2595
-D=A // 2596
-@15 // 2597
-AM=D;JMP // 2598
-0;JMP // 2599
+@Math.multiply$IF_END4 // 2676
+D=A // 2677
+@15 // 2678
+AM=D;JMP // 2679
+0;JMP // 2680
 
 ////LabelInstruction{label='Math.multiply$IF_TRUE4}
 // label Math.multiply$IF_TRUE4
@@ -4346,16 +4513,16 @@ AM=D;JMP // 2598
 //        PushInstruction("argument 1"),
 //    binaryOp: "ADD"
 //)
-@PUSH_argument_1 // 2600
-0;JMP // 2601
-@PUSH_argument_1 // 2602
-0;JMP // 2603
-@ADD // 2604
-0;JMP // 2605
+@PUSH_argument_1 // 2681
+0;JMP // 2682
+@PUSH_argument_1 // 2683
+0;JMP // 2684
+@ADD // 2685
+0;JMP // 2686
 
 //////Return
-@RETURN // 2606
-0;JMP // 2607
+@RETURN // 2687
+0;JMP // 2688
 
 ////LabelInstruction{label='Math.multiply$IF_END4}
 // label Math.multiply$IF_END4
@@ -4368,25 +4535,25 @@ AM=D;JMP // 2598
 //        PushInstruction("constant 2"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Math.multiply$IF_TRUE5}}
-@PUSH_argument_1 // 2608
-0;JMP // 2609
-@PUSH_constant_2 // 2610
-0;JMP // 2611
-@EQ // 2612
-0;JMP // 2613
+@PUSH_argument_1 // 2689
+0;JMP // 2690
+@PUSH_constant_2 // 2691
+0;JMP // 2692
+@EQ // 2693
+0;JMP // 2694
 // if-goto Math.multiply$IF_TRUE5
-@Math.multiply$IF_TRUE5 // 2614
-D=A // 2615
-@IF_GOTO // 2616
-0;JMP // 2617
+@Math.multiply$IF_TRUE5 // 2695
+D=A // 2696
+@IF_GOTO // 2697
+0;JMP // 2698
 
 ////GotoInstruction{label='Math.multiply$IF_END5}
 // goto Math.multiply$IF_END5
-@Math.multiply$IF_END5 // 2618
-D=A // 2619
-@15 // 2620
-AM=D;JMP // 2621
-0;JMP // 2622
+@Math.multiply$IF_END5 // 2699
+D=A // 2700
+@15 // 2701
+AM=D;JMP // 2702
+0;JMP // 2703
 
 ////LabelInstruction{label='Math.multiply$IF_TRUE5}
 // label Math.multiply$IF_TRUE5
@@ -4399,16 +4566,16 @@ AM=D;JMP // 2621
 //        PushInstruction("argument 0"),
 //    binaryOp: "ADD"
 //)
-@PUSH_argument_0 // 2623
-0;JMP // 2624
-@PUSH_argument_0 // 2625
-0;JMP // 2626
-@ADD // 2627
-0;JMP // 2628
+@PUSH_argument_0 // 2704
+0;JMP // 2705
+@PUSH_argument_0 // 2706
+0;JMP // 2707
+@ADD // 2708
+0;JMP // 2709
 
 //////Return
-@RETURN // 2629
-0;JMP // 2630
+@RETURN // 2710
+0;JMP // 2711
 
 ////LabelInstruction{label='Math.multiply$IF_END5}
 // label Math.multiply$IF_END5
@@ -4419,30 +4586,30 @@ AM=D;JMP // 2621
 //  pop:  PopInstruction{address=local 2}
 //}
 
-@PUSH_constant_1 // 2631
-0;JMP // 2632
-@POP_local_2 // 2633
-0;JMP // 2634
+@PUSH_constant_1 // 2712
+0;JMP // 2713
+@POP_local_2 // 2714
+0;JMP // 2715
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_0 // 2635
-0;JMP // 2636
-@POP_local_1 // 2637
-0;JMP // 2638
+@PUSH_constant_0 // 2716
+0;JMP // 2717
+@POP_local_1 // 2718
+0;JMP // 2719
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_0 // 2639
-0;JMP // 2640
-@POP_local_0 // 2641
-0;JMP // 2642
+@PUSH_constant_0 // 2720
+0;JMP // 2721
+@POP_local_0 // 2722
+0;JMP // 2723
 
 ////LabelInstruction{label='Math.multiply_WHILE_EXP1}
 // label Math.multiply_WHILE_EXP1
@@ -4456,19 +4623,19 @@ AM=D;JMP // 2621
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Math.multiply_WHILE_END1}}
-@PUSH_local_1 // 2643
-0;JMP // 2644
-@PUSH_constant_16 // 2645
-0;JMP // 2646
-@LT // 2647
-0;JMP // 2648
-@NOT // 2649
-0;JMP // 2650
+@PUSH_local_1 // 2724
+0;JMP // 2725
+@PUSH_constant_16 // 2726
+0;JMP // 2727
+@LT // 2728
+0;JMP // 2729
+@NOT // 2730
+0;JMP // 2731
 // if-goto Math.multiply_WHILE_END1
-@Math.multiply_WHILE_END1 // 2651
-D=A // 2652
-@IF_GOTO // 2653
-0;JMP // 2654
+@Math.multiply_WHILE_END1 // 2732
+D=A // 2733
+@IF_GOTO // 2734
+0;JMP // 2735
 
 ////ConditionalGroup{push=UnaryPushGroup(    BinaryPushGroup(
 //        left:
@@ -4484,31 +4651,31 @@ D=A // 2652
 //        binaryOp: "EQ"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Math.multiply$IF_TRUE6}}
-@PUSH_argument_1 // 2655
-0;JMP // 2656
-@PUSH_local_2 // 2657
-0;JMP // 2658
-@AND // 2659
-0;JMP // 2660
-@PUSH_constant_0 // 2661
-0;JMP // 2662
-@EQ // 2663
-0;JMP // 2664
-@NOT // 2665
-0;JMP // 2666
+@PUSH_argument_1 // 2736
+0;JMP // 2737
+@PUSH_local_2 // 2738
+0;JMP // 2739
+@AND // 2740
+0;JMP // 2741
+@PUSH_constant_0 // 2742
+0;JMP // 2743
+@EQ // 2744
+0;JMP // 2745
+@NOT // 2746
+0;JMP // 2747
 // if-goto Math.multiply$IF_TRUE6
-@Math.multiply$IF_TRUE6 // 2667
-D=A // 2668
-@IF_GOTO // 2669
-0;JMP // 2670
+@Math.multiply$IF_TRUE6 // 2748
+D=A // 2749
+@IF_GOTO // 2750
+0;JMP // 2751
 
 ////GotoInstruction{label='Math.multiply$IF_END6}
 // goto Math.multiply$IF_END6
-@Math.multiply$IF_END6 // 2671
-D=A // 2672
-@15 // 2673
-AM=D;JMP // 2674
-0;JMP // 2675
+@Math.multiply$IF_END6 // 2752
+D=A // 2753
+@15 // 2754
+AM=D;JMP // 2755
+0;JMP // 2756
 
 ////LabelInstruction{label='Math.multiply$IF_TRUE6}
 // label Math.multiply$IF_TRUE6
@@ -4525,14 +4692,14 @@ AM=D;JMP // 2674
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_0 // 2676
-0;JMP // 2677
-@PUSH_argument_0 // 2678
-0;JMP // 2679
-@ADD // 2680
-0;JMP // 2681
-@POP_local_0 // 2682
-0;JMP // 2683
+@PUSH_local_0 // 2757
+0;JMP // 2758
+@PUSH_argument_0 // 2759
+0;JMP // 2760
+@ADD // 2761
+0;JMP // 2762
+@POP_local_0 // 2763
+0;JMP // 2764
 
 ////LabelInstruction{label='Math.multiply$IF_END6}
 // label Math.multiply$IF_END6
@@ -4549,14 +4716,14 @@ AM=D;JMP // 2674
 //  pop:  PopInstruction{address=argument 0}
 //}
 
-@PUSH_argument_0 // 2684
-0;JMP // 2685
-@PUSH_argument_0 // 2686
-0;JMP // 2687
-@ADD // 2688
-0;JMP // 2689
-@POP_argument_0 // 2690
-0;JMP // 2691
+@PUSH_argument_0 // 2765
+0;JMP // 2766
+@PUSH_argument_0 // 2767
+0;JMP // 2768
+@ADD // 2769
+0;JMP // 2770
+@POP_argument_0 // 2771
+0;JMP // 2772
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -4569,13 +4736,13 @@ AM=D;JMP // 2674
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@LCL // 2692
-A=M+1 // 2693
-M=M+1 // 2694
-@7 // 2695
-D=A // 2696
-@15 // 2697
-AM=D+M;JMP // 2698
+@LCL // 2773
+A=M+1 // 2774
+M=M+1 // 2775
+@7 // 2776
+D=A // 2777
+@15 // 2778
+AM=D+M;JMP // 2779
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -4588,88 +4755,88 @@ AM=D+M;JMP // 2698
 //  pop:  PopInstruction{address=local 2}
 //}
 
-@PUSH_local_2 // 2699
-0;JMP // 2700
-@PUSH_local_2 // 2701
-0;JMP // 2702
-@ADD // 2703
-0;JMP // 2704
-@POP_local_2 // 2705
-0;JMP // 2706
+@PUSH_local_2 // 2780
+0;JMP // 2781
+@PUSH_local_2 // 2782
+0;JMP // 2783
+@ADD // 2784
+0;JMP // 2785
+@POP_local_2 // 2786
+0;JMP // 2787
 
 ////GotoInstruction{label='Math.multiply_WHILE_EXP1}
 // goto Math.multiply_WHILE_EXP1
-@Math.multiply_WHILE_EXP1 // 2707
-D=A // 2708
-@15 // 2709
-AM=D;JMP // 2710
-0;JMP // 2711
+@Math.multiply_WHILE_EXP1 // 2788
+D=A // 2789
+@15 // 2790
+AM=D;JMP // 2791
+0;JMP // 2792
 
 ////LabelInstruction{label='Math.multiply_WHILE_END1}
 // label Math.multiply_WHILE_END1
 (Math.multiply_WHILE_END1)
 
 ////PushInstruction("local 0")
-@PUSH_local_0 // 2712
-0;JMP // 2713
+@PUSH_local_0 // 2793
+0;JMP // 2794
 
 //////Return
-@RETURN // 2714
-0;JMP // 2715
+@RETURN // 2795
+0;JMP // 2796
 
 ////FunctionInstruction{functionName='Math.divide', numLocals=3, funcMapping={Math.abs=2, Math.multiply=0}}
 // function Math.divide with 3
 (Math.divide)
-@PUSH_constant_0 // 2716
-0;JMP // 2717
-@PUSH_constant_0 // 2718
-0;JMP // 2719
-@PUSH_constant_0 // 2720
-0;JMP // 2721
+@PUSH_constant_0 // 2797
+0;JMP // 2798
+@PUSH_constant_0 // 2799
+0;JMP // 2800
+@PUSH_constant_0 // 2801
+0;JMP // 2802
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{Math.abs}}
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_argument_0 // 2722
-0;JMP // 2723
+@PUSH_argument_0 // 2803
+0;JMP // 2804
 // call Math.abs
-@6 // 2724
-D=A // 2725
-@14 // 2726
-M=D // 2727
-@Math.abs // 2728
-D=A // 2729
-@13 // 2730
-M=D // 2731
-@CALL // 2732
-0;JMP // 2733
+@6 // 2805
+D=A // 2806
+@14 // 2807
+M=D // 2808
+@Math.abs // 2809
+D=A // 2810
+@13 // 2811
+M=D // 2812
+@CALL // 2813
+0;JMP // 2814
 (Math.divide.ret.0)
-@POP_local_1 // 2734
-0;JMP // 2735
+@POP_local_1 // 2815
+0;JMP // 2816
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("argument 1")], call=CallInstruction{Math.abs}}
 //  pop:  PopInstruction{address=local 2}
 //}
 
-@PUSH_argument_1 // 2736
-0;JMP // 2737
+@PUSH_argument_1 // 2817
+0;JMP // 2818
 // call Math.abs
-@6 // 2738
-D=A // 2739
-@14 // 2740
-M=D // 2741
-@Math.abs // 2742
-D=A // 2743
-@13 // 2744
-M=D // 2745
-@CALL // 2746
-0;JMP // 2747
+@6 // 2819
+D=A // 2820
+@14 // 2821
+M=D // 2822
+@Math.abs // 2823
+D=A // 2824
+@13 // 2825
+M=D // 2826
+@CALL // 2827
+0;JMP // 2828
 (Math.divide.ret.2)
-@POP_local_2 // 2748
-0;JMP // 2749
+@POP_local_2 // 2829
+0;JMP // 2830
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -4678,37 +4845,37 @@ M=D // 2745
 //        PushInstruction("constant 0"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Math.divide$IF_TRUE1}}
-@PUSH_argument_1 // 2750
-0;JMP // 2751
-@PUSH_constant_0 // 2752
-0;JMP // 2753
-@EQ // 2754
-0;JMP // 2755
+@PUSH_argument_1 // 2831
+0;JMP // 2832
+@PUSH_constant_0 // 2833
+0;JMP // 2834
+@EQ // 2835
+0;JMP // 2836
 // if-goto Math.divide$IF_TRUE1
-@Math.divide$IF_TRUE1 // 2756
-D=A // 2757
-@IF_GOTO // 2758
-0;JMP // 2759
+@Math.divide$IF_TRUE1 // 2837
+D=A // 2838
+@IF_GOTO // 2839
+0;JMP // 2840
 
 ////GotoInstruction{label='Math.divide$IF_END1}
 // goto Math.divide$IF_END1
-@Math.divide$IF_END1 // 2760
-D=A // 2761
-@15 // 2762
-AM=D;JMP // 2763
-0;JMP // 2764
+@Math.divide$IF_END1 // 2841
+D=A // 2842
+@15 // 2843
+AM=D;JMP // 2844
+0;JMP // 2845
 
 ////LabelInstruction{label='Math.divide$IF_TRUE1}
 // label Math.divide$IF_TRUE1
 (Math.divide$IF_TRUE1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 2765
-0;JMP // 2766
+@PUSH_constant_0 // 2846
+0;JMP // 2847
 
 //////Return
-@RETURN // 2767
-0;JMP // 2768
+@RETURN // 2848
+0;JMP // 2849
 
 ////LabelInstruction{label='Math.divide$IF_END1}
 // label Math.divide$IF_END1
@@ -4721,37 +4888,37 @@ AM=D;JMP // 2763
 //        PushInstruction("local 1"),
 //    binaryOp: "GT"
 //), ifGoto=IfGotoInstruction{label='Math.divide$IF_TRUE2}}
-@PUSH_local_2 // 2769
-0;JMP // 2770
-@PUSH_local_1 // 2771
-0;JMP // 2772
-@GT // 2773
-0;JMP // 2774
+@PUSH_local_2 // 2850
+0;JMP // 2851
+@PUSH_local_1 // 2852
+0;JMP // 2853
+@GT // 2854
+0;JMP // 2855
 // if-goto Math.divide$IF_TRUE2
-@Math.divide$IF_TRUE2 // 2775
-D=A // 2776
-@IF_GOTO // 2777
-0;JMP // 2778
+@Math.divide$IF_TRUE2 // 2856
+D=A // 2857
+@IF_GOTO // 2858
+0;JMP // 2859
 
 ////GotoInstruction{label='Math.divide$IF_END2}
 // goto Math.divide$IF_END2
-@Math.divide$IF_END2 // 2779
-D=A // 2780
-@15 // 2781
-AM=D;JMP // 2782
-0;JMP // 2783
+@Math.divide$IF_END2 // 2860
+D=A // 2861
+@15 // 2862
+AM=D;JMP // 2863
+0;JMP // 2864
 
 ////LabelInstruction{label='Math.divide$IF_TRUE2}
 // label Math.divide$IF_TRUE2
 (Math.divide$IF_TRUE2)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 2784
-0;JMP // 2785
+@PUSH_constant_0 // 2865
+0;JMP // 2866
 
 //////Return
-@RETURN // 2786
-0;JMP // 2787
+@RETURN // 2867
+0;JMP // 2868
 
 ////LabelInstruction{label='Math.divide$IF_END2}
 // label Math.divide$IF_END2
@@ -4770,41 +4937,41 @@ AM=D;JMP // 2782
 //        PushInstruction("constant 0"),
 //    binaryOp: "LT"
 //), ifGoto=IfGotoInstruction{label='Math.divide$IF_TRUE3}}
-@PUSH_local_2 // 2788
-0;JMP // 2789
-@PUSH_local_2 // 2790
-0;JMP // 2791
-@ADD // 2792
-0;JMP // 2793
-@PUSH_constant_0 // 2794
-0;JMP // 2795
-@LT // 2796
-0;JMP // 2797
+@PUSH_local_2 // 2869
+0;JMP // 2870
+@PUSH_local_2 // 2871
+0;JMP // 2872
+@ADD // 2873
+0;JMP // 2874
+@PUSH_constant_0 // 2875
+0;JMP // 2876
+@LT // 2877
+0;JMP // 2878
 // if-goto Math.divide$IF_TRUE3
-@Math.divide$IF_TRUE3 // 2798
-D=A // 2799
-@IF_GOTO // 2800
-0;JMP // 2801
+@Math.divide$IF_TRUE3 // 2879
+D=A // 2880
+@IF_GOTO // 2881
+0;JMP // 2882
 
 ////GotoInstruction{label='Math.divide$IF_END3}
 // goto Math.divide$IF_END3
-@Math.divide$IF_END3 // 2802
-D=A // 2803
-@15 // 2804
-AM=D;JMP // 2805
-0;JMP // 2806
+@Math.divide$IF_END3 // 2883
+D=A // 2884
+@15 // 2885
+AM=D;JMP // 2886
+0;JMP // 2887
 
 ////LabelInstruction{label='Math.divide$IF_TRUE3}
 // label Math.divide$IF_TRUE3
 (Math.divide$IF_TRUE3)
 
 ////PushInstruction("constant 1")
-@PUSH_constant_1 // 2807
-0;JMP // 2808
+@PUSH_constant_1 // 2888
+0;JMP // 2889
 
 //////Return
-@RETURN // 2809
-0;JMP // 2810
+@RETURN // 2890
+0;JMP // 2891
 
 ////LabelInstruction{label='Math.divide$IF_END3}
 // label Math.divide$IF_END3
@@ -4821,28 +4988,28 @@ AM=D;JMP // 2805
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_1 // 2811
-0;JMP // 2812
-@PUSH_local_2 // 2813
-0;JMP // 2814
-@PUSH_local_2 // 2815
-0;JMP // 2816
-@ADD // 2817
-0;JMP // 2818
+@PUSH_local_1 // 2892
+0;JMP // 2893
+@PUSH_local_2 // 2894
+0;JMP // 2895
+@PUSH_local_2 // 2896
+0;JMP // 2897
+@ADD // 2898
+0;JMP // 2899
 // call Math.divide
-@7 // 2819
-D=A // 2820
-@14 // 2821
-M=D // 2822
-@Math.divide // 2823
-D=A // 2824
-@13 // 2825
-M=D // 2826
-@CALL // 2827
-0;JMP // 2828
+@7 // 2900
+D=A // 2901
+@14 // 2902
+M=D // 2903
+@Math.divide // 2904
+D=A // 2905
+@13 // 2906
+M=D // 2907
+@CALL // 2908
+0;JMP // 2909
 (Math.divide.ret.4)
-@POP_local_0 // 2829
-0;JMP // 2830
+@POP_local_0 // 2910
+0;JMP // 2911
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -4863,47 +5030,47 @@ M=D // 2826
 //        PushInstruction("local 2"),
 //    binaryOp: "LT"
 //), ifGoto=IfGotoInstruction{label='Math.divide$IF_TRUE4}}
-@PUSH_local_1 // 2831
-0;JMP // 2832
-@PUSH_local_0 // 2833
-0;JMP // 2834
-@PUSH_local_0 // 2835
-0;JMP // 2836
-@ADD // 2837
-0;JMP // 2838
-@PUSH_local_2 // 2839
-0;JMP // 2840
+@PUSH_local_1 // 2912
+0;JMP // 2913
+@PUSH_local_0 // 2914
+0;JMP // 2915
+@PUSH_local_0 // 2916
+0;JMP // 2917
+@ADD // 2918
+0;JMP // 2919
+@PUSH_local_2 // 2920
+0;JMP // 2921
 // call Math.multiply
-@7 // 2841
-D=A // 2842
-@14 // 2843
-M=D // 2844
-@Math.multiply // 2845
-D=A // 2846
-@13 // 2847
-M=D // 2848
-@CALL // 2849
-0;JMP // 2850
+@7 // 2922
+D=A // 2923
+@14 // 2924
+M=D // 2925
+@Math.multiply // 2926
+D=A // 2927
+@13 // 2928
+M=D // 2929
+@CALL // 2930
+0;JMP // 2931
 (Math.divide.ret.6)
-@SUB // 2851
-0;JMP // 2852
-@PUSH_local_2 // 2853
-0;JMP // 2854
-@LT // 2855
-0;JMP // 2856
+@SUB // 2932
+0;JMP // 2933
+@PUSH_local_2 // 2934
+0;JMP // 2935
+@LT // 2936
+0;JMP // 2937
 // if-goto Math.divide$IF_TRUE4
-@Math.divide$IF_TRUE4 // 2857
-D=A // 2858
-@IF_GOTO // 2859
-0;JMP // 2860
+@Math.divide$IF_TRUE4 // 2938
+D=A // 2939
+@IF_GOTO // 2940
+0;JMP // 2941
 
 ////GotoInstruction{label='Math.divide$IF_FALSE4}
 // goto Math.divide$IF_FALSE4
-@Math.divide$IF_FALSE4 // 2861
-D=A // 2862
-@15 // 2863
-AM=D;JMP // 2864
-0;JMP // 2865
+@Math.divide$IF_FALSE4 // 2942
+D=A // 2943
+@15 // 2944
+AM=D;JMP // 2945
+0;JMP // 2946
 
 ////LabelInstruction{label='Math.divide$IF_TRUE4}
 // label Math.divide$IF_TRUE4
@@ -4952,49 +5119,49 @@ AM=D;JMP // 2864
 //        ),
 //    binaryOp: "OR"
 //), ifGoto=IfGotoInstruction{label='Math.divide$IF_TRUE5}}
-@PUSH_argument_0 // 2866
-0;JMP // 2867
-@PUSH_constant_0 // 2868
-0;JMP // 2869
-@LT // 2870
-0;JMP // 2871
-@PUSH_argument_1 // 2872
-0;JMP // 2873
-@PUSH_constant_0 // 2874
-0;JMP // 2875
-@GT // 2876
-0;JMP // 2877
-@AND // 2878
-0;JMP // 2879
-@PUSH_argument_0 // 2880
-0;JMP // 2881
-@PUSH_constant_0 // 2882
-0;JMP // 2883
-@GT // 2884
-0;JMP // 2885
-@PUSH_argument_1 // 2886
-0;JMP // 2887
-@PUSH_constant_0 // 2888
-0;JMP // 2889
-@LT // 2890
-0;JMP // 2891
-@AND // 2892
-0;JMP // 2893
-@OR // 2894
-0;JMP // 2895
+@PUSH_argument_0 // 2947
+0;JMP // 2948
+@PUSH_constant_0 // 2949
+0;JMP // 2950
+@LT // 2951
+0;JMP // 2952
+@PUSH_argument_1 // 2953
+0;JMP // 2954
+@PUSH_constant_0 // 2955
+0;JMP // 2956
+@GT // 2957
+0;JMP // 2958
+@AND // 2959
+0;JMP // 2960
+@PUSH_argument_0 // 2961
+0;JMP // 2962
+@PUSH_constant_0 // 2963
+0;JMP // 2964
+@GT // 2965
+0;JMP // 2966
+@PUSH_argument_1 // 2967
+0;JMP // 2968
+@PUSH_constant_0 // 2969
+0;JMP // 2970
+@LT // 2971
+0;JMP // 2972
+@AND // 2973
+0;JMP // 2974
+@OR // 2975
+0;JMP // 2976
 // if-goto Math.divide$IF_TRUE5
-@Math.divide$IF_TRUE5 // 2896
-D=A // 2897
-@IF_GOTO // 2898
-0;JMP // 2899
+@Math.divide$IF_TRUE5 // 2977
+D=A // 2978
+@IF_GOTO // 2979
+0;JMP // 2980
 
 ////GotoInstruction{label='Math.divide$IF_END5}
 // goto Math.divide$IF_END5
-@Math.divide$IF_END5 // 2900
-D=A // 2901
-@15 // 2902
-AM=D;JMP // 2903
-0;JMP // 2904
+@Math.divide$IF_END5 // 2981
+D=A // 2982
+@15 // 2983
+AM=D;JMP // 2984
+0;JMP // 2985
 
 ////LabelInstruction{label='Math.divide$IF_TRUE5}
 // label Math.divide$IF_TRUE5
@@ -5006,12 +5173,12 @@ AM=D;JMP // 2903
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_0 // 2905
-0;JMP // 2906
-@NEG // 2907
-0;JMP // 2908
-@POP_local_0 // 2909
-0;JMP // 2910
+@PUSH_local_0 // 2986
+0;JMP // 2987
+@NEG // 2988
+0;JMP // 2989
+@POP_local_0 // 2990
+0;JMP // 2991
 
 ////LabelInstruction{label='Math.divide$IF_END5}
 // label Math.divide$IF_END5
@@ -5024,24 +5191,24 @@ AM=D;JMP // 2903
 //        PushInstruction("local 0"),
 //    binaryOp: "ADD"
 //)
-@PUSH_local_0 // 2911
-0;JMP // 2912
-@PUSH_local_0 // 2913
-0;JMP // 2914
-@ADD // 2915
-0;JMP // 2916
+@PUSH_local_0 // 2992
+0;JMP // 2993
+@PUSH_local_0 // 2994
+0;JMP // 2995
+@ADD // 2996
+0;JMP // 2997
 
 //////Return
-@RETURN // 2917
-0;JMP // 2918
+@RETURN // 2998
+0;JMP // 2999
 
 ////GotoInstruction{label='Math.divide$IF_END4}
 // goto Math.divide$IF_END4
-@Math.divide$IF_END4 // 2919
-D=A // 2920
-@15 // 2921
-AM=D;JMP // 2922
-0;JMP // 2923
+@Math.divide$IF_END4 // 3000
+D=A // 3001
+@15 // 3002
+AM=D;JMP // 3003
+0;JMP // 3004
 
 ////LabelInstruction{label='Math.divide$IF_FALSE4}
 // label Math.divide$IF_FALSE4
@@ -5090,49 +5257,49 @@ AM=D;JMP // 2922
 //        ),
 //    binaryOp: "OR"
 //), ifGoto=IfGotoInstruction{label='Math.divide$IF_TRUE6}}
-@PUSH_argument_0 // 2924
-0;JMP // 2925
-@PUSH_constant_0 // 2926
-0;JMP // 2927
-@LT // 2928
-0;JMP // 2929
-@PUSH_argument_1 // 2930
-0;JMP // 2931
-@PUSH_constant_0 // 2932
-0;JMP // 2933
-@GT // 2934
-0;JMP // 2935
-@AND // 2936
-0;JMP // 2937
-@PUSH_argument_0 // 2938
-0;JMP // 2939
-@PUSH_constant_0 // 2940
-0;JMP // 2941
-@GT // 2942
-0;JMP // 2943
-@PUSH_argument_1 // 2944
-0;JMP // 2945
-@PUSH_constant_0 // 2946
-0;JMP // 2947
-@LT // 2948
-0;JMP // 2949
-@AND // 2950
-0;JMP // 2951
-@OR // 2952
-0;JMP // 2953
+@PUSH_argument_0 // 3005
+0;JMP // 3006
+@PUSH_constant_0 // 3007
+0;JMP // 3008
+@LT // 3009
+0;JMP // 3010
+@PUSH_argument_1 // 3011
+0;JMP // 3012
+@PUSH_constant_0 // 3013
+0;JMP // 3014
+@GT // 3015
+0;JMP // 3016
+@AND // 3017
+0;JMP // 3018
+@PUSH_argument_0 // 3019
+0;JMP // 3020
+@PUSH_constant_0 // 3021
+0;JMP // 3022
+@GT // 3023
+0;JMP // 3024
+@PUSH_argument_1 // 3025
+0;JMP // 3026
+@PUSH_constant_0 // 3027
+0;JMP // 3028
+@LT // 3029
+0;JMP // 3030
+@AND // 3031
+0;JMP // 3032
+@OR // 3033
+0;JMP // 3034
 // if-goto Math.divide$IF_TRUE6
-@Math.divide$IF_TRUE6 // 2954
-D=A // 2955
-@IF_GOTO // 2956
-0;JMP // 2957
+@Math.divide$IF_TRUE6 // 3035
+D=A // 3036
+@IF_GOTO // 3037
+0;JMP // 3038
 
 ////GotoInstruction{label='Math.divide$IF_END6}
 // goto Math.divide$IF_END6
-@Math.divide$IF_END6 // 2958
-D=A // 2959
-@15 // 2960
-AM=D;JMP // 2961
-0;JMP // 2962
+@Math.divide$IF_END6 // 3039
+D=A // 3040
+@15 // 3041
+AM=D;JMP // 3042
+0;JMP // 3043
 
 ////LabelInstruction{label='Math.divide$IF_TRUE6}
 // label Math.divide$IF_TRUE6
@@ -5144,12 +5311,12 @@ AM=D;JMP // 2961
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_0 // 2963
-0;JMP // 2964
-@NEG // 2965
-0;JMP // 2966
-@POP_local_0 // 2967
-0;JMP // 2968
+@PUSH_local_0 // 3044
+0;JMP // 3045
+@NEG // 3046
+0;JMP // 3047
+@POP_local_0 // 3048
+0;JMP // 3049
 
 ////LabelInstruction{label='Math.divide$IF_END6}
 // label Math.divide$IF_END6
@@ -5168,20 +5335,20 @@ AM=D;JMP // 2961
 //        PushInstruction("constant 1"),
 //    binaryOp: "ADD"
 //)
-@PUSH_local_0 // 2969
-0;JMP // 2970
-@PUSH_local_0 // 2971
-0;JMP // 2972
-@ADD // 2973
-0;JMP // 2974
-@PUSH_constant_1 // 2975
-0;JMP // 2976
-@ADD // 2977
-0;JMP // 2978
+@PUSH_local_0 // 3050
+0;JMP // 3051
+@PUSH_local_0 // 3052
+0;JMP // 3053
+@ADD // 3054
+0;JMP // 3055
+@PUSH_constant_1 // 3056
+0;JMP // 3057
+@ADD // 3058
+0;JMP // 3059
 
 //////Return
-@RETURN // 2979
-0;JMP // 2980
+@RETURN // 3060
+0;JMP // 3061
 
 ////LabelInstruction{label='Math.divide$IF_END4}
 // label Math.divide$IF_END4
@@ -5198,49 +5365,49 @@ AM=D;JMP // 2961
 //        PushInstruction("argument 1"),
 //    binaryOp: "GT"
 //), ifGoto=IfGotoInstruction{label='Math.max$IF_TRUE1}}
-@PUSH_argument_0 // 2981
-0;JMP // 2982
-@PUSH_argument_1 // 2983
-0;JMP // 2984
-@GT // 2985
-0;JMP // 2986
+@PUSH_argument_0 // 3062
+0;JMP // 3063
+@PUSH_argument_1 // 3064
+0;JMP // 3065
+@GT // 3066
+0;JMP // 3067
 // if-goto Math.max$IF_TRUE1
-@Math.max$IF_TRUE1 // 2987
-D=A // 2988
-@IF_GOTO // 2989
-0;JMP // 2990
+@Math.max$IF_TRUE1 // 3068
+D=A // 3069
+@IF_GOTO // 3070
+0;JMP // 3071
 
 ////GotoInstruction{label='Math.max$IF_END1}
 // goto Math.max$IF_END1
-@Math.max$IF_END1 // 2991
-D=A // 2992
-@15 // 2993
-AM=D;JMP // 2994
-0;JMP // 2995
+@Math.max$IF_END1 // 3072
+D=A // 3073
+@15 // 3074
+AM=D;JMP // 3075
+0;JMP // 3076
 
 ////LabelInstruction{label='Math.max$IF_TRUE1}
 // label Math.max$IF_TRUE1
 (Math.max$IF_TRUE1)
 
 ////PushInstruction("argument 0")
-@PUSH_argument_0 // 2996
-0;JMP // 2997
+@PUSH_argument_0 // 3077
+0;JMP // 3078
 
 //////Return
-@RETURN // 2998
-0;JMP // 2999
+@RETURN // 3079
+0;JMP // 3080
 
 ////LabelInstruction{label='Math.max$IF_END1}
 // label Math.max$IF_END1
 (Math.max$IF_END1)
 
 ////PushInstruction("argument 1")
-@PUSH_argument_1 // 3000
-0;JMP // 3001
+@PUSH_argument_1 // 3081
+0;JMP // 3082
 
 //////Return
-@RETURN // 3002
-0;JMP // 3003
+@RETURN // 3083
+0;JMP // 3084
 
 ////FunctionInstruction{functionName='Main.main', numLocals=0, funcMapping={}}
 // function Main.main with 0
@@ -5252,27 +5419,27 @@ AM=D;JMP // 2994
 //}
 
 // call Shell.main
-@5 // 3004
-D=A // 3005
-@14 // 3006
-M=D // 3007
-@Shell.main // 3008
-D=A // 3009
-@13 // 3010
-M=D // 3011
-@CALL // 3012
-0;JMP // 3013
+@5 // 3085
+D=A // 3086
+@14 // 3087
+M=D // 3088
+@Shell.main // 3089
+D=A // 3090
+@13 // 3091
+M=D // 3092
+@CALL // 3093
+0;JMP // 3094
 (Main.main.ret.0)
-@POP_temp_0 // 3014
-0;JMP // 3015
+@POP_temp_0 // 3095
+0;JMP // 3096
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 3016
-0;JMP // 3017
+@PUSH_constant_0 // 3097
+0;JMP // 3098
 
 //////Return
-@RETURN // 3018
-0;JMP // 3019
+@RETURN // 3099
+0;JMP // 3100
 
 ////FunctionInstruction{functionName='Sys.halt', numLocals=0, funcMapping={Sys.error=2}}
 // function Sys.halt with 0
@@ -5283,77 +5450,77 @@ M=D // 3011
 (Sys.halt_WHILE_EXP1)
 
 ////ConditionalGroup{push=PushInstruction("constant 0"), ifGoto=IfGotoInstruction{label='Sys.halt_WHILE_END1}}
-@PUSH_constant_0 // 3020
-0;JMP // 3021
+@PUSH_constant_0 // 3101
+0;JMP // 3102
 // if-goto Sys.halt_WHILE_END1
-@Sys.halt_WHILE_END1 // 3022
-D=A // 3023
-@IF_GOTO // 3024
-0;JMP // 3025
+@Sys.halt_WHILE_END1 // 3103
+D=A // 3104
+@IF_GOTO // 3105
+0;JMP // 3106
 
 ////GotoInstruction{label='Sys.halt_WHILE_EXP1}
 // goto Sys.halt_WHILE_EXP1
-@Sys.halt_WHILE_EXP1 // 3026
-D=A // 3027
-@15 // 3028
-AM=D;JMP // 3029
-0;JMP // 3030
+@Sys.halt_WHILE_EXP1 // 3107
+D=A // 3108
+@15 // 3109
+AM=D;JMP // 3110
+0;JMP // 3111
 
 ////LabelInstruction{label='Sys.halt_WHILE_END1}
 // label Sys.halt_WHILE_END1
 (Sys.halt_WHILE_END1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 3031
-0;JMP // 3032
+@PUSH_constant_0 // 3112
+0;JMP // 3113
 
 //////Return
-@RETURN // 3033
-0;JMP // 3034
+@RETURN // 3114
+0;JMP // 3115
 
 ////FunctionInstruction{functionName='Output.printChar', numLocals=4, funcMapping={Output.println=2, Output.backSpace=2, Output.getMap=0, Output.create=2, Output.scroll=13}}
 // function Output.printChar with 4
 (Output.printChar)
-@PUSH_constant_0 // 3035
-0;JMP // 3036
-@PUSH_constant_0 // 3037
-0;JMP // 3038
-@PUSH_constant_0 // 3039
-0;JMP // 3040
-@PUSH_constant_0 // 3041
-0;JMP // 3042
+@PUSH_constant_0 // 3116
+0;JMP // 3117
+@PUSH_constant_0 // 3118
+0;JMP // 3119
+@PUSH_constant_0 // 3120
+0;JMP // 3121
+@PUSH_constant_0 // 3122
+0;JMP // 3123
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("argument 0")], call=CallInstruction{Output.getMap}}
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_argument_0 // 3043
-0;JMP // 3044
+@PUSH_argument_0 // 3124
+0;JMP // 3125
 // call Output.getMap
-@6 // 3045
-D=A // 3046
-@14 // 3047
-M=D // 3048
-@Output.getMap // 3049
-D=A // 3050
-@13 // 3051
-M=D // 3052
-@CALL // 3053
-0;JMP // 3054
+@6 // 3126
+D=A // 3127
+@14 // 3128
+M=D // 3129
+@Output.getMap // 3130
+D=A // 3131
+@13 // 3132
+M=D // 3133
+@CALL // 3134
+0;JMP // 3135
 (Output.printChar.ret.0)
-@POP_local_0 // 3055
-0;JMP // 3056
+@POP_local_0 // 3136
+0;JMP // 3137
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 3}
 //}
 
-@PUSH_constant_0 // 3057
-0;JMP // 3058
-@POP_local_3 // 3059
-0;JMP // 3060
+@PUSH_constant_0 // 3138
+0;JMP // 3139
+@POP_local_3 // 3140
+0;JMP // 3141
 
 ////LabelInstruction{label='Output.printChar_WHILE_EXP1}
 // label Output.printChar_WHILE_EXP1
@@ -5367,19 +5534,19 @@ M=D // 3052
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Output.printChar_WHILE_END1}}
-@PUSH_local_3 // 3061
-0;JMP // 3062
-@PUSH_constant_11 // 3063
-0;JMP // 3064
-@LT // 3065
-0;JMP // 3066
-@NOT // 3067
-0;JMP // 3068
+@PUSH_local_3 // 3142
+0;JMP // 3143
+@PUSH_constant_11 // 3144
+0;JMP // 3145
+@LT // 3146
+0;JMP // 3147
+@NOT // 3148
+0;JMP // 3149
 // if-goto Output.printChar_WHILE_END1
-@Output.printChar_WHILE_END1 // 3069
-D=A // 3070
-@IF_GOTO // 3071
-0;JMP // 3072
+@Output.printChar_WHILE_END1 // 3150
+D=A // 3151
+@IF_GOTO // 3152
+0;JMP // 3153
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -5404,64 +5571,64 @@ D=A // 3070
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_16384 // 3073
-0;JMP // 3074
-@Output.2_PUSH // 3075
-0;JMP // 3076
-@PUSH_constant_11 // 3077
-0;JMP // 3078
+@PUSH_constant_16384 // 3154
+0;JMP // 3155
+@Output.2_PUSH // 3156
+0;JMP // 3157
+@PUSH_constant_11 // 3158
+0;JMP // 3159
 // call Math.multiply
-@7 // 3079
-D=A // 3080
-@14 // 3081
-M=D // 3082
-@Math.multiply // 3083
-D=A // 3084
-@13 // 3085
-M=D // 3086
-@CALL // 3087
-0;JMP // 3088
+@7 // 3160
+D=A // 3161
+@14 // 3162
+M=D // 3163
+@Math.multiply // 3164
+D=A // 3165
+@13 // 3166
+M=D // 3167
+@CALL // 3168
+0;JMP // 3169
 (Output.printChar.ret.2)
-@PUSH_local_3 // 3089
-0;JMP // 3090
-@ADD // 3091
-0;JMP // 3092
-@PUSH_constant_32 // 3093
-0;JMP // 3094
+@PUSH_local_3 // 3170
+0;JMP // 3171
+@ADD // 3172
+0;JMP // 3173
+@PUSH_constant_32 // 3174
+0;JMP // 3175
 // call Math.multiply
-@7 // 3095
-D=A // 3096
-@14 // 3097
-M=D // 3098
-@Math.multiply // 3099
-D=A // 3100
-@13 // 3101
-M=D // 3102
-@CALL // 3103
-0;JMP // 3104
+@7 // 3176
+D=A // 3177
+@14 // 3178
+M=D // 3179
+@Math.multiply // 3180
+D=A // 3181
+@13 // 3182
+M=D // 3183
+@CALL // 3184
+0;JMP // 3185
 (Output.printChar.ret.3)
-@ADD // 3105
-0;JMP // 3106
-@Output.1_PUSH // 3107
-0;JMP // 3108
-@PUSH_constant_2 // 3109
-0;JMP // 3110
+@ADD // 3186
+0;JMP // 3187
+@Output.1_PUSH // 3188
+0;JMP // 3189
+@PUSH_constant_2 // 3190
+0;JMP // 3191
 // call Math.divide
-@7 // 3111
-D=A // 3112
-@14 // 3113
-M=D // 3114
-@Math.divide // 3115
-D=A // 3116
-@13 // 3117
-M=D // 3118
-@CALL // 3119
-0;JMP // 3120
+@7 // 3192
+D=A // 3193
+@14 // 3194
+M=D // 3195
+@Math.divide // 3196
+D=A // 3197
+@13 // 3198
+M=D // 3199
+@CALL // 3200
+0;JMP // 3201
 (Output.printChar.ret.4)
-@ADD // 3121
-0;JMP // 3122
-@POP_local_1 // 3123
-0;JMP // 3124
+@ADD // 3202
+0;JMP // 3203
+@POP_local_1 // 3204
+0;JMP // 3205
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -5476,43 +5643,64 @@ M=D // 3118
 //        PushInstruction("constant 0"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Output.printChar$IF_TRUE1}}
-@Output.1_PUSH // 3125
-0;JMP // 3126
-@PUSH_constant_1 // 3127
-0;JMP // 3128
-@AND // 3129
-0;JMP // 3130
-@PUSH_constant_0 // 3131
-0;JMP // 3132
-@EQ // 3133
-0;JMP // 3134
+@Output.1_PUSH // 3206
+0;JMP // 3207
+@PUSH_constant_1 // 3208
+0;JMP // 3209
+@AND // 3210
+0;JMP // 3211
+@PUSH_constant_0 // 3212
+0;JMP // 3213
+@EQ // 3214
+0;JMP // 3215
 // if-goto Output.printChar$IF_TRUE1
-@Output.printChar$IF_TRUE1 // 3135
-D=A // 3136
-@IF_GOTO // 3137
-0;JMP // 3138
+@Output.printChar$IF_TRUE1 // 3216
+D=A // 3217
+@IF_GOTO // 3218
+0;JMP // 3219
 
 ////GotoInstruction{label='Output.printChar$IF_FALSE1}
 // goto Output.printChar$IF_FALSE1
-@Output.printChar$IF_FALSE1 // 3139
-D=A // 3140
-@15 // 3141
-AM=D;JMP // 3142
-0;JMP // 3143
+@Output.printChar$IF_FALSE1 // 3220
+D=A // 3221
+@15 // 3222
+AM=D;JMP // 3223
+0;JMP // 3224
 
 ////LabelInstruction{label='Output.printChar$IF_TRUE1}
 // label Output.printChar$IF_TRUE1
 (Output.printChar$IF_TRUE1)
 
-////PushWriter{source=Dereference(
-//    base:
+////PushWriter{source=BinaryPushGroup(
+//    left:
 //        BinaryPushGroup(
 //            left:
-//                PushInstruction("local 0"),
+//                Dereference(
+//                    base:
+//                        BinaryPushGroup(
+//                            left:
+//                                PushInstruction("local 1"),
+//                            right:
+//                                PushInstruction("constant 0"),
+//                            binaryOp: "ADD"
+//                        )
+//                ),
 //            right:
-//                PushInstruction("local 3"),
-//            binaryOp: "ADD"
-//        )
+//                PushInstruction("constant -256"),
+//            binaryOp: "AND"
+//        ),
+//    right:
+//        Dereference(
+//            base:
+//                BinaryPushGroup(
+//                    left:
+//                        PushInstruction("local 0"),
+//                    right:
+//                        PushInstruction("local 3"),
+//                    binaryOp: "ADD"
+//                )
+//        ),
+//    binaryOp: "OR"
 //), dest=BinaryPushGroup(
 //    left:
 //        PushInstruction("local 1"),
@@ -5520,34 +5708,50 @@ AM=D;JMP // 3142
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_0 // 3144
-0;JMP // 3145
-@PUSH_local_3 // 3146
-0;JMP // 3147
-@ADD // 3148
-0;JMP // 3149
-@POP_pointer_1 // 3150
-0;JMP // 3151
-@PUSH_that_0 // 3152
-0;JMP // 3153
-@PUSH_local_1 // 3154
-0;JMP // 3155
-@PUSH_constant_0 // 3156
-0;JMP // 3157
-@ADD // 3158
-0;JMP // 3159
-@POP_pointer_1 // 3160
-0;JMP // 3161
-@POP_that_0 // 3162
-0;JMP // 3163
+@PUSH_local_1 // 3225
+0;JMP // 3226
+@PUSH_constant_0 // 3227
+0;JMP // 3228
+@ADD // 3229
+0;JMP // 3230
+@POP_pointer_1 // 3231
+0;JMP // 3232
+@PUSH_that_0 // 3233
+0;JMP // 3234
+@PUSH_constant_256_NEG // 3235
+0;JMP // 3236
+@AND // 3237
+0;JMP // 3238
+@PUSH_local_0 // 3239
+0;JMP // 3240
+@PUSH_local_3 // 3241
+0;JMP // 3242
+@ADD // 3243
+0;JMP // 3244
+@POP_pointer_1 // 3245
+0;JMP // 3246
+@PUSH_that_0 // 3247
+0;JMP // 3248
+@OR // 3249
+0;JMP // 3250
+@PUSH_local_1 // 3251
+0;JMP // 3252
+@PUSH_constant_0 // 3253
+0;JMP // 3254
+@ADD // 3255
+0;JMP // 3256
+@POP_pointer_1 // 3257
+0;JMP // 3258
+@POP_that_0 // 3259
+0;JMP // 3260
 
 ////GotoInstruction{label='Output.printChar$IF_END1}
 // goto Output.printChar$IF_END1
-@Output.printChar$IF_END1 // 3164
-D=A // 3165
-@15 // 3166
-AM=D;JMP // 3167
-0;JMP // 3168
+@Output.printChar$IF_END1 // 3261
+D=A // 3262
+@15 // 3263
+AM=D;JMP // 3264
+0;JMP // 3265
 
 ////LabelInstruction{label='Output.printChar$IF_FALSE1}
 // label Output.printChar$IF_FALSE1
@@ -5555,15 +5759,21 @@ AM=D;JMP // 3167
 
 ////PushWriter{source=BinaryPushGroup(
 //    left:
-//        Dereference(
-//            base:
-//                BinaryPushGroup(
-//                    left:
-//                        PushInstruction("local 1"),
-//                    right:
-//                        PushInstruction("constant 0"),
-//                    binaryOp: "ADD"
-//                )
+//        BinaryPushGroup(
+//            left:
+//                Dereference(
+//                    base:
+//                        BinaryPushGroup(
+//                            left:
+//                                PushInstruction("local 1"),
+//                            right:
+//                                PushInstruction("constant 0"),
+//                            binaryOp: "ADD"
+//                        )
+//                ),
+//            right:
+//                PushInstruction("constant 255"),
+//            binaryOp: "AND"
 //        ),
 //    right:
 //CallGroup{pushes=[Dereference(
@@ -5584,52 +5794,56 @@ AM=D;JMP // 3167
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_1 // 3169
-0;JMP // 3170
-@PUSH_constant_0 // 3171
-0;JMP // 3172
-@ADD // 3173
-0;JMP // 3174
-@POP_pointer_1 // 3175
-0;JMP // 3176
-@PUSH_that_0 // 3177
-0;JMP // 3178
-@PUSH_local_0 // 3179
-0;JMP // 3180
-@PUSH_local_3 // 3181
-0;JMP // 3182
-@ADD // 3183
-0;JMP // 3184
-@POP_pointer_1 // 3185
-0;JMP // 3186
-@PUSH_that_0 // 3187
-0;JMP // 3188
-@PUSH_constant_256 // 3189
-0;JMP // 3190
+@PUSH_local_1 // 3266
+0;JMP // 3267
+@PUSH_constant_0 // 3268
+0;JMP // 3269
+@ADD // 3270
+0;JMP // 3271
+@POP_pointer_1 // 3272
+0;JMP // 3273
+@PUSH_that_0 // 3274
+0;JMP // 3275
+@PUSH_constant_255 // 3276
+0;JMP // 3277
+@AND // 3278
+0;JMP // 3279
+@PUSH_local_0 // 3280
+0;JMP // 3281
+@PUSH_local_3 // 3282
+0;JMP // 3283
+@ADD // 3284
+0;JMP // 3285
+@POP_pointer_1 // 3286
+0;JMP // 3287
+@PUSH_that_0 // 3288
+0;JMP // 3289
+@PUSH_constant_256 // 3290
+0;JMP // 3291
 // call Math.multiply
-@7 // 3191
-D=A // 3192
-@14 // 3193
-M=D // 3194
-@Math.multiply // 3195
-D=A // 3196
-@13 // 3197
-M=D // 3198
-@CALL // 3199
-0;JMP // 3200
+@7 // 3292
+D=A // 3293
+@14 // 3294
+M=D // 3295
+@Math.multiply // 3296
+D=A // 3297
+@13 // 3298
+M=D // 3299
+@CALL // 3300
+0;JMP // 3301
 (Output.printChar.ret.9)
-@OR // 3201
-0;JMP // 3202
-@PUSH_local_1 // 3203
-0;JMP // 3204
-@PUSH_constant_0 // 3205
-0;JMP // 3206
-@ADD // 3207
-0;JMP // 3208
-@POP_pointer_1 // 3209
-0;JMP // 3210
-@POP_that_0 // 3211
-0;JMP // 3212
+@OR // 3302
+0;JMP // 3303
+@PUSH_local_1 // 3304
+0;JMP // 3305
+@PUSH_constant_0 // 3306
+0;JMP // 3307
+@ADD // 3308
+0;JMP // 3309
+@POP_pointer_1 // 3310
+0;JMP // 3311
+@POP_that_0 // 3312
+0;JMP // 3313
 
 ////LabelInstruction{label='Output.printChar$IF_END1}
 // label Output.printChar$IF_END1
@@ -5646,22 +5860,22 @@ M=D // 3198
 //  pop:  PopInstruction{address=local 3}
 //}
 
-@PUSH_local_3 // 3213
-0;JMP // 3214
-@PUSH_constant_1 // 3215
-0;JMP // 3216
-@ADD // 3217
-0;JMP // 3218
-@POP_local_3 // 3219
-0;JMP // 3220
+@PUSH_local_3 // 3314
+0;JMP // 3315
+@PUSH_constant_1 // 3316
+0;JMP // 3317
+@ADD // 3318
+0;JMP // 3319
+@POP_local_3 // 3320
+0;JMP // 3321
 
 ////GotoInstruction{label='Output.printChar_WHILE_EXP1}
 // goto Output.printChar_WHILE_EXP1
-@Output.printChar_WHILE_EXP1 // 3221
-D=A // 3222
-@15 // 3223
-AM=D;JMP // 3224
-0;JMP // 3225
+@Output.printChar_WHILE_EXP1 // 3322
+D=A // 3323
+@15 // 3324
+AM=D;JMP // 3325
+0;JMP // 3326
 
 ////LabelInstruction{label='Output.printChar_WHILE_END1}
 // label Output.printChar_WHILE_END1
@@ -5674,25 +5888,25 @@ AM=D;JMP // 3224
 //        PushInstruction("constant 63"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Output.printChar$IF_TRUE2}}
-@Output.1_PUSH // 3226
-0;JMP // 3227
-@PUSH_constant_63 // 3228
-0;JMP // 3229
-@EQ // 3230
-0;JMP // 3231
+@Output.1_PUSH // 3327
+0;JMP // 3328
+@PUSH_constant_63 // 3329
+0;JMP // 3330
+@EQ // 3331
+0;JMP // 3332
 // if-goto Output.printChar$IF_TRUE2
-@Output.printChar$IF_TRUE2 // 3232
-D=A // 3233
-@IF_GOTO // 3234
-0;JMP // 3235
+@Output.printChar$IF_TRUE2 // 3333
+D=A // 3334
+@IF_GOTO // 3335
+0;JMP // 3336
 
 ////GotoInstruction{label='Output.printChar$IF_FALSE2}
 // goto Output.printChar$IF_FALSE2
-@Output.printChar$IF_FALSE2 // 3236
-D=A // 3237
-@15 // 3238
-AM=D;JMP // 3239
-0;JMP // 3240
+@Output.printChar$IF_FALSE2 // 3337
+D=A // 3338
+@15 // 3339
+AM=D;JMP // 3340
+0;JMP // 3341
 
 ////LabelInstruction{label='Output.printChar$IF_TRUE2}
 // label Output.printChar$IF_TRUE2
@@ -5704,27 +5918,27 @@ AM=D;JMP // 3239
 //}
 
 // call Output.println
-@5 // 3241
-D=A // 3242
-@14 // 3243
-M=D // 3244
-@Output.println // 3245
-D=A // 3246
-@13 // 3247
-M=D // 3248
-@CALL // 3249
-0;JMP // 3250
+@5 // 3342
+D=A // 3343
+@14 // 3344
+M=D // 3345
+@Output.println // 3346
+D=A // 3347
+@13 // 3348
+M=D // 3349
+@CALL // 3350
+0;JMP // 3351
 (Output.printChar.ret.11)
-@POP_temp_0 // 3251
-0;JMP // 3252
+@POP_temp_0 // 3352
+0;JMP // 3353
 
 ////GotoInstruction{label='Output.printChar$IF_END2}
 // goto Output.printChar$IF_END2
-@Output.printChar$IF_END2 // 3253
-D=A // 3254
-@15 // 3255
-AM=D;JMP // 3256
-0;JMP // 3257
+@Output.printChar$IF_END2 // 3354
+D=A // 3355
+@15 // 3356
+AM=D;JMP // 3357
+0;JMP // 3358
 
 ////LabelInstruction{label='Output.printChar$IF_FALSE2}
 // label Output.printChar$IF_FALSE2
@@ -5741,24 +5955,24 @@ AM=D;JMP // 3256
 //  pop:  PopInstruction{address=static 1}
 //}
 
-@Output.1 // 3258
-M=M+1 // 3259
-@6 // 3260
-D=A // 3261
-@15 // 3262
-AM=D+M;JMP // 3263
+@Output.1 // 3359
+M=M+1 // 3360
+@6 // 3361
+D=A // 3362
+@15 // 3363
+AM=D+M;JMP // 3364
 
 ////LabelInstruction{label='Output.printChar$IF_END2}
 // label Output.printChar$IF_END2
 (Output.printChar$IF_END2)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 3264
-0;JMP // 3265
+@PUSH_constant_0 // 3365
+0;JMP // 3366
 
 //////Return
-@RETURN // 3266
-0;JMP // 3267
+@RETURN // 3367
+0;JMP // 3368
 
 ////FunctionInstruction{functionName='Memory.remove_node', numLocals=0, funcMapping={Memory.poke=0, Memory.alloc=22, Memory.create_foot=0, Memory.get_best_fit=0, Memory.peek=0, Memory.getBinIndex=3}}
 // function Memory.remove_node with 0
@@ -5781,35 +5995,35 @@ AM=D+M;JMP // 3263
 //        binaryOp: "EQ"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.remove_node$IF_TRUE1}}
-@PUSH_argument_1 // 3268
-0;JMP // 3269
-@PUSH_constant_2 // 3270
-0;JMP // 3271
-@ADD // 3272
-0;JMP // 3273
-@POP_pointer_1 // 3274
-0;JMP // 3275
-@PUSH_that_0 // 3276
-0;JMP // 3277
-@PUSH_constant_0 // 3278
-0;JMP // 3279
-@EQ // 3280
-0;JMP // 3281
-@NOT // 3282
-0;JMP // 3283
+@PUSH_argument_1 // 3369
+0;JMP // 3370
+@PUSH_constant_2 // 3371
+0;JMP // 3372
+@ADD // 3373
+0;JMP // 3374
+@POP_pointer_1 // 3375
+0;JMP // 3376
+@PUSH_that_0 // 3377
+0;JMP // 3378
+@PUSH_constant_0 // 3379
+0;JMP // 3380
+@EQ // 3381
+0;JMP // 3382
+@NOT // 3383
+0;JMP // 3384
 // if-goto Memory.remove_node$IF_TRUE1
-@Memory.remove_node$IF_TRUE1 // 3284
-D=A // 3285
-@IF_GOTO // 3286
-0;JMP // 3287
+@Memory.remove_node$IF_TRUE1 // 3385
+D=A // 3386
+@IF_GOTO // 3387
+0;JMP // 3388
 
 ////GotoInstruction{label='Memory.remove_node$IF_FALSE1}
 // goto Memory.remove_node$IF_FALSE1
-@Memory.remove_node$IF_FALSE1 // 3288
-D=A // 3289
-@15 // 3290
-AM=D;JMP // 3291
-0;JMP // 3292
+@Memory.remove_node$IF_FALSE1 // 3389
+D=A // 3390
+@15 // 3391
+AM=D;JMP // 3392
+0;JMP // 3393
 
 ////LabelInstruction{label='Memory.remove_node$IF_TRUE1}
 // label Memory.remove_node$IF_TRUE1
@@ -5840,42 +6054,42 @@ AM=D;JMP // 3291
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 3293
-0;JMP // 3294
-@PUSH_constant_3 // 3295
-0;JMP // 3296
-@ADD // 3297
-0;JMP // 3298
-@POP_pointer_1 // 3299
-0;JMP // 3300
-@PUSH_that_0 // 3301
-0;JMP // 3302
-@PUSH_argument_1 // 3303
-0;JMP // 3304
-@PUSH_constant_2 // 3305
-0;JMP // 3306
-@ADD // 3307
-0;JMP // 3308
-@POP_pointer_1 // 3309
-0;JMP // 3310
-@PUSH_that_0 // 3311
-0;JMP // 3312
-@PUSH_constant_3 // 3313
-0;JMP // 3314
-@ADD // 3315
-0;JMP // 3316
-@POP_pointer_1 // 3317
-0;JMP // 3318
-@POP_that_0 // 3319
-0;JMP // 3320
+@PUSH_argument_1 // 3394
+0;JMP // 3395
+@PUSH_constant_3 // 3396
+0;JMP // 3397
+@ADD // 3398
+0;JMP // 3399
+@POP_pointer_1 // 3400
+0;JMP // 3401
+@PUSH_that_0 // 3402
+0;JMP // 3403
+@PUSH_argument_1 // 3404
+0;JMP // 3405
+@PUSH_constant_2 // 3406
+0;JMP // 3407
+@ADD // 3408
+0;JMP // 3409
+@POP_pointer_1 // 3410
+0;JMP // 3411
+@PUSH_that_0 // 3412
+0;JMP // 3413
+@PUSH_constant_3 // 3414
+0;JMP // 3415
+@ADD // 3416
+0;JMP // 3417
+@POP_pointer_1 // 3418
+0;JMP // 3419
+@POP_that_0 // 3420
+0;JMP // 3421
 
 ////GotoInstruction{label='Memory.remove_node$IF_END1}
 // goto Memory.remove_node$IF_END1
-@Memory.remove_node$IF_END1 // 3321
-D=A // 3322
-@15 // 3323
-AM=D;JMP // 3324
-0;JMP // 3325
+@Memory.remove_node$IF_END1 // 3422
+D=A // 3423
+@15 // 3424
+AM=D;JMP // 3425
+0;JMP // 3426
 
 ////LabelInstruction{label='Memory.remove_node$IF_FALSE1}
 // label Memory.remove_node$IF_FALSE1
@@ -5897,26 +6111,26 @@ AM=D;JMP // 3324
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 3326
-0;JMP // 3327
-@PUSH_constant_3 // 3328
-0;JMP // 3329
-@ADD // 3330
-0;JMP // 3331
-@POP_pointer_1 // 3332
-0;JMP // 3333
-@PUSH_that_0 // 3334
-0;JMP // 3335
-@PUSH_argument_0 // 3336
-0;JMP // 3337
-@PUSH_constant_0 // 3338
-0;JMP // 3339
-@ADD // 3340
-0;JMP // 3341
-@POP_pointer_1 // 3342
-0;JMP // 3343
-@POP_that_0 // 3344
-0;JMP // 3345
+@PUSH_argument_1 // 3427
+0;JMP // 3428
+@PUSH_constant_3 // 3429
+0;JMP // 3430
+@ADD // 3431
+0;JMP // 3432
+@POP_pointer_1 // 3433
+0;JMP // 3434
+@PUSH_that_0 // 3435
+0;JMP // 3436
+@PUSH_argument_0 // 3437
+0;JMP // 3438
+@PUSH_constant_0 // 3439
+0;JMP // 3440
+@ADD // 3441
+0;JMP // 3442
+@POP_pointer_1 // 3443
+0;JMP // 3444
+@POP_that_0 // 3445
+0;JMP // 3446
 
 ////LabelInstruction{label='Memory.remove_node$IF_END1}
 // label Memory.remove_node$IF_END1
@@ -5939,35 +6153,35 @@ AM=D;JMP // 3324
 //        binaryOp: "EQ"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.remove_node$IF_TRUE2}}
-@PUSH_argument_1 // 3346
-0;JMP // 3347
-@PUSH_constant_3 // 3348
-0;JMP // 3349
-@ADD // 3350
-0;JMP // 3351
-@POP_pointer_1 // 3352
-0;JMP // 3353
-@PUSH_that_0 // 3354
-0;JMP // 3355
-@PUSH_constant_0 // 3356
-0;JMP // 3357
-@EQ // 3358
-0;JMP // 3359
-@NOT // 3360
-0;JMP // 3361
+@PUSH_argument_1 // 3447
+0;JMP // 3448
+@PUSH_constant_3 // 3449
+0;JMP // 3450
+@ADD // 3451
+0;JMP // 3452
+@POP_pointer_1 // 3453
+0;JMP // 3454
+@PUSH_that_0 // 3455
+0;JMP // 3456
+@PUSH_constant_0 // 3457
+0;JMP // 3458
+@EQ // 3459
+0;JMP // 3460
+@NOT // 3461
+0;JMP // 3462
 // if-goto Memory.remove_node$IF_TRUE2
-@Memory.remove_node$IF_TRUE2 // 3362
-D=A // 3363
-@IF_GOTO // 3364
-0;JMP // 3365
+@Memory.remove_node$IF_TRUE2 // 3463
+D=A // 3464
+@IF_GOTO // 3465
+0;JMP // 3466
 
 ////GotoInstruction{label='Memory.remove_node$IF_END2}
 // goto Memory.remove_node$IF_END2
-@Memory.remove_node$IF_END2 // 3366
-D=A // 3367
-@15 // 3368
-AM=D;JMP // 3369
-0;JMP // 3370
+@Memory.remove_node$IF_END2 // 3467
+D=A // 3468
+@15 // 3469
+AM=D;JMP // 3470
+0;JMP // 3471
 
 ////LabelInstruction{label='Memory.remove_node$IF_TRUE2}
 // label Memory.remove_node$IF_TRUE2
@@ -5998,34 +6212,34 @@ AM=D;JMP // 3369
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 3371
-0;JMP // 3372
-@PUSH_constant_2 // 3373
-0;JMP // 3374
-@ADD // 3375
-0;JMP // 3376
-@POP_pointer_1 // 3377
-0;JMP // 3378
-@PUSH_that_0 // 3379
-0;JMP // 3380
-@PUSH_argument_1 // 3381
-0;JMP // 3382
-@PUSH_constant_3 // 3383
-0;JMP // 3384
-@ADD // 3385
-0;JMP // 3386
-@POP_pointer_1 // 3387
-0;JMP // 3388
-@PUSH_that_0 // 3389
-0;JMP // 3390
-@PUSH_constant_2 // 3391
-0;JMP // 3392
-@ADD // 3393
-0;JMP // 3394
-@POP_pointer_1 // 3395
-0;JMP // 3396
-@POP_that_0 // 3397
-0;JMP // 3398
+@PUSH_argument_1 // 3472
+0;JMP // 3473
+@PUSH_constant_2 // 3474
+0;JMP // 3475
+@ADD // 3476
+0;JMP // 3477
+@POP_pointer_1 // 3478
+0;JMP // 3479
+@PUSH_that_0 // 3480
+0;JMP // 3481
+@PUSH_argument_1 // 3482
+0;JMP // 3483
+@PUSH_constant_3 // 3484
+0;JMP // 3485
+@ADD // 3486
+0;JMP // 3487
+@POP_pointer_1 // 3488
+0;JMP // 3489
+@PUSH_that_0 // 3490
+0;JMP // 3491
+@PUSH_constant_2 // 3492
+0;JMP // 3493
+@ADD // 3494
+0;JMP // 3495
+@POP_pointer_1 // 3496
+0;JMP // 3497
+@POP_that_0 // 3498
+0;JMP // 3499
 
 ////LabelInstruction{label='Memory.remove_node$IF_END2}
 // label Memory.remove_node$IF_END2
@@ -6038,18 +6252,18 @@ AM=D;JMP // 3369
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 3399
-0;JMP // 3400
-@PUSH_argument_1 // 3401
-0;JMP // 3402
-@PUSH_constant_2 // 3403
-0;JMP // 3404
-@ADD // 3405
-0;JMP // 3406
-@POP_pointer_1 // 3407
-0;JMP // 3408
-@POP_that_0 // 3409
-0;JMP // 3410
+@PUSH_constant_0 // 3500
+0;JMP // 3501
+@PUSH_argument_1 // 3502
+0;JMP // 3503
+@PUSH_constant_2 // 3504
+0;JMP // 3505
+@ADD // 3506
+0;JMP // 3507
+@POP_pointer_1 // 3508
+0;JMP // 3509
+@POP_that_0 // 3510
+0;JMP // 3511
 
 ////PushWriter{source=PushInstruction("constant 0"), dest=BinaryPushGroup(
 //    left:
@@ -6058,4314 +6272,4314 @@ AM=D;JMP // 3369
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 3411
-0;JMP // 3412
-@PUSH_argument_1 // 3413
-0;JMP // 3414
-@PUSH_constant_3 // 3415
-0;JMP // 3416
-@ADD // 3417
-0;JMP // 3418
-@POP_pointer_1 // 3419
-0;JMP // 3420
-@POP_that_0 // 3421
-0;JMP // 3422
+@PUSH_constant_0 // 3512
+0;JMP // 3513
+@PUSH_argument_1 // 3514
+0;JMP // 3515
+@PUSH_constant_3 // 3516
+0;JMP // 3517
+@ADD // 3518
+0;JMP // 3519
+@POP_pointer_1 // 3520
+0;JMP // 3521
+@POP_that_0 // 3522
+0;JMP // 3523
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 3423
-0;JMP // 3424
+@PUSH_constant_0 // 3524
+0;JMP // 3525
 
 //////Return
-@RETURN // 3425
-0;JMP // 3426
+@RETURN // 3526
+0;JMP // 3527
 
 ////FunctionInstruction{functionName='Output.init', numLocals=1, funcMapping={Output.println=2, Output.backSpace=2, Output.getMap=0, Output.printChar=13, Output.create=2, Output.scroll=13}}
 // function Output.init with 1
 (Output.init)
-@PUSH_constant_0 // 3427
-0;JMP // 3428
+@PUSH_constant_0 // 3528
+0;JMP // 3529
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 127")], call=CallInstruction{Memory.alloc}}
 //  pop:  PopInstruction{address=static 0}
 //}
 
-@PUSH_constant_127 // 3429
-0;JMP // 3430
+@PUSH_constant_127 // 3530
+0;JMP // 3531
 // call Memory.alloc
-@6 // 3431
-D=A // 3432
-@14 // 3433
-M=D // 3434
-@Memory.alloc // 3435
-D=A // 3436
-@13 // 3437
-M=D // 3438
-@CALL // 3439
-0;JMP // 3440
+@6 // 3532
+D=A // 3533
+@14 // 3534
+M=D // 3535
+@Memory.alloc // 3536
+D=A // 3537
+@13 // 3538
+M=D // 3539
+@CALL // 3540
+0;JMP // 3541
 (Output.init.ret.0)
-@Output.0_POP // 3441
-0;JMP // 3442
+@Output.0_POP // 3542
+0;JMP // 3543
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_0 // 3443
-0;JMP // 3444
-@PUSH_constant_63 // 3445
-0;JMP // 3446
-@PUSH_constant_63 // 3447
-0;JMP // 3448
-@PUSH_constant_63 // 3449
-0;JMP // 3450
-@PUSH_constant_63 // 3451
-0;JMP // 3452
-@PUSH_constant_63 // 3453
-0;JMP // 3454
-@PUSH_constant_63 // 3455
-0;JMP // 3456
-@PUSH_constant_63 // 3457
-0;JMP // 3458
-@PUSH_constant_63 // 3459
-0;JMP // 3460
-@PUSH_constant_63 // 3461
-0;JMP // 3462
-@PUSH_constant_0 // 3463
-0;JMP // 3464
-@PUSH_constant_0 // 3465
-0;JMP // 3466
+@PUSH_constant_0 // 3544
+0;JMP // 3545
+@PUSH_constant_63 // 3546
+0;JMP // 3547
+@PUSH_constant_63 // 3548
+0;JMP // 3549
+@PUSH_constant_63 // 3550
+0;JMP // 3551
+@PUSH_constant_63 // 3552
+0;JMP // 3553
+@PUSH_constant_63 // 3554
+0;JMP // 3555
+@PUSH_constant_63 // 3556
+0;JMP // 3557
+@PUSH_constant_63 // 3558
+0;JMP // 3559
+@PUSH_constant_63 // 3560
+0;JMP // 3561
+@PUSH_constant_63 // 3562
+0;JMP // 3563
+@PUSH_constant_0 // 3564
+0;JMP // 3565
+@PUSH_constant_0 // 3566
+0;JMP // 3567
 // call Output.create
-@17 // 3467
-D=A // 3468
-@14 // 3469
-M=D // 3470
-@Output.create // 3471
-D=A // 3472
-@13 // 3473
-M=D // 3474
-@CALL // 3475
-0;JMP // 3476
+@17 // 3568
+D=A // 3569
+@14 // 3570
+M=D // 3571
+@Output.create // 3572
+D=A // 3573
+@13 // 3574
+M=D // 3575
+@CALL // 3576
+0;JMP // 3577
 (Output.init.ret.2)
-@POP_temp_0 // 3477
-0;JMP // 3478
+@POP_temp_0 // 3578
+0;JMP // 3579
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 32"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_32 // 3479
-0;JMP // 3480
-@PUSH_constant_0 // 3481
-0;JMP // 3482
-@PUSH_constant_0 // 3483
-0;JMP // 3484
-@PUSH_constant_0 // 3485
-0;JMP // 3486
-@PUSH_constant_0 // 3487
-0;JMP // 3488
-@PUSH_constant_0 // 3489
-0;JMP // 3490
-@PUSH_constant_0 // 3491
-0;JMP // 3492
-@PUSH_constant_0 // 3493
-0;JMP // 3494
-@PUSH_constant_0 // 3495
-0;JMP // 3496
-@PUSH_constant_0 // 3497
-0;JMP // 3498
-@PUSH_constant_0 // 3499
-0;JMP // 3500
-@PUSH_constant_0 // 3501
-0;JMP // 3502
+@PUSH_constant_32 // 3580
+0;JMP // 3581
+@PUSH_constant_0 // 3582
+0;JMP // 3583
+@PUSH_constant_0 // 3584
+0;JMP // 3585
+@PUSH_constant_0 // 3586
+0;JMP // 3587
+@PUSH_constant_0 // 3588
+0;JMP // 3589
+@PUSH_constant_0 // 3590
+0;JMP // 3591
+@PUSH_constant_0 // 3592
+0;JMP // 3593
+@PUSH_constant_0 // 3594
+0;JMP // 3595
+@PUSH_constant_0 // 3596
+0;JMP // 3597
+@PUSH_constant_0 // 3598
+0;JMP // 3599
+@PUSH_constant_0 // 3600
+0;JMP // 3601
+@PUSH_constant_0 // 3602
+0;JMP // 3603
 // call Output.create
-@17 // 3503
-D=A // 3504
-@14 // 3505
-M=D // 3506
-@Output.create // 3507
-D=A // 3508
-@13 // 3509
-M=D // 3510
-@CALL // 3511
-0;JMP // 3512
+@17 // 3604
+D=A // 3605
+@14 // 3606
+M=D // 3607
+@Output.create // 3608
+D=A // 3609
+@13 // 3610
+M=D // 3611
+@CALL // 3612
+0;JMP // 3613
 (Output.init.ret.4)
-@POP_temp_0 // 3513
-0;JMP // 3514
+@POP_temp_0 // 3614
+0;JMP // 3615
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 33"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_33 // 3515
-0;JMP // 3516
-@PUSH_constant_12 // 3517
-0;JMP // 3518
-@PUSH_constant_30 // 3519
-0;JMP // 3520
-@PUSH_constant_30 // 3521
-0;JMP // 3522
-@PUSH_constant_30 // 3523
-0;JMP // 3524
-@PUSH_constant_12 // 3525
-0;JMP // 3526
-@PUSH_constant_12 // 3527
-0;JMP // 3528
-@PUSH_constant_0 // 3529
-0;JMP // 3530
-@PUSH_constant_12 // 3531
-0;JMP // 3532
-@PUSH_constant_12 // 3533
-0;JMP // 3534
-@PUSH_constant_0 // 3535
-0;JMP // 3536
-@PUSH_constant_0 // 3537
-0;JMP // 3538
+@PUSH_constant_33 // 3616
+0;JMP // 3617
+@PUSH_constant_12 // 3618
+0;JMP // 3619
+@PUSH_constant_30 // 3620
+0;JMP // 3621
+@PUSH_constant_30 // 3622
+0;JMP // 3623
+@PUSH_constant_30 // 3624
+0;JMP // 3625
+@PUSH_constant_12 // 3626
+0;JMP // 3627
+@PUSH_constant_12 // 3628
+0;JMP // 3629
+@PUSH_constant_0 // 3630
+0;JMP // 3631
+@PUSH_constant_12 // 3632
+0;JMP // 3633
+@PUSH_constant_12 // 3634
+0;JMP // 3635
+@PUSH_constant_0 // 3636
+0;JMP // 3637
+@PUSH_constant_0 // 3638
+0;JMP // 3639
 // call Output.create
-@17 // 3539
-D=A // 3540
-@14 // 3541
-M=D // 3542
-@Output.create // 3543
-D=A // 3544
-@13 // 3545
-M=D // 3546
-@CALL // 3547
-0;JMP // 3548
+@17 // 3640
+D=A // 3641
+@14 // 3642
+M=D // 3643
+@Output.create // 3644
+D=A // 3645
+@13 // 3646
+M=D // 3647
+@CALL // 3648
+0;JMP // 3649
 (Output.init.ret.6)
-@POP_temp_0 // 3549
-0;JMP // 3550
+@POP_temp_0 // 3650
+0;JMP // 3651
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 34"), PushInstruction("constant 54"), PushInstruction("constant 54"), PushInstruction("constant 20"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_34 // 3551
-0;JMP // 3552
-@PUSH_constant_54 // 3553
-0;JMP // 3554
-@PUSH_constant_54 // 3555
-0;JMP // 3556
-@PUSH_constant_20 // 3557
-0;JMP // 3558
-@PUSH_constant_0 // 3559
-0;JMP // 3560
-@PUSH_constant_0 // 3561
-0;JMP // 3562
-@PUSH_constant_0 // 3563
-0;JMP // 3564
-@PUSH_constant_0 // 3565
-0;JMP // 3566
-@PUSH_constant_0 // 3567
-0;JMP // 3568
-@PUSH_constant_0 // 3569
-0;JMP // 3570
-@PUSH_constant_0 // 3571
-0;JMP // 3572
-@PUSH_constant_0 // 3573
-0;JMP // 3574
+@PUSH_constant_34 // 3652
+0;JMP // 3653
+@PUSH_constant_54 // 3654
+0;JMP // 3655
+@PUSH_constant_54 // 3656
+0;JMP // 3657
+@PUSH_constant_20 // 3658
+0;JMP // 3659
+@PUSH_constant_0 // 3660
+0;JMP // 3661
+@PUSH_constant_0 // 3662
+0;JMP // 3663
+@PUSH_constant_0 // 3664
+0;JMP // 3665
+@PUSH_constant_0 // 3666
+0;JMP // 3667
+@PUSH_constant_0 // 3668
+0;JMP // 3669
+@PUSH_constant_0 // 3670
+0;JMP // 3671
+@PUSH_constant_0 // 3672
+0;JMP // 3673
+@PUSH_constant_0 // 3674
+0;JMP // 3675
 // call Output.create
-@17 // 3575
-D=A // 3576
-@14 // 3577
-M=D // 3578
-@Output.create // 3579
-D=A // 3580
-@13 // 3581
-M=D // 3582
-@CALL // 3583
-0;JMP // 3584
+@17 // 3676
+D=A // 3677
+@14 // 3678
+M=D // 3679
+@Output.create // 3680
+D=A // 3681
+@13 // 3682
+M=D // 3683
+@CALL // 3684
+0;JMP // 3685
 (Output.init.ret.8)
-@POP_temp_0 // 3585
-0;JMP // 3586
+@POP_temp_0 // 3686
+0;JMP // 3687
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 35"), PushInstruction("constant 0"), PushInstruction("constant 18"), PushInstruction("constant 18"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 18"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 18"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_35 // 3587
-0;JMP // 3588
-@PUSH_constant_0 // 3589
-0;JMP // 3590
-@PUSH_constant_18 // 3591
-0;JMP // 3592
-@PUSH_constant_18 // 3593
-0;JMP // 3594
-@PUSH_constant_63 // 3595
-0;JMP // 3596
-@PUSH_constant_18 // 3597
-0;JMP // 3598
-@PUSH_constant_18 // 3599
-0;JMP // 3600
-@PUSH_constant_63 // 3601
-0;JMP // 3602
-@PUSH_constant_18 // 3603
-0;JMP // 3604
-@PUSH_constant_18 // 3605
-0;JMP // 3606
-@PUSH_constant_0 // 3607
-0;JMP // 3608
-@PUSH_constant_0 // 3609
-0;JMP // 3610
+@PUSH_constant_35 // 3688
+0;JMP // 3689
+@PUSH_constant_0 // 3690
+0;JMP // 3691
+@PUSH_constant_18 // 3692
+0;JMP // 3693
+@PUSH_constant_18 // 3694
+0;JMP // 3695
+@PUSH_constant_63 // 3696
+0;JMP // 3697
+@PUSH_constant_18 // 3698
+0;JMP // 3699
+@PUSH_constant_18 // 3700
+0;JMP // 3701
+@PUSH_constant_63 // 3702
+0;JMP // 3703
+@PUSH_constant_18 // 3704
+0;JMP // 3705
+@PUSH_constant_18 // 3706
+0;JMP // 3707
+@PUSH_constant_0 // 3708
+0;JMP // 3709
+@PUSH_constant_0 // 3710
+0;JMP // 3711
 // call Output.create
-@17 // 3611
-D=A // 3612
-@14 // 3613
-M=D // 3614
-@Output.create // 3615
-D=A // 3616
-@13 // 3617
-M=D // 3618
-@CALL // 3619
-0;JMP // 3620
+@17 // 3712
+D=A // 3713
+@14 // 3714
+M=D // 3715
+@Output.create // 3716
+D=A // 3717
+@13 // 3718
+M=D // 3719
+@CALL // 3720
+0;JMP // 3721
 (Output.init.ret.10)
-@POP_temp_0 // 3621
-0;JMP // 3622
+@POP_temp_0 // 3722
+0;JMP // 3723
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 36"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 3"), PushInstruction("constant 30"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_36 // 3623
-0;JMP // 3624
-@PUSH_constant_12 // 3625
-0;JMP // 3626
-@PUSH_constant_30 // 3627
-0;JMP // 3628
-@PUSH_constant_51 // 3629
-0;JMP // 3630
-@PUSH_constant_3 // 3631
-0;JMP // 3632
-@PUSH_constant_30 // 3633
-0;JMP // 3634
-@PUSH_constant_48 // 3635
-0;JMP // 3636
-@PUSH_constant_51 // 3637
-0;JMP // 3638
-@PUSH_constant_30 // 3639
-0;JMP // 3640
-@PUSH_constant_12 // 3641
-0;JMP // 3642
-@PUSH_constant_12 // 3643
-0;JMP // 3644
-@PUSH_constant_0 // 3645
-0;JMP // 3646
+@PUSH_constant_36 // 3724
+0;JMP // 3725
+@PUSH_constant_12 // 3726
+0;JMP // 3727
+@PUSH_constant_30 // 3728
+0;JMP // 3729
+@PUSH_constant_51 // 3730
+0;JMP // 3731
+@PUSH_constant_3 // 3732
+0;JMP // 3733
+@PUSH_constant_30 // 3734
+0;JMP // 3735
+@PUSH_constant_48 // 3736
+0;JMP // 3737
+@PUSH_constant_51 // 3738
+0;JMP // 3739
+@PUSH_constant_30 // 3740
+0;JMP // 3741
+@PUSH_constant_12 // 3742
+0;JMP // 3743
+@PUSH_constant_12 // 3744
+0;JMP // 3745
+@PUSH_constant_0 // 3746
+0;JMP // 3747
 // call Output.create
-@17 // 3647
-D=A // 3648
-@14 // 3649
-M=D // 3650
-@Output.create // 3651
-D=A // 3652
-@13 // 3653
-M=D // 3654
-@CALL // 3655
-0;JMP // 3656
+@17 // 3748
+D=A // 3749
+@14 // 3750
+M=D // 3751
+@Output.create // 3752
+D=A // 3753
+@13 // 3754
+M=D // 3755
+@CALL // 3756
+0;JMP // 3757
 (Output.init.ret.12)
-@POP_temp_0 // 3657
-0;JMP // 3658
+@POP_temp_0 // 3758
+0;JMP // 3759
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 37"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 51"), PushInstruction("constant 49"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_37 // 3659
-0;JMP // 3660
-@PUSH_constant_0 // 3661
-0;JMP // 3662
-@PUSH_constant_0 // 3663
-0;JMP // 3664
-@PUSH_constant_35 // 3665
-0;JMP // 3666
-@PUSH_constant_51 // 3667
-0;JMP // 3668
-@PUSH_constant_24 // 3669
-0;JMP // 3670
-@PUSH_constant_12 // 3671
-0;JMP // 3672
-@PUSH_constant_6 // 3673
-0;JMP // 3674
-@PUSH_constant_51 // 3675
-0;JMP // 3676
-@PUSH_constant_49 // 3677
-0;JMP // 3678
-@PUSH_constant_0 // 3679
-0;JMP // 3680
-@PUSH_constant_0 // 3681
-0;JMP // 3682
+@PUSH_constant_37 // 3760
+0;JMP // 3761
+@PUSH_constant_0 // 3762
+0;JMP // 3763
+@PUSH_constant_0 // 3764
+0;JMP // 3765
+@PUSH_constant_35 // 3766
+0;JMP // 3767
+@PUSH_constant_51 // 3768
+0;JMP // 3769
+@PUSH_constant_24 // 3770
+0;JMP // 3771
+@PUSH_constant_12 // 3772
+0;JMP // 3773
+@PUSH_constant_6 // 3774
+0;JMP // 3775
+@PUSH_constant_51 // 3776
+0;JMP // 3777
+@PUSH_constant_49 // 3778
+0;JMP // 3779
+@PUSH_constant_0 // 3780
+0;JMP // 3781
+@PUSH_constant_0 // 3782
+0;JMP // 3783
 // call Output.create
-@17 // 3683
-D=A // 3684
-@14 // 3685
-M=D // 3686
-@Output.create // 3687
-D=A // 3688
-@13 // 3689
-M=D // 3690
-@CALL // 3691
-0;JMP // 3692
+@17 // 3784
+D=A // 3785
+@14 // 3786
+M=D // 3787
+@Output.create // 3788
+D=A // 3789
+@13 // 3790
+M=D // 3791
+@CALL // 3792
+0;JMP // 3793
 (Output.init.ret.14)
-@POP_temp_0 // 3693
-0;JMP // 3694
+@POP_temp_0 // 3794
+0;JMP // 3795
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 38"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 54"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_38 // 3695
-0;JMP // 3696
-@PUSH_constant_12 // 3697
-0;JMP // 3698
-@PUSH_constant_30 // 3699
-0;JMP // 3700
-@PUSH_constant_30 // 3701
-0;JMP // 3702
-@PUSH_constant_12 // 3703
-0;JMP // 3704
-@PUSH_constant_54 // 3705
-0;JMP // 3706
-@PUSH_constant_27 // 3707
-0;JMP // 3708
-@PUSH_constant_27 // 3709
-0;JMP // 3710
-@PUSH_constant_27 // 3711
-0;JMP // 3712
-@PUSH_constant_54 // 3713
-0;JMP // 3714
-@PUSH_constant_0 // 3715
-0;JMP // 3716
-@PUSH_constant_0 // 3717
-0;JMP // 3718
+@PUSH_constant_38 // 3796
+0;JMP // 3797
+@PUSH_constant_12 // 3798
+0;JMP // 3799
+@PUSH_constant_30 // 3800
+0;JMP // 3801
+@PUSH_constant_30 // 3802
+0;JMP // 3803
+@PUSH_constant_12 // 3804
+0;JMP // 3805
+@PUSH_constant_54 // 3806
+0;JMP // 3807
+@PUSH_constant_27 // 3808
+0;JMP // 3809
+@PUSH_constant_27 // 3810
+0;JMP // 3811
+@PUSH_constant_27 // 3812
+0;JMP // 3813
+@PUSH_constant_54 // 3814
+0;JMP // 3815
+@PUSH_constant_0 // 3816
+0;JMP // 3817
+@PUSH_constant_0 // 3818
+0;JMP // 3819
 // call Output.create
-@17 // 3719
-D=A // 3720
-@14 // 3721
-M=D // 3722
-@Output.create // 3723
-D=A // 3724
-@13 // 3725
-M=D // 3726
-@CALL // 3727
-0;JMP // 3728
+@17 // 3820
+D=A // 3821
+@14 // 3822
+M=D // 3823
+@Output.create // 3824
+D=A // 3825
+@13 // 3826
+M=D // 3827
+@CALL // 3828
+0;JMP // 3829
 (Output.init.ret.16)
-@POP_temp_0 // 3729
-0;JMP // 3730
+@POP_temp_0 // 3830
+0;JMP // 3831
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 39"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_39 // 3731
-0;JMP // 3732
-@PUSH_constant_12 // 3733
-0;JMP // 3734
-@PUSH_constant_12 // 3735
-0;JMP // 3736
-@PUSH_constant_6 // 3737
-0;JMP // 3738
-@PUSH_constant_0 // 3739
-0;JMP // 3740
-@PUSH_constant_0 // 3741
-0;JMP // 3742
-@PUSH_constant_0 // 3743
-0;JMP // 3744
-@PUSH_constant_0 // 3745
-0;JMP // 3746
-@PUSH_constant_0 // 3747
-0;JMP // 3748
-@PUSH_constant_0 // 3749
-0;JMP // 3750
-@PUSH_constant_0 // 3751
-0;JMP // 3752
-@PUSH_constant_0 // 3753
-0;JMP // 3754
+@PUSH_constant_39 // 3832
+0;JMP // 3833
+@PUSH_constant_12 // 3834
+0;JMP // 3835
+@PUSH_constant_12 // 3836
+0;JMP // 3837
+@PUSH_constant_6 // 3838
+0;JMP // 3839
+@PUSH_constant_0 // 3840
+0;JMP // 3841
+@PUSH_constant_0 // 3842
+0;JMP // 3843
+@PUSH_constant_0 // 3844
+0;JMP // 3845
+@PUSH_constant_0 // 3846
+0;JMP // 3847
+@PUSH_constant_0 // 3848
+0;JMP // 3849
+@PUSH_constant_0 // 3850
+0;JMP // 3851
+@PUSH_constant_0 // 3852
+0;JMP // 3853
+@PUSH_constant_0 // 3854
+0;JMP // 3855
 // call Output.create
-@17 // 3755
-D=A // 3756
-@14 // 3757
-M=D // 3758
-@Output.create // 3759
-D=A // 3760
-@13 // 3761
-M=D // 3762
-@CALL // 3763
-0;JMP // 3764
+@17 // 3856
+D=A // 3857
+@14 // 3858
+M=D // 3859
+@Output.create // 3860
+D=A // 3861
+@13 // 3862
+M=D // 3863
+@CALL // 3864
+0;JMP // 3865
 (Output.init.ret.18)
-@POP_temp_0 // 3765
-0;JMP // 3766
+@POP_temp_0 // 3866
+0;JMP // 3867
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 40"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_40 // 3767
-0;JMP // 3768
-@PUSH_constant_24 // 3769
-0;JMP // 3770
-@PUSH_constant_12 // 3771
-0;JMP // 3772
-@PUSH_constant_6 // 3773
-0;JMP // 3774
-@PUSH_constant_6 // 3775
-0;JMP // 3776
-@PUSH_constant_6 // 3777
-0;JMP // 3778
-@PUSH_constant_6 // 3779
-0;JMP // 3780
-@PUSH_constant_6 // 3781
-0;JMP // 3782
-@PUSH_constant_12 // 3783
-0;JMP // 3784
-@PUSH_constant_24 // 3785
-0;JMP // 3786
-@PUSH_constant_0 // 3787
-0;JMP // 3788
-@PUSH_constant_0 // 3789
-0;JMP // 3790
+@PUSH_constant_40 // 3868
+0;JMP // 3869
+@PUSH_constant_24 // 3870
+0;JMP // 3871
+@PUSH_constant_12 // 3872
+0;JMP // 3873
+@PUSH_constant_6 // 3874
+0;JMP // 3875
+@PUSH_constant_6 // 3876
+0;JMP // 3877
+@PUSH_constant_6 // 3878
+0;JMP // 3879
+@PUSH_constant_6 // 3880
+0;JMP // 3881
+@PUSH_constant_6 // 3882
+0;JMP // 3883
+@PUSH_constant_12 // 3884
+0;JMP // 3885
+@PUSH_constant_24 // 3886
+0;JMP // 3887
+@PUSH_constant_0 // 3888
+0;JMP // 3889
+@PUSH_constant_0 // 3890
+0;JMP // 3891
 // call Output.create
-@17 // 3791
-D=A // 3792
-@14 // 3793
-M=D // 3794
-@Output.create // 3795
-D=A // 3796
-@13 // 3797
-M=D // 3798
-@CALL // 3799
-0;JMP // 3800
+@17 // 3892
+D=A // 3893
+@14 // 3894
+M=D // 3895
+@Output.create // 3896
+D=A // 3897
+@13 // 3898
+M=D // 3899
+@CALL // 3900
+0;JMP // 3901
 (Output.init.ret.20)
-@POP_temp_0 // 3801
-0;JMP // 3802
+@POP_temp_0 // 3902
+0;JMP // 3903
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 41"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_41 // 3803
-0;JMP // 3804
-@PUSH_constant_6 // 3805
-0;JMP // 3806
-@PUSH_constant_12 // 3807
-0;JMP // 3808
-@PUSH_constant_24 // 3809
-0;JMP // 3810
-@PUSH_constant_24 // 3811
-0;JMP // 3812
-@PUSH_constant_24 // 3813
-0;JMP // 3814
-@PUSH_constant_24 // 3815
-0;JMP // 3816
-@PUSH_constant_24 // 3817
-0;JMP // 3818
-@PUSH_constant_12 // 3819
-0;JMP // 3820
-@PUSH_constant_6 // 3821
-0;JMP // 3822
-@PUSH_constant_0 // 3823
-0;JMP // 3824
-@PUSH_constant_0 // 3825
-0;JMP // 3826
+@PUSH_constant_41 // 3904
+0;JMP // 3905
+@PUSH_constant_6 // 3906
+0;JMP // 3907
+@PUSH_constant_12 // 3908
+0;JMP // 3909
+@PUSH_constant_24 // 3910
+0;JMP // 3911
+@PUSH_constant_24 // 3912
+0;JMP // 3913
+@PUSH_constant_24 // 3914
+0;JMP // 3915
+@PUSH_constant_24 // 3916
+0;JMP // 3917
+@PUSH_constant_24 // 3918
+0;JMP // 3919
+@PUSH_constant_12 // 3920
+0;JMP // 3921
+@PUSH_constant_6 // 3922
+0;JMP // 3923
+@PUSH_constant_0 // 3924
+0;JMP // 3925
+@PUSH_constant_0 // 3926
+0;JMP // 3927
 // call Output.create
-@17 // 3827
-D=A // 3828
-@14 // 3829
-M=D // 3830
-@Output.create // 3831
-D=A // 3832
-@13 // 3833
-M=D // 3834
-@CALL // 3835
-0;JMP // 3836
+@17 // 3928
+D=A // 3929
+@14 // 3930
+M=D // 3931
+@Output.create // 3932
+D=A // 3933
+@13 // 3934
+M=D // 3935
+@CALL // 3936
+0;JMP // 3937
 (Output.init.ret.22)
-@POP_temp_0 // 3837
-0;JMP // 3838
+@POP_temp_0 // 3938
+0;JMP // 3939
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 42"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 63"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_42 // 3839
-0;JMP // 3840
-@PUSH_constant_0 // 3841
-0;JMP // 3842
-@PUSH_constant_0 // 3843
-0;JMP // 3844
-@PUSH_constant_0 // 3845
-0;JMP // 3846
-@PUSH_constant_51 // 3847
-0;JMP // 3848
-@PUSH_constant_30 // 3849
-0;JMP // 3850
-@PUSH_constant_63 // 3851
-0;JMP // 3852
-@PUSH_constant_30 // 3853
-0;JMP // 3854
-@PUSH_constant_51 // 3855
-0;JMP // 3856
-@PUSH_constant_0 // 3857
-0;JMP // 3858
-@PUSH_constant_0 // 3859
-0;JMP // 3860
-@PUSH_constant_0 // 3861
-0;JMP // 3862
+@PUSH_constant_42 // 3940
+0;JMP // 3941
+@PUSH_constant_0 // 3942
+0;JMP // 3943
+@PUSH_constant_0 // 3944
+0;JMP // 3945
+@PUSH_constant_0 // 3946
+0;JMP // 3947
+@PUSH_constant_51 // 3948
+0;JMP // 3949
+@PUSH_constant_30 // 3950
+0;JMP // 3951
+@PUSH_constant_63 // 3952
+0;JMP // 3953
+@PUSH_constant_30 // 3954
+0;JMP // 3955
+@PUSH_constant_51 // 3956
+0;JMP // 3957
+@PUSH_constant_0 // 3958
+0;JMP // 3959
+@PUSH_constant_0 // 3960
+0;JMP // 3961
+@PUSH_constant_0 // 3962
+0;JMP // 3963
 // call Output.create
-@17 // 3863
-D=A // 3864
-@14 // 3865
-M=D // 3866
-@Output.create // 3867
-D=A // 3868
-@13 // 3869
-M=D // 3870
-@CALL // 3871
-0;JMP // 3872
+@17 // 3964
+D=A // 3965
+@14 // 3966
+M=D // 3967
+@Output.create // 3968
+D=A // 3969
+@13 // 3970
+M=D // 3971
+@CALL // 3972
+0;JMP // 3973
 (Output.init.ret.24)
-@POP_temp_0 // 3873
-0;JMP // 3874
+@POP_temp_0 // 3974
+0;JMP // 3975
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 43"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 63"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_43 // 3875
-0;JMP // 3876
-@PUSH_constant_0 // 3877
-0;JMP // 3878
-@PUSH_constant_0 // 3879
-0;JMP // 3880
-@PUSH_constant_0 // 3881
-0;JMP // 3882
-@PUSH_constant_12 // 3883
-0;JMP // 3884
-@PUSH_constant_12 // 3885
-0;JMP // 3886
-@PUSH_constant_63 // 3887
-0;JMP // 3888
-@PUSH_constant_12 // 3889
-0;JMP // 3890
-@PUSH_constant_12 // 3891
-0;JMP // 3892
-@PUSH_constant_0 // 3893
-0;JMP // 3894
-@PUSH_constant_0 // 3895
-0;JMP // 3896
-@PUSH_constant_0 // 3897
-0;JMP // 3898
+@PUSH_constant_43 // 3976
+0;JMP // 3977
+@PUSH_constant_0 // 3978
+0;JMP // 3979
+@PUSH_constant_0 // 3980
+0;JMP // 3981
+@PUSH_constant_0 // 3982
+0;JMP // 3983
+@PUSH_constant_12 // 3984
+0;JMP // 3985
+@PUSH_constant_12 // 3986
+0;JMP // 3987
+@PUSH_constant_63 // 3988
+0;JMP // 3989
+@PUSH_constant_12 // 3990
+0;JMP // 3991
+@PUSH_constant_12 // 3992
+0;JMP // 3993
+@PUSH_constant_0 // 3994
+0;JMP // 3995
+@PUSH_constant_0 // 3996
+0;JMP // 3997
+@PUSH_constant_0 // 3998
+0;JMP // 3999
 // call Output.create
-@17 // 3899
-D=A // 3900
-@14 // 3901
-M=D // 3902
-@Output.create // 3903
-D=A // 3904
-@13 // 3905
-M=D // 3906
-@CALL // 3907
-0;JMP // 3908
+@17 // 4000
+D=A // 4001
+@14 // 4002
+M=D // 4003
+@Output.create // 4004
+D=A // 4005
+@13 // 4006
+M=D // 4007
+@CALL // 4008
+0;JMP // 4009
 (Output.init.ret.26)
-@POP_temp_0 // 3909
-0;JMP // 3910
+@POP_temp_0 // 4010
+0;JMP // 4011
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 44"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_44 // 3911
-0;JMP // 3912
-@PUSH_constant_0 // 3913
-0;JMP // 3914
-@PUSH_constant_0 // 3915
-0;JMP // 3916
-@PUSH_constant_0 // 3917
-0;JMP // 3918
-@PUSH_constant_0 // 3919
-0;JMP // 3920
-@PUSH_constant_0 // 3921
-0;JMP // 3922
-@PUSH_constant_0 // 3923
-0;JMP // 3924
-@PUSH_constant_0 // 3925
-0;JMP // 3926
-@PUSH_constant_12 // 3927
-0;JMP // 3928
-@PUSH_constant_12 // 3929
-0;JMP // 3930
-@PUSH_constant_6 // 3931
-0;JMP // 3932
-@PUSH_constant_0 // 3933
-0;JMP // 3934
+@PUSH_constant_44 // 4012
+0;JMP // 4013
+@PUSH_constant_0 // 4014
+0;JMP // 4015
+@PUSH_constant_0 // 4016
+0;JMP // 4017
+@PUSH_constant_0 // 4018
+0;JMP // 4019
+@PUSH_constant_0 // 4020
+0;JMP // 4021
+@PUSH_constant_0 // 4022
+0;JMP // 4023
+@PUSH_constant_0 // 4024
+0;JMP // 4025
+@PUSH_constant_0 // 4026
+0;JMP // 4027
+@PUSH_constant_12 // 4028
+0;JMP // 4029
+@PUSH_constant_12 // 4030
+0;JMP // 4031
+@PUSH_constant_6 // 4032
+0;JMP // 4033
+@PUSH_constant_0 // 4034
+0;JMP // 4035
 // call Output.create
-@17 // 3935
-D=A // 3936
-@14 // 3937
-M=D // 3938
-@Output.create // 3939
-D=A // 3940
-@13 // 3941
-M=D // 3942
-@CALL // 3943
-0;JMP // 3944
+@17 // 4036
+D=A // 4037
+@14 // 4038
+M=D // 4039
+@Output.create // 4040
+D=A // 4041
+@13 // 4042
+M=D // 4043
+@CALL // 4044
+0;JMP // 4045
 (Output.init.ret.28)
-@POP_temp_0 // 3945
-0;JMP // 3946
+@POP_temp_0 // 4046
+0;JMP // 4047
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 45"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_45 // 3947
-0;JMP // 3948
-@PUSH_constant_0 // 3949
-0;JMP // 3950
-@PUSH_constant_0 // 3951
-0;JMP // 3952
-@PUSH_constant_0 // 3953
-0;JMP // 3954
-@PUSH_constant_0 // 3955
-0;JMP // 3956
-@PUSH_constant_0 // 3957
-0;JMP // 3958
-@PUSH_constant_63 // 3959
-0;JMP // 3960
-@PUSH_constant_0 // 3961
-0;JMP // 3962
-@PUSH_constant_0 // 3963
-0;JMP // 3964
-@PUSH_constant_0 // 3965
-0;JMP // 3966
-@PUSH_constant_0 // 3967
-0;JMP // 3968
-@PUSH_constant_0 // 3969
-0;JMP // 3970
+@PUSH_constant_45 // 4048
+0;JMP // 4049
+@PUSH_constant_0 // 4050
+0;JMP // 4051
+@PUSH_constant_0 // 4052
+0;JMP // 4053
+@PUSH_constant_0 // 4054
+0;JMP // 4055
+@PUSH_constant_0 // 4056
+0;JMP // 4057
+@PUSH_constant_0 // 4058
+0;JMP // 4059
+@PUSH_constant_63 // 4060
+0;JMP // 4061
+@PUSH_constant_0 // 4062
+0;JMP // 4063
+@PUSH_constant_0 // 4064
+0;JMP // 4065
+@PUSH_constant_0 // 4066
+0;JMP // 4067
+@PUSH_constant_0 // 4068
+0;JMP // 4069
+@PUSH_constant_0 // 4070
+0;JMP // 4071
 // call Output.create
-@17 // 3971
-D=A // 3972
-@14 // 3973
-M=D // 3974
-@Output.create // 3975
-D=A // 3976
-@13 // 3977
-M=D // 3978
-@CALL // 3979
-0;JMP // 3980
+@17 // 4072
+D=A // 4073
+@14 // 4074
+M=D // 4075
+@Output.create // 4076
+D=A // 4077
+@13 // 4078
+M=D // 4079
+@CALL // 4080
+0;JMP // 4081
 (Output.init.ret.30)
-@POP_temp_0 // 3981
-0;JMP // 3982
+@POP_temp_0 // 4082
+0;JMP // 4083
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 46"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_46 // 3983
-0;JMP // 3984
-@PUSH_constant_0 // 3985
-0;JMP // 3986
-@PUSH_constant_0 // 3987
-0;JMP // 3988
-@PUSH_constant_0 // 3989
-0;JMP // 3990
-@PUSH_constant_0 // 3991
-0;JMP // 3992
-@PUSH_constant_0 // 3993
-0;JMP // 3994
-@PUSH_constant_0 // 3995
-0;JMP // 3996
-@PUSH_constant_0 // 3997
-0;JMP // 3998
-@PUSH_constant_12 // 3999
-0;JMP // 4000
-@PUSH_constant_12 // 4001
-0;JMP // 4002
-@PUSH_constant_0 // 4003
-0;JMP // 4004
-@PUSH_constant_0 // 4005
-0;JMP // 4006
+@PUSH_constant_46 // 4084
+0;JMP // 4085
+@PUSH_constant_0 // 4086
+0;JMP // 4087
+@PUSH_constant_0 // 4088
+0;JMP // 4089
+@PUSH_constant_0 // 4090
+0;JMP // 4091
+@PUSH_constant_0 // 4092
+0;JMP // 4093
+@PUSH_constant_0 // 4094
+0;JMP // 4095
+@PUSH_constant_0 // 4096
+0;JMP // 4097
+@PUSH_constant_0 // 4098
+0;JMP // 4099
+@PUSH_constant_12 // 4100
+0;JMP // 4101
+@PUSH_constant_12 // 4102
+0;JMP // 4103
+@PUSH_constant_0 // 4104
+0;JMP // 4105
+@PUSH_constant_0 // 4106
+0;JMP // 4107
 // call Output.create
-@17 // 4007
-D=A // 4008
-@14 // 4009
-M=D // 4010
-@Output.create // 4011
-D=A // 4012
-@13 // 4013
-M=D // 4014
-@CALL // 4015
-0;JMP // 4016
+@17 // 4108
+D=A // 4109
+@14 // 4110
+M=D // 4111
+@Output.create // 4112
+D=A // 4113
+@13 // 4114
+M=D // 4115
+@CALL // 4116
+0;JMP // 4117
 (Output.init.ret.32)
-@POP_temp_0 // 4017
-0;JMP // 4018
+@POP_temp_0 // 4118
+0;JMP // 4119
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 47"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 32"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 1"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_47 // 4019
-0;JMP // 4020
-@PUSH_constant_0 // 4021
-0;JMP // 4022
-@PUSH_constant_0 // 4023
-0;JMP // 4024
-@PUSH_constant_32 // 4025
-0;JMP // 4026
-@PUSH_constant_48 // 4027
-0;JMP // 4028
-@PUSH_constant_24 // 4029
-0;JMP // 4030
-@PUSH_constant_12 // 4031
-0;JMP // 4032
-@PUSH_constant_6 // 4033
-0;JMP // 4034
-@PUSH_constant_3 // 4035
-0;JMP // 4036
-@PUSH_constant_1 // 4037
-0;JMP // 4038
-@PUSH_constant_0 // 4039
-0;JMP // 4040
-@PUSH_constant_0 // 4041
-0;JMP // 4042
+@PUSH_constant_47 // 4120
+0;JMP // 4121
+@PUSH_constant_0 // 4122
+0;JMP // 4123
+@PUSH_constant_0 // 4124
+0;JMP // 4125
+@PUSH_constant_32 // 4126
+0;JMP // 4127
+@PUSH_constant_48 // 4128
+0;JMP // 4129
+@PUSH_constant_24 // 4130
+0;JMP // 4131
+@PUSH_constant_12 // 4132
+0;JMP // 4133
+@PUSH_constant_6 // 4134
+0;JMP // 4135
+@PUSH_constant_3 // 4136
+0;JMP // 4137
+@PUSH_constant_1 // 4138
+0;JMP // 4139
+@PUSH_constant_0 // 4140
+0;JMP // 4141
+@PUSH_constant_0 // 4142
+0;JMP // 4143
 // call Output.create
-@17 // 4043
-D=A // 4044
-@14 // 4045
-M=D // 4046
-@Output.create // 4047
-D=A // 4048
-@13 // 4049
-M=D // 4050
-@CALL // 4051
-0;JMP // 4052
+@17 // 4144
+D=A // 4145
+@14 // 4146
+M=D // 4147
+@Output.create // 4148
+D=A // 4149
+@13 // 4150
+M=D // 4151
+@CALL // 4152
+0;JMP // 4153
 (Output.init.ret.34)
-@POP_temp_0 // 4053
-0;JMP // 4054
+@POP_temp_0 // 4154
+0;JMP // 4155
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 48"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_48 // 4055
-0;JMP // 4056
-@PUSH_constant_12 // 4057
-0;JMP // 4058
-@PUSH_constant_30 // 4059
-0;JMP // 4060
-@PUSH_constant_51 // 4061
-0;JMP // 4062
-@PUSH_constant_51 // 4063
-0;JMP // 4064
-@PUSH_constant_51 // 4065
-0;JMP // 4066
-@PUSH_constant_51 // 4067
-0;JMP // 4068
-@PUSH_constant_51 // 4069
-0;JMP // 4070
-@PUSH_constant_30 // 4071
-0;JMP // 4072
-@PUSH_constant_12 // 4073
-0;JMP // 4074
-@PUSH_constant_0 // 4075
-0;JMP // 4076
-@PUSH_constant_0 // 4077
-0;JMP // 4078
+@PUSH_constant_48 // 4156
+0;JMP // 4157
+@PUSH_constant_12 // 4158
+0;JMP // 4159
+@PUSH_constant_30 // 4160
+0;JMP // 4161
+@PUSH_constant_51 // 4162
+0;JMP // 4163
+@PUSH_constant_51 // 4164
+0;JMP // 4165
+@PUSH_constant_51 // 4166
+0;JMP // 4167
+@PUSH_constant_51 // 4168
+0;JMP // 4169
+@PUSH_constant_51 // 4170
+0;JMP // 4171
+@PUSH_constant_30 // 4172
+0;JMP // 4173
+@PUSH_constant_12 // 4174
+0;JMP // 4175
+@PUSH_constant_0 // 4176
+0;JMP // 4177
+@PUSH_constant_0 // 4178
+0;JMP // 4179
 // call Output.create
-@17 // 4079
-D=A // 4080
-@14 // 4081
-M=D // 4082
-@Output.create // 4083
-D=A // 4084
-@13 // 4085
-M=D // 4086
-@CALL // 4087
-0;JMP // 4088
+@17 // 4180
+D=A // 4181
+@14 // 4182
+M=D // 4183
+@Output.create // 4184
+D=A // 4185
+@13 // 4186
+M=D // 4187
+@CALL // 4188
+0;JMP // 4189
 (Output.init.ret.36)
-@POP_temp_0 // 4089
-0;JMP // 4090
+@POP_temp_0 // 4190
+0;JMP // 4191
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 49"), PushInstruction("constant 12"), PushInstruction("constant 14"), PushInstruction("constant 15"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_49 // 4091
-0;JMP // 4092
-@PUSH_constant_12 // 4093
-0;JMP // 4094
-@PUSH_constant_14 // 4095
-0;JMP // 4096
-@PUSH_constant_15 // 4097
-0;JMP // 4098
-@PUSH_constant_12 // 4099
-0;JMP // 4100
-@PUSH_constant_12 // 4101
-0;JMP // 4102
-@PUSH_constant_12 // 4103
-0;JMP // 4104
-@PUSH_constant_12 // 4105
-0;JMP // 4106
-@PUSH_constant_12 // 4107
-0;JMP // 4108
-@PUSH_constant_63 // 4109
-0;JMP // 4110
-@PUSH_constant_0 // 4111
-0;JMP // 4112
-@PUSH_constant_0 // 4113
-0;JMP // 4114
+@PUSH_constant_49 // 4192
+0;JMP // 4193
+@PUSH_constant_12 // 4194
+0;JMP // 4195
+@PUSH_constant_14 // 4196
+0;JMP // 4197
+@PUSH_constant_15 // 4198
+0;JMP // 4199
+@PUSH_constant_12 // 4200
+0;JMP // 4201
+@PUSH_constant_12 // 4202
+0;JMP // 4203
+@PUSH_constant_12 // 4204
+0;JMP // 4205
+@PUSH_constant_12 // 4206
+0;JMP // 4207
+@PUSH_constant_12 // 4208
+0;JMP // 4209
+@PUSH_constant_63 // 4210
+0;JMP // 4211
+@PUSH_constant_0 // 4212
+0;JMP // 4213
+@PUSH_constant_0 // 4214
+0;JMP // 4215
 // call Output.create
-@17 // 4115
-D=A // 4116
-@14 // 4117
-M=D // 4118
-@Output.create // 4119
-D=A // 4120
-@13 // 4121
-M=D // 4122
-@CALL // 4123
-0;JMP // 4124
+@17 // 4216
+D=A // 4217
+@14 // 4218
+M=D // 4219
+@Output.create // 4220
+D=A // 4221
+@13 // 4222
+M=D // 4223
+@CALL // 4224
+0;JMP // 4225
 (Output.init.ret.38)
-@POP_temp_0 // 4125
-0;JMP // 4126
+@POP_temp_0 // 4226
+0;JMP // 4227
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 50"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_50 // 4127
-0;JMP // 4128
-@PUSH_constant_30 // 4129
-0;JMP // 4130
-@PUSH_constant_51 // 4131
-0;JMP // 4132
-@PUSH_constant_48 // 4133
-0;JMP // 4134
-@PUSH_constant_24 // 4135
-0;JMP // 4136
-@PUSH_constant_12 // 4137
-0;JMP // 4138
-@PUSH_constant_6 // 4139
-0;JMP // 4140
-@PUSH_constant_3 // 4141
-0;JMP // 4142
-@PUSH_constant_51 // 4143
-0;JMP // 4144
-@PUSH_constant_63 // 4145
-0;JMP // 4146
-@PUSH_constant_0 // 4147
-0;JMP // 4148
-@PUSH_constant_0 // 4149
-0;JMP // 4150
+@PUSH_constant_50 // 4228
+0;JMP // 4229
+@PUSH_constant_30 // 4230
+0;JMP // 4231
+@PUSH_constant_51 // 4232
+0;JMP // 4233
+@PUSH_constant_48 // 4234
+0;JMP // 4235
+@PUSH_constant_24 // 4236
+0;JMP // 4237
+@PUSH_constant_12 // 4238
+0;JMP // 4239
+@PUSH_constant_6 // 4240
+0;JMP // 4241
+@PUSH_constant_3 // 4242
+0;JMP // 4243
+@PUSH_constant_51 // 4244
+0;JMP // 4245
+@PUSH_constant_63 // 4246
+0;JMP // 4247
+@PUSH_constant_0 // 4248
+0;JMP // 4249
+@PUSH_constant_0 // 4250
+0;JMP // 4251
 // call Output.create
-@17 // 4151
-D=A // 4152
-@14 // 4153
-M=D // 4154
-@Output.create // 4155
-D=A // 4156
-@13 // 4157
-M=D // 4158
-@CALL // 4159
-0;JMP // 4160
+@17 // 4252
+D=A // 4253
+@14 // 4254
+M=D // 4255
+@Output.create // 4256
+D=A // 4257
+@13 // 4258
+M=D // 4259
+@CALL // 4260
+0;JMP // 4261
 (Output.init.ret.40)
-@POP_temp_0 // 4161
-0;JMP // 4162
+@POP_temp_0 // 4262
+0;JMP // 4263
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 28"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_51 // 4163
-0;JMP // 4164
-@PUSH_constant_30 // 4165
-0;JMP // 4166
-@PUSH_constant_51 // 4167
-0;JMP // 4168
-@PUSH_constant_48 // 4169
-0;JMP // 4170
-@PUSH_constant_48 // 4171
-0;JMP // 4172
-@PUSH_constant_28 // 4173
-0;JMP // 4174
-@PUSH_constant_48 // 4175
-0;JMP // 4176
-@PUSH_constant_48 // 4177
-0;JMP // 4178
-@PUSH_constant_51 // 4179
-0;JMP // 4180
-@PUSH_constant_30 // 4181
-0;JMP // 4182
-@PUSH_constant_0 // 4183
-0;JMP // 4184
-@PUSH_constant_0 // 4185
-0;JMP // 4186
+@PUSH_constant_51 // 4264
+0;JMP // 4265
+@PUSH_constant_30 // 4266
+0;JMP // 4267
+@PUSH_constant_51 // 4268
+0;JMP // 4269
+@PUSH_constant_48 // 4270
+0;JMP // 4271
+@PUSH_constant_48 // 4272
+0;JMP // 4273
+@PUSH_constant_28 // 4274
+0;JMP // 4275
+@PUSH_constant_48 // 4276
+0;JMP // 4277
+@PUSH_constant_48 // 4278
+0;JMP // 4279
+@PUSH_constant_51 // 4280
+0;JMP // 4281
+@PUSH_constant_30 // 4282
+0;JMP // 4283
+@PUSH_constant_0 // 4284
+0;JMP // 4285
+@PUSH_constant_0 // 4286
+0;JMP // 4287
 // call Output.create
-@17 // 4187
-D=A // 4188
-@14 // 4189
-M=D // 4190
-@Output.create // 4191
-D=A // 4192
-@13 // 4193
-M=D // 4194
-@CALL // 4195
-0;JMP // 4196
+@17 // 4288
+D=A // 4289
+@14 // 4290
+M=D // 4291
+@Output.create // 4292
+D=A // 4293
+@13 // 4294
+M=D // 4295
+@CALL // 4296
+0;JMP // 4297
 (Output.init.ret.42)
-@POP_temp_0 // 4197
-0;JMP // 4198
+@POP_temp_0 // 4298
+0;JMP // 4299
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 52"), PushInstruction("constant 16"), PushInstruction("constant 24"), PushInstruction("constant 28"), PushInstruction("constant 26"), PushInstruction("constant 25"), PushInstruction("constant 63"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 60"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_52 // 4199
-0;JMP // 4200
-@PUSH_constant_16 // 4201
-0;JMP // 4202
-@PUSH_constant_24 // 4203
-0;JMP // 4204
-@PUSH_constant_28 // 4205
-0;JMP // 4206
-@PUSH_constant_26 // 4207
-0;JMP // 4208
-@PUSH_constant_25 // 4209
-0;JMP // 4210
-@PUSH_constant_63 // 4211
-0;JMP // 4212
-@PUSH_constant_24 // 4213
-0;JMP // 4214
-@PUSH_constant_24 // 4215
-0;JMP // 4216
-@PUSH_constant_60 // 4217
-0;JMP // 4218
-@PUSH_constant_0 // 4219
-0;JMP // 4220
-@PUSH_constant_0 // 4221
-0;JMP // 4222
+@PUSH_constant_52 // 4300
+0;JMP // 4301
+@PUSH_constant_16 // 4302
+0;JMP // 4303
+@PUSH_constant_24 // 4304
+0;JMP // 4305
+@PUSH_constant_28 // 4306
+0;JMP // 4307
+@PUSH_constant_26 // 4308
+0;JMP // 4309
+@PUSH_constant_25 // 4310
+0;JMP // 4311
+@PUSH_constant_63 // 4312
+0;JMP // 4313
+@PUSH_constant_24 // 4314
+0;JMP // 4315
+@PUSH_constant_24 // 4316
+0;JMP // 4317
+@PUSH_constant_60 // 4318
+0;JMP // 4319
+@PUSH_constant_0 // 4320
+0;JMP // 4321
+@PUSH_constant_0 // 4322
+0;JMP // 4323
 // call Output.create
-@17 // 4223
-D=A // 4224
-@14 // 4225
-M=D // 4226
-@Output.create // 4227
-D=A // 4228
-@13 // 4229
-M=D // 4230
-@CALL // 4231
-0;JMP // 4232
+@17 // 4324
+D=A // 4325
+@14 // 4326
+M=D // 4327
+@Output.create // 4328
+D=A // 4329
+@13 // 4330
+M=D // 4331
+@CALL // 4332
+0;JMP // 4333
 (Output.init.ret.44)
-@POP_temp_0 // 4233
-0;JMP // 4234
+@POP_temp_0 // 4334
+0;JMP // 4335
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 53"), PushInstruction("constant 63"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 31"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_53 // 4235
-0;JMP // 4236
-@PUSH_constant_63 // 4237
-0;JMP // 4238
-@PUSH_constant_3 // 4239
-0;JMP // 4240
-@PUSH_constant_3 // 4241
-0;JMP // 4242
-@PUSH_constant_31 // 4243
-0;JMP // 4244
-@PUSH_constant_48 // 4245
-0;JMP // 4246
-@PUSH_constant_48 // 4247
-0;JMP // 4248
-@PUSH_constant_48 // 4249
-0;JMP // 4250
-@PUSH_constant_51 // 4251
-0;JMP // 4252
-@PUSH_constant_30 // 4253
-0;JMP // 4254
-@PUSH_constant_0 // 4255
-0;JMP // 4256
-@PUSH_constant_0 // 4257
-0;JMP // 4258
+@PUSH_constant_53 // 4336
+0;JMP // 4337
+@PUSH_constant_63 // 4338
+0;JMP // 4339
+@PUSH_constant_3 // 4340
+0;JMP // 4341
+@PUSH_constant_3 // 4342
+0;JMP // 4343
+@PUSH_constant_31 // 4344
+0;JMP // 4345
+@PUSH_constant_48 // 4346
+0;JMP // 4347
+@PUSH_constant_48 // 4348
+0;JMP // 4349
+@PUSH_constant_48 // 4350
+0;JMP // 4351
+@PUSH_constant_51 // 4352
+0;JMP // 4353
+@PUSH_constant_30 // 4354
+0;JMP // 4355
+@PUSH_constant_0 // 4356
+0;JMP // 4357
+@PUSH_constant_0 // 4358
+0;JMP // 4359
 // call Output.create
-@17 // 4259
-D=A // 4260
-@14 // 4261
-M=D // 4262
-@Output.create // 4263
-D=A // 4264
-@13 // 4265
-M=D // 4266
-@CALL // 4267
-0;JMP // 4268
+@17 // 4360
+D=A // 4361
+@14 // 4362
+M=D // 4363
+@Output.create // 4364
+D=A // 4365
+@13 // 4366
+M=D // 4367
+@CALL // 4368
+0;JMP // 4369
 (Output.init.ret.46)
-@POP_temp_0 // 4269
-0;JMP // 4270
+@POP_temp_0 // 4370
+0;JMP // 4371
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 54"), PushInstruction("constant 28"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_54 // 4271
-0;JMP // 4272
-@PUSH_constant_28 // 4273
-0;JMP // 4274
-@PUSH_constant_6 // 4275
-0;JMP // 4276
-@PUSH_constant_3 // 4277
-0;JMP // 4278
-@PUSH_constant_3 // 4279
-0;JMP // 4280
-@PUSH_constant_31 // 4281
-0;JMP // 4282
-@PUSH_constant_51 // 4283
-0;JMP // 4284
-@PUSH_constant_51 // 4285
-0;JMP // 4286
-@PUSH_constant_51 // 4287
-0;JMP // 4288
-@PUSH_constant_30 // 4289
-0;JMP // 4290
-@PUSH_constant_0 // 4291
-0;JMP // 4292
-@PUSH_constant_0 // 4293
-0;JMP // 4294
+@PUSH_constant_54 // 4372
+0;JMP // 4373
+@PUSH_constant_28 // 4374
+0;JMP // 4375
+@PUSH_constant_6 // 4376
+0;JMP // 4377
+@PUSH_constant_3 // 4378
+0;JMP // 4379
+@PUSH_constant_3 // 4380
+0;JMP // 4381
+@PUSH_constant_31 // 4382
+0;JMP // 4383
+@PUSH_constant_51 // 4384
+0;JMP // 4385
+@PUSH_constant_51 // 4386
+0;JMP // 4387
+@PUSH_constant_51 // 4388
+0;JMP // 4389
+@PUSH_constant_30 // 4390
+0;JMP // 4391
+@PUSH_constant_0 // 4392
+0;JMP // 4393
+@PUSH_constant_0 // 4394
+0;JMP // 4395
 // call Output.create
-@17 // 4295
-D=A // 4296
-@14 // 4297
-M=D // 4298
-@Output.create // 4299
-D=A // 4300
-@13 // 4301
-M=D // 4302
-@CALL // 4303
-0;JMP // 4304
+@17 // 4396
+D=A // 4397
+@14 // 4398
+M=D // 4399
+@Output.create // 4400
+D=A // 4401
+@13 // 4402
+M=D // 4403
+@CALL // 4404
+0;JMP // 4405
 (Output.init.ret.48)
-@POP_temp_0 // 4305
-0;JMP // 4306
+@POP_temp_0 // 4406
+0;JMP // 4407
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 55"), PushInstruction("constant 63"), PushInstruction("constant 49"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_55 // 4307
-0;JMP // 4308
-@PUSH_constant_63 // 4309
-0;JMP // 4310
-@PUSH_constant_49 // 4311
-0;JMP // 4312
-@PUSH_constant_48 // 4313
-0;JMP // 4314
-@PUSH_constant_48 // 4315
-0;JMP // 4316
-@PUSH_constant_24 // 4317
-0;JMP // 4318
-@PUSH_constant_12 // 4319
-0;JMP // 4320
-@PUSH_constant_12 // 4321
-0;JMP // 4322
-@PUSH_constant_12 // 4323
-0;JMP // 4324
-@PUSH_constant_12 // 4325
-0;JMP // 4326
-@PUSH_constant_0 // 4327
-0;JMP // 4328
-@PUSH_constant_0 // 4329
-0;JMP // 4330
+@PUSH_constant_55 // 4408
+0;JMP // 4409
+@PUSH_constant_63 // 4410
+0;JMP // 4411
+@PUSH_constant_49 // 4412
+0;JMP // 4413
+@PUSH_constant_48 // 4414
+0;JMP // 4415
+@PUSH_constant_48 // 4416
+0;JMP // 4417
+@PUSH_constant_24 // 4418
+0;JMP // 4419
+@PUSH_constant_12 // 4420
+0;JMP // 4421
+@PUSH_constant_12 // 4422
+0;JMP // 4423
+@PUSH_constant_12 // 4424
+0;JMP // 4425
+@PUSH_constant_12 // 4426
+0;JMP // 4427
+@PUSH_constant_0 // 4428
+0;JMP // 4429
+@PUSH_constant_0 // 4430
+0;JMP // 4431
 // call Output.create
-@17 // 4331
-D=A // 4332
-@14 // 4333
-M=D // 4334
-@Output.create // 4335
-D=A // 4336
-@13 // 4337
-M=D // 4338
-@CALL // 4339
-0;JMP // 4340
+@17 // 4432
+D=A // 4433
+@14 // 4434
+M=D // 4435
+@Output.create // 4436
+D=A // 4437
+@13 // 4438
+M=D // 4439
+@CALL // 4440
+0;JMP // 4441
 (Output.init.ret.50)
-@POP_temp_0 // 4341
-0;JMP // 4342
+@POP_temp_0 // 4442
+0;JMP // 4443
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 56"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_56 // 4343
-0;JMP // 4344
-@PUSH_constant_30 // 4345
-0;JMP // 4346
-@PUSH_constant_51 // 4347
-0;JMP // 4348
-@PUSH_constant_51 // 4349
-0;JMP // 4350
-@PUSH_constant_51 // 4351
-0;JMP // 4352
-@PUSH_constant_30 // 4353
-0;JMP // 4354
-@PUSH_constant_51 // 4355
-0;JMP // 4356
-@PUSH_constant_51 // 4357
-0;JMP // 4358
-@PUSH_constant_51 // 4359
-0;JMP // 4360
-@PUSH_constant_30 // 4361
-0;JMP // 4362
-@PUSH_constant_0 // 4363
-0;JMP // 4364
-@PUSH_constant_0 // 4365
-0;JMP // 4366
+@PUSH_constant_56 // 4444
+0;JMP // 4445
+@PUSH_constant_30 // 4446
+0;JMP // 4447
+@PUSH_constant_51 // 4448
+0;JMP // 4449
+@PUSH_constant_51 // 4450
+0;JMP // 4451
+@PUSH_constant_51 // 4452
+0;JMP // 4453
+@PUSH_constant_30 // 4454
+0;JMP // 4455
+@PUSH_constant_51 // 4456
+0;JMP // 4457
+@PUSH_constant_51 // 4458
+0;JMP // 4459
+@PUSH_constant_51 // 4460
+0;JMP // 4461
+@PUSH_constant_30 // 4462
+0;JMP // 4463
+@PUSH_constant_0 // 4464
+0;JMP // 4465
+@PUSH_constant_0 // 4466
+0;JMP // 4467
 // call Output.create
-@17 // 4367
-D=A // 4368
-@14 // 4369
-M=D // 4370
-@Output.create // 4371
-D=A // 4372
-@13 // 4373
-M=D // 4374
-@CALL // 4375
-0;JMP // 4376
+@17 // 4468
+D=A // 4469
+@14 // 4470
+M=D // 4471
+@Output.create // 4472
+D=A // 4473
+@13 // 4474
+M=D // 4475
+@CALL // 4476
+0;JMP // 4477
 (Output.init.ret.52)
-@POP_temp_0 // 4377
-0;JMP // 4378
+@POP_temp_0 // 4478
+0;JMP // 4479
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 57"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 14"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_57 // 4379
-0;JMP // 4380
-@PUSH_constant_30 // 4381
-0;JMP // 4382
-@PUSH_constant_51 // 4383
-0;JMP // 4384
-@PUSH_constant_51 // 4385
-0;JMP // 4386
-@PUSH_constant_51 // 4387
-0;JMP // 4388
-@PUSH_constant_62 // 4389
-0;JMP // 4390
-@PUSH_constant_48 // 4391
-0;JMP // 4392
-@PUSH_constant_48 // 4393
-0;JMP // 4394
-@PUSH_constant_24 // 4395
-0;JMP // 4396
-@PUSH_constant_14 // 4397
-0;JMP // 4398
-@PUSH_constant_0 // 4399
-0;JMP // 4400
-@PUSH_constant_0 // 4401
-0;JMP // 4402
+@PUSH_constant_57 // 4480
+0;JMP // 4481
+@PUSH_constant_30 // 4482
+0;JMP // 4483
+@PUSH_constant_51 // 4484
+0;JMP // 4485
+@PUSH_constant_51 // 4486
+0;JMP // 4487
+@PUSH_constant_51 // 4488
+0;JMP // 4489
+@PUSH_constant_62 // 4490
+0;JMP // 4491
+@PUSH_constant_48 // 4492
+0;JMP // 4493
+@PUSH_constant_48 // 4494
+0;JMP // 4495
+@PUSH_constant_24 // 4496
+0;JMP // 4497
+@PUSH_constant_14 // 4498
+0;JMP // 4499
+@PUSH_constant_0 // 4500
+0;JMP // 4501
+@PUSH_constant_0 // 4502
+0;JMP // 4503
 // call Output.create
-@17 // 4403
-D=A // 4404
-@14 // 4405
-M=D // 4406
-@Output.create // 4407
-D=A // 4408
-@13 // 4409
-M=D // 4410
-@CALL // 4411
-0;JMP // 4412
+@17 // 4504
+D=A // 4505
+@14 // 4506
+M=D // 4507
+@Output.create // 4508
+D=A // 4509
+@13 // 4510
+M=D // 4511
+@CALL // 4512
+0;JMP // 4513
 (Output.init.ret.54)
-@POP_temp_0 // 4413
-0;JMP // 4414
+@POP_temp_0 // 4514
+0;JMP // 4515
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 58"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_58 // 4415
-0;JMP // 4416
-@PUSH_constant_0 // 4417
-0;JMP // 4418
-@PUSH_constant_0 // 4419
-0;JMP // 4420
-@PUSH_constant_12 // 4421
-0;JMP // 4422
-@PUSH_constant_12 // 4423
-0;JMP // 4424
-@PUSH_constant_0 // 4425
-0;JMP // 4426
-@PUSH_constant_0 // 4427
-0;JMP // 4428
-@PUSH_constant_12 // 4429
-0;JMP // 4430
-@PUSH_constant_12 // 4431
-0;JMP // 4432
-@PUSH_constant_0 // 4433
-0;JMP // 4434
-@PUSH_constant_0 // 4435
-0;JMP // 4436
-@PUSH_constant_0 // 4437
-0;JMP // 4438
+@PUSH_constant_58 // 4516
+0;JMP // 4517
+@PUSH_constant_0 // 4518
+0;JMP // 4519
+@PUSH_constant_0 // 4520
+0;JMP // 4521
+@PUSH_constant_12 // 4522
+0;JMP // 4523
+@PUSH_constant_12 // 4524
+0;JMP // 4525
+@PUSH_constant_0 // 4526
+0;JMP // 4527
+@PUSH_constant_0 // 4528
+0;JMP // 4529
+@PUSH_constant_12 // 4530
+0;JMP // 4531
+@PUSH_constant_12 // 4532
+0;JMP // 4533
+@PUSH_constant_0 // 4534
+0;JMP // 4535
+@PUSH_constant_0 // 4536
+0;JMP // 4537
+@PUSH_constant_0 // 4538
+0;JMP // 4539
 // call Output.create
-@17 // 4439
-D=A // 4440
-@14 // 4441
-M=D // 4442
-@Output.create // 4443
-D=A // 4444
-@13 // 4445
-M=D // 4446
-@CALL // 4447
-0;JMP // 4448
+@17 // 4540
+D=A // 4541
+@14 // 4542
+M=D // 4543
+@Output.create // 4544
+D=A // 4545
+@13 // 4546
+M=D // 4547
+@CALL // 4548
+0;JMP // 4549
 (Output.init.ret.56)
-@POP_temp_0 // 4449
-0;JMP // 4450
+@POP_temp_0 // 4550
+0;JMP // 4551
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 59"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_59 // 4451
-0;JMP // 4452
-@PUSH_constant_0 // 4453
-0;JMP // 4454
-@PUSH_constant_0 // 4455
-0;JMP // 4456
-@PUSH_constant_12 // 4457
-0;JMP // 4458
-@PUSH_constant_12 // 4459
-0;JMP // 4460
-@PUSH_constant_0 // 4461
-0;JMP // 4462
-@PUSH_constant_0 // 4463
-0;JMP // 4464
-@PUSH_constant_12 // 4465
-0;JMP // 4466
-@PUSH_constant_12 // 4467
-0;JMP // 4468
-@PUSH_constant_6 // 4469
-0;JMP // 4470
-@PUSH_constant_0 // 4471
-0;JMP // 4472
-@PUSH_constant_0 // 4473
-0;JMP // 4474
+@PUSH_constant_59 // 4552
+0;JMP // 4553
+@PUSH_constant_0 // 4554
+0;JMP // 4555
+@PUSH_constant_0 // 4556
+0;JMP // 4557
+@PUSH_constant_12 // 4558
+0;JMP // 4559
+@PUSH_constant_12 // 4560
+0;JMP // 4561
+@PUSH_constant_0 // 4562
+0;JMP // 4563
+@PUSH_constant_0 // 4564
+0;JMP // 4565
+@PUSH_constant_12 // 4566
+0;JMP // 4567
+@PUSH_constant_12 // 4568
+0;JMP // 4569
+@PUSH_constant_6 // 4570
+0;JMP // 4571
+@PUSH_constant_0 // 4572
+0;JMP // 4573
+@PUSH_constant_0 // 4574
+0;JMP // 4575
 // call Output.create
-@17 // 4475
-D=A // 4476
-@14 // 4477
-M=D // 4478
-@Output.create // 4479
-D=A // 4480
-@13 // 4481
-M=D // 4482
-@CALL // 4483
-0;JMP // 4484
+@17 // 4576
+D=A // 4577
+@14 // 4578
+M=D // 4579
+@Output.create // 4580
+D=A // 4581
+@13 // 4582
+M=D // 4583
+@CALL // 4584
+0;JMP // 4585
 (Output.init.ret.58)
-@POP_temp_0 // 4485
-0;JMP // 4486
+@POP_temp_0 // 4586
+0;JMP // 4587
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 60"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_60 // 4487
-0;JMP // 4488
-@PUSH_constant_0 // 4489
-0;JMP // 4490
-@PUSH_constant_0 // 4491
-0;JMP // 4492
-@PUSH_constant_24 // 4493
-0;JMP // 4494
-@PUSH_constant_12 // 4495
-0;JMP // 4496
-@PUSH_constant_6 // 4497
-0;JMP // 4498
-@PUSH_constant_3 // 4499
-0;JMP // 4500
-@PUSH_constant_6 // 4501
-0;JMP // 4502
-@PUSH_constant_12 // 4503
-0;JMP // 4504
-@PUSH_constant_24 // 4505
-0;JMP // 4506
-@PUSH_constant_0 // 4507
-0;JMP // 4508
-@PUSH_constant_0 // 4509
-0;JMP // 4510
+@PUSH_constant_60 // 4588
+0;JMP // 4589
+@PUSH_constant_0 // 4590
+0;JMP // 4591
+@PUSH_constant_0 // 4592
+0;JMP // 4593
+@PUSH_constant_24 // 4594
+0;JMP // 4595
+@PUSH_constant_12 // 4596
+0;JMP // 4597
+@PUSH_constant_6 // 4598
+0;JMP // 4599
+@PUSH_constant_3 // 4600
+0;JMP // 4601
+@PUSH_constant_6 // 4602
+0;JMP // 4603
+@PUSH_constant_12 // 4604
+0;JMP // 4605
+@PUSH_constant_24 // 4606
+0;JMP // 4607
+@PUSH_constant_0 // 4608
+0;JMP // 4609
+@PUSH_constant_0 // 4610
+0;JMP // 4611
 // call Output.create
-@17 // 4511
-D=A // 4512
-@14 // 4513
-M=D // 4514
-@Output.create // 4515
-D=A // 4516
-@13 // 4517
-M=D // 4518
-@CALL // 4519
-0;JMP // 4520
+@17 // 4612
+D=A // 4613
+@14 // 4614
+M=D // 4615
+@Output.create // 4616
+D=A // 4617
+@13 // 4618
+M=D // 4619
+@CALL // 4620
+0;JMP // 4621
 (Output.init.ret.60)
-@POP_temp_0 // 4521
-0;JMP // 4522
+@POP_temp_0 // 4622
+0;JMP // 4623
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 61"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_61 // 4523
-0;JMP // 4524
-@PUSH_constant_0 // 4525
-0;JMP // 4526
-@PUSH_constant_0 // 4527
-0;JMP // 4528
-@PUSH_constant_0 // 4529
-0;JMP // 4530
-@PUSH_constant_63 // 4531
-0;JMP // 4532
-@PUSH_constant_0 // 4533
-0;JMP // 4534
-@PUSH_constant_0 // 4535
-0;JMP // 4536
-@PUSH_constant_63 // 4537
-0;JMP // 4538
-@PUSH_constant_0 // 4539
-0;JMP // 4540
-@PUSH_constant_0 // 4541
-0;JMP // 4542
-@PUSH_constant_0 // 4543
-0;JMP // 4544
-@PUSH_constant_0 // 4545
-0;JMP // 4546
+@PUSH_constant_61 // 4624
+0;JMP // 4625
+@PUSH_constant_0 // 4626
+0;JMP // 4627
+@PUSH_constant_0 // 4628
+0;JMP // 4629
+@PUSH_constant_0 // 4630
+0;JMP // 4631
+@PUSH_constant_63 // 4632
+0;JMP // 4633
+@PUSH_constant_0 // 4634
+0;JMP // 4635
+@PUSH_constant_0 // 4636
+0;JMP // 4637
+@PUSH_constant_63 // 4638
+0;JMP // 4639
+@PUSH_constant_0 // 4640
+0;JMP // 4641
+@PUSH_constant_0 // 4642
+0;JMP // 4643
+@PUSH_constant_0 // 4644
+0;JMP // 4645
+@PUSH_constant_0 // 4646
+0;JMP // 4647
 // call Output.create
-@17 // 4547
-D=A // 4548
-@14 // 4549
-M=D // 4550
-@Output.create // 4551
-D=A // 4552
-@13 // 4553
-M=D // 4554
-@CALL // 4555
-0;JMP // 4556
+@17 // 4648
+D=A // 4649
+@14 // 4650
+M=D // 4651
+@Output.create // 4652
+D=A // 4653
+@13 // 4654
+M=D // 4655
+@CALL // 4656
+0;JMP // 4657
 (Output.init.ret.62)
-@POP_temp_0 // 4557
-0;JMP // 4558
+@POP_temp_0 // 4658
+0;JMP // 4659
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 62"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 3"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 3"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_62 // 4559
-0;JMP // 4560
-@PUSH_constant_0 // 4561
-0;JMP // 4562
-@PUSH_constant_0 // 4563
-0;JMP // 4564
-@PUSH_constant_3 // 4565
-0;JMP // 4566
-@PUSH_constant_6 // 4567
-0;JMP // 4568
-@PUSH_constant_12 // 4569
-0;JMP // 4570
-@PUSH_constant_24 // 4571
-0;JMP // 4572
-@PUSH_constant_12 // 4573
-0;JMP // 4574
-@PUSH_constant_6 // 4575
-0;JMP // 4576
-@PUSH_constant_3 // 4577
-0;JMP // 4578
-@PUSH_constant_0 // 4579
-0;JMP // 4580
-@PUSH_constant_0 // 4581
-0;JMP // 4582
+@PUSH_constant_62 // 4660
+0;JMP // 4661
+@PUSH_constant_0 // 4662
+0;JMP // 4663
+@PUSH_constant_0 // 4664
+0;JMP // 4665
+@PUSH_constant_3 // 4666
+0;JMP // 4667
+@PUSH_constant_6 // 4668
+0;JMP // 4669
+@PUSH_constant_12 // 4670
+0;JMP // 4671
+@PUSH_constant_24 // 4672
+0;JMP // 4673
+@PUSH_constant_12 // 4674
+0;JMP // 4675
+@PUSH_constant_6 // 4676
+0;JMP // 4677
+@PUSH_constant_3 // 4678
+0;JMP // 4679
+@PUSH_constant_0 // 4680
+0;JMP // 4681
+@PUSH_constant_0 // 4682
+0;JMP // 4683
 // call Output.create
-@17 // 4583
-D=A // 4584
-@14 // 4585
-M=D // 4586
-@Output.create // 4587
-D=A // 4588
-@13 // 4589
-M=D // 4590
-@CALL // 4591
-0;JMP // 4592
+@17 // 4684
+D=A // 4685
+@14 // 4686
+M=D // 4687
+@Output.create // 4688
+D=A // 4689
+@13 // 4690
+M=D // 4691
+@CALL // 4692
+0;JMP // 4693
 (Output.init.ret.64)
-@POP_temp_0 // 4593
-0;JMP // 4594
+@POP_temp_0 // 4694
+0;JMP // 4695
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 64"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 59"), PushInstruction("constant 59"), PushInstruction("constant 59"), PushInstruction("constant 27"), PushInstruction("constant 3"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_64 // 4595
-0;JMP // 4596
-@PUSH_constant_30 // 4597
-0;JMP // 4598
-@PUSH_constant_51 // 4599
-0;JMP // 4600
-@PUSH_constant_51 // 4601
-0;JMP // 4602
-@PUSH_constant_59 // 4603
-0;JMP // 4604
-@PUSH_constant_59 // 4605
-0;JMP // 4606
-@PUSH_constant_59 // 4607
-0;JMP // 4608
-@PUSH_constant_27 // 4609
-0;JMP // 4610
-@PUSH_constant_3 // 4611
-0;JMP // 4612
-@PUSH_constant_30 // 4613
-0;JMP // 4614
-@PUSH_constant_0 // 4615
-0;JMP // 4616
-@PUSH_constant_0 // 4617
-0;JMP // 4618
+@PUSH_constant_64 // 4696
+0;JMP // 4697
+@PUSH_constant_30 // 4698
+0;JMP // 4699
+@PUSH_constant_51 // 4700
+0;JMP // 4701
+@PUSH_constant_51 // 4702
+0;JMP // 4703
+@PUSH_constant_59 // 4704
+0;JMP // 4705
+@PUSH_constant_59 // 4706
+0;JMP // 4707
+@PUSH_constant_59 // 4708
+0;JMP // 4709
+@PUSH_constant_27 // 4710
+0;JMP // 4711
+@PUSH_constant_3 // 4712
+0;JMP // 4713
+@PUSH_constant_30 // 4714
+0;JMP // 4715
+@PUSH_constant_0 // 4716
+0;JMP // 4717
+@PUSH_constant_0 // 4718
+0;JMP // 4719
 // call Output.create
-@17 // 4619
-D=A // 4620
-@14 // 4621
-M=D // 4622
-@Output.create // 4623
-D=A // 4624
-@13 // 4625
-M=D // 4626
-@CALL // 4627
-0;JMP // 4628
+@17 // 4720
+D=A // 4721
+@14 // 4722
+M=D // 4723
+@Output.create // 4724
+D=A // 4725
+@13 // 4726
+M=D // 4727
+@CALL // 4728
+0;JMP // 4729
 (Output.init.ret.66)
-@POP_temp_0 // 4629
-0;JMP // 4630
+@POP_temp_0 // 4730
+0;JMP // 4731
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 63"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_63 // 4631
-0;JMP // 4632
-@PUSH_constant_30 // 4633
-0;JMP // 4634
-@PUSH_constant_51 // 4635
-0;JMP // 4636
-@PUSH_constant_51 // 4637
-0;JMP // 4638
-@PUSH_constant_24 // 4639
-0;JMP // 4640
-@PUSH_constant_12 // 4641
-0;JMP // 4642
-@PUSH_constant_12 // 4643
-0;JMP // 4644
-@PUSH_constant_0 // 4645
-0;JMP // 4646
-@PUSH_constant_12 // 4647
-0;JMP // 4648
-@PUSH_constant_12 // 4649
-0;JMP // 4650
-@PUSH_constant_0 // 4651
-0;JMP // 4652
-@PUSH_constant_0 // 4653
-0;JMP // 4654
+@PUSH_constant_63 // 4732
+0;JMP // 4733
+@PUSH_constant_30 // 4734
+0;JMP // 4735
+@PUSH_constant_51 // 4736
+0;JMP // 4737
+@PUSH_constant_51 // 4738
+0;JMP // 4739
+@PUSH_constant_24 // 4740
+0;JMP // 4741
+@PUSH_constant_12 // 4742
+0;JMP // 4743
+@PUSH_constant_12 // 4744
+0;JMP // 4745
+@PUSH_constant_0 // 4746
+0;JMP // 4747
+@PUSH_constant_12 // 4748
+0;JMP // 4749
+@PUSH_constant_12 // 4750
+0;JMP // 4751
+@PUSH_constant_0 // 4752
+0;JMP // 4753
+@PUSH_constant_0 // 4754
+0;JMP // 4755
 // call Output.create
-@17 // 4655
-D=A // 4656
-@14 // 4657
-M=D // 4658
-@Output.create // 4659
-D=A // 4660
-@13 // 4661
-M=D // 4662
-@CALL // 4663
-0;JMP // 4664
+@17 // 4756
+D=A // 4757
+@14 // 4758
+M=D // 4759
+@Output.create // 4760
+D=A // 4761
+@13 // 4762
+M=D // 4763
+@CALL // 4764
+0;JMP // 4765
 (Output.init.ret.68)
-@POP_temp_0 // 4665
-0;JMP // 4666
+@POP_temp_0 // 4766
+0;JMP // 4767
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 65"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_65 // 4667
-0;JMP // 4668
-@PUSH_constant_12 // 4669
-0;JMP // 4670
-@PUSH_constant_30 // 4671
-0;JMP // 4672
-@PUSH_constant_51 // 4673
-0;JMP // 4674
-@PUSH_constant_51 // 4675
-0;JMP // 4676
-@PUSH_constant_63 // 4677
-0;JMP // 4678
-@PUSH_constant_51 // 4679
-0;JMP // 4680
-@PUSH_constant_51 // 4681
-0;JMP // 4682
-@PUSH_constant_51 // 4683
-0;JMP // 4684
-@PUSH_constant_51 // 4685
-0;JMP // 4686
-@PUSH_constant_0 // 4687
-0;JMP // 4688
-@PUSH_constant_0 // 4689
-0;JMP // 4690
+@PUSH_constant_65 // 4768
+0;JMP // 4769
+@PUSH_constant_12 // 4770
+0;JMP // 4771
+@PUSH_constant_30 // 4772
+0;JMP // 4773
+@PUSH_constant_51 // 4774
+0;JMP // 4775
+@PUSH_constant_51 // 4776
+0;JMP // 4777
+@PUSH_constant_63 // 4778
+0;JMP // 4779
+@PUSH_constant_51 // 4780
+0;JMP // 4781
+@PUSH_constant_51 // 4782
+0;JMP // 4783
+@PUSH_constant_51 // 4784
+0;JMP // 4785
+@PUSH_constant_51 // 4786
+0;JMP // 4787
+@PUSH_constant_0 // 4788
+0;JMP // 4789
+@PUSH_constant_0 // 4790
+0;JMP // 4791
 // call Output.create
-@17 // 4691
-D=A // 4692
-@14 // 4693
-M=D // 4694
-@Output.create // 4695
-D=A // 4696
-@13 // 4697
-M=D // 4698
-@CALL // 4699
-0;JMP // 4700
+@17 // 4792
+D=A // 4793
+@14 // 4794
+M=D // 4795
+@Output.create // 4796
+D=A // 4797
+@13 // 4798
+M=D // 4799
+@CALL // 4800
+0;JMP // 4801
 (Output.init.ret.70)
-@POP_temp_0 // 4701
-0;JMP // 4702
+@POP_temp_0 // 4802
+0;JMP // 4803
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 66"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_66 // 4703
-0;JMP // 4704
-@PUSH_constant_31 // 4705
-0;JMP // 4706
-@PUSH_constant_51 // 4707
-0;JMP // 4708
-@PUSH_constant_51 // 4709
-0;JMP // 4710
-@PUSH_constant_51 // 4711
-0;JMP // 4712
-@PUSH_constant_31 // 4713
-0;JMP // 4714
-@PUSH_constant_51 // 4715
-0;JMP // 4716
-@PUSH_constant_51 // 4717
-0;JMP // 4718
-@PUSH_constant_51 // 4719
-0;JMP // 4720
-@PUSH_constant_31 // 4721
-0;JMP // 4722
-@PUSH_constant_0 // 4723
-0;JMP // 4724
-@PUSH_constant_0 // 4725
-0;JMP // 4726
+@PUSH_constant_66 // 4804
+0;JMP // 4805
+@PUSH_constant_31 // 4806
+0;JMP // 4807
+@PUSH_constant_51 // 4808
+0;JMP // 4809
+@PUSH_constant_51 // 4810
+0;JMP // 4811
+@PUSH_constant_51 // 4812
+0;JMP // 4813
+@PUSH_constant_31 // 4814
+0;JMP // 4815
+@PUSH_constant_51 // 4816
+0;JMP // 4817
+@PUSH_constant_51 // 4818
+0;JMP // 4819
+@PUSH_constant_51 // 4820
+0;JMP // 4821
+@PUSH_constant_31 // 4822
+0;JMP // 4823
+@PUSH_constant_0 // 4824
+0;JMP // 4825
+@PUSH_constant_0 // 4826
+0;JMP // 4827
 // call Output.create
-@17 // 4727
-D=A // 4728
-@14 // 4729
-M=D // 4730
-@Output.create // 4731
-D=A // 4732
-@13 // 4733
-M=D // 4734
-@CALL // 4735
-0;JMP // 4736
+@17 // 4828
+D=A // 4829
+@14 // 4830
+M=D // 4831
+@Output.create // 4832
+D=A // 4833
+@13 // 4834
+M=D // 4835
+@CALL // 4836
+0;JMP // 4837
 (Output.init.ret.72)
-@POP_temp_0 // 4737
-0;JMP // 4738
+@POP_temp_0 // 4838
+0;JMP // 4839
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 67"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 35"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 35"), PushInstruction("constant 54"), PushInstruction("constant 28"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_67 // 4739
-0;JMP // 4740
-@PUSH_constant_28 // 4741
-0;JMP // 4742
-@PUSH_constant_54 // 4743
-0;JMP // 4744
-@PUSH_constant_35 // 4745
-0;JMP // 4746
-@PUSH_constant_3 // 4747
-0;JMP // 4748
-@PUSH_constant_3 // 4749
-0;JMP // 4750
-@PUSH_constant_3 // 4751
-0;JMP // 4752
-@PUSH_constant_35 // 4753
-0;JMP // 4754
-@PUSH_constant_54 // 4755
-0;JMP // 4756
-@PUSH_constant_28 // 4757
-0;JMP // 4758
-@PUSH_constant_0 // 4759
-0;JMP // 4760
-@PUSH_constant_0 // 4761
-0;JMP // 4762
+@PUSH_constant_67 // 4840
+0;JMP // 4841
+@PUSH_constant_28 // 4842
+0;JMP // 4843
+@PUSH_constant_54 // 4844
+0;JMP // 4845
+@PUSH_constant_35 // 4846
+0;JMP // 4847
+@PUSH_constant_3 // 4848
+0;JMP // 4849
+@PUSH_constant_3 // 4850
+0;JMP // 4851
+@PUSH_constant_3 // 4852
+0;JMP // 4853
+@PUSH_constant_35 // 4854
+0;JMP // 4855
+@PUSH_constant_54 // 4856
+0;JMP // 4857
+@PUSH_constant_28 // 4858
+0;JMP // 4859
+@PUSH_constant_0 // 4860
+0;JMP // 4861
+@PUSH_constant_0 // 4862
+0;JMP // 4863
 // call Output.create
-@17 // 4763
-D=A // 4764
-@14 // 4765
-M=D // 4766
-@Output.create // 4767
-D=A // 4768
-@13 // 4769
-M=D // 4770
-@CALL // 4771
-0;JMP // 4772
+@17 // 4864
+D=A // 4865
+@14 // 4866
+M=D // 4867
+@Output.create // 4868
+D=A // 4869
+@13 // 4870
+M=D // 4871
+@CALL // 4872
+0;JMP // 4873
 (Output.init.ret.74)
-@POP_temp_0 // 4773
-0;JMP // 4774
+@POP_temp_0 // 4874
+0;JMP // 4875
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 68"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 27"), PushInstruction("constant 15"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_68 // 4775
-0;JMP // 4776
-@PUSH_constant_15 // 4777
-0;JMP // 4778
-@PUSH_constant_27 // 4779
-0;JMP // 4780
-@PUSH_constant_51 // 4781
-0;JMP // 4782
-@PUSH_constant_51 // 4783
-0;JMP // 4784
-@PUSH_constant_51 // 4785
-0;JMP // 4786
-@PUSH_constant_51 // 4787
-0;JMP // 4788
-@PUSH_constant_51 // 4789
-0;JMP // 4790
-@PUSH_constant_27 // 4791
-0;JMP // 4792
-@PUSH_constant_15 // 4793
-0;JMP // 4794
-@PUSH_constant_0 // 4795
-0;JMP // 4796
-@PUSH_constant_0 // 4797
-0;JMP // 4798
+@PUSH_constant_68 // 4876
+0;JMP // 4877
+@PUSH_constant_15 // 4878
+0;JMP // 4879
+@PUSH_constant_27 // 4880
+0;JMP // 4881
+@PUSH_constant_51 // 4882
+0;JMP // 4883
+@PUSH_constant_51 // 4884
+0;JMP // 4885
+@PUSH_constant_51 // 4886
+0;JMP // 4887
+@PUSH_constant_51 // 4888
+0;JMP // 4889
+@PUSH_constant_51 // 4890
+0;JMP // 4891
+@PUSH_constant_27 // 4892
+0;JMP // 4893
+@PUSH_constant_15 // 4894
+0;JMP // 4895
+@PUSH_constant_0 // 4896
+0;JMP // 4897
+@PUSH_constant_0 // 4898
+0;JMP // 4899
 // call Output.create
-@17 // 4799
-D=A // 4800
-@14 // 4801
-M=D // 4802
-@Output.create // 4803
-D=A // 4804
-@13 // 4805
-M=D // 4806
-@CALL // 4807
-0;JMP // 4808
+@17 // 4900
+D=A // 4901
+@14 // 4902
+M=D // 4903
+@Output.create // 4904
+D=A // 4905
+@13 // 4906
+M=D // 4907
+@CALL // 4908
+0;JMP // 4909
 (Output.init.ret.76)
-@POP_temp_0 // 4809
-0;JMP // 4810
+@POP_temp_0 // 4910
+0;JMP // 4911
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 69"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 35"), PushInstruction("constant 11"), PushInstruction("constant 15"), PushInstruction("constant 11"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_69 // 4811
-0;JMP // 4812
-@PUSH_constant_63 // 4813
-0;JMP // 4814
-@PUSH_constant_51 // 4815
-0;JMP // 4816
-@PUSH_constant_35 // 4817
-0;JMP // 4818
-@PUSH_constant_11 // 4819
-0;JMP // 4820
-@PUSH_constant_15 // 4821
-0;JMP // 4822
-@PUSH_constant_11 // 4823
-0;JMP // 4824
-@PUSH_constant_35 // 4825
-0;JMP // 4826
-@PUSH_constant_51 // 4827
-0;JMP // 4828
-@PUSH_constant_63 // 4829
-0;JMP // 4830
-@PUSH_constant_0 // 4831
-0;JMP // 4832
-@PUSH_constant_0 // 4833
-0;JMP // 4834
+@PUSH_constant_69 // 4912
+0;JMP // 4913
+@PUSH_constant_63 // 4914
+0;JMP // 4915
+@PUSH_constant_51 // 4916
+0;JMP // 4917
+@PUSH_constant_35 // 4918
+0;JMP // 4919
+@PUSH_constant_11 // 4920
+0;JMP // 4921
+@PUSH_constant_15 // 4922
+0;JMP // 4923
+@PUSH_constant_11 // 4924
+0;JMP // 4925
+@PUSH_constant_35 // 4926
+0;JMP // 4927
+@PUSH_constant_51 // 4928
+0;JMP // 4929
+@PUSH_constant_63 // 4930
+0;JMP // 4931
+@PUSH_constant_0 // 4932
+0;JMP // 4933
+@PUSH_constant_0 // 4934
+0;JMP // 4935
 // call Output.create
-@17 // 4835
-D=A // 4836
-@14 // 4837
-M=D // 4838
-@Output.create // 4839
-D=A // 4840
-@13 // 4841
-M=D // 4842
-@CALL // 4843
-0;JMP // 4844
+@17 // 4936
+D=A // 4937
+@14 // 4938
+M=D // 4939
+@Output.create // 4940
+D=A // 4941
+@13 // 4942
+M=D // 4943
+@CALL // 4944
+0;JMP // 4945
 (Output.init.ret.78)
-@POP_temp_0 // 4845
-0;JMP // 4846
+@POP_temp_0 // 4946
+0;JMP // 4947
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 70"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 35"), PushInstruction("constant 11"), PushInstruction("constant 15"), PushInstruction("constant 11"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_70 // 4847
-0;JMP // 4848
-@PUSH_constant_63 // 4849
-0;JMP // 4850
-@PUSH_constant_51 // 4851
-0;JMP // 4852
-@PUSH_constant_35 // 4853
-0;JMP // 4854
-@PUSH_constant_11 // 4855
-0;JMP // 4856
-@PUSH_constant_15 // 4857
-0;JMP // 4858
-@PUSH_constant_11 // 4859
-0;JMP // 4860
-@PUSH_constant_3 // 4861
-0;JMP // 4862
-@PUSH_constant_3 // 4863
-0;JMP // 4864
-@PUSH_constant_3 // 4865
-0;JMP // 4866
-@PUSH_constant_0 // 4867
-0;JMP // 4868
-@PUSH_constant_0 // 4869
-0;JMP // 4870
+@PUSH_constant_70 // 4948
+0;JMP // 4949
+@PUSH_constant_63 // 4950
+0;JMP // 4951
+@PUSH_constant_51 // 4952
+0;JMP // 4953
+@PUSH_constant_35 // 4954
+0;JMP // 4955
+@PUSH_constant_11 // 4956
+0;JMP // 4957
+@PUSH_constant_15 // 4958
+0;JMP // 4959
+@PUSH_constant_11 // 4960
+0;JMP // 4961
+@PUSH_constant_3 // 4962
+0;JMP // 4963
+@PUSH_constant_3 // 4964
+0;JMP // 4965
+@PUSH_constant_3 // 4966
+0;JMP // 4967
+@PUSH_constant_0 // 4968
+0;JMP // 4969
+@PUSH_constant_0 // 4970
+0;JMP // 4971
 // call Output.create
-@17 // 4871
-D=A // 4872
-@14 // 4873
-M=D // 4874
-@Output.create // 4875
-D=A // 4876
-@13 // 4877
-M=D // 4878
-@CALL // 4879
-0;JMP // 4880
+@17 // 4972
+D=A // 4973
+@14 // 4974
+M=D // 4975
+@Output.create // 4976
+D=A // 4977
+@13 // 4978
+M=D // 4979
+@CALL // 4980
+0;JMP // 4981
 (Output.init.ret.80)
-@POP_temp_0 // 4881
-0;JMP // 4882
+@POP_temp_0 // 4982
+0;JMP // 4983
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 71"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 35"), PushInstruction("constant 3"), PushInstruction("constant 59"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 54"), PushInstruction("constant 44"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_71 // 4883
-0;JMP // 4884
-@PUSH_constant_28 // 4885
-0;JMP // 4886
-@PUSH_constant_54 // 4887
-0;JMP // 4888
-@PUSH_constant_35 // 4889
-0;JMP // 4890
-@PUSH_constant_3 // 4891
-0;JMP // 4892
-@PUSH_constant_59 // 4893
-0;JMP // 4894
-@PUSH_constant_51 // 4895
-0;JMP // 4896
-@PUSH_constant_51 // 4897
-0;JMP // 4898
-@PUSH_constant_54 // 4899
-0;JMP // 4900
-@PUSH_constant_44 // 4901
-0;JMP // 4902
-@PUSH_constant_0 // 4903
-0;JMP // 4904
-@PUSH_constant_0 // 4905
-0;JMP // 4906
+@PUSH_constant_71 // 4984
+0;JMP // 4985
+@PUSH_constant_28 // 4986
+0;JMP // 4987
+@PUSH_constant_54 // 4988
+0;JMP // 4989
+@PUSH_constant_35 // 4990
+0;JMP // 4991
+@PUSH_constant_3 // 4992
+0;JMP // 4993
+@PUSH_constant_59 // 4994
+0;JMP // 4995
+@PUSH_constant_51 // 4996
+0;JMP // 4997
+@PUSH_constant_51 // 4998
+0;JMP // 4999
+@PUSH_constant_54 // 5000
+0;JMP // 5001
+@PUSH_constant_44 // 5002
+0;JMP // 5003
+@PUSH_constant_0 // 5004
+0;JMP // 5005
+@PUSH_constant_0 // 5006
+0;JMP // 5007
 // call Output.create
-@17 // 4907
-D=A // 4908
-@14 // 4909
-M=D // 4910
-@Output.create // 4911
-D=A // 4912
-@13 // 4913
-M=D // 4914
-@CALL // 4915
-0;JMP // 4916
+@17 // 5008
+D=A // 5009
+@14 // 5010
+M=D // 5011
+@Output.create // 5012
+D=A // 5013
+@13 // 5014
+M=D // 5015
+@CALL // 5016
+0;JMP // 5017
 (Output.init.ret.82)
-@POP_temp_0 // 4917
-0;JMP // 4918
+@POP_temp_0 // 5018
+0;JMP // 5019
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 72"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_72 // 4919
-0;JMP // 4920
-@PUSH_constant_51 // 4921
-0;JMP // 4922
-@PUSH_constant_51 // 4923
-0;JMP // 4924
-@PUSH_constant_51 // 4925
-0;JMP // 4926
-@PUSH_constant_51 // 4927
-0;JMP // 4928
-@PUSH_constant_63 // 4929
-0;JMP // 4930
-@PUSH_constant_51 // 4931
-0;JMP // 4932
-@PUSH_constant_51 // 4933
-0;JMP // 4934
-@PUSH_constant_51 // 4935
-0;JMP // 4936
-@PUSH_constant_51 // 4937
-0;JMP // 4938
-@PUSH_constant_0 // 4939
-0;JMP // 4940
-@PUSH_constant_0 // 4941
-0;JMP // 4942
+@PUSH_constant_72 // 5020
+0;JMP // 5021
+@PUSH_constant_51 // 5022
+0;JMP // 5023
+@PUSH_constant_51 // 5024
+0;JMP // 5025
+@PUSH_constant_51 // 5026
+0;JMP // 5027
+@PUSH_constant_51 // 5028
+0;JMP // 5029
+@PUSH_constant_63 // 5030
+0;JMP // 5031
+@PUSH_constant_51 // 5032
+0;JMP // 5033
+@PUSH_constant_51 // 5034
+0;JMP // 5035
+@PUSH_constant_51 // 5036
+0;JMP // 5037
+@PUSH_constant_51 // 5038
+0;JMP // 5039
+@PUSH_constant_0 // 5040
+0;JMP // 5041
+@PUSH_constant_0 // 5042
+0;JMP // 5043
 // call Output.create
-@17 // 4943
-D=A // 4944
-@14 // 4945
-M=D // 4946
-@Output.create // 4947
-D=A // 4948
-@13 // 4949
-M=D // 4950
-@CALL // 4951
-0;JMP // 4952
+@17 // 5044
+D=A // 5045
+@14 // 5046
+M=D // 5047
+@Output.create // 5048
+D=A // 5049
+@13 // 5050
+M=D // 5051
+@CALL // 5052
+0;JMP // 5053
 (Output.init.ret.84)
-@POP_temp_0 // 4953
-0;JMP // 4954
+@POP_temp_0 // 5054
+0;JMP // 5055
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 73"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_73 // 4955
-0;JMP // 4956
-@PUSH_constant_30 // 4957
-0;JMP // 4958
-@PUSH_constant_12 // 4959
-0;JMP // 4960
-@PUSH_constant_12 // 4961
-0;JMP // 4962
-@PUSH_constant_12 // 4963
-0;JMP // 4964
-@PUSH_constant_12 // 4965
-0;JMP // 4966
-@PUSH_constant_12 // 4967
-0;JMP // 4968
-@PUSH_constant_12 // 4969
-0;JMP // 4970
-@PUSH_constant_12 // 4971
-0;JMP // 4972
-@PUSH_constant_30 // 4973
-0;JMP // 4974
-@PUSH_constant_0 // 4975
-0;JMP // 4976
-@PUSH_constant_0 // 4977
-0;JMP // 4978
+@PUSH_constant_73 // 5056
+0;JMP // 5057
+@PUSH_constant_30 // 5058
+0;JMP // 5059
+@PUSH_constant_12 // 5060
+0;JMP // 5061
+@PUSH_constant_12 // 5062
+0;JMP // 5063
+@PUSH_constant_12 // 5064
+0;JMP // 5065
+@PUSH_constant_12 // 5066
+0;JMP // 5067
+@PUSH_constant_12 // 5068
+0;JMP // 5069
+@PUSH_constant_12 // 5070
+0;JMP // 5071
+@PUSH_constant_12 // 5072
+0;JMP // 5073
+@PUSH_constant_30 // 5074
+0;JMP // 5075
+@PUSH_constant_0 // 5076
+0;JMP // 5077
+@PUSH_constant_0 // 5078
+0;JMP // 5079
 // call Output.create
-@17 // 4979
-D=A // 4980
-@14 // 4981
-M=D // 4982
-@Output.create // 4983
-D=A // 4984
-@13 // 4985
-M=D // 4986
-@CALL // 4987
-0;JMP // 4988
+@17 // 5080
+D=A // 5081
+@14 // 5082
+M=D // 5083
+@Output.create // 5084
+D=A // 5085
+@13 // 5086
+M=D // 5087
+@CALL // 5088
+0;JMP // 5089
 (Output.init.ret.86)
-@POP_temp_0 // 4989
-0;JMP // 4990
+@POP_temp_0 // 5090
+0;JMP // 5091
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 74"), PushInstruction("constant 60"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 14"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_74 // 4991
-0;JMP // 4992
-@PUSH_constant_60 // 4993
-0;JMP // 4994
-@PUSH_constant_24 // 4995
-0;JMP // 4996
-@PUSH_constant_24 // 4997
-0;JMP // 4998
-@PUSH_constant_24 // 4999
-0;JMP // 5000
-@PUSH_constant_24 // 5001
-0;JMP // 5002
-@PUSH_constant_24 // 5003
-0;JMP // 5004
-@PUSH_constant_27 // 5005
-0;JMP // 5006
-@PUSH_constant_27 // 5007
-0;JMP // 5008
-@PUSH_constant_14 // 5009
-0;JMP // 5010
-@PUSH_constant_0 // 5011
-0;JMP // 5012
-@PUSH_constant_0 // 5013
-0;JMP // 5014
+@PUSH_constant_74 // 5092
+0;JMP // 5093
+@PUSH_constant_60 // 5094
+0;JMP // 5095
+@PUSH_constant_24 // 5096
+0;JMP // 5097
+@PUSH_constant_24 // 5098
+0;JMP // 5099
+@PUSH_constant_24 // 5100
+0;JMP // 5101
+@PUSH_constant_24 // 5102
+0;JMP // 5103
+@PUSH_constant_24 // 5104
+0;JMP // 5105
+@PUSH_constant_27 // 5106
+0;JMP // 5107
+@PUSH_constant_27 // 5108
+0;JMP // 5109
+@PUSH_constant_14 // 5110
+0;JMP // 5111
+@PUSH_constant_0 // 5112
+0;JMP // 5113
+@PUSH_constant_0 // 5114
+0;JMP // 5115
 // call Output.create
-@17 // 5015
-D=A // 5016
-@14 // 5017
-M=D // 5018
-@Output.create // 5019
-D=A // 5020
-@13 // 5021
-M=D // 5022
-@CALL // 5023
-0;JMP // 5024
+@17 // 5116
+D=A // 5117
+@14 // 5118
+M=D // 5119
+@Output.create // 5120
+D=A // 5121
+@13 // 5122
+M=D // 5123
+@CALL // 5124
+0;JMP // 5125
 (Output.init.ret.88)
-@POP_temp_0 // 5025
-0;JMP // 5026
+@POP_temp_0 // 5126
+0;JMP // 5127
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 75"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 27"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_75 // 5027
-0;JMP // 5028
-@PUSH_constant_51 // 5029
-0;JMP // 5030
-@PUSH_constant_51 // 5031
-0;JMP // 5032
-@PUSH_constant_51 // 5033
-0;JMP // 5034
-@PUSH_constant_27 // 5035
-0;JMP // 5036
-@PUSH_constant_15 // 5037
-0;JMP // 5038
-@PUSH_constant_27 // 5039
-0;JMP // 5040
-@PUSH_constant_51 // 5041
-0;JMP // 5042
-@PUSH_constant_51 // 5043
-0;JMP // 5044
-@PUSH_constant_51 // 5045
-0;JMP // 5046
-@PUSH_constant_0 // 5047
-0;JMP // 5048
-@PUSH_constant_0 // 5049
-0;JMP // 5050
+@PUSH_constant_75 // 5128
+0;JMP // 5129
+@PUSH_constant_51 // 5130
+0;JMP // 5131
+@PUSH_constant_51 // 5132
+0;JMP // 5133
+@PUSH_constant_51 // 5134
+0;JMP // 5135
+@PUSH_constant_27 // 5136
+0;JMP // 5137
+@PUSH_constant_15 // 5138
+0;JMP // 5139
+@PUSH_constant_27 // 5140
+0;JMP // 5141
+@PUSH_constant_51 // 5142
+0;JMP // 5143
+@PUSH_constant_51 // 5144
+0;JMP // 5145
+@PUSH_constant_51 // 5146
+0;JMP // 5147
+@PUSH_constant_0 // 5148
+0;JMP // 5149
+@PUSH_constant_0 // 5150
+0;JMP // 5151
 // call Output.create
-@17 // 5051
-D=A // 5052
-@14 // 5053
-M=D // 5054
-@Output.create // 5055
-D=A // 5056
-@13 // 5057
-M=D // 5058
-@CALL // 5059
-0;JMP // 5060
+@17 // 5152
+D=A // 5153
+@14 // 5154
+M=D // 5155
+@Output.create // 5156
+D=A // 5157
+@13 // 5158
+M=D // 5159
+@CALL // 5160
+0;JMP // 5161
 (Output.init.ret.90)
-@POP_temp_0 // 5061
-0;JMP // 5062
+@POP_temp_0 // 5162
+0;JMP // 5163
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 76"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_76 // 5063
-0;JMP // 5064
-@PUSH_constant_3 // 5065
-0;JMP // 5066
-@PUSH_constant_3 // 5067
-0;JMP // 5068
-@PUSH_constant_3 // 5069
-0;JMP // 5070
-@PUSH_constant_3 // 5071
-0;JMP // 5072
-@PUSH_constant_3 // 5073
-0;JMP // 5074
-@PUSH_constant_3 // 5075
-0;JMP // 5076
-@PUSH_constant_35 // 5077
-0;JMP // 5078
-@PUSH_constant_51 // 5079
-0;JMP // 5080
-@PUSH_constant_63 // 5081
-0;JMP // 5082
-@PUSH_constant_0 // 5083
-0;JMP // 5084
-@PUSH_constant_0 // 5085
-0;JMP // 5086
+@PUSH_constant_76 // 5164
+0;JMP // 5165
+@PUSH_constant_3 // 5166
+0;JMP // 5167
+@PUSH_constant_3 // 5168
+0;JMP // 5169
+@PUSH_constant_3 // 5170
+0;JMP // 5171
+@PUSH_constant_3 // 5172
+0;JMP // 5173
+@PUSH_constant_3 // 5174
+0;JMP // 5175
+@PUSH_constant_3 // 5176
+0;JMP // 5177
+@PUSH_constant_35 // 5178
+0;JMP // 5179
+@PUSH_constant_51 // 5180
+0;JMP // 5181
+@PUSH_constant_63 // 5182
+0;JMP // 5183
+@PUSH_constant_0 // 5184
+0;JMP // 5185
+@PUSH_constant_0 // 5186
+0;JMP // 5187
 // call Output.create
-@17 // 5087
-D=A // 5088
-@14 // 5089
-M=D // 5090
-@Output.create // 5091
-D=A // 5092
-@13 // 5093
-M=D // 5094
-@CALL // 5095
-0;JMP // 5096
+@17 // 5188
+D=A // 5189
+@14 // 5190
+M=D // 5191
+@Output.create // 5192
+D=A // 5193
+@13 // 5194
+M=D // 5195
+@CALL // 5196
+0;JMP // 5197
 (Output.init.ret.92)
-@POP_temp_0 // 5097
-0;JMP // 5098
+@POP_temp_0 // 5198
+0;JMP // 5199
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 77"), PushInstruction("constant 33"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_77 // 5099
-0;JMP // 5100
-@PUSH_constant_33 // 5101
-0;JMP // 5102
-@PUSH_constant_51 // 5103
-0;JMP // 5104
-@PUSH_constant_63 // 5105
-0;JMP // 5106
-@PUSH_constant_63 // 5107
-0;JMP // 5108
-@PUSH_constant_51 // 5109
-0;JMP // 5110
-@PUSH_constant_51 // 5111
-0;JMP // 5112
-@PUSH_constant_51 // 5113
-0;JMP // 5114
-@PUSH_constant_51 // 5115
-0;JMP // 5116
-@PUSH_constant_51 // 5117
-0;JMP // 5118
-@PUSH_constant_0 // 5119
-0;JMP // 5120
-@PUSH_constant_0 // 5121
-0;JMP // 5122
+@PUSH_constant_77 // 5200
+0;JMP // 5201
+@PUSH_constant_33 // 5202
+0;JMP // 5203
+@PUSH_constant_51 // 5204
+0;JMP // 5205
+@PUSH_constant_63 // 5206
+0;JMP // 5207
+@PUSH_constant_63 // 5208
+0;JMP // 5209
+@PUSH_constant_51 // 5210
+0;JMP // 5211
+@PUSH_constant_51 // 5212
+0;JMP // 5213
+@PUSH_constant_51 // 5214
+0;JMP // 5215
+@PUSH_constant_51 // 5216
+0;JMP // 5217
+@PUSH_constant_51 // 5218
+0;JMP // 5219
+@PUSH_constant_0 // 5220
+0;JMP // 5221
+@PUSH_constant_0 // 5222
+0;JMP // 5223
 // call Output.create
-@17 // 5123
-D=A // 5124
-@14 // 5125
-M=D // 5126
-@Output.create // 5127
-D=A // 5128
-@13 // 5129
-M=D // 5130
-@CALL // 5131
-0;JMP // 5132
+@17 // 5224
+D=A // 5225
+@14 // 5226
+M=D // 5227
+@Output.create // 5228
+D=A // 5229
+@13 // 5230
+M=D // 5231
+@CALL // 5232
+0;JMP // 5233
 (Output.init.ret.94)
-@POP_temp_0 // 5133
-0;JMP // 5134
+@POP_temp_0 // 5234
+0;JMP // 5235
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 78"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 55"), PushInstruction("constant 55"), PushInstruction("constant 63"), PushInstruction("constant 59"), PushInstruction("constant 59"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_78 // 5135
-0;JMP // 5136
-@PUSH_constant_51 // 5137
-0;JMP // 5138
-@PUSH_constant_51 // 5139
-0;JMP // 5140
-@PUSH_constant_55 // 5141
-0;JMP // 5142
-@PUSH_constant_55 // 5143
-0;JMP // 5144
-@PUSH_constant_63 // 5145
-0;JMP // 5146
-@PUSH_constant_59 // 5147
-0;JMP // 5148
-@PUSH_constant_59 // 5149
-0;JMP // 5150
-@PUSH_constant_51 // 5151
-0;JMP // 5152
-@PUSH_constant_51 // 5153
-0;JMP // 5154
-@PUSH_constant_0 // 5155
-0;JMP // 5156
-@PUSH_constant_0 // 5157
-0;JMP // 5158
+@PUSH_constant_78 // 5236
+0;JMP // 5237
+@PUSH_constant_51 // 5238
+0;JMP // 5239
+@PUSH_constant_51 // 5240
+0;JMP // 5241
+@PUSH_constant_55 // 5242
+0;JMP // 5243
+@PUSH_constant_55 // 5244
+0;JMP // 5245
+@PUSH_constant_63 // 5246
+0;JMP // 5247
+@PUSH_constant_59 // 5248
+0;JMP // 5249
+@PUSH_constant_59 // 5250
+0;JMP // 5251
+@PUSH_constant_51 // 5252
+0;JMP // 5253
+@PUSH_constant_51 // 5254
+0;JMP // 5255
+@PUSH_constant_0 // 5256
+0;JMP // 5257
+@PUSH_constant_0 // 5258
+0;JMP // 5259
 // call Output.create
-@17 // 5159
-D=A // 5160
-@14 // 5161
-M=D // 5162
-@Output.create // 5163
-D=A // 5164
-@13 // 5165
-M=D // 5166
-@CALL // 5167
-0;JMP // 5168
+@17 // 5260
+D=A // 5261
+@14 // 5262
+M=D // 5263
+@Output.create // 5264
+D=A // 5265
+@13 // 5266
+M=D // 5267
+@CALL // 5268
+0;JMP // 5269
 (Output.init.ret.96)
-@POP_temp_0 // 5169
-0;JMP // 5170
+@POP_temp_0 // 5270
+0;JMP // 5271
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 79"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_79 // 5171
-0;JMP // 5172
-@PUSH_constant_30 // 5173
-0;JMP // 5174
-@PUSH_constant_51 // 5175
-0;JMP // 5176
-@PUSH_constant_51 // 5177
-0;JMP // 5178
-@PUSH_constant_51 // 5179
-0;JMP // 5180
-@PUSH_constant_51 // 5181
-0;JMP // 5182
-@PUSH_constant_51 // 5183
-0;JMP // 5184
-@PUSH_constant_51 // 5185
-0;JMP // 5186
-@PUSH_constant_51 // 5187
-0;JMP // 5188
-@PUSH_constant_30 // 5189
-0;JMP // 5190
-@PUSH_constant_0 // 5191
-0;JMP // 5192
-@PUSH_constant_0 // 5193
-0;JMP // 5194
+@PUSH_constant_79 // 5272
+0;JMP // 5273
+@PUSH_constant_30 // 5274
+0;JMP // 5275
+@PUSH_constant_51 // 5276
+0;JMP // 5277
+@PUSH_constant_51 // 5278
+0;JMP // 5279
+@PUSH_constant_51 // 5280
+0;JMP // 5281
+@PUSH_constant_51 // 5282
+0;JMP // 5283
+@PUSH_constant_51 // 5284
+0;JMP // 5285
+@PUSH_constant_51 // 5286
+0;JMP // 5287
+@PUSH_constant_51 // 5288
+0;JMP // 5289
+@PUSH_constant_30 // 5290
+0;JMP // 5291
+@PUSH_constant_0 // 5292
+0;JMP // 5293
+@PUSH_constant_0 // 5294
+0;JMP // 5295
 // call Output.create
-@17 // 5195
-D=A // 5196
-@14 // 5197
-M=D // 5198
-@Output.create // 5199
-D=A // 5200
-@13 // 5201
-M=D // 5202
-@CALL // 5203
-0;JMP // 5204
+@17 // 5296
+D=A // 5297
+@14 // 5298
+M=D // 5299
+@Output.create // 5300
+D=A // 5301
+@13 // 5302
+M=D // 5303
+@CALL // 5304
+0;JMP // 5305
 (Output.init.ret.98)
-@POP_temp_0 // 5205
-0;JMP // 5206
+@POP_temp_0 // 5306
+0;JMP // 5307
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 80"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_80 // 5207
-0;JMP // 5208
-@PUSH_constant_31 // 5209
-0;JMP // 5210
-@PUSH_constant_51 // 5211
-0;JMP // 5212
-@PUSH_constant_51 // 5213
-0;JMP // 5214
-@PUSH_constant_51 // 5215
-0;JMP // 5216
-@PUSH_constant_31 // 5217
-0;JMP // 5218
-@PUSH_constant_3 // 5219
-0;JMP // 5220
-@PUSH_constant_3 // 5221
-0;JMP // 5222
-@PUSH_constant_3 // 5223
-0;JMP // 5224
-@PUSH_constant_3 // 5225
-0;JMP // 5226
-@PUSH_constant_0 // 5227
-0;JMP // 5228
-@PUSH_constant_0 // 5229
-0;JMP // 5230
+@PUSH_constant_80 // 5308
+0;JMP // 5309
+@PUSH_constant_31 // 5310
+0;JMP // 5311
+@PUSH_constant_51 // 5312
+0;JMP // 5313
+@PUSH_constant_51 // 5314
+0;JMP // 5315
+@PUSH_constant_51 // 5316
+0;JMP // 5317
+@PUSH_constant_31 // 5318
+0;JMP // 5319
+@PUSH_constant_3 // 5320
+0;JMP // 5321
+@PUSH_constant_3 // 5322
+0;JMP // 5323
+@PUSH_constant_3 // 5324
+0;JMP // 5325
+@PUSH_constant_3 // 5326
+0;JMP // 5327
+@PUSH_constant_0 // 5328
+0;JMP // 5329
+@PUSH_constant_0 // 5330
+0;JMP // 5331
 // call Output.create
-@17 // 5231
-D=A // 5232
-@14 // 5233
-M=D // 5234
-@Output.create // 5235
-D=A // 5236
-@13 // 5237
-M=D // 5238
-@CALL // 5239
-0;JMP // 5240
+@17 // 5332
+D=A // 5333
+@14 // 5334
+M=D // 5335
+@Output.create // 5336
+D=A // 5337
+@13 // 5338
+M=D // 5339
+@CALL // 5340
+0;JMP // 5341
 (Output.init.ret.100)
-@POP_temp_0 // 5241
-0;JMP // 5242
+@POP_temp_0 // 5342
+0;JMP // 5343
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 81"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 59"), PushInstruction("constant 30"), PushInstruction("constant 48"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_81 // 5243
-0;JMP // 5244
-@PUSH_constant_30 // 5245
-0;JMP // 5246
-@PUSH_constant_51 // 5247
-0;JMP // 5248
-@PUSH_constant_51 // 5249
-0;JMP // 5250
-@PUSH_constant_51 // 5251
-0;JMP // 5252
-@PUSH_constant_51 // 5253
-0;JMP // 5254
-@PUSH_constant_51 // 5255
-0;JMP // 5256
-@PUSH_constant_63 // 5257
-0;JMP // 5258
-@PUSH_constant_59 // 5259
-0;JMP // 5260
-@PUSH_constant_30 // 5261
-0;JMP // 5262
-@PUSH_constant_48 // 5263
-0;JMP // 5264
-@PUSH_constant_0 // 5265
-0;JMP // 5266
+@PUSH_constant_81 // 5344
+0;JMP // 5345
+@PUSH_constant_30 // 5346
+0;JMP // 5347
+@PUSH_constant_51 // 5348
+0;JMP // 5349
+@PUSH_constant_51 // 5350
+0;JMP // 5351
+@PUSH_constant_51 // 5352
+0;JMP // 5353
+@PUSH_constant_51 // 5354
+0;JMP // 5355
+@PUSH_constant_51 // 5356
+0;JMP // 5357
+@PUSH_constant_63 // 5358
+0;JMP // 5359
+@PUSH_constant_59 // 5360
+0;JMP // 5361
+@PUSH_constant_30 // 5362
+0;JMP // 5363
+@PUSH_constant_48 // 5364
+0;JMP // 5365
+@PUSH_constant_0 // 5366
+0;JMP // 5367
 // call Output.create
-@17 // 5267
-D=A // 5268
-@14 // 5269
-M=D // 5270
-@Output.create // 5271
-D=A // 5272
-@13 // 5273
-M=D // 5274
-@CALL // 5275
-0;JMP // 5276
+@17 // 5368
+D=A // 5369
+@14 // 5370
+M=D // 5371
+@Output.create // 5372
+D=A // 5373
+@13 // 5374
+M=D // 5375
+@CALL // 5376
+0;JMP // 5377
 (Output.init.ret.102)
-@POP_temp_0 // 5277
-0;JMP // 5278
+@POP_temp_0 // 5378
+0;JMP // 5379
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 82"), PushInstruction("constant 31"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_82 // 5279
-0;JMP // 5280
-@PUSH_constant_31 // 5281
-0;JMP // 5282
-@PUSH_constant_51 // 5283
-0;JMP // 5284
-@PUSH_constant_51 // 5285
-0;JMP // 5286
-@PUSH_constant_51 // 5287
-0;JMP // 5288
-@PUSH_constant_31 // 5289
-0;JMP // 5290
-@PUSH_constant_27 // 5291
-0;JMP // 5292
-@PUSH_constant_51 // 5293
-0;JMP // 5294
-@PUSH_constant_51 // 5295
-0;JMP // 5296
-@PUSH_constant_51 // 5297
-0;JMP // 5298
-@PUSH_constant_0 // 5299
-0;JMP // 5300
-@PUSH_constant_0 // 5301
-0;JMP // 5302
+@PUSH_constant_82 // 5380
+0;JMP // 5381
+@PUSH_constant_31 // 5382
+0;JMP // 5383
+@PUSH_constant_51 // 5384
+0;JMP // 5385
+@PUSH_constant_51 // 5386
+0;JMP // 5387
+@PUSH_constant_51 // 5388
+0;JMP // 5389
+@PUSH_constant_31 // 5390
+0;JMP // 5391
+@PUSH_constant_27 // 5392
+0;JMP // 5393
+@PUSH_constant_51 // 5394
+0;JMP // 5395
+@PUSH_constant_51 // 5396
+0;JMP // 5397
+@PUSH_constant_51 // 5398
+0;JMP // 5399
+@PUSH_constant_0 // 5400
+0;JMP // 5401
+@PUSH_constant_0 // 5402
+0;JMP // 5403
 // call Output.create
-@17 // 5303
-D=A // 5304
-@14 // 5305
-M=D // 5306
-@Output.create // 5307
-D=A // 5308
-@13 // 5309
-M=D // 5310
-@CALL // 5311
-0;JMP // 5312
+@17 // 5404
+D=A // 5405
+@14 // 5406
+M=D // 5407
+@Output.create // 5408
+D=A // 5409
+@13 // 5410
+M=D // 5411
+@CALL // 5412
+0;JMP // 5413
 (Output.init.ret.104)
-@POP_temp_0 // 5313
-0;JMP // 5314
+@POP_temp_0 // 5414
+0;JMP // 5415
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 83"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 6"), PushInstruction("constant 28"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_83 // 5315
-0;JMP // 5316
-@PUSH_constant_30 // 5317
-0;JMP // 5318
-@PUSH_constant_51 // 5319
-0;JMP // 5320
-@PUSH_constant_51 // 5321
-0;JMP // 5322
-@PUSH_constant_6 // 5323
-0;JMP // 5324
-@PUSH_constant_28 // 5325
-0;JMP // 5326
-@PUSH_constant_48 // 5327
-0;JMP // 5328
-@PUSH_constant_51 // 5329
-0;JMP // 5330
-@PUSH_constant_51 // 5331
-0;JMP // 5332
-@PUSH_constant_30 // 5333
-0;JMP // 5334
-@PUSH_constant_0 // 5335
-0;JMP // 5336
-@PUSH_constant_0 // 5337
-0;JMP // 5338
+@PUSH_constant_83 // 5416
+0;JMP // 5417
+@PUSH_constant_30 // 5418
+0;JMP // 5419
+@PUSH_constant_51 // 5420
+0;JMP // 5421
+@PUSH_constant_51 // 5422
+0;JMP // 5423
+@PUSH_constant_6 // 5424
+0;JMP // 5425
+@PUSH_constant_28 // 5426
+0;JMP // 5427
+@PUSH_constant_48 // 5428
+0;JMP // 5429
+@PUSH_constant_51 // 5430
+0;JMP // 5431
+@PUSH_constant_51 // 5432
+0;JMP // 5433
+@PUSH_constant_30 // 5434
+0;JMP // 5435
+@PUSH_constant_0 // 5436
+0;JMP // 5437
+@PUSH_constant_0 // 5438
+0;JMP // 5439
 // call Output.create
-@17 // 5339
-D=A // 5340
-@14 // 5341
-M=D // 5342
-@Output.create // 5343
-D=A // 5344
-@13 // 5345
-M=D // 5346
-@CALL // 5347
-0;JMP // 5348
+@17 // 5440
+D=A // 5441
+@14 // 5442
+M=D // 5443
+@Output.create // 5444
+D=A // 5445
+@13 // 5446
+M=D // 5447
+@CALL // 5448
+0;JMP // 5449
 (Output.init.ret.106)
-@POP_temp_0 // 5349
-0;JMP // 5350
+@POP_temp_0 // 5450
+0;JMP // 5451
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 84"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 45"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_84 // 5351
-0;JMP // 5352
-@PUSH_constant_63 // 5353
-0;JMP // 5354
-@PUSH_constant_63 // 5355
-0;JMP // 5356
-@PUSH_constant_45 // 5357
-0;JMP // 5358
-@PUSH_constant_12 // 5359
-0;JMP // 5360
-@PUSH_constant_12 // 5361
-0;JMP // 5362
-@PUSH_constant_12 // 5363
-0;JMP // 5364
-@PUSH_constant_12 // 5365
-0;JMP // 5366
-@PUSH_constant_12 // 5367
-0;JMP // 5368
-@PUSH_constant_30 // 5369
-0;JMP // 5370
-@PUSH_constant_0 // 5371
-0;JMP // 5372
-@PUSH_constant_0 // 5373
-0;JMP // 5374
+@PUSH_constant_84 // 5452
+0;JMP // 5453
+@PUSH_constant_63 // 5454
+0;JMP // 5455
+@PUSH_constant_63 // 5456
+0;JMP // 5457
+@PUSH_constant_45 // 5458
+0;JMP // 5459
+@PUSH_constant_12 // 5460
+0;JMP // 5461
+@PUSH_constant_12 // 5462
+0;JMP // 5463
+@PUSH_constant_12 // 5464
+0;JMP // 5465
+@PUSH_constant_12 // 5466
+0;JMP // 5467
+@PUSH_constant_12 // 5468
+0;JMP // 5469
+@PUSH_constant_30 // 5470
+0;JMP // 5471
+@PUSH_constant_0 // 5472
+0;JMP // 5473
+@PUSH_constant_0 // 5474
+0;JMP // 5475
 // call Output.create
-@17 // 5375
-D=A // 5376
-@14 // 5377
-M=D // 5378
-@Output.create // 5379
-D=A // 5380
-@13 // 5381
-M=D // 5382
-@CALL // 5383
-0;JMP // 5384
+@17 // 5476
+D=A // 5477
+@14 // 5478
+M=D // 5479
+@Output.create // 5480
+D=A // 5481
+@13 // 5482
+M=D // 5483
+@CALL // 5484
+0;JMP // 5485
 (Output.init.ret.108)
-@POP_temp_0 // 5385
-0;JMP // 5386
+@POP_temp_0 // 5486
+0;JMP // 5487
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 85"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_85 // 5387
-0;JMP // 5388
-@PUSH_constant_51 // 5389
-0;JMP // 5390
-@PUSH_constant_51 // 5391
-0;JMP // 5392
-@PUSH_constant_51 // 5393
-0;JMP // 5394
-@PUSH_constant_51 // 5395
-0;JMP // 5396
-@PUSH_constant_51 // 5397
-0;JMP // 5398
-@PUSH_constant_51 // 5399
-0;JMP // 5400
-@PUSH_constant_51 // 5401
-0;JMP // 5402
-@PUSH_constant_51 // 5403
-0;JMP // 5404
-@PUSH_constant_30 // 5405
-0;JMP // 5406
-@PUSH_constant_0 // 5407
-0;JMP // 5408
-@PUSH_constant_0 // 5409
-0;JMP // 5410
+@PUSH_constant_85 // 5488
+0;JMP // 5489
+@PUSH_constant_51 // 5490
+0;JMP // 5491
+@PUSH_constant_51 // 5492
+0;JMP // 5493
+@PUSH_constant_51 // 5494
+0;JMP // 5495
+@PUSH_constant_51 // 5496
+0;JMP // 5497
+@PUSH_constant_51 // 5498
+0;JMP // 5499
+@PUSH_constant_51 // 5500
+0;JMP // 5501
+@PUSH_constant_51 // 5502
+0;JMP // 5503
+@PUSH_constant_51 // 5504
+0;JMP // 5505
+@PUSH_constant_30 // 5506
+0;JMP // 5507
+@PUSH_constant_0 // 5508
+0;JMP // 5509
+@PUSH_constant_0 // 5510
+0;JMP // 5511
 // call Output.create
-@17 // 5411
-D=A // 5412
-@14 // 5413
-M=D // 5414
-@Output.create // 5415
-D=A // 5416
-@13 // 5417
-M=D // 5418
-@CALL // 5419
-0;JMP // 5420
+@17 // 5512
+D=A // 5513
+@14 // 5514
+M=D // 5515
+@Output.create // 5516
+D=A // 5517
+@13 // 5518
+M=D // 5519
+@CALL // 5520
+0;JMP // 5521
 (Output.init.ret.110)
-@POP_temp_0 // 5421
-0;JMP // 5422
+@POP_temp_0 // 5522
+0;JMP // 5523
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 86"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_86 // 5423
-0;JMP // 5424
-@PUSH_constant_51 // 5425
-0;JMP // 5426
-@PUSH_constant_51 // 5427
-0;JMP // 5428
-@PUSH_constant_51 // 5429
-0;JMP // 5430
-@PUSH_constant_51 // 5431
-0;JMP // 5432
-@PUSH_constant_51 // 5433
-0;JMP // 5434
-@PUSH_constant_30 // 5435
-0;JMP // 5436
-@PUSH_constant_30 // 5437
-0;JMP // 5438
-@PUSH_constant_12 // 5439
-0;JMP // 5440
-@PUSH_constant_12 // 5441
-0;JMP // 5442
-@PUSH_constant_0 // 5443
-0;JMP // 5444
-@PUSH_constant_0 // 5445
-0;JMP // 5446
+@PUSH_constant_86 // 5524
+0;JMP // 5525
+@PUSH_constant_51 // 5526
+0;JMP // 5527
+@PUSH_constant_51 // 5528
+0;JMP // 5529
+@PUSH_constant_51 // 5530
+0;JMP // 5531
+@PUSH_constant_51 // 5532
+0;JMP // 5533
+@PUSH_constant_51 // 5534
+0;JMP // 5535
+@PUSH_constant_30 // 5536
+0;JMP // 5537
+@PUSH_constant_30 // 5538
+0;JMP // 5539
+@PUSH_constant_12 // 5540
+0;JMP // 5541
+@PUSH_constant_12 // 5542
+0;JMP // 5543
+@PUSH_constant_0 // 5544
+0;JMP // 5545
+@PUSH_constant_0 // 5546
+0;JMP // 5547
 // call Output.create
-@17 // 5447
-D=A // 5448
-@14 // 5449
-M=D // 5450
-@Output.create // 5451
-D=A // 5452
-@13 // 5453
-M=D // 5454
-@CALL // 5455
-0;JMP // 5456
+@17 // 5548
+D=A // 5549
+@14 // 5550
+M=D // 5551
+@Output.create // 5552
+D=A // 5553
+@13 // 5554
+M=D // 5555
+@CALL // 5556
+0;JMP // 5557
 (Output.init.ret.112)
-@POP_temp_0 // 5457
-0;JMP // 5458
+@POP_temp_0 // 5558
+0;JMP // 5559
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 87"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_87 // 5459
-0;JMP // 5460
-@PUSH_constant_51 // 5461
-0;JMP // 5462
-@PUSH_constant_51 // 5463
-0;JMP // 5464
-@PUSH_constant_51 // 5465
-0;JMP // 5466
-@PUSH_constant_51 // 5467
-0;JMP // 5468
-@PUSH_constant_51 // 5469
-0;JMP // 5470
-@PUSH_constant_63 // 5471
-0;JMP // 5472
-@PUSH_constant_63 // 5473
-0;JMP // 5474
-@PUSH_constant_63 // 5475
-0;JMP // 5476
-@PUSH_constant_18 // 5477
-0;JMP // 5478
-@PUSH_constant_0 // 5479
-0;JMP // 5480
-@PUSH_constant_0 // 5481
-0;JMP // 5482
+@PUSH_constant_87 // 5560
+0;JMP // 5561
+@PUSH_constant_51 // 5562
+0;JMP // 5563
+@PUSH_constant_51 // 5564
+0;JMP // 5565
+@PUSH_constant_51 // 5566
+0;JMP // 5567
+@PUSH_constant_51 // 5568
+0;JMP // 5569
+@PUSH_constant_51 // 5570
+0;JMP // 5571
+@PUSH_constant_63 // 5572
+0;JMP // 5573
+@PUSH_constant_63 // 5574
+0;JMP // 5575
+@PUSH_constant_63 // 5576
+0;JMP // 5577
+@PUSH_constant_18 // 5578
+0;JMP // 5579
+@PUSH_constant_0 // 5580
+0;JMP // 5581
+@PUSH_constant_0 // 5582
+0;JMP // 5583
 // call Output.create
-@17 // 5483
-D=A // 5484
-@14 // 5485
-M=D // 5486
-@Output.create // 5487
-D=A // 5488
-@13 // 5489
-M=D // 5490
-@CALL // 5491
-0;JMP // 5492
+@17 // 5584
+D=A // 5585
+@14 // 5586
+M=D // 5587
+@Output.create // 5588
+D=A // 5589
+@13 // 5590
+M=D // 5591
+@CALL // 5592
+0;JMP // 5593
 (Output.init.ret.114)
-@POP_temp_0 // 5493
-0;JMP // 5494
+@POP_temp_0 // 5594
+0;JMP // 5595
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 88"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_88 // 5495
-0;JMP // 5496
-@PUSH_constant_51 // 5497
-0;JMP // 5498
-@PUSH_constant_51 // 5499
-0;JMP // 5500
-@PUSH_constant_30 // 5501
-0;JMP // 5502
-@PUSH_constant_30 // 5503
-0;JMP // 5504
-@PUSH_constant_12 // 5505
-0;JMP // 5506
-@PUSH_constant_30 // 5507
-0;JMP // 5508
-@PUSH_constant_30 // 5509
-0;JMP // 5510
-@PUSH_constant_51 // 5511
-0;JMP // 5512
-@PUSH_constant_51 // 5513
-0;JMP // 5514
-@PUSH_constant_0 // 5515
-0;JMP // 5516
-@PUSH_constant_0 // 5517
-0;JMP // 5518
+@PUSH_constant_88 // 5596
+0;JMP // 5597
+@PUSH_constant_51 // 5598
+0;JMP // 5599
+@PUSH_constant_51 // 5600
+0;JMP // 5601
+@PUSH_constant_30 // 5602
+0;JMP // 5603
+@PUSH_constant_30 // 5604
+0;JMP // 5605
+@PUSH_constant_12 // 5606
+0;JMP // 5607
+@PUSH_constant_30 // 5608
+0;JMP // 5609
+@PUSH_constant_30 // 5610
+0;JMP // 5611
+@PUSH_constant_51 // 5612
+0;JMP // 5613
+@PUSH_constant_51 // 5614
+0;JMP // 5615
+@PUSH_constant_0 // 5616
+0;JMP // 5617
+@PUSH_constant_0 // 5618
+0;JMP // 5619
 // call Output.create
-@17 // 5519
-D=A // 5520
-@14 // 5521
-M=D // 5522
-@Output.create // 5523
-D=A // 5524
-@13 // 5525
-M=D // 5526
-@CALL // 5527
-0;JMP // 5528
+@17 // 5620
+D=A // 5621
+@14 // 5622
+M=D // 5623
+@Output.create // 5624
+D=A // 5625
+@13 // 5626
+M=D // 5627
+@CALL // 5628
+0;JMP // 5629
 (Output.init.ret.116)
-@POP_temp_0 // 5529
-0;JMP // 5530
+@POP_temp_0 // 5630
+0;JMP // 5631
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 89"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_89 // 5531
-0;JMP // 5532
-@PUSH_constant_51 // 5533
-0;JMP // 5534
-@PUSH_constant_51 // 5535
-0;JMP // 5536
-@PUSH_constant_51 // 5537
-0;JMP // 5538
-@PUSH_constant_51 // 5539
-0;JMP // 5540
-@PUSH_constant_30 // 5541
-0;JMP // 5542
-@PUSH_constant_12 // 5543
-0;JMP // 5544
-@PUSH_constant_12 // 5545
-0;JMP // 5546
-@PUSH_constant_12 // 5547
-0;JMP // 5548
-@PUSH_constant_30 // 5549
-0;JMP // 5550
-@PUSH_constant_0 // 5551
-0;JMP // 5552
-@PUSH_constant_0 // 5553
-0;JMP // 5554
+@PUSH_constant_89 // 5632
+0;JMP // 5633
+@PUSH_constant_51 // 5634
+0;JMP // 5635
+@PUSH_constant_51 // 5636
+0;JMP // 5637
+@PUSH_constant_51 // 5638
+0;JMP // 5639
+@PUSH_constant_51 // 5640
+0;JMP // 5641
+@PUSH_constant_30 // 5642
+0;JMP // 5643
+@PUSH_constant_12 // 5644
+0;JMP // 5645
+@PUSH_constant_12 // 5646
+0;JMP // 5647
+@PUSH_constant_12 // 5648
+0;JMP // 5649
+@PUSH_constant_30 // 5650
+0;JMP // 5651
+@PUSH_constant_0 // 5652
+0;JMP // 5653
+@PUSH_constant_0 // 5654
+0;JMP // 5655
 // call Output.create
-@17 // 5555
-D=A // 5556
-@14 // 5557
-M=D // 5558
-@Output.create // 5559
-D=A // 5560
-@13 // 5561
-M=D // 5562
-@CALL // 5563
-0;JMP // 5564
+@17 // 5656
+D=A // 5657
+@14 // 5658
+M=D // 5659
+@Output.create // 5660
+D=A // 5661
+@13 // 5662
+M=D // 5663
+@CALL // 5664
+0;JMP // 5665
 (Output.init.ret.118)
-@POP_temp_0 // 5565
-0;JMP // 5566
+@POP_temp_0 // 5666
+0;JMP // 5667
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 90"), PushInstruction("constant 63"), PushInstruction("constant 51"), PushInstruction("constant 49"), PushInstruction("constant 24"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 35"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_90 // 5567
-0;JMP // 5568
-@PUSH_constant_63 // 5569
-0;JMP // 5570
-@PUSH_constant_51 // 5571
-0;JMP // 5572
-@PUSH_constant_49 // 5573
-0;JMP // 5574
-@PUSH_constant_24 // 5575
-0;JMP // 5576
-@PUSH_constant_12 // 5577
-0;JMP // 5578
-@PUSH_constant_6 // 5579
-0;JMP // 5580
-@PUSH_constant_35 // 5581
-0;JMP // 5582
-@PUSH_constant_51 // 5583
-0;JMP // 5584
-@PUSH_constant_63 // 5585
-0;JMP // 5586
-@PUSH_constant_0 // 5587
-0;JMP // 5588
-@PUSH_constant_0 // 5589
-0;JMP // 5590
+@PUSH_constant_90 // 5668
+0;JMP // 5669
+@PUSH_constant_63 // 5670
+0;JMP // 5671
+@PUSH_constant_51 // 5672
+0;JMP // 5673
+@PUSH_constant_49 // 5674
+0;JMP // 5675
+@PUSH_constant_24 // 5676
+0;JMP // 5677
+@PUSH_constant_12 // 5678
+0;JMP // 5679
+@PUSH_constant_6 // 5680
+0;JMP // 5681
+@PUSH_constant_35 // 5682
+0;JMP // 5683
+@PUSH_constant_51 // 5684
+0;JMP // 5685
+@PUSH_constant_63 // 5686
+0;JMP // 5687
+@PUSH_constant_0 // 5688
+0;JMP // 5689
+@PUSH_constant_0 // 5690
+0;JMP // 5691
 // call Output.create
-@17 // 5591
-D=A // 5592
-@14 // 5593
-M=D // 5594
-@Output.create // 5595
-D=A // 5596
-@13 // 5597
-M=D // 5598
-@CALL // 5599
-0;JMP // 5600
+@17 // 5692
+D=A // 5693
+@14 // 5694
+M=D // 5695
+@Output.create // 5696
+D=A // 5697
+@13 // 5698
+M=D // 5699
+@CALL // 5700
+0;JMP // 5701
 (Output.init.ret.120)
-@POP_temp_0 // 5601
-0;JMP // 5602
+@POP_temp_0 // 5702
+0;JMP // 5703
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 91"), PushInstruction("constant 30"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_91 // 5603
-0;JMP // 5604
-@PUSH_constant_30 // 5605
-0;JMP // 5606
-@PUSH_constant_6 // 5607
-0;JMP // 5608
-@PUSH_constant_6 // 5609
-0;JMP // 5610
-@PUSH_constant_6 // 5611
-0;JMP // 5612
-@PUSH_constant_6 // 5613
-0;JMP // 5614
-@PUSH_constant_6 // 5615
-0;JMP // 5616
-@PUSH_constant_6 // 5617
-0;JMP // 5618
-@PUSH_constant_6 // 5619
-0;JMP // 5620
-@PUSH_constant_30 // 5621
-0;JMP // 5622
-@PUSH_constant_0 // 5623
-0;JMP // 5624
-@PUSH_constant_0 // 5625
-0;JMP // 5626
+@PUSH_constant_91 // 5704
+0;JMP // 5705
+@PUSH_constant_30 // 5706
+0;JMP // 5707
+@PUSH_constant_6 // 5708
+0;JMP // 5709
+@PUSH_constant_6 // 5710
+0;JMP // 5711
+@PUSH_constant_6 // 5712
+0;JMP // 5713
+@PUSH_constant_6 // 5714
+0;JMP // 5715
+@PUSH_constant_6 // 5716
+0;JMP // 5717
+@PUSH_constant_6 // 5718
+0;JMP // 5719
+@PUSH_constant_6 // 5720
+0;JMP // 5721
+@PUSH_constant_30 // 5722
+0;JMP // 5723
+@PUSH_constant_0 // 5724
+0;JMP // 5725
+@PUSH_constant_0 // 5726
+0;JMP // 5727
 // call Output.create
-@17 // 5627
-D=A // 5628
-@14 // 5629
-M=D // 5630
-@Output.create // 5631
-D=A // 5632
-@13 // 5633
-M=D // 5634
-@CALL // 5635
-0;JMP // 5636
+@17 // 5728
+D=A // 5729
+@14 // 5730
+M=D // 5731
+@Output.create // 5732
+D=A // 5733
+@13 // 5734
+M=D // 5735
+@CALL // 5736
+0;JMP // 5737
 (Output.init.ret.122)
-@POP_temp_0 // 5637
-0;JMP // 5638
+@POP_temp_0 // 5738
+0;JMP // 5739
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 92"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 1"), PushInstruction("constant 3"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 48"), PushInstruction("constant 32"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_92 // 5639
-0;JMP // 5640
-@PUSH_constant_0 // 5641
-0;JMP // 5642
-@PUSH_constant_0 // 5643
-0;JMP // 5644
-@PUSH_constant_1 // 5645
-0;JMP // 5646
-@PUSH_constant_3 // 5647
-0;JMP // 5648
-@PUSH_constant_6 // 5649
-0;JMP // 5650
-@PUSH_constant_12 // 5651
-0;JMP // 5652
-@PUSH_constant_24 // 5653
-0;JMP // 5654
-@PUSH_constant_48 // 5655
-0;JMP // 5656
-@PUSH_constant_32 // 5657
-0;JMP // 5658
-@PUSH_constant_0 // 5659
-0;JMP // 5660
-@PUSH_constant_0 // 5661
-0;JMP // 5662
+@PUSH_constant_92 // 5740
+0;JMP // 5741
+@PUSH_constant_0 // 5742
+0;JMP // 5743
+@PUSH_constant_0 // 5744
+0;JMP // 5745
+@PUSH_constant_1 // 5746
+0;JMP // 5747
+@PUSH_constant_3 // 5748
+0;JMP // 5749
+@PUSH_constant_6 // 5750
+0;JMP // 5751
+@PUSH_constant_12 // 5752
+0;JMP // 5753
+@PUSH_constant_24 // 5754
+0;JMP // 5755
+@PUSH_constant_48 // 5756
+0;JMP // 5757
+@PUSH_constant_32 // 5758
+0;JMP // 5759
+@PUSH_constant_0 // 5760
+0;JMP // 5761
+@PUSH_constant_0 // 5762
+0;JMP // 5763
 // call Output.create
-@17 // 5663
-D=A // 5664
-@14 // 5665
-M=D // 5666
-@Output.create // 5667
-D=A // 5668
-@13 // 5669
-M=D // 5670
-@CALL // 5671
-0;JMP // 5672
+@17 // 5764
+D=A // 5765
+@14 // 5766
+M=D // 5767
+@Output.create // 5768
+D=A // 5769
+@13 // 5770
+M=D // 5771
+@CALL // 5772
+0;JMP // 5773
 (Output.init.ret.124)
-@POP_temp_0 // 5673
-0;JMP // 5674
+@POP_temp_0 // 5774
+0;JMP // 5775
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 93"), PushInstruction("constant 30"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 24"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_93 // 5675
-0;JMP // 5676
-@PUSH_constant_30 // 5677
-0;JMP // 5678
-@PUSH_constant_24 // 5679
-0;JMP // 5680
-@PUSH_constant_24 // 5681
-0;JMP // 5682
-@PUSH_constant_24 // 5683
-0;JMP // 5684
-@PUSH_constant_24 // 5685
-0;JMP // 5686
-@PUSH_constant_24 // 5687
-0;JMP // 5688
-@PUSH_constant_24 // 5689
-0;JMP // 5690
-@PUSH_constant_24 // 5691
-0;JMP // 5692
-@PUSH_constant_30 // 5693
-0;JMP // 5694
-@PUSH_constant_0 // 5695
-0;JMP // 5696
-@PUSH_constant_0 // 5697
-0;JMP // 5698
+@PUSH_constant_93 // 5776
+0;JMP // 5777
+@PUSH_constant_30 // 5778
+0;JMP // 5779
+@PUSH_constant_24 // 5780
+0;JMP // 5781
+@PUSH_constant_24 // 5782
+0;JMP // 5783
+@PUSH_constant_24 // 5784
+0;JMP // 5785
+@PUSH_constant_24 // 5786
+0;JMP // 5787
+@PUSH_constant_24 // 5788
+0;JMP // 5789
+@PUSH_constant_24 // 5790
+0;JMP // 5791
+@PUSH_constant_24 // 5792
+0;JMP // 5793
+@PUSH_constant_30 // 5794
+0;JMP // 5795
+@PUSH_constant_0 // 5796
+0;JMP // 5797
+@PUSH_constant_0 // 5798
+0;JMP // 5799
 // call Output.create
-@17 // 5699
-D=A // 5700
-@14 // 5701
-M=D // 5702
-@Output.create // 5703
-D=A // 5704
-@13 // 5705
-M=D // 5706
-@CALL // 5707
-0;JMP // 5708
+@17 // 5800
+D=A // 5801
+@14 // 5802
+M=D // 5803
+@Output.create // 5804
+D=A // 5805
+@13 // 5806
+M=D // 5807
+@CALL // 5808
+0;JMP // 5809
 (Output.init.ret.126)
-@POP_temp_0 // 5709
-0;JMP // 5710
+@POP_temp_0 // 5810
+0;JMP // 5811
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 94"), PushInstruction("constant 8"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_94 // 5711
-0;JMP // 5712
-@PUSH_constant_8 // 5713
-0;JMP // 5714
-@PUSH_constant_28 // 5715
-0;JMP // 5716
-@PUSH_constant_54 // 5717
-0;JMP // 5718
-@PUSH_constant_0 // 5719
-0;JMP // 5720
-@PUSH_constant_0 // 5721
-0;JMP // 5722
-@PUSH_constant_0 // 5723
-0;JMP // 5724
-@PUSH_constant_0 // 5725
-0;JMP // 5726
-@PUSH_constant_0 // 5727
-0;JMP // 5728
-@PUSH_constant_0 // 5729
-0;JMP // 5730
-@PUSH_constant_0 // 5731
-0;JMP // 5732
-@PUSH_constant_0 // 5733
-0;JMP // 5734
+@PUSH_constant_94 // 5812
+0;JMP // 5813
+@PUSH_constant_8 // 5814
+0;JMP // 5815
+@PUSH_constant_28 // 5816
+0;JMP // 5817
+@PUSH_constant_54 // 5818
+0;JMP // 5819
+@PUSH_constant_0 // 5820
+0;JMP // 5821
+@PUSH_constant_0 // 5822
+0;JMP // 5823
+@PUSH_constant_0 // 5824
+0;JMP // 5825
+@PUSH_constant_0 // 5826
+0;JMP // 5827
+@PUSH_constant_0 // 5828
+0;JMP // 5829
+@PUSH_constant_0 // 5830
+0;JMP // 5831
+@PUSH_constant_0 // 5832
+0;JMP // 5833
+@PUSH_constant_0 // 5834
+0;JMP // 5835
 // call Output.create
-@17 // 5735
-D=A // 5736
-@14 // 5737
-M=D // 5738
-@Output.create // 5739
-D=A // 5740
-@13 // 5741
-M=D // 5742
-@CALL // 5743
-0;JMP // 5744
+@17 // 5836
+D=A // 5837
+@14 // 5838
+M=D // 5839
+@Output.create // 5840
+D=A // 5841
+@13 // 5842
+M=D // 5843
+@CALL // 5844
+0;JMP // 5845
 (Output.init.ret.128)
-@POP_temp_0 // 5745
-0;JMP // 5746
+@POP_temp_0 // 5846
+0;JMP // 5847
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 95"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_95 // 5747
-0;JMP // 5748
-@PUSH_constant_0 // 5749
-0;JMP // 5750
-@PUSH_constant_0 // 5751
-0;JMP // 5752
-@PUSH_constant_0 // 5753
-0;JMP // 5754
-@PUSH_constant_0 // 5755
-0;JMP // 5756
-@PUSH_constant_0 // 5757
-0;JMP // 5758
-@PUSH_constant_0 // 5759
-0;JMP // 5760
-@PUSH_constant_0 // 5761
-0;JMP // 5762
-@PUSH_constant_0 // 5763
-0;JMP // 5764
-@PUSH_constant_0 // 5765
-0;JMP // 5766
-@PUSH_constant_63 // 5767
-0;JMP // 5768
-@PUSH_constant_0 // 5769
-0;JMP // 5770
+@PUSH_constant_95 // 5848
+0;JMP // 5849
+@PUSH_constant_0 // 5850
+0;JMP // 5851
+@PUSH_constant_0 // 5852
+0;JMP // 5853
+@PUSH_constant_0 // 5854
+0;JMP // 5855
+@PUSH_constant_0 // 5856
+0;JMP // 5857
+@PUSH_constant_0 // 5858
+0;JMP // 5859
+@PUSH_constant_0 // 5860
+0;JMP // 5861
+@PUSH_constant_0 // 5862
+0;JMP // 5863
+@PUSH_constant_0 // 5864
+0;JMP // 5865
+@PUSH_constant_0 // 5866
+0;JMP // 5867
+@PUSH_constant_63 // 5868
+0;JMP // 5869
+@PUSH_constant_0 // 5870
+0;JMP // 5871
 // call Output.create
-@17 // 5771
-D=A // 5772
-@14 // 5773
-M=D // 5774
-@Output.create // 5775
-D=A // 5776
-@13 // 5777
-M=D // 5778
-@CALL // 5779
-0;JMP // 5780
+@17 // 5872
+D=A // 5873
+@14 // 5874
+M=D // 5875
+@Output.create // 5876
+D=A // 5877
+@13 // 5878
+M=D // 5879
+@CALL // 5880
+0;JMP // 5881
 (Output.init.ret.130)
-@POP_temp_0 // 5781
-0;JMP // 5782
+@POP_temp_0 // 5882
+0;JMP // 5883
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 96"), PushInstruction("constant 6"), PushInstruction("constant 12"), PushInstruction("constant 24"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_96 // 5783
-0;JMP // 5784
-@PUSH_constant_6 // 5785
-0;JMP // 5786
-@PUSH_constant_12 // 5787
-0;JMP // 5788
-@PUSH_constant_24 // 5789
-0;JMP // 5790
-@PUSH_constant_0 // 5791
-0;JMP // 5792
-@PUSH_constant_0 // 5793
-0;JMP // 5794
-@PUSH_constant_0 // 5795
-0;JMP // 5796
-@PUSH_constant_0 // 5797
-0;JMP // 5798
-@PUSH_constant_0 // 5799
-0;JMP // 5800
-@PUSH_constant_0 // 5801
-0;JMP // 5802
-@PUSH_constant_0 // 5803
-0;JMP // 5804
-@PUSH_constant_0 // 5805
-0;JMP // 5806
+@PUSH_constant_96 // 5884
+0;JMP // 5885
+@PUSH_constant_6 // 5886
+0;JMP // 5887
+@PUSH_constant_12 // 5888
+0;JMP // 5889
+@PUSH_constant_24 // 5890
+0;JMP // 5891
+@PUSH_constant_0 // 5892
+0;JMP // 5893
+@PUSH_constant_0 // 5894
+0;JMP // 5895
+@PUSH_constant_0 // 5896
+0;JMP // 5897
+@PUSH_constant_0 // 5898
+0;JMP // 5899
+@PUSH_constant_0 // 5900
+0;JMP // 5901
+@PUSH_constant_0 // 5902
+0;JMP // 5903
+@PUSH_constant_0 // 5904
+0;JMP // 5905
+@PUSH_constant_0 // 5906
+0;JMP // 5907
 // call Output.create
-@17 // 5807
-D=A // 5808
-@14 // 5809
-M=D // 5810
-@Output.create // 5811
-D=A // 5812
-@13 // 5813
-M=D // 5814
-@CALL // 5815
-0;JMP // 5816
+@17 // 5908
+D=A // 5909
+@14 // 5910
+M=D // 5911
+@Output.create // 5912
+D=A // 5913
+@13 // 5914
+M=D // 5915
+@CALL // 5916
+0;JMP // 5917
 (Output.init.ret.132)
-@POP_temp_0 // 5817
-0;JMP // 5818
+@POP_temp_0 // 5918
+0;JMP // 5919
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 97"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 14"), PushInstruction("constant 24"), PushInstruction("constant 30"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_97 // 5819
-0;JMP // 5820
-@PUSH_constant_0 // 5821
-0;JMP // 5822
-@PUSH_constant_0 // 5823
-0;JMP // 5824
-@PUSH_constant_0 // 5825
-0;JMP // 5826
-@PUSH_constant_14 // 5827
-0;JMP // 5828
-@PUSH_constant_24 // 5829
-0;JMP // 5830
-@PUSH_constant_30 // 5831
-0;JMP // 5832
-@PUSH_constant_27 // 5833
-0;JMP // 5834
-@PUSH_constant_27 // 5835
-0;JMP // 5836
-@PUSH_constant_54 // 5837
-0;JMP // 5838
-@PUSH_constant_0 // 5839
-0;JMP // 5840
-@PUSH_constant_0 // 5841
-0;JMP // 5842
+@PUSH_constant_97 // 5920
+0;JMP // 5921
+@PUSH_constant_0 // 5922
+0;JMP // 5923
+@PUSH_constant_0 // 5924
+0;JMP // 5925
+@PUSH_constant_0 // 5926
+0;JMP // 5927
+@PUSH_constant_14 // 5928
+0;JMP // 5929
+@PUSH_constant_24 // 5930
+0;JMP // 5931
+@PUSH_constant_30 // 5932
+0;JMP // 5933
+@PUSH_constant_27 // 5934
+0;JMP // 5935
+@PUSH_constant_27 // 5936
+0;JMP // 5937
+@PUSH_constant_54 // 5938
+0;JMP // 5939
+@PUSH_constant_0 // 5940
+0;JMP // 5941
+@PUSH_constant_0 // 5942
+0;JMP // 5943
 // call Output.create
-@17 // 5843
-D=A // 5844
-@14 // 5845
-M=D // 5846
-@Output.create // 5847
-D=A // 5848
-@13 // 5849
-M=D // 5850
-@CALL // 5851
-0;JMP // 5852
+@17 // 5944
+D=A // 5945
+@14 // 5946
+M=D // 5947
+@Output.create // 5948
+D=A // 5949
+@13 // 5950
+M=D // 5951
+@CALL // 5952
+0;JMP // 5953
 (Output.init.ret.134)
-@POP_temp_0 // 5853
-0;JMP // 5854
+@POP_temp_0 // 5954
+0;JMP // 5955
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 98"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_98 // 5855
-0;JMP // 5856
-@PUSH_constant_3 // 5857
-0;JMP // 5858
-@PUSH_constant_3 // 5859
-0;JMP // 5860
-@PUSH_constant_3 // 5861
-0;JMP // 5862
-@PUSH_constant_15 // 5863
-0;JMP // 5864
-@PUSH_constant_27 // 5865
-0;JMP // 5866
-@PUSH_constant_51 // 5867
-0;JMP // 5868
-@PUSH_constant_51 // 5869
-0;JMP // 5870
-@PUSH_constant_51 // 5871
-0;JMP // 5872
-@PUSH_constant_30 // 5873
-0;JMP // 5874
-@PUSH_constant_0 // 5875
-0;JMP // 5876
-@PUSH_constant_0 // 5877
-0;JMP // 5878
+@PUSH_constant_98 // 5956
+0;JMP // 5957
+@PUSH_constant_3 // 5958
+0;JMP // 5959
+@PUSH_constant_3 // 5960
+0;JMP // 5961
+@PUSH_constant_3 // 5962
+0;JMP // 5963
+@PUSH_constant_15 // 5964
+0;JMP // 5965
+@PUSH_constant_27 // 5966
+0;JMP // 5967
+@PUSH_constant_51 // 5968
+0;JMP // 5969
+@PUSH_constant_51 // 5970
+0;JMP // 5971
+@PUSH_constant_51 // 5972
+0;JMP // 5973
+@PUSH_constant_30 // 5974
+0;JMP // 5975
+@PUSH_constant_0 // 5976
+0;JMP // 5977
+@PUSH_constant_0 // 5978
+0;JMP // 5979
 // call Output.create
-@17 // 5879
-D=A // 5880
-@14 // 5881
-M=D // 5882
-@Output.create // 5883
-D=A // 5884
-@13 // 5885
-M=D // 5886
-@CALL // 5887
-0;JMP // 5888
+@17 // 5980
+D=A // 5981
+@14 // 5982
+M=D // 5983
+@Output.create // 5984
+D=A // 5985
+@13 // 5986
+M=D // 5987
+@CALL // 5988
+0;JMP // 5989
 (Output.init.ret.136)
-@POP_temp_0 // 5889
-0;JMP // 5890
+@POP_temp_0 // 5990
+0;JMP // 5991
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 99"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_99 // 5891
-0;JMP // 5892
-@PUSH_constant_0 // 5893
-0;JMP // 5894
-@PUSH_constant_0 // 5895
-0;JMP // 5896
-@PUSH_constant_0 // 5897
-0;JMP // 5898
-@PUSH_constant_30 // 5899
-0;JMP // 5900
-@PUSH_constant_51 // 5901
-0;JMP // 5902
-@PUSH_constant_3 // 5903
-0;JMP // 5904
-@PUSH_constant_3 // 5905
-0;JMP // 5906
-@PUSH_constant_51 // 5907
-0;JMP // 5908
-@PUSH_constant_30 // 5909
-0;JMP // 5910
-@PUSH_constant_0 // 5911
-0;JMP // 5912
-@PUSH_constant_0 // 5913
-0;JMP // 5914
+@PUSH_constant_99 // 5992
+0;JMP // 5993
+@PUSH_constant_0 // 5994
+0;JMP // 5995
+@PUSH_constant_0 // 5996
+0;JMP // 5997
+@PUSH_constant_0 // 5998
+0;JMP // 5999
+@PUSH_constant_30 // 6000
+0;JMP // 6001
+@PUSH_constant_51 // 6002
+0;JMP // 6003
+@PUSH_constant_3 // 6004
+0;JMP // 6005
+@PUSH_constant_3 // 6006
+0;JMP // 6007
+@PUSH_constant_51 // 6008
+0;JMP // 6009
+@PUSH_constant_30 // 6010
+0;JMP // 6011
+@PUSH_constant_0 // 6012
+0;JMP // 6013
+@PUSH_constant_0 // 6014
+0;JMP // 6015
 // call Output.create
-@17 // 5915
-D=A // 5916
-@14 // 5917
-M=D // 5918
-@Output.create // 5919
-D=A // 5920
-@13 // 5921
-M=D // 5922
-@CALL // 5923
-0;JMP // 5924
+@17 // 6016
+D=A // 6017
+@14 // 6018
+M=D // 6019
+@Output.create // 6020
+D=A // 6021
+@13 // 6022
+M=D // 6023
+@CALL // 6024
+0;JMP // 6025
 (Output.init.ret.138)
-@POP_temp_0 // 5925
-0;JMP // 5926
+@POP_temp_0 // 6026
+0;JMP // 6027
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 100"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 60"), PushInstruction("constant 54"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_100 // 5927
-0;JMP // 5928
-@PUSH_constant_48 // 5929
-0;JMP // 5930
-@PUSH_constant_48 // 5931
-0;JMP // 5932
-@PUSH_constant_48 // 5933
-0;JMP // 5934
-@PUSH_constant_60 // 5935
-0;JMP // 5936
-@PUSH_constant_54 // 5937
-0;JMP // 5938
-@PUSH_constant_51 // 5939
-0;JMP // 5940
-@PUSH_constant_51 // 5941
-0;JMP // 5942
-@PUSH_constant_51 // 5943
-0;JMP // 5944
-@PUSH_constant_30 // 5945
-0;JMP // 5946
-@PUSH_constant_0 // 5947
-0;JMP // 5948
-@PUSH_constant_0 // 5949
-0;JMP // 5950
+@PUSH_constant_100 // 6028
+0;JMP // 6029
+@PUSH_constant_48 // 6030
+0;JMP // 6031
+@PUSH_constant_48 // 6032
+0;JMP // 6033
+@PUSH_constant_48 // 6034
+0;JMP // 6035
+@PUSH_constant_60 // 6036
+0;JMP // 6037
+@PUSH_constant_54 // 6038
+0;JMP // 6039
+@PUSH_constant_51 // 6040
+0;JMP // 6041
+@PUSH_constant_51 // 6042
+0;JMP // 6043
+@PUSH_constant_51 // 6044
+0;JMP // 6045
+@PUSH_constant_30 // 6046
+0;JMP // 6047
+@PUSH_constant_0 // 6048
+0;JMP // 6049
+@PUSH_constant_0 // 6050
+0;JMP // 6051
 // call Output.create
-@17 // 5951
-D=A // 5952
-@14 // 5953
-M=D // 5954
-@Output.create // 5955
-D=A // 5956
-@13 // 5957
-M=D // 5958
-@CALL // 5959
-0;JMP // 5960
+@17 // 6052
+D=A // 6053
+@14 // 6054
+M=D // 6055
+@Output.create // 6056
+D=A // 6057
+@13 // 6058
+M=D // 6059
+@CALL // 6060
+0;JMP // 6061
 (Output.init.ret.140)
-@POP_temp_0 // 5961
-0;JMP // 5962
+@POP_temp_0 // 6062
+0;JMP // 6063
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 101"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_101 // 5963
-0;JMP // 5964
-@PUSH_constant_0 // 5965
-0;JMP // 5966
-@PUSH_constant_0 // 5967
-0;JMP // 5968
-@PUSH_constant_0 // 5969
-0;JMP // 5970
-@PUSH_constant_30 // 5971
-0;JMP // 5972
-@PUSH_constant_51 // 5973
-0;JMP // 5974
-@PUSH_constant_63 // 5975
-0;JMP // 5976
-@PUSH_constant_3 // 5977
-0;JMP // 5978
-@PUSH_constant_51 // 5979
-0;JMP // 5980
-@PUSH_constant_30 // 5981
-0;JMP // 5982
-@PUSH_constant_0 // 5983
-0;JMP // 5984
-@PUSH_constant_0 // 5985
-0;JMP // 5986
+@PUSH_constant_101 // 6064
+0;JMP // 6065
+@PUSH_constant_0 // 6066
+0;JMP // 6067
+@PUSH_constant_0 // 6068
+0;JMP // 6069
+@PUSH_constant_0 // 6070
+0;JMP // 6071
+@PUSH_constant_30 // 6072
+0;JMP // 6073
+@PUSH_constant_51 // 6074
+0;JMP // 6075
+@PUSH_constant_63 // 6076
+0;JMP // 6077
+@PUSH_constant_3 // 6078
+0;JMP // 6079
+@PUSH_constant_51 // 6080
+0;JMP // 6081
+@PUSH_constant_30 // 6082
+0;JMP // 6083
+@PUSH_constant_0 // 6084
+0;JMP // 6085
+@PUSH_constant_0 // 6086
+0;JMP // 6087
 // call Output.create
-@17 // 5987
-D=A // 5988
-@14 // 5989
-M=D // 5990
-@Output.create // 5991
-D=A // 5992
-@13 // 5993
-M=D // 5994
-@CALL // 5995
-0;JMP // 5996
+@17 // 6088
+D=A // 6089
+@14 // 6090
+M=D // 6091
+@Output.create // 6092
+D=A // 6093
+@13 // 6094
+M=D // 6095
+@CALL // 6096
+0;JMP // 6097
 (Output.init.ret.142)
-@POP_temp_0 // 5997
-0;JMP // 5998
+@POP_temp_0 // 6098
+0;JMP // 6099
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 102"), PushInstruction("constant 28"), PushInstruction("constant 54"), PushInstruction("constant 38"), PushInstruction("constant 6"), PushInstruction("constant 15"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 15"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_102 // 5999
-0;JMP // 6000
-@PUSH_constant_28 // 6001
-0;JMP // 6002
-@PUSH_constant_54 // 6003
-0;JMP // 6004
-@PUSH_constant_38 // 6005
-0;JMP // 6006
-@PUSH_constant_6 // 6007
-0;JMP // 6008
-@PUSH_constant_15 // 6009
-0;JMP // 6010
-@PUSH_constant_6 // 6011
-0;JMP // 6012
-@PUSH_constant_6 // 6013
-0;JMP // 6014
-@PUSH_constant_6 // 6015
-0;JMP // 6016
-@PUSH_constant_15 // 6017
-0;JMP // 6018
-@PUSH_constant_0 // 6019
-0;JMP // 6020
-@PUSH_constant_0 // 6021
-0;JMP // 6022
+@PUSH_constant_102 // 6100
+0;JMP // 6101
+@PUSH_constant_28 // 6102
+0;JMP // 6103
+@PUSH_constant_54 // 6104
+0;JMP // 6105
+@PUSH_constant_38 // 6106
+0;JMP // 6107
+@PUSH_constant_6 // 6108
+0;JMP // 6109
+@PUSH_constant_15 // 6110
+0;JMP // 6111
+@PUSH_constant_6 // 6112
+0;JMP // 6113
+@PUSH_constant_6 // 6114
+0;JMP // 6115
+@PUSH_constant_6 // 6116
+0;JMP // 6117
+@PUSH_constant_15 // 6118
+0;JMP // 6119
+@PUSH_constant_0 // 6120
+0;JMP // 6121
+@PUSH_constant_0 // 6122
+0;JMP // 6123
 // call Output.create
-@17 // 6023
-D=A // 6024
-@14 // 6025
-M=D // 6026
-@Output.create // 6027
-D=A // 6028
-@13 // 6029
-M=D // 6030
-@CALL // 6031
-0;JMP // 6032
+@17 // 6124
+D=A // 6125
+@14 // 6126
+M=D // 6127
+@Output.create // 6128
+D=A // 6129
+@13 // 6130
+M=D // 6131
+@CALL // 6132
+0;JMP // 6133
 (Output.init.ret.144)
-@POP_temp_0 // 6033
-0;JMP // 6034
+@POP_temp_0 // 6134
+0;JMP // 6135
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 103"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_103 // 6035
-0;JMP // 6036
-@PUSH_constant_0 // 6037
-0;JMP // 6038
-@PUSH_constant_0 // 6039
-0;JMP // 6040
-@PUSH_constant_30 // 6041
-0;JMP // 6042
-@PUSH_constant_51 // 6043
-0;JMP // 6044
-@PUSH_constant_51 // 6045
-0;JMP // 6046
-@PUSH_constant_51 // 6047
-0;JMP // 6048
-@PUSH_constant_62 // 6049
-0;JMP // 6050
-@PUSH_constant_48 // 6051
-0;JMP // 6052
-@PUSH_constant_51 // 6053
-0;JMP // 6054
-@PUSH_constant_30 // 6055
-0;JMP // 6056
-@PUSH_constant_0 // 6057
-0;JMP // 6058
+@PUSH_constant_103 // 6136
+0;JMP // 6137
+@PUSH_constant_0 // 6138
+0;JMP // 6139
+@PUSH_constant_0 // 6140
+0;JMP // 6141
+@PUSH_constant_30 // 6142
+0;JMP // 6143
+@PUSH_constant_51 // 6144
+0;JMP // 6145
+@PUSH_constant_51 // 6146
+0;JMP // 6147
+@PUSH_constant_51 // 6148
+0;JMP // 6149
+@PUSH_constant_62 // 6150
+0;JMP // 6151
+@PUSH_constant_48 // 6152
+0;JMP // 6153
+@PUSH_constant_51 // 6154
+0;JMP // 6155
+@PUSH_constant_30 // 6156
+0;JMP // 6157
+@PUSH_constant_0 // 6158
+0;JMP // 6159
 // call Output.create
-@17 // 6059
-D=A // 6060
-@14 // 6061
-M=D // 6062
-@Output.create // 6063
-D=A // 6064
-@13 // 6065
-M=D // 6066
-@CALL // 6067
-0;JMP // 6068
+@17 // 6160
+D=A // 6161
+@14 // 6162
+M=D // 6163
+@Output.create // 6164
+D=A // 6165
+@13 // 6166
+M=D // 6167
+@CALL // 6168
+0;JMP // 6169
 (Output.init.ret.146)
-@POP_temp_0 // 6069
-0;JMP // 6070
+@POP_temp_0 // 6170
+0;JMP // 6171
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 104"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 27"), PushInstruction("constant 55"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_104 // 6071
-0;JMP // 6072
-@PUSH_constant_3 // 6073
-0;JMP // 6074
-@PUSH_constant_3 // 6075
-0;JMP // 6076
-@PUSH_constant_3 // 6077
-0;JMP // 6078
-@PUSH_constant_27 // 6079
-0;JMP // 6080
-@PUSH_constant_55 // 6081
-0;JMP // 6082
-@PUSH_constant_51 // 6083
-0;JMP // 6084
-@PUSH_constant_51 // 6085
-0;JMP // 6086
-@PUSH_constant_51 // 6087
-0;JMP // 6088
-@PUSH_constant_51 // 6089
-0;JMP // 6090
-@PUSH_constant_0 // 6091
-0;JMP // 6092
-@PUSH_constant_0 // 6093
-0;JMP // 6094
+@PUSH_constant_104 // 6172
+0;JMP // 6173
+@PUSH_constant_3 // 6174
+0;JMP // 6175
+@PUSH_constant_3 // 6176
+0;JMP // 6177
+@PUSH_constant_3 // 6178
+0;JMP // 6179
+@PUSH_constant_27 // 6180
+0;JMP // 6181
+@PUSH_constant_55 // 6182
+0;JMP // 6183
+@PUSH_constant_51 // 6184
+0;JMP // 6185
+@PUSH_constant_51 // 6186
+0;JMP // 6187
+@PUSH_constant_51 // 6188
+0;JMP // 6189
+@PUSH_constant_51 // 6190
+0;JMP // 6191
+@PUSH_constant_0 // 6192
+0;JMP // 6193
+@PUSH_constant_0 // 6194
+0;JMP // 6195
 // call Output.create
-@17 // 6095
-D=A // 6096
-@14 // 6097
-M=D // 6098
-@Output.create // 6099
-D=A // 6100
-@13 // 6101
-M=D // 6102
-@CALL // 6103
-0;JMP // 6104
+@17 // 6196
+D=A // 6197
+@14 // 6198
+M=D // 6199
+@Output.create // 6200
+D=A // 6201
+@13 // 6202
+M=D // 6203
+@CALL // 6204
+0;JMP // 6205
 (Output.init.ret.148)
-@POP_temp_0 // 6105
-0;JMP // 6106
+@POP_temp_0 // 6206
+0;JMP // 6207
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 105"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 14"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_105 // 6107
-0;JMP // 6108
-@PUSH_constant_12 // 6109
-0;JMP // 6110
-@PUSH_constant_12 // 6111
-0;JMP // 6112
-@PUSH_constant_0 // 6113
-0;JMP // 6114
-@PUSH_constant_14 // 6115
-0;JMP // 6116
-@PUSH_constant_12 // 6117
-0;JMP // 6118
-@PUSH_constant_12 // 6119
-0;JMP // 6120
-@PUSH_constant_12 // 6121
-0;JMP // 6122
-@PUSH_constant_12 // 6123
-0;JMP // 6124
-@PUSH_constant_30 // 6125
-0;JMP // 6126
-@PUSH_constant_0 // 6127
-0;JMP // 6128
-@PUSH_constant_0 // 6129
-0;JMP // 6130
+@PUSH_constant_105 // 6208
+0;JMP // 6209
+@PUSH_constant_12 // 6210
+0;JMP // 6211
+@PUSH_constant_12 // 6212
+0;JMP // 6213
+@PUSH_constant_0 // 6214
+0;JMP // 6215
+@PUSH_constant_14 // 6216
+0;JMP // 6217
+@PUSH_constant_12 // 6218
+0;JMP // 6219
+@PUSH_constant_12 // 6220
+0;JMP // 6221
+@PUSH_constant_12 // 6222
+0;JMP // 6223
+@PUSH_constant_12 // 6224
+0;JMP // 6225
+@PUSH_constant_30 // 6226
+0;JMP // 6227
+@PUSH_constant_0 // 6228
+0;JMP // 6229
+@PUSH_constant_0 // 6230
+0;JMP // 6231
 // call Output.create
-@17 // 6131
-D=A // 6132
-@14 // 6133
-M=D // 6134
-@Output.create // 6135
-D=A // 6136
-@13 // 6137
-M=D // 6138
-@CALL // 6139
-0;JMP // 6140
+@17 // 6232
+D=A // 6233
+@14 // 6234
+M=D // 6235
+@Output.create // 6236
+D=A // 6237
+@13 // 6238
+M=D // 6239
+@CALL // 6240
+0;JMP // 6241
 (Output.init.ret.150)
-@POP_temp_0 // 6141
-0;JMP // 6142
+@POP_temp_0 // 6242
+0;JMP // 6243
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 106"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 0"), PushInstruction("constant 56"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_106 // 6143
-0;JMP // 6144
-@PUSH_constant_48 // 6145
-0;JMP // 6146
-@PUSH_constant_48 // 6147
-0;JMP // 6148
-@PUSH_constant_0 // 6149
-0;JMP // 6150
-@PUSH_constant_56 // 6151
-0;JMP // 6152
-@PUSH_constant_48 // 6153
-0;JMP // 6154
-@PUSH_constant_48 // 6155
-0;JMP // 6156
-@PUSH_constant_48 // 6157
-0;JMP // 6158
-@PUSH_constant_48 // 6159
-0;JMP // 6160
-@PUSH_constant_51 // 6161
-0;JMP // 6162
-@PUSH_constant_30 // 6163
-0;JMP // 6164
-@PUSH_constant_0 // 6165
-0;JMP // 6166
+@PUSH_constant_106 // 6244
+0;JMP // 6245
+@PUSH_constant_48 // 6246
+0;JMP // 6247
+@PUSH_constant_48 // 6248
+0;JMP // 6249
+@PUSH_constant_0 // 6250
+0;JMP // 6251
+@PUSH_constant_56 // 6252
+0;JMP // 6253
+@PUSH_constant_48 // 6254
+0;JMP // 6255
+@PUSH_constant_48 // 6256
+0;JMP // 6257
+@PUSH_constant_48 // 6258
+0;JMP // 6259
+@PUSH_constant_48 // 6260
+0;JMP // 6261
+@PUSH_constant_51 // 6262
+0;JMP // 6263
+@PUSH_constant_30 // 6264
+0;JMP // 6265
+@PUSH_constant_0 // 6266
+0;JMP // 6267
 // call Output.create
-@17 // 6167
-D=A // 6168
-@14 // 6169
-M=D // 6170
-@Output.create // 6171
-D=A // 6172
-@13 // 6173
-M=D // 6174
-@CALL // 6175
-0;JMP // 6176
+@17 // 6268
+D=A // 6269
+@14 // 6270
+M=D // 6271
+@Output.create // 6272
+D=A // 6273
+@13 // 6274
+M=D // 6275
+@CALL // 6276
+0;JMP // 6277
 (Output.init.ret.152)
-@POP_temp_0 // 6177
-0;JMP // 6178
+@POP_temp_0 // 6278
+0;JMP // 6279
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 107"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 51"), PushInstruction("constant 27"), PushInstruction("constant 15"), PushInstruction("constant 15"), PushInstruction("constant 27"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_107 // 6179
-0;JMP // 6180
-@PUSH_constant_3 // 6181
-0;JMP // 6182
-@PUSH_constant_3 // 6183
-0;JMP // 6184
-@PUSH_constant_3 // 6185
-0;JMP // 6186
-@PUSH_constant_51 // 6187
-0;JMP // 6188
-@PUSH_constant_27 // 6189
-0;JMP // 6190
-@PUSH_constant_15 // 6191
-0;JMP // 6192
-@PUSH_constant_15 // 6193
-0;JMP // 6194
-@PUSH_constant_27 // 6195
-0;JMP // 6196
-@PUSH_constant_51 // 6197
-0;JMP // 6198
-@PUSH_constant_0 // 6199
-0;JMP // 6200
-@PUSH_constant_0 // 6201
-0;JMP // 6202
+@PUSH_constant_107 // 6280
+0;JMP // 6281
+@PUSH_constant_3 // 6282
+0;JMP // 6283
+@PUSH_constant_3 // 6284
+0;JMP // 6285
+@PUSH_constant_3 // 6286
+0;JMP // 6287
+@PUSH_constant_51 // 6288
+0;JMP // 6289
+@PUSH_constant_27 // 6290
+0;JMP // 6291
+@PUSH_constant_15 // 6292
+0;JMP // 6293
+@PUSH_constant_15 // 6294
+0;JMP // 6295
+@PUSH_constant_27 // 6296
+0;JMP // 6297
+@PUSH_constant_51 // 6298
+0;JMP // 6299
+@PUSH_constant_0 // 6300
+0;JMP // 6301
+@PUSH_constant_0 // 6302
+0;JMP // 6303
 // call Output.create
-@17 // 6203
-D=A // 6204
-@14 // 6205
-M=D // 6206
-@Output.create // 6207
-D=A // 6208
-@13 // 6209
-M=D // 6210
-@CALL // 6211
-0;JMP // 6212
+@17 // 6304
+D=A // 6305
+@14 // 6306
+M=D // 6307
+@Output.create // 6308
+D=A // 6309
+@13 // 6310
+M=D // 6311
+@CALL // 6312
+0;JMP // 6313
 (Output.init.ret.154)
-@POP_temp_0 // 6213
-0;JMP // 6214
+@POP_temp_0 // 6314
+0;JMP // 6315
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 108"), PushInstruction("constant 14"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_108 // 6215
-0;JMP // 6216
-@PUSH_constant_14 // 6217
-0;JMP // 6218
-@PUSH_constant_12 // 6219
-0;JMP // 6220
-@PUSH_constant_12 // 6221
-0;JMP // 6222
-@PUSH_constant_12 // 6223
-0;JMP // 6224
-@PUSH_constant_12 // 6225
-0;JMP // 6226
-@PUSH_constant_12 // 6227
-0;JMP // 6228
-@PUSH_constant_12 // 6229
-0;JMP // 6230
-@PUSH_constant_12 // 6231
-0;JMP // 6232
-@PUSH_constant_30 // 6233
-0;JMP // 6234
-@PUSH_constant_0 // 6235
-0;JMP // 6236
-@PUSH_constant_0 // 6237
-0;JMP // 6238
+@PUSH_constant_108 // 6316
+0;JMP // 6317
+@PUSH_constant_14 // 6318
+0;JMP // 6319
+@PUSH_constant_12 // 6320
+0;JMP // 6321
+@PUSH_constant_12 // 6322
+0;JMP // 6323
+@PUSH_constant_12 // 6324
+0;JMP // 6325
+@PUSH_constant_12 // 6326
+0;JMP // 6327
+@PUSH_constant_12 // 6328
+0;JMP // 6329
+@PUSH_constant_12 // 6330
+0;JMP // 6331
+@PUSH_constant_12 // 6332
+0;JMP // 6333
+@PUSH_constant_30 // 6334
+0;JMP // 6335
+@PUSH_constant_0 // 6336
+0;JMP // 6337
+@PUSH_constant_0 // 6338
+0;JMP // 6339
 // call Output.create
-@17 // 6239
-D=A // 6240
-@14 // 6241
-M=D // 6242
-@Output.create // 6243
-D=A // 6244
-@13 // 6245
-M=D // 6246
-@CALL // 6247
-0;JMP // 6248
+@17 // 6340
+D=A // 6341
+@14 // 6342
+M=D // 6343
+@Output.create // 6344
+D=A // 6345
+@13 // 6346
+M=D // 6347
+@CALL // 6348
+0;JMP // 6349
 (Output.init.ret.156)
-@POP_temp_0 // 6249
-0;JMP // 6250
+@POP_temp_0 // 6350
+0;JMP // 6351
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 109"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 29"), PushInstruction("constant 63"), PushInstruction("constant 43"), PushInstruction("constant 43"), PushInstruction("constant 43"), PushInstruction("constant 43"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_109 // 6251
-0;JMP // 6252
-@PUSH_constant_0 // 6253
-0;JMP // 6254
-@PUSH_constant_0 // 6255
-0;JMP // 6256
-@PUSH_constant_0 // 6257
-0;JMP // 6258
-@PUSH_constant_29 // 6259
-0;JMP // 6260
-@PUSH_constant_63 // 6261
-0;JMP // 6262
-@PUSH_constant_43 // 6263
-0;JMP // 6264
-@PUSH_constant_43 // 6265
-0;JMP // 6266
-@PUSH_constant_43 // 6267
-0;JMP // 6268
-@PUSH_constant_43 // 6269
-0;JMP // 6270
-@PUSH_constant_0 // 6271
-0;JMP // 6272
-@PUSH_constant_0 // 6273
-0;JMP // 6274
+@PUSH_constant_109 // 6352
+0;JMP // 6353
+@PUSH_constant_0 // 6354
+0;JMP // 6355
+@PUSH_constant_0 // 6356
+0;JMP // 6357
+@PUSH_constant_0 // 6358
+0;JMP // 6359
+@PUSH_constant_29 // 6360
+0;JMP // 6361
+@PUSH_constant_63 // 6362
+0;JMP // 6363
+@PUSH_constant_43 // 6364
+0;JMP // 6365
+@PUSH_constant_43 // 6366
+0;JMP // 6367
+@PUSH_constant_43 // 6368
+0;JMP // 6369
+@PUSH_constant_43 // 6370
+0;JMP // 6371
+@PUSH_constant_0 // 6372
+0;JMP // 6373
+@PUSH_constant_0 // 6374
+0;JMP // 6375
 // call Output.create
-@17 // 6275
-D=A // 6276
-@14 // 6277
-M=D // 6278
-@Output.create // 6279
-D=A // 6280
-@13 // 6281
-M=D // 6282
-@CALL // 6283
-0;JMP // 6284
+@17 // 6376
+D=A // 6377
+@14 // 6378
+M=D // 6379
+@Output.create // 6380
+D=A // 6381
+@13 // 6382
+M=D // 6383
+@CALL // 6384
+0;JMP // 6385
 (Output.init.ret.158)
-@POP_temp_0 // 6285
-0;JMP // 6286
+@POP_temp_0 // 6386
+0;JMP // 6387
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 110"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 29"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_110 // 6287
-0;JMP // 6288
-@PUSH_constant_0 // 6289
-0;JMP // 6290
-@PUSH_constant_0 // 6291
-0;JMP // 6292
-@PUSH_constant_0 // 6293
-0;JMP // 6294
-@PUSH_constant_29 // 6295
-0;JMP // 6296
-@PUSH_constant_51 // 6297
-0;JMP // 6298
-@PUSH_constant_51 // 6299
-0;JMP // 6300
-@PUSH_constant_51 // 6301
-0;JMP // 6302
-@PUSH_constant_51 // 6303
-0;JMP // 6304
-@PUSH_constant_51 // 6305
-0;JMP // 6306
-@PUSH_constant_0 // 6307
-0;JMP // 6308
-@PUSH_constant_0 // 6309
-0;JMP // 6310
+@PUSH_constant_110 // 6388
+0;JMP // 6389
+@PUSH_constant_0 // 6390
+0;JMP // 6391
+@PUSH_constant_0 // 6392
+0;JMP // 6393
+@PUSH_constant_0 // 6394
+0;JMP // 6395
+@PUSH_constant_29 // 6396
+0;JMP // 6397
+@PUSH_constant_51 // 6398
+0;JMP // 6399
+@PUSH_constant_51 // 6400
+0;JMP // 6401
+@PUSH_constant_51 // 6402
+0;JMP // 6403
+@PUSH_constant_51 // 6404
+0;JMP // 6405
+@PUSH_constant_51 // 6406
+0;JMP // 6407
+@PUSH_constant_0 // 6408
+0;JMP // 6409
+@PUSH_constant_0 // 6410
+0;JMP // 6411
 // call Output.create
-@17 // 6311
-D=A // 6312
-@14 // 6313
-M=D // 6314
-@Output.create // 6315
-D=A // 6316
-@13 // 6317
-M=D // 6318
-@CALL // 6319
-0;JMP // 6320
+@17 // 6412
+D=A // 6413
+@14 // 6414
+M=D // 6415
+@Output.create // 6416
+D=A // 6417
+@13 // 6418
+M=D // 6419
+@CALL // 6420
+0;JMP // 6421
 (Output.init.ret.160)
-@POP_temp_0 // 6321
-0;JMP // 6322
+@POP_temp_0 // 6422
+0;JMP // 6423
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 111"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_111 // 6323
-0;JMP // 6324
-@PUSH_constant_0 // 6325
-0;JMP // 6326
-@PUSH_constant_0 // 6327
-0;JMP // 6328
-@PUSH_constant_0 // 6329
-0;JMP // 6330
-@PUSH_constant_30 // 6331
-0;JMP // 6332
-@PUSH_constant_51 // 6333
-0;JMP // 6334
-@PUSH_constant_51 // 6335
-0;JMP // 6336
-@PUSH_constant_51 // 6337
-0;JMP // 6338
-@PUSH_constant_51 // 6339
-0;JMP // 6340
-@PUSH_constant_30 // 6341
-0;JMP // 6342
-@PUSH_constant_0 // 6343
-0;JMP // 6344
-@PUSH_constant_0 // 6345
-0;JMP // 6346
+@PUSH_constant_111 // 6424
+0;JMP // 6425
+@PUSH_constant_0 // 6426
+0;JMP // 6427
+@PUSH_constant_0 // 6428
+0;JMP // 6429
+@PUSH_constant_0 // 6430
+0;JMP // 6431
+@PUSH_constant_30 // 6432
+0;JMP // 6433
+@PUSH_constant_51 // 6434
+0;JMP // 6435
+@PUSH_constant_51 // 6436
+0;JMP // 6437
+@PUSH_constant_51 // 6438
+0;JMP // 6439
+@PUSH_constant_51 // 6440
+0;JMP // 6441
+@PUSH_constant_30 // 6442
+0;JMP // 6443
+@PUSH_constant_0 // 6444
+0;JMP // 6445
+@PUSH_constant_0 // 6446
+0;JMP // 6447
 // call Output.create
-@17 // 6347
-D=A // 6348
-@14 // 6349
-M=D // 6350
-@Output.create // 6351
-D=A // 6352
-@13 // 6353
-M=D // 6354
-@CALL // 6355
-0;JMP // 6356
+@17 // 6448
+D=A // 6449
+@14 // 6450
+M=D // 6451
+@Output.create // 6452
+D=A // 6453
+@13 // 6454
+M=D // 6455
+@CALL // 6456
+0;JMP // 6457
 (Output.init.ret.162)
-@POP_temp_0 // 6357
-0;JMP // 6358
+@POP_temp_0 // 6458
+0;JMP // 6459
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 112"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 31"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_112 // 6359
-0;JMP // 6360
-@PUSH_constant_0 // 6361
-0;JMP // 6362
-@PUSH_constant_0 // 6363
-0;JMP // 6364
-@PUSH_constant_0 // 6365
-0;JMP // 6366
-@PUSH_constant_30 // 6367
-0;JMP // 6368
-@PUSH_constant_51 // 6369
-0;JMP // 6370
-@PUSH_constant_51 // 6371
-0;JMP // 6372
-@PUSH_constant_51 // 6373
-0;JMP // 6374
-@PUSH_constant_31 // 6375
-0;JMP // 6376
-@PUSH_constant_3 // 6377
-0;JMP // 6378
-@PUSH_constant_3 // 6379
-0;JMP // 6380
-@PUSH_constant_0 // 6381
-0;JMP // 6382
+@PUSH_constant_112 // 6460
+0;JMP // 6461
+@PUSH_constant_0 // 6462
+0;JMP // 6463
+@PUSH_constant_0 // 6464
+0;JMP // 6465
+@PUSH_constant_0 // 6466
+0;JMP // 6467
+@PUSH_constant_30 // 6468
+0;JMP // 6469
+@PUSH_constant_51 // 6470
+0;JMP // 6471
+@PUSH_constant_51 // 6472
+0;JMP // 6473
+@PUSH_constant_51 // 6474
+0;JMP // 6475
+@PUSH_constant_31 // 6476
+0;JMP // 6477
+@PUSH_constant_3 // 6478
+0;JMP // 6479
+@PUSH_constant_3 // 6480
+0;JMP // 6481
+@PUSH_constant_0 // 6482
+0;JMP // 6483
 // call Output.create
-@17 // 6383
-D=A // 6384
-@14 // 6385
-M=D // 6386
-@Output.create // 6387
-D=A // 6388
-@13 // 6389
-M=D // 6390
-@CALL // 6391
-0;JMP // 6392
+@17 // 6484
+D=A // 6485
+@14 // 6486
+M=D // 6487
+@Output.create // 6488
+D=A // 6489
+@13 // 6490
+M=D // 6491
+@CALL // 6492
+0;JMP // 6493
 (Output.init.ret.164)
-@POP_temp_0 // 6393
-0;JMP // 6394
+@POP_temp_0 // 6494
+0;JMP // 6495
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 113"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 48"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_113 // 6395
-0;JMP // 6396
-@PUSH_constant_0 // 6397
-0;JMP // 6398
-@PUSH_constant_0 // 6399
-0;JMP // 6400
-@PUSH_constant_0 // 6401
-0;JMP // 6402
-@PUSH_constant_30 // 6403
-0;JMP // 6404
-@PUSH_constant_51 // 6405
-0;JMP // 6406
-@PUSH_constant_51 // 6407
-0;JMP // 6408
-@PUSH_constant_51 // 6409
-0;JMP // 6410
-@PUSH_constant_62 // 6411
-0;JMP // 6412
-@PUSH_constant_48 // 6413
-0;JMP // 6414
-@PUSH_constant_48 // 6415
-0;JMP // 6416
-@PUSH_constant_0 // 6417
-0;JMP // 6418
+@PUSH_constant_113 // 6496
+0;JMP // 6497
+@PUSH_constant_0 // 6498
+0;JMP // 6499
+@PUSH_constant_0 // 6500
+0;JMP // 6501
+@PUSH_constant_0 // 6502
+0;JMP // 6503
+@PUSH_constant_30 // 6504
+0;JMP // 6505
+@PUSH_constant_51 // 6506
+0;JMP // 6507
+@PUSH_constant_51 // 6508
+0;JMP // 6509
+@PUSH_constant_51 // 6510
+0;JMP // 6511
+@PUSH_constant_62 // 6512
+0;JMP // 6513
+@PUSH_constant_48 // 6514
+0;JMP // 6515
+@PUSH_constant_48 // 6516
+0;JMP // 6517
+@PUSH_constant_0 // 6518
+0;JMP // 6519
 // call Output.create
-@17 // 6419
-D=A // 6420
-@14 // 6421
-M=D // 6422
-@Output.create // 6423
-D=A // 6424
-@13 // 6425
-M=D // 6426
-@CALL // 6427
-0;JMP // 6428
+@17 // 6520
+D=A // 6521
+@14 // 6522
+M=D // 6523
+@Output.create // 6524
+D=A // 6525
+@13 // 6526
+M=D // 6527
+@CALL // 6528
+0;JMP // 6529
 (Output.init.ret.166)
-@POP_temp_0 // 6429
-0;JMP // 6430
+@POP_temp_0 // 6530
+0;JMP // 6531
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 114"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 29"), PushInstruction("constant 55"), PushInstruction("constant 51"), PushInstruction("constant 3"), PushInstruction("constant 3"), PushInstruction("constant 7"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_114 // 6431
-0;JMP // 6432
-@PUSH_constant_0 // 6433
-0;JMP // 6434
-@PUSH_constant_0 // 6435
-0;JMP // 6436
-@PUSH_constant_0 // 6437
-0;JMP // 6438
-@PUSH_constant_29 // 6439
-0;JMP // 6440
-@PUSH_constant_55 // 6441
-0;JMP // 6442
-@PUSH_constant_51 // 6443
-0;JMP // 6444
-@PUSH_constant_3 // 6445
-0;JMP // 6446
-@PUSH_constant_3 // 6447
-0;JMP // 6448
-@PUSH_constant_7 // 6449
-0;JMP // 6450
-@PUSH_constant_0 // 6451
-0;JMP // 6452
-@PUSH_constant_0 // 6453
-0;JMP // 6454
+@PUSH_constant_114 // 6532
+0;JMP // 6533
+@PUSH_constant_0 // 6534
+0;JMP // 6535
+@PUSH_constant_0 // 6536
+0;JMP // 6537
+@PUSH_constant_0 // 6538
+0;JMP // 6539
+@PUSH_constant_29 // 6540
+0;JMP // 6541
+@PUSH_constant_55 // 6542
+0;JMP // 6543
+@PUSH_constant_51 // 6544
+0;JMP // 6545
+@PUSH_constant_3 // 6546
+0;JMP // 6547
+@PUSH_constant_3 // 6548
+0;JMP // 6549
+@PUSH_constant_7 // 6550
+0;JMP // 6551
+@PUSH_constant_0 // 6552
+0;JMP // 6553
+@PUSH_constant_0 // 6554
+0;JMP // 6555
 // call Output.create
-@17 // 6455
-D=A // 6456
-@14 // 6457
-M=D // 6458
-@Output.create // 6459
-D=A // 6460
-@13 // 6461
-M=D // 6462
-@CALL // 6463
-0;JMP // 6464
+@17 // 6556
+D=A // 6557
+@14 // 6558
+M=D // 6559
+@Output.create // 6560
+D=A // 6561
+@13 // 6562
+M=D // 6563
+@CALL // 6564
+0;JMP // 6565
 (Output.init.ret.168)
-@POP_temp_0 // 6465
-0;JMP // 6466
+@POP_temp_0 // 6566
+0;JMP // 6567
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 115"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 6"), PushInstruction("constant 24"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_115 // 6467
-0;JMP // 6468
-@PUSH_constant_0 // 6469
-0;JMP // 6470
-@PUSH_constant_0 // 6471
-0;JMP // 6472
-@PUSH_constant_0 // 6473
-0;JMP // 6474
-@PUSH_constant_30 // 6475
-0;JMP // 6476
-@PUSH_constant_51 // 6477
-0;JMP // 6478
-@PUSH_constant_6 // 6479
-0;JMP // 6480
-@PUSH_constant_24 // 6481
-0;JMP // 6482
-@PUSH_constant_51 // 6483
-0;JMP // 6484
-@PUSH_constant_30 // 6485
-0;JMP // 6486
-@PUSH_constant_0 // 6487
-0;JMP // 6488
-@PUSH_constant_0 // 6489
-0;JMP // 6490
+@PUSH_constant_115 // 6568
+0;JMP // 6569
+@PUSH_constant_0 // 6570
+0;JMP // 6571
+@PUSH_constant_0 // 6572
+0;JMP // 6573
+@PUSH_constant_0 // 6574
+0;JMP // 6575
+@PUSH_constant_30 // 6576
+0;JMP // 6577
+@PUSH_constant_51 // 6578
+0;JMP // 6579
+@PUSH_constant_6 // 6580
+0;JMP // 6581
+@PUSH_constant_24 // 6582
+0;JMP // 6583
+@PUSH_constant_51 // 6584
+0;JMP // 6585
+@PUSH_constant_30 // 6586
+0;JMP // 6587
+@PUSH_constant_0 // 6588
+0;JMP // 6589
+@PUSH_constant_0 // 6590
+0;JMP // 6591
 // call Output.create
-@17 // 6491
-D=A // 6492
-@14 // 6493
-M=D // 6494
-@Output.create // 6495
-D=A // 6496
-@13 // 6497
-M=D // 6498
-@CALL // 6499
-0;JMP // 6500
+@17 // 6592
+D=A // 6593
+@14 // 6594
+M=D // 6595
+@Output.create // 6596
+D=A // 6597
+@13 // 6598
+M=D // 6599
+@CALL // 6600
+0;JMP // 6601
 (Output.init.ret.170)
-@POP_temp_0 // 6501
-0;JMP // 6502
+@POP_temp_0 // 6602
+0;JMP // 6603
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 116"), PushInstruction("constant 4"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 15"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 6"), PushInstruction("constant 54"), PushInstruction("constant 28"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_116 // 6503
-0;JMP // 6504
-@PUSH_constant_4 // 6505
-0;JMP // 6506
-@PUSH_constant_6 // 6507
-0;JMP // 6508
-@PUSH_constant_6 // 6509
-0;JMP // 6510
-@PUSH_constant_15 // 6511
-0;JMP // 6512
-@PUSH_constant_6 // 6513
-0;JMP // 6514
-@PUSH_constant_6 // 6515
-0;JMP // 6516
-@PUSH_constant_6 // 6517
-0;JMP // 6518
-@PUSH_constant_54 // 6519
-0;JMP // 6520
-@PUSH_constant_28 // 6521
-0;JMP // 6522
-@PUSH_constant_0 // 6523
-0;JMP // 6524
-@PUSH_constant_0 // 6525
-0;JMP // 6526
+@PUSH_constant_116 // 6604
+0;JMP // 6605
+@PUSH_constant_4 // 6606
+0;JMP // 6607
+@PUSH_constant_6 // 6608
+0;JMP // 6609
+@PUSH_constant_6 // 6610
+0;JMP // 6611
+@PUSH_constant_15 // 6612
+0;JMP // 6613
+@PUSH_constant_6 // 6614
+0;JMP // 6615
+@PUSH_constant_6 // 6616
+0;JMP // 6617
+@PUSH_constant_6 // 6618
+0;JMP // 6619
+@PUSH_constant_54 // 6620
+0;JMP // 6621
+@PUSH_constant_28 // 6622
+0;JMP // 6623
+@PUSH_constant_0 // 6624
+0;JMP // 6625
+@PUSH_constant_0 // 6626
+0;JMP // 6627
 // call Output.create
-@17 // 6527
-D=A // 6528
-@14 // 6529
-M=D // 6530
-@Output.create // 6531
-D=A // 6532
-@13 // 6533
-M=D // 6534
-@CALL // 6535
-0;JMP // 6536
+@17 // 6628
+D=A // 6629
+@14 // 6630
+M=D // 6631
+@Output.create // 6632
+D=A // 6633
+@13 // 6634
+M=D // 6635
+@CALL // 6636
+0;JMP // 6637
 (Output.init.ret.172)
-@POP_temp_0 // 6537
-0;JMP // 6538
+@POP_temp_0 // 6638
+0;JMP // 6639
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 117"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 27"), PushInstruction("constant 54"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_117 // 6539
-0;JMP // 6540
-@PUSH_constant_0 // 6541
-0;JMP // 6542
-@PUSH_constant_0 // 6543
-0;JMP // 6544
-@PUSH_constant_0 // 6545
-0;JMP // 6546
-@PUSH_constant_27 // 6547
-0;JMP // 6548
-@PUSH_constant_27 // 6549
-0;JMP // 6550
-@PUSH_constant_27 // 6551
-0;JMP // 6552
-@PUSH_constant_27 // 6553
-0;JMP // 6554
-@PUSH_constant_27 // 6555
-0;JMP // 6556
-@PUSH_constant_54 // 6557
-0;JMP // 6558
-@PUSH_constant_0 // 6559
-0;JMP // 6560
-@PUSH_constant_0 // 6561
-0;JMP // 6562
+@PUSH_constant_117 // 6640
+0;JMP // 6641
+@PUSH_constant_0 // 6642
+0;JMP // 6643
+@PUSH_constant_0 // 6644
+0;JMP // 6645
+@PUSH_constant_0 // 6646
+0;JMP // 6647
+@PUSH_constant_27 // 6648
+0;JMP // 6649
+@PUSH_constant_27 // 6650
+0;JMP // 6651
+@PUSH_constant_27 // 6652
+0;JMP // 6653
+@PUSH_constant_27 // 6654
+0;JMP // 6655
+@PUSH_constant_27 // 6656
+0;JMP // 6657
+@PUSH_constant_54 // 6658
+0;JMP // 6659
+@PUSH_constant_0 // 6660
+0;JMP // 6661
+@PUSH_constant_0 // 6662
+0;JMP // 6663
 // call Output.create
-@17 // 6563
-D=A // 6564
-@14 // 6565
-M=D // 6566
-@Output.create // 6567
-D=A // 6568
-@13 // 6569
-M=D // 6570
-@CALL // 6571
-0;JMP // 6572
+@17 // 6664
+D=A // 6665
+@14 // 6666
+M=D // 6667
+@Output.create // 6668
+D=A // 6669
+@13 // 6670
+M=D // 6671
+@CALL // 6672
+0;JMP // 6673
 (Output.init.ret.174)
-@POP_temp_0 // 6573
-0;JMP // 6574
+@POP_temp_0 // 6674
+0;JMP // 6675
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 118"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_118 // 6575
-0;JMP // 6576
-@PUSH_constant_0 // 6577
-0;JMP // 6578
-@PUSH_constant_0 // 6579
-0;JMP // 6580
-@PUSH_constant_0 // 6581
-0;JMP // 6582
-@PUSH_constant_51 // 6583
-0;JMP // 6584
-@PUSH_constant_51 // 6585
-0;JMP // 6586
-@PUSH_constant_51 // 6587
-0;JMP // 6588
-@PUSH_constant_51 // 6589
-0;JMP // 6590
-@PUSH_constant_30 // 6591
-0;JMP // 6592
-@PUSH_constant_12 // 6593
-0;JMP // 6594
-@PUSH_constant_0 // 6595
-0;JMP // 6596
-@PUSH_constant_0 // 6597
-0;JMP // 6598
+@PUSH_constant_118 // 6676
+0;JMP // 6677
+@PUSH_constant_0 // 6678
+0;JMP // 6679
+@PUSH_constant_0 // 6680
+0;JMP // 6681
+@PUSH_constant_0 // 6682
+0;JMP // 6683
+@PUSH_constant_51 // 6684
+0;JMP // 6685
+@PUSH_constant_51 // 6686
+0;JMP // 6687
+@PUSH_constant_51 // 6688
+0;JMP // 6689
+@PUSH_constant_51 // 6690
+0;JMP // 6691
+@PUSH_constant_30 // 6692
+0;JMP // 6693
+@PUSH_constant_12 // 6694
+0;JMP // 6695
+@PUSH_constant_0 // 6696
+0;JMP // 6697
+@PUSH_constant_0 // 6698
+0;JMP // 6699
 // call Output.create
-@17 // 6599
-D=A // 6600
-@14 // 6601
-M=D // 6602
-@Output.create // 6603
-D=A // 6604
-@13 // 6605
-M=D // 6606
-@CALL // 6607
-0;JMP // 6608
+@17 // 6700
+D=A // 6701
+@14 // 6702
+M=D // 6703
+@Output.create // 6704
+D=A // 6705
+@13 // 6706
+M=D // 6707
+@CALL // 6708
+0;JMP // 6709
 (Output.init.ret.176)
-@POP_temp_0 // 6609
-0;JMP // 6610
+@POP_temp_0 // 6710
+0;JMP // 6711
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 119"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 63"), PushInstruction("constant 18"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_119 // 6611
-0;JMP // 6612
-@PUSH_constant_0 // 6613
-0;JMP // 6614
-@PUSH_constant_0 // 6615
-0;JMP // 6616
-@PUSH_constant_0 // 6617
-0;JMP // 6618
-@PUSH_constant_51 // 6619
-0;JMP // 6620
-@PUSH_constant_51 // 6621
-0;JMP // 6622
-@PUSH_constant_51 // 6623
-0;JMP // 6624
-@PUSH_constant_63 // 6625
-0;JMP // 6626
-@PUSH_constant_63 // 6627
-0;JMP // 6628
-@PUSH_constant_18 // 6629
-0;JMP // 6630
-@PUSH_constant_0 // 6631
-0;JMP // 6632
-@PUSH_constant_0 // 6633
-0;JMP // 6634
+@PUSH_constant_119 // 6712
+0;JMP // 6713
+@PUSH_constant_0 // 6714
+0;JMP // 6715
+@PUSH_constant_0 // 6716
+0;JMP // 6717
+@PUSH_constant_0 // 6718
+0;JMP // 6719
+@PUSH_constant_51 // 6720
+0;JMP // 6721
+@PUSH_constant_51 // 6722
+0;JMP // 6723
+@PUSH_constant_51 // 6724
+0;JMP // 6725
+@PUSH_constant_63 // 6726
+0;JMP // 6727
+@PUSH_constant_63 // 6728
+0;JMP // 6729
+@PUSH_constant_18 // 6730
+0;JMP // 6731
+@PUSH_constant_0 // 6732
+0;JMP // 6733
+@PUSH_constant_0 // 6734
+0;JMP // 6735
 // call Output.create
-@17 // 6635
-D=A // 6636
-@14 // 6637
-M=D // 6638
-@Output.create // 6639
-D=A // 6640
-@13 // 6641
-M=D // 6642
-@CALL // 6643
-0;JMP // 6644
+@17 // 6736
+D=A // 6737
+@14 // 6738
+M=D // 6739
+@Output.create // 6740
+D=A // 6741
+@13 // 6742
+M=D // 6743
+@CALL // 6744
+0;JMP // 6745
 (Output.init.ret.178)
-@POP_temp_0 // 6645
-0;JMP // 6646
+@POP_temp_0 // 6746
+0;JMP // 6747
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 120"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 30"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 30"), PushInstruction("constant 51"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_120 // 6647
-0;JMP // 6648
-@PUSH_constant_0 // 6649
-0;JMP // 6650
-@PUSH_constant_0 // 6651
-0;JMP // 6652
-@PUSH_constant_0 // 6653
-0;JMP // 6654
-@PUSH_constant_51 // 6655
-0;JMP // 6656
-@PUSH_constant_30 // 6657
-0;JMP // 6658
-@PUSH_constant_12 // 6659
-0;JMP // 6660
-@PUSH_constant_12 // 6661
-0;JMP // 6662
-@PUSH_constant_30 // 6663
-0;JMP // 6664
-@PUSH_constant_51 // 6665
-0;JMP // 6666
-@PUSH_constant_0 // 6667
-0;JMP // 6668
-@PUSH_constant_0 // 6669
-0;JMP // 6670
+@PUSH_constant_120 // 6748
+0;JMP // 6749
+@PUSH_constant_0 // 6750
+0;JMP // 6751
+@PUSH_constant_0 // 6752
+0;JMP // 6753
+@PUSH_constant_0 // 6754
+0;JMP // 6755
+@PUSH_constant_51 // 6756
+0;JMP // 6757
+@PUSH_constant_30 // 6758
+0;JMP // 6759
+@PUSH_constant_12 // 6760
+0;JMP // 6761
+@PUSH_constant_12 // 6762
+0;JMP // 6763
+@PUSH_constant_30 // 6764
+0;JMP // 6765
+@PUSH_constant_51 // 6766
+0;JMP // 6767
+@PUSH_constant_0 // 6768
+0;JMP // 6769
+@PUSH_constant_0 // 6770
+0;JMP // 6771
 // call Output.create
-@17 // 6671
-D=A // 6672
-@14 // 6673
-M=D // 6674
-@Output.create // 6675
-D=A // 6676
-@13 // 6677
-M=D // 6678
-@CALL // 6679
-0;JMP // 6680
+@17 // 6772
+D=A // 6773
+@14 // 6774
+M=D // 6775
+@Output.create // 6776
+D=A // 6777
+@13 // 6778
+M=D // 6779
+@CALL // 6780
+0;JMP // 6781
 (Output.init.ret.180)
-@POP_temp_0 // 6681
-0;JMP // 6682
+@POP_temp_0 // 6782
+0;JMP // 6783
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 121"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 51"), PushInstruction("constant 62"), PushInstruction("constant 48"), PushInstruction("constant 24"), PushInstruction("constant 15"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_121 // 6683
-0;JMP // 6684
-@PUSH_constant_0 // 6685
-0;JMP // 6686
-@PUSH_constant_0 // 6687
-0;JMP // 6688
-@PUSH_constant_0 // 6689
-0;JMP // 6690
-@PUSH_constant_51 // 6691
-0;JMP // 6692
-@PUSH_constant_51 // 6693
-0;JMP // 6694
-@PUSH_constant_51 // 6695
-0;JMP // 6696
-@PUSH_constant_62 // 6697
-0;JMP // 6698
-@PUSH_constant_48 // 6699
-0;JMP // 6700
-@PUSH_constant_24 // 6701
-0;JMP // 6702
-@PUSH_constant_15 // 6703
-0;JMP // 6704
-@PUSH_constant_0 // 6705
-0;JMP // 6706
+@PUSH_constant_121 // 6784
+0;JMP // 6785
+@PUSH_constant_0 // 6786
+0;JMP // 6787
+@PUSH_constant_0 // 6788
+0;JMP // 6789
+@PUSH_constant_0 // 6790
+0;JMP // 6791
+@PUSH_constant_51 // 6792
+0;JMP // 6793
+@PUSH_constant_51 // 6794
+0;JMP // 6795
+@PUSH_constant_51 // 6796
+0;JMP // 6797
+@PUSH_constant_62 // 6798
+0;JMP // 6799
+@PUSH_constant_48 // 6800
+0;JMP // 6801
+@PUSH_constant_24 // 6802
+0;JMP // 6803
+@PUSH_constant_15 // 6804
+0;JMP // 6805
+@PUSH_constant_0 // 6806
+0;JMP // 6807
 // call Output.create
-@17 // 6707
-D=A // 6708
-@14 // 6709
-M=D // 6710
-@Output.create // 6711
-D=A // 6712
-@13 // 6713
-M=D // 6714
-@CALL // 6715
-0;JMP // 6716
+@17 // 6808
+D=A // 6809
+@14 // 6810
+M=D // 6811
+@Output.create // 6812
+D=A // 6813
+@13 // 6814
+M=D // 6815
+@CALL // 6816
+0;JMP // 6817
 (Output.init.ret.182)
-@POP_temp_0 // 6717
-0;JMP // 6718
+@POP_temp_0 // 6818
+0;JMP // 6819
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 122"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 63"), PushInstruction("constant 27"), PushInstruction("constant 12"), PushInstruction("constant 6"), PushInstruction("constant 51"), PushInstruction("constant 63"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_122 // 6719
-0;JMP // 6720
-@PUSH_constant_0 // 6721
-0;JMP // 6722
-@PUSH_constant_0 // 6723
-0;JMP // 6724
-@PUSH_constant_0 // 6725
-0;JMP // 6726
-@PUSH_constant_63 // 6727
-0;JMP // 6728
-@PUSH_constant_27 // 6729
-0;JMP // 6730
-@PUSH_constant_12 // 6731
-0;JMP // 6732
-@PUSH_constant_6 // 6733
-0;JMP // 6734
-@PUSH_constant_51 // 6735
-0;JMP // 6736
-@PUSH_constant_63 // 6737
-0;JMP // 6738
-@PUSH_constant_0 // 6739
-0;JMP // 6740
-@PUSH_constant_0 // 6741
-0;JMP // 6742
+@PUSH_constant_122 // 6820
+0;JMP // 6821
+@PUSH_constant_0 // 6822
+0;JMP // 6823
+@PUSH_constant_0 // 6824
+0;JMP // 6825
+@PUSH_constant_0 // 6826
+0;JMP // 6827
+@PUSH_constant_63 // 6828
+0;JMP // 6829
+@PUSH_constant_27 // 6830
+0;JMP // 6831
+@PUSH_constant_12 // 6832
+0;JMP // 6833
+@PUSH_constant_6 // 6834
+0;JMP // 6835
+@PUSH_constant_51 // 6836
+0;JMP // 6837
+@PUSH_constant_63 // 6838
+0;JMP // 6839
+@PUSH_constant_0 // 6840
+0;JMP // 6841
+@PUSH_constant_0 // 6842
+0;JMP // 6843
 // call Output.create
-@17 // 6743
-D=A // 6744
-@14 // 6745
-M=D // 6746
-@Output.create // 6747
-D=A // 6748
-@13 // 6749
-M=D // 6750
-@CALL // 6751
-0;JMP // 6752
+@17 // 6844
+D=A // 6845
+@14 // 6846
+M=D // 6847
+@Output.create // 6848
+D=A // 6849
+@13 // 6850
+M=D // 6851
+@CALL // 6852
+0;JMP // 6853
 (Output.init.ret.184)
-@POP_temp_0 // 6753
-0;JMP // 6754
+@POP_temp_0 // 6854
+0;JMP // 6855
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 123"), PushInstruction("constant 56"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 7"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 56"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_123 // 6755
-0;JMP // 6756
-@PUSH_constant_56 // 6757
-0;JMP // 6758
-@PUSH_constant_12 // 6759
-0;JMP // 6760
-@PUSH_constant_12 // 6761
-0;JMP // 6762
-@PUSH_constant_12 // 6763
-0;JMP // 6764
-@PUSH_constant_7 // 6765
-0;JMP // 6766
-@PUSH_constant_12 // 6767
-0;JMP // 6768
-@PUSH_constant_12 // 6769
-0;JMP // 6770
-@PUSH_constant_12 // 6771
-0;JMP // 6772
-@PUSH_constant_56 // 6773
-0;JMP // 6774
-@PUSH_constant_0 // 6775
-0;JMP // 6776
-@PUSH_constant_0 // 6777
-0;JMP // 6778
+@PUSH_constant_123 // 6856
+0;JMP // 6857
+@PUSH_constant_56 // 6858
+0;JMP // 6859
+@PUSH_constant_12 // 6860
+0;JMP // 6861
+@PUSH_constant_12 // 6862
+0;JMP // 6863
+@PUSH_constant_12 // 6864
+0;JMP // 6865
+@PUSH_constant_7 // 6866
+0;JMP // 6867
+@PUSH_constant_12 // 6868
+0;JMP // 6869
+@PUSH_constant_12 // 6870
+0;JMP // 6871
+@PUSH_constant_12 // 6872
+0;JMP // 6873
+@PUSH_constant_56 // 6874
+0;JMP // 6875
+@PUSH_constant_0 // 6876
+0;JMP // 6877
+@PUSH_constant_0 // 6878
+0;JMP // 6879
 // call Output.create
-@17 // 6779
-D=A // 6780
-@14 // 6781
-M=D // 6782
-@Output.create // 6783
-D=A // 6784
-@13 // 6785
-M=D // 6786
-@CALL // 6787
-0;JMP // 6788
+@17 // 6880
+D=A // 6881
+@14 // 6882
+M=D // 6883
+@Output.create // 6884
+D=A // 6885
+@13 // 6886
+M=D // 6887
+@CALL // 6888
+0;JMP // 6889
 (Output.init.ret.186)
-@POP_temp_0 // 6789
-0;JMP // 6790
+@POP_temp_0 // 6890
+0;JMP // 6891
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 124"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_124 // 6791
-0;JMP // 6792
-@PUSH_constant_12 // 6793
-0;JMP // 6794
-@PUSH_constant_12 // 6795
-0;JMP // 6796
-@PUSH_constant_12 // 6797
-0;JMP // 6798
-@PUSH_constant_12 // 6799
-0;JMP // 6800
-@PUSH_constant_12 // 6801
-0;JMP // 6802
-@PUSH_constant_12 // 6803
-0;JMP // 6804
-@PUSH_constant_12 // 6805
-0;JMP // 6806
-@PUSH_constant_12 // 6807
-0;JMP // 6808
-@PUSH_constant_12 // 6809
-0;JMP // 6810
-@PUSH_constant_0 // 6811
-0;JMP // 6812
-@PUSH_constant_0 // 6813
-0;JMP // 6814
+@PUSH_constant_124 // 6892
+0;JMP // 6893
+@PUSH_constant_12 // 6894
+0;JMP // 6895
+@PUSH_constant_12 // 6896
+0;JMP // 6897
+@PUSH_constant_12 // 6898
+0;JMP // 6899
+@PUSH_constant_12 // 6900
+0;JMP // 6901
+@PUSH_constant_12 // 6902
+0;JMP // 6903
+@PUSH_constant_12 // 6904
+0;JMP // 6905
+@PUSH_constant_12 // 6906
+0;JMP // 6907
+@PUSH_constant_12 // 6908
+0;JMP // 6909
+@PUSH_constant_12 // 6910
+0;JMP // 6911
+@PUSH_constant_0 // 6912
+0;JMP // 6913
+@PUSH_constant_0 // 6914
+0;JMP // 6915
 // call Output.create
-@17 // 6815
-D=A // 6816
-@14 // 6817
-M=D // 6818
-@Output.create // 6819
-D=A // 6820
-@13 // 6821
-M=D // 6822
-@CALL // 6823
-0;JMP // 6824
+@17 // 6916
+D=A // 6917
+@14 // 6918
+M=D // 6919
+@Output.create // 6920
+D=A // 6921
+@13 // 6922
+M=D // 6923
+@CALL // 6924
+0;JMP // 6925
 (Output.init.ret.188)
-@POP_temp_0 // 6825
-0;JMP // 6826
+@POP_temp_0 // 6926
+0;JMP // 6927
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 125"), PushInstruction("constant 7"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 56"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 12"), PushInstruction("constant 7"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_125 // 6827
-0;JMP // 6828
-@PUSH_constant_7 // 6829
-0;JMP // 6830
-@PUSH_constant_12 // 6831
-0;JMP // 6832
-@PUSH_constant_12 // 6833
-0;JMP // 6834
-@PUSH_constant_12 // 6835
-0;JMP // 6836
-@PUSH_constant_56 // 6837
-0;JMP // 6838
-@PUSH_constant_12 // 6839
-0;JMP // 6840
-@PUSH_constant_12 // 6841
-0;JMP // 6842
-@PUSH_constant_12 // 6843
-0;JMP // 6844
-@PUSH_constant_7 // 6845
-0;JMP // 6846
-@PUSH_constant_0 // 6847
-0;JMP // 6848
-@PUSH_constant_0 // 6849
-0;JMP // 6850
+@PUSH_constant_125 // 6928
+0;JMP // 6929
+@PUSH_constant_7 // 6930
+0;JMP // 6931
+@PUSH_constant_12 // 6932
+0;JMP // 6933
+@PUSH_constant_12 // 6934
+0;JMP // 6935
+@PUSH_constant_12 // 6936
+0;JMP // 6937
+@PUSH_constant_56 // 6938
+0;JMP // 6939
+@PUSH_constant_12 // 6940
+0;JMP // 6941
+@PUSH_constant_12 // 6942
+0;JMP // 6943
+@PUSH_constant_12 // 6944
+0;JMP // 6945
+@PUSH_constant_7 // 6946
+0;JMP // 6947
+@PUSH_constant_0 // 6948
+0;JMP // 6949
+@PUSH_constant_0 // 6950
+0;JMP // 6951
 // call Output.create
-@17 // 6851
-D=A // 6852
-@14 // 6853
-M=D // 6854
-@Output.create // 6855
-D=A // 6856
-@13 // 6857
-M=D // 6858
-@CALL // 6859
-0;JMP // 6860
+@17 // 6952
+D=A // 6953
+@14 // 6954
+M=D // 6955
+@Output.create // 6956
+D=A // 6957
+@13 // 6958
+M=D // 6959
+@CALL // 6960
+0;JMP // 6961
 (Output.init.ret.190)
-@POP_temp_0 // 6861
-0;JMP // 6862
+@POP_temp_0 // 6962
+0;JMP // 6963
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 126"), PushInstruction("constant 38"), PushInstruction("constant 45"), PushInstruction("constant 25"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0"), PushInstruction("constant 0")], call=CallInstruction{Output.create}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_126 // 6863
-0;JMP // 6864
-@PUSH_constant_38 // 6865
-0;JMP // 6866
-@PUSH_constant_45 // 6867
-0;JMP // 6868
-@PUSH_constant_25 // 6869
-0;JMP // 6870
-@PUSH_constant_0 // 6871
-0;JMP // 6872
-@PUSH_constant_0 // 6873
-0;JMP // 6874
-@PUSH_constant_0 // 6875
-0;JMP // 6876
-@PUSH_constant_0 // 6877
-0;JMP // 6878
-@PUSH_constant_0 // 6879
-0;JMP // 6880
-@PUSH_constant_0 // 6881
-0;JMP // 6882
-@PUSH_constant_0 // 6883
-0;JMP // 6884
-@PUSH_constant_0 // 6885
-0;JMP // 6886
+@PUSH_constant_126 // 6964
+0;JMP // 6965
+@PUSH_constant_38 // 6966
+0;JMP // 6967
+@PUSH_constant_45 // 6968
+0;JMP // 6969
+@PUSH_constant_25 // 6970
+0;JMP // 6971
+@PUSH_constant_0 // 6972
+0;JMP // 6973
+@PUSH_constant_0 // 6974
+0;JMP // 6975
+@PUSH_constant_0 // 6976
+0;JMP // 6977
+@PUSH_constant_0 // 6978
+0;JMP // 6979
+@PUSH_constant_0 // 6980
+0;JMP // 6981
+@PUSH_constant_0 // 6982
+0;JMP // 6983
+@PUSH_constant_0 // 6984
+0;JMP // 6985
+@PUSH_constant_0 // 6986
+0;JMP // 6987
 // call Output.create
-@17 // 6887
-D=A // 6888
-@14 // 6889
-M=D // 6890
-@Output.create // 6891
-D=A // 6892
-@13 // 6893
-M=D // 6894
-@CALL // 6895
-0;JMP // 6896
+@17 // 6988
+D=A // 6989
+@14 // 6990
+M=D // 6991
+@Output.create // 6992
+D=A // 6993
+@13 // 6994
+M=D // 6995
+@CALL // 6996
+0;JMP // 6997
 (Output.init.ret.192)
-@POP_temp_0 // 6897
-0;JMP // 6898
+@POP_temp_0 // 6998
+0;JMP // 6999
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=static 1}
 //}
 
-@PUSH_constant_0 // 6899
-0;JMP // 6900
-@Output.1_POP // 6901
-0;JMP // 6902
+@PUSH_constant_0 // 7000
+0;JMP // 7001
+@Output.1_POP // 7002
+0;JMP // 7003
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=static 2}
 //}
 
-@PUSH_constant_0 // 6903
-0;JMP // 6904
-@Output.2_POP // 6905
-0;JMP // 6906
+@PUSH_constant_0 // 7004
+0;JMP // 7005
+@Output.2_POP // 7006
+0;JMP // 7007
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 6907
-0;JMP // 6908
+@PUSH_constant_0 // 7008
+0;JMP // 7009
 
 //////Return
-@RETURN // 6909
-0;JMP // 6910
+@RETURN // 7010
+0;JMP // 7011
 
 ////FunctionInstruction{functionName='Memory.add_node', numLocals=2, funcMapping={Memory.poke=0, Memory.alloc=22, Memory.create_foot=0, Memory.get_best_fit=0, Memory.peek=0, Memory.getBinIndex=3, Memory.remove_node=0}}
 // function Memory.add_node with 2
 (Memory.add_node)
-@PUSH_constant_0 // 6911
-0;JMP // 6912
-@PUSH_constant_0 // 6913
-0;JMP // 6914
+@PUSH_constant_0 // 7012
+0;JMP // 7013
+@PUSH_constant_0 // 7014
+0;JMP // 7015
 
 ////PushWriter{source=PushInstruction("constant 0"), dest=BinaryPushGroup(
 //    left:
@@ -10374,18 +10588,18 @@ M=D // 6894
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 6915
-0;JMP // 6916
-@PUSH_argument_1 // 6917
-0;JMP // 6918
-@PUSH_constant_2 // 6919
-0;JMP // 6920
-@ADD // 6921
-0;JMP // 6922
-@POP_pointer_1 // 6923
-0;JMP // 6924
-@POP_that_0 // 6925
-0;JMP // 6926
+@PUSH_constant_0 // 7016
+0;JMP // 7017
+@PUSH_argument_1 // 7018
+0;JMP // 7019
+@PUSH_constant_2 // 7020
+0;JMP // 7021
+@ADD // 7022
+0;JMP // 7023
+@POP_pointer_1 // 7024
+0;JMP // 7025
+@POP_that_0 // 7026
+0;JMP // 7027
 
 ////PushWriter{source=PushInstruction("constant 0"), dest=BinaryPushGroup(
 //    left:
@@ -10394,18 +10608,18 @@ M=D // 6894
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_0 // 6927
-0;JMP // 6928
-@PUSH_argument_1 // 6929
-0;JMP // 6930
-@PUSH_constant_3 // 6931
-0;JMP // 6932
-@ADD // 6933
-0;JMP // 6934
-@POP_pointer_1 // 6935
-0;JMP // 6936
-@POP_that_0 // 6937
-0;JMP // 6938
+@PUSH_constant_0 // 7028
+0;JMP // 7029
+@PUSH_argument_1 // 7030
+0;JMP // 7031
+@PUSH_constant_3 // 7032
+0;JMP // 7033
+@ADD // 7034
+0;JMP // 7035
+@POP_pointer_1 // 7036
+0;JMP // 7037
+@POP_that_0 // 7038
+0;JMP // 7039
 
 ////ConditionalGroup{push=BinaryPushGroup(
 //    left:
@@ -10423,33 +10637,33 @@ M=D // 6894
 //        PushInstruction("constant 0"),
 //    binaryOp: "EQ"
 //), ifGoto=IfGotoInstruction{label='Memory.add_node$IF_TRUE1}}
-@PUSH_argument_0 // 6939
-0;JMP // 6940
-@PUSH_constant_0 // 6941
-0;JMP // 6942
-@ADD // 6943
-0;JMP // 6944
-@POP_pointer_1 // 6945
-0;JMP // 6946
-@PUSH_that_0 // 6947
-0;JMP // 6948
-@PUSH_constant_0 // 6949
-0;JMP // 6950
-@EQ // 6951
-0;JMP // 6952
+@PUSH_argument_0 // 7040
+0;JMP // 7041
+@PUSH_constant_0 // 7042
+0;JMP // 7043
+@ADD // 7044
+0;JMP // 7045
+@POP_pointer_1 // 7046
+0;JMP // 7047
+@PUSH_that_0 // 7048
+0;JMP // 7049
+@PUSH_constant_0 // 7050
+0;JMP // 7051
+@EQ // 7052
+0;JMP // 7053
 // if-goto Memory.add_node$IF_TRUE1
-@Memory.add_node$IF_TRUE1 // 6953
-D=A // 6954
-@IF_GOTO // 6955
-0;JMP // 6956
+@Memory.add_node$IF_TRUE1 // 7054
+D=A // 7055
+@IF_GOTO // 7056
+0;JMP // 7057
 
 ////GotoInstruction{label='Memory.add_node$IF_END1}
 // goto Memory.add_node$IF_END1
-@Memory.add_node$IF_END1 // 6957
-D=A // 6958
-@15 // 6959
-AM=D;JMP // 6960
-0;JMP // 6961
+@Memory.add_node$IF_END1 // 7058
+D=A // 7059
+@15 // 7060
+AM=D;JMP // 7061
+0;JMP // 7062
 
 ////LabelInstruction{label='Memory.add_node$IF_TRUE1}
 // label Memory.add_node$IF_TRUE1
@@ -10462,26 +10676,26 @@ AM=D;JMP // 6960
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 6962
-0;JMP // 6963
-@PUSH_argument_0 // 6964
-0;JMP // 6965
-@PUSH_constant_0 // 6966
-0;JMP // 6967
-@ADD // 6968
-0;JMP // 6969
-@POP_pointer_1 // 6970
-0;JMP // 6971
-@POP_that_0 // 6972
-0;JMP // 6973
+@PUSH_argument_1 // 7063
+0;JMP // 7064
+@PUSH_argument_0 // 7065
+0;JMP // 7066
+@PUSH_constant_0 // 7067
+0;JMP // 7068
+@ADD // 7069
+0;JMP // 7070
+@POP_pointer_1 // 7071
+0;JMP // 7072
+@POP_that_0 // 7073
+0;JMP // 7074
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 6974
-0;JMP // 6975
+@PUSH_constant_0 // 7075
+0;JMP // 7076
 
 //////Return
-@RETURN // 6976
-0;JMP // 6977
+@RETURN // 7077
+0;JMP // 7078
 
 ////LabelInstruction{label='Memory.add_node$IF_END1}
 // label Memory.add_node$IF_END1
@@ -10501,27 +10715,27 @@ AM=D;JMP // 6960
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@ARG // 6978
-A=M // 6979
-A=M // 6980
-D=M // 6981
-@LCL // 6982
-A=M // 6983
-M=D // 6984
-@11 // 6985
-D=A // 6986
-@15 // 6987
-AM=D+M;JMP // 6988
+@ARG // 7079
+A=M // 7080
+A=M // 7081
+D=M // 7082
+@LCL // 7083
+A=M // 7084
+M=D // 7085
+@11 // 7086
+D=A // 7087
+@15 // 7088
+AM=D+M;JMP // 7089
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_0 // 6989
-0;JMP // 6990
-@POP_local_1 // 6991
-0;JMP // 6992
+@PUSH_constant_0 // 7090
+0;JMP // 7091
+@POP_local_1 // 7092
+0;JMP // 7093
 
 ////LabelInstruction{label='Memory.add_node_WHILE_EXP1}
 // label Memory.add_node_WHILE_EXP1
@@ -10567,57 +10781,57 @@ AM=D+M;JMP // 6988
 //        binaryOp: "AND"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.add_node_WHILE_END1}}
-@PUSH_local_0 // 6993
-0;JMP // 6994
-@PUSH_constant_0 // 6995
-0;JMP // 6996
-@EQ // 6997
-0;JMP // 6998
-@NOT // 6999
-0;JMP // 7000
-@PUSH_local_0 // 7001
-0;JMP // 7002
-@PUSH_constant_0 // 7003
-0;JMP // 7004
-@ADD // 7005
-0;JMP // 7006
-@POP_pointer_1 // 7007
-0;JMP // 7008
-@PUSH_that_0 // 7009
-0;JMP // 7010
-@PUSH_argument_1 // 7011
-0;JMP // 7012
-@PUSH_constant_0 // 7013
-0;JMP // 7014
-@ADD // 7015
-0;JMP // 7016
-@POP_pointer_1 // 7017
-0;JMP // 7018
-@PUSH_that_0 // 7019
-0;JMP // 7020
-@GT // 7021
-0;JMP // 7022
-@NOT // 7023
-0;JMP // 7024
-@AND // 7025
-0;JMP // 7026
-@NOT // 7027
-0;JMP // 7028
+@PUSH_local_0 // 7094
+0;JMP // 7095
+@PUSH_constant_0 // 7096
+0;JMP // 7097
+@EQ // 7098
+0;JMP // 7099
+@NOT // 7100
+0;JMP // 7101
+@PUSH_local_0 // 7102
+0;JMP // 7103
+@PUSH_constant_0 // 7104
+0;JMP // 7105
+@ADD // 7106
+0;JMP // 7107
+@POP_pointer_1 // 7108
+0;JMP // 7109
+@PUSH_that_0 // 7110
+0;JMP // 7111
+@PUSH_argument_1 // 7112
+0;JMP // 7113
+@PUSH_constant_0 // 7114
+0;JMP // 7115
+@ADD // 7116
+0;JMP // 7117
+@POP_pointer_1 // 7118
+0;JMP // 7119
+@PUSH_that_0 // 7120
+0;JMP // 7121
+@GT // 7122
+0;JMP // 7123
+@NOT // 7124
+0;JMP // 7125
+@AND // 7126
+0;JMP // 7127
+@NOT // 7128
+0;JMP // 7129
 // if-goto Memory.add_node_WHILE_END1
-@Memory.add_node_WHILE_END1 // 7029
-D=A // 7030
-@IF_GOTO // 7031
-0;JMP // 7032
+@Memory.add_node_WHILE_END1 // 7130
+D=A // 7131
+@IF_GOTO // 7132
+0;JMP // 7133
 
 ////PushPopPair {
 //  push: PushInstruction("local 0")
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_local_0 // 7033
-0;JMP // 7034
-@POP_local_1 // 7035
-0;JMP // 7036
+@PUSH_local_0 // 7134
+0;JMP // 7135
+@POP_local_1 // 7136
+0;JMP // 7137
 
 ////PushPopPair {
 //  push: Dereference(
@@ -10633,26 +10847,26 @@ D=A // 7030
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_0 // 7037
-0;JMP // 7038
-@PUSH_constant_3 // 7039
-0;JMP // 7040
-@ADD // 7041
-0;JMP // 7042
-@POP_pointer_1 // 7043
-0;JMP // 7044
-@PUSH_that_0 // 7045
-0;JMP // 7046
-@POP_local_0 // 7047
-0;JMP // 7048
+@PUSH_local_0 // 7138
+0;JMP // 7139
+@PUSH_constant_3 // 7140
+0;JMP // 7141
+@ADD // 7142
+0;JMP // 7143
+@POP_pointer_1 // 7144
+0;JMP // 7145
+@PUSH_that_0 // 7146
+0;JMP // 7147
+@POP_local_0 // 7148
+0;JMP // 7149
 
 ////GotoInstruction{label='Memory.add_node_WHILE_EXP1}
 // goto Memory.add_node_WHILE_EXP1
-@Memory.add_node_WHILE_EXP1 // 7049
-D=A // 7050
-@15 // 7051
-AM=D;JMP // 7052
-0;JMP // 7053
+@Memory.add_node_WHILE_EXP1 // 7150
+D=A // 7151
+@15 // 7152
+AM=D;JMP // 7153
+0;JMP // 7154
 
 ////LabelInstruction{label='Memory.add_node_WHILE_END1}
 // label Memory.add_node_WHILE_END1
@@ -10660,23 +10874,23 @@ AM=D;JMP // 7052
 
 ////ConditionalGroup{push=UnaryPushGroup(    PushInstruction("local 1"),
 //NOT), ifGoto=IfGotoInstruction{label='Memory.add_node$IF_TRUE2}}
-@PUSH_local_1 // 7054
-0;JMP // 7055
-@NOT // 7056
-0;JMP // 7057
+@PUSH_local_1 // 7155
+0;JMP // 7156
+@NOT // 7157
+0;JMP // 7158
 // if-goto Memory.add_node$IF_TRUE2
-@Memory.add_node$IF_TRUE2 // 7058
-D=A // 7059
-@IF_GOTO // 7060
-0;JMP // 7061
+@Memory.add_node$IF_TRUE2 // 7159
+D=A // 7160
+@IF_GOTO // 7161
+0;JMP // 7162
 
 ////GotoInstruction{label='Memory.add_node$IF_FALSE2}
 // goto Memory.add_node$IF_FALSE2
-@Memory.add_node$IF_FALSE2 // 7062
-D=A // 7063
-@15 // 7064
-AM=D;JMP // 7065
-0;JMP // 7066
+@Memory.add_node$IF_FALSE2 // 7163
+D=A // 7164
+@15 // 7165
+AM=D;JMP // 7166
+0;JMP // 7167
 
 ////LabelInstruction{label='Memory.add_node$IF_TRUE2}
 // label Memory.add_node$IF_TRUE2
@@ -10698,26 +10912,26 @@ AM=D;JMP // 7065
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_0 // 7067
-0;JMP // 7068
-@PUSH_constant_0 // 7069
-0;JMP // 7070
-@ADD // 7071
-0;JMP // 7072
-@POP_pointer_1 // 7073
-0;JMP // 7074
-@PUSH_that_0 // 7075
-0;JMP // 7076
-@PUSH_argument_1 // 7077
-0;JMP // 7078
-@PUSH_constant_3 // 7079
-0;JMP // 7080
-@ADD // 7081
-0;JMP // 7082
-@POP_pointer_1 // 7083
-0;JMP // 7084
-@POP_that_0 // 7085
-0;JMP // 7086
+@PUSH_argument_0 // 7168
+0;JMP // 7169
+@PUSH_constant_0 // 7170
+0;JMP // 7171
+@ADD // 7172
+0;JMP // 7173
+@POP_pointer_1 // 7174
+0;JMP // 7175
+@PUSH_that_0 // 7176
+0;JMP // 7177
+@PUSH_argument_1 // 7178
+0;JMP // 7179
+@PUSH_constant_3 // 7180
+0;JMP // 7181
+@ADD // 7182
+0;JMP // 7183
+@POP_pointer_1 // 7184
+0;JMP // 7185
+@POP_that_0 // 7186
+0;JMP // 7187
 
 ////PushWriter{source=PushInstruction("argument 1"), dest=BinaryPushGroup(
 //    left:
@@ -10735,26 +10949,26 @@ AM=D;JMP // 7065
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 7087
-0;JMP // 7088
-@PUSH_argument_0 // 7089
-0;JMP // 7090
-@PUSH_constant_0 // 7091
-0;JMP // 7092
-@ADD // 7093
-0;JMP // 7094
-@POP_pointer_1 // 7095
-0;JMP // 7096
-@PUSH_that_0 // 7097
-0;JMP // 7098
-@PUSH_constant_2 // 7099
-0;JMP // 7100
-@ADD // 7101
-0;JMP // 7102
-@POP_pointer_1 // 7103
-0;JMP // 7104
-@POP_that_0 // 7105
-0;JMP // 7106
+@PUSH_argument_1 // 7188
+0;JMP // 7189
+@PUSH_argument_0 // 7190
+0;JMP // 7191
+@PUSH_constant_0 // 7192
+0;JMP // 7193
+@ADD // 7194
+0;JMP // 7195
+@POP_pointer_1 // 7196
+0;JMP // 7197
+@PUSH_that_0 // 7198
+0;JMP // 7199
+@PUSH_constant_2 // 7200
+0;JMP // 7201
+@ADD // 7202
+0;JMP // 7203
+@POP_pointer_1 // 7204
+0;JMP // 7205
+@POP_that_0 // 7206
+0;JMP // 7207
 
 ////PushWriter{source=PushInstruction("argument 1"), dest=BinaryPushGroup(
 //    left:
@@ -10763,26 +10977,26 @@ AM=D;JMP // 7065
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 7107
-0;JMP // 7108
-@PUSH_argument_0 // 7109
-0;JMP // 7110
-@PUSH_constant_0 // 7111
-0;JMP // 7112
-@ADD // 7113
-0;JMP // 7114
-@POP_pointer_1 // 7115
-0;JMP // 7116
-@POP_that_0 // 7117
-0;JMP // 7118
+@PUSH_argument_1 // 7208
+0;JMP // 7209
+@PUSH_argument_0 // 7210
+0;JMP // 7211
+@PUSH_constant_0 // 7212
+0;JMP // 7213
+@ADD // 7214
+0;JMP // 7215
+@POP_pointer_1 // 7216
+0;JMP // 7217
+@POP_that_0 // 7218
+0;JMP // 7219
 
 ////GotoInstruction{label='Memory.add_node$IF_END2}
 // goto Memory.add_node$IF_END2
-@Memory.add_node$IF_END2 // 7119
-D=A // 7120
-@15 // 7121
-AM=D;JMP // 7122
-0;JMP // 7123
+@Memory.add_node$IF_END2 // 7220
+D=A // 7221
+@15 // 7222
+AM=D;JMP // 7223
+0;JMP // 7224
 
 ////LabelInstruction{label='Memory.add_node$IF_FALSE2}
 // label Memory.add_node$IF_FALSE2
@@ -10795,18 +11009,18 @@ AM=D;JMP // 7122
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_0 // 7124
-0;JMP // 7125
-@PUSH_argument_1 // 7126
-0;JMP // 7127
-@PUSH_constant_3 // 7128
-0;JMP // 7129
-@ADD // 7130
-0;JMP // 7131
-@POP_pointer_1 // 7132
-0;JMP // 7133
-@POP_that_0 // 7134
-0;JMP // 7135
+@PUSH_local_0 // 7225
+0;JMP // 7226
+@PUSH_argument_1 // 7227
+0;JMP // 7228
+@PUSH_constant_3 // 7229
+0;JMP // 7230
+@ADD // 7231
+0;JMP // 7232
+@POP_pointer_1 // 7233
+0;JMP // 7234
+@POP_that_0 // 7235
+0;JMP // 7236
 
 ////PushWriter{source=PushInstruction("local 1"), dest=BinaryPushGroup(
 //    left:
@@ -10815,35 +11029,35 @@ AM=D;JMP // 7122
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_1 // 7136
-0;JMP // 7137
-@PUSH_argument_1 // 7138
-0;JMP // 7139
-@PUSH_constant_2 // 7140
-0;JMP // 7141
-@ADD // 7142
-0;JMP // 7143
-@POP_pointer_1 // 7144
-0;JMP // 7145
-@POP_that_0 // 7146
-0;JMP // 7147
+@PUSH_local_1 // 7237
+0;JMP // 7238
+@PUSH_argument_1 // 7239
+0;JMP // 7240
+@PUSH_constant_2 // 7241
+0;JMP // 7242
+@ADD // 7243
+0;JMP // 7244
+@POP_pointer_1 // 7245
+0;JMP // 7246
+@POP_that_0 // 7247
+0;JMP // 7248
 
 ////ConditionalGroup{push=PushInstruction("local 0"), ifGoto=IfGotoInstruction{label='Memory.add_node$IF_TRUE3}}
-@PUSH_local_0 // 7148
-0;JMP // 7149
+@PUSH_local_0 // 7249
+0;JMP // 7250
 // if-goto Memory.add_node$IF_TRUE3
-@Memory.add_node$IF_TRUE3 // 7150
-D=A // 7151
-@IF_GOTO // 7152
-0;JMP // 7153
+@Memory.add_node$IF_TRUE3 // 7251
+D=A // 7252
+@IF_GOTO // 7253
+0;JMP // 7254
 
 ////GotoInstruction{label='Memory.add_node$IF_END3}
 // goto Memory.add_node$IF_END3
-@Memory.add_node$IF_END3 // 7154
-D=A // 7155
-@15 // 7156
-AM=D;JMP // 7157
-0;JMP // 7158
+@Memory.add_node$IF_END3 // 7255
+D=A // 7256
+@15 // 7257
+AM=D;JMP // 7258
+0;JMP // 7259
 
 ////LabelInstruction{label='Memory.add_node$IF_TRUE3}
 // label Memory.add_node$IF_TRUE3
@@ -10856,18 +11070,18 @@ AM=D;JMP // 7157
 //        PushInstruction("constant 2"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 7159
-0;JMP // 7160
-@PUSH_local_0 // 7161
-0;JMP // 7162
-@PUSH_constant_2 // 7163
-0;JMP // 7164
-@ADD // 7165
-0;JMP // 7166
-@POP_pointer_1 // 7167
-0;JMP // 7168
-@POP_that_0 // 7169
-0;JMP // 7170
+@PUSH_argument_1 // 7260
+0;JMP // 7261
+@PUSH_local_0 // 7262
+0;JMP // 7263
+@PUSH_constant_2 // 7264
+0;JMP // 7265
+@ADD // 7266
+0;JMP // 7267
+@POP_pointer_1 // 7268
+0;JMP // 7269
+@POP_that_0 // 7270
+0;JMP // 7271
 
 ////LabelInstruction{label='Memory.add_node$IF_END3}
 // label Memory.add_node$IF_END3
@@ -10880,30 +11094,30 @@ AM=D;JMP // 7157
 //        PushInstruction("constant 3"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_argument_1 // 7171
-0;JMP // 7172
-@PUSH_local_1 // 7173
-0;JMP // 7174
-@PUSH_constant_3 // 7175
-0;JMP // 7176
-@ADD // 7177
-0;JMP // 7178
-@POP_pointer_1 // 7179
-0;JMP // 7180
-@POP_that_0 // 7181
-0;JMP // 7182
+@PUSH_argument_1 // 7272
+0;JMP // 7273
+@PUSH_local_1 // 7274
+0;JMP // 7275
+@PUSH_constant_3 // 7276
+0;JMP // 7277
+@ADD // 7278
+0;JMP // 7279
+@POP_pointer_1 // 7280
+0;JMP // 7281
+@POP_that_0 // 7282
+0;JMP // 7283
 
 ////LabelInstruction{label='Memory.add_node$IF_END2}
 // label Memory.add_node$IF_END2
 (Memory.add_node$IF_END2)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 7183
-0;JMP // 7184
+@PUSH_constant_0 // 7284
+0;JMP // 7285
 
 //////Return
-@RETURN // 7185
-0;JMP // 7186
+@RETURN // 7286
+0;JMP // 7287
 
 ////FunctionInstruction{functionName='Sys.init', numLocals=0, funcMapping={Sys.error=2, Sys.halt=0}}
 // function Sys.init with 0
@@ -10915,19 +11129,19 @@ AM=D;JMP // 7157
 //}
 
 // call Memory.init
-@5 // 7187
-D=A // 7188
-@14 // 7189
-M=D // 7190
-@Memory.init // 7191
-D=A // 7192
-@13 // 7193
-M=D // 7194
-@CALL // 7195
-0;JMP // 7196
+@5 // 7288
+D=A // 7289
+@14 // 7290
+M=D // 7291
+@Memory.init // 7292
+D=A // 7293
+@13 // 7294
+M=D // 7295
+@CALL // 7296
+0;JMP // 7297
 (Sys.init.ret.0)
-@POP_temp_0 // 7197
-0;JMP // 7198
+@POP_temp_0 // 7298
+0;JMP // 7299
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[], call=CallInstruction{Math.init}}
@@ -10935,19 +11149,19 @@ M=D // 7194
 //}
 
 // call Math.init
-@5 // 7199
-D=A // 7200
-@14 // 7201
-M=D // 7202
-@Math.init // 7203
-D=A // 7204
-@13 // 7205
-M=D // 7206
-@CALL // 7207
-0;JMP // 7208
+@5 // 7300
+D=A // 7301
+@14 // 7302
+M=D // 7303
+@Math.init // 7304
+D=A // 7305
+@13 // 7306
+M=D // 7307
+@CALL // 7308
+0;JMP // 7309
 (Sys.init.ret.2)
-@POP_temp_0 // 7209
-0;JMP // 7210
+@POP_temp_0 // 7310
+0;JMP // 7311
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[], call=CallInstruction{Screen.init}}
@@ -10955,19 +11169,19 @@ M=D // 7206
 //}
 
 // call Screen.init
-@5 // 7211
-D=A // 7212
-@14 // 7213
-M=D // 7214
-@Screen.init // 7215
-D=A // 7216
-@13 // 7217
-M=D // 7218
-@CALL // 7219
-0;JMP // 7220
+@5 // 7312
+D=A // 7313
+@14 // 7314
+M=D // 7315
+@Screen.init // 7316
+D=A // 7317
+@13 // 7318
+M=D // 7319
+@CALL // 7320
+0;JMP // 7321
 (Sys.init.ret.4)
-@POP_temp_0 // 7221
-0;JMP // 7222
+@POP_temp_0 // 7322
+0;JMP // 7323
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[], call=CallInstruction{Output.init}}
@@ -10975,19 +11189,19 @@ M=D // 7218
 //}
 
 // call Output.init
-@5 // 7223
-D=A // 7224
-@14 // 7225
-M=D // 7226
-@Output.init // 7227
-D=A // 7228
-@13 // 7229
-M=D // 7230
-@CALL // 7231
-0;JMP // 7232
+@5 // 7324
+D=A // 7325
+@14 // 7326
+M=D // 7327
+@Output.init // 7328
+D=A // 7329
+@13 // 7330
+M=D // 7331
+@CALL // 7332
+0;JMP // 7333
 (Sys.init.ret.6)
-@POP_temp_0 // 7233
-0;JMP // 7234
+@POP_temp_0 // 7334
+0;JMP // 7335
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[], call=CallInstruction{Main.main}}
@@ -10995,19 +11209,19 @@ M=D // 7230
 //}
 
 // call Main.main
-@5 // 7235
-D=A // 7236
-@14 // 7237
-M=D // 7238
-@Main.main // 7239
-D=A // 7240
-@13 // 7241
-M=D // 7242
-@CALL // 7243
-0;JMP // 7244
+@5 // 7336
+D=A // 7337
+@14 // 7338
+M=D // 7339
+@Main.main // 7340
+D=A // 7341
+@13 // 7342
+M=D // 7343
+@CALL // 7344
+0;JMP // 7345
 (Sys.init.ret.8)
-@POP_temp_0 // 7245
-0;JMP // 7246
+@POP_temp_0 // 7346
+0;JMP // 7347
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[], call=CallInstruction{Sys.halt}}
@@ -11015,77 +11229,77 @@ M=D // 7242
 //}
 
 // call Sys.halt
-@5 // 7247
-D=A // 7248
-@14 // 7249
-M=D // 7250
-@Sys.halt // 7251
-D=A // 7252
-@13 // 7253
-M=D // 7254
-@CALL // 7255
-0;JMP // 7256
+@5 // 7348
+D=A // 7349
+@14 // 7350
+M=D // 7351
+@Sys.halt // 7352
+D=A // 7353
+@13 // 7354
+M=D // 7355
+@CALL // 7356
+0;JMP // 7357
 (Sys.init.ret.10)
-@POP_temp_0 // 7257
-0;JMP // 7258
+@POP_temp_0 // 7358
+0;JMP // 7359
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 7259
-0;JMP // 7260
+@PUSH_constant_0 // 7360
+0;JMP // 7361
 
 //////Return
-@RETURN // 7261
-0;JMP // 7262
+@RETURN // 7362
+0;JMP // 7363
 
 ////FunctionInstruction{functionName='Math.init', numLocals=2, funcMapping={Math.divide=11, Math.abs=2, Math.max=0, Math.multiply=0}}
 // function Math.init with 2
 (Math.init)
-@PUSH_constant_0 // 7263
-0;JMP // 7264
-@PUSH_constant_0 // 7265
-0;JMP // 7266
+@PUSH_constant_0 // 7364
+0;JMP // 7365
+@PUSH_constant_0 // 7366
+0;JMP // 7367
 
 ////PushPopPair {
 //  push: PushInstruction("constant 1")
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_1 // 7267
-0;JMP // 7268
-@POP_local_0 // 7269
-0;JMP // 7270
+@PUSH_constant_1 // 7368
+0;JMP // 7369
+@POP_local_0 // 7370
+0;JMP // 7371
 
 ////PushPopPair {
 //  push: PushInstruction("constant 0")
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@PUSH_constant_0 // 7271
-0;JMP // 7272
-@POP_local_1 // 7273
-0;JMP // 7274
+@PUSH_constant_0 // 7372
+0;JMP // 7373
+@POP_local_1 // 7374
+0;JMP // 7375
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 16")], call=CallInstruction{Memory.alloc}}
 //  pop:  PopInstruction{address=static 0}
 //}
 
-@PUSH_constant_16 // 7275
-0;JMP // 7276
+@PUSH_constant_16 // 7376
+0;JMP // 7377
 // call Memory.alloc
-@6 // 7277
-D=A // 7278
-@14 // 7279
-M=D // 7280
-@Memory.alloc // 7281
-D=A // 7282
-@13 // 7283
-M=D // 7284
-@CALL // 7285
-0;JMP // 7286
+@6 // 7378
+D=A // 7379
+@14 // 7380
+M=D // 7381
+@Memory.alloc // 7382
+D=A // 7383
+@13 // 7384
+M=D // 7385
+@CALL // 7386
+0;JMP // 7387
 (Math.init.ret.0)
-@Math.0_POP // 7287
-0;JMP // 7288
+@Math.0_POP // 7388
+0;JMP // 7389
 
 ////LabelInstruction{label='Math.init_WHILE_EXP1}
 // label Math.init_WHILE_EXP1
@@ -11099,19 +11313,19 @@ M=D // 7284
 //        binaryOp: "LT"
 //    ),
 //NOT), ifGoto=IfGotoInstruction{label='Math.init_WHILE_END1}}
-@PUSH_local_1 // 7289
-0;JMP // 7290
-@PUSH_constant_16 // 7291
-0;JMP // 7292
-@LT // 7293
-0;JMP // 7294
-@NOT // 7295
-0;JMP // 7296
+@PUSH_local_1 // 7390
+0;JMP // 7391
+@PUSH_constant_16 // 7392
+0;JMP // 7393
+@LT // 7394
+0;JMP // 7395
+@NOT // 7396
+0;JMP // 7397
 // if-goto Math.init_WHILE_END1
-@Math.init_WHILE_END1 // 7297
-D=A // 7298
-@IF_GOTO // 7299
-0;JMP // 7300
+@Math.init_WHILE_END1 // 7398
+D=A // 7399
+@IF_GOTO // 7400
+0;JMP // 7401
 
 ////PushWriter{source=PushInstruction("local 0"), dest=BinaryPushGroup(
 //    left:
@@ -11120,18 +11334,18 @@ D=A // 7298
 //        PushInstruction("local 1"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_local_0 // 7301
-0;JMP // 7302
-@Math.0_PUSH // 7303
-0;JMP // 7304
-@PUSH_local_1 // 7305
-0;JMP // 7306
-@ADD // 7307
-0;JMP // 7308
-@POP_pointer_1 // 7309
-0;JMP // 7310
-@POP_that_0 // 7311
-0;JMP // 7312
+@PUSH_local_0 // 7402
+0;JMP // 7403
+@Math.0_PUSH // 7404
+0;JMP // 7405
+@PUSH_local_1 // 7406
+0;JMP // 7407
+@ADD // 7408
+0;JMP // 7409
+@POP_pointer_1 // 7410
+0;JMP // 7411
+@POP_that_0 // 7412
+0;JMP // 7413
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -11144,14 +11358,14 @@ D=A // 7298
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_local_0 // 7313
-0;JMP // 7314
-@PUSH_local_0 // 7315
-0;JMP // 7316
-@ADD // 7317
-0;JMP // 7318
-@POP_local_0 // 7319
-0;JMP // 7320
+@PUSH_local_0 // 7414
+0;JMP // 7415
+@PUSH_local_0 // 7416
+0;JMP // 7417
+@ADD // 7418
+0;JMP // 7419
+@POP_local_0 // 7420
+0;JMP // 7421
 
 ////PushPopPair {
 //  push: BinaryPushGroup(
@@ -11164,51 +11378,51 @@ D=A // 7298
 //  pop:  PopInstruction{address=local 1}
 //}
 
-@LCL // 7321
-A=M+1 // 7322
-M=M+1 // 7323
-@7 // 7324
-D=A // 7325
-@15 // 7326
-AM=D+M;JMP // 7327
+@LCL // 7422
+A=M+1 // 7423
+M=M+1 // 7424
+@7 // 7425
+D=A // 7426
+@15 // 7427
+AM=D+M;JMP // 7428
 
 ////GotoInstruction{label='Math.init_WHILE_EXP1}
 // goto Math.init_WHILE_EXP1
-@Math.init_WHILE_EXP1 // 7328
-D=A // 7329
-@15 // 7330
-AM=D;JMP // 7331
-0;JMP // 7332
+@Math.init_WHILE_EXP1 // 7429
+D=A // 7430
+@15 // 7431
+AM=D;JMP // 7432
+0;JMP // 7433
 
 ////LabelInstruction{label='Math.init_WHILE_END1}
 // label Math.init_WHILE_END1
 (Math.init_WHILE_END1)
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 7333
-0;JMP // 7334
+@PUSH_constant_0 // 7434
+0;JMP // 7435
 
 //////Return
-@RETURN // 7335
-0;JMP // 7336
+@RETURN // 7436
+0;JMP // 7437
 
 ////FunctionInstruction{functionName='Memory.init', numLocals=2, funcMapping={Memory.poke=0, Memory.alloc=22, Memory.add_node=0, Memory.create_foot=0, Memory.get_best_fit=0, Memory.peek=0, Memory.getBinIndex=3, Memory.remove_node=0}}
 // function Memory.init with 2
 (Memory.init)
-@PUSH_constant_0 // 7337
-0;JMP // 7338
-@PUSH_constant_0 // 7339
-0;JMP // 7340
+@PUSH_constant_0 // 7438
+0;JMP // 7439
+@PUSH_constant_0 // 7440
+0;JMP // 7441
 
 ////PushPopPair {
 //  push: PushInstruction("constant 2055")
 //  pop:  PopInstruction{address=local 0}
 //}
 
-@PUSH_constant_2055 // 7341
-0;JMP // 7342
-@POP_local_0 // 7343
-0;JMP // 7344
+@PUSH_constant_2055 // 7442
+0;JMP // 7443
+@POP_local_0 // 7444
+0;JMP // 7445
 
 ////PushWriter{source=BinaryPushGroup(
 //    left:
@@ -11229,26 +11443,26 @@ AM=D;JMP // 7331
 //        PushInstruction("constant 0"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_16384 // 7345
-0;JMP // 7346
-@PUSH_local_0 // 7347
-0;JMP // 7348
-@SUB // 7349
-0;JMP // 7350
-@PUSH_constant_5 // 7351
-0;JMP // 7352
-@SUB // 7353
-0;JMP // 7354
-@PUSH_local_0 // 7355
-0;JMP // 7356
-@PUSH_constant_0 // 7357
-0;JMP // 7358
-@ADD // 7359
-0;JMP // 7360
-@POP_pointer_1 // 7361
-0;JMP // 7362
-@POP_that_0 // 7363
-0;JMP // 7364
+@PUSH_constant_16384 // 7446
+0;JMP // 7447
+@PUSH_local_0 // 7448
+0;JMP // 7449
+@SUB // 7450
+0;JMP // 7451
+@PUSH_constant_5 // 7452
+0;JMP // 7453
+@SUB // 7454
+0;JMP // 7455
+@PUSH_local_0 // 7456
+0;JMP // 7457
+@PUSH_constant_0 // 7458
+0;JMP // 7459
+@ADD // 7460
+0;JMP // 7461
+@POP_pointer_1 // 7462
+0;JMP // 7463
+@POP_that_0 // 7464
+0;JMP // 7465
 
 ////PushWriter{source=PushInstruction("constant 1"), dest=BinaryPushGroup(
 //    left:
@@ -11257,70 +11471,70 @@ AM=D;JMP // 7331
 //        PushInstruction("constant 1"),
 //    binaryOp: "ADD"
 //)}
-@PUSH_constant_1 // 7365
-0;JMP // 7366
-@PUSH_local_0 // 7367
-0;JMP // 7368
-@PUSH_constant_1 // 7369
-0;JMP // 7370
-@ADD // 7371
-0;JMP // 7372
-@POP_pointer_1 // 7373
-0;JMP // 7374
-@POP_that_0 // 7375
-0;JMP // 7376
+@PUSH_constant_1 // 7466
+0;JMP // 7467
+@PUSH_local_0 // 7468
+0;JMP // 7469
+@PUSH_constant_1 // 7470
+0;JMP // 7471
+@ADD // 7472
+0;JMP // 7473
+@POP_pointer_1 // 7474
+0;JMP // 7475
+@POP_that_0 // 7476
+0;JMP // 7477
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("local 0")], call=CallInstruction{Memory.create_foot}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_local_0 // 7377
-0;JMP // 7378
+@PUSH_local_0 // 7478
+0;JMP // 7479
 // call Memory.create_foot
-@6 // 7379
-D=A // 7380
-@14 // 7381
-M=D // 7382
-@Memory.create_foot // 7383
-D=A // 7384
-@13 // 7385
-M=D // 7386
-@CALL // 7387
-0;JMP // 7388
+@6 // 7480
+D=A // 7481
+@14 // 7482
+M=D // 7483
+@Memory.create_foot // 7484
+D=A // 7485
+@13 // 7486
+M=D // 7487
+@CALL // 7488
+0;JMP // 7489
 (Memory.init.ret.0)
-@POP_temp_0 // 7389
-0;JMP // 7390
+@POP_temp_0 // 7490
+0;JMP // 7491
 
 ////PushPopPair {
 //  push: CallGroup{pushes=[PushInstruction("constant 2054"), PushInstruction("local 0")], call=CallInstruction{Memory.add_node}}
 //  pop:  PopInstruction{address=temp 0}
 //}
 
-@PUSH_constant_2054 // 7391
-0;JMP // 7392
-@PUSH_local_0 // 7393
-0;JMP // 7394
+@PUSH_constant_2054 // 7492
+0;JMP // 7493
+@PUSH_local_0 // 7494
+0;JMP // 7495
 // call Memory.add_node
-@7 // 7395
-D=A // 7396
-@14 // 7397
-M=D // 7398
-@Memory.add_node // 7399
-D=A // 7400
-@13 // 7401
-M=D // 7402
-@CALL // 7403
-0;JMP // 7404
+@7 // 7496
+D=A // 7497
+@14 // 7498
+M=D // 7499
+@Memory.add_node // 7500
+D=A // 7501
+@13 // 7502
+M=D // 7503
+@CALL // 7504
+0;JMP // 7505
 (Memory.init.ret.2)
-@POP_temp_0 // 7405
-0;JMP // 7406
+@POP_temp_0 // 7506
+0;JMP // 7507
 
 ////PushInstruction("constant 0")
-@PUSH_constant_0 // 7407
-0;JMP // 7408
+@PUSH_constant_0 // 7508
+0;JMP // 7509
 
 //////Return
-@RETURN // 7409
-0;JMP // 7410
+@RETURN // 7510
+0;JMP // 7511
 

@@ -14,7 +14,6 @@ class Shell {
             while (KEYBOARD_START_ADDRESS[0] = 0) {}
 
             let character = KEYBOARD_START_ADDRESS[0];
-
             if ((character = 129) & (cursor > 0)) {
                 do Output.backSpace();
 
@@ -26,16 +25,17 @@ class Shell {
                 // Move cursor variable back
                 let cursor = cursor - 1;
             } else {
-                // Overwrite square with typed character
-                //do Output.backSpace();        // move back over square
-                do Output.printChar(character); // print char
-                //do Output.printChar(0);       // new square
+                if (~((character = 129) & (cursor = 0))){
+                    // Overwrite square with typed character
+                    do Output.backSpace();        // move back over square
+                    do Output.printChar(character); // print char
+                    do Output.printChar(0);       // new square
 
-                let cursor = cursor + 1;
+                    let cursor = cursor + 1;
+                }
             }
-
+            let KEYBOARD_START_ADDRESS[0] = 0;
         }
-
         return;
     }
 }
