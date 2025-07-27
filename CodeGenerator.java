@@ -403,38 +403,14 @@ public class CodeGenerator {
             ProgramState.SymbolInfo symbol = ps.lookupSymbol(base);
 
             if (symbol != null) {
-                // obj.method(...)
-                // Check for Array.dispose → call Memory.deAlloc directly
-                if ("Array".equals(symbol.type) && "dispose".equals(subroutineName)) {
-                    vmInstructions.addFirst(ps.handleVarName(base, true)); // push obj as first arg
-                    vmInstructions.add("call Memory.deAlloc 1");
-                    return vmInstructions;
-                }
-
-                // Otherwise, normal method call
                 vmInstructions.addFirst(ps.handleVarName(base, true)); // push obj as first arg
                 vmInstructions.add(String.format("call %s.%s %d", symbol.type, subroutineName, argCount + 1));
             } else {
-                // Class.function(...) — could be Array.new
-                if ("Array".equals(base) && "new".equals(subroutineName)) {
-                    vmInstructions.add(String.format("call Memory.alloc %d", argCount));
-                    return vmInstructions;
-                }
-
-                // Otherwise, normal function call
                 vmInstructions.add(String.format("call %s.%s %d", base, subroutineName, argCount));
             }
         } else if (nodes.size() == 4) {
             // Case: method(...) — implicit `this` method call
             String subroutineName = nodes.getFirst().value;
-
-            // Check for Array.dispose on current object — we don't support this use case, but can be safe
-            if ("dispose".equals(subroutineName) && "Array".equals(ps.getClassName())) {
-                vmInstructions.addFirst("push pointer 0"); // push this
-                vmInstructions.add("call Memory.deAlloc 1");
-                return vmInstructions;
-            }
-
             // Normal method on this
             vmInstructions.addFirst("push pointer 0"); // push this
             vmInstructions.add(String.format("call %s.%s %d", ps.getClassName(), subroutineName, argCount + 1));

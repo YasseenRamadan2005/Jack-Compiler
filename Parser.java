@@ -67,7 +67,6 @@ public class Parser {
         while (Set.of("static", "field").contains(tokens.peek())) {
             node.addChild(parseClassVarDec(tokens));
         }
-
         while (Set.of("constructor", "function", "method").contains(tokens.peek())) {
             node.addChild(parseSubroutineDec(tokens));
         }

@@ -3,30 +3,40 @@ class Shell {
 
     static int cursor;
     static String command;
+    static String cwd, ls, mkdir, cd;
 
     function void main() {
+        var Shell sh;
+        let sh = Shell.new();
+        do sh.run();
+        return;
+    }
+
+    method void run() {
         var char character;
         let command = String.new(100);
+        let cwd = Directory.new(String.new(1), null);  // Root directory
 
+        // Root name is '/'
+        do cwd.getName().appendChar(47);  // ASCII '/' = 47
+
+        // Print prompt
         let cursor = 0;
         do Output.printChar(36); // '$'
         do Output.printChar(0);  // black square
 
         while (true) {
-            // Wait for key press
             while (KEYBOARD_START_ADDRESS[0] = 0) {}
-
             let character = KEYBOARD_START_ADDRESS[0];
 
-            if ((character = 128)) {
-                // Handle Enter
-                do Output.println();                 // move to new line
-                do Shell.handleCommand(command);          // process command
-                do command.dispose();               // cleanup old command
-                let command = String.new(100);      // prepare for next line
+            if (character = 128) {
+                do Output.println();
+                do handleCommand(command);
+                do command.dispose();
+                let command = String.new(100);
                 let cursor = 0;
-                do Output.printChar(36);            // '$'
-                do Output.printChar(0);             // black square
+                do Output.printChar(36);
+                do Output.printChar(0);
             } else {
                 if ((character = 129) & (cursor > 0)) {
                     do Output.backSpace();
@@ -50,9 +60,153 @@ class Shell {
         return;
     }
 
-    // Placeholder for handling the entered command
+
     function void handleCommand(String s) {
-        // For now, do nothing
+        var Array tokens, dirs, files;
+        var Directory d, newDir, subdir;
+        var File file;
+        var String cmd, arg, name;
+        var int tokenCount, i, n, item;
+        var boolean isEqual;
+
+        let d = Directory.getCWD();
+        let tokens = Shell.parseCommand(s);
+        let tokenCount = tokens.length();
+        if (tokenCount = 0) {
+            return;
+        }
+
+        let cmd = tokens.get(0);
+
+        if (cmd.equals(cwd)) {
+            let name = d.getName();
+            do Output.printString(name);
+            do Output.println();
+        }
+
+        if (cmd.equals(ls)) {
+            let dirs = d.getDirectories();
+            let i = 0;
+            let n = dirs.length();
+            while (i < n) {
+                let item = dirs.get(i);
+                let subdir = item;
+                let name = subdir.getName();
+                do Output.printString("HERE");
+                do Output.printString(name);
+                do Output.println();
+                let i = i + 1;
+            }
+
+            let files = d.getFiles();
+            let i = 0;
+            let n = files.length();
+            while (i < n) {
+                let item = files.get(i);
+                let file = item;
+                let name = file.getName();
+                do Output.printString(name);
+                do Output.println();
+                let i = i + 1;
+            }
+        }
+
+        if ((cmd.equals(mkdir)) & (tokenCount > 1)) {
+            let arg = tokens.get(1);
+            let newDir = Directory.new(arg, d);
+            do d.addDirectory(newDir);
+        }
+
+        if ((cmd.equals(cd)) & (tokenCount > 1)) {
+            let arg = tokens.get(1);
+
+            if (arg.equals("..")) {
+                let newDir = d.getParent();
+                if (~(newDir = null)) {
+                    do Directory.setCWD(newDir);
+                }
+            } else {
+                let newDir = d.getDirectory(arg);
+                if (~(newDir = null)) {
+                    do Directory.setCWD(newDir);
+                }
+                else{
+                    do Output.printString("Not found: ");
+                    do Output.printString(arg);
+                    do Output.println();
+                }
+            }
+        }
+
         return;
+    }
+
+    // Parses a command string into an array of Strings
+    function Array parseCommand(String s) {
+        var Array result;
+        var String token;
+        var int len, i, wordCount, inWord, start, end, tokenIndex;
+        var int j;
+
+        let len = s.length();
+        let i = 0;
+        let wordCount = 0;
+        let inWord = 0;
+
+        // First pass: count the number of words
+        while (i < len) {
+            if ((s.charAt(i)) = 32) {
+                let inWord = 0;
+            } else {
+                if (inWord = 0) {
+                    let wordCount = wordCount + 1;
+                    let inWord = 1;
+                }
+            }
+            let i = i + 1;
+        }
+        let result = Array.new(wordCount);
+
+        // Second pass: extract each word
+        let i = 0;
+        let tokenIndex = 0;
+        let inWord = 0;
+        let start = 0;
+
+        while (i < len) {
+            if ((s.charAt(i)) = 32) {
+                if (inWord = 1) {
+                    let inWord = 0;
+                    let end = i;
+                    let token = String.new(end - start);
+                    
+                    let j = start;
+                    while (j < end) {
+                        do token.appendChar(s.charAt(j));
+                        let j = j + 1;
+                    }
+                    do result.set(tokenIndex, token);
+                    let tokenIndex = tokenIndex + 1;
+                }
+            } else {
+                if (inWord = 0) {
+                    let start = i;
+                    let inWord = 1;
+                }
+            }
+            let i = i + 1;
+        }
+
+        // If still in a word at the end of the string
+        if (inWord = 1) {
+            let token = String.new(i - start);
+            let j = start;
+            while (j < i) {
+                do token.appendChar(s.charAt(j));
+                let j = j + 1;
+            }
+            do result.set(tokenIndex, token);
+        }
+        return result;
     }
 }

@@ -206,7 +206,7 @@ class Output {
 
                 if (cursor_x & 1 = 0) {
                     // left 8 bits
-                    let address[0] = (address[0] & 65280) | map[i]; // mask right 8 bits off
+                    let address[0] = (~(~(address[0]) | 255)) | map[i]; // mask right 8 bits off
                 } else {
                     // right 8 bits
                     let address[0] = (address[0] & 255) | (map[i] * 256); // mask left 8 bits off

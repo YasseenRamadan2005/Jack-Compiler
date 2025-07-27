@@ -1,0 +1,36 @@
+class File {
+    field String name;
+    field Array buffer;  // memory allocated
+    field int size;
+
+    constructor File new(String fileName, int allocSize) {
+        let name = fileName;
+        let buffer = Memory.alloc(allocSize);
+        let size = allocSize;
+        return this;
+    }
+
+    method void write(int index, int value) {
+        if (index < size) {
+            let buffer[index] = value;
+        }
+        return;
+    }
+
+    method int read(int index) {
+        if (index < size) {
+            return buffer[index];
+        }
+        return 0;
+    }
+
+    method String getName() {
+        return name;
+    }
+
+    method void delete() {
+        do Memory.deAlloc(buffer);
+        let size = 0;
+        return;
+    }
+}
