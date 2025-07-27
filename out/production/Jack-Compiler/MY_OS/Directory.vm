@@ -1,0 +1,372 @@
+function Directory.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push constant 4
+call Array.new 1
+pop this 2
+push constant 4
+call Array.new 1
+pop this 3
+push pointer 0
+return
+function Directory.init 2
+push constant 1
+call String.new 1
+pop local 1
+push local 1
+push constant 47
+call String.appendChar 2
+pop temp 0
+push local 1
+push constant 0
+call Directory.new 2
+pop local 0
+push local 0
+pop static 0
+push constant 0
+return
+function Directory.addFile 0
+push argument 0
+pop pointer 0
+push this 2
+push argument 1
+call Array.append 2
+pop temp 0
+push constant 0
+return
+function Directory.addDirectory 0
+push argument 0
+pop pointer 0
+push this 3
+push argument 1
+call Array.append 2
+pop temp 0
+push constant 0
+return
+function Directory.deleteFile 6
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 2
+call Array.length 1
+pop local 1
+push constant 0
+pop local 5
+label Directory.deleteFile_WHILE_EXP1
+push local 0
+push local 1
+lt
+push local 5
+not
+and
+not
+if-goto Directory.deleteFile_WHILE_END1
+push this 2
+push local 0
+call Array.get 2
+pop local 2
+push local 2
+pop local 3
+push local 3
+call File.getName 1
+pop local 4
+push local 4
+push this 0
+call String.equals 2
+if-goto Directory.deleteFile$IF_TRUE1
+goto Directory.deleteFile$IF_FALSE1
+label Directory.deleteFile$IF_TRUE1
+push constant 0
+not
+pop local 5
+goto Directory.deleteFile$IF_END1
+label Directory.deleteFile$IF_FALSE1
+push local 0
+push constant 1
+add
+pop local 0
+label Directory.deleteFile$IF_END1
+goto Directory.deleteFile_WHILE_EXP1
+label Directory.deleteFile_WHILE_END1
+push local 5
+if-goto Directory.deleteFile$IF_TRUE2
+goto Directory.deleteFile$IF_END2
+label Directory.deleteFile$IF_TRUE2
+label Directory.deleteFile_WHILE_EXP2
+push local 0
+push local 1
+lt
+push constant 1
+sub
+not
+if-goto Directory.deleteFile_WHILE_END2
+push this 2
+push local 0
+push constant 1
+add
+call Array.get 2
+pop local 2
+push this 2
+push local 0
+push local 2
+call Array.set 3
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Directory.deleteFile_WHILE_EXP2
+label Directory.deleteFile_WHILE_END2
+push this 2
+push local 1
+push constant 1
+sub
+push constant 0
+call Array.set 3
+pop temp 0
+push this 2
+call Array.reset 1
+pop temp 0
+push constant 0
+pop local 0
+label Directory.deleteFile_WHILE_EXP3
+push local 0
+push local 1
+lt
+push constant 1
+sub
+not
+if-goto Directory.deleteFile_WHILE_END3
+push this 2
+push local 0
+call Array.get 2
+pop local 2
+push this 2
+push local 2
+call Array.append 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Directory.deleteFile_WHILE_EXP3
+label Directory.deleteFile_WHILE_END3
+label Directory.deleteFile$IF_END2
+push constant 0
+return
+function Directory.deleteDirectory 6
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 3
+call Array.length 1
+pop local 1
+push constant 0
+pop local 5
+label Directory.deleteDirectory_WHILE_EXP1
+push local 0
+push local 1
+lt
+push local 5
+not
+and
+not
+if-goto Directory.deleteDirectory_WHILE_END1
+push this 3
+push local 0
+call Array.get 2
+pop local 2
+push local 2
+pop local 3
+push local 3
+call Directory.getName 1
+pop local 4
+push local 4
+push this 0
+call String.equals 2
+if-goto Directory.deleteDirectory$IF_TRUE1
+goto Directory.deleteDirectory$IF_FALSE1
+label Directory.deleteDirectory$IF_TRUE1
+push constant 0
+not
+pop local 5
+goto Directory.deleteDirectory$IF_END1
+label Directory.deleteDirectory$IF_FALSE1
+push local 0
+push constant 1
+add
+pop local 0
+label Directory.deleteDirectory$IF_END1
+goto Directory.deleteDirectory_WHILE_EXP1
+label Directory.deleteDirectory_WHILE_END1
+push local 5
+if-goto Directory.deleteDirectory$IF_TRUE2
+goto Directory.deleteDirectory$IF_END2
+label Directory.deleteDirectory$IF_TRUE2
+label Directory.deleteDirectory_WHILE_EXP2
+push local 0
+push local 1
+lt
+push constant 1
+sub
+not
+if-goto Directory.deleteDirectory_WHILE_END2
+push this 3
+push local 0
+push constant 1
+add
+call Array.get 2
+pop local 2
+push this 3
+push local 0
+push local 2
+call Array.set 3
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Directory.deleteDirectory_WHILE_EXP2
+label Directory.deleteDirectory_WHILE_END2
+push this 3
+push local 1
+push constant 1
+sub
+push constant 0
+call Array.set 3
+pop temp 0
+push this 3
+call Array.reset 1
+pop temp 0
+push constant 0
+pop local 0
+label Directory.deleteDirectory_WHILE_EXP3
+push local 0
+push local 1
+lt
+push constant 1
+sub
+not
+if-goto Directory.deleteDirectory_WHILE_END3
+push this 3
+push local 0
+call Array.get 2
+pop local 2
+push this 3
+push local 2
+call Array.append 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Directory.deleteDirectory_WHILE_EXP3
+label Directory.deleteDirectory_WHILE_END3
+label Directory.deleteDirectory$IF_END2
+push constant 0
+return
+function Directory.getParent 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Directory.getName 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Directory.getDirectory 5
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 3
+call Array.length 1
+pop local 1
+label Directory.getDirectory_WHILE_EXP1
+push local 0
+push local 1
+lt
+not
+if-goto Directory.getDirectory_WHILE_END1
+push this 3
+push local 0
+call Array.get 2
+pop local 2
+push local 2
+pop local 3
+push local 3
+call Directory.getName 1
+pop local 4
+push local 4
+push this 0
+call String.equals 2
+if-goto Directory.getDirectory$IF_TRUE1
+goto Directory.getDirectory$IF_END1
+label Directory.getDirectory$IF_TRUE1
+push local 3
+return
+label Directory.getDirectory$IF_END1
+push local 0
+push constant 1
+add
+pop local 0
+goto Directory.getDirectory_WHILE_EXP1
+label Directory.getDirectory_WHILE_END1
+push constant 0
+return
+function Directory.getFile 5
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 2
+call Array.length 1
+pop local 1
+label Directory.getFile_WHILE_EXP1
+push local 0
+push local 1
+lt
+not
+if-goto Directory.getFile_WHILE_END1
+push this 2
+push local 0
+call Array.get 2
+pop local 2
+push local 2
+pop local 3
+push local 3
+call File.getName 1
+pop local 4
+push local 4
+push this 0
+call String.equals 2
+if-goto Directory.getFile$IF_TRUE1
+goto Directory.getFile$IF_END1
+label Directory.getFile$IF_TRUE1
+push local 3
+return
+label Directory.getFile$IF_END1
+push local 0
+push constant 1
+add
+pop local 0
+goto Directory.getFile_WHILE_EXP1
+label Directory.getFile_WHILE_END1
+push constant 0
+return
+function Directory.getCWD 0
+push static 0
+return
+function Directory.setCWD 0
+push argument 0
+pop static 0
+push constant 0
+return

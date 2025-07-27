@@ -1,12 +1,113 @@
 function Array.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
 push argument 0
 call Memory.alloc 1
+pop this 0
+push constant 0
+pop this 1
+push argument 0
+pop this 2
+push pointer 0
 return
 function Array.dispose 0
 push argument 0
 pop pointer 0
-push pointer 0
+push this 0
 call Memory.deAlloc 1
 pop temp 0
+push constant 0
+return
+function Array.reset 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 1
+push constant 0
+return
+function Array.length 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Array.get 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+return
+function Array.set 0
+push argument 0
+pop pointer 0
+push argument 2
+push this 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Array.append 2
+push argument 0
+pop pointer 0
+push this 1
+push this 2
+eq
+if-goto Array.append$IF_TRUE1
+goto Array.append$IF_END1
+label Array.append$IF_TRUE1
+push this 2
+push this 2
+add
+call Memory.alloc 1
+pop local 0
+push constant 0
+pop local 1
+label Array.append_WHILE_EXP1
+push local 1
+push this 1
+lt
+not
+if-goto Array.append_WHILE_END1
+push this 0
+push local 1
+add
+pop pointer 1
+push that 0
+push local 0
+push local 1
+add
+pop pointer 1
+pop that 0
+push local 1
+push constant 1
+add
+pop local 1
+goto Array.append_WHILE_EXP1
+label Array.append_WHILE_END1
+push this 0
+call Memory.deAlloc 1
+pop temp 0
+push local 0
+pop this 0
+push this 2
+push this 2
+add
+pop this 2
+label Array.append$IF_END1
+push argument 1
+push this 0
+push this 1
+add
+pop pointer 1
+pop that 0
+push this 1
+push constant 1
+add
+pop this 1
 push constant 0
 return

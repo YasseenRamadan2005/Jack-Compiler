@@ -1,0 +1,178 @@
+class Directory {
+    field String name;
+    field Directory parent;
+    field Array files;       // holds int-pointers to File objects
+    field Array directories; // holds int-pointers to Directory objects
+
+    static Directory cwd;
+
+    constructor Directory new(String dirName, Directory parentDir) {
+        let name = dirName;
+        let parent = parentDir;
+        let files = Array.new(4);
+        let directories = Array.new(4);
+        return this;
+    }
+
+    function void init() {
+        var Directory root;
+        var String rootName;
+
+        let rootName = String.new(1);
+        do rootName.appendChar(47); // '/'
+        let root = Directory.new(rootName, null);
+        let cwd = root;
+        return;
+    }
+
+    method void addFile(File f) {
+        do files.append(f);
+        return;
+    }
+
+    method void addDirectory(Directory d) {
+        do directories.append(d);
+        return;
+    }
+
+    method void deleteFile(String name) {
+        var int i, n, fInt;
+        var File f;
+        var String fName;
+        var boolean found;
+
+        let i = 0;
+        let n = files.length();
+        let found = false;
+
+        while ((i < n) & (~found)) {
+            let fInt = files.get(i);
+            let f = fInt;
+            let fName = f.getName();
+            if (fName.equals(name)) {
+                let found = true;
+            } else {
+                let i = i + 1;
+            }
+        }
+
+        if (found) {
+            while (i < n - 1) {
+                let fInt = files.get(i + 1);
+                do files.set(i, fInt);
+                let i = i + 1;
+            }
+
+            do files.set(n - 1, 0);
+            do files.reset();
+
+            let i = 0;
+            while (i < n - 1) {
+                let fInt = files.get(i);
+                do files.append(fInt);
+                let i = i + 1;
+            }
+        }
+
+        return;
+    }
+
+    method void deleteDirectory(String name) {
+        var int i, n, dInt;
+        var Directory d;
+        var String dName;
+        var boolean found;
+
+        let i = 0;
+        let n = directories.length();
+        let found = false;
+
+        while ((i < n) & (~found)) {
+            let dInt = directories.get(i);
+            let d = dInt;
+            let dName = d.getName();
+            if (dName.equals(name)) {
+                let found = true;
+            } else {
+                let i = i + 1;
+            }
+        }
+
+        if (found) {
+            while (i < n - 1) {
+                let dInt = directories.get(i + 1);
+                do directories.set(i, dInt);
+                let i = i + 1;
+            }
+
+            do directories.set(n - 1, 0);
+            do directories.reset();
+
+            let i = 0;
+            while (i < n - 1) {
+                let dInt = directories.get(i);
+                do directories.append(dInt);
+                let i = i + 1;
+            }
+        }
+
+        return;
+    }
+
+    method Directory getParent() {
+        return parent;
+    }
+
+    method String getName() {
+        return name;
+    }
+
+    method Directory getDirectory(String name) {
+        var int i, n, item;
+        var Directory d;
+        var String dirName;
+
+        let i = 0;
+        let n = directories.length();
+        while (i < n) {
+            let item = directories.get(i);
+            let d = item;
+            let dirName = d.getName();
+            if (dirName.equals(name)) {
+                return d;
+            }
+            let i = i + 1;
+        }
+
+        return null;
+    }
+
+    method File getFile(String name) {
+        var int i, n, item;
+        var File f;
+        var String fileName;
+
+        let i = 0;
+        let n = files.length();
+        while (i < n) {
+            let item = files.get(i);
+            let f = item;
+            let fileName = f.getName();
+            if (fileName.equals(name)) {
+                return f;
+            }
+            let i = i + 1;
+        }
+
+        return null;
+    }
+
+    function Directory getCWD() {
+        return cwd;
+    }
+
+    function void setCWD(Directory d) {
+        let cwd = d;
+        return;
+    }
+}

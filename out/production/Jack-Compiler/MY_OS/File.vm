@@ -1,0 +1,64 @@
+function File.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+call Memory.alloc 1
+pop this 1
+push argument 1
+pop this 2
+push pointer 0
+return
+function File.write 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 2
+lt
+if-goto File.write$IF_TRUE1
+goto File.write$IF_END1
+label File.write$IF_TRUE1
+push argument 2
+push this 1
+push argument 1
+add
+pop pointer 1
+pop that 0
+label File.write$IF_END1
+push constant 0
+return
+function File.read 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 2
+lt
+if-goto File.read$IF_TRUE1
+goto File.read$IF_END1
+label File.read$IF_TRUE1
+push this 1
+push argument 1
+add
+pop pointer 1
+push that 0
+return
+label File.read$IF_END1
+push constant 0
+return
+function File.getName 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function File.delete 0
+push argument 0
+pop pointer 0
+push this 1
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+pop this 2
+push constant 0
+return

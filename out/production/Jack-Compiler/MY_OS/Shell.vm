@@ -1,4 +1,7 @@
 function Shell.main 1
+push constant 100
+call String.new 1
+pop static 1
 push constant 0
 pop static 0
 push constant 36
@@ -31,15 +34,42 @@ pop pointer 1
 push that 0
 pop local 0
 push local 0
+push constant 128
+eq
+if-goto Shell.main$IF_TRUE1
+goto Shell.main$IF_FALSE1
+label Shell.main$IF_TRUE1
+call Output.println 0
+pop temp 0
+push static 1
+call Shell.handleCommand 1
+pop temp 0
+push static 1
+call String.dispose 1
+pop temp 0
+push constant 100
+call String.new 1
+pop static 1
+push constant 0
+pop static 0
+push constant 36
+call Output.printChar 1
+pop temp 0
+push constant 0
+call Output.printChar 1
+pop temp 0
+goto Shell.main$IF_END1
+label Shell.main$IF_FALSE1
+push local 0
 push constant 129
 eq
 push static 0
 push constant 0
 gt
 and
-if-goto Shell.main$IF_TRUE1
-goto Shell.main$IF_FALSE1
-label Shell.main$IF_TRUE1
+if-goto Shell.main$IF_TRUE2
+goto Shell.main$IF_FALSE2
+label Shell.main$IF_TRUE2
 call Output.backSpace 0
 pop temp 0
 call Output.backSpace 0
@@ -51,8 +81,8 @@ push static 0
 push constant 1
 sub
 pop static 0
-goto Shell.main$IF_END1
-label Shell.main$IF_FALSE1
+goto Shell.main$IF_END2
+label Shell.main$IF_FALSE2
 push local 0
 push constant 129
 eq
@@ -61,9 +91,9 @@ push constant 0
 eq
 and
 not
-if-goto Shell.main$IF_TRUE2
-goto Shell.main$IF_END2
-label Shell.main$IF_TRUE2
+if-goto Shell.main$IF_TRUE3
+goto Shell.main$IF_END3
+label Shell.main$IF_TRUE3
 call Output.backSpace 0
 pop temp 0
 push local 0
@@ -76,6 +106,11 @@ push static 0
 push constant 1
 add
 pop static 0
+push static 1
+push local 0
+call String.appendChar 2
+pop temp 0
+label Shell.main$IF_END3
 label Shell.main$IF_END2
 label Shell.main$IF_END1
 push constant 0
@@ -87,4 +122,208 @@ pop that 0
 goto Shell.main_WHILE_EXP1
 label Shell.main_WHILE_END1
 push constant 0
+return
+function Shell.handleCommand 2
+call Directory.getCWD 0
+pop local 1
+push argument 0
+push constant 3
+call String.new 1
+push constant 99
+call String.appendChar 2
+push constant 119
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+call String.equals 2
+if-goto Shell.handleCommand$IF_TRUE1
+goto Shell.handleCommand$IF_END1
+label Shell.handleCommand$IF_TRUE1
+push local 1
+call Directory.getName 1
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+label Shell.handleCommand$IF_END1
+push constant 0
+return
+function Shell.parseCommand 10
+push argument 0
+call String.length 1
+pop local 2
+push constant 0
+pop local 3
+push constant 0
+pop local 4
+push constant 0
+pop local 5
+label Shell.parseCommand_WHILE_EXP1
+push local 3
+push local 2
+lt
+not
+if-goto Shell.parseCommand_WHILE_END1
+push argument 0
+push local 3
+call String.charAt 2
+push constant 32
+eq
+if-goto Shell.parseCommand$IF_TRUE1
+goto Shell.parseCommand$IF_FALSE1
+label Shell.parseCommand$IF_TRUE1
+push constant 0
+pop local 5
+goto Shell.parseCommand$IF_END1
+label Shell.parseCommand$IF_FALSE1
+push local 5
+push constant 0
+eq
+if-goto Shell.parseCommand$IF_TRUE2
+goto Shell.parseCommand$IF_END2
+label Shell.parseCommand$IF_TRUE2
+push local 4
+push constant 1
+add
+pop local 4
+push constant 1
+pop local 5
+label Shell.parseCommand$IF_END2
+label Shell.parseCommand$IF_END1
+push local 3
+push constant 1
+add
+pop local 3
+goto Shell.parseCommand_WHILE_EXP1
+label Shell.parseCommand_WHILE_END1
+push local 4
+call Array.new 1
+pop local 0
+push constant 0
+pop local 3
+push constant 0
+pop local 8
+push constant 0
+pop local 5
+push constant 0
+pop local 6
+label Shell.parseCommand_WHILE_EXP2
+push local 3
+push local 2
+lt
+not
+if-goto Shell.parseCommand_WHILE_END2
+push argument 0
+push local 3
+call String.charAt 2
+push constant 32
+eq
+if-goto Shell.parseCommand$IF_TRUE3
+goto Shell.parseCommand$IF_FALSE3
+label Shell.parseCommand$IF_TRUE3
+push local 5
+push constant 1
+eq
+if-goto Shell.parseCommand$IF_TRUE4
+goto Shell.parseCommand$IF_END4
+label Shell.parseCommand$IF_TRUE4
+push constant 0
+pop local 5
+push local 3
+pop local 7
+push local 7
+push local 6
+sub
+call String.new 1
+pop local 1
+push local 6
+pop local 9
+label Shell.parseCommand_WHILE_EXP3
+push local 9
+push local 7
+lt
+not
+if-goto Shell.parseCommand_WHILE_END3
+push local 1
+push argument 0
+push local 9
+call String.charAt 2
+call String.appendChar 2
+pop temp 0
+push local 9
+push constant 1
+add
+pop local 9
+goto Shell.parseCommand_WHILE_EXP3
+label Shell.parseCommand_WHILE_END3
+push local 1
+push local 0
+push local 8
+add
+pop pointer 1
+pop that 0
+push local 8
+push constant 1
+add
+pop local 8
+label Shell.parseCommand$IF_END4
+goto Shell.parseCommand$IF_END3
+label Shell.parseCommand$IF_FALSE3
+push local 5
+push constant 0
+eq
+if-goto Shell.parseCommand$IF_TRUE5
+goto Shell.parseCommand$IF_END5
+label Shell.parseCommand$IF_TRUE5
+push local 3
+pop local 6
+push constant 1
+pop local 5
+label Shell.parseCommand$IF_END5
+label Shell.parseCommand$IF_END3
+push local 3
+push constant 1
+add
+pop local 3
+goto Shell.parseCommand_WHILE_EXP2
+label Shell.parseCommand_WHILE_END2
+push local 5
+push constant 1
+eq
+if-goto Shell.parseCommand$IF_TRUE6
+goto Shell.parseCommand$IF_END6
+label Shell.parseCommand$IF_TRUE6
+push local 3
+push local 6
+sub
+call String.new 1
+pop local 1
+push local 6
+pop local 9
+label Shell.parseCommand_WHILE_EXP4
+push local 9
+push local 3
+lt
+not
+if-goto Shell.parseCommand_WHILE_END4
+push local 1
+push argument 0
+push local 9
+call String.charAt 2
+call String.appendChar 2
+pop temp 0
+push local 9
+push constant 1
+add
+pop local 9
+goto Shell.parseCommand_WHILE_EXP4
+label Shell.parseCommand_WHILE_END4
+push local 1
+push local 0
+push local 8
+add
+pop pointer 1
+pop that 0
+label Shell.parseCommand$IF_END6
+push local 0
 return
