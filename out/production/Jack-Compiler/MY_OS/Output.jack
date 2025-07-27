@@ -206,7 +206,7 @@ class Output {
 
                 if (cursor_x & 1 = 0) {
                     // left 8 bits
-                    let address[0] = (address[0] & 65280) | map[i]; // mask right 8 bits off
+                    let address[0] = (~(~(address[0]) | 255)) | map[i]; // mask right 8 bits off
                 } else {
                     // right 8 bits
                     let address[0] = (address[0] & 255) | (map[i] * 256); // mask left 8 bits off
@@ -297,30 +297,28 @@ class Output {
 
     /** Scrolls the screen up by one character row (11 pixel rows). */
     function void scroll() {
-        var int y, x, fromAddr, toAddr;
+        var int fromAddr, toAddr, row, col;
 
-        let y = 11;
-        while (y < 256) {
-            let x = 0;
-            while (x < 32) {
-                let fromAddr = SCREEN + (y * 32) + x;
-                let toAddr = SCREEN + ((y - 11) * 32) + x;
-                do Memory.poke(toAddr, Memory.peek(fromAddr));
-                let x = x + 1;
+        // Scroll each row up by copying each word from 11 rows down
+        let row = 11;
+        while (row < 256) {
+            let fromAddr = SCREEN + (row * 32);       // Start of source row
+            let toAddr = SCREEN + ((row - 11) * 32);  // Start of target row
+            let col = 0;
+            while (col < 32) {
+                let toAddr[col] = fromAddr[col];
+                let col = col + 1;
             }
-            let y = y + 1;
+            let row = row + 1;
         }
 
-        // Clear the bottom 11 pixel rows (rows 245–255)
-        let y = 245;
-        while (y < 256) {
-            let x = 0;
-            while (x < 32) {
-                let x[(y * 32) + SCREEN] = 0;
-                let x = x + 1;
-            }
-            let y = y + 1;
+        // Clear the last 11 rows (245–255)
+        let row = 0;
+        while (row < 352) { // 11 rows × 32 words
+            let row[24224] = 0;
+            let row = row + 1;
         }
+
         return;
     }
 }

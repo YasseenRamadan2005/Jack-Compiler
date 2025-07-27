@@ -40,7 +40,7 @@ public class Parser {
 
         void expect2(String expected, List<Node> n, Node.TokenType tt) {
             if (!expected.equals(next())) {
-                throw new RuntimeException("Expected '" + expected + "'");
+                throw new RuntimeException("Expected '" + expected + "'" + " found " + next());
             }
             n.add(new Node(expected, tt));
         }

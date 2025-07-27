@@ -4,25 +4,12 @@ class Directory {
     field Array files;       // holds int-pointers to File objects
     field Array directories; // holds int-pointers to Directory objects
 
-    static Directory cwd;
-
     constructor Directory new(String dirName, Directory parentDir) {
         let name = dirName;
         let parent = parentDir;
         let files = Array.new(4);
         let directories = Array.new(4);
         return this;
-    }
-
-    function void init() {
-        var Directory root;
-        var String rootName;
-
-        let rootName = String.new(1);
-        do rootName.appendChar(47); // '/'
-        let root = Directory.new(rootName, null);
-        let cwd = root;
-        return;
     }
 
     method void addFile(File f) {
@@ -34,6 +21,49 @@ class Directory {
         do directories.append(d);
         return;
     }
+
+    method int amountOfDirectories(){
+        return directories.length();
+    }
+
+    method int amountOfFiles(){
+        return files.length();
+    }
+
+    method Directory getDirectoryFromIndex(int i ){
+        return directories.get(i);
+    }
+
+    method Directory getFileFromIndex(int i ){
+        return files.get(i);
+    }
+
+    method Directory getDirectoryName(int i){
+        var Directory n;
+        let n = directories.get(i);
+        return n.getName();
+    }
+
+    method Directory getFileName(int i){
+        var File n;
+        let n = files.get(i);
+        return n.getName();
+    }
+
+    method Array getDirectories() {
+        return directories;
+    }
+    method Array getFiles() {
+        return files;
+    }
+
+     method Directory getParent() {
+        return parent;
+     }
+
+     method String getName() {
+        return name;
+     }
 
     method void deleteFile(String name) {
         var int i, n, fInt;
@@ -119,31 +149,20 @@ class Directory {
         return;
     }
 
-    method Directory getParent() {
-        return parent;
-    }
-
-    method String getName() {
-        return name;
-    }
-
-    method Directory getDirectory(String name) {
-        var int i, n, item;
+    method Directory getDirectory(String Thename) {
+        var int i, n;
         var Directory d;
         var String dirName;
-
         let i = 0;
         let n = directories.length();
         while (i < n) {
-            let item = directories.get(i);
-            let d = item;
+            let d = directories.get(i);
             let dirName = d.getName();
-            if (dirName.equals(name)) {
+            if (dirName.equals(Thename)) {
                 return d;
             }
             let i = i + 1;
         }
-
         return null;
     }
 
@@ -165,14 +184,5 @@ class Directory {
         }
 
         return null;
-    }
-
-    function Directory getCWD() {
-        return cwd;
-    }
-
-    function void setCWD(Directory d) {
-        let cwd = d;
-        return;
     }
 }

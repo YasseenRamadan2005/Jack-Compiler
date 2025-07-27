@@ -1,5 +1,5 @@
 function Main.main 0
-call Shell.main 0
+call Shell.run 0
 pop temp 0
 push constant 0
 return

@@ -16,7 +16,6 @@ class Sys {
         do Output.init();
         //do Keyboard.init();
         // String and Array has no init function
-        do Directory.init();
         do Main.main();
         do Sys.halt();
         return;

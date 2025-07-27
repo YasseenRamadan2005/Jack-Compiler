@@ -14,22 +14,6 @@ call Array.new 1
 pop this 3
 push pointer 0
 return
-function Directory.init 2
-push constant 1
-call String.new 1
-pop local 1
-push local 1
-push constant 47
-call String.appendChar 2
-pop temp 0
-push local 1
-push constant 0
-call Directory.new 2
-pop local 0
-push local 0
-pop static 0
-push constant 0
-return
 function Directory.addFile 0
 push argument 0
 pop pointer 0
@@ -47,6 +31,72 @@ push argument 1
 call Array.append 2
 pop temp 0
 push constant 0
+return
+function Directory.amountOfDirectories 0
+push argument 0
+pop pointer 0
+push this 3
+call Array.length 1
+return
+function Directory.amountOfFiles 0
+push argument 0
+pop pointer 0
+push this 2
+call Array.length 1
+return
+function Directory.getDirectoryFromIndex 0
+push argument 0
+pop pointer 0
+push this 3
+push argument 1
+call Array.get 2
+return
+function Directory.getFileFromIndex 0
+push argument 0
+pop pointer 0
+push this 2
+push argument 1
+call Array.get 2
+return
+function Directory.getDirectoryName 1
+push argument 0
+pop pointer 0
+push this 3
+push argument 1
+call Array.get 2
+pop local 0
+push local 0
+call Directory.getName 1
+return
+function Directory.getFileName 1
+push argument 0
+pop pointer 0
+push this 2
+push argument 1
+call Array.get 2
+pop local 0
+push local 0
+call File.getName 1
+return
+function Directory.getDirectories 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Directory.getFiles 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Directory.getParent 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Directory.getName 0
+push argument 0
+pop pointer 0
+push this 0
 return
 function Directory.deleteFile 6
 push argument 0
@@ -272,17 +322,7 @@ label Directory.deleteDirectory_WHILE_END3
 label Directory.deleteDirectory$IF_END2
 push constant 0
 return
-function Directory.getParent 0
-push argument 0
-pop pointer 0
-push this 1
-return
-function Directory.getName 0
-push argument 0
-pop pointer 0
-push this 0
-return
-function Directory.getDirectory 5
+function Directory.getDirectory 4
 push argument 0
 pop pointer 0
 push constant 0
@@ -301,17 +341,15 @@ push local 0
 call Array.get 2
 pop local 2
 push local 2
+call Directory.getName 1
 pop local 3
 push local 3
-call Directory.getName 1
-pop local 4
-push local 4
-push this 0
+push argument 1
 call String.equals 2
 if-goto Directory.getDirectory$IF_TRUE1
 goto Directory.getDirectory$IF_END1
 label Directory.getDirectory$IF_TRUE1
-push local 3
+push local 2
 return
 label Directory.getDirectory$IF_END1
 push local 0
@@ -360,13 +398,5 @@ add
 pop local 0
 goto Directory.getFile_WHILE_EXP1
 label Directory.getFile_WHILE_END1
-push constant 0
-return
-function Directory.getCWD 0
-push static 0
-return
-function Directory.setCWD 0
-push argument 0
-pop static 0
 push constant 0
 return

@@ -4,29 +4,39 @@ class Shell {
     static int cursor;
     static String command;
 
-    function void main() {
+    static String cwd, ls, mkdir, cd, clear, err;
+
+    static Directory theCwd;
+
+    function void run() {
         var char character;
+
+        let cwd = "cwd";
+        let ls = "ls";
+        let mkdir = "mkdir";
+        let cd = "cd";
+        let clear = "clear";
+        let err = "Unsupported instruction: ";
+
         let command = String.new(100);
+        let theCwd = Directory.new("/", null);  // Root directory
 
         let cursor = 0;
         do Output.printChar(36); // '$'
         do Output.printChar(0);  // black square
 
         while (true) {
-            // Wait for key press
             while (KEYBOARD_START_ADDRESS[0] = 0) {}
-
             let character = KEYBOARD_START_ADDRESS[0];
 
-            if ((character = 128)) {
-                // Handle Enter
-                do Output.println();                 // move to new line
-                do Shell.handleCommand(command);    // process command
-                do command.dispose();               // cleanup old command
-                let command = String.new(100);      // prepare for next line
+            if (character = 128) {
+                do Output.println();
+                do Shell.handleCommand(command);
+                do command.dispose();
+                let command = String.new(100);
                 let cursor = 0;
-                do Output.printChar(36);            // '$'
-                do Output.printChar(0);             // black square
+                do Output.printChar(36);
+                do Output.printChar(0);
             } else {
                 if ((character = 129) & (cursor > 0)) {
                     do Output.backSpace();
@@ -51,20 +61,82 @@ class Shell {
     }
 
     function void handleCommand(String s) {
-        var Array tokens;
-        var Directory d;
-        let d = Directory.getCWD();
-        //let tokens = Shell.parseCommand(s);
+        var Array tokens, dirs, files;
+        var Directory d, newDir, subdir;
+        var File file;
+        var String cmd, arg, name;
+        var int tokenCount, i, n, item;
+        var boolean isEqual;
 
-        if (s.equals("cwd")) {
-            do Output.printString(d.getName());
-            do Output.println();
+        let tokens = Shell.parseCommand(s);
+        let tokenCount = tokens.length();
+        if (tokenCount = 0) {
+            return;
         }
 
+        let cmd = tokens.get(0);
+
+        if (cmd.equals(cwd)) {
+            do Output.printString(theCwd.getName());
+            do Output.println();
+            return;
+        }
+
+        if (cmd.equals(ls)) {
+            let i = 0;
+            while (i < theCwd.amountOfDirectories()){
+                do Output.printString(theCwd.getDirectoryName(i));
+                do Output.println();
+                let i = i + 1;
+            }
+            let i = 0;
+            while (i < theCwd.amountOfFiles()){
+                do Output.printString(theCwd.getFileName(i));
+                do Output.println();
+                let i = i + 1;
+            }
+            return;
+        }
+
+        if ((cmd.equals(mkdir)) & (tokenCount > 1)) {
+            let arg = tokens.get(1);
+            do theCwd.addDirectory(Directory.new(arg, theCwd));
+            return;
+        }
+
+        if ((cmd.equals(cd)) & (tokenCount > 1)) {
+            let arg = tokens.get(1);
+            if (arg.equals("..") & (theCwd.getParent() ~= null)) {
+                let newDir = theCwd.getParent();
+                if (~(newDir = null)) {
+                    let theCwd = newDir;
+                }
+            } else {
+                let newDir = theCwd.getDirectory(arg);
+                if (newDir ~= null) {
+                    let theCwd = newDir;
+                } else {
+                    do Output.println();
+                    do Output.printString("Not found: ");
+                    do Output.printString(arg);
+                    do Output.println();
+                }
+            }
+            return;
+        }
+
+        if (cmd.equals(clear)) {
+            do Screen.clearScreen();
+            do Output.moveCursor(0,0);
+            return;
+        }
+
+        do Output.printString(err);
+        do Output.printString(cmd);
+        do Output.println();
         return;
     }
 
-    // Parses a command string into an array of Strings
     function Array parseCommand(String s) {
         var Array result;
         var String token;
@@ -76,7 +148,6 @@ class Shell {
         let wordCount = 0;
         let inWord = 0;
 
-        // First pass: count the number of words
         while (i < len) {
             if ((s.charAt(i)) = 32) {
                 let inWord = 0;
@@ -88,10 +159,8 @@ class Shell {
             }
             let i = i + 1;
         }
-
         let result = Array.new(wordCount);
 
-        // Second pass: extract each word
         let i = 0;
         let tokenIndex = 0;
         let inWord = 0;
@@ -103,13 +172,13 @@ class Shell {
                     let inWord = 0;
                     let end = i;
                     let token = String.new(end - start);
-                    
+
                     let j = start;
                     while (j < end) {
                         do token.appendChar(s.charAt(j));
                         let j = j + 1;
                     }
-                    let result[tokenIndex] = token;
+                    do result.set(tokenIndex, token);
                     let tokenIndex = tokenIndex + 1;
                 }
             } else {
@@ -121,7 +190,6 @@ class Shell {
             let i = i + 1;
         }
 
-        // If still in a word at the end of the string
         if (inWord = 1) {
             let token = String.new(i - start);
             let j = start;
@@ -129,9 +197,8 @@ class Shell {
                 do token.appendChar(s.charAt(j));
                 let j = j + 1;
             }
-            let result[tokenIndex] = token;
+            do result.set(tokenIndex, token);
         }
-
         return result;
     }
 }

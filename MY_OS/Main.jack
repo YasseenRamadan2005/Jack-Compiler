@@ -1,7 +1,7 @@
 /** Test program for the OS Screen class. */
 class Main {
     function void main() {
-        do Shell.main();
+        do Shell.run();
         return;
     }
 }
