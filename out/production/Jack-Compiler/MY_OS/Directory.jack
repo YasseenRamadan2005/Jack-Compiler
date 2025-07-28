@@ -1,9 +1,11 @@
 class Directory {
+    /** Fields **/
     field String name;
     field Directory parent;
     field Array files;       // holds int-pointers to File objects
     field Array directories; // holds int-pointers to Directory objects
 
+    /** Constructor: Create a new directory with a name and parent **/
     constructor Directory new(String dirName, Directory parentDir) {
         let name = dirName;
         let parent = parentDir;
@@ -12,60 +14,84 @@ class Directory {
         return this;
     }
 
+    /** Add a file to this directory **/
     method void addFile(File f) {
         do files.append(f);
         return;
     }
 
+    /** Add a subdirectory to this directory **/
     method void addDirectory(Directory d) {
         do directories.append(d);
         return;
     }
 
-    method int amountOfDirectories(){
+    /** Return number of subdirectories **/
+    method int amountOfDirectories() {
         return directories.length();
     }
 
-    method int amountOfFiles(){
+    /** Return number of files **/
+    method int amountOfFiles() {
         return files.length();
     }
 
-    method Directory getDirectoryFromIndex(int i ){
+    /** Get subdirectory by index **/
+    method Directory getDirectoryFromIndex(int i) {
         return directories.get(i);
     }
 
-    method Directory getFileFromIndex(int i ){
+    /** Get file by index **/
+    method File getFileFromIndex(int i) {
         return files.get(i);
     }
 
-    method Directory getDirectoryName(int i){
-        var Directory n;
-        let n = directories.get(i);
-        return n.getName();
+    /** Get name of subdirectory at index i **/
+    method String getDirectoryName(int i) {
+        var Directory d;
+        let d = directories.get(i);
+        return d.getName();
     }
 
-    method Directory getFileName(int i){
-        var File n;
-        let n = files.get(i);
-        return n.getName();
+    /** Get name of file at index i **/
+    method String getFileName(int i) {
+        var File f;
+        let f = files.get(i);
+        return f.getName();
     }
 
+    /** Get array of all subdirectories **/
     method Array getDirectories() {
         return directories;
     }
+
+    /** Get array of all files **/
     method Array getFiles() {
         return files;
     }
 
-     method Directory getParent() {
+    /** Get parent directory **/
+    method Directory getParent() {
         return parent;
-     }
+    }
 
-     method String getName() {
+    /** Get this directory's name **/
+    method String getName() {
         return name;
-     }
+    }
 
-    method void deleteFile(String name) {
+    /** Check if a file exists **/
+    method boolean hasFile(String name) {
+        return (getFile(name) ~= null);
+    }
+
+    /** Check if a subdirectory exists **/
+    method boolean hasDirectory(String name) {
+        return (getDirectory(name) ~= null);
+    }
+
+    /** Delete a file by name. Returns true if successful **/
+    method boolean deleteFile(String name) {
         var int i, n, fInt;
         var File f;
         var String fName;
@@ -104,9 +130,10 @@ class Directory {
             }
         }
 
-        return;
+        return found;
     }
 
+    /** Delete a subdirectory by name **/
     method void deleteDirectory(String name) {
         var int i, n, dInt;
         var Directory d;
@@ -149,16 +176,16 @@ class Directory {
         return;
     }
 
-    method Directory getDirectory(String Thename) {
+    /** Return the subdirectory with the given name, or null **/
+    method Directory getDirectory(String targetName) {
         var int i, n;
         var Directory d;
-        var String dirName;
+
         let i = 0;
         let n = directories.length();
         while (i < n) {
             let d = directories.get(i);
-            let dirName = d.getName();
-            if (dirName.equals(Thename)) {
+            if (targetName.equals(d.getName())) {
                 return d;
             }
             let i = i + 1;
@@ -166,18 +193,17 @@ class Directory {
         return null;
     }
 
+    /** Return the file with the given name, or null **/
     method File getFile(String name) {
         var int i, n, item;
         var File f;
-        var String fileName;
 
         let i = 0;
         let n = files.length();
         while (i < n) {
             let item = files.get(i);
             let f = item;
-            let fileName = f.getName();
-            if (fileName.equals(name)) {
+            if (name.equals(f.getName())) {
                 return f;
             }
             let i = i + 1;

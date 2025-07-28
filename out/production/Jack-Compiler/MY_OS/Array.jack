@@ -23,6 +23,11 @@ class Array {
         return;
     }
 
+    /** Removes the last element*/
+    method void removeLast(){
+        let size = size - 1;
+        return;
+    }
     /** Returns current number of items */
     method int length() {
         return size;
@@ -33,11 +38,47 @@ class Array {
         return data[i];
     }
 
-    /** Sets value at index i */
+    method int getPointer(){
+        return data;
+    }
+
+    /** Sets value at index i, resizing if needed */
     method void set(int i, int value) {
+        var int newCapacity, j;
+        var int newData;
+
+        // Grow until i fits within capacity
+        while (i >= capacity) {
+            let newCapacity = capacity + capacity;
+            let newData = Memory.alloc(newCapacity);
+
+            let j = 0;
+            while (j < size) {
+                let newData[j] = data[j];
+                let j = j + 1;
+            }
+
+            do Memory.deAlloc(data);
+            let data = newData;
+            let capacity = newCapacity;
+        }
+
+        // Fill gap with 0 if i >= size
+        let j = size;
+        while (j < i) {
+            let data[j] = 0;
+            let j = j + 1;
+        }
+
         let data[i] = value;
+
+        if (i >= size) {
+            let size = i + 1;
+        }
+
         return;
     }
+
 
     /** Adds a new element to the end (resizes if full) */
     method void append(int value) {

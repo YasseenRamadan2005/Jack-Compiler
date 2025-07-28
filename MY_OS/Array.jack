@@ -23,6 +23,11 @@ class Array {
         return;
     }
 
+    /** Removes the last element*/
+    method void removeLast(){
+        let size = size - 1;
+        return;
+    }
     /** Returns current number of items */
     method int length() {
         return size;
@@ -31,6 +36,10 @@ class Array {
     /** Gets value at index i */
     method int get(int i) {
         return data[i];
+    }
+
+    method int getPointer(){
+        return data;
     }
 
     /** Sets value at index i, resizing if needed */

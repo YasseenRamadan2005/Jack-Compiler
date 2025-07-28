@@ -96,7 +96,7 @@ public class VMTranslator {
             try {
                 grouped = VMParser.groupConstantsOnly(functionBodies.get(function));
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Attempted to call " + function + " in " + reverseCallGraph.get(function));
             }
             functionBodies.put(function, grouped);
 

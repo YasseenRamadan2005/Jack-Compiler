@@ -26,6 +26,15 @@ push constant 0
 pop this 1
 push constant 0
 return
+function Array.removeLast 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+sub
+pop this 1
+push constant 0
+return
 function Array.length 0
 push argument 0
 pop pointer 0
@@ -39,6 +48,11 @@ push argument 1
 add
 pop pointer 1
 push that 0
+return
+function Array.getPointer 0
+push argument 0
+pop pointer 0
+push this 0
 return
 function Array.set 3
 push argument 0

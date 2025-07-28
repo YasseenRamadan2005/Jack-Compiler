@@ -2,8 +2,8 @@ class String {
     field Array chars; // backing array of characters
 
     /** Constructs an empty string */
-    constructor String new() {
-        let chars = Array.new(16); // initial capacity
+    constructor String new(int size) {
+        let chars = Array.new(size); // initial capacity
         return this;
     }
 
@@ -19,9 +19,9 @@ class String {
     }
 
     /** Appends a character */
-    method void appendChar(char c) {
+    method String appendChar(char c) {
         do chars.append(c);
-        return;
+        return this;
     }
 
     /** Returns the character at index */
@@ -35,28 +35,43 @@ class String {
         return;
     }
 
+    method void eraseLastChar(){
+        do chars.removeLast();
+        return;
+    }
+
     /** Erases the string contents */
     method void clear() {
         do chars.reset();
         return;
     }
 
-    /** Compares with another string */
+    /** Compares with another string, ignoring case using custom int-to-char mapping */
     method boolean equals(String other) {
         var int i, len;
+        var char c1, c2;
+
         let len = chars.length();
-        do Output.println();
-        do Output.printInt(len);
-        do Output.printInt(other.length());
-        do Output.println();
-        if (len = other.length()) {
+        if (len ~= other.length()) {
             return false;
         }
+
         let i = 0;
         while (i < len) {
-            if (chars.get(i) = other.charAt(i)) {
+            let c1 = chars.get(i);
+            let c2 = other.charAt(i);
+
+            if (c1 >= 97 & (c1 < 123)) {
+                let c1 = c1 - 32;
+            }
+            if ((c2 >= 97) & (c2 < 123)) {
+                let c2 = c2 - 32;
+            }
+
+            if (c1 ~= c2) {
                 return false;
             }
+
             let i = i + 1;
         }
 
@@ -65,12 +80,13 @@ class String {
 
 
 
+
     //sets this string to hold a representation of j
     method void setInt(int j) {
         var int digit, i, temp, length, isNegative;
         var Array digits;
 
-        let size = 0; // Clear current string
+        do chars.reset(); // Clear current string
         let isNegative = 0;
 
         // Special case: j == 0
@@ -110,7 +126,7 @@ class String {
         let i = 0;
         while (j > 0) {
             let digit = j - ((j / 10) * 10);
-            let digits[i] = digit + 48;
+            do digits.append(digit + 48);
             let j = j / 10;
             let i = i + 1;
         }
@@ -123,12 +139,21 @@ class String {
         // Append digits in correct order
         while (i > 0) {
             let i = i - 1;
-            do appendChar(digits[i]);
+            do appendChar(digits.get(i));
         }
 
         do digits.dispose();
         return;
     }
 
-
+    method int intValue(){
+        var int v, i;
+        let i = 1;
+        let v = 0;
+        while (i<size){
+            let v = v * 10 + (s[i] - 48);
+            let i = i + 1;
+        }
+        return v;
+    }
 }

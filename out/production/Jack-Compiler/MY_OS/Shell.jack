@@ -1,32 +1,41 @@
 class Shell {
+    // Constants
     constant KEYBOARD_START_ADDRESS 24576;
 
+    // Static fields
     static int cursor;
     static String command;
 
-    static String cwd, ls, mkdir, cd, clear, err;
-
+    static String cwd, ls, mkdir, cd, clear, tree, err, cat, touch, del, write;
     static Directory theCwd;
 
     function void run() {
         var char character;
+        var int cursor;
+        var String command;
 
         let cwd = "cwd";
         let ls = "ls";
         let mkdir = "mkdir";
         let cd = "cd";
         let clear = "clear";
+        let tree = "tree";
+        let cat = "cat";
+        let touch = "touch";
+        let del = "del";
+        let write = "write";
         let err = "Unsupported instruction: ";
 
         let command = String.new(100);
-        let theCwd = Directory.new("/", null);  // Root directory
-
+        let theCwd = Directory.new("/", null);
         let cursor = 0;
+
         do Output.printChar(36); // '$'
-        do Output.printChar(0);  // black square
+        do Output.printChar(0);  // Cursor block
 
         while (true) {
-            while (KEYBOARD_START_ADDRESS[0] = 0) {}
+            while (KEYBOARD_START_ADDRESS[0] = 0) {} // Wait for keypress
+
             let character = KEYBOARD_START_ADDRESS[0];
 
             if (character = 128) {
@@ -35,21 +44,22 @@ class Shell {
                 do command.dispose();
                 let command = String.new(100);
                 let cursor = 0;
-                do Output.printChar(36);
+                do Output.printChar(36); // '$'
                 do Output.printChar(0);
             } else {
                 if ((character = 129) & (cursor > 0)) {
                     do Output.backSpace();
                     do Output.backSpace();
                     do Output.printChar(0);
+                    do command.eraseLastChar();
                     let cursor = cursor - 1;
                 } else {
                     if (~((character = 129) & (cursor = 0))) {
                         do Output.backSpace();
                         do Output.printChar(character);
                         do Output.printChar(0);
-                        let cursor = cursor + 1;
                         do command.appendChar(character);
+                        let cursor = cursor + 1;
                     }
                 }
             }
@@ -60,16 +70,16 @@ class Shell {
         return;
     }
 
-    function void handleCommand(String s) {
-        var Array tokens, dirs, files;
-        var Directory d, newDir, subdir;
+function void handleCommand(String s) {
+        var Array tokens;
+        var Directory d, newDir;
         var File file;
         var String cmd, arg, name;
-        var int tokenCount, i, n, item;
-        var boolean isEqual;
+        var int tokenCount, i, n;
 
         let tokens = Shell.parseCommand(s);
         let tokenCount = tokens.length();
+
         if (tokenCount = 0) {
             return;
         }
@@ -84,13 +94,13 @@ class Shell {
 
         if (cmd.equals(ls)) {
             let i = 0;
-            while (i < theCwd.amountOfDirectories()){
+            while (i < theCwd.amountOfDirectories()) {
                 do Output.printString(theCwd.getDirectoryName(i));
                 do Output.println();
                 let i = i + 1;
             }
             let i = 0;
-            while (i < theCwd.amountOfFiles()){
+            while (i < theCwd.amountOfFiles()) {
                 do Output.printString(theCwd.getFileName(i));
                 do Output.println();
                 let i = i + 1;
@@ -106,7 +116,7 @@ class Shell {
 
         if ((cmd.equals(cd)) & (tokenCount > 1)) {
             let arg = tokens.get(1);
-            if (arg.equals("..") & (theCwd.getParent() ~= null)) {
+            if ((arg.equals("..")) & (theCwd.getParent() ~= null)) {
                 let newDir = theCwd.getParent();
                 if (~(newDir = null)) {
                     let theCwd = newDir;
@@ -125,23 +135,113 @@ class Shell {
             return;
         }
 
-        if (cmd.equals(clear)) {
-            do Screen.clearScreen();
-            do Output.moveCursor(0,0);
+        if ((cmd.equals(touch)) & (tokenCount > 1)) {
+            let name = tokens.get(1);
+            do theCwd.addFile(File.new(name, 1000));
             return;
         }
 
+        if ((cmd.equals(del)) & (tokenCount > 1)) {
+            let name = tokens.get(1);
+            do theCwd.deleteFile(name);
+            return;
+        }
+
+        if ((cmd.equals(cat)) & (tokenCount > 1)) {
+            let name = tokens.get(1);
+            let file = theCwd.getFile(name);
+            if (file ~= null) {
+                let i = 0;
+                let n = file.getSize();
+                while (i < n) {
+                    do Output.printChar(file.readChar(i));
+                    let i = i + 1;
+                }
+                do Output.println();
+            } else {
+                do Output.printString("File not found: ");
+                do Output.printString(name);
+                do Output.println();
+            }
+            return;
+        }
+
+        if ((cmd.equals(write)) & (tokenCount > 2)) {
+            let name = tokens.get(1);
+            let file = theCwd.getFile(name);
+            if (file ~= null) {
+                let i = 2;
+                while (i < tokenCount) {
+                    do file.appendString(tokens.get(i));
+                    do file.appendChar(32); // space
+                    let i = i + 1;
+                }
+                do Output.println();
+            } else {
+                do Output.printString("File not found: ");
+                do Output.printString(name);
+                do Output.println();
+            }
+            return;
+        }
+
+        if (cmd.equals(clear)) {
+            do Screen.clearScreen();
+            do Output.moveCursor(0, 0);
+            return;
+        }
+
+        if (cmd.equals(tree)) {
+            do Shell.printTree(theCwd, 0);
+            return;
+        }
+
+        // Unknown command
         do Output.printString(err);
         do Output.printString(cmd);
         do Output.println();
         return;
     }
 
+    function void printTree(Directory d, int indent) {
+        var int i, j;
+        var String name;
+        var Directory sub;
+
+        let i = 0;
+        while (i < indent) {
+            do Output.printChar(32); // space
+            let i = i + 1;
+        }
+        do Output.printString(d.getName());
+        do Output.println();
+
+        let i = 0;
+        while (i < d.amountOfDirectories()) {
+            let sub = d.getDirectory(d.getDirectoryName(i));
+            do Shell.printTree(sub, indent + 2);
+            let i = i + 1;
+        }
+
+        let i = 0;
+        while (i < d.amountOfFiles()) {
+            let j = 0;
+            while (j < indent + 2) {
+                do Output.printChar(32);
+                let j = j + 1;
+            }
+            do Output.printString(d.getFileName(i));
+            do Output.println();
+            let i = i + 1;
+        }
+
+        return;
+    }
+
     function Array parseCommand(String s) {
         var Array result;
         var String token;
-        var int len, i, wordCount, inWord, start, end, tokenIndex;
-        var int j;
+        var int len, i, wordCount, inWord, start, end, tokenIndex, j;
 
         let len = s.length();
         let i = 0;
@@ -149,7 +249,7 @@ class Shell {
         let inWord = 0;
 
         while (i < len) {
-            if ((s.charAt(i)) = 32) {
+            if (s.charAt(i) = 32) {
                 let inWord = 0;
             } else {
                 if (inWord = 0) {
@@ -159,6 +259,7 @@ class Shell {
             }
             let i = i + 1;
         }
+
         let result = Array.new(wordCount);
 
         let i = 0;
@@ -167,12 +268,11 @@ class Shell {
         let start = 0;
 
         while (i < len) {
-            if ((s.charAt(i)) = 32) {
+            if (s.charAt(i) = 32) {
                 if (inWord = 1) {
                     let inWord = 0;
                     let end = i;
                     let token = String.new(end - start);
-
                     let j = start;
                     while (j < end) {
                         do token.appendChar(s.charAt(j));
@@ -199,6 +299,7 @@ class Shell {
             }
             do result.set(tokenIndex, token);
         }
+
         return result;
     }
 }

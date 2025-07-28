@@ -35,8 +35,8 @@ class String {
         return;
     }
 
-    method void eraseLastChar( ){
-        let size = size - 1;
+    method void eraseLastChar(){
+        do chars.removeLast();
         return;
     }
 
@@ -46,10 +46,10 @@ class String {
         return;
     }
 
-    /** Compares with another string, ignoring case */
+    /** Compares with another string, ignoring case using custom int-to-char mapping */
     method boolean equals(String other) {
         var int i, len;
-        var int c1, c2;
+        var char c1, c2;
 
         let len = chars.length();
         if (len ~= other.length()) {
@@ -61,11 +61,10 @@ class String {
             let c1 = chars.get(i);
             let c2 = other.charAt(i);
 
-            // Convert both to uppercase if lowercase
-            if ((c1 >= 97) & (c1 <= 122)) {
+            if (c1 >= 97 & (c1 < 123)) {
                 let c1 = c1 - 32;
             }
-            if ((c2 >= 97) & (c2 <= 122)) {
+            if ((c2 >= 97) & (c2 < 123)) {
                 let c2 = c2 - 32;
             }
 
@@ -152,9 +151,9 @@ class String {
         let i = 1;
         let v = 0;
         while (i<size){
-            let v = v * 10 + (s[i] - 48); 
+            let v = v * 10 + (s[i] - 48);
             let i = i + 1;
-        } 
+        }
         return v;
     }
 }

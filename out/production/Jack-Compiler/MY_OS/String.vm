@@ -50,10 +50,9 @@ return
 function String.eraseLastChar 0
 push argument 0
 pop pointer 0
-// Error: variable not found: size
-push constant 1
-sub
-// Error: variable not found: size
+push this 0
+call Array.removeLast 1
+pop temp 0
 push constant 0
 return
 function String.clear 0
@@ -102,9 +101,8 @@ push constant 97
 lt
 not
 push local 2
-push constant 122
-gt
-not
+push constant 123
+lt
 and
 if-goto String.equals$IF_TRUE2
 goto String.equals$IF_END2
@@ -119,9 +117,8 @@ push constant 97
 lt
 not
 push local 3
-push constant 122
-gt
-not
+push constant 123
+lt
 and
 if-goto String.equals$IF_TRUE3
 goto String.equals$IF_END3
@@ -138,6 +135,28 @@ not
 if-goto String.equals$IF_TRUE4
 goto String.equals$IF_END4
 label String.equals$IF_TRUE4
+call Output.println 0
+pop temp 0
+push local 2
+call Output.printChar 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 2
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 3
+call Output.printChar 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 3
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
 push constant 0
 return
 label String.equals$IF_END4

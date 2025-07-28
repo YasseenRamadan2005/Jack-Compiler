@@ -98,6 +98,26 @@ push argument 0
 pop pointer 0
 push this 0
 return
+function Directory.hasFile 0
+push argument 0
+pop pointer 0
+push pointer 0
+push this 0
+call Directory.getFile 2
+push constant 0
+eq
+not
+return
+function Directory.hasDirectory 0
+push argument 0
+pop pointer 0
+push pointer 0
+push this 0
+call Directory.getDirectory 2
+push constant 0
+eq
+not
+return
 function Directory.deleteFile 6
 push argument 0
 pop pointer 0
@@ -208,7 +228,7 @@ pop local 0
 goto Directory.deleteFile_WHILE_EXP3
 label Directory.deleteFile_WHILE_END3
 label Directory.deleteFile$IF_END2
-push constant 0
+push local 5
 return
 function Directory.deleteDirectory 6
 push argument 0
@@ -322,7 +342,7 @@ label Directory.deleteDirectory_WHILE_END3
 label Directory.deleteDirectory$IF_END2
 push constant 0
 return
-function Directory.getDirectory 4
+function Directory.getDirectory 3
 push argument 0
 pop pointer 0
 push constant 0
@@ -340,11 +360,9 @@ push this 3
 push local 0
 call Array.get 2
 pop local 2
+push argument 1
 push local 2
 call Directory.getName 1
-pop local 3
-push local 3
-push argument 1
 call String.equals 2
 if-goto Directory.getDirectory$IF_TRUE1
 goto Directory.getDirectory$IF_END1
@@ -360,7 +378,7 @@ goto Directory.getDirectory_WHILE_EXP1
 label Directory.getDirectory_WHILE_END1
 push constant 0
 return
-function Directory.getFile 5
+function Directory.getFile 4
 push argument 0
 pop pointer 0
 push constant 0
@@ -380,11 +398,9 @@ call Array.get 2
 pop local 2
 push local 2
 pop local 3
+push this 0
 push local 3
 call File.getName 1
-pop local 4
-push local 4
-push this 0
 call String.equals 2
 if-goto Directory.getFile$IF_TRUE1
 goto Directory.getFile$IF_END1

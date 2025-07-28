@@ -26,7 +26,7 @@ public class VMParser {
             stack.removeLast();
             return pg;
         } else {
-            throw new Exception("No PushGroup on top");
+            throw new Exception("No PushGroup on top. " + VMParser.currentFunction + " " + VMParser.moduleName);
         }
     }
 
