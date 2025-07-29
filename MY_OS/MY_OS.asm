@@ -8628,8 +8628,8 @@ M=D // 5348
 @POP_local_3 // 5355
 0;JMP // 5356
 
-////ConditionalGroup{push=CallGroup{pushes=[PushInstruction("this 0"), CallGroup{pushes=[PushInstruction("local 3")], call=CallInstruction{File.getName}}], call=CallInstruction{String.equals}}, ifGoto=IfGotoInstruction{label='Directory.getFile$IF_TRUE1}}
-@PUSH_this_0 // 5357
+////ConditionalGroup{push=CallGroup{pushes=[PushInstruction("argument 1"), CallGroup{pushes=[PushInstruction("local 3")], call=CallInstruction{File.getName}}], call=CallInstruction{String.equals}}, ifGoto=IfGotoInstruction{label='Directory.getFile$IF_TRUE1}}
+@PUSH_argument_1 // 5357
 0;JMP // 5358
 @PUSH_local_3 // 5359
 0;JMP // 5360

@@ -61,7 +61,8 @@ class String {
             let c1 = chars.get(i);
             let c2 = other.charAt(i);
 
-            if (c1 >= 97 & (c1 < 123)) {
+            //make lowercase letters uppercase
+            if ((c1 >= 97) & (c1 < 123)) {
                 let c1 = c1 - 32;
             }
             if ((c2 >= 97) & (c2 < 123)) {
