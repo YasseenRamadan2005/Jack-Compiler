@@ -1,0 +1,328 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * This library provides two services: direct access to the computer's main
+ * memory (RAM), and allocation and recycling of memory blocks. The Hack RAM
+ * consists of 32,768 words, each holding a 16-bit binary number.
+ */
+/**
+ Memory Allocation System (Jack Language)
+
+ This class implements a dynamic memory allocator using a segregated bin approach.
+ It maintains a set of free lists (bins) to efficiently allocate and free memory blocks.
+
+ --- Data Structures ---
+ - Each allocated/free block consists of a header (metadata) and a footer (redundant size info).
+ - The header contains:
+   - `size`: The size of the block (excluding header/footer).
+   - `hole`: A flag indicating if the block is free (1) or allocated (0).
+   - `prev`: A pointer to the previous free block in its bin.
+   - `next`: A pointer to the next free block in its bin.
+ - The footer stores the pointer to the header.
+
+ --- Bin System ---
+ - The heap has multiple bins categorized by block sizes (powers of 2 ranges).
+ - Each bin holds a linked list of free blocks of similar sizes.
+
+ --- Key Methods ---
+ - `init()`: Initializes memory, setting up bins and the initial free block.
+ - `alloc(size)`: Finds a free block of at least `size`, possibly splitting it.
+ - `deAlloc(ptr)`: Marks a block as free and merges it with adjacent free blocks if possible.
+ - `add_node(bin, node)`: Adds a free block to the appropriate bin.
+ - `remove_node(bin, node)`: Removes a block from its bin when allocated or merged.
+ - `get_best_fit(bin, size)`: Finds the smallest free block that fits `size`.
+ - `create_foot(head)`: Creates a footer for a memory block.
+
+ --- Memory Management Strategy ---
+ - When allocating, the system searches for the best-fitting free block.
+ - If a block is too large, it is split, and the remainder is returned to the free list.
+ - When freeing, adjacent free blocks are merged to reduce fragmentation.
+ - The system uses headers and footers to maintain efficient bidirectional traversal.
+
+ */
+
+
+class Memory {
+    // The heap starts at memory address 2048 and spans a total of 14428 words,
+    // meaning the heap buffer ranges from address 2048 to 16483 (2048 + 14428 - 1).
+    // This memory region is used for dynamic allocation, with the first portion
+    // reserved for bin pointers, and the remaining space managed as free blocks
+    // and allocated memory.
+
+    constant HEAP_START 2048;
+    constant HEAP_END 16384;
+    // Define node fields
+    constant node_size 0;
+    constant node_hole 1;
+    constant node_prev 2;
+    constant node_next 3;
+
+    constant AMOUNT_OF_BINS 7;
+
+    /** Initializes the memory system. */
+    function void init() {
+        var int node_ptr, bin_index;
+        // Initialize bins to null
+        /**
+        let i = 0;
+        while (i < AMOUNT_OF_BINS) {
+            let HEAP_START[i] = null;
+            let i = i + 1;
+        }
+        */
+
+        // Initialize first free block
+        //the first memory location right after the bins will be the first node.
+        let node_ptr = HEAP_START + AMOUNT_OF_BINS;  // = 2048 + 7 = 2055
+        let node_ptr[node_size] = HEAP_END - node_ptr - 5;
+        let node_ptr[node_hole] = 1;
+        //let node_ptr[node_prev] = null;
+        //let node_ptr[node_next] = null;
+
+        do Memory.create_foot(node_ptr);
+        do Memory.add_node(HEAP_START + 6 , node_ptr);
+
+        return;
+    }
+
+    /**
+     Allocates a memory block of the given size from the heap.
+
+     - Determines the appropriate bin index for the requested size.
+     - Searches for the best-fit free block within that bin.
+     - If no suitable block is found, it continues searching in larger bins.
+     - Once a suitable block is found:
+         - It is removed from the free list.
+         - If the remaining space after allocation is large enough, it is split:
+             - The allocated block is marked as used.
+             - A new free block is created with the remaining space.
+             - The new block is added back to the free list.
+         - If the remaining space is too small, the whole block is used.
+     - Returns a pointer to the allocated memory (excluding the header).
+     - If no suitable block is found, returns null.
+    */
+    function int alloc(int size) {
+        var int index, temp, found, remaining_size, new_node;
+
+        let index = Memory.getBinIndex(size); //Returns the non-null bin index
+        let temp = HEAP_START + index;
+        let found = Memory.get_best_fit(temp, size); //Within that bin, return the address of the first node with enough space
+
+        while (found = null) { //This only occurs in the case that getBinIndex returns a correct bin with at least one node, but get_best_fit returns null because that node doesn't have enough size.
+            if ((index + 1) >= AMOUNT_OF_BINS) {
+                do Sys.error(0);
+                return null; //If we are out of bins, alloc fails :(
+            }
+            let index = index + 1;
+            let temp = HEAP_START + index;
+            let found = Memory.get_best_fit(temp, size); //Try to look a node in the next bin
+        }
+
+        do Memory.remove_node(HEAP_START + Memory.getBinIndex(found[node_size]), found);
+
+        let remaining_size = found[node_size] - size; // Header (4) + Footer (1)
+        if (remaining_size > 5) { // Minimum chunk size
+            let found[node_size] = size;
+            let found[node_hole] = 0;
+            do Memory.create_foot(found);
+
+            let new_node = found + size + 5; // Move to the new block start
+            let new_node[node_size] = remaining_size - 5;
+            let new_node[node_hole] = 1;
+            do Memory.create_foot(new_node);
+            do Memory.add_node(HEAP_START + Memory.getBinIndex(remaining_size), new_node);
+        } else {
+            let found[node_hole] = 0;
+            do Memory.create_foot(found);
+        }
+
+        return found + 4; // Return pointer to usable memory (after header)
+    }
+
+    /** Returns a chunk of memory of all zeros*/
+    function int calloc(int size){
+        var int foo;
+        let foo = Memory.alloc(size);
+        if (~foo){
+            return null;
+        }
+        while (size > 0){
+            let size = size - 1;
+            let foo[size] = 0;
+        }
+        return foo;
+    }
+
+    /** Frees an allocated block and merges it with adjacent free blocks if possible. */
+    function void deAlloc(int ptr) {
+        var int node, prev_node, next_node;
+
+        let node = ptr - 4;
+        let node[node_hole] = 1;
+
+        let prev_node = node[node_prev];
+        let next_node = node[node_next];
+
+        if (prev_node ~= null){
+            if(prev_node[node_hole] = 1){
+                do Memory.remove_node(HEAP_START + Memory.getBinIndex(prev_node[node_size]), prev_node);
+                let prev_node[node_size] = prev_node[node_size] + node[node_size] + 5;
+                do Memory.create_foot(prev_node);
+                let node = prev_node;
+            }
+        }
+
+        if (next_node ~= null){
+            if (next_node[node_hole] = 1){
+                do Memory.remove_node(HEAP_START + Memory.getBinIndex(next_node[node_size]), next_node);
+                let node[node_size] = node[node_size] + next_node[node_size] + 5;
+                do Memory.create_foot(node);
+            }
+        }
+        do Memory.add_node(HEAP_START + Memory.getBinIndex(node[node_size]) , node);
+        return;
+    }
+
+    /**
+     * Reallocates the block at `ptr` to a new size `newSize`.
+     * Allocates a new block, copies contents, frees the old block.
+     */
+    function int realloc(int ptr, int newSize) {
+        var int oldSize, newPtr, copySize, foo;
+
+        if (ptr = null) {
+            return Memory.alloc(newSize);
+        }
+
+        let foo = ptr - 1;
+        let oldSize = foo[node_size]; // Get size from block header
+        let newPtr = Memory.alloc(newSize);
+
+        if (newPtr = null) {
+            return null;
+        }
+
+        if (oldSize <= newSize) {
+            let copySize = oldSize;
+        } else {
+            let copySize = newSize;
+        }
+
+        do Memory.copy(ptr, newPtr, copySize);
+        do Memory.deAlloc(ptr);
+        return newPtr;
+    }
+
+
+    /** Copies `length` words from `src` to `dst`. */
+    function void copy(int src, int dst, int length) {
+        var int i;
+        let i = 0;
+        while (i < length) {
+            let dst[i] = src[i];
+            let i = i + 1;
+        }
+        return;
+    }
+
+
+    /** Removes a node from its bin. */
+    function void remove_node(int bin_p, int node_p) {
+        if (node_p[node_prev] ~= null) {
+            let node_p[node_prev][node_next] = node_p[node_next];
+        } else {
+            let bin_p[0] = node_p[node_next];
+        }
+
+        if (node_p[node_next] ~= null) {
+            let node_p[node_next][node_prev] = node_p[node_prev];
+        }
+
+        let node_p[node_prev] = null;
+        let node_p[node_next] = null;
+        return;
+    }
+
+
+    /** Returns the bin index based on the block size. */
+    function int getBinIndex(int size) {
+        var int i;
+        let i = 0;
+        while (i < AMOUNT_OF_BINS & (HEAP_START[i] ~= null)) {
+            if (size <= ((i + 1) * 16)) {
+                return i;
+            }
+            let i = i + 1;
+        }
+        return AMOUNT_OF_BINS - 1;
+    }
+
+    /** Returns the best fitting block in the given bin. */
+    function int get_best_fit(int bin_p, int size) {
+        var int temp;
+        let temp = bin_p[0];
+        if (temp[node_size] >= size) {
+           return temp;
+        }
+        while (temp[node_next] ~= null) {
+            let temp = temp[node_next];
+            if (temp[node_size] >= size) {
+               return temp;
+            }
+        }
+        return null;
+    }
+
+    /** Creates a footer for a node. */
+    function void create_foot(int head) {
+        let head[head[node_size] + 4] = head;
+        return;
+    }
+
+    /** Adds a node to the correct bin, keeping it sorted. */
+    function void add_node(int bin_p, int node_p) {
+        var int current, prev;
+
+        let node_p[node_prev] = null;
+        let node_p[node_next] = null;
+
+        if (bin_p[0] = null) {
+            let bin_p[0] = node_p;
+            return;
+        }
+
+        let current = bin_p[0];
+        let prev = null;
+
+        while ((current ~= null) & (current[node_size] <= node_p[node_size])) {
+            let prev = current;
+            let current = current[node_next];
+        }
+
+        if (~prev) {
+            let node_p[node_next] = bin_p[0];
+            let bin_p[0][node_prev] = node_p;
+            let bin_p[0] = node_p;
+        } else {
+            let node_p[node_next] = current;
+            let node_p[node_prev] = prev;
+            if (current) {
+                let current[node_prev] = node_p;
+            }
+            let prev[node_next] = node_p;
+        }
+        return;
+    }
+
+    function void poke(int x, int y){
+        let x[0] = y;
+        return;
+    }
+
+    function int peek(int x){
+        return x[0];
+    }
+}

@@ -194,7 +194,7 @@ class Directory {
     }
 
     /** Return the file with the given name, or null **/
-    method File getFile(String name) {
+    method File getFile(String Filename) {
         var int i, n, item;
         var File f;
 
@@ -203,7 +203,7 @@ class Directory {
         while (i < n) {
             let item = files.get(i);
             let f = item;
-            if (name.equals(f.getName())) {
+            if (Filename.equals(f.getName())) {
                 return f;
             }
             let i = i + 1;

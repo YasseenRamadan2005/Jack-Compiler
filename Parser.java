@@ -176,8 +176,6 @@ public class Parser {
         return node;
     }
 
-
-
     private Node parseIf(TokenStream tokens) {
         Node node = new Node(Node.StructureType.IF_STATEMENT);
         tokens.expect("if", node, Node.TokenType.KEYWORD);
@@ -241,8 +239,11 @@ public class Parser {
         String token = tokens.peek();
         assert token != null;
 
-        // Parse the base term
-        if (token.matches("\\d+")) {
+        if (token.matches("\\d+\\.\\d+")) {
+            // Floating point literal (treated as integer constant)
+            node.addChild(new Node(tokens.next(), Node.TokenType.INTEGER_CONSTANT));
+        } else if (token.matches("\\d+")) {
+            // Integer literal
             node.addChild(new Node(tokens.next(), Node.TokenType.INTEGER_CONSTANT));
         } else if (token.startsWith("\"")) {
             node.addChild(new Node(Objects.requireNonNull(tokens.next()).replace("\"", ""), Node.TokenType.STRING_CONSTANT));
@@ -271,16 +272,15 @@ public class Parser {
         return node;
     }
 
-
     private Node parseType(TokenStream tokens) {
         String token = tokens.next();
-        return new Node(token, Set.of("int", "char", "boolean").contains(token) ? Node.TokenType.KEYWORD : Node.TokenType.IDENTIFIER);
+        return new Node(token, Set.of("int", "float", "char", "boolean").contains(token) ? Node.TokenType.KEYWORD : Node.TokenType.IDENTIFIER);
     }
 
     private Node parseTypeOrVoid(TokenStream tokens) {
         String token = tokens.next();
         assert token != null;
-        return new Node(token, token.equals("void") || Set.of("int", "char", "boolean").contains(token) ? Node.TokenType.KEYWORD : Node.TokenType.IDENTIFIER);
+        return new Node(token, token.equals("void") || Set.of("int", "float", "char", "boolean").contains(token) ? Node.TokenType.KEYWORD : Node.TokenType.IDENTIFIER);
     }
 
     private List<Node> parseSubroutineCall(TokenStream tokens) {

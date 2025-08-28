@@ -36,7 +36,6 @@ public class Lexer {
                 }
                 continue;
             }
-
             if (inBlock) {
                 if (input.charAt(i) == '*' && i + 1 < input.length() && input.charAt(i + 1) == '/') {
                     inBlock = false;
@@ -44,7 +43,6 @@ public class Lexer {
                 }
                 continue;
             }
-
             if (input.charAt(i) == '/' && i + 1 < input.length()) {
                 if (input.charAt(i + 1) == '/') {
                     inSingleLine = true;
@@ -56,24 +54,19 @@ public class Lexer {
                     continue;
                 }
             }
-
             result.append(input.charAt(i));
         }
-
         return result.toString();
     }
 
     private List<String> tokenize(String input) {
         List<String> tokens = new ArrayList<>();
-
         // Regex: strings | words | symbols
-        Pattern tokenPattern = Pattern.compile("\"[^\"]*\"|<=|>=|~=|\\w+|[^\\s\\w]");
+        Pattern tokenPattern = Pattern.compile("\"[^\"]*\"|<=|>=|~=|\\d+\\.\\d+|\\w+|[^\\s\\w]");
         Matcher matcher = tokenPattern.matcher(input);
-
         while (matcher.find()) {
             tokens.add(matcher.group());
         }
-
         return tokens;
     }
 }

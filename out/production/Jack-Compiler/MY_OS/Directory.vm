@@ -398,7 +398,7 @@ call Array.get 2
 pop local 2
 push local 2
 pop local 3
-push this 0
+push argument 1
 push local 3
 call File.getName 1
 call String.equals 2

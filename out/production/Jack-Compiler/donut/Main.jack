@@ -1,0 +1,24 @@
+/** Test program for the OS Screen class. */
+class Main {
+    function void main() {
+        var float the_float, a_float;
+        let the_float = 1.5;
+        let a_float = 2.5;
+        do Output.printString("Hello, world!");
+        do Output.println();
+        do Output.printInt(the_float);
+        do Output.println();
+        do Output.printFloat(the_float);
+        do Output.println();
+        do Output.printInt(a_float);
+        do Output.println();
+        do Output.printFloat(a_float);
+        do Output.println();
+        do Output.printFloat(Math.multiply_floats(a_float, the_float));
+        do Output.println();
+        do Output.printInt(Math.multiply_floats(a_float, the_float));
+        do Output.println();
+        do Output.printString("Done!");
+        return;
+    }
+}

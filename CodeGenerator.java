@@ -262,12 +262,21 @@ public class CodeGenerator {
                 Node base = children.getFirst();
                 Node.TokenType tokenType = base.tokenType;
 
-                // Step 1: Compile the base term
                 if (tokenType != null) {
                     switch (tokenType) {
                         case INTEGER_CONSTANT:
-                            term_vmInstructions.add("push constant " + base.value);
+                            String val = base.value;
+                            if (val.contains(".")) {
+                                // Float literal → convert to half-float bits
+                                float f = Float.parseFloat(val);
+                                short halfBits = floatToHalfBits(f);
+                                term_vmInstructions.add("push constant " + (halfBits & 0xFFFF));
+                            } else {
+                                // Normal integer
+                                term_vmInstructions.add("push constant " + val);
+                            }
                             break;
+
 
                         case STRING_CONSTANT:
                             String strVal = base.value;
@@ -419,5 +428,34 @@ public class CodeGenerator {
         return vmInstructions;
     }
 
+    public static short floatToHalfBits(float value) {
+        int bits = Float.floatToIntBits(value);
+        int sign = (bits >>> 16) & 0x8000;       // sign
+        int exp = (bits >>> 23) & 0xFF;          // exponent
+        int mant = bits & 0x7FFFFF;              // mantissa
+
+        if (exp == 255) { // Inf/NaN
+            return (short) (sign | 0x7C00 | (mant != 0 ? 1 : 0));
+        }
+
+        if (exp > 142) { // Overflow -> Inf
+            return (short) (sign | 0x7C00);
+        }
+
+        if (exp < 113) { // Subnormal or underflow
+            if (exp < 103) {
+                return (short) sign; // underflow to zero
+            }
+            mant |= 0x800000;
+            int shift = 126 - exp;
+            mant = mant >> (shift + 13);
+            return (short) (sign | mant);
+        }
+
+        // Normalized
+        exp = exp - 112;
+        mant = mant >> 13;
+        return (short) (sign | (exp << 10) | mant);
+    }
 
 }

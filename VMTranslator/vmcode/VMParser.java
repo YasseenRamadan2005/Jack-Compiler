@@ -244,6 +244,34 @@ public class VMParser {
 
         return new ArrayList<>(stack);
     }
+    public static short floatToHalf(float value) {
+        int intBits = Float.floatToIntBits(value);
+        int sign = (intBits >>> 16) & 0x8000;           // sign: 1 bit
+        int exp  = (intBits >>> 23) & 0xff;             // exponent: 8 bits
+        int mant = intBits & 0x7fffff;                  // mantissa: 23 bits
+
+        if (exp == 255) { // Inf/NaN
+            return (short) (sign | 0x7c00 | (mant != 0 ? 1 : 0));
+        }
+
+        if (exp > 112) {  // Overflow -> Inf
+            if (exp - 112 > 30) {
+                return (short) (sign | 0x7c00);
+            }
+            exp = exp - 112;
+            mant = mant >> 13;
+            return (short) (sign | (exp << 10) | mant);
+        }
+
+        if (exp < 103) { // Underflow -> zero
+            return (short) sign;
+        }
+
+        // Normalized
+        exp = exp - 112;
+        mant = mant >> 13;
+        return (short) (sign | (exp << 10) | mant);
+    }
 
     private VMinstruction parseLine(String line) {
         String[] tokens = line.split("\\s+");

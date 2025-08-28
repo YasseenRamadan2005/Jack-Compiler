@@ -1,0 +1,320 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Math.jack
+/**
+ *  A library of commonly used mathematical functions.
+ *  All functions runs in O(n), where n is the number of bits used
+ *  for representing a two's complement integer value (16 in the Hack computer).
+ *  Note: Jack compilers implement multiplication and division
+ *  using calls to OS functions in this class.
+ */
+class Math {
+    static Array powersOfTwo; // Stores 2^0, 2^1, 2^2,..., 2^(n-1)
+
+    // Initializes the Math library.
+    function void init() {
+        var int mask, i;
+        let mask = 1;
+        let i = 0;
+        let powersOfTwo = Array.new(16);
+        while (i < 16){
+           let powersOfTwo[i] = mask;
+           let mask=mask+mask;
+           let i = i + 1;
+        }
+        return;
+    }
+
+    //Returns true if the j-th bit of the integer x is 1 and false otherwise
+    function boolean bit(int x, int j){
+        return x & powersOfTwo[j];
+    }
+
+    /** Returns the product of x and y.
+     *  When a Jack compiler detects the multiplication operator '*'
+     *  in an expression, it handles it by invoking this method.
+     *  Thus, in Jack, x * y and Math.multiply(x,y) return the same value. */
+    function int multiply(int x, int y) {
+        var int sum, index, mask;
+        if ((x=0) | (y=0)){
+            return 0;
+        }
+        if (x = 1){
+            return y;
+        }
+        if (y = 1){
+            return x;
+        }
+        if (x = 2){
+            return y + y;
+        }
+        if (y = 2){
+            return x+x;
+        }
+
+        let mask = 1;
+        let index = 0;
+        let sum = 0;
+        while (index < 16) {
+            if ((y & mask) ~= 0) {
+                let sum = sum + x;
+            }
+            let x = x + x;
+            let index = index + 1;
+            let mask = mask + mask;
+        }
+
+        return sum;
+    }
+
+
+
+
+    /** Returns the integer part of x / y.
+     *  When a Jack compiler detects the division operator '/'
+     *  an an expression, it handles it by invoking this method.
+     *  Thus, x/y and Math.divide(x,y) return the same value. */
+        function int divide(int x, int y) {
+          var int q, nx, ny;
+
+          let nx = Math.abs(x);
+          let ny = Math.abs(y);
+
+          if (y = 0){
+            return 0;
+          }
+          if (ny > nx) {
+            return 0;
+          }
+
+          //Overflow case
+          if ((ny + ny )< 0){
+            return 1;
+          }
+          let q = Math.divide(nx, ny + ny);
+          if ((nx - ((q+q) * ny)) < ny) {
+            if (((x < 0) & (y > 0)) | ((x > 0) & (y < 0))) {
+              let q = -q;
+            }
+            return q + q;
+          } else {
+            if (((x < 0) & (y > 0)) | ((x > 0 )& (y < 0))) {
+              let q = -q;
+            }
+            return (q + q) + 1;
+          }
+        }
+
+
+
+   /** Returns the remainder part of x/y */
+    function int mod(int x, int y) {
+        return x - ((x / y) * y);
+    }
+
+    //Returns 2 ^ x
+    function int twoToThe(int x){
+        return powersOfTwo[x];
+    }
+
+
+    /** Returns the integer part of the square root of x. */
+    function int sqrt(int x) {
+        var int y, j, k, k_squared;
+        let y = 0;
+        let j = 7;
+        while (j >= 0){
+            let k = y + powersOfTwo[j]; //k = y + 2^j
+            let k_squared = k * k;
+            if ((k_squared <= x) & (k_squared > 0)){
+                let y = k;
+            }
+            let j = j - 1;
+        }
+        return y;
+    }
+
+    /** Returns the greater value. */
+    function int max(int a, int b) {
+        if (a > b){return a;}
+        return b;
+    }
+
+    /** Returns the smaller value. */
+    function int min(int a, int b) {
+        if (a < b){return a;}
+        return b;
+    }
+
+    /** Returns the absolute value of x. */
+    function int abs(int x) {
+        return Math.max(x , -x);
+    }
+
+
+function float multiply_floats(int a, int b) {
+    var int signA, signB, signR;
+    var int expA, expB, expR;
+    var int fracA, fracB, fracR;
+    var int mantA, mantB, mantR;
+    var int i;
+    var int result;
+
+    // --- Extract signs ---
+    let signA = a < 0;
+    let signB = b < 0;
+    if (signA = signB) { let signR = 0; } else { let signR = -1; }
+    do Output.printString("signA: "); do Output.printInt(signA); do Output.printChar(10);
+    do Output.printString("signB: "); do Output.printInt(signB); do Output.printChar(10);
+    do Output.printString("signR: "); do Output.printInt(signR); do Output.printChar(10);
+
+    // --- Extract exponent and fraction ---
+    let expA = (a & 31744) / 1024;
+    let expB = (b & 31744) / 1024;
+    let fracA = a & 1023;
+    let fracB = b & 1023;
+    do Output.printString("expA: "); do Output.printInt(expA); do Output.printChar(10);
+    do Output.printString("expB: "); do Output.printInt(expB); do Output.printChar(10);
+    do Output.printString("fracA: "); do Output.printInt(fracA); do Output.printChar(10);
+    do Output.printString("fracB: "); do Output.printInt(fracB); do Output.printChar(10);
+
+    // --- Handle zero inputs ---
+    if (((expA = 0) & (fracA = 0)) | ((expB = 0) & (fracB = 0))) {
+        do Output.printString("Zero detected\n");
+        return 0;
+    }
+
+
+    // --- Add implicit leading 1 ---
+    if (expA ~= 0) { let mantA = fracA | 1024; } else { let mantA = fracA; }
+    if (expB ~= 0) { let mantB = fracB | 1024; } else { let mantB = fracB; }
+    do Output.printString("mantA: "); do Output.printInt(mantA); do Output.printChar(10);
+    do Output.printString("mantB: "); do Output.printInt(mantB); do Output.printChar(10);
+
+    // --- Multiply mantissas safely using repeated addition ---
+    let mantR = 0;
+    let i = 0;
+    while (i < mantB) {
+        let mantR = mantR + mantA;
+        let i = i + 1;
+    }
+    do Output.printString("mantR after repeated addition: "); do Output.printInt(mantR); do Output.printChar(10);
+
+    // --- Scale down mantissa to 11 bits ---
+    while (mantR >= 2048) { // divide by 2 until top bit fits
+        let mantR = mantR / 2;
+        let expA = expA + 1; // adjust exponent accordingly
+    }
+
+    // --- Add exponents and subtract bias ---
+    let expR = expA + expB - 15;
+    do Output.printString("expR after add/subtract: "); do Output.printInt(expR); do Output.printChar(10);
+
+    // --- Normalize mantissa to 11 bits ---
+    while (mantR >= 2048) {
+        let mantR = mantR / 2;
+        let expR = expR + 1;
+        do Output.printString("Normalizing down mantR: "); do Output.printInt(mantR); do Output.printChar(10);
+    }
+    while (mantR < 1024) {
+        let mantR = mantR * 2;
+        let expR = expR - 1;
+        do Output.printString("Normalizing up mantR: "); do Output.printInt(mantR); do Output.printChar(10);
+    }
+
+    // --- Clamp exponent ---
+    if (expR < 0) { let expR = 0; }
+    if (expR > 31) { let expR = 31; }
+    do Output.printString("expR after clamp: "); do Output.printInt(expR); do Output.printChar(10);
+
+    // --- Mask fraction ---
+    let fracR = mantR & 1023;
+    do Output.printString("fracR: "); do Output.printInt(fracR); do Output.printChar(10);
+
+    // --- Pack result ---
+    let result = ~(~signR | 32767) | (expR * 1024) | fracR;
+    do Output.printString("result: "); do Output.printInt(result); do Output.printChar(10);
+
+    return result;
+}
+
+
+
+    /** Returns the division of two 16-bit half-floats stored as int */
+    function int divide_floats(int a, int b) {
+        var int signA, signB, expA, expB, fracA, fracB;
+        var int signR, expR, fracR, result;
+        var int i;
+
+        // Extract sign
+        if (~((~a | 32767)) = 0) { let signA = 0; } else { let signA = 1; }
+        if (~((~b | 32767)) = 0) { let signB = 0; } else { let signB = 1; }
+
+        // Extract exponent
+        let expA = 0; let i = 16;
+        while (i > 0) {
+            if ((a & i) = i) { let expA = (expA + i); }
+            let i = i / 2;
+        }
+        let expB = 0; let i = 16;
+        while (i > 0) {
+            if ((b & i) = i) { let expB = (expB + i); }
+            let i = i / 2;
+        }
+
+        // Extract fraction
+        let fracA = 0; let i = 512;
+        while (i > 0) {
+            if ((a & i) = i) { let fracA = (fracA + i); }
+            let i = i / 2;
+        }
+        let fracB = 0; let i = 512;
+        while (i > 0) {
+            if ((b & i) = i) { let fracB = (fracB + i); }
+            let i = i / 2;
+        }
+
+        // Add implicit leading 1
+        let fracA = fracA + 1024;
+        let fracB = fracB + 1024;
+
+        // Divide fractions (rescale)
+        let fracR = ((fracA * 1024) / fracB);
+
+        // Subtract exponents and add bias
+        let expR = ((expA - expB) + 15);
+
+        // Determine sign
+        if ((signA + signB) = 1) { let signR = 1; } else { let signR = 0; }
+
+        // Normalize result
+        if (fracR >= 2048) {
+            let fracR = (fracR / 2);
+            let expR = (expR + 1);
+        }
+
+        // Remove implicit leading 1
+        let fracR = (fracR - 1024);
+
+        // Pack result
+        let result = 0;
+        if (signR = 1) { let result = ~(~result & 32767); }
+
+        let i = 16;
+        while (i > 0) {
+            if ((expR & i) = i) { let result = (result | (i * 64)); }
+            let i = i / 2;
+        }
+
+        let i = 512;
+        while (i > 0) {
+            if ((fracR & i) = i) { let result = (result | i); }
+            let i = i / 2;
+        }
+
+        return result;
+    }
+
+
+}
