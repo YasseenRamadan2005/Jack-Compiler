@@ -428,34 +428,140 @@ public class CodeGenerator {
         return vmInstructions;
     }
 
+    /**
+     * Converts a 32-bit float into a custom 15-bit floating format:
+     * - Layout (in lower 15 bits of returned short):
+     * [14]    sign (1 bit)
+     * [13..7] exponent (7 bits, bias = 63)
+     * [6..0]  fraction (7 bits)
+     * <p>
+     * The returned short has its top bit (bit 15) always zero.
+     */
     public static short floatToHalfBits(float value) {
-        int bits = Float.floatToIntBits(value);
-        int sign = (bits >>> 16) & 0x8000;       // sign
-        int exp = (bits >>> 23) & 0xFF;          // exponent
-        int mant = bits & 0x7FFFFF;              // mantissa
+        final int FLOAT_SIGN_SHIFT = 31;
+        final int FLOAT_EXP_SHIFT = 23;
+        final int FLOAT_EXP_MASK = 0xFF;
+        final int FLOAT_FRAC_MASK = 0x7FFFFF;
+        final int FLOAT_BIAS = 127;
 
-        if (exp == 255) { // Inf/NaN
-            return (short) (sign | 0x7C00 | (mant != 0 ? 1 : 0));
-        }
+        final int TEXP_BITS = 7;
+        final int TFRAC_BITS = 7;
+        final int TEXP_MASK = (1 << TEXP_BITS) - 1; // 0x7F
+        final int TFRAC_MASK = (1 << TFRAC_BITS) - 1; // 0x7F
+        final int TEXP_BIAS = (1 << (TEXP_BITS - 1)) - 1; // 63
+        final int TEXP_MAX = TEXP_MASK; // all ones indicates Inf/NaN
 
-        if (exp > 142) { // Overflow -> Inf
-            return (short) (sign | 0x7C00);
-        }
+        int fbits = Float.floatToIntBits(value);
+        int sign = (fbits >>> FLOAT_SIGN_SHIFT) & 0x1;
+        int fexp = (fbits >>> FLOAT_EXP_SHIFT) & FLOAT_EXP_MASK;
+        int ffrac = fbits & FLOAT_FRAC_MASK;
 
-        if (exp < 113) { // Subnormal or underflow
-            if (exp < 103) {
-                return (short) sign; // underflow to zero
+        // place sign into bit 14 of the 15-bit result
+        int signOut = sign << 14;
+
+        // Handle NaN / Infinity (float32 exponent all ones)
+        if (fexp == 0xFF) {
+            if (ffrac == 0) {
+                // Infinity
+                int out = signOut | (TEXP_MAX << TFRAC_BITS); // frac = 0
+                return (short) (out & 0x7FFF);
+            } else {
+                // NaN -> set exponent all ones and a non-zero frac (quiet NaN)
+                int out = signOut | (TEXP_MAX << TFRAC_BITS) | 1;
+                return (short) (out & 0x7FFF);
             }
-            mant |= 0x800000;
-            int shift = 126 - exp;
-            mant = mant >> (shift + 13);
-            return (short) (sign | mant);
         }
 
-        // Normalized
-        exp = exp - 112;
-        mant = mant >> 13;
-        return (short) (sign | (exp << 10) | mant);
+        // Zero or subnormal in float32
+        if (fexp == 0) {
+            if (ffrac == 0) {
+                // Signed zero preserved
+                return (short) (signOut & 0x7FFF);
+            }
+            // Treat as a denormal: promote to a normalized-like representation
+            // by considering exponent = 1 - FLOAT_BIAS and mantissa = ffrac (no implicit 1)
+            // We'll fall through to general handling by setting mantissa and exponent accordingly.
+        }
+
+        // Compute unbiased exponent and mantissa for float32 (normalized and subnormal)
+        int e;              // unbiased exponent
+        int mant;           // 24-bit mantissa (implicit 1 for normals)
+        if (fexp == 0) {
+            // subnormal: exponent = 1 - bias, mantissa has no implicit 1
+            e = 1 - FLOAT_BIAS;
+            mant = ffrac; // no implicit leading 1
+        } else {
+            e = fexp - FLOAT_BIAS;
+            mant = (1 << 23) | ffrac; // implicit leading 1
+        }
+
+        // target exponent
+        int tExp = e + TEXP_BIAS;
+
+        // Helper for rounding: we will shift mantissa right by SHIFT bits to get TFRAC_BITS
+        // and inspect the low bits for round-to-nearest-even.
+        if (tExp >= TEXP_MAX) {
+            // Overflow -> Infinity
+            int out = signOut | (TEXP_MAX << TFRAC_BITS);
+            return (short) (out & 0x7FFF);
+        } else if (tExp <= 0) {
+            // Subnormal or underflow to zero in target format
+            // number will be represented as: mant * 2^(e) = (mant >> (1 - tExp)) in target frac alignment
+            int shift = 1 - tExp; // positive
+            // total shift to reduce 24-bit mant to target fraction bits:
+            int alignShift = (23 - TFRAC_BITS) + shift; // 16 + shift for TFRAC_BITS=7
+            if (alignShift >= 31) {
+                // shift too large -> underflow to zero
+                return (short) (signOut & 0x7FFF);
+            }
+            // compute candidate fraction and remnant for rounding
+            int fracCandidate = mant >>> alignShift;
+            int remMask = (1 << alignShift) - 1;
+            int rem = mant & remMask;
+            int half = 1 << (alignShift - 1);
+
+            // round-to-nearest-even
+            if (rem > half || (rem == half && (fracCandidate & 1) != 0)) {
+                fracCandidate++;
+            }
+
+            // If rounding produced a carry that makes fracCandidate == 2^TFRAC_BITS,
+            // it becomes a normalized value with exponent = 1
+            if (fracCandidate == (1 << TFRAC_BITS)) {
+                // normalized result with exponent 1 (biased)
+                tExp = 1;
+                int out = signOut | (tExp << TFRAC_BITS) | 0;
+                return (short) (out & 0x7FFF);
+            } else {
+                int out = signOut | (0 << TFRAC_BITS) | (fracCandidate & TFRAC_MASK);
+                return (short) (out & 0x7FFF);
+            }
+        } else {
+            // Normalized in target format
+            int alignShift = 23 - TFRAC_BITS; // 16 for 7 fraction bits
+            int fracCandidate = (mant >>> alignShift) & TFRAC_MASK;
+            int remMask = (1 << alignShift) - 1;
+            int rem = mant & remMask;
+            int half = 1 << (alignShift - 1);
+
+            // round-to-nearest-even
+            if (rem > half || (rem == half && (fracCandidate & 1) != 0)) {
+                fracCandidate++;
+                if (fracCandidate == (1 << TFRAC_BITS)) {
+                    // carry into exponent
+                    tExp++;
+                    fracCandidate = 0;
+                    if (tExp >= TEXP_MAX) {
+                        // overflow to infinity
+                        int out = signOut | (TEXP_MAX << TFRAC_BITS);
+                        return (short) (out & 0x7FFF);
+                    }
+                }
+            }
+
+            int out = signOut | ((tExp & TEXP_MASK) << TFRAC_BITS) | (fracCandidate & TFRAC_MASK);
+            return (short) (out & 0x7FFF);
+        }
     }
 
 }

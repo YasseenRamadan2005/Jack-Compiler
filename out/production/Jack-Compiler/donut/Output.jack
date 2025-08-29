@@ -323,78 +323,80 @@ class Output {
     }
 
 
-   /** Prints a 16-bit float stored as an int, decoding it into decimal with up to 5 fractional digits */
-   function void printFloat(int bits) {
-       var int sign, exp, frac, mantissa, value, i, int_part, frac_part, digit;
+    /** Prints a 15-bit float stored as an int, decoding it into decimal with up to 5 fractional digits */
+    function void printFloat(int bits) {
+        var int sign, exp, frac, mantissa, value, i, int_part, frac_part, digit;
 
-       // --- Extract sign ---
-       if ((~(~bits | 32767)) = 0) { let sign = 0; } else { let sign = 1; }
+        // --- Extract sign ---
+        if ((bits / 16384) = 0) { let sign = 0; } else { let sign = 1; }
 
-       // --- Extract exponent ---
-       let exp = 0;
-       let i = 16;
-       while (i > 0) {
-           if ((bits & (1024 * i)) = (1024 * i)) { let exp = exp + i; }
-           let i = i / 2;
-       }
+        // --- Extract exponent ---
+        let exp = (bits / 128) & 127;
 
-       // --- Extract fraction ---
-       let frac = 0;
-       let i = 512;
-       while (i > 0) {
-           if ((bits & i) = i) { let frac = frac + i; }
-           let i = i / 2;
-       }
+        // --- Extract fraction ---
+        let frac = bits & 127;
 
-       // --- Handle zero ---
-       if ((exp = 0) & (frac = 0)) {
-           do Output.printChar(48); // '0'
-           do Output.printChar(46); // '.'
-           do Output.printChar(48); // '0'
-           return;
-       }
+        // --- Handle zero ---
+        if ((exp = 0) & (frac = 0)) {
+            do Output.printChar(48); // '0'
+            do Output.printChar(46); // '.'
+            do Output.printChar(48); // '0'
+            return;
+        }
 
-       // --- Normalize mantissa ---
-       let mantissa = 1024 + frac; // 1.fraction
+        // --- Normalize mantissa ---
+        if (exp = 0) {
+            // Subnormal
+            let mantissa = frac;  // scale factor 128
+        } else {
+            // Normalized
+            let mantissa = 128 + frac; // 1.fraction
+        }
 
-       // --- Adjust exponent (bias 15) ---
-       let exp = exp - 15;
+        // --- Adjust exponent (bias 63) ---
+        if (exp = 0) {
+            let exp = -62; // subnormal exponent
+        } else {
+            let exp = exp - 63;
+        }
 
-       // --- Compute approximate value ---
-       let value = mantissa;
-       if (exp > 0) {
-           let i = 0;
-           while (i < exp) {
-               let value = value + value; // multiply by 2
-               let i = i + 1;
-           }
-       } else {
-           let i = 0;
-           while (i < (-exp)) {
-               let value = value / 2; // divide by 2
-               let i = i + 1;
-           }
-       }
+        // --- Compute approximate value ---
+        let value = mantissa;  // scale factor = 128
+        if (exp > 0) {
+            let i = 0;
+            while (i < exp) {
+                let value = value + value; // multiply by 2
+                let i = i + 1;
+            }
+        } else {
+            let i = 0;
+            while (i < (-exp)) {
+                let value = value / 2; // divide by 2
+                let i = i + 1;
+            }
+        }
 
-       // --- Print sign ---
-       if (sign = 1) { do Output.printChar(45); }
+        // --- Print sign ---
+        if (sign = 1) { do Output.printChar(45); } // '-'
 
-       // --- Print integer part ---
-       let int_part = value / 1024;
-       do Output.printInt(int_part);
+        // --- Print integer part ---
+        let int_part = value / 128;
+        do Output.printInt(int_part);
 
-       // --- Print fractional part ---
-       do Output.printChar(46); // '.'
+        // --- Print fractional part ---
+        do Output.printChar(46); // '.'
 
-       let frac_part = value & 1023; // remainder
-       let i = 0;
-       while (i < 5) { // print up to 5 decimal digits
-           let frac_part = frac_part * 10;
-           let digit = frac_part / 1024;
-           do Output.printInt(digit);
-            let frac_part = frac_part & 1023; // 1023 = 2^10 - 1
-           let i = i + 1;
-       }
-       return;
-   }
+        let frac_part = value & 127; // remainder
+        let i = 0;
+        while (i < 5) { // print up to 5 decimal digits
+            let frac_part = frac_part * 10;
+            let digit = frac_part / 128;
+            do Output.printInt(digit);
+            let frac_part = frac_part & 127; // keep remainder
+            let i = i + 1;
+        }
+
+        return;
+    }
+
 }
