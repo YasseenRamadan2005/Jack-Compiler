@@ -1,0 +1,80 @@
+function Sys.init 0
+call Memory.init 0
+pop temp 0
+call Math.init 0
+pop temp 0
+call Screen.init 0
+pop temp 0
+call Output.init 0
+pop temp 0
+call Main.main 0
+pop temp 0
+call Sys.halt 0
+pop temp 0
+push constant 0
+return
+function Sys.halt 0
+label Sys.halt_WHILE_EXP1
+push constant 0
+not
+not
+if-goto Sys.halt_WHILE_END1
+goto Sys.halt_WHILE_EXP1
+label Sys.halt_WHILE_END1
+push constant 0
+return
+function Sys.wait 1
+label Sys.wait_WHILE_EXP1
+push argument 0
+push constant 0
+gt
+not
+if-goto Sys.wait_WHILE_END1
+push argument 0
+push constant 1
+sub
+pop argument 0
+push constant 70
+pop local 0
+label Sys.wait_WHILE_EXP2
+push local 0
+push constant 0
+gt
+not
+if-goto Sys.wait_WHILE_END2
+push local 0
+push constant 1
+sub
+pop local 0
+goto Sys.wait_WHILE_EXP2
+label Sys.wait_WHILE_END2
+goto Sys.wait_WHILE_EXP1
+label Sys.wait_WHILE_END1
+push constant 0
+return
+function Sys.error 1
+push constant 0
+pop local 0
+label Sys.error_WHILE_EXP1
+push local 0
+push constant 8192
+lt
+not
+if-goto Sys.error_WHILE_END1
+push constant 1
+neg
+push local 0
+push constant 16384
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Sys.error_WHILE_EXP1
+label Sys.error_WHILE_END1
+call Sys.halt 0
+pop temp 0
+push constant 0
+return

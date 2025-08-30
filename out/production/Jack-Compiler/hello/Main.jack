@@ -1,0 +1,12 @@
+/** Test program for the OS Screen class. */
+class Main {
+    function void main() {
+        var int i;
+        let i = 32;
+        while (i<127){
+            do Output.printChar(i);
+            let i = i + 1;
+        }
+        return;
+    }
+}

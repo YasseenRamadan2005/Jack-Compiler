@@ -1,0 +1,104 @@
+class Array {
+    field int data;
+    field int size;
+    field int capacity;
+
+    /** Creates a new dynamic array with initial capacity */
+    constructor Array new(int initialCapacity) {
+        let data = Memory.alloc(initialCapacity);
+        let size = 0;
+        let capacity = initialCapacity;
+        return this;
+    }
+
+    /** Disposes the internal buffer */
+    method void dispose() {
+        do Memory.deAlloc(data);
+        return;
+    }
+
+    /** Resets the data */
+    method void reset() {
+        let size = 0;
+        return;
+    }
+
+    /** Removes the last element*/
+    method void removeLast(){
+        let size = size - 1;
+        return;
+    }
+    /** Returns current number of items */
+    method int length() {
+        return size;
+    }
+
+    /** Gets value at index i */
+    method int get(int i) {
+        return data[i];
+    }
+
+    method int getPointer(){
+        return data;
+    }
+
+    /** Sets value at index i, resizing if needed */
+    method void set(int i, int value) {
+        var int newCapacity, j;
+        var int newData;
+
+        // Grow until i fits within capacity
+        while (i >= capacity) {
+            let newCapacity = capacity + capacity;
+            let newData = Memory.alloc(newCapacity);
+
+            let j = 0;
+            while (j < size) {
+                let newData[j] = data[j];
+                let j = j + 1;
+            }
+
+            do Memory.deAlloc(data);
+            let data = newData;
+            let capacity = newCapacity;
+        }
+
+        // Fill gap with 0 if i >= size
+        let j = size;
+        while (j < i) {
+            let data[j] = 0;
+            let j = j + 1;
+        }
+
+        let data[i] = value;
+
+        if (i >= size) {
+            let size = i + 1;
+        }
+
+        return;
+    }
+
+
+    /** Adds a new element to the end (resizes if full) */
+    method void append(int value) {
+        var Array newData;
+        var int i;
+
+        if (size = capacity) {
+            let newData = Memory.alloc(capacity + capacity);
+            let i = 0;
+            while (i < size) {
+                let newData[i] = data[i];
+                let i = i + 1;
+            }
+            do Memory.deAlloc(data);
+            let data = newData;
+            let capacity = capacity + capacity;
+        }
+
+        let data[size] = value;
+        let size = size + 1;
+        return;
+    }
+}

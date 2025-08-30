@@ -1,0 +1,172 @@
+class String {
+    field Array chars; // backing array of characters
+
+    /** Constructs an empty string */
+    constructor String new(int size) {
+        let chars = Array.new(size); // initial capacity
+        return this;
+    }
+
+    /** Disposes the backing array */
+    method void dispose() {
+        do chars.dispose();
+        return;
+    }
+
+    /** Returns the string length */
+    method int length() {
+        return chars.length();
+    }
+
+    /** Appends a character */
+    method String appendChar(char c) {
+        do chars.append(c);
+        return this;
+    }
+
+    /** Returns the character at index */
+    method char charAt(int i) {
+        return chars.get(i);
+    }
+
+    /** Sets a character at index */
+    method void setCharAt(int i, char c) {
+        do chars.set(i, c);
+        return;
+    }
+
+    method void eraseLastChar(){
+        do chars.removeLast();
+        return;
+    }
+
+    /** Erases the string contents */
+    method void clear() {
+        do chars.reset();
+        return;
+    }
+
+    /** Compares with another string, ignoring case using custom int-to-char mapping */
+    method boolean equals(String other) {
+        var int i, len;
+        var char c1, c2;
+
+        let len = chars.length();
+        if (len ~= other.length()) {
+            return false;
+        }
+
+        let i = 0;
+        while (i < len) {
+            let c1 = chars.get(i);
+            let c2 = other.charAt(i);
+
+            //make lowercase letters uppercase
+            if ((c1 >= 97) & (c1 < 123)) {
+                let c1 = c1 - 32;
+            }
+            if ((c2 >= 97) & (c2 < 123)) {
+                let c2 = c2 - 32;
+            }
+
+            if (c1 ~= c2) {
+                return false;
+            }
+
+            let i = i + 1;
+        }
+
+        return true;
+    }
+
+
+
+
+    //sets this string to hold a representation of j
+    method void setInt(int j) {
+        var int digit, i, temp, length, isNegative;
+        var Array digits;
+
+        do chars.reset(); // Clear current string
+        let isNegative = 0;
+
+        // Special case: j == 0
+        if (j = 0) {
+            do appendChar(48); // ASCII '0'
+            return;
+        }
+
+        // Handle negative numbers
+        if (j < 0) {
+            let isNegative = 1;
+
+            // Special case: j == -32768
+            if (j < 0 & ((j & 32767) = 32767)) {
+                // Hardcoded because -(-32768) = -32768 (overflow)
+                do appendChar(45); // '-'
+                do appendChar(51); // '3'
+                do appendChar(50); // '2'
+                do appendChar(55); // '7'
+                do appendChar(54); // '6'
+                do appendChar(56); // '8'
+                return;
+            }
+            let j = -j;
+        }
+
+        // Count digits
+        let temp = j;
+        let length = 0;
+        while (temp > 0) {
+            let temp = temp / 10;
+            let length = length + 1;
+        }
+
+        // Store digits in reverse
+        let digits = Array.new(length);
+        let i = 0;
+        while (j > 0) {
+            let digit = j - ((j / 10) * 10);
+            do digits.append(digit + 48);
+            let j = j / 10;
+            let i = i + 1;
+        }
+
+        // Add minus sign if needed
+        if (isNegative = 1) {
+            do appendChar(45); // '-'
+        }
+
+        // Append digits in correct order
+        while (i > 0) {
+            let i = i - 1;
+            do appendChar(digits.get(i));
+        }
+
+        do digits.dispose();
+        return;
+    }
+
+    method int intValue() {
+        var int v, i, len, sign;
+        let v = 0;
+        let sign = 1;
+        let len = chars.length();
+
+        // Handle optional leading minus sign
+        let i = 0;
+        if (len > 0 & (chars.get(0) = 45)) {  // ASCII '-'
+            let sign = -1;
+            let i = 1;
+        }
+
+        // Parse digits
+        while (i < len) {
+            let v = v * 10 + (chars.get(i) - 48); // ASCII '0' = 48
+            let i = i + 1;
+        }
+
+        return v * sign;
+    }
+
+}
