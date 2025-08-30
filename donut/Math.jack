@@ -52,7 +52,6 @@ class Math {
         if (y = 2){
             return x+x;
         }
-
         let mask = 1;
         let index = 0;
         let sum = 0;
@@ -64,7 +63,6 @@ class Math {
             let index = index + 1;
             let mask = mask + mask;
         }
-
         return sum;
     }
 
@@ -149,10 +147,10 @@ class Math {
 
     /** Returns the absolute value of x. */
     function int abs(int x) {
-        if ((x = 16384) | (x = -16384)){
-            return x; //Don't even ask :(
+        if ( x < 0){
+            return -x;
         }
-        return Math.max(x , -x);
+        return x;
     }
 
     // Bit 14 = sign, 13-7 = exponent, 6-0 = fraction
@@ -193,7 +191,6 @@ class Math {
         // --- Multiply mantissas ---
         let productMant = mantA * mantB;
         let expShift = 0;
-
         // --- Normalize productMant to have leading 1 in bit 7 ---
         while (productMant < 128) {
             let productMant = productMant * 2;
@@ -203,7 +200,6 @@ class Math {
             let productMant = productMant / 2;
             let expShift = expShift + 1;
         }
-
         // --- Extract 7-bit fraction (drop leading 1) ---
         let fracR = productMant & 127;
 

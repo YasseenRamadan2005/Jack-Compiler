@@ -334,23 +334,16 @@ push argument 1
 return
 function Math.abs 0
 push argument 0
-push constant 16384
-eq
-push argument 0
-push constant 16384
-neg
-eq
-or
+push constant 0
+lt
 if-goto Math.abs$IF_TRUE1
 goto Math.abs$IF_END1
 label Math.abs$IF_TRUE1
 push argument 0
+neg
 return
 label Math.abs$IF_END1
 push argument 0
-push argument 0
-neg
-call Math.max 2
 return
 function Math.multiply_floats 16
 push argument 0

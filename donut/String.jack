@@ -79,9 +79,6 @@ class String {
         return true;
     }
 
-
-
-
     //sets this string to hold a representation of j
     method void setInt(int j) {
         var int digit, i, temp, length, isNegative;
@@ -99,7 +96,6 @@ class String {
         // Handle negative numbers
         if (j < 0) {
             let isNegative = 1;
-
             // Special case: j == -32768
             if (j < 0 & ((j & 32767) = 32767)) {
                 // Hardcoded because -(-32768) = -32768 (overflow)
