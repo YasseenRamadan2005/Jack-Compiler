@@ -1,17 +1,22 @@
-/** Test program for the OS Screen class. */
 class Main {
     function void main() {
         var float the_float, a_float;
-        let the_float = 1.5;
-        let a_float = 2.5;
-        do Output.printString("Hello, world!");
-        do Output.printString("This is a test of my custom 15 bit floating point type, with seven mantissa and fractional bits");
-        do Output.println();
+        //do Output.printString("Hello, world!");
+        //do Output.printString("This is a test of my custom 15 bit floating point type, with eight exponent and six fractional bits");
+        let the_float = 10000.0;
+        let a_float = 7.5;
         do Output.printFloat(the_float);
         do Output.printChar(42);
         do Output.printFloat(a_float);
         do Output.printChar(61);
         do Output.printFloat(Math.multiply_floats(the_float, a_float));
+        do Output.println();
+
+        do Output.printInt(the_float);
+        do Output.printChar(42);
+        do Output.printInt(a_float);
+        do Output.printChar(61);
+        do Output.printInt(Math.multiply_floats(the_float, a_float));
         do Output.println();
         do Output.printString("Done!");
         return;

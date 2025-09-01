@@ -327,76 +327,94 @@ class Output {
     function void printFloat(int bits) {
         var int sign, exp, frac, mantissa, value, i, int_part, frac_part, digit;
 
-        // --- Extract sign ---
-        if ((bits / 16384) = 0) { let sign = 0; } else { let sign = 1; }
+        // --- Extract sign (bit 14) ---
+        let sign = (bits / 16384) & 1;
 
-        // --- Extract exponent ---
-        let exp = (bits / 128) & 127;
+        // --- Extract exponent (bits 13..6, 8 bits) ---
+        let exp = (bits / 64) & 255;
 
-        // --- Extract fraction ---
-        let frac = bits & 127;
+        // --- Extract fraction (bits 5..0, 6 bits) ---
+        let frac = bits & 63;
 
         // --- Handle zero ---
         if ((exp = 0) & (frac = 0)) {
+            if (sign = 1) { do Output.printChar(45); } // '-' for -0.0
             do Output.printChar(48); // '0'
             do Output.printChar(46); // '.'
             do Output.printChar(48); // '0'
             return;
         }
 
-        // --- Normalize mantissa ---
-        if (exp = 0) {
-            // Subnormal
-            let mantissa = frac;  // scale factor 128
-        } else {
-            // Normalized
-            let mantissa = 128 + frac; // 1.fraction
+        // --- Handle infinity and NaN ---
+        if (exp = 255) {
+            if (sign = 1) { do Output.printChar(45); } // '-'
+            if (frac = 0) {
+                do Output.printString("inf");
+            } else {
+                do Output.printString("nan");
+            }
+            return;
         }
 
-        // --- Adjust exponent (bias 63) ---
+        // --- Normalize mantissa (scale by 64 to represent 6 fractional bits) ---
         if (exp = 0) {
-            let exp = -62; // subnormal exponent
+            // Subnormal: no implicit 1 bit
+            let mantissa = frac;
+            let exp = -126;  // Fixed exponent for subnormals (bias 127)
         } else {
-            let exp = exp - 63;
+            // Normal: add implicit 1 bit (64 represents 1.0 in our scale)
+            let mantissa = 64 + frac;
+            let exp = exp - 127;  // Remove bias
         }
 
-        // --- Compute approximate value ---
-        let value = mantissa;  // scale factor = 128
+        // --- Apply exponent by shifting mantissa ---
+        let value = mantissa;  // Start with mantissa (scale factor = 64)
         if (exp > 0) {
             let i = 0;
-            while (i < exp) {
+            while ((i < exp) & (value < (value + value))) {
                 let value = value + value; // multiply by 2
                 let i = i + 1;
             }
         } else {
             let i = 0;
             while (i < (-exp)) {
-                let value = value / 2; // divide by 2
+                let value = value / 2; // divide by 2 (precision loss accepted)
                 let i = i + 1;
             }
         }
-
         // --- Print sign ---
         if (sign = 1) { do Output.printChar(45); } // '-'
 
-        // --- Print integer part ---
-        let int_part = value / 128;
-        do Output.printInt(int_part);
+        // --- Extract and print integer part ---
+        if (exp ~=i){
+           let int_part = value / (64 / (exp - i + 1));
+        }
+        else{
+            let int_part = value / 64 ;
+        }
+        if (int_part = 0) {
+            do Output.printChar(48); // '0'
+        } else {
+            do Output.printInt(int_part);
+        }
 
-        // --- Print fractional part ---
+        // --- Print decimal point ---
         do Output.printChar(46); // '.'
 
-        let frac_part = value & 127; // remainder
+        // --- Print fractional part ---
+        let frac_part = value & 63; // remainder after removing integer part
         let i = 0;
-        while (i < 5) { // print up to 5 decimal digits
+        while (i < 5) { // Print up to 5 decimal digits
             let frac_part = frac_part * 10;
-            let digit = frac_part / 128;
-            do Output.printInt(digit);
-            let frac_part = frac_part & 127; // keep remainder
+            let digit = frac_part / 64;
+            if (digit > 9) { let digit = 9; } // Safety clamp
+            do Output.printChar(48 + digit); // Convert to ASCII
+            let frac_part = frac_part & 63; // Keep remainder
             let i = i + 1;
         }
 
         return;
     }
+
 
 }

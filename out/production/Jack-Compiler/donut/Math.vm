@@ -347,12 +347,16 @@ push argument 0
 return
 function Math.multiply_floats 16
 push argument 0
-push constant 0
-lt
+push constant 16384
+call Math.divide 2
+push constant 1
+and
 pop local 0
 push argument 1
-push constant 0
-lt
+push constant 16384
+call Math.divide 2
+push constant 1
+and
 pop local 1
 push local 0
 push local 1
@@ -364,161 +368,147 @@ not
 and
 or
 pop local 2
-push local 2
-push constant 1
-neg
-eq
-if-goto Math.multiply_floats$IF_TRUE1
-goto Math.multiply_floats$IF_FALSE1
-label Math.multiply_floats$IF_TRUE1
-push constant 1
-pop local 2
-goto Math.multiply_floats$IF_END1
-label Math.multiply_floats$IF_FALSE1
-push constant 0
-pop local 2
-label Math.multiply_floats$IF_END1
 push argument 0
-push constant 128
+push constant 64
 call Math.divide 2
-push constant 127
+push constant 255
 and
 pop local 3
 push argument 0
-push constant 127
+push constant 63
 and
 pop local 5
 push argument 1
-push constant 128
+push constant 64
 call Math.divide 2
-push constant 127
+push constant 255
 and
 pop local 4
 push argument 1
-push constant 127
+push constant 63
 and
 pop local 6
 push local 3
-push constant 127
+push constant 255
 eq
-if-goto Math.multiply_floats$IF_TRUE2
-goto Math.multiply_floats$IF_END2
-label Math.multiply_floats$IF_TRUE2
+if-goto Math.multiply_floats$IF_TRUE1
+goto Math.multiply_floats$IF_END1
+label Math.multiply_floats$IF_TRUE1
 push local 5
 push constant 0
 eq
 not
-if-goto Math.multiply_floats$IF_TRUE3
-goto Math.multiply_floats$IF_FALSE3
-label Math.multiply_floats$IF_TRUE3
+if-goto Math.multiply_floats$IF_TRUE2
+goto Math.multiply_floats$IF_FALSE2
+label Math.multiply_floats$IF_TRUE2
 push local 2
 push constant 16384
 call Math.multiply 2
-push constant 127
-push constant 128
+push constant 255
+push constant 64
 call Math.multiply 2
 or
 push constant 1
 or
 return
-goto Math.multiply_floats$IF_END3
-label Math.multiply_floats$IF_FALSE3
+goto Math.multiply_floats$IF_END2
+label Math.multiply_floats$IF_FALSE2
 push local 2
 push constant 16384
 call Math.multiply 2
-push constant 127
-push constant 128
+push constant 255
+push constant 64
 call Math.multiply 2
 or
 return
-label Math.multiply_floats$IF_END3
 label Math.multiply_floats$IF_END2
+label Math.multiply_floats$IF_END1
 push local 4
-push constant 127
+push constant 255
 eq
-if-goto Math.multiply_floats$IF_TRUE4
-goto Math.multiply_floats$IF_END4
-label Math.multiply_floats$IF_TRUE4
+if-goto Math.multiply_floats$IF_TRUE3
+goto Math.multiply_floats$IF_END3
+label Math.multiply_floats$IF_TRUE3
 push local 6
 push constant 0
 eq
 not
-if-goto Math.multiply_floats$IF_TRUE5
-goto Math.multiply_floats$IF_FALSE5
-label Math.multiply_floats$IF_TRUE5
+if-goto Math.multiply_floats$IF_TRUE4
+goto Math.multiply_floats$IF_FALSE4
+label Math.multiply_floats$IF_TRUE4
 push local 2
 push constant 16384
 call Math.multiply 2
-push constant 127
-push constant 128
+push constant 255
+push constant 64
 call Math.multiply 2
 or
 push constant 1
 or
 return
-goto Math.multiply_floats$IF_END5
-label Math.multiply_floats$IF_FALSE5
+goto Math.multiply_floats$IF_END4
+label Math.multiply_floats$IF_FALSE4
 push local 2
 push constant 16384
 call Math.multiply 2
-push constant 127
-push constant 128
+push constant 255
+push constant 64
 call Math.multiply 2
 or
+return
+label Math.multiply_floats$IF_END4
+label Math.multiply_floats$IF_END3
+push local 3
+push constant 0
+eq
+push local 5
+push constant 0
+eq
+and
+push local 4
+push constant 0
+eq
+push local 6
+push constant 0
+eq
+and
+or
+if-goto Math.multiply_floats$IF_TRUE5
+goto Math.multiply_floats$IF_END5
+label Math.multiply_floats$IF_TRUE5
+push constant 0
 return
 label Math.multiply_floats$IF_END5
-label Math.multiply_floats$IF_END4
 push local 3
 push constant 0
 eq
-push local 5
-push constant 0
-eq
-and
-push local 4
-push constant 0
-eq
-push local 6
-push constant 0
-eq
-and
-or
 if-goto Math.multiply_floats$IF_TRUE6
-goto Math.multiply_floats$IF_END6
+goto Math.multiply_floats$IF_FALSE6
 label Math.multiply_floats$IF_TRUE6
-push constant 0
-return
+push local 5
+pop local 7
+goto Math.multiply_floats$IF_END6
+label Math.multiply_floats$IF_FALSE6
+push constant 64
+push local 5
+add
+pop local 7
 label Math.multiply_floats$IF_END6
-push local 3
+push local 4
 push constant 0
 eq
 if-goto Math.multiply_floats$IF_TRUE7
 goto Math.multiply_floats$IF_FALSE7
 label Math.multiply_floats$IF_TRUE7
-push local 5
-pop local 7
+push local 6
+pop local 8
 goto Math.multiply_floats$IF_END7
 label Math.multiply_floats$IF_FALSE7
-push constant 128
-push local 5
+push constant 64
+push local 6
 add
-pop local 7
+pop local 8
 label Math.multiply_floats$IF_END7
-push local 4
-push constant 0
-eq
-if-goto Math.multiply_floats$IF_TRUE8
-goto Math.multiply_floats$IF_FALSE8
-label Math.multiply_floats$IF_TRUE8
-push local 6
-pop local 8
-goto Math.multiply_floats$IF_END8
-label Math.multiply_floats$IF_FALSE8
-push constant 128
-push local 6
-add
-pop local 8
-label Math.multiply_floats$IF_END8
 push local 7
 push local 8
 call Math.multiply 2
@@ -527,8 +517,13 @@ push constant 0
 pop local 10
 label Math.multiply_floats_WHILE_EXP1
 push local 9
-push constant 128
+push constant 64
 lt
+push local 9
+push constant 0
+lt
+not
+and
 not
 if-goto Math.multiply_floats_WHILE_END1
 push local 9
@@ -543,7 +538,7 @@ goto Math.multiply_floats_WHILE_EXP1
 label Math.multiply_floats_WHILE_END1
 label Math.multiply_floats_WHILE_EXP2
 push local 9
-push constant 256
+push constant 128
 lt
 not
 not
@@ -559,87 +554,728 @@ pop local 10
 goto Math.multiply_floats_WHILE_EXP2
 label Math.multiply_floats_WHILE_END2
 push local 9
-push constant 127
+push constant 63
 and
 pop local 11
 push local 3
 push constant 0
 eq
-if-goto Math.multiply_floats$IF_TRUE9
-goto Math.multiply_floats$IF_FALSE9
-label Math.multiply_floats$IF_TRUE9
-push constant 62
+if-goto Math.multiply_floats$IF_TRUE8
+goto Math.multiply_floats$IF_FALSE8
+label Math.multiply_floats$IF_TRUE8
+push constant 126
 neg
 pop local 12
-goto Math.multiply_floats$IF_END9
-label Math.multiply_floats$IF_FALSE9
+goto Math.multiply_floats$IF_END8
+label Math.multiply_floats$IF_FALSE8
 push local 3
-push constant 63
+push constant 127
 sub
 pop local 12
-label Math.multiply_floats$IF_END9
+label Math.multiply_floats$IF_END8
 push local 4
 push constant 0
 eq
-if-goto Math.multiply_floats$IF_TRUE10
-goto Math.multiply_floats$IF_FALSE10
-label Math.multiply_floats$IF_TRUE10
-push constant 62
+if-goto Math.multiply_floats$IF_TRUE9
+goto Math.multiply_floats$IF_FALSE9
+label Math.multiply_floats$IF_TRUE9
+push constant 126
 neg
 pop local 13
-goto Math.multiply_floats$IF_END10
-label Math.multiply_floats$IF_FALSE10
+goto Math.multiply_floats$IF_END9
+label Math.multiply_floats$IF_FALSE9
 push local 4
-push constant 63
+push constant 127
 sub
 pop local 13
-label Math.multiply_floats$IF_END10
+label Math.multiply_floats$IF_END9
 push local 12
 push local 13
 add
 push local 10
 add
-push constant 7
+push constant 6
 sub
 pop local 14
 push local 14
-push constant 63
+push constant 127
 add
 pop local 15
 push local 15
-push constant 127
+push constant 255
 lt
 not
-if-goto Math.multiply_floats$IF_TRUE11
-goto Math.multiply_floats$IF_END11
-label Math.multiply_floats$IF_TRUE11
+if-goto Math.multiply_floats$IF_TRUE10
+goto Math.multiply_floats$IF_END10
+label Math.multiply_floats$IF_TRUE10
 push local 2
 push constant 16384
 call Math.multiply 2
-push constant 127
-push constant 128
+push constant 255
+push constant 64
 call Math.multiply 2
 or
 return
-label Math.multiply_floats$IF_END11
+label Math.multiply_floats$IF_END10
 push local 15
 push constant 0
 gt
 not
-if-goto Math.multiply_floats$IF_TRUE12
-goto Math.multiply_floats$IF_END12
-label Math.multiply_floats$IF_TRUE12
+if-goto Math.multiply_floats$IF_TRUE11
+goto Math.multiply_floats$IF_END11
+label Math.multiply_floats$IF_TRUE11
 push constant 0
 return
-label Math.multiply_floats$IF_END12
+label Math.multiply_floats$IF_END11
 push local 2
 push constant 16384
 call Math.multiply 2
 push local 15
-push constant 128
+push constant 64
 call Math.multiply 2
 or
 push local 11
 or
 return
-function Math.divide_floats 0
+function Math.divide_floats 16
+push argument 0
+push constant 16384
+call Math.divide 2
+push constant 1
+and
+pop local 0
+push argument 1
+push constant 16384
+call Math.divide 2
+push constant 1
+and
+pop local 1
+push local 0
+push local 1
+not
+and
+push local 1
+push local 0
+not
+and
+or
+pop local 2
+push argument 0
+push constant 64
+call Math.divide 2
+push constant 255
+and
+pop local 3
+push argument 0
+push constant 63
+and
+pop local 5
+push argument 1
+push constant 64
+call Math.divide 2
+push constant 255
+and
+pop local 4
+push argument 1
+push constant 63
+and
+pop local 6
+push local 3
+push constant 0
+eq
+push local 5
+push constant 0
+eq
+and
+if-goto Math.divide_floats$IF_TRUE1
+goto Math.divide_floats$IF_END1
+label Math.divide_floats$IF_TRUE1
+push constant 0
+return
+label Math.divide_floats$IF_END1
+push local 4
+push constant 0
+eq
+push local 6
+push constant 0
+eq
+and
+if-goto Math.divide_floats$IF_TRUE2
+goto Math.divide_floats$IF_END2
+label Math.divide_floats$IF_TRUE2
+push local 2
+push constant 16384
+call Math.multiply 2
+push constant 255
+push constant 64
+call Math.multiply 2
+or
+return
+label Math.divide_floats$IF_END2
+push local 3
+push constant 255
+eq
+if-goto Math.divide_floats$IF_TRUE3
+goto Math.divide_floats$IF_END3
+label Math.divide_floats$IF_TRUE3
+push argument 0
+return
+label Math.divide_floats$IF_END3
+push local 4
+push constant 255
+eq
+if-goto Math.divide_floats$IF_TRUE4
+goto Math.divide_floats$IF_END4
+label Math.divide_floats$IF_TRUE4
+push constant 0
+return
+label Math.divide_floats$IF_END4
+push local 3
+push constant 0
+eq
+if-goto Math.divide_floats$IF_TRUE5
+goto Math.divide_floats$IF_FALSE5
+label Math.divide_floats$IF_TRUE5
+push local 5
+pop local 7
+goto Math.divide_floats$IF_END5
+label Math.divide_floats$IF_FALSE5
+push constant 64
+push local 5
+add
+pop local 7
+label Math.divide_floats$IF_END5
+push local 4
+push constant 0
+eq
+if-goto Math.divide_floats$IF_TRUE6
+goto Math.divide_floats$IF_FALSE6
+label Math.divide_floats$IF_TRUE6
+push local 6
+pop local 8
+goto Math.divide_floats$IF_END6
+label Math.divide_floats$IF_FALSE6
+push constant 64
+push local 6
+add
+pop local 8
+label Math.divide_floats$IF_END6
+push local 7
+push constant 64
+call Math.multiply 2
+push local 8
+call Math.divide 2
+pop local 9
+push constant 0
+pop local 10
+label Math.divide_floats_WHILE_EXP1
+push local 9
+push constant 64
+lt
+push local 9
+push constant 0
+lt
+not
+and
+not
+if-goto Math.divide_floats_WHILE_END1
+push local 9
+push constant 2
+call Math.multiply 2
+pop local 9
+push local 10
+push constant 1
+sub
+pop local 10
+goto Math.divide_floats_WHILE_EXP1
+label Math.divide_floats_WHILE_END1
+label Math.divide_floats_WHILE_EXP2
+push local 9
+push constant 128
+lt
+not
+not
+if-goto Math.divide_floats_WHILE_END2
+push local 9
+push constant 2
+call Math.divide 2
+pop local 9
+push local 10
+push constant 1
+add
+pop local 10
+goto Math.divide_floats_WHILE_EXP2
+label Math.divide_floats_WHILE_END2
+push local 9
+push constant 63
+and
+pop local 11
+push local 3
+push constant 0
+eq
+if-goto Math.divide_floats$IF_TRUE7
+goto Math.divide_floats$IF_FALSE7
+label Math.divide_floats$IF_TRUE7
+push constant 126
+neg
+pop local 12
+goto Math.divide_floats$IF_END7
+label Math.divide_floats$IF_FALSE7
+push local 3
+push constant 127
+sub
+pop local 12
+label Math.divide_floats$IF_END7
+push local 4
+push constant 0
+eq
+if-goto Math.divide_floats$IF_TRUE8
+goto Math.divide_floats$IF_FALSE8
+label Math.divide_floats$IF_TRUE8
+push constant 126
+neg
+pop local 13
+goto Math.divide_floats$IF_END8
+label Math.divide_floats$IF_FALSE8
+push local 4
+push constant 127
+sub
+pop local 13
+label Math.divide_floats$IF_END8
+push local 12
+push local 13
+sub
+push local 10
+add
+pop local 14
+push local 14
+push constant 127
+add
+pop local 15
+push local 15
+push constant 255
+lt
+not
+if-goto Math.divide_floats$IF_TRUE9
+goto Math.divide_floats$IF_END9
+label Math.divide_floats$IF_TRUE9
+push local 2
+push constant 16384
+call Math.multiply 2
+push constant 255
+push constant 64
+call Math.multiply 2
+or
+return
+label Math.divide_floats$IF_END9
+push local 15
+push constant 0
+gt
+not
+if-goto Math.divide_floats$IF_TRUE10
+goto Math.divide_floats$IF_END10
+label Math.divide_floats$IF_TRUE10
+push constant 0
+return
+label Math.divide_floats$IF_END10
+push local 2
+push constant 16384
+call Math.multiply 2
+push local 15
+push constant 64
+call Math.multiply 2
+or
+push local 11
+or
+return
+function Math.add_floats 15
+push argument 0
+push constant 16384
+call Math.divide 2
+push constant 1
+and
+pop local 0
+push argument 1
+push constant 16384
+call Math.divide 2
+push constant 1
+and
+pop local 1
+push argument 0
+push constant 64
+call Math.divide 2
+push constant 255
+and
+pop local 3
+push argument 0
+push constant 63
+and
+pop local 5
+push argument 1
+push constant 64
+call Math.divide 2
+push constant 255
+and
+pop local 4
+push argument 1
+push constant 63
+and
+pop local 6
+push local 3
+push constant 255
+eq
+if-goto Math.add_floats$IF_TRUE1
+goto Math.add_floats$IF_END1
+label Math.add_floats$IF_TRUE1
+push local 5
+push constant 0
+eq
+not
+if-goto Math.add_floats$IF_TRUE2
+goto Math.add_floats$IF_FALSE2
+label Math.add_floats$IF_TRUE2
+push local 0
+push constant 16384
+call Math.multiply 2
+push constant 255
+push constant 64
+call Math.multiply 2
+or
+push constant 1
+or
+return
+goto Math.add_floats$IF_END2
+label Math.add_floats$IF_FALSE2
+push argument 0
+return
+label Math.add_floats$IF_END2
+label Math.add_floats$IF_END1
+push local 4
+push constant 255
+eq
+if-goto Math.add_floats$IF_TRUE3
+goto Math.add_floats$IF_END3
+label Math.add_floats$IF_TRUE3
+push local 6
+push constant 0
+eq
+not
+if-goto Math.add_floats$IF_TRUE4
+goto Math.add_floats$IF_FALSE4
+label Math.add_floats$IF_TRUE4
+push local 1
+push constant 16384
+call Math.multiply 2
+push constant 255
+push constant 64
+call Math.multiply 2
+or
+push constant 1
+or
+return
+goto Math.add_floats$IF_END4
+label Math.add_floats$IF_FALSE4
+push argument 1
+return
+label Math.add_floats$IF_END4
+label Math.add_floats$IF_END3
+push local 3
+push constant 0
+eq
+push local 5
+push constant 0
+eq
+and
+if-goto Math.add_floats$IF_TRUE5
+goto Math.add_floats$IF_END5
+label Math.add_floats$IF_TRUE5
+push argument 1
+return
+label Math.add_floats$IF_END5
+push local 4
+push constant 0
+eq
+push local 6
+push constant 0
+eq
+and
+if-goto Math.add_floats$IF_TRUE6
+goto Math.add_floats$IF_END6
+label Math.add_floats$IF_TRUE6
+push argument 0
+return
+label Math.add_floats$IF_END6
+push local 3
+push constant 0
+eq
+if-goto Math.add_floats$IF_TRUE7
+goto Math.add_floats$IF_FALSE7
+label Math.add_floats$IF_TRUE7
+push local 5
+pop local 7
+push constant 126
+neg
+pop local 10
+goto Math.add_floats$IF_END7
+label Math.add_floats$IF_FALSE7
+push constant 64
+push local 5
+add
+pop local 7
+push local 3
+push constant 127
+sub
+pop local 10
+label Math.add_floats$IF_END7
+push local 4
+push constant 0
+eq
+if-goto Math.add_floats$IF_TRUE8
+goto Math.add_floats$IF_FALSE8
+label Math.add_floats$IF_TRUE8
+push local 6
+pop local 8
+push constant 126
+neg
+pop local 11
+goto Math.add_floats$IF_END8
+label Math.add_floats$IF_FALSE8
+push constant 64
+push local 6
+add
+pop local 8
+push local 4
+push constant 127
+sub
+pop local 11
+label Math.add_floats$IF_END8
+push local 11
+push local 10
+gt
+if-goto Math.add_floats$IF_TRUE9
+goto Math.add_floats$IF_END9
+label Math.add_floats$IF_TRUE9
+push argument 0
+pop local 14
+push argument 1
+pop argument 0
+push local 14
+pop argument 1
+push local 0
+pop local 14
+push local 1
+pop local 0
+push local 14
+pop local 1
+push local 3
+pop local 14
+push local 4
+pop local 3
+push local 14
+pop local 4
+push local 5
+pop local 14
+push local 6
+pop local 5
+push local 14
+pop local 6
+push local 7
+pop local 14
+push local 8
+pop local 7
+push local 14
+pop local 8
+push local 10
+pop local 14
+push local 11
+pop local 10
+push local 14
+pop local 11
+label Math.add_floats$IF_END9
+push local 10
+push local 11
+sub
+pop local 13
+push local 13
+push constant 6
+gt
+if-goto Math.add_floats$IF_TRUE10
+goto Math.add_floats$IF_END10
+label Math.add_floats$IF_TRUE10
+push argument 0
+return
+label Math.add_floats$IF_END10
+label Math.add_floats_WHILE_EXP1
+push local 13
+push constant 0
+gt
+not
+if-goto Math.add_floats_WHILE_END1
+push local 8
+push constant 2
+call Math.divide 2
+pop local 8
+push local 13
+push constant 1
+sub
+pop local 13
+goto Math.add_floats_WHILE_EXP1
+label Math.add_floats_WHILE_END1
+push local 0
+push local 1
+eq
+if-goto Math.add_floats$IF_TRUE11
+goto Math.add_floats$IF_FALSE11
+label Math.add_floats$IF_TRUE11
+push local 7
+push local 8
+add
+pop local 9
+push local 0
+pop local 2
+goto Math.add_floats$IF_END11
+label Math.add_floats$IF_FALSE11
+push local 7
+push local 8
+lt
+not
+if-goto Math.add_floats$IF_TRUE12
+goto Math.add_floats$IF_FALSE12
+label Math.add_floats$IF_TRUE12
+push local 7
+push local 8
+sub
+pop local 9
+push local 0
+pop local 2
+goto Math.add_floats$IF_END12
+label Math.add_floats$IF_FALSE12
+push local 8
+push local 7
+sub
+pop local 9
+push local 1
+pop local 2
+label Math.add_floats$IF_END12
+label Math.add_floats$IF_END11
+push local 9
+push constant 0
+eq
+if-goto Math.add_floats$IF_TRUE13
+goto Math.add_floats$IF_END13
+label Math.add_floats$IF_TRUE13
+push constant 0
+return
+label Math.add_floats$IF_END13
+push local 10
+pop local 12
+label Math.add_floats_WHILE_EXP2
+push local 9
+push constant 128
+lt
+not
+not
+if-goto Math.add_floats_WHILE_END2
+push local 9
+push constant 2
+call Math.divide 2
+pop local 9
+push local 12
+push constant 1
+add
+pop local 12
+goto Math.add_floats_WHILE_EXP2
+label Math.add_floats_WHILE_END2
+label Math.add_floats_WHILE_EXP3
+push local 9
+push constant 64
+lt
+push local 9
+push constant 0
+gt
+and
+not
+if-goto Math.add_floats_WHILE_END3
+push local 9
+push constant 2
+call Math.multiply 2
+pop local 9
+push local 12
+push constant 1
+sub
+pop local 12
+goto Math.add_floats_WHILE_EXP3
+label Math.add_floats_WHILE_END3
+push local 12
+push constant 127
+add
+pop local 12
+push local 12
+push constant 255
+lt
+not
+if-goto Math.add_floats$IF_TRUE14
+goto Math.add_floats$IF_END14
+label Math.add_floats$IF_TRUE14
+push local 2
+push constant 16384
+call Math.multiply 2
+push constant 255
+push constant 64
+call Math.multiply 2
+or
+return
+label Math.add_floats$IF_END14
+push local 12
+push constant 0
+gt
+not
+if-goto Math.add_floats$IF_TRUE15
+goto Math.add_floats$IF_END15
+label Math.add_floats$IF_TRUE15
+push constant 0
+return
+label Math.add_floats$IF_END15
+push local 9
+push constant 63
+and
+// Error: variable not found: fracR
+push local 2
+push constant 16384
+call Math.multiply 2
+push local 12
+push constant 64
+call Math.multiply 2
+or
+// Error: variable not found: fracR
+or
+return
+function Math.subtract_floats 1
+push argument 1
+push constant 16384
+call Math.divide 2
+push constant 1
+and
+pop local 0
+push local 0
+push constant 1
+eq
+if-goto Math.subtract_floats$IF_TRUE1
+goto Math.subtract_floats$IF_FALSE1
+label Math.subtract_floats$IF_TRUE1
+push argument 1
+push constant 16383
+and
+pop argument 1
+goto Math.subtract_floats$IF_END1
+label Math.subtract_floats$IF_FALSE1
+push argument 1
+push constant 16384
+or
+pop argument 1
+label Math.subtract_floats$IF_END1
+push pointer 0
+push argument 0
+push argument 1
+call Math.add_floats 3
+return
