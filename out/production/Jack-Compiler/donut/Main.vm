@@ -15,9 +15,7 @@ pop temp 0
 push constant 61
 call Output.printChar 1
 pop temp 0
-push local 0
-push local 1
-call Math.multiply_floats 2
+push constant 9161
 call Output.printFloat 1
 pop temp 0
 call Output.println 0

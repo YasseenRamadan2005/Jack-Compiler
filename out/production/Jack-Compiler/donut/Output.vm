@@ -1741,26 +1741,17 @@ function Output.printFloat 9
 push argument 0
 push constant 16384
 call Math.divide 2
-push constant 0
-eq
-if-goto Output.printFloat$IF_TRUE1
-goto Output.printFloat$IF_FALSE1
-label Output.printFloat$IF_TRUE1
-push constant 0
-pop local 0
-goto Output.printFloat$IF_END1
-label Output.printFloat$IF_FALSE1
 push constant 1
+and
 pop local 0
-label Output.printFloat$IF_END1
 push argument 0
-push constant 128
+push constant 64
 call Math.divide 2
-push constant 127
+push constant 255
 and
 pop local 1
 push argument 0
-push constant 127
+push constant 63
 and
 pop local 2
 push local 1
@@ -1770,9 +1761,19 @@ push local 2
 push constant 0
 eq
 and
+if-goto Output.printFloat$IF_TRUE1
+goto Output.printFloat$IF_END1
+label Output.printFloat$IF_TRUE1
+push local 0
+push constant 1
+eq
 if-goto Output.printFloat$IF_TRUE2
 goto Output.printFloat$IF_END2
 label Output.printFloat$IF_TRUE2
+push constant 45
+call Output.printChar 1
+pop temp 0
+label Output.printFloat$IF_END2
 push constant 48
 call Output.printChar 1
 pop temp 0
@@ -1784,52 +1785,97 @@ call Output.printChar 1
 pop temp 0
 push constant 0
 return
-label Output.printFloat$IF_END2
+label Output.printFloat$IF_END1
 push local 1
-push constant 0
+push constant 255
 eq
 if-goto Output.printFloat$IF_TRUE3
-goto Output.printFloat$IF_FALSE3
-label Output.printFloat$IF_TRUE3
-push local 2
-pop local 3
 goto Output.printFloat$IF_END3
-label Output.printFloat$IF_FALSE3
-push constant 128
+label Output.printFloat$IF_TRUE3
+push local 0
+push constant 1
+eq
+if-goto Output.printFloat$IF_TRUE4
+goto Output.printFloat$IF_END4
+label Output.printFloat$IF_TRUE4
+push constant 45
+call Output.printChar 1
+pop temp 0
+label Output.printFloat$IF_END4
 push local 2
-add
-pop local 3
+push constant 0
+eq
+if-goto Output.printFloat$IF_TRUE5
+goto Output.printFloat$IF_FALSE5
+label Output.printFloat$IF_TRUE5
+push constant 3
+call String.new 1
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+goto Output.printFloat$IF_END5
+label Output.printFloat$IF_FALSE5
+push constant 3
+call String.new 1
+push constant 110
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label Output.printFloat$IF_END5
+push constant 0
+return
 label Output.printFloat$IF_END3
 push local 1
 push constant 0
 eq
-if-goto Output.printFloat$IF_TRUE4
-goto Output.printFloat$IF_FALSE4
-label Output.printFloat$IF_TRUE4
-push constant 62
+if-goto Output.printFloat$IF_TRUE6
+goto Output.printFloat$IF_FALSE6
+label Output.printFloat$IF_TRUE6
+push local 2
+pop local 3
+push constant 126
 neg
 pop local 1
-goto Output.printFloat$IF_END4
-label Output.printFloat$IF_FALSE4
+goto Output.printFloat$IF_END6
+label Output.printFloat$IF_FALSE6
+push constant 64
+push local 2
+add
+pop local 3
 push local 1
-push constant 63
+push constant 127
 sub
 pop local 1
-label Output.printFloat$IF_END4
+label Output.printFloat$IF_END6
 push local 3
 pop local 4
 push local 1
 push constant 0
 gt
-if-goto Output.printFloat$IF_TRUE5
-goto Output.printFloat$IF_FALSE5
-label Output.printFloat$IF_TRUE5
+if-goto Output.printFloat$IF_TRUE7
+goto Output.printFloat$IF_FALSE7
+label Output.printFloat$IF_TRUE7
 push constant 0
 pop local 5
 label Output.printFloat_WHILE_EXP1
 push local 5
 push local 1
 lt
+push local 4
+push local 4
+push local 4
+add
+lt
+and
 not
 if-goto Output.printFloat_WHILE_END1
 push local 4
@@ -1842,8 +1888,8 @@ add
 pop local 5
 goto Output.printFloat_WHILE_EXP1
 label Output.printFloat_WHILE_END1
-goto Output.printFloat$IF_END5
-label Output.printFloat$IF_FALSE5
+goto Output.printFloat$IF_END7
+label Output.printFloat$IF_FALSE7
 push constant 0
 pop local 5
 label Output.printFloat_WHILE_EXP2
@@ -1863,29 +1909,61 @@ add
 pop local 5
 goto Output.printFloat_WHILE_EXP2
 label Output.printFloat_WHILE_END2
-label Output.printFloat$IF_END5
+label Output.printFloat$IF_END7
 push local 0
 push constant 1
 eq
-if-goto Output.printFloat$IF_TRUE6
-goto Output.printFloat$IF_END6
-label Output.printFloat$IF_TRUE6
+if-goto Output.printFloat$IF_TRUE8
+goto Output.printFloat$IF_END8
+label Output.printFloat$IF_TRUE8
 push constant 45
 call Output.printChar 1
 pop temp 0
-label Output.printFloat$IF_END6
+label Output.printFloat$IF_END8
+push local 1
+push local 5
+eq
+not
+if-goto Output.printFloat$IF_TRUE9
+goto Output.printFloat$IF_FALSE9
+label Output.printFloat$IF_TRUE9
 push local 4
-push constant 128
+push constant 64
+push local 1
+push local 5
+sub
+push constant 1
+add
+call Math.divide 2
 call Math.divide 2
 pop local 6
+goto Output.printFloat$IF_END9
+label Output.printFloat$IF_FALSE9
+push local 4
+push constant 64
+call Math.divide 2
+pop local 6
+label Output.printFloat$IF_END9
+push local 6
+push constant 0
+eq
+if-goto Output.printFloat$IF_TRUE10
+goto Output.printFloat$IF_FALSE10
+label Output.printFloat$IF_TRUE10
+push constant 48
+call Output.printChar 1
+pop temp 0
+goto Output.printFloat$IF_END10
+label Output.printFloat$IF_FALSE10
 push local 6
 call Output.printInt 1
 pop temp 0
+label Output.printFloat$IF_END10
 push constant 46
 call Output.printChar 1
 pop temp 0
 push local 4
-push constant 127
+push constant 63
 and
 pop local 7
 push constant 0
@@ -1901,14 +1979,25 @@ push constant 10
 call Math.multiply 2
 pop local 7
 push local 7
-push constant 128
+push constant 64
 call Math.divide 2
 pop local 8
 push local 8
-call Output.printInt 1
+push constant 9
+gt
+if-goto Output.printFloat$IF_TRUE11
+goto Output.printFloat$IF_END11
+label Output.printFloat$IF_TRUE11
+push constant 9
+pop local 8
+label Output.printFloat$IF_END11
+push constant 48
+push local 8
+add
+call Output.printChar 1
 pop temp 0
 push local 7
-push constant 127
+push constant 63
 and
 pop local 7
 push local 5

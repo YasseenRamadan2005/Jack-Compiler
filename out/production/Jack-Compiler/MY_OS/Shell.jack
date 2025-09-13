@@ -13,6 +13,7 @@ class Shell {
         var char character;
         var int cursor;
         var String command;
+        var char prevKeypress;
 
         let cwd = "cwd";
         let ls = "ls";
@@ -34,37 +35,40 @@ class Shell {
         do Output.printChar(0);  // Cursor block
 
         while (true) {
-            while (KEYBOARD_START_ADDRESS[0] = 0) {} // Wait for keypress
+            // while (KEYBOARD_START_ADDRESS[0] = 0) {} // Wait for keypress
 
             let character = KEYBOARD_START_ADDRESS[0];
 
-            if (character = 128) {
-                do Output.println();
-                do Shell.handleCommand(command);
-                do command.dispose();
-                let command = String.new(100);
-                let cursor = 0;
-                do Output.printChar(36); // '$'
-                do Output.printChar(0);
-            } else {
-                if ((character = 129) & (cursor > 0)) {
-                    do Output.backSpace();
-                    do Output.backSpace();
+            if ((character ~= prevKeypress) & (character ~= 240) & (character ~= 0)) {
+                if (character = 128) {
+                    do Output.println();
+                    do Shell.handleCommand(command);
+                    do command.dispose();
+                    let command = String.new(100);
+                    let cursor = 0;
+                    do Output.printChar(36); // '$'
                     do Output.printChar(0);
-                    do command.eraseLastChar();
-                    let cursor = cursor - 1;
                 } else {
-                    if (~((character = 129) & (cursor = 0))) {
+                    if ((character = 129) & (cursor > 0)) {
                         do Output.backSpace();
-                        do Output.printChar(character);
+                        do Output.backSpace();
                         do Output.printChar(0);
-                        do command.appendChar(character);
-                        let cursor = cursor + 1;
+                        do command.eraseLastChar();
+                        let cursor = cursor - 1;
+                    } else {
+                        if (~((character = 129) & (cursor = 0))) {
+                            do Output.backSpace();
+                            do Output.printChar(character);
+                            do Output.printChar(0);
+                            do command.appendChar(character);
+                            let cursor = cursor + 1;
+                        }
                     }
                 }
             }
 
             let KEYBOARD_START_ADDRESS[0] = 0;
+            let prevKeypress = character;
         }
 
         return;

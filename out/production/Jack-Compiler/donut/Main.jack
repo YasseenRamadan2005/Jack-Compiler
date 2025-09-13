@@ -9,7 +9,7 @@ class Main {
         do Output.printChar(42);
         do Output.printFloat(a_float);
         do Output.printChar(61);
-        do Output.printFloat(75000.0);
+        do Output.printFloat(Math.multiply_floats(the_float, a_float));
         do Output.println();
 
         do Output.printInt(the_float);

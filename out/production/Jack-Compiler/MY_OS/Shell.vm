@@ -1,4 +1,4 @@
-function Shell.run 3
+function Shell.run 4
 push constant 3
 call String.new 1
 push constant 99
@@ -179,18 +179,6 @@ push constant 0
 not
 not
 if-goto Shell.run_WHILE_END1
-label Shell.run_WHILE_EXP2
-push constant 24576
-push constant 0
-add
-pop pointer 1
-push that 0
-push constant 0
-eq
-not
-if-goto Shell.run_WHILE_END2
-goto Shell.run_WHILE_EXP2
-label Shell.run_WHILE_END2
 push constant 24576
 push constant 0
 add
@@ -198,11 +186,28 @@ pop pointer 1
 push that 0
 pop local 0
 push local 0
+push local 3
+eq
+not
+push local 0
+push constant 240
+eq
+not
+and
+push local 0
+push constant 0
+eq
+not
+and
+if-goto Shell.run$IF_TRUE1
+goto Shell.run$IF_END1
+label Shell.run$IF_TRUE1
+push local 0
 push constant 128
 eq
-if-goto Shell.run$IF_TRUE1
-goto Shell.run$IF_FALSE1
-label Shell.run$IF_TRUE1
+if-goto Shell.run$IF_TRUE2
+goto Shell.run$IF_FALSE2
+label Shell.run$IF_TRUE2
 call Output.println 0
 pop temp 0
 push static 1
@@ -222,8 +227,8 @@ pop temp 0
 push constant 0
 call Output.printChar 1
 pop temp 0
-goto Shell.run$IF_END1
-label Shell.run$IF_FALSE1
+goto Shell.run$IF_END2
+label Shell.run$IF_FALSE2
 push local 0
 push constant 129
 eq
@@ -231,9 +236,9 @@ push static 0
 push constant 0
 gt
 and
-if-goto Shell.run$IF_TRUE2
-goto Shell.run$IF_FALSE2
-label Shell.run$IF_TRUE2
+if-goto Shell.run$IF_TRUE3
+goto Shell.run$IF_FALSE3
+label Shell.run$IF_TRUE3
 call Output.backSpace 0
 pop temp 0
 call Output.backSpace 0
@@ -248,8 +253,8 @@ push static 0
 push constant 1
 sub
 pop static 0
-goto Shell.run$IF_END2
-label Shell.run$IF_FALSE2
+goto Shell.run$IF_END3
+label Shell.run$IF_FALSE3
 push local 0
 push constant 129
 eq
@@ -258,9 +263,9 @@ push constant 0
 eq
 and
 not
-if-goto Shell.run$IF_TRUE3
-goto Shell.run$IF_END3
-label Shell.run$IF_TRUE3
+if-goto Shell.run$IF_TRUE4
+goto Shell.run$IF_END4
+label Shell.run$IF_TRUE4
 call Output.backSpace 0
 pop temp 0
 push local 0
@@ -277,6 +282,7 @@ push static 0
 push constant 1
 add
 pop static 0
+label Shell.run$IF_END4
 label Shell.run$IF_END3
 label Shell.run$IF_END2
 label Shell.run$IF_END1
@@ -286,6 +292,8 @@ push constant 0
 add
 pop pointer 1
 pop that 0
+push local 0
+pop local 3
 goto Shell.run_WHILE_EXP1
 label Shell.run_WHILE_END1
 push constant 0
