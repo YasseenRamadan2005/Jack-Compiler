@@ -46,10 +46,18 @@ class Sys {
        var int i;
        let i = 0;
        while (i < 8192) {
-           let i[16384] = -1;
+           let i[16384] = 0;
            let i = i + 1;
        }
-        do Sys.halt();
+       let i = 2048;
+       while (i < 16384){
+            let i[0] = 0;
+            let i = i + 1;
+       }
+       do Memory.init();
+       do Output.printString("Out of heap memory");
+       do Output.println();
+       do Sys.halt();
         return;
     }
 }

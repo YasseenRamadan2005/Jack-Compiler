@@ -61,8 +61,7 @@ push constant 8192
 lt
 not
 if-goto Sys.error_WHILE_END1
-push constant 1
-neg
+push constant 0
 push local 0
 push constant 16384
 add
@@ -74,6 +73,70 @@ add
 pop local 0
 goto Sys.error_WHILE_EXP1
 label Sys.error_WHILE_END1
+push constant 2048
+pop local 0
+label Sys.error_WHILE_EXP2
+push local 0
+push constant 16384
+lt
+not
+if-goto Sys.error_WHILE_END2
+push constant 0
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Sys.error_WHILE_EXP2
+label Sys.error_WHILE_END2
+call Memory.init 0
+pop temp 0
+push constant 18
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
 call Sys.halt 0
 pop temp 0
 push constant 0

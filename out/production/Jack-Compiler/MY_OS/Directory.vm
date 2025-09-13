@@ -147,7 +147,7 @@ push local 3
 call File.getName 1
 pop local 4
 push local 4
-push this 0
+push argument 1
 call String.equals 2
 if-goto Directory.deleteFile$IF_TRUE1
 goto Directory.deleteFile$IF_FALSE1
@@ -165,6 +165,9 @@ label Directory.deleteFile$IF_END1
 goto Directory.deleteFile_WHILE_EXP1
 label Directory.deleteFile_WHILE_END1
 push local 5
+push constant 0
+not
+eq
 if-goto Directory.deleteFile$IF_TRUE2
 goto Directory.deleteFile$IF_END2
 label Directory.deleteFile$IF_TRUE2

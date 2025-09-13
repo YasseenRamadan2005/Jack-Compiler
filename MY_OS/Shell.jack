@@ -6,7 +6,7 @@ class Shell {
     static int cursor;
     static String command;
 
-    static String cwd, ls, mkdir, cd, clear, tree, err, cat, touch, del, write;
+    static String cwd, ls, mkdir, cd, clear, tree, err, cat, touch, del, write, bf;
     static Directory theCwd;
 
     function void run() {
@@ -25,6 +25,7 @@ class Shell {
         let touch = "touch";
         let del = "del";
         let write = "write";
+        let bf = "bf";
         let err = "Unsupported instruction: ";
 
         let command = String.new(100);
@@ -81,6 +82,11 @@ function void handleCommand(String s) {
         var String cmd, arg, name;
         var int tokenCount, i, n;
 
+        var int depth;
+        var int progLen, i, pc, dp;
+        var int program, tape;
+        var char ch;
+
         let tokens = Shell.parseCommand(s);
         let tokenCount = tokens.length();
 
@@ -108,6 +114,15 @@ function void handleCommand(String s) {
                 do Output.printString(theCwd.getFileName(i));
                 do Output.println();
                 let i = i + 1;
+            }
+            return;
+        }
+
+        if ((cmd.equals(del)) & (tokenCount > 1)) {
+            let name = tokens.get(1);
+            if (theCwd.deleteFile(name) = false){
+               do Output.printString("File not found");
+               do Output.println();
             }
             return;
         }
@@ -145,11 +160,6 @@ function void handleCommand(String s) {
             return;
         }
 
-        if ((cmd.equals(del)) & (tokenCount > 1)) {
-            let name = tokens.get(1);
-            do theCwd.deleteFile(name);
-            return;
-        }
 
         if ((cmd.equals(cat)) & (tokenCount > 1)) {
             let name = tokens.get(1);
@@ -197,6 +207,112 @@ function void handleCommand(String s) {
 
         if (cmd.equals(tree)) {
             do Shell.printTree(theCwd, 0);
+            return;
+        }
+
+        if ((cmd.equals(bf)) & (tokenCount > 1)) {
+            let name = tokens.get(1);
+            let file = theCwd.getFile(name);
+            if (file ~= null) {
+
+            // Load file into "program"
+            let progLen = file.getSize();
+            let program = Memory.alloc(progLen);
+            let i = 0;
+            while (i < progLen) {
+                let program[i] = file.readChar(i);
+                let i = i + 1;
+            }
+
+            // Allocate BF tape (100 cells)
+            let tape = Memory.alloc(100);
+            let dp = 0;   // data pointer
+            let pc = 0;   // program counter
+
+            // Initialize tape to zero
+            let i = 0;
+            while (i < 100) {
+                let tape[i] = 0;
+                let i = i + 1;
+            }
+
+            // Interpret loop
+            while (pc < progLen) {
+                if (program[pc] = 62) {
+                    let dp = dp + 1;
+                } else {
+                        if (program[pc] = 60) {
+                            let dp = dp - 1;
+                        } else {
+                            if (program[pc] = 43) {
+                                let tape[dp] = (tape[dp] + 1) & 255; // wrap 0..255
+                            } else {
+                                if (program[pc] = 45) {
+                                    let tape[dp] = (tape[dp] - 1) & 255;
+                                } else {
+                                    if (program[pc] = 46) {
+                                        do Output.printChar(tape[dp]);
+                                    } else {
+                                        if (program[pc] = 44) {
+                                            // simple: wait for key, store ASCII
+                                            let ch = 0;
+                                            while (ch = 0) {
+                                                let ch = KEYBOARD_START_ADDRESS[0];
+                                            }
+                                            let tape[dp] = ch;
+                                            let KEYBOARD_START_ADDRESS[0] = 0;
+                                        } else {
+                                            if (program[pc] = 91) {
+                                                if (tape[dp] = 0) {
+                                                    // jump forward to matching ']'
+                                                    let i = pc + 1;
+                                                    let depth = 1;
+                                                    while ((i < progLen) & (depth > 0)) {
+                                                        if (program[i] = 91) {
+                                                            let depth = depth + 1;
+                                                        } else {
+                                                            if (program[i] = 93) {
+                                                                let depth = depth - 1;
+                                                            }
+                                                        }
+                                                        let i = i + 1;
+                                                    }
+                                                    let pc = i - 1; // land on matching ]
+                                                }
+                                            } else {
+                                                if (program[pc] = 93) {
+                                                    if (tape[dp] ~= 0) {
+                                                        // jump backward to matching '['
+                                                        let i = pc - 1;
+                                                        let depth = 1;
+                                                        while ((i >= 0) & (depth > 0)) {
+                                                            if (program[i] = 93) {
+                                                                let depth = depth + 1;
+                                                            } else {
+                                                                if (program[i] = 91) {
+                                                                    let depth = depth - 1;
+                                                                }
+                                                            }
+                                                            let i = i - 1;
+                                                        }
+                                                        let pc = i + 1; // land on matching [
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    let pc = pc + 1;
+                }
+
+            } else {
+                do Output.printString("File not found: ");
+                do Output.printString(name);
+                do Output.println();
+            }
             return;
         }
 

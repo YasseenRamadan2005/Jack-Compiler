@@ -103,6 +103,13 @@ call String.appendChar 2
 push constant 101
 call String.appendChar 2
 pop static 12
+push constant 2
+call String.new 1
+push constant 98
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+pop static 13
 push constant 25
 call String.new 1
 push constant 85
@@ -165,7 +172,7 @@ push constant 47
 call String.appendChar 2
 push constant 0
 call Directory.new 2
-pop static 13
+pop static 14
 push constant 0
 pop static 0
 push constant 36
@@ -298,7 +305,7 @@ goto Shell.run_WHILE_EXP1
 label Shell.run_WHILE_END1
 push constant 0
 return
-function Shell.handleCommand 10
+function Shell.handleCommand 18
 push argument 0
 call Shell.parseCommand 1
 pop local 0
@@ -324,7 +331,7 @@ call String.equals 2
 if-goto Shell.handleCommand$IF_TRUE2
 goto Shell.handleCommand$IF_END2
 label Shell.handleCommand$IF_TRUE2
-push static 13
+push static 14
 call Directory.getName 1
 call Output.printString 1
 pop temp 0
@@ -340,54 +347,54 @@ if-goto Shell.handleCommand$IF_TRUE3
 goto Shell.handleCommand$IF_END3
 label Shell.handleCommand$IF_TRUE3
 push constant 0
-pop local 8
+pop local 12
 label Shell.handleCommand_WHILE_EXP1
-push local 8
-push static 13
+push local 12
+push static 14
 call Directory.amountOfDirectories 1
 lt
 not
 if-goto Shell.handleCommand_WHILE_END1
-push static 13
-push local 8
+push static 14
+push local 12
 call Directory.getDirectoryName 2
 call Output.printString 1
 pop temp 0
 call Output.println 0
 pop temp 0
-push local 8
+push local 12
 push constant 1
 add
-pop local 8
+pop local 12
 goto Shell.handleCommand_WHILE_EXP1
 label Shell.handleCommand_WHILE_END1
 push constant 0
-pop local 8
+pop local 12
 label Shell.handleCommand_WHILE_EXP2
-push local 8
-push static 13
+push local 12
+push static 14
 call Directory.amountOfFiles 1
 lt
 not
 if-goto Shell.handleCommand_WHILE_END2
-push static 13
-push local 8
+push static 14
+push local 12
 call Directory.getFileName 2
 call Output.printString 1
 pop temp 0
 call Output.println 0
 pop temp 0
-push local 8
+push local 12
 push constant 1
 add
-pop local 8
+pop local 12
 goto Shell.handleCommand_WHILE_EXP2
 label Shell.handleCommand_WHILE_END2
 push constant 0
 return
 label Shell.handleCommand$IF_END3
 push local 4
-push static 4
+push static 11
 call String.equals 2
 push local 7
 push constant 1
@@ -399,16 +406,76 @@ label Shell.handleCommand$IF_TRUE4
 push local 0
 push constant 1
 call Array.get 2
+pop local 6
+push static 14
+push local 6
+call Directory.deleteFile 2
+push constant 0
+eq
+if-goto Shell.handleCommand$IF_TRUE5
+goto Shell.handleCommand$IF_END5
+label Shell.handleCommand$IF_TRUE5
+push constant 14
+call String.new 1
+push constant 70
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+label Shell.handleCommand$IF_END5
+push constant 0
+return
+label Shell.handleCommand$IF_END4
+push local 4
+push static 4
+call String.equals 2
+push local 7
+push constant 1
+gt
+and
+if-goto Shell.handleCommand$IF_TRUE6
+goto Shell.handleCommand$IF_END6
+label Shell.handleCommand$IF_TRUE6
+push local 0
+push constant 1
+call Array.get 2
 pop local 5
-push static 13
+push static 14
 push local 5
-push static 13
+push static 14
 call Directory.new 2
 call Directory.addDirectory 2
 pop temp 0
 push constant 0
 return
-label Shell.handleCommand$IF_END4
+label Shell.handleCommand$IF_END6
 push local 4
 push static 5
 call String.equals 2
@@ -416,9 +483,9 @@ push local 7
 push constant 1
 gt
 and
-if-goto Shell.handleCommand$IF_TRUE5
-goto Shell.handleCommand$IF_END5
-label Shell.handleCommand$IF_TRUE5
+if-goto Shell.handleCommand$IF_TRUE7
+goto Shell.handleCommand$IF_END7
+label Shell.handleCommand$IF_TRUE7
 push local 0
 push constant 1
 call Array.get 2
@@ -431,31 +498,31 @@ call String.appendChar 2
 push constant 46
 call String.appendChar 2
 call String.equals 2
-push static 13
+push static 14
 call Directory.getParent 1
 push constant 0
 eq
 not
 and
-if-goto Shell.handleCommand$IF_TRUE6
-goto Shell.handleCommand$IF_FALSE6
-label Shell.handleCommand$IF_TRUE6
-push static 13
+if-goto Shell.handleCommand$IF_TRUE8
+goto Shell.handleCommand$IF_FALSE8
+label Shell.handleCommand$IF_TRUE8
+push static 14
 call Directory.getParent 1
 pop local 2
 push local 2
 push constant 0
 eq
 not
-if-goto Shell.handleCommand$IF_TRUE7
-goto Shell.handleCommand$IF_END7
-label Shell.handleCommand$IF_TRUE7
+if-goto Shell.handleCommand$IF_TRUE9
+goto Shell.handleCommand$IF_END9
+label Shell.handleCommand$IF_TRUE9
 push local 2
-pop static 13
-label Shell.handleCommand$IF_END7
-goto Shell.handleCommand$IF_END6
-label Shell.handleCommand$IF_FALSE6
-push static 13
+pop static 14
+label Shell.handleCommand$IF_END9
+goto Shell.handleCommand$IF_END8
+label Shell.handleCommand$IF_FALSE8
+push static 14
 push local 5
 call Directory.getDirectory 2
 pop local 2
@@ -463,13 +530,13 @@ push local 2
 push constant 0
 eq
 not
-if-goto Shell.handleCommand$IF_TRUE8
-goto Shell.handleCommand$IF_FALSE8
-label Shell.handleCommand$IF_TRUE8
+if-goto Shell.handleCommand$IF_TRUE10
+goto Shell.handleCommand$IF_FALSE10
+label Shell.handleCommand$IF_TRUE10
 push local 2
-pop static 13
-goto Shell.handleCommand$IF_END8
-label Shell.handleCommand$IF_FALSE8
+pop static 14
+goto Shell.handleCommand$IF_END10
+label Shell.handleCommand$IF_FALSE10
 call Output.println 0
 pop temp 0
 push constant 11
@@ -503,57 +570,13 @@ call Output.printString 1
 pop temp 0
 call Output.println 0
 pop temp 0
+label Shell.handleCommand$IF_END10
 label Shell.handleCommand$IF_END8
-label Shell.handleCommand$IF_END6
 push constant 0
 return
-label Shell.handleCommand$IF_END5
+label Shell.handleCommand$IF_END7
 push local 4
 push static 10
-call String.equals 2
-push local 7
-push constant 1
-gt
-and
-if-goto Shell.handleCommand$IF_TRUE9
-goto Shell.handleCommand$IF_END9
-label Shell.handleCommand$IF_TRUE9
-push local 0
-push constant 1
-call Array.get 2
-pop local 6
-push static 13
-push local 6
-push constant 1000
-call File.new 2
-call Directory.addFile 2
-pop temp 0
-push constant 0
-return
-label Shell.handleCommand$IF_END9
-push local 4
-push static 11
-call String.equals 2
-push local 7
-push constant 1
-gt
-and
-if-goto Shell.handleCommand$IF_TRUE10
-goto Shell.handleCommand$IF_END10
-label Shell.handleCommand$IF_TRUE10
-push local 0
-push constant 1
-call Array.get 2
-pop local 6
-push static 13
-push local 6
-call Directory.deleteFile 2
-pop temp 0
-push constant 0
-return
-label Shell.handleCommand$IF_END10
-push local 4
-push static 9
 call String.equals 2
 push local 7
 push constant 1
@@ -566,7 +589,30 @@ push local 0
 push constant 1
 call Array.get 2
 pop local 6
-push static 13
+push static 14
+push local 6
+push constant 1000
+call File.new 2
+call Directory.addFile 2
+pop temp 0
+push constant 0
+return
+label Shell.handleCommand$IF_END11
+push local 4
+push static 9
+call String.equals 2
+push local 7
+push constant 1
+gt
+and
+if-goto Shell.handleCommand$IF_TRUE12
+goto Shell.handleCommand$IF_END12
+label Shell.handleCommand$IF_TRUE12
+push local 0
+push constant 1
+call Array.get 2
+pop local 6
+push static 14
 push local 6
 call Directory.getFile 2
 pop local 3
@@ -574,35 +620,35 @@ push local 3
 push constant 0
 eq
 not
-if-goto Shell.handleCommand$IF_TRUE12
-goto Shell.handleCommand$IF_FALSE12
-label Shell.handleCommand$IF_TRUE12
+if-goto Shell.handleCommand$IF_TRUE13
+goto Shell.handleCommand$IF_FALSE13
+label Shell.handleCommand$IF_TRUE13
 push constant 0
-pop local 8
+pop local 12
 push local 3
 call File.getSize 1
 pop local 9
 label Shell.handleCommand_WHILE_EXP3
-push local 8
+push local 12
 push local 9
 lt
 not
 if-goto Shell.handleCommand_WHILE_END3
 push local 3
-push local 8
+push local 12
 call File.readChar 2
 call Output.printChar 1
 pop temp 0
-push local 8
+push local 12
 push constant 1
 add
-pop local 8
+pop local 12
 goto Shell.handleCommand_WHILE_EXP3
 label Shell.handleCommand_WHILE_END3
 call Output.println 0
 pop temp 0
-goto Shell.handleCommand$IF_END12
-label Shell.handleCommand$IF_FALSE12
+goto Shell.handleCommand$IF_END13
+label Shell.handleCommand$IF_FALSE13
 push constant 16
 call String.new 1
 push constant 70
@@ -644,10 +690,10 @@ call Output.printString 1
 pop temp 0
 call Output.println 0
 pop temp 0
-label Shell.handleCommand$IF_END12
+label Shell.handleCommand$IF_END13
 push constant 0
 return
-label Shell.handleCommand$IF_END11
+label Shell.handleCommand$IF_END12
 push local 4
 push static 12
 call String.equals 2
@@ -655,14 +701,14 @@ push local 7
 push constant 2
 gt
 and
-if-goto Shell.handleCommand$IF_TRUE13
-goto Shell.handleCommand$IF_END13
-label Shell.handleCommand$IF_TRUE13
+if-goto Shell.handleCommand$IF_TRUE14
+goto Shell.handleCommand$IF_END14
+label Shell.handleCommand$IF_TRUE14
 push local 0
 push constant 1
 call Array.get 2
 pop local 6
-push static 13
+push static 14
 push local 6
 call Directory.getFile 2
 pop local 3
@@ -670,20 +716,20 @@ push local 3
 push constant 0
 eq
 not
-if-goto Shell.handleCommand$IF_TRUE14
-goto Shell.handleCommand$IF_FALSE14
-label Shell.handleCommand$IF_TRUE14
+if-goto Shell.handleCommand$IF_TRUE15
+goto Shell.handleCommand$IF_FALSE15
+label Shell.handleCommand$IF_TRUE15
 push constant 2
-pop local 8
+pop local 12
 label Shell.handleCommand_WHILE_EXP4
-push local 8
+push local 12
 push local 7
 lt
 not
 if-goto Shell.handleCommand_WHILE_END4
 push local 3
 push local 0
-push local 8
+push local 12
 call Array.get 2
 call File.appendString 2
 pop temp 0
@@ -691,16 +737,16 @@ push local 3
 push constant 32
 call File.appendChar 2
 pop temp 0
-push local 8
+push local 12
 push constant 1
 add
-pop local 8
+pop local 12
 goto Shell.handleCommand_WHILE_EXP4
 label Shell.handleCommand_WHILE_END4
 call Output.println 0
 pop temp 0
-goto Shell.handleCommand$IF_END14
-label Shell.handleCommand$IF_FALSE14
+goto Shell.handleCommand$IF_END15
+label Shell.handleCommand$IF_FALSE15
 push constant 16
 call String.new 1
 push constant 70
@@ -742,16 +788,16 @@ call Output.printString 1
 pop temp 0
 call Output.println 0
 pop temp 0
-label Shell.handleCommand$IF_END14
+label Shell.handleCommand$IF_END15
 push constant 0
 return
-label Shell.handleCommand$IF_END13
+label Shell.handleCommand$IF_END14
 push local 4
 push static 6
 call String.equals 2
-if-goto Shell.handleCommand$IF_TRUE15
-goto Shell.handleCommand$IF_END15
-label Shell.handleCommand$IF_TRUE15
+if-goto Shell.handleCommand$IF_TRUE16
+goto Shell.handleCommand$IF_END16
+label Shell.handleCommand$IF_TRUE16
 call Screen.clearScreen 0
 pop temp 0
 push constant 0
@@ -760,20 +806,472 @@ call Output.moveCursor 2
 pop temp 0
 push constant 0
 return
-label Shell.handleCommand$IF_END15
+label Shell.handleCommand$IF_END16
 push local 4
 push static 7
 call String.equals 2
-if-goto Shell.handleCommand$IF_TRUE16
-goto Shell.handleCommand$IF_END16
-label Shell.handleCommand$IF_TRUE16
-push static 13
+if-goto Shell.handleCommand$IF_TRUE17
+goto Shell.handleCommand$IF_END17
+label Shell.handleCommand$IF_TRUE17
+push static 14
 push constant 0
 call Shell.printTree 2
 pop temp 0
 push constant 0
 return
-label Shell.handleCommand$IF_END16
+label Shell.handleCommand$IF_END17
+push local 4
+push static 13
+call String.equals 2
+push local 7
+push constant 1
+gt
+and
+if-goto Shell.handleCommand$IF_TRUE18
+goto Shell.handleCommand$IF_END18
+label Shell.handleCommand$IF_TRUE18
+push local 0
+push constant 1
+call Array.get 2
+pop local 6
+push static 14
+push local 6
+call Directory.getFile 2
+pop local 3
+push local 3
+push constant 0
+eq
+not
+if-goto Shell.handleCommand$IF_TRUE19
+goto Shell.handleCommand$IF_FALSE19
+label Shell.handleCommand$IF_TRUE19
+push local 3
+call File.getSize 1
+pop local 11
+push local 11
+call Memory.alloc 1
+pop local 15
+push constant 0
+pop local 12
+label Shell.handleCommand_WHILE_EXP5
+push local 12
+push local 11
+lt
+not
+if-goto Shell.handleCommand_WHILE_END5
+push local 3
+push local 12
+call File.readChar 2
+push local 15
+push local 12
+add
+pop pointer 1
+pop that 0
+push local 12
+push constant 1
+add
+pop local 12
+goto Shell.handleCommand_WHILE_EXP5
+label Shell.handleCommand_WHILE_END5
+push constant 100
+call Memory.alloc 1
+pop local 16
+push constant 0
+pop local 14
+push constant 0
+pop local 13
+push constant 0
+pop local 12
+label Shell.handleCommand_WHILE_EXP6
+push local 12
+push constant 100
+lt
+not
+if-goto Shell.handleCommand_WHILE_END6
+push constant 0
+push local 16
+push local 12
+add
+pop pointer 1
+pop that 0
+push local 12
+push constant 1
+add
+pop local 12
+goto Shell.handleCommand_WHILE_EXP6
+label Shell.handleCommand_WHILE_END6
+label Shell.handleCommand_WHILE_EXP7
+push local 13
+push local 11
+lt
+not
+if-goto Shell.handleCommand_WHILE_END7
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 62
+eq
+if-goto Shell.handleCommand$IF_TRUE20
+goto Shell.handleCommand$IF_FALSE20
+label Shell.handleCommand$IF_TRUE20
+push local 14
+push constant 1
+add
+pop local 14
+goto Shell.handleCommand$IF_END20
+label Shell.handleCommand$IF_FALSE20
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 60
+eq
+if-goto Shell.handleCommand$IF_TRUE21
+goto Shell.handleCommand$IF_FALSE21
+label Shell.handleCommand$IF_TRUE21
+push local 14
+push constant 1
+sub
+pop local 14
+goto Shell.handleCommand$IF_END21
+label Shell.handleCommand$IF_FALSE21
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 43
+eq
+if-goto Shell.handleCommand$IF_TRUE22
+goto Shell.handleCommand$IF_FALSE22
+label Shell.handleCommand$IF_TRUE22
+push local 16
+push local 14
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+push constant 255
+and
+push local 16
+push local 14
+add
+pop pointer 1
+pop that 0
+goto Shell.handleCommand$IF_END22
+label Shell.handleCommand$IF_FALSE22
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 45
+eq
+if-goto Shell.handleCommand$IF_TRUE23
+goto Shell.handleCommand$IF_FALSE23
+label Shell.handleCommand$IF_TRUE23
+push local 16
+push local 14
+add
+pop pointer 1
+push that 0
+push constant 1
+sub
+push constant 255
+and
+push local 16
+push local 14
+add
+pop pointer 1
+pop that 0
+goto Shell.handleCommand$IF_END23
+label Shell.handleCommand$IF_FALSE23
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 46
+eq
+if-goto Shell.handleCommand$IF_TRUE24
+goto Shell.handleCommand$IF_FALSE24
+label Shell.handleCommand$IF_TRUE24
+push local 16
+push local 14
+add
+pop pointer 1
+push that 0
+call Output.printChar 1
+pop temp 0
+goto Shell.handleCommand$IF_END24
+label Shell.handleCommand$IF_FALSE24
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 44
+eq
+if-goto Shell.handleCommand$IF_TRUE25
+goto Shell.handleCommand$IF_FALSE25
+label Shell.handleCommand$IF_TRUE25
+push constant 0
+pop local 17
+label Shell.handleCommand_WHILE_EXP8
+push local 17
+push constant 0
+eq
+not
+if-goto Shell.handleCommand_WHILE_END8
+push constant 24576
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 17
+goto Shell.handleCommand_WHILE_EXP8
+label Shell.handleCommand_WHILE_END8
+push local 17
+push local 16
+push local 14
+add
+pop pointer 1
+pop that 0
+push constant 0
+push constant 24576
+push constant 0
+add
+pop pointer 1
+pop that 0
+goto Shell.handleCommand$IF_END25
+label Shell.handleCommand$IF_FALSE25
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 91
+eq
+if-goto Shell.handleCommand$IF_TRUE26
+goto Shell.handleCommand$IF_FALSE26
+label Shell.handleCommand$IF_TRUE26
+push local 16
+push local 14
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto Shell.handleCommand$IF_TRUE27
+goto Shell.handleCommand$IF_END27
+label Shell.handleCommand$IF_TRUE27
+push local 13
+push constant 1
+add
+pop local 12
+push constant 1
+pop local 10
+label Shell.handleCommand_WHILE_EXP9
+push local 12
+push local 11
+lt
+push local 10
+push constant 0
+gt
+and
+not
+if-goto Shell.handleCommand_WHILE_END9
+push local 15
+push local 12
+add
+pop pointer 1
+push that 0
+push constant 91
+eq
+if-goto Shell.handleCommand$IF_TRUE28
+goto Shell.handleCommand$IF_FALSE28
+label Shell.handleCommand$IF_TRUE28
+push local 10
+push constant 1
+add
+pop local 10
+goto Shell.handleCommand$IF_END28
+label Shell.handleCommand$IF_FALSE28
+push local 15
+push local 12
+add
+pop pointer 1
+push that 0
+push constant 93
+eq
+if-goto Shell.handleCommand$IF_TRUE29
+goto Shell.handleCommand$IF_END29
+label Shell.handleCommand$IF_TRUE29
+push local 10
+push constant 1
+sub
+pop local 10
+label Shell.handleCommand$IF_END29
+label Shell.handleCommand$IF_END28
+push local 12
+push constant 1
+add
+pop local 12
+goto Shell.handleCommand_WHILE_EXP9
+label Shell.handleCommand_WHILE_END9
+push local 12
+push constant 1
+sub
+pop local 13
+label Shell.handleCommand$IF_END27
+goto Shell.handleCommand$IF_END26
+label Shell.handleCommand$IF_FALSE26
+push local 15
+push local 13
+add
+pop pointer 1
+push that 0
+push constant 93
+eq
+if-goto Shell.handleCommand$IF_TRUE30
+goto Shell.handleCommand$IF_END30
+label Shell.handleCommand$IF_TRUE30
+push local 16
+push local 14
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+not
+if-goto Shell.handleCommand$IF_TRUE31
+goto Shell.handleCommand$IF_END31
+label Shell.handleCommand$IF_TRUE31
+push local 13
+push constant 1
+sub
+pop local 12
+push constant 1
+pop local 10
+label Shell.handleCommand_WHILE_EXP10
+push local 12
+push constant 0
+lt
+not
+push local 10
+push constant 0
+gt
+and
+not
+if-goto Shell.handleCommand_WHILE_END10
+push local 15
+push local 12
+add
+pop pointer 1
+push that 0
+push constant 93
+eq
+if-goto Shell.handleCommand$IF_TRUE32
+goto Shell.handleCommand$IF_FALSE32
+label Shell.handleCommand$IF_TRUE32
+push local 10
+push constant 1
+add
+pop local 10
+goto Shell.handleCommand$IF_END32
+label Shell.handleCommand$IF_FALSE32
+push local 15
+push local 12
+add
+pop pointer 1
+push that 0
+push constant 91
+eq
+if-goto Shell.handleCommand$IF_TRUE33
+goto Shell.handleCommand$IF_END33
+label Shell.handleCommand$IF_TRUE33
+push local 10
+push constant 1
+sub
+pop local 10
+label Shell.handleCommand$IF_END33
+label Shell.handleCommand$IF_END32
+push local 12
+push constant 1
+sub
+pop local 12
+goto Shell.handleCommand_WHILE_EXP10
+label Shell.handleCommand_WHILE_END10
+push local 12
+push constant 1
+add
+pop local 13
+label Shell.handleCommand$IF_END31
+label Shell.handleCommand$IF_END30
+label Shell.handleCommand$IF_END26
+label Shell.handleCommand$IF_END25
+label Shell.handleCommand$IF_END24
+label Shell.handleCommand$IF_END23
+label Shell.handleCommand$IF_END22
+label Shell.handleCommand$IF_END21
+label Shell.handleCommand$IF_END20
+push local 13
+push constant 1
+add
+pop local 13
+goto Shell.handleCommand_WHILE_EXP7
+label Shell.handleCommand_WHILE_END7
+goto Shell.handleCommand$IF_END19
+label Shell.handleCommand$IF_FALSE19
+push constant 16
+call String.new 1
+push constant 70
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push local 6
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+label Shell.handleCommand$IF_END19
+push constant 0
+return
+label Shell.handleCommand$IF_END18
 push static 8
 call Output.printString 1
 pop temp 0

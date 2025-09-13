@@ -91,7 +91,7 @@ class Directory {
     }
 
     /** Delete a file by name. Returns true if successful **/
-    method boolean deleteFile(String name) {
+    method boolean deleteFile(String deleteFile_name) {
         var int i, n, fInt;
         var File f;
         var String fName;
@@ -105,14 +105,14 @@ class Directory {
             let fInt = files.get(i);
             let f = fInt;
             let fName = f.getName();
-            if (fName.equals(name)) {
+            if (fName.equals(deleteFile_name)) {
                 let found = true;
             } else {
                 let i = i + 1;
             }
         }
 
-        if (found) {
+        if (found = true) {
             while (i < n - 1) {
                 let fInt = files.get(i + 1);
                 do files.set(i, fInt);

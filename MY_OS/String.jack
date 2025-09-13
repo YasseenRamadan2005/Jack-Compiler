@@ -46,7 +46,6 @@ class String {
         return;
     }
 
-    /** Compares with another string, ignoring case using custom int-to-char mapping */
     method boolean equals(String other) {
         var int i, len;
         var char c1, c2;
@@ -70,6 +69,11 @@ class String {
             }
 
             if (c1 ~= c2) {
+                //do Output.println();
+                //do Output.printChar(c1);
+                //do Output.printChar(32);
+                //do Output.printChar(c2);
+                //do Output.println();
                 return false;
             }
 
